@@ -1,0 +1,77 @@
+Teams
+{
+	team1 Resistance
+	team2 FirstOrder
+}
+
+mapgraphic "gfx\mplevels\mb2_duel_starkiller_base\map"
+missionname "Starkiller Base Duel"
+radargraphic "gfx/automap/mb2_duel_starkiller_base"
+radartopleft "-2216, 3616"
+radarbottomright "3616, -2216"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_starkiller_base"
+	}
+}
+
+roundbegin_target "skb_round_start"
+
+Resistance
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelSKBRes"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Stop Kylo Ren"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Stop Kylo Ren."
+		objgfx "gfx/mplevels/mb2_duel_starkiller_base/obj"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon "sound/skb_duel/rey_win.wav"
+	roundover_sound_welost "sound/skb_duel/rey_lose.wav"
+	roundover_target ""
+	attackers 1
+	briefing "Stop Kylo Ren."
+}
+
+FirstOrder
+{
+	RequiredObjectives 1
+	UseTeam "DuelSKBFO"
+	TeamIcon "gfx/2d/logos/mb_firstorder"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Rey"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Rey."
+		objgfx "gfx/mplevels/mb2_duel_starkiller_base/obj"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon "sound/skb_duel/kylo_win.wav"
+	roundover_sound_welost "sound/skb_duel/kylo_lose.wav"
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill Rey."
+}

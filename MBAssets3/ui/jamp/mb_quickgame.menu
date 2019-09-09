@@ -1,0 +1,333 @@
+// MULTIPLAYER QUICK SERVER MENU
+// Allows player to quickly create a server
+// This is the first screen which allows you to choose a map.
+// The next screen lets you set up the rules.
+{
+	menuDef
+	{
+		name					"quickgame"
+		fullScreen				MENU_TRUE
+		rect					0 0 640 480
+		visible					1
+		focusColor				1 1 1 1
+		descX					320
+		descY					414
+		descScale				1
+		descColor				0.1 0.7 1 0.8
+		descAlignment			ITEM_ALIGN_CENTER
+		onESC
+		{
+			play				"sound/interface/esc.wav"
+			close				quickgame
+			open				multiplayermenu 
+		}
+		onOpen
+		{
+			uiScript			loadArenas
+			uiScript			checkforsiege
+			hide				accept_alt
+			show				accept
+			hide				back_alt
+			show				back
+			hide				grpmessage 
+		}
+
+// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				setup_backgroundb
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				15 104 605 275
+			backcolor			0 0 0 0.9
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				setup_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				15 104 605 275
+			backcolor			0.1 0.7 1 0.1
+			forecolor			1 1 1 1
+			border				1
+			bordercolor			0.1 0.7 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				setup_blackbackground2
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				15 54 605 40
+			backcolor			0 0 0 0.9
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				setup_background2
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				15 54 605 40
+			backcolor			0.1 0.7 1 0.1
+			forecolor			1 1 1 1
+			border				1
+			bordercolor			0.1 0.7 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Quick Game title
+		itemDef
+		{
+			name				title
+			group				none
+			style				WINDOW_STYLE_EMPTY
+			background			"gfx/menus/mb_buttonback"
+			text				@MENUS_SOLO_GAME
+			rect				50 14 540 16
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			270
+			textaligny			-1
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			decoration
+		}
+
+// GAME TYPE SELECTION
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			decoration
+		}
+
+		// GAME TYPE SELECTION FIELD
+		// Do NOT change the name of this item - it's been hacked in code
+		// so that if you hit siege it hops over it to the next game type.
+		itemDef
+		{
+			name				solo_gametypefield
+			style				WINDOW_STYLE_EMPTY
+			ownerdraw			UI_NETGAMETYPE
+			text				@MENUS_GAME_TYPE
+			descText			@MENUS_ALLOWS_YOU_TO_SELECT
+			textstyle			0
+			rect				169 60 300 32 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			0
+			textaligny			0
+			font				2
+			textscale			1
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			border				0
+			bordercolor			0.1 0.7 1 0.8
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	160 57 309 38
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+		}
+
+// MAP LISTING BOX
+		itemDef
+		{
+			name				maplist
+			rect				35 124 194 240
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_FILLED
+			elementwidth		120
+			elementheight		20
+			font				4
+			textscale			1
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_ALLMAPS
+			textstyle			6
+			textalign			3
+			textaligny			2
+			border				1
+			bordercolor			0.1 0.7 1 0.8
+			forecolor			 0.1 0.7 1 0.8
+			backcolor			0.1 0.7 1 0
+			outlinecolor		0.1 0.7 1 0.2
+			descText			@MENUS_CHOOSE_YOUR_GAME
+			visible				1
+			columns				1 2 190 172
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+			mouseenter
+			{
+				setitemcolor	maplist bordercolor 0.1 0.7 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	maplist bordercolor 0.1 0.7 1 0.8
+			}
+		}
+
+// MAP SCREENSHOT
+		itemDef
+		{
+			name				mappreview
+			style				0
+			ownerdraw			UI_STARTMAPCINEMATIC
+			rect				290 124 320 240
+			border				1
+			bordercolor			0.1 0.7 1 0.8
+			visible				1
+		}
+
+		itemDef
+		{
+			name				mappreview
+			style				WINDOW_STYLE_FILLED
+			rect				289 123 322 242
+			border				1
+			bordercolor			0.1 0.7 1 0.8
+			visible				1
+		}
+
+// BOTTOM BUTTONS
+		// BACK button 
+		itemDef
+		{
+			name				backbutton
+			group				fade_buttons
+			text				@MENUS_BACK
+			descText			@MENUS_BACKUP_ONE_MENU
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				59 434 130 24
+			font				3
+			textscale			1.1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			3
+			textalignx			65
+			textaligny			-1
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	30 431 190 30
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/esc.wav"
+				close			all
+				open			multiplayermenu
+			}
+		}
+
+		// EXIT button 
+		itemDef
+		{
+			name				exitgamebutton
+			group				othermain
+			text				@MENUS_EXIT
+			descText			@MENUS_LEAVE_JEDI_KNIGHT_II
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				255 434 130 24
+			font				3
+			textscale			1.1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			65
+			textaligny			-1
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	225 431 190 30
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/weapons/saber/saberoff.mp3"
+				close			all
+				open			quitMenu 
+			}
+		}
+
+		// NEXT button
+		itemDef
+		{
+			name				next_button
+			text				@MENUS_NEXT
+			descText			@MENUS_CHOOSE_RULES
+			type				ITEM_TYPE_BUTTON
+			font				3
+			textscale			1.1
+			textstyle			0
+			style				WINDOW_STYLE_FILLED
+			rect				455 434 200 32
+			textalign			1
+			textalignx			65
+			textaligny			-1
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				close			quickgame
+				open			quickgame2
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	425 431 190 30
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+		}
+	}
+}

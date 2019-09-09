@@ -1,0 +1,74 @@
+Teams
+{
+	team1 Exile
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\mb2_ravager\ravagermap"
+missionname "Ravager"
+radartopleft "-2560, 3136"
+radarbottomright "4096, -4800"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_ravager"
+	}
+}
+
+roundbegin_target ""
+
+Exile
+{
+	RequiredObjectives 1
+	UseTeam "DuelRavagerJedi"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill the Darth Nihilus"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL: Kill Darth Nihilus."
+		objgfx "gfx/mplevels/mb2_ravager/nihilus"
+	}
+
+	wonround "Win!
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Kill Darth Nihilus."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "DuelRavagerSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the Exile"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL: Kill the Exile."
+		objgfx "gfx/mplevels/mb2_ravager/nihilus"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill the Exile."
+}

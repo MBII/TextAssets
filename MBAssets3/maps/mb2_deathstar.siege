@@ -1,0 +1,130 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_deathstar/deathstarlayout"
+missionname "Death Star Escape"
+radartopleft "-3904, 704"
+radarbottomright "2816, -6144"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_deathstar1"
+		radargraphicfull "gfx/automap/mb2_deathstar1full"
+		height "-128"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_deathstar2"
+		radargraphicfull "gfx/automap/mb2_deathstar2full"
+		height "-384"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_deathstar3"
+		radargraphicfull "gfx/automap/mb2_deathstar3full"
+		height "-1216"
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "Deathstar_Rebels"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "OPTIONAL: Manually disable the Tractor Beam"
+		final -1
+		message_team1 "The Tractor Beam was manually disabled!"
+		message_team2 "The Tractor Beam was manually disabled!"
+		objdesc "OPTIONAL: Manually disable the Tractor Beam to get away faster!"
+		objgfx "gfx/mp/mplevels/mb2_deathstar/impobjectiveb"
+	}
+
+	Objective2
+	{
+		goalname "Unlock the Falcon ship"
+		final -1
+		message_team1 "The Falcon is unlocked!"
+		message_team2 "The Falcon is unlocked!"
+		objdesc "Overide hangar security to get access to the ship! You'll also disable the Tractor Beam here but it will take longer."
+		objgfx "gfx/mp/mplevels/mb2_deathstar/impobjectivec"
+	}
+
+	Objective3
+	{
+		goalname "Reach the Falcon and escape the Deathstar"
+		final 1
+		message_team1 "We have escaped the Deathstar."
+		message_team2 "The intruders managed to escape!"
+		objdesc "Reach the Falcon and escape the Deathstar!"
+		objgfx "gfx/mp/mplevels/mb2_deathstar/impobjectivea"
+	}
+
+	wonround "We have escaped the Deathstar"
+	lostround "We have failed..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Reach the Falcon and escape the Deathstar"
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "Deathstar_Imperials"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 0.7 1"
+
+	Objective1
+	{
+		goalname "OPTIONAL: Stop the intruders from disabling the Tractor Beam!"
+		final -1
+		message_team1 "Tractor Beam disabled."
+		message_team2 "Tractor Beam disabled."
+		objdesc "OPTIONAL: Prevent them from manually disabling the Tractor Beam to gain more time!"
+		objgfx "gfx/mp/mplevels/mb2_deathstar/impobjectiveb"
+	}
+
+	Objective2
+	{
+		goalname "Stop the intruders from unlocking the ship!"
+		final -1
+		message_team1 "Unlock the Falcon ramp."
+		message_team2 "Unlock the Falcon ramp."
+		objdesc "Stop them from unlocking the ship!"
+		objgfx "gfx/mp/mplevels/mb2_deathstar/impobjectivec"
+	}
+
+	Objective3
+	{
+		goalname "Prevent the intruders from escaping!"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Prevent the intruders from escaping!"
+		objgfx "gfx/mp/mplevels/mb2_deathstar/impobjectivea"
+	}
+
+	wonround "The intruders have been captured."
+	lostround "Lord Vader will not be pleased..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Find and eliminate the Rebel rescue group."
+}

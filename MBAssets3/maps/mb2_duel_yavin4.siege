@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\mb2_yavin\map"
+missionname "Yavin 4"
+radartopleft "-6656, 8000"
+radarbottomright "7360, -6592"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_yavin4"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelYavin4Jedi"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Defeat the Sith"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat Asajj Ventress!"
+		objgfx "gfx/mplevels/mb2_yavin/objectivea"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Kill the Sith."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "DuelYavin4Sith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the Jedi"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Jedi."
+		objgfx "gfx/mplevels/mb2_yavin/objectivea"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill the Jedi."
+}

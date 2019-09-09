@@ -1,0 +1,94 @@
+Teams
+{
+	team1 Jedi
+	team2 BountyHunters
+}
+
+mapgraphic "gfx/mplevels/mb2_coruscant/map"
+missionname "Coruscant Chase"
+radargraphic "gfx/automap/mb2_Coruscant_Chase"
+radartopleft "-3879, 4058"
+radarbottomright "5889, -5710"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_Coruscant_chase1"
+		radargraphicfull "gfx/automap/mb2_Coruscant_chasefull"
+		height "550"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_Coruscant_chase3"
+		radargraphicfull "gfx/automap/mb2_Coruscant_chase3full"
+		height "620"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_Coruscant_chase4"
+		radargraphicfull "gfx/automap/mb2_Coruscant_chase4full"
+		height "2176"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "corchase_jedi"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Guard The Bounty Hunter, we need her alive."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "SECONDARY GOAL:
+		Guard the Bounty Hunter."
+		objgfx "gfx/mplevels/mb2_coruscant/zam"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Guard the Bounty Hunter."
+}
+
+BountyHunters
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "corchase_jango"
+	TeamIcon "gfx/2d/logos/mb_bountyhunters"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Zam so she cannot betray us!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Zam Wesell and those who guard her."
+		objgfx "gfx/mplevels/mb2_coruscant/zam"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill Zam Wesell."
+}

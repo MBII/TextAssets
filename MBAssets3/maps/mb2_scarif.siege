@@ -1,0 +1,115 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx\mplevels\mb2_scarif\mb2_scarif"
+missionname "Scarif"
+radartopleft "-2368, 5696"
+radarbottomright "4672, -1856"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_scarif"
+		radargraphicfull "gfx/automap/mb2_scariffull"
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "scarif_reb" 							
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Plant the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Pick up the explosive from the Cargo Shuttle and plant it at one of the two bomb sites."
+		objgfx "gfx/mplevels/mb2_scarif/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Arm the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Arm the planted explosive."
+		objgfx "gfx/mplevels/mb2_scarif/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Defend the Bomb"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Prevent the Imperials from defusing the bomb."
+		objgfx "gfx/mplevels/mb2_scarif/obj3"
+	}	
+
+	wonround "We still have hope!"
+	lostround "We failed the Empire has won"
+	roundover_sound_wewon "sound/sc_rone/reb_win.wav"
+	roundover_sound_welost "sound/sc_rone/reb_lose.wav"
+	roundover_target "roundover"
+	attackers 1
+	briefing "Take the explosive to one of the two bomb sites, plant it, arm it and then prevent the Imperials from defusing it."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "scarif_imp"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Stop them Planting the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop the Rebels from planting the explosive at one of the two bomb sites."
+		objgfx "gfx/mplevels/mb2_scarif/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Stop them Arming the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop the Rebels from arming the planted explosive."
+		objgfx "gfx/mplevels/mb2_scarif/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Defuse the Bomb"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defuse the bomb before it explodes."
+		objgfx "gfx/mplevels/mb2_scarif/obj3"
+	}	
+
+	wonround "We crushed the Rebels"
+	lostround "Are we blind!?"
+	roundover_sound_wewon "sound/sc_rone/imp_win.wav"
+	roundover_sound_welost "sound/sc_rone/imp_lose.wav"
+	roundover_target "roundoverimp"
+	attackers 0
+	briefing "Defend the two bomb sites from the Rebels, if they plant and arm the explosive it then defuse it."
+}

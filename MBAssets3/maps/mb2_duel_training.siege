@@ -1,0 +1,94 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\mb2_duel_training\map"
+missionname "Saber Training"
+radartopleft "-1664, 2176"
+radarbottomright "1664, -1152"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_training1"
+		radargraphicfull "gfx/automap/mb2_duel_training1full"
+		height "24"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_duel_training23"
+		radargraphicfull "gfx/automap/mb2_duel_training2full"
+		height "-512"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_duel_training23"
+		radargraphicfull "gfx/automap/mb2_duel_training3full"
+		height "512"
+	}
+}
+
+roundbegin_target ""
+countin_time 0
+
+Jedi
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelTrainJedi"
+	TeamIcon "gfx/2d/logos/mb_newjediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "train"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Learn the Light side."
+		objgfx "gfx/mplevels/mb2_duel_training/objective"
+	}
+
+	wonround "Now you are the master."
+	lostround "You have much to learn."
+	roundover_target "siegeend"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	attackers 0
+	briefing "Learn the ways of the force."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelTrainSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "train"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Learn the Dark side."
+		objgfx "gfx/mplevels/mb2_duel_training/objective"
+	}
+
+	wonround "Now you are the master."
+	lostround "You have much to learn."
+	roundover_target ""
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	attackers 1
+	briefing "Learn the ways of the force."
+}

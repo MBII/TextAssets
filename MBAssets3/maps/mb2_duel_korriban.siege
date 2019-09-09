@@ -1,0 +1,77 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\mb2_duel_korriban\mb2_duel_korriban"
+missionname "Defeat the Sith"
+radartopleft "12792, 624"
+radarbottomright "15432, -2016"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_korriban"
+		radargraphicfull "gfx/automap/mb2_duel_korribanfull"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "DuelKorribanJedi"
+	TeamIcon "gfx/2d/logos/mb_newjediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+	
+	Objective1
+	{
+		goalname "Defeat your former apprentice"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat Jaden Korr."
+		objgfx "gfx/mplevels/mb2_duel_korriban/kor"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Defeat Jaden Korr."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "DuelKorribanSith"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill your former master"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Jedi."
+		objgfx "gfx/mplevels/mb2_duel_korriban/kor"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill Kyle Katarn."
+}

@@ -1,0 +1,95 @@
+Teams
+{
+	team1 Resistance
+	team2 FirstOrder
+}
+
+mapgraphic "gfx\mplevels\mb2_starkiller_base\map"
+missionname "Starkiller Base"
+radartopleft "-4056, 10456"
+radarbottomright "4280, -2648"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_starkiller_base"
+		radargraphicfull "gfx/automap/mb2_starkiller_basefull"
+	}
+}
+
+roundbegin_target "round_start"
+
+Resistance
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "skb_Resistance"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Slice the door terminal"
+		final -1
+		message_team1 "All Doors Unlocked"
+		message_team2 "All Doors Unlocked"
+		objdesc "Slice the door terminal to gain access to the locked doors."
+		objgfx "gfx/mplevels/mb2_starkiller_base/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Plant Six Explosives on the Fuel Cells"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Plant six explosives on the positions indicated to rupture the fuel cells."
+		objgfx "gfx/mplevels/mb2_starkiller_base/obj2"
+	}
+
+	wonround "We did it!"
+	lostround "The Resistance is finished"
+	roundover_sound_wewon "sound/mb2_starkiller_base/t1_win"
+	roundover_sound_welost "sound/mb2_starkiller_base/t1_lose"
+	roundover_target ""
+	attackers 1
+	briefing "Destroy the fuel cells."
+}
+
+FirstOrder
+{
+	RequiredObjectives 1
+	UseTeam "skb_FirstOrder"
+	TeamIcon "gfx/2d/logos/mb_firstorder"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the door terminal"
+		final -1
+		message_team1 "All Doors Unlocked"
+		message_team2 "All Doors Unlocked"
+		objdesc "Defend the door terminal to gain access to the side doors."
+		objgfx "gfx/mplevels/mb2_starkiller_base/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Stop them from destroying the Fuel Cells"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop them from destroying the fuel cells."
+		objgfx "gfx/mplevels/mb2_starkiller_base/obj2"
+	}
+
+	wonround "The Resistance is finished"
+	lostround "The collapse of the planet has begun"
+	roundover_sound_wewon "sound/mb2_starkiller_base/t2_win"
+	roundover_sound_welost "sound/mb2_starkiller_base/t2_lose"
+	roundover_target ""
+	attackers 0
+	briefing "Stop them from destroying the Fuel Cells."
+}

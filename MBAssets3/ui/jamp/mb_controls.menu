@@ -1,0 +1,3311 @@
+// MULTIPLAYER CONTROLS MENU
+
+{
+	assetGlobalDef
+	{
+		font					"ergoec"		18
+		smallFont				"aurabesh"		18
+		bigFont					"anewhope"		20
+		small2Font				"arialnb"		14
+		cursor					"mb_cursor"
+		gradientBar				"ui/assets/gradientbar2.tga"
+		itemFocusSound			"sound/interface/tic.mp3"
+		fadeClamp				1.0
+		fadeCycle				1
+		fadeAmount				0.1
+		moveRollSound			"sound/player/roll1"
+		moveJumpSound			"sound/weapons/force/jump"
+		shadowColor				0.1 0.1 0.1 0.25
+		focuscolor				0 0 1 1
+		precacheSound
+		{
+			"sound/interface/choose_color.wav" ;
+			"sound/interface/choose_head.wav" ;
+			"sound/interface/choose_torso.wav" ;
+			"sound/interface/choose_saber.wav" ;
+			"sound/interface/choose_hilt.wav" ; 
+			"sound/interface/choose_blade.wav" ;
+			"sound/interface/transition.wav" ;
+			"sound/interface/empty.mp3" ;
+			"sound/interface/back.mp3" ;
+			"sound/interface/sub_select.wav" ;
+		}
+	}
+
+	menuDef
+	{
+		name					"controlsMenu"
+		fullScreen				1
+		rect					0 0 640 480
+		visible					1
+		focusColor				1 1 1 1
+		descX					374
+		descY					452
+		descScale				0.7
+		descColor				0.1 0.7 1 0.9
+		descAlignment			ITEM_ALIGN_CENTER
+		onOpen 
+		{
+			uiScript			loadControls
+			show				setup_background
+			show				movecontrols
+			hide				attackcontrols
+			hide				weaponcontrols
+			hide				mbcontrols
+			hide				forcecontrols
+			hide				quickcontrols
+			hide				joycontrols
+			hide				mediacontrols
+			hide				othercontrols
+			setitemcolor		movementcontrolbutton		forecolor 0.1 0.5 1 0.9
+			setitemcolor		attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+			setitemcolor		weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+			setitemcolor		forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+			setitemcolor		forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+			setitemcolor		mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+			setitemcolor		mediacontrolbutton			forecolor 0.1 0.7 1 0.9
+			setitemcolor		othercontrolbutton			forecolor 0.1 0.7 1 0.9
+		}
+		onClose 
+		{
+			uiScript			saveControls
+		}
+		onESC 
+		{
+			play				"sound/interface/back.mp3"
+			hide				highlights
+			close				controlsMenu
+			open				main
+		}
+
+// MENU BACKGROUND
+
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				menu_frame
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/menu_bar_setcon"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mblogo
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				340 385 310 80
+			background			"gfx/menus/mb_logo"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+// TOP MENU BUTTONS
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/mb_buttonback"
+			forecolor			0.1 0.7 1 0.7
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				playbutton
+			group				none
+			style				WINDOW_STYLE_EMPTY
+			type				ITEM_TYPE_BUTTON
+			rect				15 253 174 24 
+			text				"PLAY"
+			descText			"Start playing"
+			font				3
+			textscale			1
+			textaligny			0
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			82
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow 10 253 174 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			multiplayermenu 
+			}
+		}
+
+		// Big button "PLAYER PROFILE"
+		itemDef
+		{
+			name				profilebutton
+			group				none
+			text				@MENUS_PROFILE
+			descText			"Change player settings"
+			style				WINDOW_STYLE_EMPTY
+			type				ITEM_TYPE_BUTTON
+			rect				15 292 184 24 
+			textaligny			0
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			82
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 292 184 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			playerMenu
+			}
+		}
+
+		// Big button "CONTROLS"
+		itemDef
+		{
+			name				controlsbutton
+			group				none
+			text				@MENUS_CONTROLS2
+			descText			"Configure game controls"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 330 170 25 
+			font				3
+			textscale			1
+			textaligny			0
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			78
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 330 171 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			controlsMenu
+			}
+		}
+
+		// Big button "SETUP"
+		itemDef
+		{
+			name				setupbutton
+			group				none
+			text				@MENUS_SETUP
+			descText			"Configure game settings"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 369 151 24 
+			font				3
+			textscale			1
+			textaligny			0
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			73
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 369 151 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			setup_menu
+			}
+		}
+
+		// BACK button 
+		itemDef
+		{
+			name				backbutton
+			group				fade_buttons
+			text				"X"
+			descText			"Close Window"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				617 335 20 20
+			font				3
+			textscale			0.355
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			3
+			textalignx			3
+			textaligny			0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	618 335 9 10
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/back.mp3"
+				close			all
+				open			mainMenu
+			}
+		}
+
+// OTHER MAIN MENU BUTTONS
+
+		itemDef
+		{
+			name				libbutton
+			group				none
+			text				"LIBRARY"
+			descText			"Access the ingame library menus."
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 408 136 24
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			70
+			textaligny			0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 408 137 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/player/ysalimari.mp3"
+				close			all
+				open			"help_menu"
+			}
+		}
+
+		itemDef
+		{
+			name				exitgamebutton
+			group				none
+			text				@MENUS_EXIT
+			descText			"Leave the game"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 448 136 24
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			70
+			textaligny			0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow 10 448 137 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/player/ysalimari.mp3"
+				close			all
+				open			quitMenu 
+			}
+		}
+
+// SECOND ROW MENU BUTTONS
+
+		// CONTROLS TITLE
+		itemDef
+		{
+			name				modeltitle
+			style				0	
+			text				"CONTROLS"
+			rect				420 18 440 16
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			0
+			textaligny			0
+			font				3
+			textscale			0.9
+			forecolor			0.1 0.8 1 0.9
+			visible				1
+		}
+
+		// movement button
+		itemDef
+		{
+			name				movementcontrolbutton_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				220 50 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				movementcontrolbutton
+			group				none
+			text				@MENUS_MOVEMENT
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 50 170 24
+			font				3
+			textscale			0.7
+			textalignx			160
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_CONFIGURE_MOVEMENT_KEYS
+			mouseenter
+			{
+				show			movementcontrolbutton_glow
+			}
+			mouseExit
+			{
+				hide			movementcontrolbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				show			movecontrols
+				hide			attackcontrols
+				hide			weaponcontrols
+				hide			mbcontrols
+				hide			forcecontrols
+				hide			joycontrols
+				hide			mediacontrols
+				hide			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.5 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+				setitemcolor	mediacontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	othercontrolbutton			forecolor 0.1 0.7 1 0.9
+			}
+		}
+
+		// attack button
+		itemDef
+		{
+			name				attackcontrolbutton_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				210 74 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				attackcontrolbutton
+			group				none
+			text				@MENUS_INTERACTION
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				220 74 170 24
+			font				3
+			textscale			0.7
+			textalignx			155
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_INTERACTION_DESC
+			mouseenter
+			{
+				show			attackcontrolbutton_glow
+			}
+			mouseExit
+			{
+				hide			attackcontrolbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				hide			movecontrols
+				show			attackcontrols
+				hide			weaponcontrols
+				hide			mbcontrols
+				hide			forcecontrols
+				hide			joycontrols
+				hide			mediacontrols
+				hide			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.5 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+				setitemcolor	mediacontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	othercontrolbutton			forecolor 0.1 0.7 1 0.9
+			}
+		}
+
+		// Weapons button
+		itemDef
+		{
+			name				weaponscontrolbutton_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				210 98 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				weaponscontrolbutton
+			group				none
+			text				@MENUS_WEAPONS
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 98 170 24
+			font				3
+			textscale			0.7
+			textalignx			160
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_CONFIGURE_WEAPON_CONTROLS
+			mouseenter
+			{
+				show			weaponscontrolbutton_glow
+			}
+			mouseExit
+			{
+				hide			weaponscontrolbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				hide			movecontrols
+				hide			attackcontrols
+				show			weaponcontrols
+				hide			mbcontrols
+				hide			forcecontrols
+				hide			joycontrols
+				hide			mediacontrols
+				hide			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.5 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+				setitemcolor	mediacontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	othercontrolbutton			forecolor 0.1 0.7 1 0.9
+			}
+		}
+
+		// Force Powers button
+		itemDef
+		{
+			name				forcecontrolbutton_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				210 122 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				forcecontrolbutton
+			group				none
+			text				"Moviebattles"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 122 170 24
+			font				3
+			textscale			0.7
+			textalignx			160
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Configure MovieBattles keys"
+			mouseenter
+			{
+				show			forcecontrolbutton_glow
+			}
+			mouseExit
+			{
+				hide			forcecontrolbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				hide			movecontrols
+				hide			attackcontrols
+				hide			weaponcontrols
+				show			mbcontrols
+				hide			forcecontrols
+				hide			joycontrols
+				hide			mediacontrols
+				hide			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.5 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+				setitemcolor	mediacontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	othercontrolbutton			forecolor 0.1 0.7 1 0.9
+			}
+		}
+
+		// Force Powers button 2
+		itemDef
+		{
+			name				forcecontrolbutton2_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				210 146 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				forcecontrolbutton2
+			text				"Force Powers"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 146 170 24
+			font				3
+			textscale			0.7
+			textalignx			160
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_CONFIGURE_FORCE_POWER
+			mouseenter
+			{
+				show			forcecontrolbutton2_glow
+			}
+			mouseExit
+			{
+				hide			forcecontrolbutton2_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				hide			movecontrols
+				hide			attackcontrols
+				hide			weaponcontrols
+				hide			mbcontrols
+				show			forcecontrols
+				hide			joycontrols
+				hide			mediacontrols
+				hide			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.5 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+				setitemcolor	mediacontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	othercontrolbutton			forecolor 0.1 0.7 1 0.9
+			}
+		}
+
+		// mousejoystick button
+		itemDef
+		{
+			name				mousejoystickcontrolbutton_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				210 170 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mousejoystickcontrolbutton
+			group				none
+			text				@MENUS_MOUSE_JOYSTICK
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 170 170 24
+			font				3
+			textscale			0.7
+			textalignx			160
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_CONFIGURE_MOUSE_AND_JOYSTICK
+			mouseenter
+			{
+				show			mousejoystickcontrolbutton_glow
+			}
+			mouseExit
+			{
+				hide			mousejoystickcontrolbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				hide			movecontrols
+				hide			attackcontrols
+				hide			weaponcontrols
+				hide			mbcontrols
+				hide			forcecontrols
+				show			joycontrols
+				hide			mediacontrols
+				hide			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.5 1 0.9
+				setitemcolor	mediacontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	othercontrolbutton		forecolor 0.1 0.7 1 0.9
+			}
+		}
+
+		// Media button
+		itemDef
+		{
+			name				mediacontrolbutton_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				210 194 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mediacontrolbutton
+			group				none
+			text				"Media"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 194 170 24
+			font				3
+			textscale			0.7
+			textalignx			160
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Configure keys for recording media"
+			mouseenter
+			{
+				show			mediacontrolbutton_glow
+			}
+			mouseExit
+			{
+				hide			mediacontrolbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				hide			movecontrols
+				hide			attackcontrols
+				hide			weaponcontrols
+				hide			mbcontrols
+				hide			forcecontrols
+				hide			joycontrols
+				show			mediacontrols
+				hide			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+				setitemcolor	mediacontrolbutton		forecolor 0.1 0.5 1 0.9
+				setitemcolor	othercontrolbutton		forecolor 0.1 0.7 1 0.9
+			}
+		}
+
+		// other button
+		itemDef
+		{
+			name				othercontrolbutton_glow
+			group				mods
+			style				WINDOW_STYLE_SHADER
+			rect				210 218 180 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				othercontrolbutton
+			group				none
+			text				@MENUS_OTHER
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 218 170 24
+			font				3
+			textscale			0.7
+			textalignx			160
+			textaligny			2
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_CONFIGURE_ADDITIONAL
+			mouseenter
+			{
+				show			othercontrolbutton_glow
+			}
+			mouseExit
+			{
+				hide			othercontrolbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				show			setup_background
+				hide			movecontrols
+				hide			attackcontrols
+				hide			weaponcontrols
+				hide			mbcontrols
+				hide			forcecontrols
+				hide			joycontrols
+				hide			mediacontrols
+				show			othercontrols
+				setitemcolor	movementcontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	attackcontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	weaponscontrolbutton		forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	forcecontrolbutton2			forecolor 0.1 0.7 1 0.9
+				setitemcolor	mousejoystickcontrolbutton	forecolor 0.1 0.7 1 0.9
+				setitemcolor	mediacontrolbutton			forecolor 0.1 0.7 1 0.9
+				setitemcolor	othercontrolbutton			forecolor 0.1 0.5 1 0.9
+			}
+		}
+
+// MOVEMENT BINDING
+
+		itemDef
+		{
+			name				movement1
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_WALK_FORWARD
+			cvar				"+forward"
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_MOVES_PLAYER_FORWARD
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement2
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_BACKPEDAL
+			cvar				"+back"
+			rect				390 66 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_MOVES_PLAYER_BACKWARD
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement3
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_TURN_LEFT
+			cvar				"+left"
+			rect				390 80 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ROTATES_PLAYER_LEFT
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement4
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_TURN_RIGHT
+			cvar				"+right"
+			rect				390 94 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ROTATES_PLAYER_RIGHT
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement5
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_RUN_WALK
+			cvar				"+speed"
+			rect				390 108 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_IF_HELD_TOGGLES_BETWEEN
+			action
+			{
+				play			sound/interface/button1
+			}
+
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement6
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_STEP_LEFT
+			cvar				"+moveleft"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_STEPS_PLAYER_TO_THE_LEFT
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement7
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_STEP_RIGHT
+			cvar				"+moveright"
+			rect				390 136 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_STEPS_PLAYER_TO_THE_RIGHT
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement8
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_SIDESTEP_TURN
+			cvar				"+strafe"
+			rect				390 150 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_HELD_ALLOWS_PLAYER_TO
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement12
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_UP_JUMP
+			cvar				"+moveup"
+			rect				390 164 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_MAKES_PLAYER_JUMP_IF
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				movement13
+			group				movecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_DOWN_CROUCH
+			cvar				"+movedown"
+			rect				390 178 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104 
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_MAKES_PLAYER_CROUCH_TO
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+// INTERactionBINDING
+
+		itemDef
+		{
+			name				attacklook1
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_ATTACK
+			cvar				"+attack"
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ATTACKS_WITH_READIED
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook2
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_ALT_ATTACK
+			cvar				"+altattack"
+			rect				390 66 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ATTACKS_WITH_ALTERNATE
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				attacksaber
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_LIGHTSABER_STYLE
+			cvar				"saberAttackCycle"
+			rect				390 80 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_CYCLES_BETWEEN_AVAILABLE
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			group				attackcontrols
+			name				attacklook
+			type				ITEM_TYPE_BIND
+			text				@MENUS_USE
+			cvar				"+use"
+			rect				390 108 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ACTIVATES_WORLD_DEVICES
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_USE_HELD_ITEM
+			cvar				"+button2"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ACTIVATES_CURRENTLY_SELECTED
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_NEXT_INVENTORY
+			cvar				"invnext"
+			rect				390 136 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SELECTS_NEXT_USABLE_ITEM
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_PREV_INVENTORY
+			cvar				"invprev"
+			rect				390 150 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SELECTS_PREVIOUS_USABLE
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook4
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_LOOK_UP
+			cvar				"+lookup"
+			rect				390 178 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TILTS_VIEW_UPWARDS
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+
+		itemDef
+		{
+			name				attacklook5
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_LOOK_DOWN
+			cvar				"+lookdown"
+			rect				390 192 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			descText			@MENUS_TILTS_VIEW_DOWNWARDS
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_MOUSE_LOOK
+			cvar				"+mlook"
+			rect				390 206 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_IF_HELD_ALLOWS_PLAYER
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_CENTER_VIEW
+			cvar				"centerview"
+			rect				390 220 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_RETURNS_VIEW_TO_HORIZONTAL
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+// WEAPON BINDING
+
+		itemDef
+		{
+			name				weapon1
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_MELEE_LIGHTSABER
+			cvar				"weapon 1"
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_READIES_LIGHTSABER
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			} 
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				weapon3
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_PISTOL
+			cvar				"weapon 2"
+			rect				390 66 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_READIES_THE_BLASTER_PISTOL
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_RIFLE
+			cvar				"weapon 3"
+			rect				390 80 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_READIES_THE_E_11_BLASTER
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				"Sniper Rifles:"
+			cvar				"weapon 4"
+			rect				390 94 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_READIES_THE_TENLOSS_DXR_6
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_BOWCASTER
+			cvar				"weapon 5"
+			rect				390 108 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_READIES_THE_WOOKIEE_BOWCASTER
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				"Repeater Rifles:"
+			cvar				"weapon 6"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_READIES_THE_IMPERIAL
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				"PLX-1:"
+			cvar				"weapon 9"
+			rect				390 136 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_READIES_THE_MERR_SONN
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_THROWABLE_WEAPONS
+			cvar				"weapon 10"
+			rect				390 150 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TOGGLES_BETWEEN_DETONATORS
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			} 
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_NEXT_WEAPON
+			cvar				"weapnext"
+			rect				390 178 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SELECTS_THE_NEXT_WEAPON
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			} 
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_PREVIOUS_WEAPON
+			cvar				"weapprev"
+			rect				390 192 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SELECTS_THE_PREVIOUS
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			} 
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				weaponcontrols
+			type				ITEM_TYPE_BIND
+			text				"Reload Weapon:"
+			cvar				"+button12"
+			rect				390 206 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Reload weapon. (Also turns lightsabers on or off.)"
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			} 
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+//	MBII BINDING
+
+		itemDef
+		{
+			name				special1
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Class Special 1:"
+			cvar				"+button13"
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Class Special 1. Common control for class unique abilities."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				special2
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Class Special 2:"
+			cvar				"+button14"
+			rect				390 66 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Class Special 2. Common control for class unique abilities."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				ability1
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Alternate Ability 1:"
+			cvar				"ability1"
+			rect				390 94 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			102
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Use Quick Throw. FA mode only: Alt control for Dash and Dexterity if class special conflict occurs."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				ability2
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Alternate Ability 2:"
+			cvar				"ability2"
+			rect				390 108 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			102
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"FA mode only: Alt control for weapon-out melee and Tracking Darts if class special conflict occurs."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				ability3
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Alternate Ability 3:"
+			cvar				"ability3"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			102
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"FA mode only: Alt control for Poison Darts if class special conflict occurs."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				pointconfig
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Class Configuration:"
+			cvar				"ui_opensiegemenu ingame_playerforce"
+			rect				390 150 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Open class configuration menu."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				none
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Drop Siege Item:"
+			cvar				"dropSiegeItem"
+			rect				390 178 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Drop the currently held siege item."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			} 
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				minimap
+			group				mbcontrols
+			type				ITEM_TYPE_BIND
+			text				"Enlarge minimap:"
+			cvar				"cg_drawminimap !"
+			rect				390 206 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggle the large minimap."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			} 
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+// FORCE BINDING
+
+		itemDef
+		{
+			name				force2
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_PUSH
+			cvar				"force_throw"
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_USES_FORCE_PUSH_ABILITY
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				force3
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_PULL
+			cvar				"force_pull"
+			rect				390 66 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_USES_FORCE_PULL_ABILITY
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				force4
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_SPEED
+			cvar				"force_speed"
+			rect				390 80 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_USES_FORCE_SPEED_ABILITY
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				force4
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_SIGHT
+			cvar				"force_seeing"
+			rect				390 94 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Uses Force Seeing ability. Doubles as Force Deadly Sight in some Full Authentic modes."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				force4
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_HEAL
+			cvar				"force_heal"
+			rect				390 108 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Uses Force Heal. Only available in Full Authentic mode."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_MINDTRICK
+			cvar				"force_distract"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Uses Mindtrick. Doubles as Force Blinding in some Full Authentic modes."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_GRIP
+			cvar				"+force_grip"
+			rect				390 136 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_USES_GRIP_FORCE_ABILITY
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_LIGHTNING
+			cvar				"+force_lightning"
+			rect				390 150 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_USES_LIGHTNING_FORCE
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				"Destruction:"
+			cvar				"force_rage"
+			rect				390 164 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Uses Force Destruction. Only available in Full Authentic mode."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				"Drain:"
+			cvar				"+force_drain"
+			rect				390 178 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Uses Force Drain. Only available in Full Authentic mode."
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				forcekeys
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_USE_FORCE_POWER
+			cvar				"+useforce"
+			rect				390 192 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_USES_CURRENTLY_SELECTED
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				forcekeys
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_NEXT
+			cvar				"forcenext"
+			rect				390 206 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SELECTS_NEXT_AVAILABLE
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				forcekeys
+			group				forcecontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FORCE_PREVIOUS
+			cvar				"forceprev"
+			rect				390 220 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SELECTS_PREVIOUS_AVAILABLE
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+// MOUSE/JOYSTICK KEY BINDING
+
+		itemDef
+		{
+			name				mousejoystick1
+			group				joycontrols
+			type				ITEM_TYPE_YESNO
+			text				@MENUS_FREE_LOOK
+			cvar				"cl_freelook"
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TOGGLE_TO_ALLOW_PLAYER
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				mousejoystick
+			group				joycontrols
+			type				ITEM_TYPE_SLIDER
+			text				@MENUS_SENSITIVITY
+			cvarfloat			"sensitivity" 5 2 30
+			rect				390 80 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ADJUSTS_CHARACTER_REACTION
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				mousejoystick
+			group				joycontrols
+			type				ITEM_TYPE_YESNO
+			text				@MENUS_INVERT_MOUSE
+			cvar				"ui_mousePitch"
+			rect				390 108 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TOGGLE_TO_TILT_VIEW_IN
+			action
+			{
+				play			"sound/interface/go.mp3"
+				uiScript update ui_mousePitch 
+			}
+		}
+
+		itemDef
+		{
+			name				mousejoystick
+			group				joycontrols
+			type				ITEM_TYPE_YESNO
+			text				@MENUS_SMOOTH_MOUSE
+			cvar				"m_filter"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_WHEN_TURNED_ON_MOUSE
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				mousejoystick
+			group				joycontrols
+			type				ITEM_TYPE_YESNO
+			text				@MENUS_ENABLE_JOYSTICK
+			cvar				"in_joystick"
+			rect				390 164 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TURNED_ON_GAME_SEARCHES
+			action
+			{
+				play			"sound/interface/go.mp3"
+				exec			in_restart
+			}
+		}
+
+		itemDef
+		{
+			name				mousejoystick
+			group				joycontrols
+			type				ITEM_TYPE_SLIDER
+			text				@MENUS_JOYSTICK_THRESHOLD
+			cvarfloat			"joy_threshold" .15 .05 .75
+			rect				390 192 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_ADJUSTS_THE_SIZE_OF_THE
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				mousejoystick
+			group				joycontrols
+			type				ITEM_TYPE_YESNO
+			text				@MENUS_X_AXIS_AS_BUTTONS
+			cvar				"joy_xbutton"
+			rect				390 220 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_WHEN_OFF_HORIZONTAL
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				mousejoystick
+			group				joycontrols
+			type				ITEM_TYPE_YESNO
+			text				@MENUS_Y_AXIS_AS_BUTTONS
+			cvar				"joy_ybutton"
+			rect				390 234 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_WHEN_OFF_VERTICAL_STICK
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+//	MEDIA BINDING
+
+		itemDef
+		{
+			name				drawrecording
+			group				mediacontrols
+			type				ITEM_TYPE_MULTI
+			text				"Recording Notification:"
+			cvar				"cl_drawRecording"
+			cvarFloatList
+			{
+				" None"				0
+				" Text"				1
+				" Icon"				2
+				" Blinking Icon"	3
+			}
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Select the demo recording notification type."
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				demostart
+			group				mediacontrols
+			type				ITEM_TYPE_BIND
+			text				"Start Recording Demo:"
+			cvar				"g_synchronousClients 1; record; g_synchronousClients 0"
+			rect				390 80 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Start recording a demo."
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			name				demostop
+			group				mediacontrols
+			type				ITEM_TYPE_BIND
+			text				"Stop Recording Demo:"
+			cvar				"stoprecord"
+			rect				390 94 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Stop recording a demo."
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+		
+		itemDef
+		{
+			name				autodemo
+			group				mediacontrols
+			type				ITEM_TYPE_YESNO
+			text				"Auto Record Demos:"
+			cvar				"cl_autodemo"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Automatically record demos every round. Unsaved demos are overwritten."
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				autodemoformat
+			group				mediacontrols
+			type				ITEM_TYPE_EDITFIELD
+			text				"Auto Demo Naming:"
+			cvar				"cl_autodemoFormat"
+			rect				390 136 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Variables: %c - class, %p - player name, %m - map, %n - custom demo name, %t - timestamp, %d - date"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				autodemosave
+			group				mediacontrols
+			type				ITEM_TYPE_BIND
+			text				"Save Current Auto Demo:"
+			cvar				"savedemo"
+			rect				390 150 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Save the currently recording automatic demo permanently."
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+		
+		itemDef
+		{
+			name				autodemosavelast
+			group				mediacontrols
+			type				ITEM_TYPE_BIND
+			text				"Save Last Auto Demo:"
+			cvar				"saveDemoLast"
+			rect				390 164 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Save the automatic demo from last round permanently."
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+		
+		itemDef
+		{
+			name				screenshot
+			group				mediacontrols
+			type				ITEM_TYPE_BIND
+			text				"Screenshot:"
+			cvar				"screenshot"
+			rect				390 192 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Take screenshots."
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+// OTHER
+
+		itemDef
+		{
+			name				other1
+			group				othercontrols
+			type				ITEM_TYPE_YESNO
+			text				@MENUS_ALWAYS_RUN
+			cvar				"cl_run"
+			rect				390 52 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_WHEN_ON_PLAYER_ALWAYS
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_AUTO_SWITCH
+			cvar				"cg_autoswitch"
+			cvarFloatList
+			{
+				@MENUS_DON_T_SWITCH			0
+				@MENUS_BEST_SAFE_WEAPON		1
+				@MENUS_ALWAYS_BEST_WEAPON	2
+			}
+			rect				390 66 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_CHOOSE_WHETHER_TO_SWITCH
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_CHAT
+			cvar				"messagemode"
+			rect				390 80 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SENDS_A_CHAT_MESSAGE
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_TEAM_CHAT
+			cvar				"messagemode2"
+			rect				390 94 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_A_CHAT_MESSAGE_TO_EVERYONE
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_VC_CONTROLS
+			cvar				"voicechat"
+			rect				390 108 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_VC_CONTROLS_DESC
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_AUTOMAP
+			cvar				"automap_toggle"
+			rect				390 122 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_AUTOMAP_DESC
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_SHOW_SCORES
+			cvar				"+scores"
+			rect				390 136 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_SHOWS_THE_CURRENT_SCORES
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				"1st/3rd Person"
+			cvar				"cg_thirdperson !"
+			rect				390 150 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_CHANGES_VIEW_BETWEEN
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_TAUNT
+			cvar				"taunt"
+			rect				390 164 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TAUNT_DESC
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_BOW
+			cvar				"bow"
+			rect				390 178 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_BOW_DESC
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_MEDITATE
+			cvar				"meditate"
+			rect				390 192 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_MEDITATE_DESC
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_FLOURISH
+			cvar				"flourish"
+			rect				390 206 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_FLOURISH_DESC
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			type				ITEM_TYPE_BIND
+			text				@MENUS_GLOAT
+			cvar				"gloat"
+			rect				390 220 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_GLOAT_DESC
+			mouseenter
+			{
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+// Text
+
+		itemDef
+		{
+			name				keyBindStatus
+			group				none
+			ownerdraw			250
+			text				@MENUS_BLANK_1
+			rect				374 452 0 0
+			textStyle			0
+			font				4
+			textscale			0.7
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration 
+		}
+
+		itemDef
+		{
+			name				slider_message
+			group				none
+			text				@MENUS_MOVE_THE_SLIDER_TO_INCREASE
+			rect				374 452 0 0
+			textStyle			0
+			font				4
+			textscale			0.7
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration 
+		}
+
+		itemDef
+		{
+			name				yesno_message
+			group				none
+			text				@MENUS_CLICK_ON_FIELD_TO_TOGGLE
+			rect				374 452 0 0
+			textStyle			0
+			font				4
+			textscale			0.7
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration 
+		}
+
+		itemDef
+		{
+			name				multi_message
+			group				none
+			text				@MENUS_CLICK_ON_FIELD_TO_CHANGE
+			rect				374 452 0 0
+			textStyle			0
+			font				4
+			textscale			0.7
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration 
+		}
+	}
+}

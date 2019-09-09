@@ -1,0 +1,85 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_korriban/map"
+missionname "Korriban"
+radartopleft "-6144, 2368"
+radarbottomright "1664, -4736"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_korriban"
+		radargraphicfull "gfx/automap/mb2_korribanfull"
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "Korriban_Republic"
+	TeamIcon "gfx/2d/logos/mb_newrepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "To accomplish the map: Kill the Imperial Commander"
+		final 0
+		message_team1 "The Commander was killed."
+		message_team2 "The Commander was killed."
+		objdesc "To accomplish the map: Kill the Imperial Commander."
+		objgfx "gfx/mplevels/mb2_korriban/commander"
+	}
+
+	wonround "The Commander was killed."
+	lostround "The Commander got away."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 1
+	briefing "Kill the Imperial Commander."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "Korriban_Imp"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "To accomplish the map: Defend the Commander"
+		final 0
+		message_team1 "The Commander escaped."
+		message_team2 "The Commander managed to escape."
+		objdesc "To accomplish the map: Evacuate the Commander before the temple collapses!"
+		objgfx "gfx/mplevels/mb2_korriban/commander"
+	}
+
+	Objective2
+	{
+		goalname "To open the door: Find the second obsidian statue"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "To open the door: Find the second obsidian statue."
+		objgfx "gfx/mplevels/mb2_korriban/statue"
+	}
+
+	wonround "The Commander managed to escape."
+	lostround "The Commander did not survive."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundoverimp"
+	attackers 0
+	briefing "Defend or evacuate the Commander."
+}

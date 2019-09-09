@@ -1,0 +1,1038 @@
+// SETUP MENU 
+{
+	menuDef
+	{
+		name					"ingame_wookiesetup"
+		visible					0
+		fullscreen				0
+		outOfBoundsClick
+		rect					25 40 630 425
+		focusColor				1 1 1 1
+		style					1
+		border					1
+		descX					320
+		descY					465
+		descScale				0.8
+		descColor				0.1 0.7 1 0.9
+		descAlignment			ITEM_ALIGN_CENTER
+		onOpen
+		{
+			uiScript			setForce "none"
+			uiScript			"getmodelcvars"	//needed for model display stuff
+			uiScript			"getmodelskin"	//needed for model display stuff
+		}
+		onClose
+		{
+			uiScript			setForce "none"
+		}
+		onEsc
+		{
+			uiScript			setForce "none"
+			open				ingame_join
+			play				"sound/interface/back.mp3"
+			close 				ingame_wookiesetup
+		}
+
+		// Character model
+		itemDef
+		{
+			name				modelviewer
+			group				models
+			type				ITEM_TYPE_MODEL
+			rect				0 -20 165 210
+			model_g2anim		"BOTH_WALK1"
+			asset_model			"ui_char_model"
+			model_angle			90
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2mins		-30 -20 -14
+			model_g2maxs		20 20 30
+			model_rotation		60
+			model_fovx			50
+			model_fovy			50
+			isCharacter			1
+			visible				1
+			decoration
+		}
+
+		// Overall window backdrop
+		itemDef
+		{
+			name				background_pic
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 430 425
+			background			"gfx/menus/classmenu"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// Player Configuration title
+		itemDef
+		{
+			name				playerconfigtitle
+			style				WINDOW_STYLE_FILLED
+			text				"Configure your class"
+			rect				100 15 390 28
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			195
+			textaligny			2
+			font				3
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			decoration
+		}
+
+		// Skill points remaining
+		itemDef
+		{
+			name				siderank
+			group				"playersettingforcegroup"
+			style				0
+			text				@MENUS_POINTS_REMAINING
+			ownerdraw			UI_FORCE_POINTS
+			rect				250 55 0 0
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			60
+			textaligny			-15
+			font				2
+			textscale			1
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			decoration
+		}
+
+		// SETUP LEGEND
+		// Skills title
+		itemDef
+		{
+			name				forceranktitle
+			group				"playersettingforcegroup"
+			style				0
+			text				@MENUS_POWER
+			rect				230 82 0 0
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				forceranktitle2
+			group				"playersettingforcegroup"
+			style				0
+			text				@MENUS_1_2_3
+			rect				230 82 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			0
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			decoration
+		}
+
+		// SPECIFIC CLASS ABILITIES
+		// Pistol title
+		itemDef
+		{
+			name				setfp_jump
+			group				"playersettingforcegroup"
+			style				0
+			text				"Pistol"
+			rect				230 100 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Pistol assign
+		itemDef
+		{
+			name				setfp_jump
+			group				"playersettingforcegroup"
+			style				0
+			ownerdraw			UI_FORCE_RANK_LEVITATION
+			rect				230 100 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Add a charge shot"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_jump forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_jump forecolor 0.1 0.7 1 0.7
+			}
+		}
+
+		// Bowcaster title
+		itemDef
+		{
+			name				setfp_see
+			group				"playersettingforcegroup"
+			style				0
+			text				"Bowcaster"
+			rect				230 120 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Bowcaster assign
+		itemDef
+		{
+			name				setfp_see
+			group				"playersettingforcegroup"
+			style				0
+			ownerdraw			UI_FORCE_RANK_SEE
+			rect				230 120 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"A powerful weapon, increase rate of fire and add a scope, and increase accuracy and add a charged fire mode"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_see forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_see forecolor 0.1 0.7 1 0.7
+			}
+		}
+
+		// Thermal Detonator title
+		itemDef
+		{
+			name				setfp_speed
+			group				"playersettingforcegroup"
+			style				0
+			text				"Frag Grenade"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 140 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Thermal Detonator assign
+		itemDef
+		{
+			name				setfp_speed
+			group				"playersettingforcegroup"
+			style				0
+			ownerdraw			UI_FORCE_RANK_SPEED
+			rect				230 140 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Buy Frag Grenades with high damage primary fire and instantly exploding alt-fire"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_speed forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_speed forecolor 0.1 0.7 1 0.7
+			}
+		}
+
+		// Health title
+		itemDef
+		{
+			name				setfp_absorb
+			group				lightpowers
+			style				0
+			text				"Health"
+			rect				230 170 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Health assign
+		itemDef
+		{
+			name				setfp_absorb
+			group				lightpowers
+			style				0
+			ownerdraw			UI_FORCE_RANK_ABSORB
+			rect				230 170 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Increases your health"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_absorb forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_absorb forecolor 0.1 0.7 1 0.7
+			}
+		}
+
+		// Strength title
+		itemDef
+		{
+			name				setfp_healself
+			group				lightpowers
+			style				0
+			text				"Strength"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 190 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Strength assign
+		itemDef
+		{
+			name				setfp_healself
+			group				lightpowers
+			style				0
+			ownerdraw			UI_FORCE_RANK_HEAL
+			rect				230 190 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.9
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Increase melee damage, build up resistance to Force powers, and increase knockdown resistance and melee movement speed"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_healself forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_healself forecolor 0.1 0.7 1 0.7
+			}
+		}
+
+		// Fury title
+		itemDef
+		{
+			name				setfp_grip
+			group				lightpowers
+			style				0
+			text				"Fury"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 210 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Fury assign
+		itemDef
+		{
+			name				setfp_grip
+			group				lightpowers
+			style				0
+			ownerdraw			UI_FORCE_RANK_GRIP
+			rect				230 210 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.9
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Gain access to Fury mode and improve it, generate Rage points by attacking enemies"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_grip forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_grip forecolor 0.1 0.7 1 0.7
+			}
+		}
+
+		// Agility title
+		/*itemDef
+		{
+			name				setfp_lightning
+			group				lightpowers
+			style				0
+			text				"Agility"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 230 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Agility assign
+		itemDef
+		{
+			name				setfp_lightning
+			group				lightpowers
+			style				0
+			ownerdraw			UI_FORCE_RANK_LIGHTNING
+			rect				230 230 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.9
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Jump higher and do acrobatics."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_lightning forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_lightning forecolor 0.1 0.7 1 0.7
+			}
+		}*/
+		
+		// Balance title
+		/*itemDef
+		{
+			name				setfp_push
+			group				"playersettingforcegroup"
+			style				0
+			text				"Balance"
+			rect				230 210 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Balance assign
+		itemDef
+		{
+			name				setfp_push
+			group				"playersettingforcegroup"
+			style				0
+			ownerdraw			UI_FORCE_RANK_PUSH
+			rect				230 210 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Immunity to knockdowns caused by explosions"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_push forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_push forecolor 0.1 0.7 1 0.7
+			}
+		}*/
+
+		// Ammo title
+		itemDef
+		{
+			name				setfp_saberdefend
+			group				"playersettingforcegroup"
+			style				0
+			text				"Ammo"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 270 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Ammo assign
+		itemDef
+		{
+			name				setfp_saberdefend
+			group				"playersettingforcegroup"
+			style				0
+			ownerdraw			UI_FORCE_RANK_SABERDEFEND
+			rect				230 270 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Increase your ammo store for all your weapons"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_saberdefend forecolor 0.1 0.7 1 0.7
+			}
+		}
+
+		// APPLY BUTTON
+		itemDef
+		{
+			name				applyjoinbutton
+			group				"playerforcejoin"
+			style				WINDOW_STYLE_SHADER
+			rect				270 384 65 32
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+		}
+
+		itemDef
+		{
+			name				applyjoin
+			group				"playerforcejoin"
+			text				"Apply changes"
+			type				1
+			style				WINDOW_STYLE_EMPTY
+			rect				226 384 150 32
+			textalign			1
+			textalignx			75
+			textaligny			2
+			font				2
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			descText			@MENUS_MAKE_THESE_CHANGES_TO
+			visible				1
+			cvartest			"ui_about_gametype"
+			showcvar			{ "0", "1", "2", "3", "4", "5", "6", "8" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+//				uiScript 		setForce "same"
+				close 			ingame_wookiesetup
+//				uiScript		updateForceStatus
+				open			ingame_player
+			}
+			mouseenter
+			{
+				show			applyjoinbutton
+			}
+			mouseExit
+			{
+				hide			applyjoinbutton
+			}
+		}
+
+		itemDef
+		{
+			name				applyjoin
+			group				"playerforcejoin"
+			text				"Apply"
+			type				1
+			style				WINDOW_STYLE_EMPTY
+			rect				226 384 150 32
+			textalign			1
+			textalignx			75
+			textaligny			2
+			font				2
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			cvartest			"ui_about_gametype"
+			showcvar			{ "7" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				close 			ingame_wookiesetup
+				uiScript		setsiegeclassandteam
+				uiScript		closeingame
+			}
+			mouseenter
+			{
+				show			applyjoinbutton
+			}
+			mouseExit
+			{
+				hide			applyjoinbutton
+			}
+		}
+
+		// FORCE TEMPLATES
+		// Force Template title
+		// Overall window backdrop
+		itemDef
+		{
+			name				background_pic
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				425 5 210 410
+			background			"gfx/menus/classmenu_extra"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				fcflist
+			group				"playersettingforcegroup"
+			style				0
+			text				"Builds Template" //@MENUS_FORCE_TEMPLATES
+			rect				440 45 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			4
+			textaligny			0
+			//outlinecolor		0.1 0.7 1 0.8
+			//backcolor			0 0 0 0
+			font				2
+			textscale			0.8
+			//forecolor			.549 .854 1 1
+			forecolor			0.1 0.7 1 0.8
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
+		// Force Template picker
+		itemDef
+		{
+			name				fcflist
+			rect				440 75 130 130
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_FILLED
+			elementwidth		155
+			elementheight		17
+			font				4
+			textscale			.75
+			maxLineChars			18
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_FORCECFG
+			textstyle			6
+			textalign			3
+			textaligny			2
+			//border			1
+			//bordercolor		.5 .5 .5 1
+			forecolor			0.1 0.7 1 0.7
+			//backcolor			0 0 .5 .25
+			outlinecolor		.25 .464 .578 .5
+			descText			"Choose a pre-made allocation of abilities" //@MENUS_CHOOSE_A_PRE_MADE_ALLOCATION
+			visible				1
+			columns				1 2 190 250
+			mouseenter
+			{
+				setitemcolor	fcflist bordercolor 1 0 0 1
+			}
+			mouseExit
+			{
+				setitemcolor	fcflist bordercolor .5 .5 .5 1
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// SAVE TEMPLATE
+		//Save template title entry field
+		itemDef
+		{
+			name 				namefield
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				@MENUS_FILENAME
+			cvar				"ui_SaveFCF"
+			maxchars			18
+			rect				425 205 185 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny 			0
+			font				4
+			textscale			.9
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			visible				1
+		}
+
+		//Save template button
+		itemDef
+		{
+			name				templatesavetext
+			group				"playerforcetemplatesave"
+			style				WINDOW_STYLE_EMPTY
+			textalign			ITEM_ALIGN_LEFT
+			rect				430 245 185 32
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			font				4
+			textscale			0.75
+			text				@MENUS_MATCHING_NAMES
+			decoration
+			visible				0
+		}
+
+		itemDef
+		{
+			name				templatesave
+			group				"playerforcetemplatesave"
+			text				@MENUS_SAVE_FILE
+			type				1
+			style				WINDOW_STYLE_EMPTY
+			rect				415 225 185 32
+			textalign			1
+			textalignx			92
+			textaligny			2
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7 //forecolor			1 .682 0 1
+			descText			@MENUS_SAVE_CURRENT_FORCE_SETUP
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript 		saveTemplate
+			}
+			mouseenter
+			{
+				show			templatesavetext
+				show			templatesavebutton
+			}
+			mouseExit
+			{
+				hide			templatesavetext
+				hide			templatesavebutton
+			}
+		}
+
+		//Armor and HP readouts - Dusty
+		itemDef
+		{
+			name				hp_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			rect				550 284 175 15
+			text				"HP: "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-45
+			textaligny			0
+			textscale			.5
+			font				3
+			forecolor			0.1 0.65 1 0.6
+			cvar				"ui_maxhealth"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				armorpoints_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			rect				550 296 175 15
+			text				"Armor: "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-45
+			textaligny			0
+			textscale			.5
+			font				3
+			forecolor			0.1 0.65 1 0.6
+			cvar				"ui_maxarmour"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				ammotitle
+			group				none
+			type				ITEM_TYPE_TEXT
+			rect				588 317 175 15
+			text				"(  Ammunition  )"
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-60
+			textaligny			0
+			textscale			.68
+			textstyle			ITEM_TEXTSTYLE_OUTLINESHADOWED
+			font				4
+			forecolor			0.2 0.7 1 0.35
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				pistol_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			rect				602 334 175 15
+			text				"Blaster Pistol : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43 
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_pistol"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_Pistol"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				bowcaster_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			rect				602 344 175 15
+			text				"W. Bowcaster : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_bowcaster"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_bowcaster"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				bowcaster_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			rect				602 344 175 15
+			text				"W. Bowcaster : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.2
+			cvarTest			"ui_ammo_bowcaster"
+			showCvar			{ "0" }
+			cvar				"ui_ammo_bowcaster"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				frag_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			rect				602 361 175 15
+			text				"F. Grenades : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43 
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_extra1"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_extra1"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				frag_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			rect				602 361 175 15
+			text				"F. Grenades : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43 
+			font				3
+			forecolor			0.1 0.7 1 0.2
+			cvarTest			"ui_ammo_extra1"
+			showCvar			{ "0" }
+			cvar				"ui_ammo_extra1"
+			visible				1
+			decoration
+		}
+	}
+}

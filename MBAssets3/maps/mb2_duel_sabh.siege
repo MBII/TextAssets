@@ -1,0 +1,77 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\mb2_sabh\map"
+missionname "Showdown at Barons Hed"
+radartopleft "-768, 192"
+radarbottomright "1024, -1600"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_sabh"
+		radargraphicfull "gfx/automap/mb2_duel_sabhfull"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelSabhJedi"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill Yun"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Yun."
+		objgfx "gfx/mplevels/mb2_sabh/objectivea"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Kill Yun."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "DuelSabhSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Katarn"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Katarn."
+		objgfx "gfx/mplevels/mb2_sabh/objectivea"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill Katarn."
+}

@@ -1,0 +1,77 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\mb2_votj\map"
+missionname "Valley of the Jedi"
+radargraphic "gfx/automap/mb2_duel_votj"
+radartopleft "-5824, 3328"
+radarbottomright "1984, -4416"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_votj"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelVOTJJedi"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Stop Jerec"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Sith."
+		objgfx "gfx/mplevels/mb2_votj/obj"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Stop Jerec."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "DuelVOTJSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Katarn"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Jedi."
+		objgfx "gfx/mplevels/mb2_votj/obj"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill Katarn."
+}

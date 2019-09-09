@@ -1,0 +1,112 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_tatooine/map"
+missionname "Tatooine Foray"
+radartopleft "-5696, 5824"
+radarbottomright "5824, -5696"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_tatooine"
+		radargraphicfull "gfx/automap/mb2_tatooinefull"
+	}
+}
+
+countin_time 5
+roundbegin_target "random_parts"
+
+Rebels
+{
+	RequiredObjectives 1
+	UseTeam "tatooine_Rebels"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Find the remote control the Imperial shuttle"
+		final -1
+		message_team1 "The Remote has been acquired"
+		message_team2 "The Remote has fallen into the hands of the Rebels"
+		objdesc "SECONDARY GOAL:
+		The Imperials are in possession of a remote control for the shuttle, find the remote control by killing them!"
+		objgfx "gfx/mplevels/mb2_tatooine/imp_objective"
+	}
+
+	Objective2
+	{
+		goalname "Approach the Imperial Shuttle to activate the access ramp"
+		final -1
+		message_team1 "The access ramp is opening"
+		message_team2 "The access ramp is opening"
+		objdesc "SECONDARY GOAL:
+		When within range of the shuttle and holding the remote press use to activate the ramp"
+		objgfx "gfx/mplevels/mb2_tatooine/reb_objective"
+	}
+
+Objective3
+	{
+		goalname "Take off in the shuttle"
+		final 1
+		message_team1 "The shuttle is taking off!"
+		message_team2 "The shuttle is taking off!!"
+		objdesc "PRIMARY GOAL:
+		Close the ramp to the shuttle, then initiate launch."
+		objgfx "gfx/mplevels/mb2_tatooine/reb_objective"
+	}
+
+	wonround "The shuttle is ours!"
+	lostround "The Shuttle is lost, we have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Find the Remote to the Shuttle and hijack it"
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "tatooine_Imperials"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Protect the Imperial Officer with the remote to the Shuttle"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "SECONDARY GOAL:
+		Protect the Officers as they go about their bussiness on tatooine, the remote can not fall into the wrong hands."
+		objgfx "gfx/mplevels/mb2_tatooine/imp_objective"
+	}
+
+	Objective2
+	{
+		goalname "Prevent the Rebels taking off in the shuttle"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		The shuttle can not fall into the hands of the Rebel Alliance"
+		objgfx "gfx/mplevels/mb2_tatooine/reb_objective"
+	}
+
+	wonround "The Rebel strike force has failed"
+	lostround "The Rebels have escaped in the Shuttle!"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Stop the Rebels from stealing the Shuttle craft and taking off"
+}

@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Republic
+	team2 CIS
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_datacore/map"
+missionname  "RAC Datacore"
+radartopleft "-1152, 1024"
+radarbottomright "1216, -1024"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_datacore"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	UseTeam "DuelDatacoreRep"
+	TeamIcon	"gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Stop the Droids from taking control of the Data Core."
+		final -1
+		message_team1 "We have held the Data Core!"
+		message_team2 "We have failed."
+		objdesc "ACCOMPLISH: Stop the Droids from taking control of the Data Core."
+		objgfx "gfx/mp/mplevels/mb2_datacore/obj1"
+	}
+
+	wonround "We have held the Data Core!"
+	lostround "We have failed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Defend the Data Core!"
+}
+
+CIS
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelDatacoreCIS"
+	TeamIcon	"gfx/2d/logos/mb_cis"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Take control of the Data Core!"
+		final 0
+		message_team1 "We have taken control of the Data Core!"
+		message_team2 "We have failed"
+		target ""
+		objdesc "ACCOMPLISH: Take control of the Data Core!"
+		objgfx "gfx/mp/mplevels/mb2_datacore/obj1"
+	}
+
+	wonround "We have taken control of the Data Core!"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Take control of the Data Core!"
+}

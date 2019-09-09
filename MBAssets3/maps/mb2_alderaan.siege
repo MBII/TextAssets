@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_alderaan/coming"
+missionname "Assault on Alderaan base"
+radartopleft "-1771, 2017"
+radarbottomright "2729, -2483"
+AutoMap
+{
+   AutoMap0
+   {
+       radargraphic "gfx/automap/aldauto"
+       radargraphicfull "gfx/automap/aldautofull"
+       height "0"
+   }
+}
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1								
+	UseTeam "ald_rebs" 							
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Stop the Imperials from blowing up the cargo."
+		final 0
+		message_team1 "Supplies have been shipped to the alliance."
+		message_team2 " have been shipped to the alliance."
+		objdesc " Stop the Imperials from blowing up the cargo."
+		objgfx "gfx/mplevels/mb2_alderaan/coming"
+	}
+
+	wonround " Supplies have been shipped to the alliance."
+	lostround "We lost our supplies..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 1
+	briefing "Protect the supplies."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	Timed 180
+	UseTeam "ald_imps"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Blow up Rebels' supplies."
+		final 0
+		message_team1 "Rebels' supplies have been blown up."
+		message_team2 " Rebels' supplies have been blown up."
+		objdesc "Prevent Rebels' from shipping their supplies to Alliance"
+		objgfx "gfx/mplevels/mb2_alderaan/coming"
+	}
+
+	wonround "Rebels' supplies have been blown up."
+	lostround "We have failed to blow up their supplies..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundoverimp"
+	attackers 1
+	briefing "Blow up Rebels' supplies."
+}

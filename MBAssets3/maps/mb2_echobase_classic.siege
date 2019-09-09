@@ -1,0 +1,98 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_echobase_classic/map"
+missionname  "Echo Base Infiltration"
+radartopleft "-2632, 1344"
+radarbottomright "6968, -8256"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_echobase_classic"
+		radargraphicfull "gfx/automap/mb2_echobase_classicfull"
+		height "-270"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_echobase_classic2"
+		radargraphicfull "gfx/automap/mb2_echobase_classic2full"
+		height "-890"
+	}
+}
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	UseTeam "Echo2_Rebels"							
+
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "ACCOMPLISH: Stop Imperials from disabling the Falcon"
+		final 1
+		message_team1 "The Imperials have disabled the Falcon"
+		message_team2 "We have disabled the Falcon"
+		objdesc "ACCOMPLISH: Prevent the Imperials from disabling the Falcon's Engines"
+		objgfx "gfx/mplevels/mb2_echobase_classic/obj1"
+	}
+	
+	
+		
+	
+	wonround "The Falcon has been repaired" 						//Printed to this team if they won the round.
+	lostround "Imperials have trapped us!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Defend the Falcon." //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "Echo2_Imperials"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Disable the Falcon
+		final 1
+		message_team1 "Imperials have disabled the Falcon"
+		message_team2 "The Falcon has been disabled"
+		target ""
+		objdesc "ACCOMPLISH: Disable the Falcon Engines"
+		objgfx "gfx/mplevels/mb2_echobase_classic/obj1"
+	}
+	
+	
+
+	wonround "We have trapped the Rebel Scum"
+	lostround "The Rebels have Escaped"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Gain entrance to Echo Base and disable the Falcon."
+}

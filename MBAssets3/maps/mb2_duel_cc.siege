@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\mb2_carbon\map"
+missionname "Carbon Chamber"
+radartopleft "-2000, 2000"
+radarbottomright "2008, -2008"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_cc"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "DuelCCJedi"
+	TeamIcon "gfx/2d/logos/mb_newjediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill Vader"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Vader"
+		objgfx "gfx/mplevels/mb2_carbon/objectivea"
+	}
+
+	wonround "Impressive... most impressive."
+	lostround "You are not a Jedi yet."
+	roundover_target "siegeend"
+	roundover_sound_wewon "sound/cc/Impressive.wav"
+	roundover_sound_welost "sound/cc/NotAJediYet.wav"
+	attackers 0
+	briefing "Kill Vader."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelCCSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Skywalker"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Skywalker."
+		objgfx "gfx/mplevels/mb2_carbon/objectivea"
+	}
+
+	wonround "All too easy."
+	lostround "You have learned much young one."
+	roundover_target ""
+	roundover_sound_wewon "sound/cc/AllTooEasy.wav"
+	roundover_sound_welost "sound/cc/LearnedMuch.wav"
+	attackers 1
+	briefing "Kill Skywalker."
+}

@@ -1,0 +1,77 @@
+Teams
+{
+	team1 Exile
+	team2 Traya
+}
+
+mapgraphic "gfx\mplevels\mb2_malachor\map"
+missionname "Trayus Core"
+radartopleft "-2752, 2896"
+radarbottomright "3216, -3072"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_malachor"
+		radargraphicfull "gfx/automap/mb2_duel_malachor_full"
+	}
+}
+
+roundbegin_target ""
+
+Exile
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelMalachorJedi"
+	TeamIcon "gfx/2d/logos/mb_oldjediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Defeat Darth Traya"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat Darth Traya once and for all."
+		objgfx "models/players/FA_icons/traya"
+	}
+
+	wonround "Traya has been defeated."
+	lostround "Exile has been defeated."
+	roundover_sound_wewon ""
+	roundover_sound_welost "sound/maps/malachor/last_words.mp3"
+	roundover_target ""
+	attackers 1
+	briefing "Defeat Darth Traya."
+}
+
+Traya
+{
+	RequiredObjectives 1
+	UseTeam "DuelMalachorSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the Exile"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Exile."
+		objgfx "models/players/FA_icons/exile"
+	}
+
+	wonround "The Exile has been defeated."
+	lostround "Traya has been defeated."
+	roundover_sound_wewon "sound/maps/malachor/last_words.mp3"
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill the Exile."
+}

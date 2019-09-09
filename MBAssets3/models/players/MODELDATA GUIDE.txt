@@ -1,0 +1,74 @@
+// MODELDATA.CFG SHOULD NEVER EXCEED 2048 CHARACTERS
+
+/------------------------------------------
+/----------------BREATH
+/------------------------------------------
+// breath.cfg is intended to enable or disable breathing-related effects
+// with ingame models.
+// Valid parameters are:
+// breathes (Required: 1 = Yes, 0 = No.)
+// boneName (Optional. If unspecified: "lblip2", "rblip2", "lulip2", "rulip2" or "*head_front".)
+// boneIsTag (Optional. If "1", boneName is treated as a tag instead of a bone.)
+
+/------------------------------------------
+/----------------SOUNDS
+/------------------------------------------
+sounds.cfg is intended to associate a model or skin with a soundset located in sound/chars
+To define a default soundset for the model (substitute f for m if female):
+	sounds_default
+	soundset
+	m
+To define a soundset for a specific skin:
+	sounds_skinname
+	soundset
+	f
+If you want the soundset to use simple custom voice commands (same naming format as base), add this to the end of the definition:
+	flag_simpleSiegeSounds
+
+/------------------------------------------
+/----------------GORE
+/------------------------------------------
+// gore.cfg is intended to define what sort of gore, blood, or 
+// hit-with-something-sharp effects and visuals should be used with a specific
+// model in the game, be it a player model, an NPC, or a vehicle of some kind.
+// This is the opposite from BaseJKA, where such effects are defined by the 
+// weapon that makes them, leading to robots that bleed red blood.
+// gore.cfg allows this to be corrected, and expanded upon.
+//
+// gore.cfg first looks in the model's directory for gore_skinname.cfg
+// and if that's not found, looks for gore.cfg in the model's directory.
+// If that's not found, and the model is a humanoid model(all playermodels are)
+// the default gore.cfg in the players directory is used.
+// If no gore.cfg can be found for a vehicle or nonhumanoid model, no gore
+// effects at all are used. (Less desirable than using say, sparks or oil effects.)
+//
+// Valid parameters are(All are required for proper operation of gore.cfg.):
+// hitPersonShotEffect (.efx file to play when an impact draws blood.)
+// hitPersonShotShader (Shader file to apply to the model where it's been shot.)
+// hitPersonBladeEffect (.efx file to play when the model is slashed with a sword.)
+// g2MarksBladeShader (Shader file to apply to the model where it's been slashed.))
+// g2WeaponMarksBladeShader (Shader file to try to apply to the weapon that's used.)
+// dismemberEffect (.efx file to play when a dismemberment occurs. Used twice, on the stump and severed appendage.)
+
+/------------------------------------------
+/----------------HELMET
+/------------------------------------------
+// helmetview.cfg allows an image to be overlaid over a first-person
+// player's view, to simulate looking out through a helmet with a visor
+// of some kind, or to adjust a player's firstperson view in some way.
+// Valid parameters are:
+// helmetShader (Optional. The shader to use for the helmetview overlay.)
+
+/------------------------------------------
+/----------------TRUEVIEW
+/------------------------------------------
+// trueview.cfg is intended to allow the use of trueview with player models that
+// haven't been made properly and either lack proper surface tagging or have
+// their usual eye surfaces aligned with the mesh in such a way that
+// trueview's camera positioning works less than well.
+// Valid parameters are:
+// tagName (Optional. If unspecified: "*head_eyes", "*head_front" or "reye".)
+// tagIsBone (Optional. If "1", tagName is treated as a bone instead of a tag.)
+// offsetX (Optional: Forward/Back offset.)
+// offsetY (Optional: Left/Right offset. Unimplemented, may be added in future.)
+// offsetZ (Optional: Up/Down offset. Unimplemented, may be added in future.)

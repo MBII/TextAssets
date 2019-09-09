@@ -1,0 +1,142 @@
+Teams
+{
+	team1 DeltaSquad
+	team2 CIS
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_hangarC/map.jpg"
+missionname "MBII RC: Hangar C"
+radartopleft "-2048, 2048"
+radarbottomright "1280, -1280"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_rc_hangarC"
+		radargraphicfull "gfx/automap/mb2_rc_hangarCfull"
+		height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_rc_hangarC2"
+		radargraphicfull "gfx/automap/mb2_rc_hangarCfull2"
+		height "234"
+	}
+}
+roundbegin_target ""
+
+DeltaSquad
+{
+	RequiredObjectives 4
+	UseTeam "hangarC_rep"
+	TeamIcon "gfx/2d/logos/mb_clonerepublic"
+	Timed 300
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Destroy the battle droid dispenser"
+		final 0
+		message_team1 "Battle droid dispenser has been destroyed!"
+		message_team2 "Battle droid dispenser has been destroyed!"
+		objdesc "Place a demo charge on a battle droid dispenser."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/BD_dispenser"
+	}
+
+	Objective2
+	{
+		goalname "Destroy the super battle droid dispenser"
+		final 0
+		message_team1 "Super battle droid dispenser has been destroyed!"
+		message_team2 "Super battle droid dispenser has been destroyed!"
+		objdesc "Place a demo charge on a super battle droid dispenser."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/SBD_dispenser"
+	}
+
+	Objective3
+	{
+		goalname "Destroy the droideka dispenser"
+		final 0
+		message_team1 "Droideka dispenser has been destroyed!"
+		message_team2 "Droideka dispenser has been destroyed!"
+		objdesc "Place a demo charge on a droideka dispenser."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/DEKA_dispenser"
+	}
+
+	Objective4
+	{
+		goalname "Sabotage the forcefield regulator"
+		final 0
+		message_team1 "The hangar is secured from the inside!"
+		message_team2 "They've sealed the hangar, scuttle them!"
+		objdesc "Take out the forcefield regulator."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/FF_regulator"
+	}
+
+	wonround "Hangar secured, advance to the next one.."
+	lostround "Delta squad can you read me?"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Warn the Republic about upcoming ground assault."
+}
+
+CIS
+{
+	RequiredObjectives 0
+	UseTeam "hangarC_cis"
+	TeamIcon "gfx/2d/logos/mb_cis"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the battle droid dispenser"
+		final -1
+		message_team1 "Battle droid dispenser has been destroyed!"
+		message_team2 "Battle droid dispenser has been destroyed!"
+		objdesc "Prevent Republic from destroying battle droid dispenser."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/BD_dispenser2"
+	}
+
+	Objective2
+	{
+		goalname "Defend the super battle droid dispenser"
+		final -1
+		message_team1 "Super battle droid dispenser has been destroyed!"
+		message_team2 "Super battle droid dispenser has been destroyed!"
+		objdesc "Prevent Republic from destroying super battle droid dispenser."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/SBD_dispenser2"
+	}
+
+	Objective3
+	{
+		goalname "Defend the droideka dispenser"
+		final -1
+		message_team1 "Droideka dispenser has been destroyed!"
+		message_team2 "Droideka dispenser has been destroyed!"
+		objdesc "Prevent Republic from destroying droideka dispenser."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/DEKA_dispenser2"
+	}
+
+	Objective4
+	{
+		goalname "Do not let them seal the hangar"
+		final 0
+		message_team1 "The hangar has been sealed!"
+		message_team2 "They've sealed the hangar, scuttle them!"
+		objdesc "Stop them from sealing the hangar."
+		objgfx "gfx/mp/mplevels/mb2_hangarC/FF_regulator2"
+	}
+	
+	wonround "Republic intel has fallen into our hands"
+	lostround "Scuttle them!"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Stop the Republic from sealing the hangar!"
+}

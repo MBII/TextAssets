@@ -1,0 +1,602 @@
+// Update MENU
+{
+	menuDef
+	{
+		name					"updateQuit"
+		visible					0
+		fullScreen				1
+		rect					0 0 640 480
+		focusColor				1 1 1 1
+		appearanceIncrement		100
+		descX					320
+		descY					424
+		descScale				1
+		descColor				0.1 0.7 1 0.8
+		descAlignment			ITEM_ALIGN_CENTER
+		appearanceIncrement		100
+		onOpen
+		{
+			setfocus			update_qok
+		}
+
+// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				blackbackground
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				140 180 360 150
+			backcolor			0 0 0 0.95
+			forecolor			1 1 1 1
+			border				0
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				centerwindow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				140 180 360 150
+			background			"gfx/menus/bigbox"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// QUIT MENU specific stuff
+		itemDef
+		{
+			name confirm
+			group			none
+			text			"The game has been updated\n    and will now quit"
+			font			2
+			textscale		1
+			textstyle		0
+			rect			95 200 450 20
+			textalign		ITEM_ALIGN_CENTER
+			textalignx		225
+			textaligny		0
+			decoration
+			forecolor		0.1 0.7 1 0.8
+			visible			1
+		}
+
+		itemDef
+		{
+			name			update_qok_button
+			group			none
+			style			WINDOW_STYLE_SHADER
+			rect			255 286 130 24 
+			background		"gfx/menus/mb_buttonback"
+			forecolor		1 1 1 1
+			decoration
+			visible			0
+		}
+
+		// YES button
+		itemDef
+		{
+			name				update_qok
+			group				none
+			text				"Okay"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				255 286 130 24
+			font				3
+			textscale			1
+			textalignx			65
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			descText			"Complete Update"
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		updateContinue			// restart the game
+			}
+			mouseenter
+			{
+				show			update_qok_button 
+			}
+			mouseExit
+			{
+				hide			update_qok_button 
+			}
+		}
+	}
+
+	menuDef
+	{
+		name					"updateMenu"
+		visible					0
+		fullScreen				1
+		rect					0 0 640 480
+		focusColor				1 1 1 1
+		appearanceIncrement		100
+		descX					320
+		descY					424
+		descScale				1
+		descColor				0.1 0.7 1 0.8
+		descAlignment			ITEM_ALIGN_CENTER
+		appearanceIncrement		100
+
+// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				blackbackground
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				140 180 360 150
+			backcolor			0 0 0 0.95
+			forecolor			1 1 1 1
+			border				0
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				centerwindow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				140 180 360 150
+			background			"gfx/menus/bigbox"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// QUIT MENU specific stuff
+		itemDef
+		{
+			name				fcflist
+			rect				140 180 360 150
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_FILLED
+			elementwidth		200
+			elementheight		17
+			font				4
+			textscale			1
+			elementtype			LISTBOX_TEXT
+			feeder				46
+			textstyle			6
+			textalign			10
+			textaligny			2
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		.25 .464 .578 .5
+			descText			"Status"
+			visible				1
+			columns				1 2 190 250
+			notselectable
+		}
+
+		itemDef
+		{
+			name			update_cancel_b
+			group			none
+			style			WINDOW_STYLE_SHADER
+			rect			140 330 130 24 
+			background		"gfx/menus/mb_buttonback"
+			forecolor		1 1 1 1
+			decoration
+			visible			0 
+		}
+
+		// Quit button
+		itemDef
+		{
+			name			update_cancel
+			group			none
+			text			"Cancel"
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_EMPTY
+			rect			140 330 130 24 
+			font			3
+			textscale		1
+			textalignx		65
+			textaligny		-1
+			textalign		ITEM_ALIGN_CENTER
+			textstyle		0
+			descText		"Quits the game"
+			forecolor		0.1 0.7 1 0.8
+			visible			1
+			action
+			{
+				play		"sound/interface/button1.wav" 
+				uiScript	updateCancelCheck
+			}
+			mouseenter
+			{
+				show		update_cancel_b 
+			}
+			mouseExit
+			{
+				hide		update_cancel_b 
+			}
+		}
+	}
+
+	menuDef
+	{
+		name					"updateConfirm"
+		visible					0
+		fullScreen				1
+		rect					0 0 640 480
+		focusColor				1 1 1 1
+		appearanceIncrement		100
+		descX					320
+		descY					424
+		descScale				1
+		descColor				0.1 0.7 1 0.8
+		descAlignment			ITEM_ALIGN_CENTER
+		appearanceIncrement		100
+		onESC
+		{
+			uiScript			Quit
+		}
+		onOpen
+		{
+			setfocus			updateconfirm_update
+		}
+
+// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				blackbackground
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				140 130 360 210
+			backcolor			0 0 0 0.95
+			forecolor			1 1 1 1
+			border				0
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				centerwindow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				140 130 360 210
+			background			"gfx/menus/bigbox"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+// QUIT MENU specific stuff
+		itemDef
+		{
+			name confirm
+			group				none
+			text 				"There is an update available.  Would you\n  like to update now, or quit?"
+			font				2
+			textscale			1
+			textstyle			0
+			rect				95 140 450 20
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			225
+			textaligny			0
+			decoration
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+		}
+
+		itemDef
+		{
+			name				item_info
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				160 190 320 100
+			text				"  "
+			cvar				ui_update_info
+			font				4
+			forecolor			.549 .854 1 1
+			textscale			1
+			textalign			ITEM_ALIGN_LEFT
+			textaligny			6
+			visible				1
+			lineHeight			13
+		}
+
+		itemDef
+		{
+			name				updateconfirm_quit_b
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				160 296 130 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0 
+		}
+
+		// Quit button
+		itemDef
+		{
+			name				updateconfirm_quit
+			group				none
+			text				"Quit"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				160 296 130 24
+			font				3
+			textscale			1
+			textalignx			65
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			descText			"Quits the game"
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		Quit
+			}
+			mouseenter
+			{
+				show			updateconfirm_quit_b 
+			}
+			mouseExit
+			{
+				hide			updateconfirm_quit_b 
+			}
+		}
+
+		itemDef
+		{
+			name				updateconfirm_update_b
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				350 296 130 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible		0
+		}
+
+		// Update button
+		itemDef
+		{
+			name				updateconfirm_update
+			group				none
+			text				"Update"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				350 296 130 24
+			font				3
+			textscale			1
+			textalignx			65
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			descText			"Updates MBII"
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		updateConfirm		// Starts the update
+				}
+			mouseenter
+			{
+				show			updateconfirm_update_b 
+			}
+			mouseExit
+			{
+				hide			updateconfirm_update_b
+			}
+		}
+	}
+
+	menuDef
+	{
+		name					"updateCancel"
+		visible					0
+		fullScreen				1
+		rect					0 0 640 480
+		focusColor				1 1 1 1
+		appearanceIncrement		100
+		descX					320
+		descY					424
+		descScale				1
+		descColor				0.1 0.7 1 0.8
+		descAlignment			ITEM_ALIGN_CENTER
+		appearanceIncrement		100
+		onESC
+		{
+			uiScript			updateReturn
+		}
+		onOpen
+		{
+			setfocus			updatecancel_no
+		}
+
+// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				blackbackground
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				140 180 360 150
+			backcolor			0 0 0 0.95
+			forecolor			1 1 1 1
+			border				0
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				centerwindow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				140 180 360 150
+			background			"gfx/menus/bigbox"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// QUIT MENU specific stuff
+		itemDef
+		{
+			name confirm
+			group				none
+			text				"Are you sure you'd like to\ncancel the update and quit?"
+			font				2
+			textscale			1
+			textstyle			0
+			rect				95 230 450 20
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			225
+			textaligny			0
+			decoration
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+		}
+
+		itemDef
+		{
+			name				updatecancel_yes_b
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				160 286 130 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+		}
+
+		// Quit button
+		itemDef
+		{
+			name				updatecancel_yes
+			group				none
+			text				"Yes"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				160 286 130 24
+			font				3
+			textscale			1
+			textalignx			65
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			descText			"Quits the game"
+			forecolor			0.1 0.7 1 0.8
+			visible		1
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		Quit
+			}
+			mouseenter
+			{
+				show			updatecancel_yes_b 
+			}
+			mouseExit
+			{
+				hide			updatecancel_yes_b 
+			}
+		}
+
+		itemDef
+		{
+			name				updatecancel_no_b
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				350 286 130 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+		}
+
+		// Update button
+		itemDef
+		{
+			name				updatecancel_no
+			group				none
+			text				"No"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				350 286 130 24
+			font				3
+			textscale			1
+			textalignx			65
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			descText			"Return to Update"
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		updateReturn		// returns to the update
+			}
+			mouseenter
+			{
+				show			updatecancel_no_b 
+			}
+			mouseExit
+			{
+				hide			updatecancel_no_b
+			}
+		}
+	}
+}

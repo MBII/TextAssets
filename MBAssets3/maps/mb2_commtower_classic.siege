@@ -1,0 +1,111 @@
+Teams
+{
+	team1 NewRepublic
+	team2 ImperialRemnant
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_comm_tower/layout_classic"
+missionname "Imperial Comm Tower Classic"
+radartopleft "-3776, 6272"
+radarbottomright "4928, -3392"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_commtower_classic1"
+		radargraphicfull "gfx/automap/mb2_commtower_classic1full"
+		height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_commtower_classic2"
+		radargraphicfull "gfx/automap/mb2_commtower_classic2full"
+		height "-576"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_commtower_classic3"
+		radargraphicfull "gfx/automap/mb2_commtower_classic3full"
+		height "1216"
+	}
+}
+
+roundbegin_target ""
+
+NewRepublic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "comtower_rebels"
+	TeamIcon "gfx/2d/logos/mb_newrepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Deactivate security!"
+		final -1
+		message_team1 "We have deactivated the security system."
+		message_team2 "The Rebels have breached our security!"
+		objdesc "ACCOMPLISH: Deactivate the security to reach the Comm Tower faster."
+		objgfx "gfx/mp/mplevels/mb2_comm_tower/rebelobjective1"
+	}
+
+	Objective2
+	{
+		goalname "ACCOMPLISH: Destroy the Communication Tower!"
+		final 0
+		message_team1 "We have destroyed the Comm Tower!"
+		message_team2 "The Rebels have destroyed the Comm Tower!"
+		objdesc "ACCOMPLISH: Plant a bomb at the base of the Comm Tower!"
+		objgfx "gfx/mp/mplevels/mb2_comm_tower/rebelobjective2"
+	}
+
+	wonround "We have destroyed the Communications Tower!"
+	lostround "We have failed to destroy the Communications Tower!"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Infiltrate the Imperial Remnant's base and plant a bomb on the Communications Tower."
+}
+
+ImperialRemnant
+{
+	RequiredObjectives 1
+	UseTeam "comtower_imperials"
+	TeamIcon "gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "SECONDARY: Defend security!"
+		final -1
+		message_team1 "We have deactivated the security system."
+		message_team2 "The Rebels have breached our security!"
+		objdesc "SECONDARY: Defend security!"
+		objgfx "gfx/mp/mplevels/mb2_comm_tower/rebelobjective1"
+	}
+
+	Objective2
+	{
+		goalname "ACCOMPLISH: Stop the Rebels!"
+		final 0
+		message_team1 "We have failed to destroy the Comm Tower!"
+		message_team2 "We have stopped the Rebels from destroying the Comm Tower!"
+		target ""
+		objdesc "ACCOMPLISH: Stop the Rebels from destroying the Comm Tower!"
+		objgfx "gfx/mp/mplevels/mb2_comm_tower/rebelobjective2"
+	}
+
+	wonround "The Rebels have been eliminated."
+	lostround "The Communications Tower has been destroyed!"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Find and eliminate the New Republic's forces."
+}

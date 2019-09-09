@@ -1,0 +1,3924 @@
+// SETUP MENU
+{
+	menuDef
+	{
+		name					"ingame_setup"
+		visible					0
+		fullscreen				0
+		outOfBoundsClick
+		rect					45 35 550 335
+		focusColor				1 1 1 1
+		style					1
+		border					1
+		descX					305
+		descY					340
+		descScale				0.8
+		descColor				0.1 0.7 1 0.7
+		descAlignment			ITEM_ALIGN_CENTER
+		onOpen
+		{
+			uiScript			getvideosetup
+			show				background_pic
+			show				setup_background
+			show				video
+			hide				applyChanges
+			hide				video2
+			hide				vidrestart
+			hide				sound
+			hide				options
+			hide				connection
+			hide				visual
+			hide				trueview
+			hide				defaults
+			hide				default_glow
+			hide				crosshair
+			setitemcolor		setup_submenu	forecolor	0.1 0.7 1 0.9
+			setitemcolor		videomenubutton	forecolor	0.1 0.5 1 0.9
+		}
+		onESC
+		{
+			play				"sound/interface/button1"
+			defer				VideoSetup	videowarningMenu
+			hide				highlights
+			close				ingame_setup
+		}
+
+		// Overall window backdrop
+		itemDef
+		{
+			name				background_pic
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				-10 0 580 345
+			background			"gfx/menus/bigbox2"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				playerconfigtitle
+			style				WINDOW_STYLE_EMPTY
+			text				@MENUS_SETUP
+			rect				20 15 510 28
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			255
+			textaligny			2
+			outlinecolor		1 .5 .5 .5
+			backcolor			0 0 0 0
+			font				3
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+		}
+
+		// video1 button
+		itemDef
+		{
+			name				video1button_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 38 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				video1menubutton
+			group				setup_submenu
+			text				@MENUS_VIDEO
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 38 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textstyle			3
+			textalign			ITEM_ALIGN_RIGHT
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			descText			@MENUS_CONFIGURE_VIDEO_SETTINGS
+			mouseEnter
+			{
+				show			video1button_glow
+			}
+			mouseExit
+			{
+				hide			video1button_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				uiScript		getvideosetup
+				show			background_pic
+				show			setup_background
+				show 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				hide			sound
+				hide			options
+				hide			connection
+				hide			visual
+				hide			trueview
+				hide			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu		forecolor	0.1 0.7 1 0.9
+				setitemcolor	video1menubutton	forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		// video2 button
+		itemDef
+		{
+			name				video2button_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 68 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				video2menubutton
+			group				setup_submenu
+			text				@MENUS_MORE_VIDEO
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 68 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			descText			@MENUS_CONFIGUE_MORE_VIDEO_SETTINGS
+			mouseEnter
+			{
+				show			video2button_glow
+			}
+			mouseExit
+			{
+				hide			video2button_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				show			video2
+				hide			vidrestart
+				hide			sound
+				hide			options
+				hide			connection
+				hide			visual
+				hide			trueview
+				hide			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu		forecolor	0.1 0.7 1 0.9
+				setitemcolor	video2menubutton	forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		// sound button
+		itemDef
+		{
+			name				soundbutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 98 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				soundmenubutton
+			group				setup_submenu
+			text				@MENUS_SOUND
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 98 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_CONFIGURE_SOUND_SETTINGS
+			mouseEnter
+			{
+				show			soundbutton_glow
+			}
+			mouseExit
+			{
+				hide			soundbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				show			sound
+				hide			options
+				hide			connection
+				hide			visual
+				hide			trueview
+				hide			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu		forecolor	0.1 0.7 1 0.9
+				setitemcolor	soundmenubutton		forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		// gameoptions button
+		itemDef
+		{
+			name				gameoptionsbutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 188 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				gameoptionmenubutton
+			group				setup_submenu
+			text				@MENUS_OPTIONS
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 188 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_CONFIGURE_GAME_OPTIONS
+			mouseEnter
+			{
+				show			gameoptionsbutton_glow
+			}
+			mouseExit
+			{
+				hide			gameoptionsbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				hide			sound
+				show			options
+				hide			connection
+				hide			visual
+				hide			trueview
+				hide			langapply
+				hide			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu			forecolor	0.1 0.7 1 0.9
+				setitemcolor	gameoptionmenubutton	forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		//visual options button
+		itemDef
+		{
+			name				visualbutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 128 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				visualmenubutton
+			group				setup_submenu
+			text				"Visual Options"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 128 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Configure visual and antispam settings."
+			mouseEnter
+			{
+				show			visualbutton_glow
+			}
+			mouseExit
+			{
+				hide			visualbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				hide			sound
+				hide			options
+				hide			connection
+				show			visual
+				hide			trueview
+				hide			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu			forecolor	0.1 0.7 1 0.9
+				setitemcolor	visualmenubutton	forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		//visual options button
+		itemDef
+		{
+			name				camerabutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 158 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				cameramenubutton
+			group				setup_submenu
+			text				"Camera Options"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 158 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Configure camera and TrueView 1st person settings"
+			mouseEnter
+			{
+				show			camerabutton_glow
+			}
+			mouseExit
+			{
+				hide			camerabutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				hide			sound
+				hide			options
+				hide			connection
+				hide			visual
+				show			trueview
+				hide			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu			forecolor	0.1 0.7 1 0.9
+				setitemcolor	cameramenubutton	forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		// networkoptions button
+		itemDef
+		{
+			name				networkoptionsbutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 218 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				networkoptionmenubutton
+			group				setup_submenu
+			text				"NETWORK OPTIONS"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 218 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Configure networking and connection settings"
+			mouseEnter
+			{
+				show			networkoptionsbutton_glow
+			}
+			mouseExit
+			{
+				hide			networkoptionsbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				hide			sound
+				hide			options
+				show			connection
+				hide			visual
+				hide			trueview
+				hide			langapply
+				hide			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu			forecolor	0.1 0.7 1 0.9
+				setitemcolor	networkoptionmenubutton		forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		// crosshair button
+		itemDef
+		{
+			name				crosshairbutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 248 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				crosshairmenubutton
+			group				setup_submenu
+			text				"Crosshair Options"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 248 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Configure crosshair settings"
+			mouseEnter
+			{
+				show			crosshairbutton_glow
+			}
+			mouseExit
+			{
+				hide			crosshairbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				hide			sound
+				hide			options
+				hide			connection
+				hide			visual
+				hide			trueview
+				hide			defaults
+				show			crosshair
+				setitemcolor	setup_submenu			forecolor	0.1 0.7 1 0.9
+				setitemcolor	crosshairmenubutton	forecolor	0.1 0.5 1 0.9
+			}
+		}
+
+		// gamedefaults button
+		itemDef
+		{
+			name				gamedefaultsbutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				25 278 185 30
+			background			"gfx/menus/mb_buttonback"
+			forecolor			.7 .7 .7 .7
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				gamedefaultsmenubutton
+			group				setup_submenu
+			text				@MENUS_DEFAULTS
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				25 278 170 30
+			font				3
+			textscale			0.9
+			textalignx			178
+			textaligny			5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			3
+			forecolor			1 1 1 1
+			visible				1
+			descText			@MENUS_RESTORE_DEFAULT_SETTINGS
+			mouseEnter
+			{
+				show			gamedefaultsbutton_glow
+			}
+			mouseExit
+			{
+				hide			gamedefaultsbutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				defer			VideoSetup	videowarningMenu
+				show			background_pic
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			vidrestart
+				hide			sound
+				hide			options
+				hide			connection
+				hide			visual
+				hide			trueview
+				show			defaults
+				hide			crosshair
+				setitemcolor	setup_submenu			forecolor	0.1 0.7 1 0.9
+				setitemcolor	gamedefaultsmenubutton	forecolor	0.1 0.5 1 0.9
+			}
+		}
+		
+
+// VIDEO 1 MENU BUTTONS
+
+		itemDef
+		{
+			name			graphics
+			group			video
+			text			@MENUS_VIDEO_QUALITY
+			type			ITEM_TYPE_MULTI
+			rect			220 41 300 20
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		165
+			textaligny		0
+			font			4
+			textscale		1
+			style			WINDOW_STYLE_FILLED
+			forecolor		0.1 0.7 1 0.9
+			descText		@MENUS_SELECT_PRESET_GRAPHIC
+			visible				0
+			cvar 			"ui_r_glCustom"
+			cvarFloatList
+			{
+				@MENUS_HIGH_QUALITY	0 
+				@MENUS_NORMAL		1 
+				@MENUS_FAST			2 
+				@MENUS_FASTEST		3 
+				@MENUS_CUSTOM		4 
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript 		update "ui_r_glCustom"
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				video_mode
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_VIDEO_MODE
+			cvarFloatList {@MENUS_640_X_480 3 @MENUS_800_X_600 4 @MENUS_1024_X_768 6 @MENUS_1152_X_864 7 @MENUS_1280_X_1024 8 @MENUS_1600_X_1200 9 @MENUS_2048_X_1536 10 @MENUS_2400_X_600 12 "Custom Resolution" -1 }
+			cvar				"ui_r_mode"
+			rect				220 62 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			descText			@MENUS_CHANGE_THE_DISPLAY_RESOLUTION
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				widthxheight
+			group				video
+			text				"Width x Height:"
+			cvartest			ui_r_mode
+			showcvar			{ "-1" }
+			rect				220 83 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			descText			""
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				customWidth
+			group				video
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				""
+			descText			"Change your custom width."
+			cvar				"r_customWidth"
+			rect				394 83 32 20
+			textalignx			0
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			maxchars			4
+			maxPaintChars		4
+			visible				0
+			cvarTest			ui_r_mode
+			showcvar			{ "-1" }
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				x
+			group				video
+			text				"X"
+			cvartest			ui_r_mode
+			showcvar			{ "-1" }
+			rect				435 83 0 0
+			textalign			ITEM_ALIGN_RIGHT
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			descText			""
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				customHeight
+			group				video
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				""
+			descText			"Change your custom height."
+			cvar				"r_customHeight"
+			rect				445 83 32 20
+			textalignx			0
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			maxchars			4
+			maxPaintChars		4
+			visible				0
+			cvarTest			ui_r_mode
+			showcvar			{ "-1" }
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				color_depth
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_COLOR_DEPTH
+			rect				220 103 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList{@MENUS_DEFAULT 0 @MENUS_16_BIT 16 @MENUS_32_BIT 32 }
+			descText			@MENUS_CHANGE_THE_NUMBER_OF
+			cvar				"ui_r_colorbits"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		glCustom
+				uiScript update "ui_r_colorbits"
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				fullscreen
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_FULL_SCREEN
+			rect				220 123 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor		0.1 0.7 1 0.9
+			cvarFloatList{@MENUS_OFF 0 @MENUS_ON 1 }
+			descText			@MENUS_TOGGLE_BETWEEN_FULL_SCREEN
+			cvar				"ui_r_fullscreen"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				geometric_detail
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_GEOMETRIC_DETAIL
+			rect				220 143 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList{@MENUS_LOW 2 @MENUS_MEDIUM 1 @MENUS_HIGH 0 }
+			descText			@MENUS_ADJUST_THE_NUMBER_OF
+			cvar				"ui_r_lodbias"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		glCustom
+				uiScript update "ui_r_lodbias"
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				texture_detail
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_TEXTURE_DETAIL
+			rect				220 163 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList{@MENUS_LOW 3 @MENUS_MEDIUM 2 @MENUS_HIGH 1 @MENUS_VERY_HIGH 0 }
+			descText			@MENUS_SELECT_THE_RESOLUTION
+			cvar				"ui_r_picmip"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				texture_quality
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_TEXTURE_QUALITY
+			rect				220 183 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList{ @MENUS_DEFAULT 0 @MENUS_16_BIT 16 @MENUS_32_BIT 32 }
+			descText			@MENUS_SELECT_THE_NUMBER_OF
+			cvar				"ui_r_texturebits"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				texture_filter
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_TEXTURE_FILTER
+			rect				220 203 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarStrList	{@MENUS_BILINEAR , "GL_LINEAR_MIPMAP_NEAREST" , @MENUS_TRILINEAR , "GL_LINEAR_MIPMAP_LINEAR" }
+			descText			@MENUS_ADJUST_HOW_WELL_THE_TEXTURES
+			cvar				"ui_r_texturemode"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				simple_shaders
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_DETAILED_SHADERS
+			rect				220 223 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList{@MENUS_OFF 0 @MENUS_ON 1 }
+			descText			@MENUS_HIDE_OR_UNHIDE_TEXTURES
+			cvar				"ui_r_detailtextures"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				VIDEO_SYNC
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_VIDEO_SYNC
+			cvar				"r_swapInterval"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 243 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_VIDEO_SYNC_DESC
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				compress_textures
+			group				video_obsolete
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_COMPRESSED_TEXTURES
+			rect				220 243 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList{@MENUS_OFF 0 @MENUS_ON 1 }
+			descText			@MENUS_TAKE_ADVANTAGE_OF_3D
+			cvar				"ui_r_ext_compress_textures"
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				maxfps
+			group				video
+			type				ITEM_TYPE_MULTI
+			text				"Max FPS:"
+			rect				220 263 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList
+			{
+				"30"			30 
+				"60"			60
+				"85 (Default)"	85 
+				"120"			120
+				"125"			125
+				"0 (uncapped)"	0
+			}
+			descText			"Max FPS rate, recommended to be set slightly below the highest FPS you can normally attain."
+			cvar				"com_maxfps"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// APPLY CHANGES BUTTON
+		itemDef
+		{
+			name				applybutton_glow
+			style				WINDOW_STYLE_SHADER
+			rect				260 285 200 18
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 0.5 0.5 1
+			visible				0
+			// appearance_slot	1
+			decoration
+		}
+
+		itemDef
+		{
+			name				applyChanges
+			text				@MENUS_APPLY_CHANGES
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				260 280 200 30
+			font				4
+			textscale			1
+			textalignx			100
+			textaligny			5
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			3
+			forecolor			1 0 0 1
+			backcolor			0 0 1 0
+			visible				0
+			mouseEnter
+			{
+				show			applybutton_glow
+			}
+			mouseExit
+			{
+				hide			applybutton_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+				show			setup_background
+				show			vidrestart
+				hide			video
+				hide			video2
+				hide			applybutton_glow
+			}
+		}
+
+		// VIDEO RESTART
+		// Faint red box
+		itemDef
+		{
+			name				vidrestart_background
+			group				vidrestart
+			style				WINDOW_STYLE_SHADER
+			rect				210 41 302 252	
+			background			"gfx/menus/menu_boxred"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				vidrestart_text1
+			group				vidrestart
+			text				@MENUS_THIS_WILL_APPLY_VIDEO
+			text2				@MENUS_AND_RETURNTO_GAME
+			rect				210 100 300 20
+			textalign			ITEM_ALIGN_CENTER
+			text2aligny			18
+			textalignx			150
+			font				2
+			textscale			1 
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				vidrestart_text2
+			group				vidrestart
+			text				@MENUS_VID_RESTART3
+			rect				210 160 256 20
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			150
+			font				2
+			textscale			1 
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+		}
+
+		itemDef
+		{
+			name				vidrestart_yes_button
+			style				WINDOW_STYLE_SHADER
+			rect				367 241 120 32 
+			background			"gfx/menus/mb_buttonback"
+			forecolor			0.1 0.7 1 0.9
+			decoration
+			visible				0
+			// appearance_slot	4
+		}
+
+		// YES button
+		itemDef
+		{
+			name				vidrestart_yes
+			group				vidrestart
+			text				@MENUS_YES
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				367 241 120 32 
+			font				2
+			textscale			1 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			60
+			textaligny			0
+			descText			@MENUS_APPLY_CHANGES_AND_THEN
+			forecolor			0.1 0.7 1 0.9
+			visible				-1
+			// appearance_slot	5
+			action
+			{
+				play			"sound/interface/button1.wav"
+				close			all
+				uiScript		updatevideosetup
+			}
+			mouseEnter
+			{
+				show			vidrestart_yes_button
+			}
+			mouseExit
+			{
+				hide			vidrestart_yes_button
+			}
+		}
+
+		itemDef
+		{
+			name				vidrestart_no_button
+			style				WINDOW_STYLE_SHADER
+			rect				240 241 120 32 
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+			// appearance_slot	3
+		}
+
+		// CANCEL button
+		itemDef
+		{
+			name				vidrestart_no
+			group				vidrestart
+			text				@MENUS_NO
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				240 241 120 32 
+			font				2
+			textscale			1 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			60
+			textaligny			-1
+			descText			@MENUS_DO_NOT_APPLY_CHANGES
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	6
+			action
+			{
+				play			"sound/interface/button1"
+				show			setup_background
+				hide 			vidrestart
+				show			video
+				hide			video2
+				show			applyChanges
+				hide			vidrestart_yes_button
+				hide			vidrestart_no_button
+			}
+			mouseEnter
+			{
+				show			vidrestart_no_button 
+			}
+			mouseExit
+			{
+				hide			vidrestart_no_button 
+			}
+		}
+
+		//	VIDEO 2
+		itemDef
+		{
+			name				gamma_text
+			group				video2
+			style				WINDOW_STYLE_SHADER
+			rect				260 40 260 36
+			background			"gfx/menus/greyscale"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+			// appearance_slot	1
+		}
+
+		itemDef
+		{
+			name				bright_text
+			group				video2
+			text				@MENUS_ADJUST_BRIGHTNESS_SLIDER
+			text2				@MENUS_THE_NUMBER_6_CAN_BARELY
+			text2aligny			14
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			rect				220 80 256 20
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	2
+			decoration
+		}
+
+		itemDef
+		{
+			name				brightness
+			group				video2
+			type				ITEM_TYPE_SLIDER
+			text				@MENUS_VIDEO_BRIGHTNESS
+			cvarfloat			"r_gamma" 1 .5 3
+			rect				220 118 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	3
+			descText			@MENUS_ADJUST_THE_BRIGHTNESS
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				shadows
+			group				video2
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_SHADOWS
+			descText			@MENUS_SHADOWS_DESC
+			cvar				"cg_shadows"
+			cvarFloatList
+			{
+				@MENUS_NONE					0
+				@MENUS_SHADOWS_SIMPLE		1
+			}
+			rect				220 138 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				dynamic_light
+			group				video2
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_DYNAMIC_LIGHTS
+			cvar				"r_dynamiclight"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 158 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_TOGGLE_TO_TURN_ON_MOVING
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				dynamic_glow
+			group				video2
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_DYNAMIC_GLOW
+			cvar				r_dynamicglow
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 178 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_DYNAMIC_GLOW_DESC
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				fastsky
+			group				video2
+			type				ITEM_TYPE_MULTI
+			text				"Disable Sky:"
+			cvar				r_fastsky
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 201 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Show or hide the skybox."
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				light_flares
+			group				video2
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_LIGHT_FLARES
+			cvar				r_flares
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 221 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TOGGLE_TO_SHOW_HALOS
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				wall_marks
+			group				video2
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_WALL_MARKS
+			cvar				"cg_marks"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 241 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_TOGGLE_TO_DISPLAY_SCORCH
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				video_mode
+			group				video2
+			type				ITEM_TYPE_SLIDER
+			text				@MENUS_ANISOTROPIC_FILTERING
+			cvarTest			r_ext_texture_filter_anisotropic_avail
+			disableCvar			{0 }
+			cvarfloat			r_ext_texture_filter_anisotropic 1 .5 16
+			rect				220 261 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			174
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor		0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	5
+			descText			@MENUS_TOGGLE_ADVANCED_TEXTURE
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		//	SOUND FIELDS
+		itemDef
+		{
+			name				effects_volume
+			group				sound
+			type				ITEM_TYPE_SLIDER
+			text				@MENUS_EFFECTS_VOLUME
+			cvarfloat			"s_volume" 0 0 1
+			rect				220 61 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			120
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_ADJUST_VOLUME_FOR_SOUND
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				music_volume
+			group				sound
+			type				ITEM_TYPE_SLIDER
+			text				@MENUS_MUSIC_VOLUME
+			cvarfloat			"s_musicvolume" 0 0 1
+			rect				220 81 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			120
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	2
+			descText			@MENUS_ADJUST_VOLUME_FOR_MUSIC
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				voice_volume
+			group				sound
+			type				ITEM_TYPE_SLIDER
+			text				@MENUS_VOICE_VOLUME
+			cvarfloat			"s_volumeVoice" 0 0 1
+			rect				220 101 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			120
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_VOICE_VOLUME_DESC
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				sound_chat
+			group				sound
+			type				ITEM_TYPE_MULTI
+			text				"Chat Sound:"
+			cvar				"cg_disableChatSound"
+			cvarFloatList
+			{
+				@MENUS_OFF		1
+				@MENUS_ON		0
+			}
+			rect				220 130 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			120
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggle sound made when chat messages are displayed."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				sound_quality
+			group				sound
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_SOUND_QUALITY
+			cvar				"s_khz"
+			cvarFloatList{@MENUS_LOW 11 @MENUS_HIGH 22 @MENUS_VERY_HIGH 44 }
+			rect				220 150 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			120
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_TRADE_CLARITY_OF_SOUND
+			cvarTest			"s_UseOpenAL"
+			hideCvar			{1 }
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		update "s_khz"
+			}
+		}
+
+		itemDef
+		{
+			name				eax
+			group				sound
+			type				ITEM_TYPE_MULTI
+			cvar				"s_UseOpenAL"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			text				@MENUS_EAX
+			rect				220 170 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			120
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_EAX_DESC
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		update s_khz
+			}
+		}
+
+		itemDef
+		{
+			name				eax_icon
+			group				sound
+			style				WINDOW_STYLE_SHADER
+			rect				297 201 128 64
+			background			"gfx/menus/eax"
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			decoration
+			cvarTest			"s_UseOpenAL"
+			hideCvar			{0 }
+		}
+
+		// OPTION FIELDS
+		itemDef
+		{
+			name				forcemodels
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_FORCE_PLAYER_MODELS
+			cvar				"cg_forceModel"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 51 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_FORCE_ALL_PLAYER_MODELS
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				defermodels
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_DEFER_PLAYER_MODELS
+			cvar				"cg_deferPlayers"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 66 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor		0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_DEFERS_LOADING_OF_NEW
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				teamchatsonly
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_TEAM_CHATS_ONLY
+			cvar				"cg_teamChatsOnly"
+			cvarFloatList
+			{
+				@MENUS_NO		0
+				@MENUS_YES		1
+			}
+			rect				220 81 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_IGNORE_NON_TEAM_CHATS
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				simpleitems
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_SIMPLE_ITEMS
+			cvar				"cg_simpleItems"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 96 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor		0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_RENDER_ICONS_FOR_ITEMS
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				teamoverlay
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_TEAM_OVERLAY
+			cvar				"cg_drawTeamOverlay"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 111 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor		0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_DRAW_OVERLAY_SHOWING
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		// Weapon Sway. Yes, this is nutty. Two cvars here, one removes weapon sway, the other adds it.
+		itemDef
+		{
+			name				weaponswayon
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_VIEW_SWAYING
+			descText			@MENUS_VIEW_SWAYING_DESC
+			cvar				"ui_disableWeaponSway"
+			cvarFloatList
+			{
+				@MENUS_ON		0
+				@MENUS_OFF		1
+			}
+			cvarTest			"ui_disableWeaponSway"
+			showCvar
+			{
+				"0"
+			}
+			rect				220 126 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				exec			"exec noMotion.cfg"
+				show			weaponswayoff
+				setfocus		weaponswayoff
+			}
+		}
+
+		itemDef
+		{
+			name				weaponswayoff
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_VIEW_SWAYING
+			descText			@MENUS_VIEW_SWAYING_DESC
+			cvar				"ui_disableWeaponSway"
+			cvarFloatList
+			{
+				@MENUS_ON		0
+				@MENUS_OFF		1
+			}
+			cvarTest			"ui_disableWeaponSway"
+			hideCvar
+			{
+				"0"
+			}
+			rect				220 126 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				exec			"exec restoreMotion.cfg"
+				show			weaponswayon
+				setfocus		weaponswayon
+			}
+		}
+
+		itemDef
+		{
+			name				footsteps
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_FOOTSTEPS
+			desctext			@MENUS_FOOTSTEPS_DESC
+			cvar				"cg_footsteps"
+			cvarFloatList
+			{
+				@MENUS_OFF 						0
+				@MENUS_SOUNDS	 				1
+				@MENUS_SOUNDS_AND_EFFECTS		2
+				@MENUS_SOUNDS_EFFECTS_GRAPHICS	3
+			}
+			rect				220 141 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				jetpackactivation
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				"Jetpack Activation: "
+			desctext			"How to activate your jetpack"
+			cvar				"jp"
+			cvarFloatList
+			{
+				"All Methods"	 	0
+				"Hold Jump"			1
+				"Jump Twice"		2
+			}
+			rect				220 156 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				achievements
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				"Achievements: "
+			desctext			"Enables the achievements"
+			cvar				"cg_achievements"
+			cvarFloatList
+			{
+				"Disabled"				0
+				"Graphics only"			1
+				"Graphics and sound"	2
+			}
+			rect				220 171 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				achievementsscreenshot
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				"Screenshot Achievements: "
+			desctext			"Takes a screenshot when you reach an achievement"
+			cvar				"cg_achievementsscreenshot"
+			cvarFloatList
+			{
+				@MENUS_NO		0
+				@MENUS_YES		1
+			}
+			rect				220 186 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				uitimers
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				"Countdown timers: "
+			desctext			"Displays a countdown timer for objectives and siege events"
+			cvar				"cg_showCountdown"
+			cvarFloatList
+			{
+				@MENUS_NO		0
+				@MENUS_YES		1
+			}
+			rect				220 201 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+
+		itemDef
+		{
+			name				text
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_TEXT
+			cvar				"se_language"
+			feeder				40
+			cvarStrList	feeder
+			rect				220 216 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_CHOOSE_THE_LANGUAGE_FOR
+			action
+			{
+				play			"sound/interface/button1.wav"
+				show			langapply
+			}
+		}
+		
+		itemDef
+		{
+			name				voice
+			group				options
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_VOICE
+			cvar				"s_language"
+			cvarStrList
+			{
+				English				english
+				@MENUS_LANG_FRENCH	francais
+				Deutsch				deutsch
+				"Español"			espanol
+			}
+			rect				220 231 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor		0.1 0.7 1 0.9
+			visible				0
+			descText			@MENUS_CHOOSE_THE_LANGUAGE_TO
+			action
+			{
+				play			"sound/interface/button1.wav"
+				show			langapply
+			}
+		}
+		
+
+		// APPLY CHANGES button
+		itemDef
+		{
+			name				langapply
+			group				options
+			text				@MENUS_SET_LANGUAGE
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 341 350 20 
+			font				2
+			textscale			1 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			175
+			textaligny			0
+			descText			@MENUS_SET_LANGUAGE_INFO
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	5
+			action
+			{
+				play		"sound/interface/button1"
+				exec		"ui_load ;snd_restart"
+				hide			langapply
+			}
+		}
+
+		// VISUAL SETTING MENU
+
+		itemDef
+		{
+			name				swearfilter
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Chat Filtering: "
+			rect				220 45 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			cvar				"cg_swearwordfilter"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggle filtering of foul language in chat."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+
+		itemDef
+		{
+			name				chatboxwaittime
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Chatbox Display: "
+			rect				220 60 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			cvar				"cg_chatbox"
+			cvarFloatList
+			{
+				"10 seconds"	10000
+				"8 seconds"		8000
+				"5 seconds"		5000
+				"3 seconds"		3000
+			}
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Affects how long chat message stay displayed in the ingame chat box before disappearing."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				chatboxheight
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Chatbox Position: "
+			rect				220 75 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			cvar				"cg_chatboxheight"
+			cvarFloatList
+			{
+				"Low"			350
+				"High"			90
+			}
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Vertical position of the chat box on the player's screen"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				holster
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Holstered Weapons: "
+			cvar				"ojp_holsteredweapons"
+			cvarFloatList
+			{
+				@MENUS_OFF			0
+				"On self only"		1
+				"On all players"	2
+			}
+			rect				220 95 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Enable/Disable holstered weapons"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				rgb
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"RGB Players: "
+			cvar				"cg_ColourOverride"
+			cvarFloatList
+			{
+				@MENUS_ON		0
+				@MENUS_OFF		1
+			}
+			rect				220 110 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Show Red/Green/Blue colour customization options for some models"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				oldfuelbar
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Draw Old Class Bar: "
+			cvar				"cg_drawOldFuelBar"
+			cvarFloatList
+			{
+				@MENUS_NO		0
+				@MENUS_YES		1
+			}
+			rect				220 125 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Overlays the old class bar ontop of the right corner HUD"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				helmet
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Helmet View: "
+			cvar				"cg_helmetview"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 140 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggles Helmet View in first-person view"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				dismember
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Dismemberment: "
+			cvar				"cg_dismember"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				"Limbs Only"	1
+				"Full Body"		2
+			}
+			rect				220 155 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggles dismemberment severity"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				chatbubbles
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Chat Bubbles: "
+			cvar				"cg_disableChatBubbles"
+			cvarFloatList
+			{
+				"Disabled"		1
+				"Enabled"		0
+			}
+			rect				220 170 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Enable/disable chat bubbles"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				enhancedefx
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Enhanced Effects: "
+			cvar				"cg_enhancedEffects"
+			cvarFloatList
+			{
+				"Normal"		0
+				"High"			1
+			}
+			rect				220 185 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggle level of ingame effects detail"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				voicespam
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"VoiceChat Antispam: "
+			cvar				"cg_voiceFloodProtect"
+			cvarFloatList
+			{
+				"Off"			0
+				"On"			1
+			}
+			rect				220 200 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggle flood protection for the voicechat commands"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				tauntspam
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Taunt Antispam: "
+			cvar				"cg_tauntFloodProtect"
+			cvarFloatList
+			{
+				"Off"			0
+				"On"			1
+			}
+			rect				220 215 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Toggle flood protection for the taunt commands"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				grenadetrails
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Grenade Glows: "
+			cvar				"cg_thermalTrails"
+			cvarFloatList
+			{
+				"None"			0
+				"Subtle"		1
+				"Bright"		2
+			}
+			rect				220 230 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Configures grenade glows and trails"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				hudfiles
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Simple HUD: "
+			cvar				"cg_hudfiles"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 245 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Use simple HUD instead."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				draw2
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Draw2D: "
+			cvar				"cg_draw2d"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 260 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Hide or show HUD."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				drawgun
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Draw Gun: "
+			cvar				"cg_drawgun"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 275 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Hide or show guns in first person."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				seasonalhats
+			group				visual
+			type				ITEM_TYPE_MULTI
+			text				"Seasonal Hats: "
+			cvar				"cg_scrooge"
+			cvarFloatList
+			{
+				@MENUS_OFF		1
+				@MENUS_ON		0
+			}
+			rect				220 290 340 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Hide or show seasonal hats on models."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// CAMERA/TRUEVIEW MENU
+
+		
+		itemDef
+		{
+			name				thirdpersoncam
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"Default Camera: "
+			cvar				"cg_thirdpersoncam"
+			cvarFloatList
+			{
+				"3rd Person"		0
+				"Left Shoulder"		1
+				"Right Shoulder"	2
+			}
+			rect				220 50 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Camera to use by default when not in 1st person"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				walkingcam
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"Walking Camera: "
+			cvar				"cg_thirdpersonwalkingcam"
+			cvarFloatList
+			{
+				"3rd Person"		0
+				"Left Shoulder"		1
+				"Right Shoulder"	2
+			}
+			rect				220 65 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Enables the use of a different camera while walking"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				camtimer
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"Walking Cam Timer: "
+			cvar				"cg_thirdpersoncamtimer"
+			cvarFloatList
+			{
+				"Long"			1000
+				"Medium"		800
+				"Short"			500
+			}
+			rect				220 80 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Time taken to switch between regular and walking camera"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				specialcam
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"Specials Camera: "
+			cvar				"cg_thirdpersonspecialcam"
+			cvarFloatList
+			{
+				"Off"			0
+				"On"			1
+			}
+			rect				220 95 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"A (buggy) cinematic camera used for special lightsaber attacks"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				tv_flip
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"TrueView Flip: "
+			cvar				"cg_trueflip"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				"Simplified"	1
+				"Real"			2
+			}
+			rect				220 120 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Realism level of camera flip"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				tv_invertsaber
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"TrueView Invert Saber: "
+			cvar				"cg_trueinvertsaber"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 135 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Invert thirdperson setting for saber/melee"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				tv_guns
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"TrueView Guns: "
+			cvar				"cg_trueguns"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 150 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Use TrueView for guns"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				tv_roll
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"TrueView Roll: "
+			cvar				"cg_trueroll"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				"Simplified"	1
+				"Real"			2
+			}
+			rect				220 165 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Realism level of camera rolling"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				tv_moveroll
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"TrueView Move Roll: "
+			cvar				"cg_truemoveroll"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				"50%"			1
+				"100%"			2
+			}
+			rect				220 180 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"How much the roll (leaning) of walking or running effects the TrueView camera"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				tv_saberonly
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"TrueView Saber Only: "
+			cvar				"cg_truesaberonly"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 195 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Do not show body while using True View with the saber"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				tv_spin
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"TrueView Spin: "
+			cvar				"cg_truespin"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				"Simplified"	1
+				"Real"			2
+			}
+			rect				220 210 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Realism level of camera spinning"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				cgfov
+			group				trueview
+			type				ITEM_TYPE_SLIDER
+			text				"  FoV:"
+			cvarfloat			"cg_fov" 1 80 97
+			rect				220 225 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Field of View"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				fovfix
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"Widescreen FoV: "
+			cvar				"cg_fovAspectAdjust"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 240 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Corrects the field of view setting for widescreen resolutions."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				ratiofix
+			group				trueview
+			type				ITEM_TYPE_MULTI
+			text				"Widescreen UI: "
+			cvar				"mov_ratioFix"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 255 300 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			descText			"Corrects the aspect ratio of the HUD for widescreen resolutions."
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+// CONNECTION SETTINGS MENU
+
+		itemDef
+		{
+			name				custom
+			group				connection
+			type				ITEM_TYPE_MULTI
+			text				"Use Custom Settings:"
+			rect				225 186 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.6
+			cvar				"ui_customnetsettings"
+			cvarStrList	
+			{
+			@MENUS_NO			"0"
+			@MENUS_YES			"1"
+			}
+			descText			"Use custom values or choose from recommended presets"
+			visible				1
+			action
+			{
+				exec			"vstr ui_helpchoice"
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				notes
+			group				connection
+			type				ITEM_TYPE_TEXT
+			text				"See Optimization section of Library"
+			rect				145 240 300 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.2 0.5 1 0.5
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				notes
+			group				connection
+			type				ITEM_TYPE_TEXT
+			text				"for more info!"
+			rect				185 259 300 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.2 0.5 1 0.5
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				rate
+			group				connection
+			text				@MENUS_DATA_RATE
+			type				ITEM_TYPE_MULTI
+			rect				220 46 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			style				WINDOW_STYLE_FILLED
+			forecolor			0.1 0.7 1 0.9
+			descText			"Toggle connection rate"
+			visible				1
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "0" }
+			cvar				"rate"
+			cvarFloatList
+			{
+				"4000 (56k)"		4000
+				"5000 (ISDN)"		5000
+				"25000 (LAN/Cable)"	25000
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name 				packets
+			group				connection
+			text				"Max Packets:"
+			type				ITEM_TYPE_MULTI
+			rect				220 66 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			style				WINDOW_STYLE_FILLED
+			forecolor				0.1 0.7 1 0.9
+			descText			"Packet rate;higher values compensate for lag spikes but lower ping"
+			visible				1
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "0" }
+			cvar 				"cl_maxpackets"
+			cvarFloatList
+			{
+				"15"			15
+				"30"			30
+				"50"			50
+				"80"			80
+				"100"			100 
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				packetdup
+			group				connection
+			type				ITEM_TYPE_MULTI
+			text				"Backup Packets:"
+			rect				220 86 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "0" }
+			cvarFloatList
+			{
+				"0" 0
+				"1 (Default)" 1
+				"2" 2
+			}
+			descText			"Number of backup packets sent"
+			cvar				"cl_packetdup"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				timenudge
+			group				connection
+			type				ITEM_TYPE_MULTI
+			text				"Timenudge:"
+			rect				220 106 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "0" }
+			cvarFloatList
+			{
+				"Off" 0
+				"-20" -20
+				"-30" -30
+				"-40" -40
+				"-50" -50
+				"-60" -60
+			}
+			descText			"Lower values compensate for lag at the cost of other clients looking choppier"
+			cvar				"cl_timenudge"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				snaps
+			group				connection
+			type				ITEM_TYPE_MULTI
+			text				"Snaps:"
+			rect				220 126 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			descText			"Affects game smoothness, related to a server's internal fps rate"
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "0" }
+			cvar				"snaps"
+			cvarFloatList
+			{
+			"20"				20
+			"30"				30
+			"40"				40
+			}
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		//if custom settings
+		itemDef
+		{
+			name 				rate
+			group				connection
+			text				@MENUS_DATA_RATE
+			type				ITEM_TYPE_EDITFIELD
+			rect				220 46 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			style				WINDOW_STYLE_FILLED
+			forecolor			0.1 0.7 1 0.9
+			descText			"Toggle connection rate"
+			visible				1
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "1" }
+			cvar				"rate"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name 				packets
+			group				connection
+			text				"Max Packets:"
+			type				ITEM_TYPE_EDITFIELD
+			rect				220 66 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			style				WINDOW_STYLE_FILLED
+			forecolor			0.1 0.7 1 0.9
+			descText			"Packet rate;higher values compensate for lag spikes but lower ping"
+			visible				1
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "1" }
+			cvar				"cl_maxpackets"
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				packetdup
+			group				connection
+			type				ITEM_TYPE_EDITFIELD
+			text				"Backup Packets:"
+			rect				220 86 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "1" }
+			descText			"Number of backup packets sent"
+			cvar				"cl_packetdup"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				timenudge
+			group				connection
+			type				ITEM_TYPE_EDITFIELD
+			text				"Timenudge:"
+			rect				220 106 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "1" }
+			descText			"Lower values compensate for lag at the cost of other clients looking choppier"
+			cvar				"cl_timenudge"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				snaps
+			group				connection
+			type				ITEM_TYPE_EDITFIELD
+			text				"Snaps:"
+			rect				220 126 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			descText			"Affects game smoothness, related to a server's internal fps rate"
+			cvarTest			"ui_customnetsettings"
+			showcvar			{ "1" }
+			cvar				"snaps"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				lagometer
+			group				connection
+			type				ITEM_TYPE_MULTI
+			text				"Lagometer:"
+			rect				220 146 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.9
+			cvarFloatList
+			{
+				"Off"			0
+				"On"			1 
+			}
+			descText			"Visual gauge of connection performance"
+			cvar				"cg_lagometer"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// CROSSHAIR FIELDS
+
+		itemDef
+		{
+			name				draw_crosshair
+			group				crosshair
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_DRAW_CROSSHAIR
+			cvar				"cg_drawcrosshair"
+			cvarFloatList
+			{
+				@MENUS_OFF 0
+				"1" 1
+				"2" 2
+				"3" 3
+				"4" 4
+				"5" 5
+				"6" 6
+				"7" 7
+				"8" 8
+				"9" 9
+				"10" 10
+				"11" 11
+				"12" 12
+				"13" 13
+				"14" 14
+				"15" 15
+				"16" 16
+			}
+			rect				225 51 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			160
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_TOGGLE_TO_SHOW_OR_HIDE
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				draw_dualpistolcrosshair
+			group				crosshair
+			type				ITEM_TYPE_MULTI
+			text				"Dual Pistol crosshair: "
+			cvar				"cg_DualPistolCrosshair"
+			cvarFloatList
+			{
+				@MENUS_OFF 0
+				"1" 1
+				"2" 2
+				"3" 3
+				"4" 4
+				"5" 5
+				"6" 6
+				"7" 7
+				"8" 8
+				"9" 9
+				"10" 10
+				"11" 11
+				"12" 12
+				"13" 13
+				"14" 14
+				"15" 15
+				"16" 16
+			}
+			rect				225 71 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			169
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_TOGGLE_TO_SHOW_OR_HIDE
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				draw_shotgunpistolcrosshair
+			group				crosshair
+			type				ITEM_TYPE_MULTI
+			text				"Shotgun crosshair: "
+			cvar				"cg_ShotgunCrosshair"
+			cvarFloatList
+			{
+				@MENUS_OFF 0
+				"1" 1
+				"2" 2
+				"3" 3
+				"4" 4
+				"5" 5
+				"6" 6
+				"7" 7
+				"8" 8
+				"9" 9
+				"10" 10
+				"11" 11
+				"12" 12
+				"13" 13
+				"14" 14
+				"15" 15
+				"16" 16
+			}
+			rect				225 91 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			160
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_TOGGLE_TO_SHOW_OR_HIDE
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				draw_spectatorpistolcrosshair
+			group				crosshair
+			type				ITEM_TYPE_MULTI
+			text				"Spectator crosshair: "
+			cvar				"cg_SpectatorCrosshair"
+			cvarFloatList
+			{
+				@MENUS_OFF 0
+				"1" 1
+				"2" 2
+				"3" 3
+				"4" 4
+				"5" 5
+				"6" 6
+				"7" 7
+				"8" 8
+				"9" 9
+				"10" 10
+				"11" 11
+				"12" 12
+				"13" 13
+				"14" 14
+				"15" 15
+				"16" 16
+			}
+			rect				225 111 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			160
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_TOGGLE_TO_SHOW_OR_HIDE
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				identifytarget
+			group				crosshair
+			type				ITEM_TYPE_MULTI
+			text				@MENUS_IDENTIFY_TARGET
+			//	cvar			"cg_crosshairIdentifyTarget"
+			cvar				"cg_drawCrosshairNames"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				220 131 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			@MENUS_TOGGLE_TO_HAVE_THE_CROSSHAIR
+			action
+			{
+				play			"sound/interface/button1"
+			}
+
+		}
+		
+		itemDef
+		{
+			name				saberhiteffects
+			group				crosshair
+			type				ITEM_TYPE_MULTI
+			text				"Draw saber hit effects: "
+			cvar				"cg_drawHitEffects"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON			1
+			}
+			rect				220 151 300 20
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			165
+			textaligny			0
+			font				4
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	1
+			descText			"Effect on crosshair for making bodyhits (red) and perfect blocks (green)."
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		// RGB SLIDERS
+
+		itemDef
+		{
+			name				charrgb
+			group				crosshair
+			style				WINDOW_STYLE_FILLED
+			text				"RGB Setup"
+			rect				300 177 150 32
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			2
+			textaligny			2
+			outlinecolor		0.1 0.7 1 0.2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				crosshairrgb
+			group				crosshair
+			style				WINDOW_STYLE_SHADER
+			rect				420 51 20 20
+			background			"gfx/menus/rgb/mando_2"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				charred
+			group				crosshair
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"cg_crosshair_color_red" 0 0 255
+			rect				330 197 150 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			mouseEnter
+			{
+				show			charred_glow
+			}
+			mouseExit
+			{
+				hide			charred_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				chargreen
+			group				crosshair
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"cg_crosshair_color_green" 0 0 255
+			rect				330 217 150 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			mouseEnter
+			{
+				show			chargreen_glow
+			}
+			mouseExit
+			{
+				hide			chargreen_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		itemDef
+		{
+			name				charblue
+			group				crosshair
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"cg_crosshair_color_blue" 0 0 255
+			rect				330 237 150 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			mouseEnter
+			{
+				show			charblue_glow
+			}
+			mouseExit
+			{
+				hide			charblue_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		//RGB float values
+		itemDef
+		{
+			name				charred_value
+			group				crosshair
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				"R:"
+			cvar 				"cg_crosshair_color_red"
+			maxchars 			3
+			maxPaintChars		3 
+			rect				306 200 80 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor 		1 1 1 1
+			visible				1
+			descText			"Red Channel Value (0-255)"
+			mouseEnter
+			{
+				show			charred_glow
+			}
+			mouseExit
+			{
+				hide			charred_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				chargreen_value
+			group				crosshair
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				"G:"
+			cvar 				"cg_crosshair_color_green"
+			maxchars 			3
+			maxPaintChars 		3
+			rect				306 220 80 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor 		1 1 1 1
+			visible				1
+			descText			"Green Channel Value (0-255)"
+			mouseEnter
+			{
+				show			chargreen_glow
+			}
+			mouseExit
+			{
+				hide			chargreen_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				charblue_value
+			group				crosshair
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				"B:"
+			cvar				"cg_crosshair_color_blue"
+			maxchars 			3
+			maxPaintChars 		3 
+			rect				306 240 80 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			descText			"Blue Channel Value (0-255)"
+			mouseEnter
+			{
+				show			charblue_glow
+			}
+			mouseExit
+			{
+				hide			charblue_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		// RESET DEFAULTS
+
+		// Faint red box
+		itemDef
+		{
+			name				vidrestart_background
+			group				defaults
+			style				WINDOW_STYLE_SHADER
+			rect				210 41 352 252
+			background			"gfx/menus/menu_boxred"
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				options
+			group				defaults
+			text				@MENUS_WARNING
+			rect				210 61 352 20
+			font				2
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			176
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				options
+			group				defaults
+			text				@MENUS_THIS_WILL_SET_ALL_GAME
+			rect				210 101 352 20
+			text2aligny			20
+			font				2
+			textscale			.9
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			176
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				options
+			group				defaults
+			text				@MENUS_TO_THEIR_FACTORY_SETTINGS
+			rect				210 131 352 20
+			text2aligny			20
+			font				2
+			textscale			.9
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			176
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				options
+			group				defaults
+			text				@MENUS_VID_RESTART3
+			rect				220 191 352 20
+			font				2
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			176
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			decoration
+		}
+
+
+		itemDef
+		{
+			name				default_yes_button
+			group				default_glow
+			style				WINDOW_STYLE_SHADER
+			rect				430 241 120 32 
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+			// appearance_slot	4
+		}
+
+		// YES button - lose reset defaults
+		itemDef
+		{
+			name				default_yes
+			group				defaults
+			text				@MENUS_YES
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				430 241 120 32 
+			font				2
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			60
+			textaligny			0
+			descText			@MENUS_USE_DEFAULT_SETTINGS
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	5
+			action
+			{
+				play			"sound/interface/button1"
+				close			all
+				uiscript		resetdefaults
+			}
+			mouseEnter
+			{
+				show			default_yes_button 
+			}
+			mouseExit
+			{
+				hide			default_yes_button
+			}
+		}
+
+		itemDef
+		{
+			name				default_no_button
+			group				default_glow
+			style				WINDOW_STYLE_SHADER
+			rect				220 241 120 32 
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+			// appearance_slot	3
+		}
+
+		// NO button - return to Main Menu
+		itemDef
+		{
+			name				default_no
+			group				defaults
+			text				@MENUS_NO
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				220 241 120 32 
+			font				2
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			60
+			textaligny			0
+			descText			@MENUS_DO_NOT_RESET_DEFAULT
+			forecolor			0.1 0.7 1 0.9
+			visible				0
+			// appearance_slot	6
+			action
+			{
+				play			"sound/interface/button1"
+				uiscript 		clearmouseover	default_no
+				hide			defaults
+				hide			default_glow
+				close			all
+				open			ingame
+				open			ingame_setup
+			}
+			mouseEnter
+			{
+				show			default_no_button 
+			}
+			mouseExit
+			{
+				hide			default_no_button
+			}
+		}
+	}
+}

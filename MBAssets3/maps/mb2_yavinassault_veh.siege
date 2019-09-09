@@ -1,0 +1,77 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_yavinassault/mb2_yavinassault"
+missionname  "Yavin Assault"
+radartopleft "-6912, 6400"
+radarbottomright "6336, -6848"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_yavinassault"
+		radargraphicfull "gfx/automap/mb2_yavinassaultfull"
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	UseTeam "yavinass_Republic"
+	TeamIcon "gfx/2d/logos/mb_newrepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Defend the turret"
+		final 0
+		message_team1 "The Remnant forces have been held off."
+		message_team2 "The assault was unsuccessful."
+		objdesc "PRIMARY GOAL:
+		Hold off the Remnant forces and ensure the anti-aircraft turret stays online."
+		objgfx "gfx/mplevels/mb2_yavinassault/turret"
+	}
+
+	wonround "The Remnant forces were held off."
+	lostround "The turret was destroyed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 0
+	briefing "Defend the turret."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "yavinass_Imp"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Destroy the turret"
+		final 0
+		message_team1 "The turret has been destroyed."
+		message_team2 "The turret has been destroyed."
+		objdesc "PRIMARY GOAL:
+		Destroy the anti-air turret to allow aerial bombardment."
+		objgfx "gfx/mplevels/mb2_yavinassault/turret"
+	}
+
+	wonround "The turret was destroyed."
+	lostround "The assault was unsuccessful."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundoverimp"
+	attackers 1
+	briefing "Destroy the turret."
+}

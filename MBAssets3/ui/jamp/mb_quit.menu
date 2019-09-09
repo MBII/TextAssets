@@ -1,0 +1,176 @@
+// QUIT MENU
+
+{
+	menuDef
+	{
+		name					"quitMenu"
+		visible					0
+		fullScreen				1
+		rect					0 0 640 480
+		focusColor				1 1 1 1
+		appearanceIncrement		100
+		descX					320
+		descY					424
+		descScale				1
+		descColor				0.1 0.7 1 0.8
+		descAlignment			ITEM_ALIGN_CENTER
+		appearanceIncrement		100
+		onESC
+		{
+			play				"sound/interface/back.mp3"
+			close				quitMenu
+			open				mainMenu
+		}
+		onOpen
+		{
+			setfocus			quitgame_cancel
+		}
+
+		// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				blackbackground
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				140 180 360 150
+			backcolor			0 0 0 0.95
+			forecolor			1 1 1 1
+			border				0
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				centerwindow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				140 180 360 150
+			background			"gfx/menus/bigbox"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// QUIT MENU specific stuff
+		itemDef
+		{
+			name 				confirm
+			group				none
+			text				@MENUS_QUIT_JEDI_KNIGHT_II
+			font				2
+			textscale			1
+			textstyle			0
+			rect				95 230 450 20
+			textalign			ITEM_ALIGN_CENTER
+			textalignx 			225
+			textaligny			0
+			decoration
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+		}
+
+		itemDef
+		{
+			name				quitgame_cancel_button
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				160 286 130 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+		}
+
+		// CANCEL button
+		itemDef
+		{
+			name				quitgame_cancel
+			group				none
+			text				@MENUS_NO
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				160 286 130 24
+			font				3
+			textscale			1
+			textalignx			65
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			descText			@MENUS_DO_NOT_LEAVE_JEDI_KNIGHT
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				close			quitMenu
+				open			mainMenu
+			}
+			mouseEnter
+			{
+				show			quitgame_cancel_button 
+			}
+			mouseExit
+			{
+				hide			quitgame_cancel_button 
+			}
+		}
+
+		itemDef
+		{
+			name				quitgame_yes_button
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				350 286 130 24
+			background			"gfx/menus/mb_buttonback"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+		}
+
+		// YES button
+		itemDef
+		{
+			name				quitgame_yes
+			group				none
+			text				@MENUS_YES
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				350 286 130 24
+			font				3
+			textscale			1
+			textalignx			65
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			descText			@MENUS_JEDI_KNIGHT_II
+			forecolor			0.1 0.7 1 0.8
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		Quit
+			}
+			mouseEnter
+			{
+				show		quitgame_yes_button 
+			}
+			mouseExit
+			{
+				hide		quitgame_yes_button 
+			}
+		}
+	}
+}

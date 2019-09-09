@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Republic
+	team2 Separatists
+}
+
+mapgraphic "gfx/mplevels/mb2_boc/mb2_duel_boc"
+missionname "Secure the Hangar"
+radartopleft "-1792, 4928"
+radarbottomright "9728, -4864"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_boc"
+		radargraphicfull "gfx/automap/mb2_duel_bocfull"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "BOC_rep"
+	TeamIcon "gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Secure the Hangar!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Secure the Hangar!"
+		objgfx "gfx/mplevels/mb2_boc/r2"
+	}	
+
+	wonround "Victory!"
+	lostround "We have failed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 1
+	briefing "Take control of the Hangar"
+}
+
+Separatists
+{
+	RequiredObjectives 1
+	UseTeam "BOC_cis"
+	TeamIcon "gfx/2d/logos/mb_cis"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Defend the hangar!"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Defend the hangar!"
+		objgfx "gfx/mplevels/mb2_boc/r2"
+	}
+	
+	wonround "We stopped them, good job soldiers."
+	lostround "We failed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Defend the hangar!"
+}

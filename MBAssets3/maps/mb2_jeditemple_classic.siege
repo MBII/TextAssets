@@ -1,0 +1,65 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_jeditemple/jeditemple"
+missionname "Jedi Temple Classic"
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "JTemple_Jedi"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Attract the Rescue Squad"
+		final 0
+		message_team1 "We are Saved!"
+		message_team2 "The Jedi have prevailed!"
+		objdesc "ACCOMPLISH: Hold off Anakin and his Clone troops."
+		objgfx "gfx/mp/mplevels/mb2_jeditemple/rebelobjective1"
+	}
+
+	wonround "The Jedi have prevailed!"
+	lostround "It's over. The Sith have defeated us."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Hold off Anakin and his Clone troops."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "JTemple_Sith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Kill the Jedi"
+		final 0
+		message_team1 "The Sith have defeated us."
+		message_team2 "We have overpowered the Jedi."
+		target ""
+		objdesc "ACCOMPLISH: Eliminate the Jedi."
+		objgfx "gfx/mp/mplevels/mb2_jeditemple/impobjective1"
+	}
+
+	wonround "The Jedi have been defeated!"
+	lostround "The assault was unsuccessful."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Eliminate the Jedi."
+}

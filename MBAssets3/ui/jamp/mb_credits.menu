@@ -1,0 +1,75 @@
+//	MAIN MENU
+//	Movie Battles Credits
+{
+	menuDef
+	{
+		name					"MBcreditsMenu"
+		fullScreen				MENU_TRUE
+		rect					0 0 640 480
+		visible					MENU_TRUE
+		focusColor				1 1 1 0.3
+		descX					320
+		descY					434
+		descScale				0.5
+		descColor				0.1 0.7 1 0
+		descAlignment			ITEM_ALIGN_CENTER
+		onOpen
+		{
+			exec				"music music/MBIIcredits.mp3"
+		}
+		onESC
+		{
+			play				"sound/interface/back.mp3"
+			close				all
+			open				main
+		}
+
+// MENU BACKGROUND
+
+		itemDef
+		{
+			name				background_credits
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 5120
+			background			"gfx/menus/MBIIcredits"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+// BACK & EXIT
+
+		itemDef
+		{
+			name				back
+			text				@MENUS_BACK
+			descText			@MENUS_EXIT_TO_MAIN_MENU
+			type				ITEM_TYPE_BUTTON
+			font				3
+			textscale			0.5
+			textstyle			0
+			style				WINDOW_STYLE_EMPTY
+			rect				10 445 90 30 
+			textalignx			15
+			textaligny			2
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			0.1 0.7 1 0.2
+			visible				1
+			mouseExit
+			{
+				setitemcolor	back	forecolor	0.1 0.7 1 0.2
+			}
+			mouseenter
+			{
+				setitemcolor	back	forecolor	1 1 1 0.3
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			mainMenu 
+			}
+		}
+	}
+}

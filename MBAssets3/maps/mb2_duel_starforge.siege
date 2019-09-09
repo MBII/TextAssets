@@ -1,0 +1,73 @@
+Teams
+{
+  team1 Sith
+  team2 Republic
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_starforge/map"
+missionname "Star Forge"
+radartopleft "-1536, 1408"
+radarbottomright "1536, -1664"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_starforge"
+	}
+}
+
+roundbegin_target ""
+
+Sith
+{
+	RequiredObjectives1
+	UseTeam "DuelStarforgeMalak"
+	TeamIcon "gfx/2d/logos/mb_sithempire"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill Revan"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Destroy your former Master."
+		objgfx "gfx/mp/mplevels/mb2_starforge/sfobj1"
+	}
+
+	wonround "Long live the Sith Empire!"
+	lostround "The Republic will soon fall..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	briefing "Kill Revan!"
+	}
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelStarforgeRevan"
+	TeamIcon "gfx/2d/logos/mb_oldrepublic"
+	TeamColorOn "1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill Malak"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defeat Darth Malak, and restore the Republic!"
+		objgfx "gfx/mp/mplevels/mb2_starforge/revanobj"
+	}
+
+	wonround "The Republic has been saved!"
+	lostround "The Republic is doomed..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	briefing "Kill Malak!"
+	attackers 1
+}

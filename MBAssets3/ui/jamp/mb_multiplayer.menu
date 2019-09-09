@@ -1,0 +1,489 @@
+// Allows player to start a game or join one in progress
+{
+	assetGlobalDef
+	{
+		font					"ergoec"	18
+		smallFont				"aurabesh"	18
+		bigFont					"anewhope"	20
+		small2Font				"arialnb"	14
+		cursor					"mb_cursor"
+		gradientBar				"ui/assets/gradientbar2.tga"
+		itemFocusSound			"sound/interface/tic.mp3"
+		fadeClamp				1.0
+		fadeCycle				1
+		fadeAmount				0.1
+		moveRollSound			"sound/player/roll1"
+		moveJumpSound			"sound/weapons/force/jump"
+		shadowColor				0.1 0.1 0.1 0.25
+		focuscolor				0 0 1 1
+		precacheSound
+		{
+			"sound/interface/choose_color.wav" ;
+			"sound/interface/choose_head.wav" ;
+			"sound/interface/choose_torso.wav" ;
+			"sound/interface/choose_saber.wav" ;
+			"sound/interface/choose_hilt.wav" ;
+			"sound/interface/choose_blade.wav" ;
+			"sound/interface/transition.wav" ;
+			"sound/interface/empty.mp3" ;
+			"sound/interface/back.mp3"
+			"sound/interface/sub_select.wav" ;
+		}
+	}
+
+	menuDef
+	{
+		name					"multiplayermenu"
+		fullScreen				1
+		rect					0 0 640 480
+		visible					1
+		focusColor				1 1 1 1
+		descX					374
+		descY					452
+		descScale				0.7
+		descColor				0.1 0.8 1 0.9
+		descAlignment			ITEM_ALIGN_CENTER
+		onESC
+		{
+			play				"sound/interface/back.mp3"
+			close				multiplayermenu 
+			open				main 
+		}
+
+// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/mb_background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				menu_frame
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/menu_bar_play"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mblogo
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				340 385 310 80
+			background			"gfx/menus/mb_logo"	
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+// TOP MENU BUTTONS
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/mb_buttonback"
+			forecolor			0.1 0.7 1 0.7
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				playbutton
+			group				none
+			style				WINDOW_STYLE_EMPTY
+			type				ITEM_TYPE_BUTTON
+			rect				15 253 174 24 
+			text				"PLAY"
+			descText			"Start playing"
+			font				3
+			textscale			1
+			textaligny			0
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			82
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	10 253 174 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			multiplayermenu 
+			}
+		}
+
+		// Big button "PLAYER PROFILE"
+		itemDef
+		{
+			name				profilebutton
+			group				none
+			text				@MENUS_PROFILE
+			descText			"Change player settings"
+			style				WINDOW_STYLE_EMPTY
+			type				ITEM_TYPE_BUTTON
+			rect				15 292 184 24 
+			textaligny			0
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			82
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	10 292 184 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			playerMenu
+			}
+		}
+
+		// Big button "CONTROLS"
+		itemDef
+		{
+			name				controlsbutton
+			group				none
+			text				@MENUS_CONTROLS2
+			descText			"Configure game controls"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 330 170 25 
+			font				3
+			textscale			1
+			textaligny			0
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			78
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	10 330 171 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			controlsMenu
+			}
+		}
+
+		// Big button "SETUP"
+		itemDef
+		{
+			name				setupbutton
+			group				none
+			text				@MENUS_SETUP
+			descText			"Configure game settings"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 369 151 24 
+			font				3
+			textscale			1
+			textaligny			0
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			73
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	10 369 151 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			setup_menu
+			}
+		}
+
+		// QUICK START
+		itemDef
+		{
+			name				quickserver_button
+			group				none
+			text				"CREDITS"
+			descText			"Know the people who invested their time on the mod"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				210 6 150 36 
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			70
+			textaligny			8
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	215 10 140 32
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			multiplayermenu
+				open			MBcreditsMenu
+			}
+		}
+
+		// JOIN SERVER
+		itemDef
+		{
+			name				joinserver_button
+			group				none
+			text				"JOIN"
+			descText			"Find a server to play on"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				203 41 150 36 
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			70
+			textaligny			8
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	210 46 128 32
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			multiplayermenu
+				open			joinserver 
+			}
+		}
+
+		// CREATE SERVER
+		itemDef
+		{
+			name				startserver_button
+			group				none
+			text				"CREATE"
+			descText			"Create your own server"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				200 78 150 36 
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			60
+			textaligny			8
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	205 82 115 31
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			multiplayermenu
+				open			createserver
+			}
+		}
+
+		// PLAY DEMO FILE
+		itemDef
+		{
+			name				playdemo_button
+			group				none
+			text				"DEMO"
+			descText			"Playback a saved demo file"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				195 113 150 36 
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			48
+			textaligny			8
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	200 118 90 31
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			multiplayermenu
+				open			demo 
+			}
+		}
+
+		// BACK button 
+		itemDef
+		{
+			name				backbutton
+			group				fade_buttons
+			text				"X"
+			descText			"Close Window"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				206 162 20 20
+			font				3
+			textscale			0.35
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			3
+			textalignx			3
+			textaligny			0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	207 162 9 10
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/back.mp3" 
+				close			multiplayermenu
+				open			mainMenu
+			}
+		}
+
+// OTHER MAIN MENU BUTTONS
+		itemDef
+		{
+			name				libbutton
+			group				none
+			text				"LIBRARY"
+			descText			"Access the ingame library menus."
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 408 136 24
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			70
+			textaligny			0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	10 408 137 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/player/ysalimari.mp3"
+				close			all
+				open			"help_menu"
+			}
+		}
+
+		itemDef
+		{
+			name				exitgamebutton
+			group				none
+			text				@MENUS_EXIT
+			descText			"Leave the game"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				15 448 136 24 
+			font				3
+			textscale			1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			70
+			textaligny			0
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	10 448 137 25
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/player/ysalimari.mp3"
+				close			all
+				open			quitMenu 
+			}
+		}
+	}
+}

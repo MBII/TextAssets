@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Republic
+	team2 Gangstas
+}
+
+mapgraphic "gfx/mplevels/mb2_jabba/map_duel"
+missionname "Jabba's Rancor Pit"
+radartopleft "-1088, 576"
+radarbottomright "1856, -2368"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_jabba"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelJabbaLuke"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Stay alive!"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Gamorrean."
+		objgfx "gfx/mplevels/mb2_jabba/imp_objective5"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Stay alive!"
+}
+
+Gangstas
+{
+	RequiredObjectives 1
+	UseTeam "DuelJabbaGamo"
+	TeamIcon "gfx/2d/logos/mb_hutt"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the Jedi"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Jedi."
+		objgfx "gfx/mplevels/mb2_jabba/imp_objective5"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill Luke Skywalker."
+}

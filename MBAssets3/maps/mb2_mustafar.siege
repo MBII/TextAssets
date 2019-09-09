@@ -1,0 +1,99 @@
+Teams
+{
+	team1 Separatists
+	team2 Sith
+}
+
+mapgraphic "gfx/mplevels/mb2_mustafar/map"
+missionname "Mustafar"
+radartopleft "-4096, 8896"
+radarbottomright "6400, -2688"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_mustafar"
+		radargraphicfull "gfx/automap/mb2_mustafarfull"
+	}
+}
+
+roundbegin_target ""
+
+Separatists
+{
+	RequiredObjectives 1
+	UseTeam "mustafar_sep"
+	TeamIcon "gfx/2d/logos/mb_cis"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Defend the side route"
+		final -1
+		message_team1 "The side route is open"
+		message_team2 "The side route is open"
+		objdesc "PRIMARY GOAL:
+		Hold off the Sith, stop them from opening the side route"
+		objgfx "gfx/mplevels/mb2_mustafar/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Defend the control room console"
+		final 0
+		message_team1 "The Separatist leaders are safe"
+		message_team2 "We failed to defend the Separatist leaders"
+		objdesc "PRIMARY GOAL:
+		Defend the control room console"
+		objgfx "gfx/mplevels/mb2_mustafar/obj2"
+	}
+
+	wonround "The Separatist leaders are safe"
+	lostround "We failed to defend the Separatist leaders"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 0
+	briefing "Defend the control room console."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "mustafar_sith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Slice the side route console"
+		final -1
+		message_team1 "The side route is open"
+		message_team2 "The side route is open"
+		objdesc "PRIMARY GOAL:
+		Hack the console to open the side route doors"
+		objgfx "gfx/mplevels/mb2_mustafar/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Hack the control room console"
+		final 0
+		message_team1 "We failed to defend the Separatist leaders"
+		message_team2 "It is done my master"
+		objdesc "PRIMARY GOAL:
+		Hack the docking bay console"
+		objgfx "gfx/mplevels/mb2_mustafar/obj2"
+	}
+
+	wonround "It is done my master"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundoverimp"
+	attackers 1
+	briefing "Hack the control room console"
+}

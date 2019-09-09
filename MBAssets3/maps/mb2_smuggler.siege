@@ -1,0 +1,124 @@
+Teams
+{
+	team1 Smugglers
+	team2 Mercenaries
+}
+
+mapgraphic "gfx\mplevels\smuggler\layout"
+missionname  "Smuggler"
+radartopleft "-1144, 1784"
+radarbottomright "1600, -960"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_smuggler"
+		radargraphicfull "gfx/automap/mb2_smugglerfull"
+		height "0"
+	}
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_smuggler2"
+		radargraphicfull "gfx/automap/mb2_smuggler2full"
+		height "150"
+	}
+}
+
+roundbegin_target ""
+
+Smugglers
+{
+	RequiredObjectives 1
+	Timed 300
+    UseTeam "Smuggler_Rebels"
+	TeamIcon	"gfx/2d/logos/mb_smugglers"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "unlock doors"
+		final -1
+		message_team1 "Secondary Doors Unlocked!"
+		message_team2 "Secondary Doors Unlocked!"
+		objdesc "ACCOMPLISH:
+		Unlock the Secondary Doors for easier access to the Datapad."
+		objgfx "gfx/mplevels/smuggler/objectivea1"
+	}
+
+	Objective2
+	{
+		goalname "steal datapad"
+		final -1
+		message_team1 "Escape in the Ship!"
+		message_team2 "Stop Rebels from Escaping!"
+		objdesc "ATTACK:
+		Steal the Datapad and bring it back to the ship."
+		objgfx "gfx/mplevels/smuggler/objectiveb"
+	}
+
+	Objective3
+	{
+		goalname "escape"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND:
+		Protect the getaway ship and use it to escape."
+		objgfx "gfx/mplevels/smuggler/objectivec"
+	}
+
+	wonround "We did it!"
+	lostround "Failure..."
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Steal the Datapad located in the office, bring it to the ship, and escape."
+}
+
+Mercenaries
+{
+	RequiredObjectives 1
+	UseTeam "Smuggler_Mercs"
+	TeamIcon	"gfx/2d/logos/mb_mand"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "block vents"
+		final -1
+		message_team1 "Ventilation Shafts Overloaded!"
+		message_team2 "Ventilation Shafts Overloaded!"
+		objdesc "ACCOMPLISH:
+		Overload the ventilation shafts to block alternate access to the Datapad."
+		objgfx "gfx/mplevels/smuggler/objectivea2"
+	}
+
+	Objective2
+	{
+		goalname "protect datapad"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND:
+		Prevent the Smugglers from stealing the Datapad."
+		objgfx "gfx/mplevels/smuggler/objectiveb"
+	}
+
+	Objective3
+	{
+		goalname "prevent escape"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "ATTACK:
+		Destroy the getaway ship or guard its controls."
+		objgfx "gfx/mplevels/smuggler/objectivec"
+	}
+
+	wonround "The data is safe!"
+	lostround "We're not getting paid..."
+	roundover_target ""
+	attackers 1
+	briefing "Stop the Smugglers stealing our Datapad or destroy their getaway ship."
+}

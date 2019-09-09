@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_jeditemple/duel_jeditemple"
+missionname "Jedi Temple"
+radartopleft "-3712, 4288"
+radarbottomright "3520, -3328"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_jeditemple"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "DuelJTempleJedi"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Survive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Survive and defeat Anakin Skywalker."
+		objgfx "gfx/mp/mplevels/mb2_jeditemple/rebelobjective1"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0
+	briefing "Survive and defeat Anakin Skywalker."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "DuelJTempleSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Execute the Jedi"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Execute the Jedi."
+		objgfx "gfx/mp/mplevels/mb2_jeditemple/impobjective1"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Execute the Jedi. They must not escape."
+}

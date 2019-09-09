@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Tusken
+	team2 Jedi
+}
+
+mapgraphic "gfx\mplevels\mb2_tusken\map"
+missionname "Hate leads to anger..."
+radartopleft "-3904, 5568"
+radarbottomright "6636, -4672"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_tusken"
+	}
+}
+
+roundbegin_target ""
+
+Tusken
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelTuskenTusk"
+	TeamIcon "gfx/2d/logos/mb_tusk"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill the intruder!"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the intruder!"
+		objgfx "gfx/mplevels/mb2_tusken/objectivea"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon "sound/Tusken/Tusken.mp3"
+	roundover_sound_welost "sound/Tusken/Ani.mp3"
+	roundover_target ""
+	attackers 1
+	briefing "Kill the intruder!"
+}
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "DuelTuskenJedi"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Slaughter the tuskens!"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Slaughter the tuskens!"
+		objgfx "gfx/mplevels/mb2_tusken/objectivea"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon "sound/Tusken/Ani.mp3"
+	roundover_sound_welost "sound/Tusken/Tusken.mp3"
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Slaughter the tuskens!"
+}

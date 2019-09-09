@@ -1,0 +1,77 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic ""
+missionname "Profundity"
+radartopleft "-1280, 1280"
+radarbottomright "1280, -1216"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic ""
+		radargraphicfull ""
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	UseTeam "DuelPrf_reb"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Deafeat Vader"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat Darth Vader."
+		objgfx "gfx/mplevels/duel_prf/obj"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Defeat Darth Vader."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "DuelPrf_imp"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the Rebels"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Rebel soldiers."
+		objgfx "gfx/mplevels/duel_prf/obj"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill the Rebel soldiers."
+}

@@ -1,0 +1,83 @@
+Teams
+{
+	team1 Republic
+	team2 Separatist
+}
+
+mapgraphic "gfx/mplevels/mb2_mygeeto/objmap"
+missionname "The Battle of Mygeeto"
+radartopleft "-7872, 11392"
+radarbottomright "7296, -3776"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_mygeeto1"
+		radargraphicfull "gfx/automap/mb2_mygeeto1full"
+		height "-128"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_mygeeto2"
+		radargraphicfull "gfx/automap/mb2_mygeeto2full"
+		height "-576"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "mygeeto_rep"
+	TeamIcon "gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Destroy the Main Collector Core!"
+		final 1
+		message_team1 "We've destroyed the core!" 
+		message_team2 "We've failed to destroy the core!"	
+		sound_team1 "sound/chars/protocol/misc/siege1.mp3"
+		sound_team2 "sound/chars/protocol/misc/siege5.mp3"
+		objdesc "Secure the bridge by destroying the Tri Droids."  
+		objgfx "gfx/mplevels/mb2_mygeeto/obj1" 
+		mapicon "gfx/mp/siegeicons/mygeeto1c/obj1"
+		litmapicon "gfx/mp/siegeicons/mygeeto1c/obj1"
+		donemapicon ""
+		mappos "155 223 16 16"
+	}
+
+	wonround "Mission Accomplished!"
+	lostround "Mission Failed! We've lost too many soldiers!"
+	roundover_target "endsiege"
+	attackers 1
+	briefing "Call an airstrike by painting the collector and proceed to destroy the core after dropping the shield."
+}
+
+Separatist
+{
+	RequiredObjectives 0
+	UseTeam "mygeeto_sep"
+	TeamIcon "gfx/2d/logos/mb_cis"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Defend the bridge and the Main Collector Core!"
+		final -1
+		objdesc "Prevent the republic from breaching the collector core!"
+		objgfx "gfx/mplevels/mb2_mygeeto/obj1"
+	}
+
+	wonround "Mission Accomplished!"
+	lostround "Mission Failed! We've been defeated!"
+	roundover_target "endsiege"
+	attackers 0
+	briefing "Do not allow the Republic to destroy the Main Collector Core!"
+}

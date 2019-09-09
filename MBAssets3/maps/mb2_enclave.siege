@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Republic
+	team2 Sith
+}
+
+mapgraphic "gfx/mplevels/mb2_enclave/map"
+missionname "Dantooine Jedi Enclave"
+radartopleft "-2672, 3016"
+radarbottomright "6704, -6424"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_enclave"
+		radargraphicfull "gfx/automap/mb2_enclavefull"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "enclave_jedi"
+	TeamIcon "gfx/2d/logos/mb_oldrepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Take off on the ship with the datapad"
+		final 0
+		message_team1 "We escaped."
+		message_team2 "We have failed."
+		objdesc "ACCOMPLISH: Take off on the ship with the datapad."
+		objgfx "gfx/mplevels/mb2_enclave/obj"
+	}
+
+	wonround "We escaped."
+	lostround "We have failed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Take off on the ship with the datapad."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "enclave_sith"
+	TeamIcon "gfx/2d/logos/mb_sithempire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Stop the Jedi stealing the ship and retrieve the datapad"
+		final 0
+		message_team1 "Our mission was a success."
+		message_team2 "We have failed."
+		target ""
+		objdesc "ACCOMPLISH: Stop the Jedi stealing the ship and retrieve the datapad."
+		objgfx "gfx/mplevels/mb2_enclave/obj"
+	}
+
+	wonround "Our mission was a success"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Stop the Jedi stealing the ship and retrieve the datapad."
+}

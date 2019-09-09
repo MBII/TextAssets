@@ -1,0 +1,108 @@
+Teams
+{
+	team1 Republic
+	team2 Gangstas
+}
+
+mapgraphic "gfx/mplevels/mb2_jabba/map"
+missionname "Assault on Jabba the Hutt"
+radartopleft "-3584, 2752"
+radarbottomright "2432, -3264"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_jabba1"
+		radargraphicfull "gfx/automap/mb2_jabba1full"
+		height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_jabba2"
+		radargraphicfull "gfx/automap/mb2_jabba2full"
+		height "-320"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "Jabba_Republic"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Don't let Jabba escape"
+		final -1
+		message_team1 "Jabba the Hutt has escaped..."
+		message_team2 "Jabba has been brought to safety."
+		objdesc "SECONDARY GOAL:
+		Jabba the Hutt is trying to escape. Do not let him get away!"
+		objgfx "gfx/mplevels/mb2_jabba/imp_objective5"
+	}
+
+	Objective2
+	{
+		goalname "Kill Jabba the Hutt"
+		final 0
+		message_team1 "Jabba the Hutt has been dealt with."
+		message_team2 "Jabba has been killed."
+		objdesc "PRIMARY GOAL:
+		Kill Jabba the Hutt before he can escape or his reinforcements arrive."
+		objgfx "gfx/mplevels/mb2_jabba/reb_objective2"
+	}
+
+	wonround "Jabba the Hutt has been defeated"
+	lostround "The assault was unsuccessfull"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Defeat Jabba the Hutt."
+}
+
+Gangstas
+{
+	RequiredObjectives 1
+	UseTeam "Jabba_Gangstas"
+	TeamIcon "gfx/2d/logos/mb_hutt"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Keep Jabba Alive"
+		final -1
+		message_team1 "The reinforcements have arrived, you are too late."
+		message_team2 "Well done: The reinforcements have arrived."
+		target ""
+		objdesc "SECONDARY GOAL:
+		Jabba's reinforcements are on their way. Hide Jabba and keep him alive until they arrive."
+		objgfx "gfx/mplevels/mb2_jabba/imp_objective2"
+	}
+
+	Objective2
+	{
+		goalname "Help Jabba Escape"
+		final 0
+		message_team1 "Jabba the Hutt has escaped..."
+		message_team2 "Jabba has been brought to safety."
+		objdesc "PRIMARY GOAL:
+		Bring Jabba to either of the EXIT-points."
+		objgfx "gfx/mplevels/mb2_jabba/imp_objective5"
+	}
+
+	wonround "You've successfully fended off the assault!"
+	lostround "Jabba the Hutt did not make it out alive."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Protect Jabba the Hutt."
+}

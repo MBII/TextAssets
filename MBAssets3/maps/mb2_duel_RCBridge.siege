@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Republic
+	team2 Trandoshans
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_rcbridge/map"
+missionname "RC Bridge"
+radartopleft "-1280, 8640"
+radarbottomright "1920, 4836"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_rcbridge"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelRCBridgeRep"
+	TeamIcon "gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Take back the bridge!"
+		final -1
+		message_team1 "We have taken back the bridge"
+		message_team2 "We have failed"
+		objdesc "ACCOMPLISH: Take back the bridge!"
+		objgfx "gfx/mp/mplevels/mb2_rcbridge/obj1"
+	}
+
+	wonround "We have taken back the bridge"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Take back the bridge!"
+}
+
+Trandoshans
+{
+	RequiredObjectives 1
+	UseTeam "DuelRCBridgeTra"
+	TeamIcon "gfx/2d/logos/mb_hutt"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Stop the clones retaking the bridge"
+		final 0
+		message_team1 "We fought off the clones"
+		message_team2 "We have failed"
+		target ""
+		objdesc "ACCOMPLISH: Stop the clones retaking the bridge"
+		objgfx "gfx/mp/mplevels/mb2_rcbridge/obj1"
+	}
+
+	wonround "We fought off the clones"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Stop the clones retaking the bridge"
+}

@@ -1,0 +1,121 @@
+Teams
+{
+	team1 ChurchOfTheForce
+	team2 FirstOrder
+}
+
+mapgraphic "gfx\mplevels\mb2_jakku\map"
+missionname "Jakku Assault on Tuanul"
+radartopleft "-3616, 6176"
+radarbottomright "7968, -4896"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_jakku"
+		radargraphicfull "gfx/automap/mb2_jakkufull"
+	}
+}
+
+roundbegin_target ""
+
+ChurchOfTheForce
+{
+	RequiredObjectives 1
+	UseTeam "Jakku_ChurchOfTheForce"
+	TeamIcon "gfx/2d/logos/mb_churchoftheforce"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Defend the X-Wing"
+		final -1
+		message_team1 "They have destroyed Poe's X-Wing"
+		message_team2 "We have destroyed the X-Wing"
+		objdesc "PRIMARY GOAL:
+		Stop them from destroying the X-Wing."
+		objgfx "gfx/mplevels/mb2_jakku/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Defend all of the huts"
+		final -1
+		message_team1 "They have destroyed all of the huts"
+		message_team2 "We have destroyed all of the huts"
+		objdesc "PRIMARY GOAL:
+		Stop them from destroying all of the huts in the village."
+		objgfx "gfx/mplevels/mb2_jakku/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Defend the village square"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Stop them capturing the village square."
+		objgfx "gfx/mplevels/mb2_jakku/obj3"
+	}
+
+	wonround "This will begin to make things right"
+	lostround "You cannot deny the truth that is your family"
+	roundover_sound_wewon "sound/jakku/jku_cof_win.wav"
+	roundover_sound_welost "sound/jakku/jku_cof_lose.wav"
+	roundover_target ""
+	attackers 0
+	briefing "Stop Kylo Ren."
+}
+
+FirstOrder
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "jakku_FirstOrder"
+	TeamIcon "gfx/2d/logos/mb_firstorder"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Destroy the X-Wing"
+		final -1
+		message_team1 "They have destroyed Poe's X-Wing"
+		message_team2 "We have destroyed the X-Wing"
+		objdesc "PRIMARY GOAL:
+		Destroy the X-Wing to stop any of them escaping."
+		objgfx "gfx/mplevels/mb2_jakku/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Destroy all of the huts"
+		final -1
+		message_team1 "They have destroyed all of the huts"
+		message_team2 "We have destroyed all of the huts"
+		objdesc "PRIMARY GOAL:
+		Destroy all of the huts by setting them on fire by damaging the lanterns inside."
+		objgfx "gfx/mplevels/mb2_jakku/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Capture the village square"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Capture the village square."
+		objgfx "gfx/mplevels/mb2_jakku/obj3"
+	}
+	
+	wonround "Kill them all"
+	lostround "Noooo"
+	roundover_sound_wewon "sound/jakku/jku_fo_win.wav"
+	roundover_sound_welost "sound/jakku/jku_fo_lose.wav"
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Destroy the X-Wing and all of the huts and then proceed to capturing the Village square."
+}

@@ -1,0 +1,74 @@
+Teams
+{
+	team1 OldRepublic
+	team2 Sith
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_leviathan/duel_leviathan"
+missionname "Revan's Flag Ship"
+radartopleft "-2112, 3776"
+radarbottomright "3776, -2816"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_revan"
+	}
+}
+
+roundbegin_target ""
+
+OldRepublic
+{
+	RequiredObjectives 1
+	UseTeam "DuelRevanJedi"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_oldrepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Survive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL: Survive and defeat Darth Revan."
+		objgfx "gfx/mp/mplevels/mb2_leviathan/jediobjective"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon "sound/lev/youcannotwinrevan.mp3"
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0
+	briefing "Survive and defeat Darth Revan."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "DuelRevanSith"
+	TeamIcon "gfx/2d/logos/mb_sithempire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Execute the Jedi"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL: Execute the Jedi."
+		objgfx "gfx/mp/mplevels/mb2_leviathan/sithobjective"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost "sound/lev/youcannotwinrevan.mp3"
+	roundover_target ""
+	attackers 1
+	briefing "Execute the Jedi."
+}

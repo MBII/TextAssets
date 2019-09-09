@@ -1,0 +1,130 @@
+Teams
+{
+	team1 Rebels
+	team2 Zombies
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_deathstar/deathstarlayout"
+missionname "Episode Z - The Undeadstar"
+radartopleft "-3904, 704"
+radarbottomright "2816, -6144"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_deathstar1"
+		radargraphicfull "gfx/automap/mb2_deathstar1full"
+		height "-128"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_deathstar2"
+		radargraphicfull "gfx/automap/mb2_deathstar2full"
+		height "-384"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_deathstar3"
+		radargraphicfull "gfx/automap/mb2_deathstar3full"
+		height "-1216"
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "uds_Rebels"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Collect all three ship parts"
+		final -1
+		message_team1 "The Ship is fixed now to trigger the self destruct"
+		message_team2 "Stop them from triggering the self destruct"
+		objdesc "Collect all three ship parts to repair the Millennium Falcon."
+		objgfx "gfx/mplevels/mb2_undeadstar/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Trigger the Self Destruct"
+		final -1
+		message_team1 "Get to the Falcon"
+		message_team2 "Stop them leaving"
+		objdesc "Trigger the self destruct sequence by hacking the console."
+		objgfx "gfx/mplevels/mb2_undeadstar/obj2"
+	}
+
+	Objective3
+	{
+		goalname "Reach the Falcon and escape the Undeadstar"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Reach the Falcon and escape the Undeadstar."
+		objgfx "gfx/mplevels/mb2_undeadstar/obj3"
+	}
+
+	wonround "We have escaped the Undeadstar"
+	lostround "We have failed..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Repair the Falcon, trigger the self destruct and escape the Undeadstar"
+}
+
+Zombies
+{
+	RequiredObjectives 1
+	UseTeam "uds_zombies"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 0.7 1"
+
+	Objective1
+	{
+		goalname "Stop them repairing the Falcon"
+		final -1
+		message_team1 "Stop them from triggering the self destruct"
+		message_team2 "The Ship is fixed now to trigger the self destruct"
+		objdesc "Stop them from collecting all three ship parts to repair the Millennium Falcon."
+		objgfx "gfx/mplevels/mb2_undeadstar/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Stop them from trigger the self destruct"
+		final -1
+		message_team1 "Stop them leaving"
+		message_team2 "Get to the Falcon"
+		objdesc "Stop them from triggering the self destruct sequence by hacking the console."
+		objgfx "gfx/mplevels/mb2_undeadstar/obj2"
+	}
+
+	Objective3
+	{
+		goalname "Stop them from escaping"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop them from escaping the Undeadstar."
+		objgfx "gfx/mplevels/mb2_undeadstar/obj3"
+	}
+
+	wonround "BRAINS!"
+	lostround "..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill them all."
+}

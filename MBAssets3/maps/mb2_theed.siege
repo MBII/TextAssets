@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Naboo
+	team2 TradeFederation
+}
+
+mapgraphic "gfx/mplevels/mb2_theed/objmap"
+missionname "Battle in Theed"
+radartopleft "-1536, 5696"
+radarbottomright "9792, -3648"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_theed"
+		radargraphicfull "gfx/automap/mb2_theedfull"
+	}
+}
+
+roundbegin_target ""
+
+Naboo
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "TheedMB2_nab" 	
+	TeamIcon "gfx/2d/logos/mb_naboo"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Objective 1"
+		final 1
+		message_team1 "You Have Advanced."
+		message_team2 "You Have Been Pushed Back."
+		sound_team1 "sound/chars/protocol/misc/siege1.mp3"
+		sound_team2 "sound/chars/protocol/misc/siege5.mp3"
+		objdesc "PRIMARY GOAL: Hack the hangar door controls in order to get into the hangar bay and launch fighters against the Trade Federation!"
+		objgfx "gfx/mplevels/mb2_theed/obj1"
+		mapicon "gfx/mp/siegeicons/cot1/obj1"
+		litmapicon "gfx/mp/siegeicons/cot1/obj1"
+		donemapicon ""
+		mappos "155 223 16 16"
+	}
+
+	wonround "Mission Accomplished! We have gained access!"
+	lostround "Mission Failed!"
+	roundover_target "endsiege"
+	attackers 1
+	briefing "Gain access to the Control Room and Hangar entrance!"
+}
+
+TradeFederation
+{
+	RequiredObjectives 0
+	UseTeam "TheedMB2_sep"
+	TeamIcon "gfx/2d/logos/mb_tradefed"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Objective 1"
+		final -1
+		objdesc "PRIMARY GOAL: Stop the Naboo from gaining access to the Hangar!"
+		objgfx "gfx/mplevels/mb2_theed/obj1"
+	}
+
+	wonround "Mission Accomplished! We have cut off their attack!"
+	lostround "Mission Failed!"
+	roundover_target "endsiege"
+	attackers 0
+	briefing "Stop the Rebellion attack!"
+}

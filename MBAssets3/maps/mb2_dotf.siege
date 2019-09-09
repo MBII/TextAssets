@@ -1,0 +1,96 @@
+Teams
+{
+	team1 Naboo
+	team2 TradeFederation
+}
+
+mapgraphic "gfx\mplevels\mb2_dotf\map"
+missionname "Duel of the Fates"
+radartopleft "-5824, 3328"
+radarbottomright "4032, -6528"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_dotf"
+		radargraphicfull "gfx/automap/mb2_dotffull"
+	}
+}
+
+roundbegin_target ""
+
+Naboo
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DOTF_Naboo"
+	TeamIcon "gfx/2d/logos/mb_naboo"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Get to the generator room and unlock the secondary routes to throne!"
+		final -1
+		message_team1 "Secondary routes to throne unlocked!"
+		message_team2 "Throne defenses have been weakened!"
+		objdesc "SECONDARY GOAL: Slice a console in the generator room to unlock secondary routes to throne."
+		objgfx "gfx/mplevels/mb2_dotf/objectivea"
+	}
+
+	Objective2
+	{
+		goalname "Gain control of the throne room!"
+		final 0
+		message_team1 "They can kiss their Trade Franchise goodbye!"
+		message_team2 "They got the Viceroy!"
+		objdesc "PRIMARY GOAL:
+		Stand in the capture zone to gain control of the throne room!"
+		objgfx "gfx/mplevels/mb2_dotf/objectiveb"
+	}
+
+	wonround "They can kiss their trade franchise goodbye!"
+	lostround "We got pasted..."
+	roundover_sound_wewon "sound/dotf/KissTradeFranchiseGoodbye.mp3"
+	roundover_sound_welost "sound/dotf/InsurrectionAtAnEnd.mp3"
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Get to the Throne Room."
+}
+
+TradeFederation
+{
+	RequiredObjectives 1
+	UseTeam "DOTF_Trade"
+	TeamIcon "gfx/2d/logos/mb_tradefed"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Stop attackers weakening throne defenses!"
+		final -1
+		target ""
+		objdesc "SECONDARY GOAL:
+		Stop the attackers from opening secondary routes to throne!"
+		objgfx "gfx/mplevels/mb2_dotf/objectivea"
+	}	
+
+	Objective2
+	{
+		goalname "Keep the attackers away from the throne room!"
+		final -1
+		target ""
+		objdesc "PRIMARY GOAL:
+		Prevent the attackers from capturing the throne room!"
+		objgfx "gfx/mplevels/mb2_dotf/objectiveb"
+	}
+
+	wonround "We got the intruders!"
+	lostround "Lord Sidious won't be pleased..."
+	roundover_sound_wewon "sound/dotf/InsurrectionAtAnEnd.mp3"
+	roundover_sound_welost "sound/dotf/NewTreaty.mp3"
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Keep the attackers away from the throne room!"
+}

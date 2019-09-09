@@ -1,0 +1,111 @@
+Teams
+{
+	team1 Republic
+	team2 Mandalorians
+}
+mapgraphic "gfx/mplevels/mb2_corellia/corellia_map"
+missionname  "Corellian Engineering Corp."
+radartopleft "-6336, 2822"
+radarbottomright "1920, -6138" // -1408
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_corellia1"
+		radargraphicfull "gfx/automap/mb2_corellia1full"
+		height "-64"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_corellia2"
+		radargraphicfull "gfx/automap/mb2_corellia2full"
+		height "0"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_corellia2"
+		radargraphicfull "gfx/automap/mb2_corellia2full"
+		height "576"
+	}
+
+	AutoMap3
+	{
+		radargraphic "gfx/automap/mb2_corellia3"
+		radargraphicfull "gfx/automap/mb2_corellia3full"
+		height "900"
+	}
+}
+roundbegin_target ""
+Republic
+{
+	RequiredObjectives 2
+	Timed 300
+	UseTeam "CorelliaMB2_Rep"
+	TeamIcon "gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Disconnect Hangar shields"
+		final -1
+		message_team1 "The shields are down! Escape in the Hangar fighters!"
+		message_team2 "The shields are down! They are trying to escape!"
+		objdesc "Disable the Hangar shield!"
+		objgfx "gfx/mplevels/mb2_corellia/corellia_objectives"
+	}
+
+	Objective2
+	{
+		goalname "Get away with the information!"
+		final 1
+		message_team1 "We retrieved the information!"
+		message_team2 "They escaped in the fighters!"
+		objdesc "Steal the fighters docked in the Hangar!"
+		objgfx "gfx/mplevels/mb2_corellia/corellia_ships_obj"
+	}
+	wonround "We have escaped!"
+	lostround "We failed..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Escape with the fighters!"
+}
+
+Mandalorians
+{
+	RequiredObjectives 2
+	UseTeam "CorelliaMB2_Droid"
+	TeamIcon "gfx/2d/logos/mb_mand"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Secure the Hangar shields"
+		final -1
+		target ""
+		objdesc "Defend the Hangar shields from being sabotaged!"
+		objgfx "gfx/mplevels/mb2_corellia/corellia_objectives"
+	}
+
+	Objective2
+	{
+		goalname "Eliminate the intruders"
+		final -1
+		target ""
+		objdesc "Stop this scum before they can escape!"
+		objgfx "gfx/mplevels/mb2_corellia/corellia_ships_obj"
+	}
+
+	wonround "The Republic forces have been eliminated!"
+	lostround "The enemy has escaped in the fighters..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Prevent the Republic from escaping in the fighters."
+}

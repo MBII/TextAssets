@@ -1,0 +1,117 @@
+Teams
+{
+	team1 Republic
+	team2 CIS
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_republiccruiser/map"
+missionname "Republic Cruiser FAST LOAD"
+radartopleft "-4032, 8256"
+radarbottomright "5696, -3456"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_republiccruiser"
+		radargraphicfull "gfx/automap/mb2_republiccruiserfull"
+	}
+}
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	UseTeam "repcruiser_rep"
+	TeamIcon "gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Protect the side doors."
+		final -1
+		message_team1 "They have unlocked the Data Core."
+		message_team2 "We've unlocked Data Core doors!"
+		objdesc "ACCOMPLISH: Protect the Data Core Access."
+		objgfx "gfx/mp/mplevels/mb2_republiccruiser/obj2"
+	}
+
+	Objective2
+	{
+		goalname "ACCOMPLISH: Stop the CIS from destroying the ship."
+		final 0
+		message_team1 "We've stopped the CIS!"
+		message_team2 "We have failed."
+		objdesc "ACCOMPLISH: Stop the CIS from destroying the ship."
+		objgfx "gfx/mp/mplevels/mb2_republiccruiser/obj1"
+	}
+
+	Objective3
+	{
+		goalname "IN CASE OF EMERGENCY: If all else fails, get to the escape pods."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "IN CASE OF EMERGENCY: If all else fails, get to the escape pods."
+		objgfx "gfx/mp/mplevels/mb2_republiccruiser/obj3"
+	}
+
+	wonround "We've stopped the CIS!"
+	lostround "We have failed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Destroy the ship!"
+}
+
+CIS
+{
+	RequiredObjectives 1
+	UseTeam "repcruiser_cis"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_cis"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Unlock the side doors."
+		final -1
+		message_team1 "They have unlocked the Data Core."
+		message_team2 "We've unlocked Data Core doors!"
+		target ""
+		objdesc "ACCOMPLISH: Gain secondary access to the Data Core."
+		objgfx "gfx/mp/mplevels/mb2_republiccruiser/obj2"
+	}
+
+	Objective2
+	{
+		goalname "ACCOMPLISH: Destroy the ship."
+		final 1
+		message_team1 "We have failed."
+		message_team2 "The ship has been destroyed!"
+		target ""
+		objdesc "ACCOMPLISH: Destroy the ship."
+		objgfx "gfx/mp/mplevels/mb2_republiccruiser/obj1"
+	}
+
+	Objective3
+	{
+		goalname "ACCOMPLISH: Once you succeed, escape the ship."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Once you succeed, escape the ship."
+		objgfx "gfx/mp/mplevels/mb2_republiccruiser/obj3"
+	}
+
+	wonround "The ship has been destroyed!"
+	lostround "We have failed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "The ship has been destroyed!"
+}

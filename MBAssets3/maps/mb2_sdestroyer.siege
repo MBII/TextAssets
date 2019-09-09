@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_SDestroyer/mb2_SDestroyer"
+missionname "Imperial Star Destroyer"
+radartopleft "-1152, 8064"
+radarbottomright "8000, -3776"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_SDestroyer"
+		radargraphicfull "gfx/automap/mb2_SDestroyerfull"
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "sdestroyer_reb"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Detonate the EMP Bomb"
+		final 0
+		message_team1 "The Turbo Lasers are no longer operational"
+		message_team2 "The Turbo Lasers are no longer operational"
+		objdesc "Get to the Turbo Lasers and detonate the EMP bomb"
+		objgfx "gfx/mplevels/mb2_SDestroyer/TLaser"
+	}
+
+	wonround "The Turbo Lasers are no longer operational"
+	lostround "Our ship is lost"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 1
+	briefing "Destroy the turbo lasers."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "sdestroyer_imp"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the turbo lasers"
+		final 0
+		message_team1 "The Rebellion has been held off"
+		message_team2 "The Rebellion has been held off"
+		objdesc "Stop the Rebellion destroying the turbo lasers"
+		objgfx "gfx/mplevels/mb2_SDestroyer/TLaser"
+	}
+
+	wonround "We have them now"
+	lostround "The turbo lasers have been destroyed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundoverimp"
+	attackers 0
+	briefing "Defend the turbo lasers"
+}

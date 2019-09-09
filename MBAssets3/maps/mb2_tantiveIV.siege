@@ -1,0 +1,133 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_tantive/map"
+missionname "Tantive Trouble"
+radartopleft "-256, 3072"
+radarbottomright "8576, -5760"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_tantiveiv1"
+		radargraphicfull "gfx/automap/mb2_tantiveiv1full"
+		height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_tantiveiv2"
+		radargraphicfull "gfx/automap/mb2_tantiveiv2full"
+		height "192"
+	}
+}
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 1
+	UseTeam "tantiveIV_Rebels"
+	Timed 300
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Disable the forcefield"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "OPTIONAL GOAL:
+		Turn off the safety forcefield in order to give your team an advantage."
+		objgfx "gfx/mplevels/mb2_tantive/rebobjective1"
+	}
+	
+	Objective2
+	{
+		goalname "Input the data into an R2 unit droid"
+		final -1
+		message_team1 "The data has been uploaded to the R2 unit."
+		message_team2 "The data has been uploaded to the R2 unit."
+		objdesc "SECONDARY GOAL:
+		Hide the data in a unit droid."
+		objgfx "gfx/mplevels/mb2_tantive/rebobjective2"
+	}
+
+	Objective3
+	{
+		goalname "Escort the droid to an escape pod"
+		final 0
+		message_team1 "The data has been sent."
+		message_team2 "An escape pod has been jettisoned."
+		objdesc "PRIMARY GOAL:
+		Lead the droid to an escape pod."
+		objgfx "gfx/mplevels/mb2_tantive/rebobjective3"
+	}
+	
+	wonround "The Death Star plans are safe... for now."
+	lostround "The data has been lost."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Get rid of the Death Star plans before the Imperials find them."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "tantiveIV_Imperials"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Destroy the power source to the forcefield"
+		final -1
+		message_team1 "The forcefield is disabled."
+		message_team2 "The forcefield is disabled."
+		target ""
+		objdesc "OPTIONAL GOAL:
+		Disable the forcefield to give your team an advantage."
+		objgfx "gfx/mplevels/mb2_tantive/impobjective1"
+	}
+
+	Objective2
+	{
+		goalname "Destroy the locks on the door to give your team an advantage"
+		final -1
+		message_team1 "The door locks have been destroyed."
+		message_team2 "The door locks have been destroyed."
+		target ""
+		objdesc "OPTIONAL GOAL:
+		Destroy the door locks to give your team an advantage."
+		objgfx "gfx/mplevels/mb2_tantive/impobjective2"
+	}
+
+	Objective3
+	{
+		goalname "Find and destroy the Death Star plans"
+		final 0
+		message_team1 "The droid have been destroyed."
+		message_team2 "The droid have been destroyed."
+		target ""
+		objdesc "PRIMARY GOAL:
+		Find and destroy the Death Star plans."
+		objgfx "gfx/mplevels/mb2_tantive/rebobjective2"
+	}
+	
+	
+	wonround "The Deathstar plans were destroyed."
+	lostround "The data was not found on-board."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Find the missing Death Star plans."
+}
