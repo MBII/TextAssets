@@ -1,0 +1,220 @@
+Cylinder
+{
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				2
+
+	life				800
+
+	delay				0 700
+
+	size
+	{
+		start			60
+		end				140
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size2
+	{
+		start			2
+		end				140
+		parm			90
+		flags			linear nonlinear
+	}
+
+	length
+	{
+		start			20
+		end				0.1
+		parm			90
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/shock_ripple
+	]
+}
+
+Cylinder
+{
+	life				2000
+
+	cullrange			550
+
+	size
+	{
+		end				160
+		parm			90
+		flags			linear nonlinear
+	}
+
+	size2
+	{
+		start			50
+		end				300
+		flags			linear
+	}
+
+	length
+	{
+		start			12
+		end				0.1
+		parm			90
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/shock_ripple
+	]
+}
+
+Decal
+{
+	count				1 2
+
+	rotation			0 360
+
+	size
+	{
+		start			40 60
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				250
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			128
+		end				32
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 4
+
+	radius				300 400
+}
+
+Sound
+{
+	cullrange			550
+
+	sounds
+	[
+		sound/weapons/repeater/alt_explode.wav
+	]
+}
+
+OrientedParticle
+{
+	spawnFlags			rgbComponentInterpolation
+
+	life				500
+
+	cullrange			1000
+
+	origin				1 0 0
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	rgb
+	{
+		start			0.3 0.3 1 0.5 0.5 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			40 60
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			2
+		end				60 75
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam3
+	]
+}
+
+Electricity
+{
+	flags				useModel useBBox usePhysics
+
+	count				50 75
+
+	life				1000
+
+	origin2				-250 -250 -250 250 250 250
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Particle
+{
+	life				1000
+
+	size
+	{
+		start			20
+		end				20
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+	]
+}
+
+FxRunner
+{
+	playfx
+	[
+		volumetric/black_smoke2
+	]
+}
+
+FxRunner
+{
+	playfx
+	[
+		explosions/explosion2
+	]
+}

@@ -1,0 +1,76 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevel/kashyyyk"
+missionname  "Cantina"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "Sai_Rebels" 							
+	TeamIcon	"gfx/2d/logos/mb_Rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+
+	Objective1
+	{
+		goalname "Enable Auto-Fire on the Gun Turret"
+		final 1
+		message_team1 "We managed to set the Gun Turret up!"
+		message_team2 "The Sail Barge is going to Blow, Abandon Ship!"
+		objdesc "PRIMARY GOAL:
+		Access and Enable Auto-Fire on the Sail Barge Gun Turret"
+		objgfx "gfx/mplevel/kashyyyk/commshub"
+	}
+	
+	wonround "We managed to set the Gun Turret up!"						//Printed to this team if they won the round.
+	lostround "The Sarlacc Got Fed"					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Get to the Sail Barge and Hack the Gun Turret" //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "Sai_Hutt"
+	TeamIcon	"gfx/2d/logos/mb_hutt"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the Gun Turret!"
+		final -1
+		message_team1 "The Sarlacc got fed"
+		message_team2 "We prevented the Gun Turret being set!"
+		objdesc "PRIMARY GOAL:
+		Defend the Gun Turret!"
+		objgfx "gfx/mplevel/kashyyyk/commshub"
+	}
+	
+	wonround "We Fed them to the Sarlacc!"
+	lostround "Abandon Ship, The Sail Barge is going to blow!"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Prevent any of the rebels accessing the gun turret!"
+}

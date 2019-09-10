@@ -1,0 +1,68 @@
+Teams
+{
+	team1 XWing
+	team2 TieFighter 
+}
+
+mapgraphic "gfx/mplevels/um_xwing/map"
+missionname  "X-Wing vs TIE-Fighter"
+
+roundbegin_target ""
+
+TieFighter
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "TieFighter" 							
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Destroy the fuel canisters"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Destroy the fuel canisters"
+		objgfx "gfx/mplevels/um_xwing/obj"
+	}
+	
+	wonround "Another glorious day for the Empire." 						
+	lostround "Lord Vader will deal with you personally..." 					
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0 
+
+	briefing "Destroy the fuel canisters" 
+}
+
+XWing
+{
+	RequiredObjectives 1
+	UseTeam "XWing"
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Protect the fuel canisters"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Protect the fuel canisters"
+		objgfx "gfx/mplevels/um_xwing/obj"
+	}
+	
+	wonround "Mission complete. Good work pilots."
+	lostround "Mission failed. Report for debriefing."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Protect the fuel canisters"
+}

@@ -1,0 +1,476 @@
+repeatDelay				1161
+
+Light
+{
+	name				Flash
+
+	life				2200
+
+	rgb
+	{
+		end				0.9922 0.5412 0.4078 0.9765 0.6902 0.502
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			1750
+		end				500
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				800 1000
+
+	bounce				7 12
+
+	radius				4000
+}
+
+Sound
+{
+	name				Boom1Left
+
+	spawnFlags			cheapOrgCalc
+
+	count				2
+
+	origin				50 -400 0 50 -380 0
+
+	sounds
+	[
+		sound/weapons/realTD/tdOneLeft.wav
+	]
+}
+
+Sound
+{
+	name				Boom1Right
+
+	count				2
+
+	origin				49 400 0 50 380 0
+
+	sounds
+	[
+		sound/weapons/realTD/tdOneRight.wav
+	]
+}
+
+Sound
+{
+	name				Boom2Left
+
+	spawnFlags			cheapOrgCalc
+
+	origin				-50 0 30 -70 0 30
+
+	sounds
+	[
+		sound/weapons/realTD/tdTwoLeft.wav
+	]
+}
+
+Sound
+{
+	name				Boom2Right
+
+	origin				50 0 -30 70 0 -30
+
+	sounds
+	[
+		sound/weapons/realTD/tdTwoRight.wav
+	]
+}
+
+Sound
+{
+	name				Boom3Left
+
+	spawnFlags			cheapOrgCalc
+
+	origin				0 -380 120 0 -400 120
+
+	sounds
+	[
+		sound/weapons/realTD/tdThreeLeft.wav
+	]
+}
+
+Sound
+{
+	name				Boom3Right
+
+	origin				0 380 -120 0 400 -120
+
+	sounds
+	[
+		sound/weapons/realTD/tdThreeRight.wav
+	]
+}
+
+Decal
+{
+	size
+	{
+		start			350 370
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+		gfx/damage/burnmark1
+	]
+}
+
+Flash
+{
+	count				3
+
+	life				1000
+
+	cullrange			400
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608
+		parm			5.5
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Particle
+{
+	name				SmokeThick
+
+	flags				impactKills impactFx useAlpha
+
+	spawnFlags			absoluteAccel orgOnSphere evenDistribution rgbComponentInterpolation
+
+	count				100
+
+	life				2000
+
+	delay				0 2000
+
+	intensity			0.1
+
+	origin				0 0 0 50 0 0
+
+	radius				100
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-10 10
+
+	velocity			1 10 10 1 -10 -10
+
+	acceleration		-1000 -1000 0 1000 1000 0
+
+	rgb
+	{
+		start			0.9569 0.4824 0.1686 1 1 1
+		end				0 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.2 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 200
+		end				300 200
+		parm			1
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+OrientedParticle
+{
+	name				shocky1
+
+	spawnFlags			cheapOrgCalc
+
+	life				800
+
+	origin				0 0 10
+
+	rgb
+	{
+		start			0.9569 0.4824 0.1686
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100
+		end				2000
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}
+
+Particle
+{
+	name				ExplosionRadius
+
+	spawnFlags			absoluteAccel orgOnSphere
+
+	count				30
+
+	life				4000 4200
+
+	delay				0 2000
+
+	radius				100
+
+	height				100
+
+	rotation			0 360
+
+	rotationDelta		-13 13
+
+	velocity			1 0 0 200 0 0
+
+	acceleration		-20 -20 20 20 20 0
+
+	rgb
+	{
+		end				0 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.3
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			60 80
+		end				290 340
+		parm			5 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_1
+		gfx/misc/exp01_2
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Particle
+{
+	name				push
+
+	spawnFlags			evenDistribution
+
+	count				3
+
+	life				300
+
+	delay				20
+
+	rotation			0 360
+
+	rgb
+	{
+		start			1 1 1 1 0.7098 0.4431
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			20
+		end				2
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/forcePush
+	]
+}
+
+Particle
+{
+	name				lightbeam
+
+	spawnFlags			absoluteAccel
+
+	count				4
+
+	life				4000
+
+	rgb
+	{
+		start			0.9569 0.4824 0.1686
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			300
+		end				1080 1000
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spikeb
+	]
+}
+
+Particle
+{
+	name				Copy of Copy of SmokeThick
+
+	flags				impactKills impactFx useAlpha
+
+	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel rgbComponentInterpolation
+
+	count				10
+
+	life				4000 6000
+
+	delay				200 500
+
+	intensity			0.1
+
+	origin				-100 -100 50 100 100 50
+
+	rotation			-180 180
+
+	rotationDelta		-10 10
+
+	velocity			1 1 10 1 -1 10
+
+	acceleration		-70 -70 0 70 70 0
+
+	gravity				100
+
+	rgb
+	{
+		start			0.9569 0.4824 0.1686
+		end				0 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			0 1
+		end				500 1000
+		parm			1
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+	]
+}
+
+OrientedParticle
+{
+	name				Copy of shocky1
+
+	spawnFlags			cheapOrgCalc axisFromSphere evenDistribution
+
+	count				2
+
+	life				800
+
+	delay				0 200
+
+	radius				180
+
+	rgb
+	{
+		start			0.9569 0.4824 0.1686
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100
+		end				2000
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}

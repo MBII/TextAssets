@@ -1,0 +1,84 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/um_sniperlabs/map"
+missionname  "Sniper Labs Operative"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "uM_Sniper_Reb" 							
+	TeamIcon	"gfx/2d/logos/mb_Rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+        
+	Objective1
+	{
+		goalname "Gain Access to the Sniper Labs Installations"
+		final -1
+		message_team1 "That did it! We have gained access"
+		message_team2 "They have breached our security system fall back"
+		objdesc "SECONDARY GOAL:
+ 		Go to the override console and Open the Main Doors"
+		objgfx "gfx/mplevels/um_sniperlabs/objectivea"
+	}
+	Objective2
+	{
+		goalname "Find and destroy the Energy Generator for the Communication Array!"
+		final 0
+		message_team1 "We did it! The array is useless the data is safe!"
+		message_team2 "The Rebels have destroyed the array! The data wasn't sent."
+		objdesc "PRIMARY GOAL:
+		Destroy the Energy Generator for the Communication Array"
+		objgfx "gfx/mplevels/um_sniperlabs/objectiveb"
+	}
+	
+	wonround "We did it! The array is useless the data is safe!" 						//Printed to this team if they won the round.
+	lostround "We didn't stop the Imperials from sending the data! We better start the evacuation!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Destroy the Energy Generator for The Communication Array!" //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "uM_Sniper_Imp"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Hold the Rebels until we send all the Secret Data!"
+		final -1
+		target ""
+		objdesc "PRIMARY GOAL:
+		Hold the Rebels until we send all the Secret Data!"
+		objgfx "gfx/mplevels/um_sniperlabs/objectivea"
+	}
+	
+	wonround "We have sent the data. The rebels are finished!"
+	lostround "The Rebels destroyed the array! There wasn't time for data to be sent."
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Hold the Rebels until we send all the Secret Data!"
+}

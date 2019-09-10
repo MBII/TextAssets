@@ -1,0 +1,226 @@
+repeatDelay				300
+
+Particle
+{
+	name				OrangeGlow
+
+	flags				setShaderTime
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				3
+
+	life				200 300
+
+	delay				0 150
+
+	origin				0 -10 -10 20 10 10
+
+	rotation			-180 180
+
+	rotationDelta		-3 3
+
+	velocity			0 -5 -5 5 5 5
+
+	acceleration		0 0 0 0 10 5
+
+	gravity				0 30
+
+	rgb
+	{
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			70 85
+		flags			linear
+	}
+
+	size
+	{
+		start			10 20
+		end				60 65
+		parm			20 30
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1
+		gfx/exp/slower_rocket_explosion
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				12
+
+	life				2000 3000
+
+	delay				0 800
+
+	origin				0 -25 -25 20 25 25
+
+	rotation			0 360
+
+	rotationDelta		-4 4
+
+	velocity			0 0 0 10 30 20
+
+	acceleration		0 4 2 4 20 8
+
+	gravity				0 20
+
+	rgb
+	{
+		start			0.549 0.549 0.549 0 0 0
+		end				0 0 0
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 90
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			3 5
+		end				20 15
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Flash
+{
+	life				5000
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1000 1024
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				4000 3000
+
+	bounce				14 13
+
+	radius				1024
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/weapons/raidconc/fire.wav
+	]
+}
+
+Tail
+{
+	name				spark1
+
+	spawnFlags			orgOnSphere axisFromSphere rgbComponentInterpolation
+
+	count				40
+
+	life				400 1100
+
+	radius				15
+
+	velocity			200 0 0 300 0 0
+
+	acceleration		-60 0 0 -200 0 0
+
+	gravity				-550 -850
+
+	rgb
+	{
+		start			0.9412 0.7608 0.3412 1 1 1
+	}
+
+	size
+	{
+		start			0.6 1
+		end				0.5 0.6
+	}
+
+	length
+	{
+		start			5 10
+		parm			30 60
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Tail
+{
+	name				sparkblue
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				6 8
+
+	life				800 1000
+
+	cullrange			500
+
+	origin				-20 0 0 20 0 0
+
+	radius				22
+
+	velocity			300 0 0 400 0 0
+
+	gravity				-500 -803
+
+	size
+	{
+		start			0 1
+		end				0.6 0.3
+	}
+
+	length
+	{
+		start			10 5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark3
+	]
+}

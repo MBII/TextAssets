@@ -1,0 +1,73 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 ^1Disciples
+	team2 ^4Disciples
+}
+
+mapgraphic "gfx/mp/mplevels/swoopbattle/map"
+missionname  "^7Swoop Battle"
+
+roundbegin_target ""
+
+countin_time 0
+
+^1Disciples
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "sb_red"							
+
+	TeamIcon	"gfx/2d/logos/sb_red"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Ragnos loves me."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "^7Destroy the blue heretics!"
+		objgfx "gfx/mp/mplevels/swoopbattle/objr"
+	}
+	
+	wonround "Lord Ragnos is wise!"
+	lostround "We are unworthy..."
+	roundover_sound_wewon "sound/swoop/ragnos_win.mp3"
+	roundover_sound_welost "sound/chars/ragnos/29mar001.mp3"
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Destroy the blue heretics!"
+}
+
+^4Disciples
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "sb_blue"
+	TeamIcon	"gfx/2d/logos/sb_blue"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Ragnos loves me."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "^7Destroy the red heretics!"
+		objgfx "gfx/mp/mplevels/swoopbattle/objb"
+	}
+
+	wonround "Lord Ragnos is wise!"
+	lostround "We are unworthy..."
+	roundover_sound_wewon "sound/swoop/ragnos_win.mp3"
+	roundover_sound_welost "sound/chars/ragnos/29mar001.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Destroy the red heretics!"
+}

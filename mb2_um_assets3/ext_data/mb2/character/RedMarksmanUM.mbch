@@ -1,0 +1,78 @@
+
+//Siege class def file.
+
+ClassInfo
+{
+	name			"RedMarksmanUM"
+	weapons			WP_MELEE|WP_STUN_BATON|WP_THERMAL|WP_TRIP_MINE
+	maxhealth		60
+	maxarmor		40
+	startarmor		40
+	model			"stormtrooper_knight"
+	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_FIRE_GRENADES,1 //this is optional, if it's here it forces the model to this.
+	skin			"red"					//this is optional, if it's here it forces the skin to this.
+	uishader		"gfx/um_icons/red_marksman_icon"
+	extralives      1
+	classflags      CFL_HEAVYMELEE
+
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_STUN_BATON				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_STUN_BATON				//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/crossbow/blaster_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/crossbow/blaster.md3"   	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_bowcaster" 			//Required: Weapon change icon
+	WeaponName		"Crossbow"    					//Required: Weapon change display name
+	FlashSound0		"sound/weapons/crossbow/fire.wav"
+	AltFlashSound0 		"sound/weapons/crossbow/alt_fire.wav"
+	MuzzleEffect		"crossbow/muzzle_flash"	   				//Optional: New muzzle effect
+	AltMuzzleEffect		"corssbow/altmuzzle_flash" 					//Optional: New alt muzzle effect
+	MissileEffect		"crossbow/shot"  					//Optional: New effect to be displayed on the projectile
+	Missile3Effect		"crossbow/shot"  					//Optional: New effect to be displayed on the projectile
+	AltMissileEffect	"crossbow/shot"  					//Optional: Ditto for the alt fire
+	PowerupShotEffect	"crossbow/shot"  					//Optional: Ditto for the alt fire
+	customAmmo 		7
+}
+WeaponInfo1
+{
+	WeaponToReplace		WP_THERMAL
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
+	NewViewModel		"models/weapons2/stone/thermal.md3"
+	Icon				"gfx/hud/w_icon_stone"
+	WeaponName			"Stones"
+	MuzzleEffect		"stone/muzzle_flash"
+	AltMuzzleEffect		"stone/muzzle_flash"
+	MissileModel 		"models/weapons2/stone/thermal_proj.md3"
+	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
+	primFireEnabled		0
+	customammo          1
+}
+WeaponInfo2
+{
+	WeaponToReplace		WP_TRIP_MINE
+	WeaponBasedOff		WP_TRIP_MINE
+	NewWorldModel		"models/weapons2/grenado/thermal_pirate_w.glm"
+	NewViewModel		"models/weapons2/grenado/thermal_pirate.md3"
+	MissileModel 			"models/weapons2/grenado/thermal_pirate_proj.md3"
+	MissileModel2 			"models/weapons2/grenado/thermal_pirate_proj.md3"
+	Icon				"gfx/hud/w_icon_bomb"
+	WeaponName			"Oil Pot"
+    customammo             1
+}
+
+description	"Red - Stormtrooper Marksman
+
+Melee
+Assemble
+Crossbow                 (Sniper rifle)
+Oil Pot                  (Incendiary grenade)
+Rock                     (Secondary only grenade)
+Reinforcements           (1 extra life)
+Strong Melee             
+
+Strengths: Can hit enemies at long range with high damage shots
+Weaknesses: No melee defense
+"

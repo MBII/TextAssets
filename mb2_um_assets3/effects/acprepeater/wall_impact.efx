@@ -1,0 +1,130 @@
+// Simple blaster impact effect
+
+// Directed spark explosion effect
+
+// Mini-explosion made out of a couple of lines
+Line
+{
+	count 	6	8
+	life	50	100
+
+	origin2	12 -10 -10		18 10 10
+
+	width
+	{
+		start 	0.25 	0.5
+	}
+
+	alpha
+	{
+		start 	0.45 	1.0
+		end	0.0
+		flags	linear
+	}
+	
+	shader
+	[
+		gfx/misc/spark
+		gfx/misc/spark2
+	]
+}
+
+// Bits that fly up and bounce off of architecture
+Tail
+{
+	count	10
+	life	200	400
+
+	bounce	0.25	0.4
+
+	vel	120 -120 -120	250 120 120
+	gravity	-450	-550
+
+	size
+	{
+		start	0.3	0.45
+	}
+
+	length
+	{
+		start	4.0	10.0
+		end	0.1	1.0
+		flags 	linear
+	}
+
+	shader
+	[
+		gfx/misc/spark
+	]
+}
+
+
+// smokey residue
+Particle
+{
+	count		8	10
+	life		1000	1800
+
+	rotation	-180 180
+	rotationDelta	-6	6
+
+	velocity	10 -10 -10	20 10 10
+	flags		useAlpha
+
+	spawnflags	rgbComponentInterpolation
+
+	gravity		2	20
+
+	rgb
+	{
+		start 0 0 0		0.8 0.8 0.8
+	}
+
+	size
+	{
+		start 4.0 6.0
+		end	12.0	20.0
+		flags	linear
+	}
+
+	alpha
+	{
+		start	1.0
+		end 	0.1
+		flags	linear
+	}
+
+	shader
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Decal
+{
+	count	1
+
+	rotation			0 360
+
+	size
+	{
+		start 	2	2
+	}
+
+	shader
+	[
+		gfx/effects/acpbulletmark
+	]
+}
+
+Sound
+{
+	count 	0 1
+
+	cullrange			600
+
+	sounds
+	[
+		sound/weapons/acparray/shot_death.mp3
+	]
+}

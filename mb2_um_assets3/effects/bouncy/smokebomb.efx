@@ -1,0 +1,208 @@
+repeatDelay				300
+
+Particle
+{
+	name				explosion_cloud
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				6 8
+
+	life				500 1000
+
+	origin				0 -10 -10 10 10 10
+
+	rotation			0 360
+
+	rotationDelta		-8 8
+
+	velocity			35 -25 -25 70 25 25
+
+	rgb
+	{
+		start			1 1 1 0.6431 0.2078 0
+	}
+
+	alpha
+	{
+		start			0.8 1
+		end				0
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			5 2
+		end				20 25
+		flags			linear
+	}
+
+	shaders
+	[
+		effects/fire
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	flags				expensivePhysics usePhysics
+
+	count				75 50
+
+	life				1.6e+004 1.7e+004
+
+	delay				0 1e+004
+
+	bounce				0.5 0.8
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -10 -10 0 10 10
+
+	gravity				1 2
+
+	rgb
+	{
+		start			0.7529 0.7529 0.7529
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.8
+		end				0.1 0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				100 150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke_cod4
+		gfx/effects/alpha_smoke2_cod4
+		gfx/effects/black_smoke_cod4
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				250
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			512
+		end				100
+		flags			linear
+	}
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				6
+
+	life				200 400
+
+	delay				250 500
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	velocity			20 -20 -20 40 20 20
+
+	acceleration		-5 -5 -5 5 5 5
+
+	gravity				-50 -30
+
+	rgb
+	{
+		start			1 1 0.4353 0.4941 0.3216 0.1451
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			1 6
+		end				20 30
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 4
+
+	radius				300 400
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/weapons/thermal/explode.wav
+	]
+}
+
+Decal
+{
+	alpha
+	{
+		start			0.3 0.1
+	}
+
+	size
+	{
+		start			25.5 29
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}

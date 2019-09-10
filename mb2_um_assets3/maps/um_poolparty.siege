@@ -1,0 +1,71 @@
+Teams
+{
+	team1 Clones
+	team2 Mandalorians
+}
+
+mapgraphic "gfx/plasma_old/poolparty"
+missionname  "Pool Party 2"
+
+roundbegin_target ""
+
+countin_time 0
+
+Clones
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "PN2_CS" 							
+	TeamIcon	"gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Kill the other team."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the other team."
+		objgfx "gfx/2d/logos/mb_mand"
+	}
+	
+	wonround "Clones Win" 						
+	lostround "Mandalorians Win" 					
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0 
+
+	briefing "Kill the other team." 
+}
+
+Mandalorians
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "PN2_S"
+	TeamIcon	"gfx/2d/logos/mb_mand"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the other team."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the other team."
+		objgfx "gfx/2d/logos/mb_clonerepublic"
+	}
+	
+	wonround "Mandalorians Win"
+	lostround "Clones Win"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Kill the other team."
+}

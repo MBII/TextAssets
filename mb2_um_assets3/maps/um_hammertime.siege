@@ -1,0 +1,78 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 RedTeam
+	team2 BlueTeam
+}
+
+mapgraphic "gfx\mplevels\naboo\map"
+missionname  "Hammer Time"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+countin_time 0
+
+RedTeam
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	Timed 300
+     	UseTeam "MChammerred" 							//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_naboo"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+        Objective1
+	{
+		goalname "Launch the Blue team into the lava 4 times!"
+		final 0
+		message_team1 "You are victorious!"
+		message_team2 "You should Stop playing HammerTime."
+		objdesc "PRIMARY GOAL:
+		Launch them into the lava"
+		objgfx "gfx/mplevels/naboo/objectiveb"
+	}
+
+	wonround "Your are victorious!"				//Printed to this team if they won the round.
+	lostround "You should Stop playing HammerTime." 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Score 4 goals by launching the other team into the lava." //Displayed on the mission briefing menu.
+}
+
+BlueTeam
+{
+	RequiredObjectives 1
+	UseTeam "MChammerblue"
+	TeamIcon	"gfx/2d/logos/mb_tradefed"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+	Timed 300
+	Objective1
+	{
+		goalname "Launch the Red team into the lava 4 times!"
+		final 0
+		message_team1 "You should Stop playing HammerTime."
+		message_team2 "You are victorious!"
+		target ""
+		objdesc "PRIMARY GOAL:
+		Launch them into the lava"
+		objgfx "gfx/mplevels/naboo/objectivea"
+	}
+
+	wonround "You are victorious" 						//Printed to this team if they won the round.
+	lostround "You should Stop playing HammerTime." 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Score 4 goals by launching the other team into the lava." //Displayed on the mission briefing menu.
+}

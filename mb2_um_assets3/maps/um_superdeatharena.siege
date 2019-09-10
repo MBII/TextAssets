@@ -1,0 +1,75 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Red
+	team2 Blue
+}
+
+mapgraphic "gfx/mplevels/siege2_desert"
+missionname  "Super Death Arena"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+countin_time 0
+
+Red
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	Timed 300
+     	UseTeam "dared" 							//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Survive!"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Survive!"
+		objgfx "gfx/mplevels/duel_jabba/reb_obj"
+	}
+	
+	wonround "Win!" 						//Printed to this team if they won the round.
+	lostround "Fail." 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Survive!" //Displayed on the mission briefing menu.
+}
+
+Blue
+{
+	RequiredObjectives 1
+	UseTeam "dablue"
+	TeamIcon	"gfx/2d/logos/mb_hutt"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Survive!"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Survive!"
+		objgfx "gfx/mplevels/duel_jabba/imp_obj"
+	}
+	
+	wonround "Win!"
+	lostround "Fail."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Survive!"
+}

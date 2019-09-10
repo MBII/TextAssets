@@ -1,0 +1,115 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 ^1RedRockets
+	team2 ^4BlueBlazers
+}
+
+mapgraphic "gfx/mp/mplevels/swooprace/map"
+missionname  "^7Swoop Race"
+
+radartopleft "13056, -7680"
+radarbottomright "50432, -45056"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/uM_SwoopRace0"
+		radargraphicfull "gfx/automap/uM_SwoopRace0Full"
+		height "-1792"
+	}
+	AutoMap1
+	{
+		radargraphic "gfx/automap/uM_SwoopRace1"
+		radargraphicfull "gfx/automap/uM_SwoopRace1Full"
+		height "-1152"
+	}
+	AutoMap2
+	{
+		radargraphic "gfx/automap/uM_SwoopRace2"
+		radargraphicfull "gfx/automap/uM_SwoopRace2Full"
+		height "-512"
+	}
+	AutoMap3
+	{
+		radargraphic "gfx/automap/uM_SwoopRace3"
+		radargraphicfull "gfx/automap/uM_SwoopRace3Full"
+		height "128"
+	}
+	AutoMap4
+	{
+		radargraphic "gfx/automap/uM_SwoopRace4"
+		radargraphicfull "gfx/automap/uM_SwoopRace4Full"
+		height "768"
+	}
+	AutoMap5
+	{
+		radargraphic "gfx/automap/uM_SwoopRace5"
+		radargraphicfull "gfx/automap/uM_SwoopRace5Full"
+		height "1408"
+   }
+}
+
+roundbegin_target ""
+
+countin_time 0
+
+^1RedRockets
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "sr_red"							
+
+	TeamIcon	"gfx/2d/logos/sr_red"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Swoop your way to victory."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Cross the finish line to win the race!"
+		objgfx "gfx/mp/mplevels/swooprace/objective"
+	}
+	
+	wonround "Win!"
+	lostround "You lose."
+	roundover_sound_wewon "sound/swoop/cheer.mp3"
+	roundover_sound_welost "sound/swoop/boo.mp3"
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Swoop your way to victory."
+}
+
+^4BlueBlazers
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "sr_blu"
+	TeamIcon	"gfx/2d/logos/sr_blue"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Swoop your way to victory."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Cross the finish line to win the race!"
+		objgfx "gfx/mp/mplevels/swooprace/objective"
+	}
+
+	wonround "Win!"
+	lostround "You lose."
+	roundover_sound_wewon "sound/swoop/cheer.mp3"
+	roundover_sound_welost "sound/swoop/boo.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Swoop your way to victory."
+}

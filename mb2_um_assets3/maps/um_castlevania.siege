@@ -1,0 +1,75 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Belmont
+	team2 Dracula
+}
+
+mapgraphic "gfx\mp\mplevels\um_castlevania\map"
+missionname  "Castlevania Keep"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Belmont
+{
+	RequiredObjectives 1							//How many objectives must this team complete before winning the round?					
+	Timed 180										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	UseTeam "Castlevaniabelmont" 							//Specifies the name of team "theme" to use
+	TeamIcon	"gfx\mp\mplevels\um_castlevania\Belmont"
+	TeamColorOn	"0 0 0 0"
+	TeamColorOff	"0 0 0 0"	
+	
+	Objective1
+	{
+		goalname "Kill Dracula!"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat Dracula before he reaches full power"
+		objgfx "gfx\mp\mplevels\um_castlevania\objective1"
+	}
+	
+	wonround "Die monster!" 					//Printed to this team if they won the round.
+	lostround "..." 				//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/round/richterwins.wav"
+	roundover_sound_welost "sound/round/richterloses.wav"
+	roundover_target ""
+	attackers 1 						//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Kill Dracula!" //Displayed on the mission briefing menu.
+}
+
+Dracula
+{
+	RequiredObjectives 1
+	UseTeam "castlevaniadracula"
+	TeamIcon	"gfx\mp\mplevels\um_castlevania\Dracula"
+	TeamColorOn	"0 0 0 0"
+	TeamColorOff	"0 0 0 0"	
+
+	Objective1
+	{
+		goalname "Reach full power"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Survive until time runs out"
+		objgfx "gfx\mp\mplevels\um_castlevania\objective1"
+	}
+	
+	wonround "Your line dies here, Belmont"
+	lostround "Next time, Belmont"
+	roundover_sound_wewon "sound/round/draculawins.wav"
+	roundover_sound_welost "sound/round/draculaloses.wav"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Reach full power"
+}

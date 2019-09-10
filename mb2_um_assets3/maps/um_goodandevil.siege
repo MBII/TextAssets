@@ -1,0 +1,80 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx/mplevels/um_goodandevil/map"
+missionname  "Good vs Evil"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+countin_time 0
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "umQ_goodandevil_jedi"							
+	Timed 300
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Defeat the Sith"
+		final 0
+		message_team1 "The sith have been defeated"
+		message_team2 "We have been defeated"
+		objdesc "Defeat the Sith"
+		objgfx "gfx/mplevels/um_goodandevil/obj"
+	}
+
+	
+	wonround "This sith have been defeated" 	//Printed to this team if they won the round.
+	lostround "We have been defeated" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/jediwin"
+	roundover_sound_welost "sound/jedilose"
+	roundover_target "siegeend"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Defeat the sith" //Displayed on the mission briefing menu.
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "umQ_goodandevil_sith"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defeat the Jedi"
+		final 0
+		message_team1 "The jedi have been defeated"
+		message_team2 "We have been defeated"
+		objdesc "Defeat the Jedi"
+		objgfx "gfx/mplevels/um_goodandevil/obj"
+	}
+
+
+
+		
+	wonround "The jedi have been defeated"
+	lostround "We have been defeated"
+	roundover_sound_wewon "sound/sithwin"
+	roundover_sound_welost "sound/sithlose"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Defeat the Jedi"
+}

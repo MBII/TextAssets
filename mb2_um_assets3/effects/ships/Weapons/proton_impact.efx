@@ -1,0 +1,286 @@
+repeatDelay				300
+
+Cylinder
+{
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				2
+
+	life				800
+
+	delay				0 700
+
+	size
+	{
+		start			300
+		end				700
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size2
+	{
+		start			10
+		end				700
+		parm			90
+		flags			linear nonlinear
+	}
+
+	length
+	{
+		start			100
+		end				0.5
+		parm			90
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/shock_ripple
+	]
+}
+
+Cylinder
+{
+	spawnFlags			rgbComponentInterpolation
+
+	life				800
+
+	cullrange			550
+
+	size
+	{
+		start			15
+		end				500
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size2
+	{
+		start			120
+		end				500
+		parm			50
+		flags			linear nonlinear
+	}
+
+	length
+	{
+		start			5
+	}
+
+	shaders
+	[
+		gfx/effects/shock_ripple
+	]
+}
+
+Cylinder
+{
+	life				450
+
+	cullrange			550
+
+	size
+	{
+		start			5
+		end				800
+		parm			90
+		flags			linear nonlinear
+	}
+
+	size2
+	{
+		start			250
+		end				800
+		flags			linear
+	}
+
+	length
+	{
+		start			60
+		end				0.5
+		parm			90
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/shock_ripple
+	]
+}
+
+Particle
+{
+	spawnFlags			orgOnSphere rgbComponentInterpolation
+
+	count				10
+
+	life				700 1200
+
+	delay				0 100
+
+	origin				0 -20 -20 125 20 20
+
+	radius				50
+
+	height				50
+
+	rotation			0 360
+
+	rotationDelta		-20 20
+
+	velocity			50 0 0 300 0 0
+
+	acceleration		25 -100 -100 50 100 100
+
+	alpha
+	{
+		end				0
+		parm			30
+	}
+
+	size
+	{
+		start			150 200
+		end				0.5
+		parm			70
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/shock_ball
+	]
+}
+
+Particle
+{
+	spawnFlags			rgbComponentInterpolation
+
+	count				10
+
+	life				400 900
+
+	cullrange			400
+
+	rotation			0 360
+
+	velocity			500 -1000 -1000 750 1000 1000
+
+	gravity				-100 -200
+
+	rgb
+	{
+		start			0.5 0.5 1 0.8 0.8 1
+	}
+
+	size
+	{
+		start			10 30
+		end				0.5
+		parm			50
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/steam2
+		gfx/misc/steam3
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				250
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			640
+		end				160
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 4
+
+	radius				1500 400
+}
+
+Sound
+{
+	cullrange			550
+
+	sounds
+	[
+		sound/vehicles/weapons/proton/impact.mp3
+	]
+}
+
+OrientedParticle
+{
+	spawnFlags			rgbComponentInterpolation
+
+	life				500
+
+	cullrange			1000
+
+	origin				5 0 0
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	rgb
+	{
+		start			0.3 0.3 1 0.5 0.5 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			40 60
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			10
+		end				300 375
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam3
+	]
+}
+
+Decal
+{
+	size
+	{
+		start			100 125
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}

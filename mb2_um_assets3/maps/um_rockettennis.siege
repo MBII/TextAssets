@@ -1,0 +1,88 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 ^1RED
+	team2 ^4BLU
+}
+
+mapgraphic "gfx/mp/mplevels/tennis2/map"
+missionname  "^7Rocket Tennis 2"
+
+radartopleft "384, 2560"
+radarbottomright "3456, -512"
+AutoMap
+{
+   AutoMap0
+   {
+       radargraphic "gfx/automap/uM_RocketTennis"
+       radargraphicfull "gfx/automap/uM_RocketTennisFull"
+   }
+}
+
+roundbegin_target ""
+
+countin_time 0
+
+^1RED
+{
+	RequiredObjectives 1
+	Timed 180
+	UseTeam "rt2_red"							
+
+	TeamIcon	"gfx/2d/logos/tennis2_red"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "shoot BLU target."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Rocket the BLU team's target to gain points. Rules:
+- Score five points to win
+- Losers get electrocuted"
+		objgfx "gfx/mp/mplevels/tennis2/btroll"
+	}
+	
+	wonround "We won!"
+	lostround "Game over."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Score five points using the BLU target."
+}
+
+^4BLU
+{
+	RequiredObjectives 1
+	Timed 180
+	UseTeam "rt2_blu"
+	TeamIcon	"gfx/2d/logos/tennis2_blu"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "shoot RED target."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Rocket the RED team's target  to gain points. Rules:
+- Score five points to win
+- Losers get electrocuted"
+		objgfx "gfx/mp/mplevels/tennis2/rtroll"
+	}
+
+	wonround "We won!"
+	lostround "Game over."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Score five points using the RED target."
+}
