@@ -1,0 +1,69 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Heroes
+	team2 Villains
+}
+
+mapgraphic "gfx/mplevels/dc_universe/map"
+missionname  "DC Universe - Gotham"
+
+roundbegin_target "dc_universe_start"
+
+Heroes
+{
+	RequiredObjectives 1
+	Timed 300
+  UseTeam "dcu_good"
+	TeamIcon	"gfx/mplevels/dc_universe/heroes"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Defuse the Five bombs"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defuse all five of the titan bombs around Gotham before they go off"
+		objgfx "gfx/mplevels/dc_universe/obj"
+	}
+	
+	wonround "We stopped them!"
+	lostround "Gotham is doomed"
+	roundover_sound_wewon "sound/dc_universe/good_win.wav"
+	roundover_sound_welost "sound/dc_universe/good_lose.wav"
+	roundover_target ""
+	attackers 1
+
+	briefing "There are cannisters of titan hooked up to bombs all over Gotham and they'll go off in five minutes if we don't defuse them."
+}
+
+Villains
+{
+	RequiredObjectives 1
+	UseTeam "dcu_bad"
+	TeamIcon	"gfx/mplevels/dc_universe/villains"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Stop them defusing the bombs"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop them defusing the five bombs that we've planted around Gotham."
+		objgfx "gfx/mplevels/dc_universe/obj"
+	}
+	
+	wonround "Gotham is doomed"
+	lostround "We are defeated!"
+	roundover_sound_wewon "sound/dc_universe/bad_win.wav"
+	roundover_sound_welost "sound/dc_universe/bad_lose.wav"
+	roundover_target ""
+	attackers 0
+
+	briefing "We've hooked up bombs to five titan containers around Gotham and they'll go off in five minutes, we have to stop them being defused."
+}

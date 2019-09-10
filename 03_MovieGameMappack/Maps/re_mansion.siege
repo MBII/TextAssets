@@ -1,0 +1,152 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 S.T.A.R.S
+	team2 Umbrella
+}
+
+mapgraphic "gfx/mplevels/revil/revilm"
+missionname "Resident Evil - Mansion"
+radartopleft "-2832, 2572"
+radarbottomright "1720, -1980"
+AutoMap
+{
+   AutoMap0
+   {
+       radargraphic "gfx/automap/re_mansionb"
+       radargraphicfull "gfx/automap/re_mansionb"
+       height "-224"
+   }
+
+   AutoMap1
+   {
+       radargraphic "gfx/automap/re_mansion1"
+       radargraphicfull "gfx/automap/re_mansion1"
+       height "-72"
+   }
+   AutoMap2
+   {
+       radargraphic "gfx/automap/re_mansion2"
+       radargraphicfull "gfx/automap/re_mansion2"
+       height "184"
+   }
+
+   AutoMap3
+   {
+       radargraphic "gfx/automap/re_mansionr"
+       radargraphicfull "gfx/automap/re_mansionr"
+       height "592"
+   }
+}
+
+countin_time 0
+
+roundbegin_target "revilstart"
+
+
+S.T.A.R.S
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "rem_stars"							
+	TeamIcon	"gfx/mplevels/revil/stars"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Get the mansion key"
+		final -1
+		message_team1 "^1Now collect the crests to get to the lift"
+		message_team2 "^1They have the mansion key, kill them"
+		objdesc "Pick up the mansion key from the stone corridor to progress to the right side of the mansion"
+		objgfx "gfx/mplevels/revil/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Collect the four Crests"
+		final -1
+		message_team1 "^1Kill the Tyrant on the roof"
+		message_team2 "^1Kill them before they kill the Tyrant"
+		objdesc "Pick up all four crests to get to the lift"
+		objgfx "gfx/mplevels/revil/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Kill the Tyrant"
+		final 0
+		message_team1 "^1We Escaped"
+		message_team2 "^1You Died"
+		objdesc "Brad won't land the helicopter while the Tyrant is on the roof, kill it"
+		objgfx "gfx/mplevels/revil/obj3"
+	}
+
+	
+	wonround "^1We Escaped"				
+	lostround "^1You Died" 				
+
+	roundover_sound_wewon "sound/revil/stars_win.mp3" 			
+	roundover_sound_welost "sound/revil/stars_lose.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing "Escape the mansion."
+}
+
+Umbrella
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "rem_umbrella"							
+	TeamIcon	"gfx/mplevels/revil/umbrella"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Eat them"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Eat them"
+		objgfx "gfx/mplevels/revil/objz"
+	}
+	
+	Objective2
+	{
+		goalname "Kill them"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Kill them"
+		objgfx "gfx/mplevels/revil/objz"
+	}
+	
+	Objective3
+	{
+		goalname "KILL THEM"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "KILL THEM"
+		objgfx "gfx/mplevels/revil/objz"
+	}
+
+	
+	wonround "^1Itchy, tasty"				
+	lostround "^1You Died" 				
+
+	roundover_sound_wewon "sound/revil/stars_win.mp3" 			
+	roundover_sound_welost "sound/revil/stars_lose.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 0 									
+
+	briefing "Itchy, tasty."
+}

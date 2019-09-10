@@ -1,0 +1,81 @@
+Teams
+{
+	team1 Hunters
+	team2 Dinosaurs
+}
+
+mapgraphic "gfx/jpsb/map"
+missionname "Jurassic Park - Site B"
+
+countin_time 0
+
+roundbegin_target ""
+
+
+Hunters
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "jpsb_hunt"							
+	TeamIcon	"gfx/2d/ingen"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+  Objective1
+	{
+		goalname "Get to da choppa"
+		final 0 							
+		message_team1 ""						
+		message_team2 ""						
+		target obj1_complete_imperial 					
+		objdesc "PRIMARY GOAL:
+		Make your way to the abandoned facility which has a helicopter that we can use to escape" 			
+		objgfx "gfx/jpsb/obj" 				
+				
+	}
+
+	
+	wonround "We have escaped"				
+	lostround "Dinosaurs have killed us all" 				
+
+	roundover_sound_wewon "sound/jp/jp.wav" 			
+	roundover_sound_welost "sound/chars/trex/death.wav"
+
+	roundover_target "1" 							
+
+	attackers 1 									
+
+	briefing "Get to da choppa"
+}
+
+Dinosaurs
+{
+	RequiredObjectives 1
+	UseTeam "jpsb_dino"
+	TeamIcon	"gfx/2d/raptor"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+  Objective1
+	{
+		goalname "Kill the humans"
+		final 0 							
+		message_team1 ""						
+		message_team2 ""						
+		target obj1_complete_imperial 					
+		objdesc "PRIMARY GOAL:
+		Kill the humans" 			
+		objgfx "gfx/jpsb/obj" 				
+				
+	}
+
+	wonround "Rawwwwwwwwwwwr"
+	lostround "Dinosaurs have been destroyed"
+
+	roundover_sound_wewon "sound/chars/trex/death.wav" 			
+	roundover_sound_welost "sound/jp/jp.wav"
+
+	attackers 0
+
+	briefing "Kill the humans"
+}

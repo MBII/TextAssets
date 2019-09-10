@@ -1,0 +1,83 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Tokugawa
+	team2 Uesugi
+}
+
+mapgraphic "gfx\mplevels\samurai\map"
+missionname  "Total War Shogun 2"
+
+radartopleft "-3008, 3840"
+radarbottomright "3008, -1280"
+AutoMap
+{
+   AutoMap0
+   {
+       radargraphic "gfx/automap/shogun1"
+       radargraphicfull "gfx/automap/shogun1"
+       height "0"
+   }
+}
+
+roundbegin_target "samstart"
+
+Tokugawa
+{
+	RequiredObjectives 1
+	Timed 300
+  UseTeam "sam_tokugawa"
+	TeamIcon	"gfx\mplevels\samurai\tokugawa"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Kill the Shogun"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Shogun"
+		objgfx "gfx\mplevels\samurai\obj"
+	}
+	
+	wonround "We killed the Shogun"
+	lostround "We failed to kill the Shogun"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+
+	briefing "Kill the Shogun, if they hide him in the storeroom we'll have to retrieve the key"
+}
+
+Uesugi
+{
+	RequiredObjectives 1
+	UseTeam "sam_uesugi"
+	TeamIcon	"gfx\mplevels\samurai\uesugi"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Protect the Shogun"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the other team"
+		objgfx "gfx\mplevels\samurai\obj"
+	}
+	
+	wonround "We successfully defended the Shogun"
+	lostround "We failed they killed the Shogun"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Protect the Shogun, if we take him to the storeroom we can lock the door"
+}

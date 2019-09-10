@@ -1,0 +1,73 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 SubZero
+	team2 Scorpion
+}
+
+mapgraphic "gfx/mk/map"
+missionname  "MK Deadpool"
+
+roundbegin_target "foight"
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+SubZero
+{
+	RequiredObjectives 1						
+	UseTeam "mk_sz" 							
+	TeamIcon	"models/players/scorpion/icon_blue"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Kill Scorpion"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Kill Scorpion"
+		objgfx "gfx/mk/obj"
+	}
+	
+	wonround "Sub Zero Wins" 						//Printed to this team if they won the round.
+	lostround "Scorpion Wins" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/mk/szwins.mp3"
+	roundover_sound_welost "sound/mk/scwins.mp3"
+	roundover_target "roundover"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Kill Scorpion" //Displayed on the mission briefing menu.
+}
+
+Scorpion
+{
+	RequiredObjectives 1
+	Timed 300	
+	UseTeam "mk_sc"
+	TeamIcon	"models/players/scorpion/icon_default"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Sub Zero"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Kill Sub Zero"
+		objgfx "gfx/mk/obj"
+	}
+	
+	wonround "Scorpion Wins"
+	lostround "Sub Zero Wins"
+	roundover_sound_wewon "sound/mk/scwins.mp3"
+	roundover_sound_welost "sound/mk/szwins.mp3"
+	roundover_target "roundoverimp"
+	attackers 1
+
+	briefing "Kill Sub Zero"
+}

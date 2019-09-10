@@ -1,0 +1,440 @@
+repeatDelay				300
+
+Particle
+{
+	name				OrangeGlow
+
+	flags				setShaderTime useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				3
+
+	life				2800 2900
+
+	delay				0 150
+
+	origin				-40 -10 -10 0 10 10
+
+	rotation			-180 180
+
+	rotationDelta		-3 3
+
+	velocity			5 -5 -5 10 5 5
+
+	acceleration		0 0 0 0 10 0
+
+	gravity				0 20
+
+	rgb
+	{
+		end				0.1529 0.1529 0.1529
+		parm			30 35
+		flags			linear nonlinear
+	}
+
+	alpha
+	{
+		parm			70 85
+	}
+
+	size
+	{
+		start			15 30
+		end				70 85
+		parm			20 30
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1_a
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				4
+
+	life				2000 3000
+
+	delay				0 800
+
+	origin				0 -25 -25 20 25 25
+
+	rotation			0 360
+
+	rotationDelta		-4 4
+
+	velocity			0 0 0 10 30 20
+
+	acceleration		0 4 2 4 20 8
+
+	gravity				0 20
+
+	rgb
+	{
+		start			0.549 0.549 0.549 0 0 0
+		end				0 0 0
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 90
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			3 4
+		end				40 60
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				150
+
+	size
+	{
+		start			512
+	}
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				4
+
+	life				1200
+
+	delay				250 500
+
+	origin				-40 -15 -15 15 15 15
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			20 -20 -20 40 20 20
+
+	acceleration		-5 -5 -5 5 5 5
+
+	gravity				-50 -120
+
+	rgb
+	{
+		start			0.8667 0.8196 0.5686 0.7608 0.4667 0.1961
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			1 6
+		end				45 55
+		parm			20 30
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 4
+
+	radius				200 300
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/orbs_omaha/explosion.mp3
+	]
+}
+
+Tail
+{
+	name				spark1
+
+	spawnFlags			orgOnSphere axisFromSphere rgbComponentInterpolation
+
+	count				40
+
+	life				500 1200
+
+	origin				20 0 0
+
+	radius				15
+
+	velocity			400 0 0 600 0 0
+
+	acceleration		-60 0 0 -200 0 0
+
+	gravity				-250 -450
+
+	rgb
+	{
+		start			0.9216 0.5412 0.2863 0.9569 0.8235 0.5098
+	}
+
+	size
+	{
+		start			0.6 1
+		end				0.5 0.6
+	}
+
+	length
+	{
+		start			10 64
+		parm			30 60
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Tail
+{
+	name				sparkblue
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				6 8
+
+	life				800 1000
+
+	origin				-20 0 0 20 0 0
+
+	radius				22
+
+	height				16
+
+	velocity			300 0 0 400 0 0
+
+	gravity				-300 -500
+
+	size
+	{
+		start			0 1
+		end				0.6 0.3
+	}
+
+	length
+	{
+		start			32 48
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark3
+	]
+}
+
+Particle
+{
+	name				probechunk1
+
+	flags				useAlpha
+
+	spawnFlags			orgOnSphere axisFromSphere rgbComponentInterpolation
+
+	count				12
+
+	life				2000 2300
+
+	radius				16
+
+	rotation			0 360
+
+	rotationDelta		-60 60
+
+	velocity			200 0 0 350 0 0
+
+	gravity				-400 -500
+
+	rgb
+	{
+		start			0.5647 0.5647 0.5647 1 1 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			60
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			9 10
+	}
+
+	shaders
+	[
+		gfx/misc/probechunk01
+		gfx/misc/probechunk02
+		gfx/misc/probechunk03
+	]
+}
+
+Emitter
+{
+	flags				useModel usePhysics
+
+	count				2
+
+	life				5000 6000
+
+	bounce				0.1 0.2
+
+	origin				-10 0 0 10 0 0
+
+	angle				0 0 0 360 360 360
+
+	angleDelta			-100 -100 0 100 100 0
+
+	velocity			-60 -200 -200 60 200 200
+
+	gravity				-500 -600
+
+	models
+	[
+		models/players/droids/probe_droid_bigleg.md3
+		models/players/droids/probe_droid_smleg.md3
+	]
+}
+
+Particle
+{
+	name				Copy of OrangeGlow
+
+	flags				setShaderTime useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				5
+
+	life				2700 2900
+
+	origin				0 -25 -25 30 25 25
+
+	rotation			-180 180
+
+	rotationDelta		-4 4
+
+	velocity			5 -5 -5 10 5 5
+
+	acceleration		0 0 0 0 10 0
+
+	gravity				0 20
+
+	rgb
+	{
+		end				0 0 0 0.1529 0.1529 0.1529
+		parm			30 35
+		flags			linear nonlinear
+	}
+
+	alpha
+	{
+		parm			70 85
+	}
+
+	size
+	{
+		start			15 25
+		end				70 85
+		parm			20 30
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1_a
+	]
+}
+
+Particle
+{
+	name				Copy of Copy of OrangeGlow
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				2
+
+	life				500
+
+	rotation			-30 30
+
+	rotationDelta		-4 4
+
+	rgb
+	{
+		start			0.9569 0.8235 0.5098
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			30 40
+		flags			linear clamp
+	}
+
+	size
+	{
+		start			40
+		end				160 170
+		parm			35 45
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+	]
+}

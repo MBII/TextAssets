@@ -1,0 +1,78 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Survivors
+	team2 SlenderMan
+}
+
+mapgraphic "gfx/mplevels/slender/map"
+missionname "Slender - The Eight Pages"
+
+countin_time 0
+
+roundbegin_target "slenderstart"
+
+
+Survivors
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "sle_survivors"							
+	TeamIcon	"gfx/mplevels/slender/survivors"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Collect the Eight Pages"
+		final 0
+		message_team1 "We found them all"
+		message_team2 "..."
+		objdesc "Collect the eight pages scattered around the forest."
+		objgfx "gfx/mplevels/slender/survivors"
+	}
+	
+	wonround "We collected all eight pages"				
+	lostround "..." 				
+
+	roundover_sound_wewon "sound/slender/dramatic_piano.wav" 			
+	roundover_sound_welost "sound/slender/staticheavy.wav"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing "Collect the eight pages scattered around the forest."
+}
+
+SlenderMan
+{
+	RequiredObjectives 1								
+	UseTeam "sle_slender"							
+	TeamIcon	"gfx/mplevels/slender/slenderman"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Stop them"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop them"
+		objgfx "gfx/mplevels/slender/survivors"
+	}
+	
+	wonround "..."				
+	lostround "..." 				
+
+	roundover_sound_wewon "sound/slender/staticheavy.wav" 			
+	roundover_sound_welost "sound/slender/dramatic_piano.wav"
+
+	roundover_target "siegeend" 							
+
+	attackers 0 									
+
+	briefing "Stop them."
+}

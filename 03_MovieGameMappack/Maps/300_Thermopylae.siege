@@ -1,0 +1,69 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Spartans
+	team2 Persians
+}
+
+mapgraphic "gfx/300/map"
+missionname  "Battle of Thermopylae"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Spartans
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "300SP" 							
+	TeamIcon	"gfx/2d/spartan"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Hold out against the Persians"
+		final 0
+		objdesc "Hold out against the Persians"
+		objgfx "gfx/300/obj"
+	}
+	
+	wonround "^1Tonight we dine in hell!" 						//Printed to this team if they won the round.
+	lostround "^1This is madness!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/leonidas/misc/taunt.wav"
+	roundover_sound_welost "sound/chars/leonidas/misc/tac_fallback.wav"
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Hold out against the Persians" //Displayed on the mission briefing menu.
+}
+
+Persians
+{
+	RequiredObjectives 1
+	UseTeam "300PS"
+	TeamIcon	"gfx/2d/persian"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the spartans"
+		final 0
+		objdesc "Kill the spartans"
+		objgfx "gfx/300/obj"
+	}
+	
+	wonround "^1We are victorious!"
+	lostround "^1This is madness!"
+	roundover_sound_wewon "sound/300/persianwin.wav"
+	roundover_sound_welost "sound/300/persianloss.wav"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Kill the spartans"
+}

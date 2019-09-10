@@ -1,0 +1,84 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Marines
+	team2 Aliens
+}
+
+mapgraphic "gfx/aliens/map"
+missionname  "Aliens 2"
+
+roundbegin_target "aliens2start"
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Marines
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "a2_marines" 							
+	TeamIcon	"gfx/2d/marines"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Plant the battery to power the controls"
+		final -1
+		message_team1 "Battery inserted"
+		message_team2 "Battery inserted"
+		objdesc "Plant the battery to power the controls"
+		objgfx "gfx/mplevels/aliens2/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Start the lift"
+		final 0
+		message_team1 "We managed to get down to the next level"
+		message_team2 "Hissssssssss"
+		objdesc "Start the lift"
+		objgfx "gfx/mplevels/aliens2/obj2"
+	}
+	
+	wonround "We survived" 						//Printed to this team if they won the round.
+	lostround "Aliens have killed us all" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/aliens3/marine_win"
+	roundover_sound_welost "sound/aliens3/marine_lose"
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Use the cargo elevator to get into the next area." //Displayed on the mission briefing menu.
+}
+
+Aliens
+{
+	RequiredObjectives 1
+	UseTeam "a2_aliens"
+	TeamIcon	"gfx/2d/aliens"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the humans"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the humans"
+		objgfx "gfx/aliens/obj2"
+	}
+	
+	wonround "Hissssssssss"
+	lostround "Aliens have been destroyed"
+	roundover_sound_wewon "sound/aliens3/alien_win"
+	roundover_sound_welost "sound/aliens3/alien_lose"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Kill the humans"
+}

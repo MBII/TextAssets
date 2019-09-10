@@ -1,0 +1,76 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 UNSC
+	team2 Covenant
+}
+
+mapgraphic "gfx/mplevels/halo"
+missionname  "Halo Fall of Reach"
+
+roundbegin_target "foight"
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+UNSC
+{
+	RequiredObjectives 1	
+	Timed 300						
+	UseTeam "halo_unsc" 							
+	TeamIcon	"gfx/2d/unsc"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Delete the AI"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Delete the AI on the crashed ship to stop it getting into enemy hands"
+		objgfx "gfx/mplevels/halo/obj"
+	}
+	
+	wonround "We did it" 						//Printed to this team if they won the round.
+	lostround "The AI is in enemy hands" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/halo/victory.mp3"
+	roundover_sound_welost "sound/halo/game_over.mp3"
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Delete the AI on the crashed ship to stop it getting into enemy hands" //Displayed on the mission briefing menu.
+}
+
+Covenant
+{
+	RequiredObjectives 1
+	Timed 300	
+	UseTeam "halo_cov"
+	TeamIcon	"gfx/2d/covenant"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the humans"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defend the ship"
+		objgfx "gfx/mplevels/halo/obj"
+	}
+	
+	wonround "Wort Wort Wort"
+	lostround "The demons have beaten us"
+	roundover_sound_wewon "sound/halo/victory.mp3"
+	roundover_sound_welost "sound/halo/game_over.mp3"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Defend the ship"
+}

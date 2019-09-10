@@ -1,0 +1,115 @@
+repeatDelay				800
+
+Tail
+{
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				5 2
+
+	life				100 200
+
+	delay				0 300
+
+	velocity			3 -2 -2 1.5 2 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.7686 0.9373 1
+	}
+
+	alpha
+	{
+		start			1 0.4
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			0.5 0.2
+		end				0.5 0.3
+		parm			50 80
+		flags			linear
+	}
+
+	length
+	{
+		start			-1 -0.2
+		end				-1 -2
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/water_splash
+	]
+}
+
+Particle
+{
+	count				5 10
+
+	life				800 1200
+
+	velocity			150 -100 -100 100 100 100
+
+	gravity				-550 -500
+
+	alpha
+	{
+		end				0
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			0.3 0.1
+	}
+
+	shaders
+	[
+		gfx/misc/steam2
+	]
+}
+
+Sound
+{
+	sounds
+	[
+		sound/effects/energy_crackle.wav
+	]
+}
+
+Electricity
+{
+	flags				useModel useBBox useAlpha
+
+	spawnFlags			org2fromTrace org2isOffset
+
+	life				150 200
+
+	intensity			1
+
+	origin2				200 0 0 300 0 0
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 2
+	}
+
+	shaders
+	[
+		gfx/misc/pokemon/drainline
+	]
+}

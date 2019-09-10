@@ -1,0 +1,68 @@
+Teams
+{
+	team1 Arsenal
+	team2 RealMadrid
+}
+
+mapgraphic "gfx\mplevels\fifa\map"
+missionname  "FIFA - AFC vs RM"
+
+roundbegin_target ""
+
+Arsenal
+{
+	RequiredObjectives 1
+	Timed 300
+  UseTeam "fifa_afc"
+	TeamIcon	"gfx/mplevels/fifa/afc"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Defeat the other team"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat the other team"
+		objgfx "gfx/mplevels/fifa/rm"
+	}
+	
+	wonround "^1Arsenal Score!"
+	lostround "^7Real Madrid Score!"
+	roundover_sound_wewon "sound/futbol/goal1.wav"
+	roundover_sound_welost "sound/futbol/card1.wav"
+	roundover_target ""
+	attackers 1
+	briefing "Defeat the other team"
+}
+
+RealMadrid
+{
+	RequiredObjectives 1
+	UseTeam "fifa_rm"
+	TeamIcon	"gfx/mplevels/fifa/rm"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defeat the other team"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat the other team"
+		objgfx "gfx/mplevels/fifa/afc"
+	}
+	
+	wonround "^7Real Madrid Score!"
+	lostround "^1Arsenal Score!"
+	roundover_sound_wewon "sound/futbol/goal1.wav"
+	roundover_sound_welost "sound/futbol/card1.wav"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Defeat the other team"
+}

@@ -1,0 +1,69 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rohan
+	team2 Uruk-Hai
+}
+
+mapgraphic "gfx/lotrhd/map"
+missionname  "LOTR - Helms Deep"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rohan
+{
+	RequiredObjectives 1							
+	UseTeam "lhd_roh" 							
+	TeamIcon	"gfx/2d/rohan"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Defend the stronghold's entrance!"
+		final 1
+		objdesc "Defend the stronghold's entrance!"
+		objgfx "gfx/lhd/obj"
+	}
+	
+	wonround "Gandalf and Eomir have come with reinforcements!" 						//Printed to this team if they won the round.
+	lostround "Make for the tunnels, the castle is lost!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Defend the stronghold's entrance!" //Displayed on the mission briefing menu.
+}
+
+Uruk-Hai
+{
+	RequiredObjectives 1
+	Timed 300	
+	UseTeam "lhd_urk"
+	TeamIcon	"gfx/2d/urak"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Break down the doors to the main hall!"
+		final 1
+		objdesc "Break down the doors to the main hall!"
+		objgfx "gfx/lhd/obj"
+	}
+	
+	wonround "Looks like meat's back on the menu!"
+	lostround "We have failed Saruman..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundoverimp"
+	attackers 1
+
+	briefing "Break down the doors to the main hall!"
+}

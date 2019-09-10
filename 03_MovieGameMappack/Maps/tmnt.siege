@@ -1,0 +1,74 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 TMNT
+	team2 FootClan
+}
+
+mapgraphic "gfx/tmnt/map"
+missionname  "TMNT"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+TMNT
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	UseTeam "tmnt_tur" 							//Specifies the name of team "theme" to use	
+	Timed 300
+	TeamIcon	"gfx/2d/logos/tmnt"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Stop the foot clan!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop the foot clan!"
+		objgfx "gfx/tmnt/obj"
+	}
+	
+	wonround "Win!"						//Printed to this team if they won the round.
+	lostround "Lose!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Stop the foot clan!" //Displayed on the mission briefing menu.
+}
+
+FootClan
+{
+	RequiredObjectives 1
+	UseTeam "tmnt_fc"
+	TeamIcon	"gfx/2d/logos/fc"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Take out the TMNT!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "Take out the TMNT!"
+		objgfx "gfx/tmnt/obj"
+	}	
+	
+	wonround "Win!"
+	lostround "Lose!"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Take out the TMNT!"
+}

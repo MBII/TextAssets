@@ -1,0 +1,75 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Survivors
+	team2 Aliens
+}
+
+mapgraphic "gfx/aliens/map"
+missionname  "Aliens"
+
+roundbegin_target "foight"
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Survivors
+{
+	RequiredObjectives 1						
+	UseTeam "AliensRepu" 							
+	TeamIcon	"gfx/2d/marines"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Hold out"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Hold out for five minutes while waiting for the apc to repair"
+		objgfx "gfx/aliens/obj"
+	}
+	
+	wonround "We have destroyed the threat" 						//Printed to this team if they won the round.
+	lostround "Aliens have killed us all" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/aliens3/marine_win"
+	roundover_sound_welost "sound/aliens3/marine_lose"
+	roundover_target "roundover"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Make your stand and destroy the threat." //Displayed on the mission briefing menu.
+}
+
+Aliens
+{
+	RequiredObjectives 1
+	Timed 300	
+	UseTeam "AliensAlien"
+	TeamIcon	"gfx/2d/aliens"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the humans"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the humans"
+		objgfx "gfx/aliens/obj"
+	}
+	
+	wonround "Hissssssssss"
+	lostround "Aliens have been destroyed"
+	roundover_sound_wewon "sound/aliens3/alien_win"
+	roundover_sound_welost "sound/aliens3/alien_lose"
+	roundover_target "roundoverimp"
+	attackers 1
+
+	briefing "Kill the humans"
+}

@@ -1,0 +1,250 @@
+repeatDelay				372
+
+Line
+{
+	name				hitsparks
+
+	count				6 8
+
+	life				150 200
+
+	origin2				12 -10 -10 18 10 10
+
+	rgb
+	{
+		start			1 1 1 0.9961 0.9922 0.8039
+	}
+
+	alpha
+	{
+		start			0.45 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			0.25 0.5
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+		gfx/misc/exp01_1
+		gfx/misc/spikeb
+	]
+}
+
+Tail
+{
+	name				sparks
+
+	count				25 30
+
+	life				700 1000
+
+	intensity			0.25 0.4
+
+	velocity			120 -120 -120 250 120 120
+
+	gravity				-450 -550
+
+	rgb
+	{
+		start			1 1 1 0.9961 0.9922 0.8039
+	}
+
+	alpha
+	{
+		start			0.8 1
+	}
+
+	size
+	{
+		start			0.3 0.45
+	}
+
+	length
+	{
+		start			4 10
+		end				0.1 1
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+		gfx/misc/exp01_1
+		gfx/misc/spikeb
+	]
+}
+
+Particle
+{
+	name				whitesparks
+
+	count				10 15
+
+	life				1000 2000
+
+	intensity			0.25 0.4
+
+	velocity			100 -115 -115 200 115 115
+
+	gravity				-450 -550
+
+	size
+	{
+		start			0.4 0.5
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spikeb
+	]
+}
+
+Particle
+{
+	name				smoke
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				10 20
+
+	life				1500 2000
+
+	rotation			-180 180
+
+	rotationDelta		-6 6
+
+	velocity			10 -10 -10 20 10 10
+
+	acceleration		0 0 10 0 0 5
+
+	gravity				1 20
+
+	rgb
+	{
+		start			1 1 1 0 0 0
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			4 6
+		end				12 20
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+OrientedParticle
+{
+	name				burnmark
+
+	life				1500 2000
+
+	rgb
+	{
+		start			1 0.502 0 0.9922 0.7961 0.007843
+		end				1 0 0 0.502 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			4
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_1
+	]
+}
+
+Decal
+{
+	name				walldecal
+
+	rotation			2 190
+
+	rgb
+	{
+		start			0 0 0
+	}
+
+	size
+	{
+		start			5 6
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Sound
+{
+	name				hitsound
+
+	sounds
+	[
+		sound/weapons/bryar/hit_wall.wav
+	]
+}
+
+OrientedParticle
+{
+	name				meltmark
+
+	life				2500 3000
+
+	rgb
+	{
+		start			1 0.7098 0.4431 0.9922 0.7961 0.007843
+		end				1 0.05098 0.05098 1 0.502 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			2 2.3
+	}
+
+	shaders
+	[
+		gfx/effects/meltMark
+	]
+}
+
+Light
+{
+	name				flash
+}

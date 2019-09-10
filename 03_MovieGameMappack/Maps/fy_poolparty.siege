@@ -1,0 +1,91 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Terrorists
+	team2 Counter-Terrorists
+}
+
+mapgraphic "gfx/plasma/poolparty"
+missionname  "Poolparty"
+
+countin_time 0
+
+roundbegin_target ""
+
+
+Terrorists
+{
+	RequiredObjectives 1 							
+	Timed 240 								
+	UseTeam "CSS_T"							
+	TeamIcon	"gfx/2d/logos/T"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill the other team"
+		final 1 							
+		message_team1 ""						
+		message_team2 ""						
+		target obj1_complete_imperial 					
+		sound_team1 "sound/chars/protocol/misc/siege2.mp3" 		
+		sound_team2 "sound/chars/protocol/misc/siege6.mp3" 		
+
+		objdesc "Kill the other team" 			
+		objgfx "gfx/mplevels/dedust2/objectiveb" 				
+				
+	}
+
+	
+	wonround "Terrorists Win"				
+	lostround "Counter-Terrorists Win" 				
+
+	roundover_sound_wewon "sound/dust/twin.mp3" 			
+	roundover_sound_welost "sound/dust/ctwin.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing "Set them up the bomb" 						//Displayed on the mission briefing menu.
+}
+
+Counter-Terrorists
+{
+	RequiredObjectives 1 							
+	Timed 240 								
+	UseTeam "CSS_CT"							
+	TeamIcon	"gfx/2d/logos/CT"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Kill the other team"
+		final 1 							
+		message_team1 ""						
+		message_team2 ""						
+		target obj1_complete_imperial 					
+		sound_team1 "sound/chars/protocol/misc/siege2.mp3" 		
+		sound_team2 "sound/chars/protocol/misc/siege6.mp3" 		
+
+		objdesc "Kill the other team" 			
+		objgfx "gfx/mplevels/dedust2/objectivea" 				
+				
+	}
+
+	
+	wonround "Counter-Terrorists Win"				
+	lostround "Terrorists Win" 				
+
+	roundover_sound_wewon "sound/dust/ctwin.mp3" 			
+	roundover_sound_welost "sound/dust/twin.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 0 									
+
+	briefing "Stop the Terrorists planting the bomb" 						//Displayed on the mission briefing menu.
+}

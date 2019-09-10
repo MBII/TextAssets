@@ -1,0 +1,166 @@
+// Simple muzzle flash effect
+
+Line
+{
+	life		30
+	origin2	24 0 0 	30 0 0
+
+	width
+	{
+		start 	6.25 	8.5
+		end	5.0
+		flags	linear
+	}
+
+	alpha
+	{
+		start	0.5	0.6
+		end	0.35
+		flags	linear
+	}
+
+	shader
+	[
+		gfx/effects/bSideFlash
+	]
+}
+
+Particle
+{
+	life	30
+	origin	2 0 0
+	rotation	-10	10
+
+	size
+	{
+		start 	10 	12
+		end	7.0
+		flags	linear
+	}
+
+	alpha
+	{
+		start	0.8	1.0
+		end	0.7
+		flags	linear
+	}
+
+	shader
+	[
+		gfx/effects/flash7
+	]
+}
+
+Particle
+{
+	life	30
+	origin	2 0 0
+	rotation	-10	10
+
+	size
+	{
+		start 	3	5
+		end	4.0
+		flags	linear
+	}
+
+	alpha
+	{
+		start	0.8	1.0
+		end	0.7
+		flags	linear
+	}
+
+	shader
+	[
+		gfx/effects/flash4
+	]
+}
+
+Light
+{
+	life	75
+
+	size
+	{
+		start 	125
+		end	50
+		flags linear
+	}
+
+	rgb
+	{
+		start  1.0 0.7 0.2
+	}
+}
+
+sound
+{
+	sounds
+	[
+		sound/weapons/pulse/fire.wav
+	]
+}
+
+CameraShake
+{
+	life				50
+
+	intensity			0.2 0.3
+
+	radius				60
+}
+
+
+
+Line
+{
+	life				60
+
+	origin2				24 0 0 30 0 0
+
+	alpha
+	{
+		start			0.5 0.6
+		end				0.35
+		flags			linear
+	}
+
+	size
+	{
+		start			20 30
+		end				10
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/bSideFlash
+	]
+}
+
+Emitter
+{
+	name				shell
+
+	flags				useModel usePhysics 
+
+	life				1000000
+
+	cullrange			2000
+
+	bounce				0.4 0.2
+
+	angleDelta			0 180 360 180 360 180
+
+	velocity			120 -10 0 100 10 0
+
+	gravity				-300 -200
+
+	origin				-30 0 0 0 0 0
+
+	models
+	[
+		models/ammo/shell.md3
+	]
+}

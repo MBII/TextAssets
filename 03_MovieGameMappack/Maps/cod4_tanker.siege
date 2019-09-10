@@ -1,0 +1,90 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 SAS
+	team2 Russians
+}
+
+mapgraphic "gfx/mplevels/cod4"
+missionname "Tanker"
+
+countin_time 0
+
+roundbegin_target ""
+
+
+SAS
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "raid3_CT"							
+	TeamIcon	"gfx/2d/logos/SAS"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Get the intel and bring it the the helicopter"
+		final 1 							
+		message_team1 ""						
+		message_team2 ""						
+		target obj1_complete_imperial 					
+		sound_team1 "sound/chars/protocol/misc/siege2.mp3" 		
+		sound_team2 "sound/chars/protocol/misc/siege6.mp3" 		
+
+		objdesc "Get the intel and bring it the the helicopter" 			
+		objgfx "gfx/mplevels/cod4/obj" 				
+				
+	}
+
+	wonround "SAS Win"				
+	lostround "Russians Win" 				
+
+	roundover_sound_wewon "sound/cod/sas_win.wav" 			
+	roundover_sound_welost "sound/cod/rus_win.wav"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing "Get the intel and bring it the the helicopter" 						//Displayed on the mission briefing menu.
+}
+
+Russians
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "raid3_T"							
+	TeamIcon	"gfx/2d/logos/RUS"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Stop the SAS"
+		final 1 							
+		message_team1 ""						
+		message_team2 ""						
+		target obj1_complete_imperial 					
+		sound_team1 "sound/chars/protocol/misc/siege2.mp3" 		
+		sound_team2 "sound/chars/protocol/misc/siege6.mp3" 		
+
+		objdesc "Stop the SAS from taking the intel to the helicopter" 			
+		objgfx "gfx/mplevels/cod4/obj" 				
+				
+	}
+
+	
+	wonround "Russians Win"				
+	lostround "SAS Win" 				
+
+	roundover_sound_wewon "sound/cod/rus_win.wav"			
+	roundover_sound_welost "sound/cod/sas_win.wav"
+
+	roundover_target "siegeend" 							
+
+	attackers 0 									
+
+	briefing "Stop the CTs taking the intel" 						//Displayed on the mission briefing menu.
+}

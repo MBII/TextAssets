@@ -1,0 +1,149 @@
+Teams
+{
+	team1 Marines
+	team2 Aliens
+}
+
+mapgraphic "gfx/mplevels/aliens3/map"
+missionname  "Aliens - LV426 Hadley's Hope"
+radartopleft "-1280, 840"
+radarbottomright "3400, -1936"
+AutoMap
+{
+   AutoMap0
+   {
+       radargraphic "gfx/automap/aliens31"
+       radargraphicfull "gfx/automap/aliens31"
+       height "0"
+   }
+
+   AutoMap1
+   {
+       radargraphic "gfx/automap/aliens32"
+       radargraphicfull "gfx/automap/aliens32"
+       height "352"
+   }
+}
+
+roundbegin_target ""
+
+Marines
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "a3_marines" 							
+	TeamIcon	"gfx/mplevels/aliens3/marines"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Get to Medical"
+		final -1
+		message_team1 "Fall back to Operations"
+		message_team2 "The Marines have made it to Medical"
+		objdesc "Hack the control panel on the second floor to get to Medical."
+		objgfx "gfx/mplevels/aliens3/obj1"
+	}
+	
+	Objective2
+	{
+		goalname "Get to Operations"
+		final -1
+		message_team1 "We need to find a way out, get to the APC"
+		message_team2 "The Marines have made it to Medical"
+		objdesc "Hack the control panel on the second floor to get to Operations."
+		objgfx "gfx/mplevels/aliens3/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Open the shutter in the garage"
+		final -1
+		message_team1 "The shutter is open"
+		message_team2 "The marines have opened the shutter"
+		objdesc "Hack the control panel on the second floor of the gargage to open the shutter"
+		objgfx "gfx/mplevels/aliens3/obj3"
+	}
+	
+	Objective4
+	{
+		goalname "Get to the APC"
+		final 0
+		message_team1 "We escaped!"
+		message_team2 "Hissssssssss"
+		objdesc "Start the APC, the key should be nearby pick it up open the door then get the hell out of there"
+		objgfx "gfx/mplevels/aliens3/obj4"
+	}
+	
+	wonround "We escaped"
+	lostround "Aliens have killed us all"
+	roundover_sound_wewon "sound/aliens3/marine_win"
+	roundover_sound_welost "sound/aliens3/marine_lose"
+	roundover_target "roundover"
+	attackers 1
+
+	briefing "Make your way through Hadley's Hope and find a vehicle to get to the landing site where Bishop is waiting with the Dropship."
+}
+
+Aliens
+{
+	RequiredObjectives 1
+	UseTeam "a3_aliens"
+	TeamIcon	"gfx/mplevels/aliens3/aliens"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Hold the humans"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the humans"
+		objgfx "gfx/mplevels/aliens3/obja"
+	}
+	
+	Objective2
+	{
+		goalname "Stop the humans"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the humans"
+		objgfx "gfx/mplevels/aliens3/obja"
+	}
+	
+	Objective3
+	{
+		goalname "Stop the humans"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the humans"
+		objgfx "gfx/mplevels/aliens3/obja"
+	}
+	
+	Objective4
+	{
+		goalname "Kill the humans"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the humans"
+		objgfx "gfx/mplevels/aliens3/obja"
+	}
+	
+	wonround "Hissssssssss"
+	lostround "Hissssssssss"
+	roundover_sound_wewon "sound/aliens3/alien_win"
+	roundover_sound_welost "sound/aliens3/alien_lose"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Kill the humans"
+}

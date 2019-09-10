@@ -1,0 +1,65 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Avalanche
+	team2 Shinra
+}
+
+mapgraphic "gfx/shinra/map"
+missionname  "Shinra HQ"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Avalanche
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "s_ava" 							
+	TeamIcon	"gfx/2d/avalanche"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Get to the helipad"
+		final 0
+		objdesc "Get to the helipad and hold it for 10 seconds to escape"
+		objgfx "gfx/shinra/obj"
+	}
+	
+	wonround "Win!" 						//Printed to this team if they won the round.
+	lostround "Lose!" 					//Printed to this team if they lost the round.
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Get to the helipad and hold it for 10 seconds to escape" //Displayed on the mission briefing menu.
+}
+
+Shinra
+{
+	RequiredObjectives 1
+	UseTeam "s_shinra"
+	TeamIcon	"gfx/2d/shinra"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the intruders"
+		final 0
+		objdesc "Kill the intruders"
+		objgfx "gfx/shinra/obj"
+	}
+	
+	wonround "Win!"
+	lostround "Lose!"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Kill the intruders"
+}

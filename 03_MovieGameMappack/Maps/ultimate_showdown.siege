@@ -1,0 +1,80 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Heroes
+	team2 Villains
+}
+
+mapgraphic "gfx/mplevels/revil/null"
+missionname "MGM Alt FA - Ultimate Showdown"
+
+countin_time 0
+
+roundbegin_target "ultimate_showdown_start"
+
+
+Heroes
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "us_heroes"							
+	TeamIcon	"gfx/mplevels/ultimate_showdown/heroes"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+  Objective1
+	{
+		goalname "Defeat the villains"
+		final 0
+		message_team1 "We did it!"
+		message_team2 "..."
+		objdesc ""
+		objgfx "gfx/mplevels/ultimate_showdown/villains"
+	}			
+
+	wonround "We did it!" 			
+	lostround "..."
+	
+	roundover_sound_wewon "sound/ushowdown/win.mp3" 			
+	roundover_sound_welost "sound/ushowdown/lose.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing ""
+}
+
+Villains
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "us_villains"							
+	TeamIcon	"gfx/mplevels/ultimate_showdown/villains"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+  Objective1
+	{
+		goalname "Kill the heroes"
+		final 0
+		message_team1 "We did it!"
+		message_team2 "..."
+		objdesc ""
+		objgfx "gfx/mplevels/ultimate_showdown/heroes"
+	}
+
+	
+	wonround "We did it!"				
+	lostround "..." 				
+
+	roundover_sound_wewon "sound/ushowdown/win.mp3" 			
+	roundover_sound_welost "sound/ushowdown/lose.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing ""
+}

@@ -1,0 +1,192 @@
+repeatDelay				1371
+
+Particle
+{
+	flags				usePhysics
+
+	count				8 12
+
+	life				1500 1100
+
+	bounce				0.3 0.5
+
+	velocity			50 -20 -50 80 20 50
+
+	gravity				-100 -300
+
+	rgb
+	{
+		start			0.6431 0.2078 0 1 0.7843 0.2078
+		end				0.9961 0.9608 0.7294 0.9725 0.451 0.06275
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			0.8 0.5
+		end				0
+		parm			80 90
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteGlow
+		gfx/misc/spikeb
+	]
+}
+
+Particle
+{
+	name				Flare
+
+	count				1 2
+
+	life				150 200
+
+	delay				0 20
+
+	origin				1 0 0
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 1 1 1
+	}
+
+	alpha
+	{
+		start			0.7 0.4
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10 20
+		end				2 5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/colflare
+	]
+}
+
+Light
+{
+	name				flash
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 1 1 1
+	}
+
+	size
+	{
+		start			50
+	}
+}
+
+Particle
+{
+	name				smoke
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				4 5
+
+	life				800 1000
+
+	delay				0 200
+
+	origin				2 -3 -3 2 3 3
+
+	velocity			0 -12 -12 0 12 12
+
+	gravity				100 50
+
+	alpha
+	{
+		start			0.5 0.6
+		end				0
+		parm			60 75
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			7 8
+		end				15 20
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/black_smoke
+	]
+}
+
+Particle
+{
+	name				fire
+
+	life				500 400
+
+	wind				10 40
+
+	rotation			360 0
+
+	rotationDelta		360 13
+
+	gravity				200 150
+
+	rgb
+	{
+		start			1 0.7294 0.4588 0.9922 0.5176 0.451
+		end				0.7216 0.3451 0.003922
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.3 0.4
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 8
+		end				2 1
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/expa1
+		gfx/exp/expa2
+		gfx/exp/expa3
+		gfx/exp/expa4
+		gfx/exp/expa5
+	]
+}
+
+Sound
+{
+	sounds
+	[
+		sound/weapons/hit/hit1.wav
+		sound/weapons/hit/hit2.wav
+		sound/weapons/hit/hit3.wav
+		sound/weapons/hit/hit4.wav
+	]
+}

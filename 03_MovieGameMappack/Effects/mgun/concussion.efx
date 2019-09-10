@@ -1,0 +1,363 @@
+Particle
+{
+	name				OrangeGlow
+
+	count				8
+
+	life				1200 1700
+
+	origin				4 -35 -35 25 35 35
+
+	rotation			0 360
+
+	rotationDelta		-4 4
+
+	velocity			5 -10 -10 10 10 10
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			2 8
+		end				45 80
+		parm			5 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	count				6
+
+	life				1800 3000
+
+	delay				300
+
+	cullrange			950
+
+	origin				10 -35 -35 20 35 35
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			10 -10 -10 20 10 10
+
+	gravity				3 25
+
+	alpha
+	{
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				45 70
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				250
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			120
+		end				10
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 4
+
+	radius				300 400
+}
+
+Tail
+{
+	count				8 10
+
+	life				400 700
+
+	cullrange			800
+
+	origin				0 -10 -10 10 10 10
+
+	velocity			10 -45 -45 35 45 45
+
+	gravity				0 -15
+
+	alpha
+	{
+		end				0
+		parm			30 50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			4 10
+		end				14 20
+		flags			linear
+	}
+
+	length
+	{
+		start			-40
+		end				-105 -150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/plume1
+		gfx/effects/plume2
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				4
+
+	life				1500 2500
+
+	delay				300
+
+	cullrange			1200
+
+	origin				0 -25 -25 20 25 25
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -20 -20 10 20 20
+
+	acceleration		-4 -8 -8 4 8 8
+
+	gravity				3 25
+
+	rgb
+	{
+		start			0.9882 0.9098 0.7882 1 1 0.8078
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			5 10
+		end				35 55
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				950
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			350
+		end				100
+		flags			linear
+	}
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				3
+
+	life				900 1400
+
+	delay				250 500
+
+	cullrange			1000
+
+	origin				5 -25 -25 15 25 25
+
+	rotation			-180 180
+
+	rotationDelta		-3 3
+
+	velocity			20 -20 -20 40 20 20
+
+	acceleration		-5 -5 -5 5 5 5
+
+	gravity				-50 -30
+
+	rgb
+	{
+		start			1 1 0.4353 0.9451 0.4078 0.01176
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			1 6
+		end				30 50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				1 2
+
+	radius				300 400
+}
+
+Sound
+{
+	name				Boom
+
+	count				2
+
+	sounds
+	[
+		sound/weapons/mgun/alt_explode.wav
+	]
+}
+
+Flash
+{
+	life				200
+
+	cullrange			600
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			5.5
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Flash
+{
+	count				0 1
+
+	life				150
+
+	delay				100 150
+
+	cullrange			400
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			5.5
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Decal
+{
+	count				1 2
+
+	size
+	{
+		start			40 60
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+

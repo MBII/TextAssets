@@ -1,0 +1,91 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Survivors
+	team2 Monsters
+}
+
+mapgraphic "gfx/mplevels/monster_forest/map"
+missionname "MGM Alt FA - Zombie Forest"
+
+radartopleft "-4104, 3848"
+radarbottomright "3848, -4104"
+AutoMap
+{
+   AutoMap0
+   {
+       radargraphic "gfx/automap/monster_forest1"
+       radargraphicfull "gfx/automap/monster_forest1"
+       height "0"
+   }
+}
+
+countin_time 0
+
+roundbegin_target "zombiefstart"
+
+
+Survivors
+{
+	RequiredObjectives 1								
+	UseTeam "mf_survivors"							
+	TeamIcon	"gfx/mplevels/monster_forest/survivors"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+  Objective1
+	{
+		goalname "Survive"
+		final 0
+		message_team1 "We did it!"
+		message_team2 "..."
+		objdesc ""
+		objgfx "gfx/mplevels/monster_forest/monsters"
+	}			
+
+	wonround "We survived the night" 			
+	lostround "..."
+	
+	roundover_sound_wewon "sound/mforest/win.mp3" 			
+	roundover_sound_welost "sound/mforest/lose.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 0 									
+
+	briefing ""
+}
+
+Monsters
+{
+	RequiredObjectives 1 							
+	Timed 300 								
+	UseTeam "mf_monsters"							
+	TeamIcon	"gfx/mplevels/monster_forest/monsters"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+  Objective1
+	{
+		goalname "Kill them"
+		final 0
+		message_team1 "Itchy, tasty"
+		message_team2 "..."
+		objdesc ""
+		objgfx "gfx/mplevels/monster_forest/survivors"
+	}
+
+	
+	wonround "Itchy, tasty"				
+	lostround "..." 				
+
+	roundover_sound_wewon "sound/mforest/win.mp3" 			
+	roundover_sound_welost "sound/mforest/lose.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing ""
+}
