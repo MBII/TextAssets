@@ -1,0 +1,68 @@
+Teams
+{
+	team1 Counter-Seperatists
+	team2 Seperatists
+}
+
+mapgraphic "gfx/plasma/poolparty"
+missionname  "Poolparty"
+
+roundbegin_target ""
+
+Counter-Seperatists
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "PD_CS" 							
+	TeamIcon	"gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Kill the other team"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the other team"
+		objgfx "gfx/2d/logos/mb_tradefederation"
+	}
+	
+	wonround "Counter-Seperatists Win" 						
+	lostround "Seperatists Win" 					
+	roundover_sound_wewon "sound/pool/cswin.mp3"
+	roundover_sound_welost "sound/pool/swin.mp3"
+	roundover_target ""
+	attackers 0 
+
+	briefing "Kill the other team" 
+}
+
+Seperatists
+{
+	RequiredObjectives 1
+	UseTeam "PD_S"
+	TeamIcon	"gfx/2d/logos/mb_tradefederation"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill the other team"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the other team"
+		objgfx "gfx/2d/logos/mb_clonerepublic"
+	}
+	
+	wonround "Seperatists Win"
+	lostround "Counter-Seperatists Win"
+	roundover_sound_wewon "sound/pool/swin.mp3"
+	roundover_sound_welost "sound/pool/cswin.mp3"
+	roundover_target ""
+	attackers 1
+	briefing "Kill the other team"
+}

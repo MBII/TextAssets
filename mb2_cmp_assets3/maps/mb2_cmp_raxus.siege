@@ -1,0 +1,85 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Smugglers
+	team2 Customs
+}
+
+mapgraphic "gfx/mplevels/mb2_cmp_raxus"
+missionname  "Customs Evasion"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Smugglers
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?					
+	Timed 300					//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	UseTeam "raxus_Smug" 							//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_Zann"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 .2 0 1"	
+
+	Objective1
+	{
+		goalname "Open the Hangar doors"
+		final -1
+		message_team1 "We have managed to hack the hangar doors"
+		message_team2 "They've got into the hangar!"
+		objdesc "Open the hangar doors to gain entrance to the ship"
+		objgfx "gfx/mplevels/raxus/smugobj1"
+	}
+	
+	Objective2
+	{
+		goalname "Fuel freighter"
+		final 0
+		message_team1 "Our payment had better be good"
+		message_team2 "We've been unable to reach the freighter"
+		objdesc "Break into one of the hangars and fill a freighter with fuel"
+		objgfx "gfx/mplevels/raxus/objective1"
+	}
+
+	
+	wonround "Our payment had better be good" 						//Printed to this team if they won the round.
+	lostround "We've been unable to reach the freighter" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Get to the freighter and fill it with fuel." //Displayed on the mission briefing menu.
+}
+
+Customs
+{
+	RequiredObjectives 1
+	UseTeam "raxus_Cust"
+	TeamIcon	"gfx/2d/logos/mb_Imp_Munitions"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "It's our shift now..."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "Smugglers have been rumoured to be operating in the area. Keep the ships safe."
+		objgfx "gfx/mplevels/raxus/objective2"
+	}
+	
+	wonround "All is clear on the customs front."
+	lostround "Illegal goods have reached hyperspace on our shift!"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Ensure tight security around the hangars."
+}

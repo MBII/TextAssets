@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Republic
+	team2 CIS
+}
+mapgraphic "gfx/mplevels/mb2_lunarbase"
+missionname  "Coruscant Assault"
+roundbegin_target ""
+Republic
+{
+	RequiredObjectives 0							
+	UseTeam "asl_rep" 							
+	TeamIcon	"gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	Objective1
+	{
+		goalname "Protect the Generator Entrance"
+		final 0
+		message_team1 "They have opened the generator door!"
+		message_team2 "We hacked the generator door!"
+		objdesc "Protect the generator door from hacking"
+		objgfx "gfx/mplevels/lunarbase/lunargen"
+	}
+	Objective2
+	{
+		goalname "Protect the generator"
+		final 0
+		message_team1 "The generator has been destroyed"
+		message_team2 "The generator has been destroyed"
+		objdesc "Protect the Generator"
+		objgfx "gfx/mplevels/lunarbase/lunargen"
+	}	
+	wonround "We held off the Seperatists!"
+	lostround "We lost the generator!"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "roundover"
+	attackers 0
+	briefing "Defend the Generator"
+}
+CIS
+{
+	RequiredObjectives 1
+	UseTeam "asl_cis"
+	TeamIcon	"gfx/2d/logos/mb_tradefederation"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+	Timed 300
+	Objective1
+	{
+		goalname "Hack the generator door"
+		final 0
+		message_team1 "They have opened the generator door!"
+		message_team2 "We hacked the generator door!"
+		objdesc "Hack the generator door"
+		objgfx "gfx/mplevels/lunarbase/lunargen"
+	}
+	Objective2
+	{
+		goalname "Destroy the generator"
+		final -1
+		message_team1 "They have hacked the generator door!"
+		message_team2 "We have access to the generator!"
+		objdesc "Destroy the generator"
+		objgfx "gfx/mplevels/lunarbase/lunargen"
+	}
+	wonround "Victory!"
+	lostround "We have failed."
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "roundoverimp"
+	attackers 1
+	briefing "Destroy the Generator"
+}

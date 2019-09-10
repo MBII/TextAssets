@@ -1,0 +1,89 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/plasma/FDepot"
+missionname  "Fuel Depot"
+
+roundbegin_target ""
+
+Rebels
+{
+	RequiredObjectives 2
+	Timed 300								
+	UseTeam "FD_Reb" 							
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Set the bomb"
+		final 0
+		message_team1 "Escape on the shuttle"
+		message_team2 "They're trying to escape"
+		objdesc "SECONDARY GOAL:
+		Set a bomb near the fuel supply"
+		objgfx "gfx/plasma/objfd1"
+	}
+	
+	Objective2
+	{
+		goalname "Escape"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Escape on the Shuttle"
+		objgfx "gfx/plasma/objfd2"
+	}
+
+	wonround "We did it" 						
+	lostround "We failed" 					
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1 
+
+	briefing "Set a bomb near the fuel and then escape on the shuttle." 
+}
+
+Imperials
+{
+	RequiredObjectives 2
+	UseTeam "FD_Imp"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Protect the fuel"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "SECONDARY GOAL:
+		Stop the rebels destroying our fuel supply"
+		objgfx "gfx/plasma/objfd1"
+	}
+		Objective2
+	{
+		goalname "Stop them escaping"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Stop them escaping on the shuttle"
+		objgfx "gfx/plasma/objfd2"
+	}
+	
+	wonround "We stopped them"
+	lostround "We failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0
+	briefing "Stop the rebels from destroying the fuel supply and escaping"
+}

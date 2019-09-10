@@ -1,0 +1,552 @@
+Light
+{
+	name				Illumination
+
+	life				950 1250
+
+	rgb
+	{
+		start			0.502 0.502 1
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			100
+		end				400
+		flags			linear
+	}
+}
+
+Particle
+{
+	name				Explosion
+
+	spawnFlags			orgOnCylinder axisFromSphere
+
+	count				4 5
+
+	life				750 1000
+
+	origin				-5 -5 -5 5 5 5
+
+	radius				12
+
+	height				2 3
+
+	rotation			0 360
+
+	rotationDelta		-20 20
+
+	rgb
+	{
+		start			0.6 0.6 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			40
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			6 8
+		end				15 20
+		flags			random linear
+	}
+
+	shaders
+	[
+		gfx/misc/LIGHTNING_FLASH
+	]
+}
+
+Tail
+{
+	name				SparktailsB
+
+	flags				expensivePhysics useBBox usePhysics useAlpha
+
+	spawnFlags			affectedByWind
+
+	count				15 20
+
+	life				1100 1400
+
+	delay				1 10
+
+	bounce				0.2 0.4
+
+	min					-0.5 -0.5 -0.5
+
+	max					0.5 0.5 0.5
+
+	origin				2 -2 -2 2 2 2
+
+	wind				1 20
+
+	velocity			40 -70 -70 100 70 70
+
+	acceleration		-10 0 0 -30 0 0
+
+	gravity				-90 -250
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.651 0.7922 0.9412
+		end				1 1 1 0.9529 0.9529 0.9608
+	}
+
+	alpha
+	{
+		end				0 0.5
+	}
+
+	size
+	{
+		start			1 1.2
+		end				0.9
+		flags			linear
+	}
+
+	length
+	{
+		start			6 8
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/blueSideFlash
+		gfx/misc/flaretailup
+	]
+}
+
+Tail
+{
+	name				SparktailsBleft
+
+	flags				expensivePhysics useBBox usePhysics useAlpha
+
+	count				18 29
+
+	life				900 1300
+
+	delay				1 10
+
+	bounce				0.2 0.4
+
+	min					-0.5 -0.5 -0.5
+
+	max					0.5 0.5 0.5
+
+	origin				2 -2 -2 2 2 2
+
+	wind				1 20
+
+	velocity			5 15 0 40 120 100
+
+	acceleration		0 0 0 0 40 0
+
+	gravity				-90 -250
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.651 0.7922 0.9412
+		end				1 1 1 0.9529 0.9529 0.9608
+	}
+
+	alpha
+	{
+		end				0 0.5
+	}
+
+	size
+	{
+		start			1 1.2
+		end				0.9
+		flags			linear
+	}
+
+	length
+	{
+		start			6 8
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/blueSideFlash
+		gfx/misc/flaretailup
+	]
+}
+
+Tail
+{
+	name				SparktailsBlight
+
+	flags				useBBox useAlpha
+
+	count				12 15
+
+	life				600 700
+
+	delay				1 10
+
+	intensity			0.2 0.4
+
+	origin				2 -2 -2 2 2 2
+
+	velocity			30 -70 -70 60 70 70
+
+	acceleration		-10 0 0 -30 0 0
+
+	gravity				-90 -250
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.651 0.7922 0.9412
+		end				1 1 1 0.9529 0.9529 0.9608
+	}
+
+	alpha
+	{
+		end				0 0.5
+	}
+
+	size
+	{
+		start			1 1.2
+		end				0.9
+		flags			linear
+	}
+
+	length
+	{
+		start			6 8
+		end				0
+		parm			100 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/blueSideFlash
+		gfx/misc/flaretailup
+	]
+}
+
+Particle
+{
+	name				Flare
+
+	life				500
+
+	cullrange			200
+
+	origin				1 0 0
+
+	rgb
+	{
+		start			0.8431 0.9333 1
+	}
+
+	alpha
+	{
+		start			0.7
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			110 120
+		end				40
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/colflare
+	]
+}
+
+Decal
+{
+	name				Impactmark
+
+	size
+	{
+		start			20 24
+	}
+
+	shaders
+	[
+		gfx/damage/electricaldamage
+	]
+}
+
+Decal
+{
+	name				Burnmark
+
+	count				2
+
+	delay				350
+
+	rotation			0 360
+
+	size
+	{
+		start			150 180
+	}
+
+	shaders
+	[
+		gfx/damage/electricaldamage
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				700 1200
+
+	bounce				4 5
+
+	radius				120
+}
+
+Sound
+{
+	name				Impact
+
+	sounds
+	[
+		sound/weapons/demp2/hitwall.wav
+	]
+}
+
+Sound
+{
+	name				Boom
+
+	delay				150
+
+	sounds
+	[
+		sound/weapons/demp2/alt_detonate.wav
+	]
+}
+
+Electricity
+{
+	name				Electricity 0
+
+	flags				useModel useBBox usePhysics
+
+	count				2 3
+
+	life				200 300
+
+	delay				0 250
+
+	bounce				2 4
+
+	origin				-2 -20 -20 -2 20 20
+
+	origin2				60 -130 -130 180 130 130
+
+	size
+	{
+		start			3 5
+		end				0.2
+		parm			70
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Electricity
+{
+	name				Electricity 1
+
+	flags				useModel useBBox usePhysics
+
+	count				8
+
+	life				200 300
+
+	delay				250 850
+
+	bounce				2 5
+
+	origin				-2 -15 -15 -2 15 15
+
+	origin2				60 -120 -120 180 120 120
+
+	size
+	{
+		start			3 5
+		end				0.2
+		parm			70
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Electricity
+{
+	name				Electricity 2
+
+	flags				useModel useBBox usePhysics
+
+	count				2 4
+
+	life				300 600
+
+	delay				800 2000
+
+	bounce				2 5
+
+	origin				-2 -15 -15 -2 15 15
+
+	origin2				40 -120 -120 180 120 120
+
+	size
+	{
+		start			3 5
+		end				0.2
+		parm			70
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Electricity
+{
+	name				Electricity 3
+
+	flags				useModel useBBox usePhysics
+
+	count				2
+
+	life				200 300
+
+	delay				0 100
+
+	bounce				2 4
+
+	origin				-2 -20 -20 -2 20 20
+
+	origin2				60 -130 -130 180 130 130
+
+	size
+	{
+		start			9 12
+		end				0.2
+		parm			70
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Electricity
+{
+	name				Electricity 4
+
+	flags				useModel useBBox usePhysics
+
+	count				8
+
+	life				200 300
+
+	delay				250 850
+
+	bounce				2 5
+
+	origin				-2 -15 -15 -2 15 15
+
+	origin2				60 -120 -120 180 120 120
+
+	size
+	{
+		start			3 5
+		end				0.2
+		parm			70
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Electricity
+{
+	name				Electricity 5
+
+	flags				useModel useBBox usePhysics
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				12 15
+
+	life				350 500
+
+	delay				250 500
+
+	bounce				5 8
+
+	origin				-2 -15 -15 -2 15 15
+
+	origin2				-60 -120 -120 180 120 120
+
+	radius				120
+
+	height				70
+
+	size
+	{
+		start			3 5
+		end				0.2
+		parm			70
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}

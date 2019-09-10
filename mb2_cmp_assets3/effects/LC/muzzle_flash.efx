@@ -1,0 +1,160 @@
+repeatDelay				300
+
+Line
+{
+	origin2				24 0 0 30 0 0
+
+	alpha
+	{
+		start			0.5 0.6
+		end				0.35
+		flags			linear
+	}
+
+	size
+	{
+		start			4.75 6.25
+		end				4
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/blueSideFlash
+	]
+}
+
+Particle
+{
+	origin				8 0 0
+
+	rotation			0 360
+
+	alpha
+	{
+		start			0.65 0.8
+		end				0.5
+		flags			linear
+	}
+
+	size
+	{
+		start			10 12
+	}
+
+	shaders
+	[
+		gfx/effects/blueFrontFlash
+	]
+}
+
+Particle
+{
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				8 10
+
+	life				1000 1800
+
+	origin				8 0 0
+
+	rotation			-180 180
+
+	rotationDelta		-6 6
+
+	velocity			10 -10 -10 20 10 10
+
+	gravity				2 20
+
+	rgb
+	{
+		start			0.6275 0.6275 0.6431 0.8 0.8 0.8
+	}
+
+	alpha
+	{
+		end				0.1
+		flags			linear
+	}
+
+	size
+	{
+		start			4 6
+		end				8 12
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Light
+{
+	rgb
+	{
+		start			0.502 0.502 1
+	}
+
+	size
+	{
+		start			100 150
+	}
+}
+
+Sound
+{
+	sounds
+	[
+		sound/weapons/demp2/fire.wav
+	]
+}
+
+CameraShake
+{
+	flags				usePhysics
+
+	life				70
+
+	bounce				2
+
+	radius				60
+}
+
+forcefeedback
+{
+	forces
+	[
+		fffx/weapons/demp2/fire
+	]
+}
+
+Electricity
+{
+	flags				useModel usePhysics
+
+	count				2 3
+
+	life				200 300
+
+	bounce				2 3
+
+	origin				5 0 0
+
+	origin2				25 -5 -5 30 5 5
+
+	size
+	{
+		start			3 7
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}

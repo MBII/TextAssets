@@ -1,0 +1,54 @@
+Teams
+{
+	team1 Rebellion
+	team2 Empire
+}
+mapgraphic "gfx/mplevels/siege2_desert"
+missionname  "Massassi Bombing"
+Rebellion
+{
+	RequiredObjectives 1
+	UseTeam "mas_reb"
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	Objective1
+	{
+		goalname "Fend off the invaders"
+		final -1
+		message_team1 "Victory!"
+		message_team2 "We have been defeated..."
+		objdesc "Imperial troops have landed outside our base. Protect the facility at all costs!"
+		objgfx "gfx/ObjectiveRebels.jpg"
+  }	
+	wonround "Victory!"
+	lostround "All is lost..."
+	roundover_sound_wewon "sound/grandeur.wav"
+	roundover_sound_welost "sound/obi.wav"
+	roundover_target "siege_end"
+	briefing "Repel the enemy and defend the generator."
+}
+Empire
+{
+	RequiredObjectives 1
+	Timed 500
+	UseTeam "mas_imp"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"	
+	Objective1
+	{
+		goalname "Destroy the shield generator"
+		final 1
+		message_team1 "The Imperials have managed to destroy our shield generator!"
+		message_team2 "Shield generator destroyed! Excellent job."
+		objdesc "Destroy the shield generator to cripple planetary defenses."
+		objgfx "gfx/Objectiveimperials.jpg"
+	}
+	wonround "We have successfully infiltrated the Rebel base"
+	lostround "We have failed"
+	roundover_sound_wewon "sound/skills.wav"
+	roundover_sound_welost "sound/failed_last.wav"
+	roundover_target "siege_end"
+	briefing "Cripple the rebel base by destroying the shield generator."
+}

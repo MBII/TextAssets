@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Republic
+	team2 Cis
+}
+
+mapgraphic "gfx/lab/lab"
+missionname  "Lab"
+
+roundbegin_target ""
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "LabRep" 							
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "OPTIONAL: Hack the security to get access to the maintenance tunnels"
+		final -1
+		message_team1 "We have opened the maintenance tunnels"
+		message_team2 "The maintenance tunnels are open"
+		objdesc "OPTIONAL: Hack the security to get access to the maintenance tunnels"
+		objgfx "gfx/lab/altobj"
+	}
+
+	Objective2
+	{
+		goalname "Place two bombs in the lab!"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Place two bombs in the lab!"
+		objgfx "gfx/lab/objbomb"
+	}
+	
+	wonround "The facility will blow" 						
+	lostround "Our attempt has failed" 					
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+
+	briefing "Infiltrate the base and plant 2 bombs." 
+}
+
+Cis
+{
+	RequiredObjectives 1
+	UseTeam "LabDroid"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the lab"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defend the lab"
+		objgfx "gfx/2d/logos/mb_clonerepublic"
+	}
+	
+	wonround "We have fended off the attack"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0
+	briefing "Defend the lab"
+}

@@ -1,0 +1,107 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+mapgraphic "gfx/mp/mplevels/arctic/sky"
+missionname  "Arctic"
+radartopleft "-3072, 3712"
+radarbottomright "3072, -2432"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cmp_arctic_1280_18"
+		radargraphicfull "gfx/automap/mb2_cmp_arctic_1280"
+		height "1280"
+	}
+	
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_cmp_arctic_800_18"
+		radargraphicfull "gfx/automap/mb2_cmp_arctic_800"
+		height "800"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_cmp_arctic_50_18"
+		radargraphicfull "gfx/automap/mb2_cmp_arctic_50"
+		height "50"
+	}
+	
+	AutoMap3
+	{
+		radargraphic "gfx/automap/mb2_cmp_arctic_-704_18"
+		radargraphicfull "gfx/automap/mb2_cmp_arctic_-704"
+		height "-704"
+	}
+}
+roundbegin_target ""
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "arc_rebs"							
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	Objective1
+	{
+		goalname "Find a way to enter the underground tunnels."
+		final -1
+		message_team1 "We've entered the underground tunnels!"
+		message_team2 "They've entered the underground tunnels!"
+		objdesc "Find a way to enter the underground tunnels."
+		objgfx "gfx/mp/mplevels/arctic/tunnel"
+	}
+	Objective2
+	{
+		goalname "Disable the energy source."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Disable the energy source."
+		objgfx "gfx/mp/mplevels/arctic/energy"
+	}
+	wonround "The energy source has been disabled."
+	lostround "We have failed."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Disable the energy source."
+}
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "arc_imps"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+	Objective1
+	{
+		goalname "Prevent the rebels from entering the underground tunnels."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Prevent the rebels from entering the underground tunnels."
+		objgfx "gfx/mp/mplevels/arctic/tunnel"
+	}	
+	Objective2
+	{
+		goalname "Stop the rebels from gaining access to our energy source."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop the rebels from gaining access to our energy source."
+		objgfx "gfx/mp/mplevels/arctic/energy"
+	}
+	wonround "This sector is secure."
+	lostround "The Rebels have disabled the experiment."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Stop the rebels from gaining access to our energy source."
+}

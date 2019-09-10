@@ -1,0 +1,80 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mp/mplevels/arena/arenaview"
+missionname  "Geonosis Arena"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "Arena_Rebels"							
+
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "ACCOMPLISH: Attract the Rescue Squad"
+		final 0
+		message_team1 "We are Saved!"
+		message_team2 "The Jedi have Escaped!"
+		objdesc "ACCOMPLISH: Hold off the droids until the gunships arrive"
+		objgfx "gfx/mp/mplevels/arena/rebelobjective1"
+	}
+	
+	
+	
+	wonround "The Republic army has saved us" 	//Printed to this team if they won the round.
+	lostround "We must surrender or die" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Signal the gunships to escape the arena" //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "Arena_Imperials"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Kill the Jedi"
+		final 0
+		message_team1 "The droids have defeated us"
+		message_team2 "We have overpowered the Jedi"
+		target ""
+		objdesc "ACCOMPLISH: Terminate the Jedi"
+		objgfx "gfx/mp/mplevels/arena/impobjective1"
+	}
+
+
+	
+		
+	wonround "The Jedi have been defeated!"
+	lostround "Dooku will not be pleased"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Eliminate the Jedi"
+}

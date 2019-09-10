@@ -1,0 +1,97 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Republic
+	team2 CIS
+}
+
+mapgraphic "gfx/mp/mplevels/canyons/maplayout"
+missionname  "Insertion on Geonosis"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "GeoRep"							
+
+	TeamIcon	"gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "ACCOMPLISH: Gain access to the Turret Bunker"
+		final -1
+		message_team1 "We have gained access"
+		message_team2 "The Republic has entered the complex"
+		objdesc "ACCOMPLISH: Gain access to the Anti Air Turret Bunker"
+		objgfx "gfx/mp/mplevels/canyons/rebobjective1"
+	}
+	
+	Objective2
+	{
+		goalname "ACCOMPLISH: Destroy the Turrent machinery"
+		final 0
+		message_team1 "The turret has been disabled!"
+		message_team2 "Our Turret defense has been compromised"
+		objdesc "ACCOMPLISH: Locate and Destroy the heart of turret with some well placed mines"
+		objgfx "gfx/mp/mplevels/canyons/rebobjective2"
+	}
+		
+	
+	wonround "The turret has been destroyed!" 						//Printed to this team if they won the round.
+	lostround "Our mission has failed" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Disable the AA turret by any means" //Displayed on the mission briefing menu.
+}
+
+CIS
+{
+	RequiredObjectives 1
+	
+	UseTeam "GeoDroid"
+	TeamIcon	"gfx/2d/logos/mb_cis"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Defend the entrances to the turret complex"
+		final 0
+		message_team1 "we failed to infiltrate the complex"
+		message_team2 "The complex remains under lockdown"
+		target ""
+		objdesc "ACCOMPLISH: Defend the entrances to the turret complex"
+		objgfx "gfx/mp/mplevels/canyons/impobjective1"
+	}
+	
+	Objective2
+	{
+		goalname "ACCOMPLISH: Defend the Turrent machinery"
+		final 0
+		message_team1 "The turret is still operational!"
+		message_team2 "Our Turret defense still stands strong"
+		objdesc "ACCOMPLISH: Defend the heart of the turret. If the Rebels place bombs, defuse one of them and the signal sent will defuse the other also."
+		objgfx "gfx/mp/mplevels/canyons/impobjective2"
+	}
+
+	wonround "The Republic's attempt has failed"
+	lostround "Our defense has been dealt a crucial blow"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Prevent the Republic's troops from disabling the Anti Air turret"
+}

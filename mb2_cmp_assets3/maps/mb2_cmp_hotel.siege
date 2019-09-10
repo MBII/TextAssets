@@ -1,0 +1,59 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+mapgraphic "gfx/mplevels/hotel/hotelmap"
+missionname  "Hotel Coruscant"
+roundbegin_target ""
+Rebels
+{
+  UseTeam "htl_rebs"
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	RequiredObjectives 1
+	Objective1
+	{
+		goalname "Guard Mon Mothma"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Guard Mon Mothma"
+		objgfx "gfx/mplevels/hotel/mon"
+	}
+	wonround "We have eliminated the Imperials"
+	lostround "We did not protect Mon Mothma"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Protect Mon Mothma"
+}
+Imperials
+{
+	UseTeam "htl_imps"
+	Timed 300
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+	RequiredObjectives 1
+	Objective1
+	{
+		goalname "Kill"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "Assassinate the Rebel leaders."
+		objgfx "gfx/mplevels/hotel/mon"
+	}
+	wonround "We have killed the Rebel leaders"
+	lostround "We failed to kill the Rebel leaders"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Kill Mon Mothma"
+}
+

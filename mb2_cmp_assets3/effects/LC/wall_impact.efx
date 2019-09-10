@@ -1,0 +1,414 @@
+OrientedParticle
+{
+	flags				setShaderTime
+
+	count				3
+
+	life				350
+
+	rotation			0 360
+
+	rotationDelta		-8 8
+
+	size
+	{
+		start			16 24
+		end				36 48
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/demp2
+	]
+}
+
+OrientedParticle
+{
+	flags				setShaderTime
+
+	count				0
+
+	life				350
+
+	rotation			90
+
+	size
+	{
+		start			24
+	}
+
+	shaders
+	[
+		gfx/exp/demp2
+	]
+}
+
+OrientedParticle
+{
+	flags				setShaderTime
+
+	count				0
+
+	life				250
+
+	delay				0 50
+
+	origin				0 -10 -10 0 10 10
+
+	rotation			90
+
+	size
+	{
+		start			8
+		end				10 16
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/demp2
+	]
+}
+
+Particle
+{
+	spawnFlags			orgOnCylinder axisFromSphere
+
+	count				3 4
+
+	life				750 1000
+
+	origin				-3 -3 -3 3 3 3
+
+	height				2
+
+	rotation			0 360
+
+	rotationDelta		-20 20
+
+	rgb
+	{
+		start			0.6 0.6 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			40
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			6 7
+		end				7 10
+		flags			random linear
+	}
+
+	shaders
+	[
+		gfx/misc/LIGHTNING_FLASH
+	]
+}
+
+Decal
+{
+	count				2
+
+	size
+	{
+		start			20 24
+	}
+
+	shaders
+	[
+		gfx/damage/electricaldamage
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 3
+
+	radius				50
+}
+
+Sound
+{
+	sounds
+	[
+		sound/weapons/demp2/hitwall.wav
+	]
+}
+
+Electricity
+{
+	flags				useModel useBBox usePhysics
+
+	spawnFlags			orgOnCylinder
+
+	count				2 4
+
+	life				300 600
+
+	delay				0 250
+
+	bounce				2 5
+
+	origin2				-60 -120 -120 120 120 120
+
+	radius				4 5
+
+	height				0.5 0.7
+
+	size
+	{
+		start			3 5
+		end				0.2
+		parm			70
+		flags			nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Light
+{
+	life				300
+
+	rgb
+	{
+		start			0.502 0.502 1
+		flags			linear
+	}
+
+	size
+	{
+		start			300
+		flags			linear
+	}
+}
+
+Tail
+{
+	name				SparktailsB
+
+	flags				expensivePhysics useBBox usePhysics useAlpha
+
+	spawnFlags			affectedByWind
+
+	count				15 20
+
+	life				1100 1400
+
+	delay				1 10
+
+	bounce				0.2 0.4
+
+	min					-0.5 -0.5 -0.5
+
+	max					0.5 0.5 0.5
+
+	origin				2 -2 -2 2 2 2
+
+	wind				1 20
+
+	velocity			40 -70 -70 100 70 70
+
+	acceleration		-10 0 0 -30 0 0
+
+	gravity				-90 -250
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.651 0.7922 0.9412
+		end				1 1 1 0.9529 0.9529 0.9608
+	}
+
+	alpha
+	{
+		end				0 0.5
+	}
+
+	size
+	{
+		start			1 1.2
+		end				0.9
+		flags			linear
+	}
+
+	length
+	{
+		start			6 8
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/blueSideFlash
+		gfx/misc/flaretailup
+	]
+}
+
+Tail
+{
+	name				SparktailsBleft
+
+	flags				expensivePhysics useBBox usePhysics useAlpha
+
+	count				18 29
+
+	life				900 1300
+
+	delay				1 10
+
+	bounce				0.2 0.4
+
+	min					-0.5 -0.5 -0.5
+
+	max					0.5 0.5 0.5
+
+	origin				2 -2 -2 2 2 2
+
+	wind				1 20
+
+	velocity			5 15 0 40 120 100
+
+	acceleration		0 0 0 0 40 0
+
+	gravity				-90 -250
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.651 0.7922 0.9412
+		end				1 1 1 0.9529 0.9529 0.9608
+	}
+
+	alpha
+	{
+		end				0 0.5
+	}
+
+	size
+	{
+		start			1 1.2
+		end				0.9
+		flags			linear
+	}
+
+	length
+	{
+		start			6 8
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/blueSideFlash
+		gfx/misc/flaretailup
+	]
+}
+
+Tail
+{
+	name				SparktailsBlight
+
+	flags				useBBox useAlpha
+
+	count				12 15
+
+	life				600 700
+
+	delay				1 10
+
+	intensity			0.2 0.4
+
+	origin				2 -2 -2 2 2 2
+
+	velocity			30 -70 -70 60 70 70
+
+	acceleration		-10 0 0 -30 0 0
+
+	gravity				-90 -250
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.651 0.7922 0.9412
+		end				1 1 1 0.9529 0.9529 0.9608
+	}
+
+	alpha
+	{
+		end				0 0.5
+	}
+
+	size
+	{
+		start			1 1.2
+		end				0.9
+		flags			linear
+	}
+
+	length
+	{
+		start			6 8
+		end				0
+		parm			100 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/blueSideFlash
+		gfx/misc/flaretailup
+	]
+}
+
+Particle
+{
+	name				Flare
+
+	life				500
+
+	cullrange			200
+
+	origin				1 0 0
+
+	rgb
+	{
+		start			0.8431 0.9333 1
+	}
+
+	alpha
+	{
+		start			0.7
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			110 120
+		end				40
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/colflare
+	]
+}

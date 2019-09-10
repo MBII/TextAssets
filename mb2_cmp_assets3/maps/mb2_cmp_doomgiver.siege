@@ -1,0 +1,101 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 NewRepublic
+	team2 Remnant
+}
+
+mapgraphic "gfx/mplevels/cmp_doom/doommap"
+missionname  "Doomgiver Assault"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+NewRepublic
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?					
+	Timed 300					//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	UseTeam "DgNewRe" 							//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_newrepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Hack the Security Network"
+		final -1
+		message_team1 "We have managed to hack the Remnant security"
+		message_team2 "Our service shaft lockdown has been overridden"
+		objdesc "OPTIONAL GOAL:
+		Hack the Doomgiver's security network to give you access to the service shafts."
+		objgfx "gfx/mplevels/cmp_doom/rebobjectivea"
+	}
+
+	
+	Objective2
+	{
+		goalname "Destroy the Shield Generator"
+		final 0
+		message_team1 "We have destroyed the shield generator!"
+		message_team2 "The rebel scum have destroyed the shield generator"
+		objdesc "PRIMARY GOAL:
+		Destroy the Doomgiver's Shield generator so that Rogue Squadron can blow it up."
+		objgfx "gfx/mplevels/cmp_doom/rebobjective1"
+	}
+
+	
+	wonround "The Doomgiver is open to an attack run" 						//Printed to this team if they won the round.
+	lostround "The shield generator is still up" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/Dground/Kkwin.mp3"
+	roundover_sound_welost "sound/Dground/Glkwin.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Destroy the shield generator so that Rogue Squadron can attack." //Displayed on the mission briefing menu.
+}
+
+Remnant
+{
+	RequiredObjectives 1
+	UseTeam "DgNewImperials"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Avoid Security breaches"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "Ensure that the service shaft lockdown is not interfered with."
+		objgfx "gfx/mplevels/cmp_doom/impobjectivea"
+	}
+
+	Objective2
+	{
+		goalname "Defend the shield generator"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "Make sure that the shield generator stays up!"
+		objgfx "gfx/mplevels/cmp_doom/impobjective1"
+	}
+
+	
+	
+	wonround "The plan to destroy this ship has failed"
+	lostround "They have destroyed the shield generator!"
+	roundover_sound_wewon "sound/Dground/Glkwin.mp3"
+	roundover_sound_welost "sound/Dground/Kkwin.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Defend the shield generator from the Rebel Scum"
+}

@@ -1,0 +1,96 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/endor/map"
+missionname  "Assault on Endor"
+
+radartopleft "-1408, 5184"
+radarbottomright "8768, -3904"
+
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cmp_endor_18"
+		radargraphicfull "gfx/automap/mb2_cmp_endor"
+  	} 
+}
+
+
+roundbegin_target "roundstart; roundbegin"
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "endor_rebel" 							
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "door"
+		final -1
+		message_team1 "The back door of the generator is now open!"
+		message_team2 "They have sliced the back door lock!"
+		objdesc "Hack the generator console to open the back door of the genarator control room"
+		objgfx "gfx/mplevels/endor/control"
+	}
+	
+	Objective2
+	{
+		goalname "gengone"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Destroy the shield generator by placing bombs in the control center, or destroy the generator itself!"
+		objgfx "gfx/mplevels/endor/cc"
+	}
+	
+	wonround "The Deathstar is Open to an attack run!" 						//Printed to this team if they won the round.
+	lostround "All is lost!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Destroy the Endor shield generator!" //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "endor_imps"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname ""
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defend the shield generator!"
+		objgfx "gfx/mplevels/endor/gen"
+	}
+	
+	wonround "The Emperor will be pleased!"
+	lostround "All is lost!"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Defend the shield generator!"
+}

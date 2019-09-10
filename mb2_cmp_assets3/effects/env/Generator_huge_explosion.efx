@@ -1,0 +1,265 @@
+repeatDelay				300
+
+Particle
+{
+	name				OrangeGlow
+
+	flags				setShaderTime
+
+	spawnFlags			orgOnSphere evenDistribution
+
+	count				35
+
+	life				2150
+
+	delay				0 1510
+
+	origin				50 -10 -10 60 10 10
+
+	radius				120
+
+	height				1200 120
+
+	rotation			0 360
+
+	rotationDelta		-1 1
+
+	velocity			5 -20 -20 10 20 20
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			320 640
+		end				1800 2400
+		parm			10 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/rocket_explosion
+		gfx/exp/explosion1
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				8
+
+	life				2800 3500
+
+	delay				1300 1500
+
+	origin				0 -100 -100 120 100 100
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -20 -20 10 20 20
+
+	acceleration		-4 -8 -8 4 8 8
+
+	gravity				15 60
+
+	rgb
+	{
+		start			0.8784 0.8275 0.7373 0.8706 0.8784 0.6941
+	}
+
+	alpha
+	{
+		end				0
+		parm			60 80
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			200 400
+		end				1450 1600
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				1950
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			1500
+		end				1000
+		flags			linear
+	}
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				9 10
+
+	life				1900 2400
+
+	delay				350 500
+
+	origin				20 -120 -120 200 120 120
+
+	rotation			-180 180
+
+	rotationDelta		-8 8
+
+	velocity			20 -40 -40 40 40 40
+
+	acceleration		-5 -5 -5 5 5 5
+
+	gravity				-50 -30
+
+	rgb
+	{
+		start			0.9451 0.6549 0.4392 0.9882 0.7255 0.1804
+	}
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			100 400
+		end				1200 2000
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				1500 1800
+
+	bounce				1 2
+
+	radius				300 400
+}
+
+Sound
+{
+	name				Boom
+
+	spawnFlags			lessAttenuation
+
+	sounds
+	[
+		sound/weapons/rocket/hit_wall.wav
+	]
+}
+
+Sound
+{
+	name				Boom2
+
+	sounds
+	[
+		sound/weapons/explosions/explosion_huge3.mp3
+	]
+}
+
+Decal
+{
+	life				1500
+
+	size
+	{
+		start			1200 2000
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Particle
+{
+	name				Copy of OrangeGlow
+
+	flags				setShaderTime
+
+	spawnFlags			evenDistribution
+
+	count				2
+
+	life				2150
+
+	delay				0 350
+
+	origin				60 -10 -10 80 10 10
+
+	radius				120
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			5 -20 -20 10 20 20
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			5750 6000
+		end				1500
+		parm			5 25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/rocket_explosion
+		gfx/exp/explosion1
+	]
+}

@@ -1,0 +1,89 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 OldRepublic
+	team2 Seperatists
+}
+
+mapgraphic "gfx/mplevels/mb2_cmp_dust2"
+missionname "Assault on Mos Espa"
+
+countin_time 0
+
+roundbegin_target ""
+
+
+OldRepublic
+{
+	RequiredObjectives 1 							
+	Timed 240 								
+	UseTeam "dust2_rebels"							
+	TeamIcon	"gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Destruction"
+		final 1 							
+		message_team1 ""						
+		message_team2 ""						
+		target obj1_complete_imperial 					
+		sound_team1 "sound/chars/protocol/misc/siege2.mp3" 		
+		sound_team2 "sound/chars/protocol/misc/siege6.mp3" 		
+
+		objdesc "Bounty hunters have stored weapons at two different points on their outpost. Destroy either the store at target zone a or b! Use the special detonation pack." 			
+		objgfx "gfx/mplevels/dust2/objectiveb" 				
+				
+	}
+
+	
+	wonround "Successfully destroyed a weapon store!"				
+	lostround "Could not destroy the weapon store!" 				
+
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM014.mp3" 			
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+
+	roundover_target "siegeend" 							
+
+	attackers 1 									
+
+	briefing "Our contacts to a smuggler on Mos Espa have confirmed the rumour that the Imperial Forces have stored lots of weapons and ammo in their outpost on Mos Espa. It is your duty to breach their defensive lines and destroy one of the weapon stores (either in zone A or B). We must interrupt their weapon supply!" 						//Displayed on the mission briefing menu.
+}
+
+Seperatists
+{
+	RequiredObjectives 1
+	UseTeam "dust2_imperials"
+	TeamIcon	"gfx/2d/logos/mb_cis"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend/Defuse"
+		final 1
+		message_team2 ""
+		message_team1 ""
+		target obj1_complete_rebel
+		sound_team1 "sound/chars/protocol/misc/siege5.mp3"
+		sound_team2 "sound/chars/protocol/misc/siege1.mp3"
+
+		objdesc "The Jedi are planning an attack on our weapon store on Mos Espa. Defend the store zones A and B against them. If they could plant a bomb, defuse it at all costs!" 								
+		objgfx "gfx/mplevels/dust2/objectivea" 				
+					
+	}
+
+	wonround "You could keep the weapon store safe!"
+	lostround "You lost the weapon store on Mos Espa."
+
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+
+	roundover_target "siegeend"
+
+	attackers 0
+
+	briefing "The Imperial secret service has intercepted a secret transmission of the Rebellion. They are planning an assault on our outpost on Mos Espa and will try to destroy our weapon store. Defend both stores (zone A and B) against the rebellion troups."
+}

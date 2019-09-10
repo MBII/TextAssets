@@ -1,0 +1,78 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/siege2_desert"
+missionname  "Mountain Keep"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	Timed 300
+      UseTeam "keeprebs" 							//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "COMPLETEMENT: Save Mon Mothma !"
+		final 0
+		message_team1 "We saved Mon Mothma !!"
+		message_team2 "The Rebels saved Mon Mothma "
+		objdesc "Go into the keep and save Mon Mothma"
+		objgfx "gfx/mplevels/keep/mon"
+	}
+	
+
+	
+	wonround "We saved Mon Mothma" 						//Printed to this team if they won the round.
+	lostround "We did not manage to save Mon Mothma" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Save Mon Mothma" //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	UseTeam "keepimps"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname " To complete the map:  Keep the Rebellion away from Mon Mothma"
+		final -1
+		message_team1 "The Imperial Forces are in the cellar"
+		message_team2 "We are very close to the prison cell"
+		target ""
+		objdesc "COMPLETEMENT: To complete the map: Keep the Rebellion away from the Command-Center and Mon Mothma"
+		objgfx "gfx/mplevels/keep/turret"
+	}
+	
+	
+	wonround "Victory !"
+	lostround "The Rebels saved Mon Mothma"
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Defend the Keep , and keep the Rebels away from Mon Mothma"
+}
+
