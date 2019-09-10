@@ -1,0 +1,194 @@
+// SERVER INFORMATION POPUP MENU
+// List information pertinant to one server
+{
+	menuDef
+	{
+		name					"serverinfo_popmenu"
+		visible					0
+		fullscreen				0
+		rect					0 0 640 480
+		outOfBoundsClick
+		focusColor				1 1 1 0.6
+		descX					320
+		descY					383
+		descScale				0.3
+		descColor				0.5 0.5 0.5 0.5
+		descAlignment			ITEM_ALIGN_CENTER
+		onOpen
+		{
+			uiScript			ServerStatus		
+		}
+		onESC
+		{
+			play				"sound/interface/back.mp3" 
+			close				serverinfo_popmenu
+			open				joinserver			
+		}
+
+// MENU BACKGROUND		
+		
+		itemDef
+		{
+			name				menu_scroll
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/menu_scroll"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}		
+
+		itemDef
+		{
+			name				btn_refresh_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/btn_refresh_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+		
+		itemDef
+		{
+			name				btn_info_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/btn_info_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}			
+		
+		
+// Join Server title
+
+		itemDef
+		{
+			name				btn_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Btn_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+		
+		// TITLE
+		itemDef
+		{
+			name				screenTitle
+			text				"SERVER INFORMATION" 
+			style				WINDOW_STYLE_EMPTY
+			rect				318 83 30 20
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			4
+			textaligny			0
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration 
+		}
+
+		// SERVER INFO
+		itemDef
+		{
+			name				serverinfoList
+			rect				145 103 355 275
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_FILLED
+			feeder				FEEDER_SERVERSTATUS
+			elementtype			LISTBOX_TEXT
+			elementwidth		50
+			elementheight		10
+			font				2
+			textscale			0.4
+			textaligny			4 // offset from the top			
+			forecolor			1 1 1 0.9
+			notselectable
+			visible				1
+			columns				4	 2   30  130
+								35   10  40
+								70  10  40
+								105  10  150
+		}
+		
+// VERY BOTTOM ROW BUTTONS
+		// BACK BUTTON
+		itemDef
+		{
+			name				back
+			text				"BACK"			
+			descText			@MENUS_BACKUP_ONE_MENU
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_FILLED_RGB1
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				125 412 120 36
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0			
+			visible				1
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/back.mp3"
+				close			serverinfo_popmenu
+				open			joinserver
+			}
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	125 412 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl
+			}
+		}
+
+
+		// REFRESH BUTTON
+		itemDef
+		{
+			name				join_button
+			group				none
+			text				"REFRESH"
+			descText			@MENUS_REFRESH_SERVER_LIST			
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				390 412 120 36
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			forecolor			1 1 1 1		
+			visible				1	
+			action
+			{
+				play			"sound/interface/button1.wav"			
+				uiScript		ServerStatus
+			}
+
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	390 412 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl 
+			}
+		}
+	}
+}

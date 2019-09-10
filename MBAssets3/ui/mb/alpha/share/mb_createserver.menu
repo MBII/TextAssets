@@ -1,0 +1,2084 @@
+// CREATE SERVER MENU
+
+{
+	menuDef
+	{
+		name					"createserver"
+		fullScreen				0//MENU_TRUE
+		rect					0 0 640 480
+		visible					1
+		focusColor				1 1 1 0.6
+		descX					320
+		descY					383
+		descScale				0.15
+		descColor				0.5 0.5 0.5 0.5
+		descAlignment			ITEM_ALIGN_CENTER
+		onEsc 
+		{
+			setcvartocvar 		password g_password 
+			close				createserver
+			open				joinserver
+			uiscript			checkservername
+		}
+		onOpen
+		{
+			setcvartocvar		password g_password
+			uiScript			loadArenas
+			hide				accept_alt
+			show				accept
+			hide				back_alt
+			show				back
+			hide				grpmessage
+			uiScript			setBotButtons
+			uiscript			clampmaxplayers
+			uiscript			checkservername
+			exec				"ui_netgametype 6"
+			show				adminset
+			hide				shuffset
+			hide				serverset
+			hide				mb2set
+			hide				miscset
+			//uiScript			"getmodelcvars"	//needed for model display stuff
+			//uiScript			"getmodelskin"	//needed for model display stuff			
+		}
+
+// MENU BACKGROUND
+	//	itemDef
+	//	{
+	//		name				background
+	//		group				none
+	//		style				WINDOW_STYLE_SHADER
+	//		rect				0 0 640 480
+	//		background			"gfx/menus/alpha/Main_Background"
+	//		forecolor			1 1 1 1
+	//		visible				1
+	//		decoration
+	//	}
+    //
+	//	itemDef
+	//	{
+	//		name				diorama
+	//		group				models
+	//		type				ITEM_TYPE_MODEL
+	//		//1,3125
+	//		rect				465 0 200 450
+	//		asset_model			"models/map_objects/mb2_diorama/DeathStar1.md3"
+	//		model_angle			235
+	//		//mins maxs format is apparently z x y (hmmm... y x z?)
+	//		model_origin		-200 -200 -200
+	//		model_g2mins		-200 -200 -200
+	//		model_g2maxs		200 200 200
+	//		model_fovx			30
+	//		model_fovy			30
+	//		isCharacter			0
+	//		visible				1
+	//		decoration
+	//	}	
+    //
+	//	itemDef
+	//	{
+	//		name				background2_2
+	//		group				none
+	//		style				WINDOW_STYLE_SHADER
+	//		rect				0 0 640 480
+	//		background			"gfx/menus/alpha/Main_Background2_2"
+	//		forecolor			1 1 1 1
+	//		visible				1
+	//		decoration
+	//	}	
+	//	
+	//	itemDef
+	//	{
+	//		name				background_rays
+	//		group				none
+	//		style				WINDOW_STYLE_SHADER
+	//		rect				0 0 640 480
+	//		background			"gfx/menus/alpha/Main_Background_rays"
+	//		forecolor			1 1 1 1
+	//		visible				1
+	//		decoration
+	//	}		
+	//	
+	//	itemDef
+	//	{
+	//		name				background4
+	//		group				none
+	//		style				WINDOW_STYLE_SHADER
+	//		rect				0 0 640 480
+	//		background			"gfx/menus/alpha/Main_Background4"
+	//		forecolor			1 1 1 0.6
+	//		visible				1
+	//		decoration
+	//	}
+    //
+	//	itemDef
+	//	{
+	//		name				background5
+	//		group				none
+	//		style				WINDOW_STYLE_SHADER
+	//		rect				0 0 640 480
+	//		background			"gfx/menus/alpha/Main_Background5"
+	//		forecolor			1 1 1 0.5
+	//		visible				1
+	//		decoration
+	//	}		
+	//	
+	//	// Character model
+	//	itemDef
+	//	{
+	//		name				modelviewer
+	//		group				models
+	//		type				ITEM_TYPE_MODEL
+	//		//1,3125
+	//		rect				360 0 400 525
+	//		model_g2anim		"BOTH_STAND4"
+	//		asset_model			"ui_char_model"
+	//		model_angle			90
+	//		//mins maxs format is apparently z x y (hmmm... y x z?)
+	//		model_g2mins		-30 -20 -14
+	//		model_g2maxs		20 20 30
+	//		model_rotation		300
+	//		model_fovx			50
+	//		model_fovy			50
+	//		isCharacter			1
+	//		visible				1
+	//		decoration
+	//	}			
+    //
+	//	
+	//	itemDef
+	//	{
+	//		name				background3
+	//		group				none
+	//		style				WINDOW_STYLE_SHADER
+	//		rect				0 0 640 480
+	//		background			"gfx/menus/alpha/Main_Background3"
+	//		forecolor			1 1 1 0.6
+	//		visible				1
+	//		decoration
+	//	}
+    //
+	//	itemDef
+	//	{
+	//		name				background2
+	//		group				none
+	//		style				WINDOW_STYLE_SHADER
+	//		rect				0 0 640 480
+	//		background			"gfx/menus/alpha/Main_Background2"
+	//		forecolor			1 1 1 1
+	//		visible				1
+	//		decoration
+	//	}						
+
+		itemDef
+		{
+			name				menu_createserver
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Menu_CreateServer"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				btn_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Btn_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}		
+		
+
+// SERVER NAME ENTRY FIELD
+
+		itemDef
+		{
+			name				expert
+			group				name
+			type				ITEM_TYPE_EDITFIELD
+			text				@MENUS_SERVER_NAME_1
+			cvar				"sv_hostname"
+			maxChars			32
+			maxPaintChars		18
+			rect				220 93 310 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			descText			@MENUS_ENTER_THE_NAME_FOR_YOUR
+			mouseExit
+			{
+				uiscript		checkservername
+			}
+			action
+			{
+				play			"sound/interface/button1" 
+				uiscript		checkservername
+			}
+		}
+
+//TOP
+
+		itemDef
+		{
+			name				top
+			group				adminset
+			text				"Administration Settings:"
+			textstyle			0
+			rect				200 120 120 15 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				top
+			group				shuffset
+			text				"Shuffle and Auto-balance Settings:"
+			textstyle			0
+			rect				200 120 120 15 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				top
+			group				serverset
+			text				"Server Settings:"
+			textstyle			0
+			rect				200 120 120 15 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				top
+			group				mb2set
+			text				"Movie Battles II Settings:"
+			textstyle			0
+			rect				200 120 120 15 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				top
+			group				miscset
+			text				"Other Settings:"
+			textstyle			0
+			rect				200 120 120 15 
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			decoration
+		}
+
+		
+//ADMINISTRATION SETTINGS
+
+		itemDef
+		{
+			name				rcon
+			group				adminset
+			text				"RCON password"
+			rect				130 140 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				smod
+			group				adminset
+			text				"SMOD password"
+			rect				130 160 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				anticheat
+			group				adminset
+			text				"Anti-Cheat"
+			rect				130 180 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				TKSpecPoints
+			group				adminset
+			text				"TK Spectator Points"
+			rect				130 200 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				TKKickPoints
+			group				adminset
+			text				"TK Kick Points"
+			rect				130 220 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				TKTempBanRounds
+			group				adminset
+			text				"TK Temp. Ban Rounds"
+			rect				130 240 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				TKForgiveRounds
+			group				adminset
+			text				"TK Forgive Rounds"
+			rect				130 260 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				TKRemovedRounds
+			group				adminset
+			text				"TK Removed Per Round"
+			rect				130 280 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				TKMinorFriendly
+			group				adminset
+			text				"TK Minor Friendly"
+			rect				130 300 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				ChatProtectTime
+			group				adminset
+			text				"Chat Protect Time"
+			rect				130 320 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+//ADMINISTRATION SETTINGS 2		
+		
+		itemDef
+		{
+			name				rcon
+			group				adminset
+			type 				4
+			text				" "
+			cvar				"rconpassword"
+			rect				130 140 190 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Set RCON admin password"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				smod
+			group				adminset
+			type 				4
+			text				" "
+			cvar				"g_smodAdminPassword_1"
+			rect				130 160 190 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Set smod admin password"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				anticheat
+			group				adminset
+			type				ITEM_TYPE_MULTI
+			maxchars			4
+			text				" "
+			descText			"Enable anti-cheat verification checks."
+			textstyle			0
+			rect				130 180 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			cvar				"g_anticheat"
+			cvarFloatList
+			{
+				"OFF"				0 
+				"ON"				1 
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				TKSpecPoints
+			group				adminset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_TKPointsSpecCount"
+			rect				130 200 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Number of TK points before forcing a player to spectator. Default: 400"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				TKKickPoints
+			group				adminset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_TKPointsKickCount"
+			rect				130 220 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Number of TK points before kicking and temporarily banning a player. Default: 700"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				TKTempBanRounds
+			group				adminset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_TKTempBanForRounds"
+			rect				130 240 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Number of rounds to temporarily ban for after kicking for teamkilling. Default: 4"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				TKForgiveRounds
+			group				adminset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_TKForgiveAfterRounds"
+			rect				130 260 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Number of rounds with no teamkilling to start reducing TK points. Default: 2"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				TKRemovedRounds
+			group				adminset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_TKRemovedPerRound"
+			rect				130 280 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Number of TK points to remove per round. Default: 50"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				TKMinorFriendly
+			group				adminset
+			type				ITEM_TYPE_MULTI
+			maxchars			4
+			text				" "
+			descText			"Ignore damage <5 for TK points (prevent minor splash damage TK points)."
+			textstyle			0
+			rect				130 300 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			cvar				"g_TKPointsMinorFriendly"
+			cvarFloatList
+			{
+				"OFF"				0 
+				"ON"				1 
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				ChatProtectTime
+			group				adminset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"cg_chatprotecttime"
+			rect				130 320 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Time between chat messags (in milliseconds) to prevent spam. Default: 250"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+//SHUFFLE SETTINGS
+
+		itemDef
+		{
+			name				shuffle
+			group				shuffset
+			text				"Shuffle timer:"
+			rect				130 140 100 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}	
+		
+		itemDef
+		{
+			name				teambalance
+			group				shuffset
+			text				"Auto team balance:"
+			textstyle			0
+			rect				130 160 120 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}	
+		
+		itemDef
+		{
+			name				unbalance
+			group				shuffset
+			text				"Stack per team:"
+			rect				130 180 100 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}		
+
+//SHUFFLE SETTINGS 2
+
+		itemDef
+		{
+			name				shuffle
+			group				shuffset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_ShuffleTimer"
+			rect				130 140 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			3
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"How long in seconds clients must wait before they can change teams"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}	
+		
+		itemDef
+		{
+			name				teambalance
+			group				shuffset
+			type				ITEM_TYPE_MULTI
+			maxchars			4
+			text				" "
+			descText			"Allow team auto balance"
+			textstyle			0
+			rect				130 160 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			cvar				"g_autoteambalance"
+			cvarFloatList
+			{
+				"OFF"				0 
+				"ON"				1 
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}	
+		
+		itemDef
+		{
+			name				unbalance
+			group				shuffset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_allowunbalance"
+			rect				130 180 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			3
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"How many players a team may be stacked before auto balance intervenes"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}	
+		
+//SERVER SETTINGS
+
+		itemDef
+		{
+			name				dedicatedserver
+			group				serverset
+			text				@MENUS_DEDICATED_SERVER
+			rect				130 140 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				maxclients
+			group				serverset
+			text				@MENUS_MAXIMUM_PLAYERS
+			rect				130 160 100 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}		
+	
+		itemDef
+		{
+			name				svfpsserver
+			group				serverset
+			text				"Server FPS:"
+			rect				130 180 180 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				maxrateserver
+			group				serverset
+			text				"Max. Rate:"
+			rect				130 200 180 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+	
+		itemDef
+		{
+			name				minsnapsserver
+			group				serverset
+			text				"Min. Snaps:"
+			rect				130 220 180 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				minrateserver
+			group				serverset
+			text				"Min. Rate:"
+			rect				130 240 180 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				banlistfunction
+			group				serverset
+			text				"List Function:"
+			rect				130 260 180 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}			
+	
+//SERVER SETTINGS 2		
+
+		itemDef
+		{
+			name				dedicatedserver
+			group				serverset
+			type				ITEM_TYPE_MULTI
+			text				" "
+			// syntax for this is cvar name followed by a semicolan separated list of choices first choice equals 0
+			// dedicated is a special cvar in that as soon as it is set, the game goes to console only so the ui catches this one specifically
+			cvar				"ui_dedicated"
+			cvarFloatList
+			{
+				@MENUS_NO 0 @MENUS_LAN 1 @MENUS_INTERNET 2 
+			}
+			rect				130 140 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			@MENUS_A_DEDICATED_SERVER_IS
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				maxclients
+			group				serverset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"sv_maxclients"
+			rect				130 160 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			6
+			forecolor			0.7 0.7 0.7 0.9
+			cvarTest			"ui_netGameType"
+			showCvar
+			{
+				"6"
+			}
+			visible				0
+			descText			@MENUS_SETS_THE_MAXIMUM_NUMBER
+			action
+			{
+				play			"sound/interface/button1"
+			}
+			mouseExit
+			{
+				uiscript		clampmaxplayers
+			}
+		}
+
+		itemDef
+		{
+			name				svfpsserver
+			group				serverset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"sv_fps"
+			rect				130 180 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Server FPS setting. Default: 40"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				maxrateserver
+			group				serverset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"sv_maxRate"
+			rect				130 200 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Settings higher than 25000 do not improve the client's ping"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}		
+		
+		itemDef
+		{
+			name				minsnapsserver
+			group				serverset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"sv_minSnaps"
+			rect				130 220 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Sets minimum snaps client can have. Default: 20"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}			
+	
+		itemDef
+		{
+			name				minrateserver
+			group				serverset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"sv_minRate"
+			rect				130 240 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Sets minimum rate client can have. Default: 2000"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				banlistfunction
+			group				serverset
+			type				ITEM_TYPE_MULTI
+			maxchars			4
+			text				" "
+			descText			"Whether the list functions as a ban list or a white list."
+			textstyle			0
+			rect				130 260 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			cvar				"g_filterban"
+			cvarFloatList
+			{
+				"WHITE LIST"			0 
+				"BAN LIST"				1 
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}		
+	
+//MB II SETTINGS
+
+		itemDef
+		{
+			name				mbmode
+			group				mb2set
+			text				"MB Mode:"
+			textstyle			0
+			rect				130 140 120 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				minmbpoints
+			group				mb2set
+			text				"Min. MB Points:"
+			rect				130 160 100 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}		
+
+		itemDef
+		{
+			name				mbpointsperround
+			group				mb2set
+			text				"MB Points per round:"
+			rect				130 180 180 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}		
+		
+		itemDef
+		{
+			name				fraglimit
+			group				mb2set
+			text				"Win Limit:"
+			rect				130 200 100 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				roundlimit
+			group				mb2set
+			text				"Round Limit:"
+			rect				130 220 100 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+//MB II SETTINGS 2
+
+		itemDef
+		{
+			name				mbmode
+			group				mb2set
+			type				ITEM_TYPE_MULTI
+			maxchars			4
+			text				" "
+			descText			"Select MB Mode."
+			textstyle			0
+			rect				130 140 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			cvarTest			"ui_netGameType"
+			showCvar
+			{
+				"6"
+			}
+			cvar				"g_Authenticity"
+			cvarFloatList
+			{
+				"Open"				0 
+				"Semi-Authentic"	1 
+				"Full Authentic"	2 
+				"Duel"				3	
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				minmbpoints
+			group				mb2set
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_MinMBPoints"
+			rect				130 160 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			6
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Minimum MB Points the player can have"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				mbpointsperround
+			group				mb2set
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_MBPointsPerRound"
+			rect				130 180 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			6
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Amount of MB points players gain every round"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}		
+		
+		itemDef
+		{
+			name				fraglimit
+			group				mb2set
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"fraglimit"
+			cvarTest			"ui_netGameType"
+			showCvar
+			{
+				"6"
+			}
+			rect				130 200 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			4
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Amount of rounds a team needs to win the map"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				roundlimit
+			group				mb2set
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"roundlimit"
+			cvarTest			"ui_netGameType"
+			showCvar
+			{
+				"6"
+			}
+			rect				130 220 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			4
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Total amount of rounds needed to finish the map"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}		
+		
+		
+
+//MISC SETTINGS
+
+		itemDef
+		{
+			name				password
+			group				miscset
+			text				@MENUS_PASSWORD_1
+			rect				130 140 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			8
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}		
+
+		itemDef
+		{
+			name				ghosting
+			group				miscset
+			text				"Disable ghosting:"
+			rect				130 160 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			8
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}			
+		
+		itemDef
+		{
+			name				spectateteamonly
+			group				miscset
+			text				"Spectate team only:"
+			rect				130 180 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			8
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}			
+
+		itemDef
+		{
+			name				hidehud
+			group				miscset
+			text				"Hide HUD from spectators:"
+			rect				130 200 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			8
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				inactivitykick
+			group				miscset
+			text				"Time until Kick:"
+			rect				130 220 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			8
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				inactivityspec
+			group				miscset
+			text				"Time until Spec:"
+			rect				130 240 95 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			8
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}	
+		
+		itemDef
+		{
+			name				automapcycle
+			group				miscset
+			text				@MENUS_AUTO_MAP_CYCLE
+			rect				130 260 82 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				allowvote
+			group				miscset
+			text				@MENUS_ENABLE_VOTING
+			rect				130 280 82 15 
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+
+
+
+//MISC SETTINGS 2
+
+		itemDef
+		{
+			name				password
+			group				miscset
+			type 				4
+			text				" "
+			cvar				"g_password"
+			rect				130 140 190 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			@MENUS_SETS_PASSWORD_FOR_YOUR
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}			
+
+		itemDef
+		{
+			name				ghosting
+			group				miscset
+			type				ITEM_TYPE_YESNO
+			text				" "
+			cvar				"g_FullSpecTalkToPlayers"
+			rect				130 160 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Allow / disallow spectators talk to 'living' players (ghosting)"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}		
+
+		itemDef
+		{
+			name				spectateteamonly
+			group				miscset
+			type				ITEM_TYPE_YESNO
+			text				" "
+			cvar				"g_spectateTeamOnly"
+			rect				130 180 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Allow / disallow 'dead' players spectate enemy team"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}	
+	
+		itemDef
+		{
+			name				hidehud
+			group				miscset
+			type				ITEM_TYPE_YESNO
+			text				" "
+			cvar				"g_HideHUDFromSpecs"
+			rect				130 200 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Hide HUD from Spectators"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				inactivitykick
+			group				miscset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_InactivityKick"
+			rect				130 220 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Time in seconds until an inactive (i.e. not moving etc) client is kicked"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				inactivityspec
+			group				miscset
+			type				ITEM_TYPE_NUMERICFIELD
+			text				" "
+			cvar				"g_InactivitySpec"
+			rect				130 240 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Time in seconds until an inactive (i.e. not moving etc) client is moved to the spectator mode"
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}		
+		
+		itemDef
+		{
+			name				automapcycle
+			group				miscset
+			type				ITEM_TYPE_YESNO
+			text				" "
+			cvar				"g_autoMapCycle"
+			rect				130 260 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			@MENUS_AUTO_MAP_CYCLE_DESC
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				allowvote
+			group				miscset
+			type				ITEM_TYPE_YESNO
+			text				" "
+			cvar				"g_allowvote"
+			rect				130 280 180 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			130
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			@MENUS_THIS_ALLOWS_PLAYERS_TO
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+//NAVIGATION
+
+		itemDef
+		{
+			name				adminsetprev
+			group				adminset
+			text				"Prev"			
+			descText			"Previous settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER			
+			rect				175 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			45
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				hide				shuffset
+				hide				serverset
+				hide				mb2set
+				show				miscset
+			}
+		}
+	
+		itemDef
+		{
+			name				adminsetnext
+			group				adminset
+			text				"Next"			
+			descText			"Next settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER				
+			rect				230 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				show				shuffset
+				hide				serverset
+				hide				mb2set
+				hide				miscset
+			}
+		}
+
+		itemDef
+		{
+			name				shuffsetprev
+			group				shuffset
+			text				"Prev"			
+			descText			"Previous settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER			
+			rect				175 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			45
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				show				adminset
+				hide				shuffset
+				hide				serverset
+				hide				mb2set
+				hide				miscset
+			}
+		}
+	
+		itemDef
+		{
+			name				shuffsetnext
+			group				shuffset
+			text				"Next"			
+			descText			"Next settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER				
+			rect				230 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				hide				shuffset
+				show				serverset
+				hide				mb2set
+				hide				miscset
+			}
+		}		
+	
+		itemDef
+		{
+			name				serversetprev
+			group				serverset
+			text				"Prev"			
+			descText			"Previous settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER			
+			rect				175 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			45
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				show				shuffset
+				hide				serverset
+				hide				mb2set
+				hide				miscset
+			}
+		}
+	
+		itemDef
+		{
+			name				serversetnext
+			group				serverset
+			text				"Next"			
+			descText			"Next settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER				
+			rect				230 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				hide				shuffset
+				hide				serverset
+				show				mb2set
+				hide				miscset
+			}
+		}			
+	
+		itemDef
+		{
+			name				mb2setprev
+			group				mb2set
+			text				"Prev"			
+			descText			"Previous settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER			
+			rect				175 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			45
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				hide				shuffset
+				show				serverset
+				hide				mb2set
+				hide				miscset
+			}
+		}
+	
+		itemDef
+		{
+			name				mb2setnext
+			group				mb2set
+			text				"Next"			
+			descText			"Next settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER				
+			rect				230 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				hide				shuffset
+				hide				serverset
+				hide				mb2set
+				show				miscset
+			}
+		}		
+	
+		itemDef
+		{
+			name				miscsetprev
+			group				miscset
+			text				"Prev"			
+			descText			"Previous settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER			
+			rect				175 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			45
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide				adminset
+				hide				shuffset
+				hide				serverset
+				show				mb2set
+				hide				miscset
+			}
+		}
+	
+		itemDef
+		{
+			name				miscsetnext
+			group				miscset
+			text				"Next"			
+			descText			"Next settings"
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_SHADER				
+			rect				230 370 50 15 
+			textaligny			-5
+			font				5
+			textscale			0.15
+			textalignx			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0			
+			visible				0
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				show				adminset
+				hide				shuffset
+				hide				serverset
+				hide				mb2set
+				hide				miscset
+			}
+		}		
+	
+	
+	
+// MAP LISTING
+
+		itemDef
+		{
+			name				maplist
+			rect				325 120 180 135
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_FILLED
+			elementwidth		100
+			elementheight		12
+			font				2
+			textscale			0.4
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_ALLMAPS
+			textstyle			0
+			textalign			3
+			textaligny			2
+			forecolor			1 1 1 0.9
+			outlinecolor		0.3 0.3 0.3 0.2	
+			descText			@MENUS_CHOOSE_YOUR_GAME
+			visible				1
+			columns				1 2 196 120
+		}
+
+// MAP SCREENSHOT
+
+		itemDef
+		{
+			name				mappreview
+			style				0
+			ownerdraw			UI_STARTMAPCINEMATIC
+			//rect				7 57 190 141
+			rect				335 268 155 110
+			visible				1 
+		}
+
+		itemDef
+		{
+			name				mappreview
+			style				WINDOW_STYLE_FILLED
+			//rect				6 56 192 143
+			rect				313 253 212 160
+			visible				1
+		}
+
+// BOTTOM BUTTONS OPTIONS
+
+		itemDef
+		{
+			name				back
+			text				"BACK"			
+			descText			@MENUS_BACKUP_ONE_MENU
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_FILLED_RGB1
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				125 412 120 36
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0			
+			visible				1
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/back.mp3"
+				close			createserver
+				open			joinserver
+			}
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	125 412 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl
+			}
+		}
+
+		itemDef
+		{
+			name				accept
+			group				none
+			text				@MENUS_BEGIN
+			descText			@MENUS_START_SERVER			
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				390 412 120 36
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			forecolor			1 1 1 1		
+			visible				1	
+			action
+			{
+				play				"sound/interface/button1" 
+				uiScript			setSiegeNoBots
+				uiScript			weaponDisable //update the weapondisable cvar for duel or non-duel
+				uiScript			StartServer
+				setcvartocvar		password g_password 
+				close				createserver 
+			} 
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	390 412 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl 
+			}
+		}		
+	}
+}
