@@ -1,0 +1,81 @@
+repeatDelay				9
+
+Particle
+{
+	spawnFlags			cheapOrgCalc absoluteAccel evenDistribution rgbComponentInterpolation
+
+	count				1 2
+
+	life				700 500
+
+	delay				200
+
+	origin				1 1 1
+
+	rotation			360 0
+
+	rotationDelta		10 50
+
+	velocity			300 20 20 200 -20 -20
+
+	acceleration		10 10 10 50 10 10
+
+	gravity				-10 -50
+
+	rgb
+	{
+		start			1 1 1 0.5765 0.7882 1
+		end				0.5765 0.7882 1 1 1 1
+		parm			50 60
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.01 0.1
+		end				0
+		parm			80 90
+		flags			linear
+	}
+
+	size
+	{
+		end				50 100
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/forcePush
+		gfx/effects/snowpuff2
+	]
+}
+
+Particle
+{
+	name				walleffect
+
+	flags				useBBox usePhysics impactFx
+
+	count				1 0
+
+	life				1 200
+
+	min					0.5 0.5 0.5
+
+	max					-0.5 -0.5 -0.5
+
+	velocity			5 0 0 400 0 0
+
+	gravity				-10 -50
+
+	alpha
+	{
+		start			0
+	}
+
+	shaders
+	[
+		gfx/effects/forcePush
+	]
+}

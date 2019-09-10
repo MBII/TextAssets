@@ -1,0 +1,335 @@
+repeatDelay				300
+
+Particle
+{
+	flags				usePhysics
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				30
+
+	life				600 2000
+
+	cullrange			750
+
+	bounce				0.2 0.5
+
+	origin				0 -10 -10 10 10 10
+
+	velocity			50 -250 -250 350 250 250
+
+	gravity				-400 -600
+
+	rgb
+	{
+		start			1 0.7 0.5 1 1 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			80
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			0.5 2.5
+		end				0.2 0.3
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				250
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			120
+		end				10
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 4
+
+	radius				300 400
+}
+
+Tail
+{
+	count				8 10
+
+	life				600 1000
+
+	cullrange			800
+
+	origin				10 -10 -10 20 10 10
+
+	velocity			10 -45 -45 35 45 45
+
+	gravity				0 -15
+
+	alpha
+	{
+		end				0
+		parm			30 50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			4 12
+		end				14 30
+		flags			linear
+	}
+
+	length
+	{
+		start			-40
+		end				-205 -280
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/plume1
+		gfx/effects/plume2
+	]
+}
+
+Emitter
+{
+	flags				useModel useBBox usePhysics
+
+	count				1 2
+
+	life				1000 3000
+
+	bounce				0.1 0.2
+
+	min					-1 -1 -1
+
+	max					-2 -2 -2
+
+	origin				-10 0 0 10 0 0
+
+	angle				0 0 0 360 360 360
+
+	angleDelta			0 0 0 30 30 30
+
+	velocity			-300 -190 -190 350 190 190
+
+	gravity				5 -6
+
+	models
+	[
+		models/players/droids/probe_droid_bigleg.md3
+		models/players/droids/probe_droid_smleg.md3
+	]
+}
+
+Particle
+{
+	name				explosion01
+
+	count				2 3
+
+	life				500 700
+
+	origin				-20 -20 -20 20 20 20
+
+	rotation			0 360
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			80 120
+		end				200 225
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_1
+		gfx/misc/exp01_2
+	]
+}
+
+Particle
+{
+	name				explosion_delay
+
+	count				2 4
+
+	life				1000 1500
+
+	delay				350 400
+
+	origin				-20 -20 -20 20 20 20
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			200 250
+		end				350 400
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Particle
+{
+	name				OrangeGlow
+
+	flags				setShaderTime
+
+	spawnFlags			orgOnSphere
+
+	count				60
+
+	life				700 800
+
+	delay				0 800
+
+	origin				20 -8 -8 40 8 8
+
+	radius				150
+
+	height				150
+
+	rotation			0 360
+
+	rotationDelta		-1 1
+
+	velocity			5 -20 -20 10 20 20
+
+	rgb
+	{
+		start			1 0 0 1 1 0
+		end				1 0 0 1 1 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			200
+		end				300
+		parm			30 75
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1
+		gfx/exp/rocket_explosion
+	]
+}
+
+Particle
+{
+	name				OrangeGlow2
+
+	count				4 6
+
+	life				700 2000
+
+	delay				0 150
+
+	origin				0 -50 -50 65 50 50
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	rgb
+	{
+		start			1 0.9725 0.6235 1 0.8353 0.4902
+		end				0.502 0 0 0.9451 0.4078 0.01176
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			70 85
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			25 55
+		end				100 180
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+		gfx/misc/steam2
+	]
+}
+
+Sound
+{
+	sounds
+	[
+		sound/weapons/tie_fighter/tieexplode.wav
+	]
+}

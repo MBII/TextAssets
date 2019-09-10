@@ -1,0 +1,455 @@
+Particle
+{
+	name				OrangeGlow
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				6 8
+
+	life				1000
+
+	delay				0 150
+
+	origin				-40 -40 -40 20 40 40
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	rgb
+	{
+		start			1 0.9843 0.9412 1 1 0.502
+		end				0.502 0.251 0.251 1 0.9843 0.9412
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			70 85
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			50 90
+		end				1080 1050
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+		gfx/misc/steam2
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				4 5
+
+	life				2000 4000
+
+	delay				0 150
+
+	origin				0 -25 -25 20 25 25
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -20 -20 10 20 20
+
+	acceleration		-4 -8 -8 4 8 8
+
+	gravity				-25 25
+
+	rgb
+	{
+		start			0.5843 0.5843 0.5843 0.2667 0.2667 0.2667
+		end				0.502 0.502 0.502
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			15 20
+		end				80 160
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				1 3
+
+	life				1500 2000
+
+	delay				150 250
+
+	origin				-20 -10 -10 5 10 10
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			20 -20 -20 40 20 20
+
+	acceleration		-5 -5 -5 5 5 5
+
+	gravity				-20 -30
+
+	rgb
+	{
+		start			1 1 0.4353 0.9922 0.5882 0.2902
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			20 30
+		end				90 150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+Sound
+{
+	name				Boom
+
+	spawnflags	lessAttenuation
+
+	sounds
+	[
+		sound/chars/atst/atst_crash1.mp3
+	]
+}
+
+Tail
+{
+	name				spark1
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				8 12
+
+	life				600 800
+
+	origin				-20 0 0 20 0 0
+
+	radius				40 45
+
+	velocity			200 0 0 300 0 0
+
+	gravity				-2 -35
+
+	alpha
+	{
+		end				0.2 0.3
+		flags			linear
+	}
+
+	size
+	{
+		start			2 3
+	}
+
+	length
+	{
+		start			15 20
+		end				30 40
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Tail
+{
+	name				spark_delay
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				15 17
+
+	life				800 1000
+
+	delay				350 400
+
+	origin				-20 0 0 20 0 0
+
+	radius				40 45
+
+	velocity			150 0 0 200 0 0
+
+	gravity				10 -10
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			2 4
+	}
+
+	length
+	{
+		start			10 15
+		end				15 20
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Particle
+{
+	name				probechunk1
+
+	flags				useAlpha
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				8 12
+
+	life				2000 2300
+
+	radius				35 40
+
+	rotation			0 360
+
+	rotationDelta		30 60
+
+	velocity			250 0 0 400 0 0
+
+	gravity				-300 -500
+
+	alpha
+	{
+		end				0.3
+		flags			linear
+	}
+
+	size
+	{
+		start			10 20
+		end				10 20
+	}
+
+	shaders
+	[
+		gfx/misc/probechunk01
+		gfx/misc/probechunk02
+		gfx/misc/probechunk03
+	]
+}
+
+Emitter
+{
+	flags				useModel useBBox usePhysics
+
+	count				1 2
+
+	life				1000 3000
+
+	bounce				0.1 0.2
+
+	min					-1 -1 -1
+
+	max					-2 -2 -2
+
+	origin				-10 0 0 10 0 0
+
+	angle				0 0 0 360 360 360
+
+	angleDelta			0 0 0 30 30 30
+
+	velocity			-300 -190 -190 350 190 190
+
+	gravity				5 -6
+
+	models
+	[
+		models/players/droids/probe_droid_bigleg.md3
+		models/players/droids/probe_droid_smleg.md3
+	]
+}
+
+Particle
+{
+	name				spark_group
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				12 15
+
+	life				800 1000
+
+	delay				350 400
+
+	origin				-20 0 0 20 0 0
+
+	radius				40 45
+
+	rotation			0 360
+
+	rotationDelta		-8 8
+
+	velocity			100 0 0 200 0 0
+
+	gravity				-5 -35
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			20 30
+		end				15 18
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark_group
+	]
+}
+
+Particle
+{
+	name				explosion01
+
+	count				2 3
+
+	life				500 700
+
+	origin				-20 -20 -20 20 20 20
+
+	rotation			0 360
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			40 60
+		end				100 125
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_1
+		gfx/misc/exp01_2
+	]
+}
+
+Particle
+{
+	name				explosion_delay
+
+	count				2 4
+
+	life				1000 1500
+
+	delay				350 400
+
+	origin				-20 -20 -20 20 20 20
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 150
+		end				250 300
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Decal
+{
+	count				1 2
+
+	rotation			0 360
+
+	size
+	{
+		start			60
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark1
+		gfx/damage/burnmark4
+	]
+}

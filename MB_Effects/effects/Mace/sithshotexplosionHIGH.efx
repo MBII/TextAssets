@@ -1,0 +1,702 @@
+repeatDelay				3099
+
+Particle
+{
+	name				Explosion
+
+	flags				setShaderTime
+
+	count				1 3
+
+	life				500 800
+
+	origin				50 -50 -50 30 50 50
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			25 -50 -50 50 50 50
+
+	rgb
+	{
+		start			1 1 1 0.9961 0.9608 0.7294
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				280 580
+		parm			5 25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1
+		gfx/exp/rocket_explosion
+		gfx/exp/slower_rocket_explosion
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	count				4 5
+
+	life				600 1000
+
+	origin				-35 -35 -35 35 35 35
+
+	rotation			0 360
+
+	rotationDelta		-13 13
+
+	velocity			40 -40 -40 90 40 40
+
+	acceleration		-20 -40 -40 20 40 40
+
+	gravity				3 25
+
+	rgb
+	{
+		start			1 0 0 0.9961 0.9608 0.7294
+		end				1 1 1 0.7255 0.7255 0.7255
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.9
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			60 90
+		end				150 200
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/expa1
+		gfx/exp/expa2
+		gfx/exp/expa3
+		gfx/exp/expa4
+		gfx/exp/expa5
+	]
+}
+
+Light
+{
+	name				Light
+
+	life				2000 1000
+
+	rgb
+	{
+		start			1 0 0 0.5843 0 0
+		end				0.9961 0.9608 0.7294 0.9922 0.9059 0.302
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			1750
+		end				100 500
+		flags			linear
+	}
+}
+
+Decal
+{
+	name				BurnDamage
+
+	count				1 2
+
+	life				500
+
+	rotation			360 0
+
+	size
+	{
+		start			200 150
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Flash
+{
+	name				Flash
+
+	life				500 200
+
+	cullrange			400
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294
+		end				0.6 0.502 0.4
+		parm			5.5
+	}
+
+	alpha
+	{
+		start			1 0.5
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+	]
+}
+
+Particle
+{
+	name				topsmoke
+
+	flags				useBBox useAlpha
+
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				3 5
+
+	life				300 500
+
+	delay				0 500
+
+	intensity			0.1
+
+	origin				0 -50 -50 50 50 50
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			500 -25 -25 800 25 25
+
+	gravity				20 10
+
+	rgb
+	{
+		start			0.502 0.502 0.502 0 0 0
+		end				0.9961 0.9608 0.7294 0 0 0
+	}
+
+	alpha
+	{
+		start			0.6 0.4
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 150
+		end				50 260
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+Line
+{
+	name				Lines
+
+	count				6 3
+
+	life				1000 500
+
+	delay				0 30
+
+	origin2				30 -180 -180 50 180 180
+
+	rgb
+	{
+		start			0.9843 0.6549 0.4078 0.9922 0.7961 0.651
+	}
+
+	alpha
+	{
+		start			0.45 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 8
+		end				52 85
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+		gfx/flames/fball
+		gfx/flames/flamer1
+		gfx/flames/flamer2
+		gfx/flames/flamer7
+		gfx/flames/flamer8
+	]
+}
+
+Particle
+{
+	name				Explosion
+
+	flags				setShaderTime
+
+	count				1 3
+
+	life				500 1000
+
+	delay				150 100
+
+	origin				80 -50 -50 30 50 50
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			25 -50 -50 50 50 50
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 1 0 0
+		end				1 1 1 0.7255 0.7255 0.7255
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10 60
+		end				180 280
+		parm			5 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1
+		gfx/exp/rocket_explosion
+		gfx/exp/slower_rocket_explosion
+	]
+}
+
+Particle
+{
+	name				Smoke
+
+	flags				useAlpha
+
+	count				3 8
+
+	life				5500 4000
+
+	delay				0 50
+
+	origin				0 -35 -35 55 35 35
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	velocity			10 -50 -50 20 50 50
+
+	acceleration		-20 -40 -40 20 40 40
+
+	gravity				5 15
+
+	rgb
+	{
+		start			0 0 0
+	}
+
+	alpha
+	{
+		start			0.4 0.3
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			50 30
+		end				200 400
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				1000 800
+
+	bounce				13 10
+
+	radius				1500 2000
+}
+
+Particle
+{
+	name				radialsmoke
+
+	flags				useBBox useAlpha
+
+	spawnFlags			absoluteAccel rgbComponentInterpolation
+
+	count				5 10
+
+	life				500 800
+
+	intensity			0.1
+
+	origin				30 -55 -55 10 55 55
+
+	rotation			-180 180
+
+	rotationDelta		-10 10
+
+	velocity			10 -300 -300 5 300 300
+
+	gravity				50 10
+
+	rgb
+	{
+		start			0 0 0
+	}
+
+	alpha
+	{
+		start			0.7 1
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			1 10
+		end				180 150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+Line
+{
+	name				Lines
+
+	count				10
+
+	life				1300 800
+
+	delay				0 30
+
+	origin2				120 -120 -120 130 120 120
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 0.9922 0.9059 0.302
+	}
+
+	alpha
+	{
+		start			0.45 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10 11
+		end				50 80
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+		gfx/flames/fball
+		gfx/flames/flamer1
+		gfx/flames/flamer2
+		gfx/flames/flamer7
+		gfx/flames/flamer8
+	]
+}
+
+Sound
+{
+	name				Copy of Boom
+
+	count				3
+
+	delay				150 300
+
+	sounds
+	[
+		sound/weapons/exp/exp3.mp3
+		sound/weapons/exp/exp4.mp3
+		sound/weapons/exp/exp5.mp3
+		sound/weapons/exp/exp6.mp3
+		sound/weapons/exp/exp8.mp3
+		sound/weapons/exp/exp10.mp3
+		sound/weapons/exp/exp12.mp3
+		sound/weapons/exp/exp21.mp3
+		sound/weapons/exp/exp25.mp3
+	]
+}
+
+Tail
+{
+	name				geiser
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	count				15 20
+
+	life				1500 1000
+
+	velocity			8 -2 -2 10 2 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.502 0.251 0 0.502 0.502 0.502
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			325 100
+		end				50 130
+		parm			50
+		flags			linear
+	}
+
+	length
+	{
+		start			-4 -2
+		end				-1520 -1720
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/ftail
+		gfx/effects/rocket_muz
+		gfx/effects/rocket_muz2
+		gfx/effects/water_splash
+	]
+}
+
+Tail
+{
+	name				geiseryellow
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	count				15 20
+
+	life				2000 1300
+
+	origin				-1 0 0 0 0 0
+
+	velocity			8 -2 -2 10 2 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.502 0.502 0.502 0.3922 0.2784 0.1098
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			130 150
+		end				0 1
+		parm			50
+		flags			linear
+	}
+
+	length
+	{
+		start			-40 -20
+		end				-850 -1520
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/ftail
+		gfx/effects/rocket_muz
+		gfx/effects/rocket_muz2
+		gfx/effects/water_splash
+	]
+}
+
+Tail
+{
+	name				geiserred
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	count				15 20
+
+	life				800 1300
+
+	velocity			8 -2 -2 10 2 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.3922 0.2784 0.1098 0.251 0.251 0.251
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			130 150
+		end				200 180
+		parm			50
+		flags			linear
+	}
+
+	length
+	{
+		start			-40 -20
+		end				-1550 -1020
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/ftail
+		gfx/effects/rocket_muz
+		gfx/effects/rocket_muz2
+		gfx/effects/water_splash
+	]
+}
+
+Particle
+{
+	name				rockdrops
+
+	flags				useBBox usePhysics useAlpha
+
+	count				30 60
+
+	life				5800 6200
+
+	delay				0 200
+
+	bounce				0.5 0.3
+
+	min					0.5 0.5 0.5
+
+	max					-0.5 -0.5 -0.5
+
+	rotation			360 0
+
+	rotationDelta		5 0
+
+	velocity			500 -280 -280 1600 280 280
+
+	gravity				-950 -800
+
+	alpha
+	{
+		end				0
+		parm			50
+		flags			linear
+	}
+
+	size
+	{
+		start			1 5
+		end				1 5
+	}
+
+	shaders
+	[
+		gfx/effects/jk_terra_chunk2
+	]
+}

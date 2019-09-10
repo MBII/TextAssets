@@ -1,0 +1,297 @@
+repeatDelay				300
+
+Particle
+{
+	name				OrangeGlow
+
+	count				5
+
+	life				700 2000
+
+	delay				0 150
+
+	origin				0 -20 -20 5 20 20
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	rgb
+	{
+		start			1 0.9725 0.6235 1 0.8353 0.4902
+		end				0.502 0 0 0.9451 0.4078 0.01176
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			70 85
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			200 250
+		end				235 300
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+		gfx/misc/steam2
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	count				6
+
+	life				1500 3000
+
+	delay				50 300
+
+	origin				0 -25 -25 20 25 25
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -20 -20 10 20 20
+
+	acceleration		-4 -8 -8 4 8 8
+
+	gravity				3 25
+
+	rgb
+	{
+		start			0.9804 0.8353 0.6118 0.9961 0.9098 0.5529
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			150 200
+		end				170 210
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				150
+
+	size
+	{
+		start			1024
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				1400 1700
+
+	bounce				12 16
+
+	radius				6000
+}
+
+Particle
+{
+	name				Copy of OrangeGlow
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				3
+
+	life				3000 5000
+
+	delay				0 150
+
+	origin				0 -20 -20 5 20 20
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		start			1 0.8
+		end				0
+		parm			40 60
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			200 250
+		end				235 300
+		parm			20 40
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_2
+	]
+}
+
+Particle
+{
+	name				Copy of Copy of OrangeGlow
+
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				6 3
+
+	life				2000 6000
+
+	delay				300 700
+
+	origin				0 -20 -20 5 20 20
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		start			1 0.8
+		end				0
+		parm			40 60
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			700 900
+		end				500 1000
+		parm			20 40
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Particle
+{
+	name				Copy of Copy of Copy of OrangeG
+
+	flags				usePhysics impactKills
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				7 8
+
+	life				4000 1e+004
+
+	delay				0 800
+
+	origin				0 -20 -20 5 20 20
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	rgb
+	{
+		start			1 0 0 1 1 0
+	}
+
+	alpha
+	{
+		start			1 0.8
+		end				0
+		parm			40 60
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			400 500
+		end				600 700
+		parm			20 40
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1
+		gfx/exp/explosion3
+		gfx/exp/rocket_explosion
+	]
+}
+
+Particle
+{
+	flags				usePhysics
+
+	count				50 100
+
+	life				4000 8000
+
+	bounce				0.6 0.8
+
+	origin				0 -10 -10 10 10 10
+
+	velocity			300 -250 -250 600 250 250
+
+	gravity				-400 -600
+
+	rgb
+	{
+		start			1 0.698 0.502 1 1 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			80
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			1 5
+		end				0.2 3
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}

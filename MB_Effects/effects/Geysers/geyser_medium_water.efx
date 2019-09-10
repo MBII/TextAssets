@@ -1,0 +1,214 @@
+repeatDelay				300
+
+Tail
+{
+	name				additionalexplosion
+
+	spawnFlags			evenDistribution
+
+	count				20
+
+	life				600 500
+
+	delay				100 500
+
+	velocity			3 -2 -2 1.5 2 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.7686 0.9373 1
+	}
+
+	alpha
+	{
+		start			0.4 0.8
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			1 2
+		end				3 6
+		parm			50 80
+		flags			linear clamp
+	}
+
+	length
+	{
+		start			-4 -2
+		end				-40 -20
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/water_splash
+	]
+}
+
+Particle
+{
+	name				waterdrops
+
+	count				20 30
+
+	life				800 1200
+
+	delay				100 500
+
+	velocity			100 -80 -80 175 80 80
+
+	gravity				-250 -300
+
+	alpha
+	{
+		end				0
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			0.3 0.5
+	}
+
+	shaders
+	[
+		gfx/misc/steam2
+	]
+}
+
+Sound
+{
+	name				splashsound
+
+	sounds
+	[
+		sound/player/bodyfall_water1.mp3
+		sound/player/bodyfall_water2.mp3
+		sound/player/bodyfall_water3.mp3
+	]
+}
+
+Particle
+{
+	name				steam
+
+	spawnFlags			evenDistribution
+
+	count				40 50
+
+	life				600 800
+
+	delay				0 300
+
+	velocity			50 -40 -40 40 40 40
+
+	gravity				-30 -40
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				15 25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+		gfx/misc/steam2
+		gfx/misc/steam3
+	]
+}
+
+OrientedParticle
+{
+	name				wave
+
+	spawnFlags			evenDistribution
+
+	count				20 10
+
+	life				800 600
+
+	delay				0 400
+
+	alpha
+	{
+		start			0.1 0.5
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		end				50 70
+		flags			linear
+	}
+
+	shaders
+	[
+		wake
+	]
+}
+
+Tail
+{
+	name				geiser
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	count				20 30
+
+	life				600 800
+
+	velocity			8 -2 -2 10 2 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			1 1 1 0.7686 0.9373 1
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			25 10
+		end				0 1
+		parm			50
+		flags			linear
+	}
+
+	length
+	{
+		start			-4 -2
+		end				-150 -120
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/water_splash
+	]
+}

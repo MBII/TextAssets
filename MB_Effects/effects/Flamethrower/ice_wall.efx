@@ -1,0 +1,118 @@
+repeatDelay				800
+
+Particle
+{
+	name				dust
+
+	spawnFlags			orgOnCylinder axisFromSphere rgbComponentInterpolation
+
+	count				5 10
+
+	life				400 800
+
+	delay				0 100
+
+	origin				5 5 5 -5 -5 -5
+
+	radius				2
+
+	height				0
+
+	rotation			0 360
+
+	rotationDelta		4 -4
+
+	velocity			90 0 0 120 0 0
+
+	acceleration		-70 0 0 -80 0 0
+
+	gravity				5
+
+	rgb
+	{
+		start			1 0.9843 0.9412 0.5765 0.7882 1
+	}
+
+	alpha
+	{
+		start			0.1 0.4
+		end				0
+		parm			1
+		flags			linear
+	}
+
+	size
+	{
+		start			15 20
+		end				40 65
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/snowpuff2
+	]
+}
+
+Emitter
+{
+	name				ice
+
+	flags				useModel useBBox usePhysics
+
+	count				0 1
+
+	life				50 5000
+
+	min					0.5 0.5 0.5
+
+	max					-0.5 -0.5 -0.5
+
+	origin				0 50 50 0 -50 -50
+
+	gravity				-800 -700
+
+	size
+	{
+		start			0.1 0.5
+		end				0.6 0.2
+		flags			linear
+	}
+
+	models
+	[
+		gfx/misc/ice1.md3
+		gfx/misc/ice2.md3
+		gfx/misc/ice3.md3
+		gfx/misc/ice4.md3
+		gfx/misc/ice5.md3
+	]
+}
+
+Decal
+{
+	name				Icemark
+
+	count				0 1
+
+	life				10
+
+	origin				0 50 50 0 -50 -50
+
+	rotation			0 360
+
+	alpha
+	{
+		start			0.1 0
+	}
+
+	size
+	{
+		start			50 20
+	}
+
+	shaders
+	[
+		gfx/misc/icedecal.jpg
+	]
+}

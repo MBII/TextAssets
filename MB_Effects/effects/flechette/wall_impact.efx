@@ -1,0 +1,273 @@
+repeatDelay				100
+
+Line
+{
+	name				Lines
+
+	count				10 14
+
+	life				150 200
+
+	delay				0.1
+
+	origin2				12 -10 -10 20 10 10
+
+	rgb
+	{
+		start			1 1 1 0.9961 0.9922 0.8039
+	}
+
+	alpha
+	{
+		start			0.45 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			0.25 0.8
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+		gfx/misc/exp01_1
+		gfx/misc/spikeb
+	]
+}
+
+Particle
+{
+	name				SmokepuffwhiteThick
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation affectedByWind
+
+	count				1 2
+
+	life				1000 2000
+
+	intensity			0.1
+
+	origin				1 0 0
+
+	wind				5 40
+
+	rotation			-180 180
+
+	rotationDelta		-18 18
+
+	velocity			9 -7 -7 13 7 7
+
+	gravity				4 8
+
+	rgb
+	{
+		end				0.302 0.302 0.3686
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			6 8
+		end				30
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+OrientedParticle
+{
+	name				ImpactBurn
+
+	life				2500 6000
+
+	rotation			-180 180
+
+	rgb
+	{
+		start			0.9843 0.6588 0.4157
+		end				1 0 0 0.502 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			4 5
+		end				0
+	}
+
+	shaders
+	[
+		gfx/effects/embers
+	]
+}
+
+Decal
+{
+	name				ImpactDamage
+
+	rotation			-180 180
+
+	size
+	{
+		start			2 7
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+		gfx/damage/burnmark1
+	]
+}
+
+Sound
+{
+	name				WallhitSounds
+
+	sounds
+	[
+		sound/weapons/bryar/hit_wall24.wav
+	]
+}
+
+Particle
+{
+	name				SmokepuffWhiteViolent
+
+	life				500 700
+
+	wind				10 40
+
+	rotation			-180 180
+
+	rotationDelta		-13 13
+
+	velocity			5 -3 -3 20 3 3
+
+	gravity				1 8
+
+	rgb
+	{
+		start			1 0.7294 0.4588 0.9922 0.5176 0.451
+		end				0.7216 0.3451 0.003922
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.2
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			8 11
+		end				17 20
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/expa1
+		gfx/exp/expa2
+		gfx/exp/expa3
+		gfx/exp/expa4
+		gfx/exp/expa5
+	]
+}
+
+Emitter
+{
+	name				chunkies
+
+	flags				useModel
+
+	count				20
+
+	life				500 1000
+
+	intensity			0.2 0.3
+
+	origin				1 -2 -2 2 2 2
+
+	angle				0 0 500 360 360 0
+
+	angleDelta			-20 -20 500 20 20 0
+
+	velocity			0 -100 -100 260 100 100
+
+	gravity				-400 -600
+
+	size
+	{
+		start			0.1 0.3
+	}
+
+	models
+	[
+		models/chunks/metal/metal1_1.md3
+		models/chunks/metal/metal1_2.md3
+		models/chunks/metal/metal1_3.md3
+		models/chunks/metal/metal1_4.md3
+	]
+}
+
+Particle
+{
+	name				Flare
+
+	count				1 2
+
+	life				200
+
+	cullrange			20
+
+	origin				1 0 0
+
+	rgb
+	{
+		start			0.9922 0.6902 0.6588
+	}
+
+	alpha
+	{
+		start			0.7
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			45 55
+		end				30
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/colflare
+	]
+}

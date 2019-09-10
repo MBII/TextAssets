@@ -1,0 +1,191 @@
+repeatDelay				300
+
+Particle
+{
+	name				mist
+
+	flags				useAlpha
+
+	count				4
+
+	life				100 200
+
+	origin				-2 -5 -5 2 5 5
+
+	rotation			0 360
+
+	rotationDelta		-15 15
+
+	gravity				5
+
+	rgb
+	{
+		start			0 0 0
+		end				0 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.2 0.7
+		end				0
+		parm			60 75
+		flags			linear clamp
+	}
+
+	size
+	{
+		end				2 3
+		parm			4
+		flags			clamp
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Particle
+{
+	name				dropssmall1
+
+	flags				usePhysics impactKills impactFx useAlpha
+
+	count				5 3
+
+	life				2000
+
+	rotation			0 360
+
+	rotationDelta		-15 15
+
+	velocity			40 -10 -10 80 10 10
+
+	gravity				-150 -200
+
+	size
+	{
+		start			2 1
+		end				1 3
+		parm			10
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/gore/drops_tiny_oil
+	]
+
+	impactfx
+	[
+		gore/spats/spat_pool_oil
+	]
+}
+
+Particle
+{
+	flags				usePhysics
+
+	spawnFlags			cheapOrgCalc absoluteVel
+
+	count				10 15
+
+	life				1000 800
+
+	bounce				0.1 0.5
+
+	origin				5 5 5 -5 -5 -5
+
+	velocity			50 50 100 -50 -50 50
+
+	gravity				-500 -700
+
+	rgb
+	{
+		start			0.9922 0.9059 0.302 0.9961 0.9608 0.7294
+	}
+
+	size
+	{
+		start			0.1 0.3
+	}
+
+	shaders
+	[
+		gfx/effects/whiteGlow
+	]
+}
+
+Electricity
+{
+	flags				useModel useBBox usePhysics
+
+	count				3 5
+
+	life				500
+
+	bounce				2 5
+
+	origin				1 1 1 -1 -1 -1
+
+	origin2				15 15 15 -15 -15 -15
+
+	alpha
+	{
+		start			0.7 0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			0.2 0.1
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/blueLine
+	]
+}
+
+Light
+{
+	size
+	{
+		start			10
+	}
+}
+
+Tail
+{
+	spawnFlags			absoluteVel
+
+	count				5 10
+
+	life				100 200
+
+	velocity			100 100 100 -100 -100 -100
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 1 0.7843 0.2078
+	}
+
+	size
+	{
+		start			0.1 0.3
+	}
+
+	length
+	{
+		start			2 5
+	}
+
+	shaders
+	[
+		gfx/effects/whiteGlow
+	]
+}

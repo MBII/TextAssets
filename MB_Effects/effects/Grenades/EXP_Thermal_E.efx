@@ -1,0 +1,545 @@
+repeatDelay				3299
+
+Light
+{
+	name				Flash
+
+	life				1500 2000
+
+	delay				50
+
+	rgb
+	{
+		end				0.9922 0.5412 0.4078 0.9765 0.6902 0.502
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			2750 2150
+		end				500 1000
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 1000
+
+	delay				50
+
+	bounce				10 13
+
+	radius				4000 4500
+}
+
+Sound
+{
+	name				Boom1Left
+
+	spawnFlags			cheapOrgCalc
+
+	count				2
+
+	origin				50 -400 0 50 -380 0
+
+	sounds
+	[
+		sound/weapons/realTD/tdOneLeft.wav
+	]
+}
+
+Sound
+{
+	name				Boom1Right
+
+	count				2
+
+	origin				49 400 0 50 380 0
+
+	sounds
+	[
+		sound/weapons/realTD/tdOneRight.wav
+	]
+}
+
+Sound
+{
+	name				Boom2Left
+
+	spawnFlags			cheapOrgCalc
+
+	origin				-50 0 30 -70 0 30
+
+	sounds
+	[
+		sound/weapons/realTD/tdTwoLeft.wav
+	]
+}
+
+Sound
+{
+	name				Boom2Right
+
+	origin				50 0 -30 70 0 -30
+
+	sounds
+	[
+		sound/weapons/realTD/tdTwoRight.wav
+	]
+}
+
+Sound
+{
+	name				Boom3Left
+
+	spawnFlags			cheapOrgCalc
+
+	origin				0 -380 120 0 -400 120
+
+	sounds
+	[
+		sound/weapons/realTD/tdThreeLeft.wav
+	]
+}
+
+Sound
+{
+	name				Boom3Right
+
+	origin				0 380 -120 0 400 -120
+
+	sounds
+	[
+		sound/weapons/realTD/tdThreeRight.wav
+	]
+}
+
+Decal
+{
+	delay				50
+
+	size
+	{
+		start			350 370
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+		gfx/damage/burnmark1
+	]
+}
+
+Flash
+{
+	count				3
+
+	life				500 300
+
+	delay				50
+
+	cullrange			400
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608
+		end				1 0.9922 0.9765
+		parm			5.5
+		flags			linear
+	}
+
+	alpha
+	{
+		start			1 0.5
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteGlow
+	]
+}
+
+Particle
+{
+	name				Smokepuffwhite
+
+	flags				useBBox useAlpha
+
+	spawnFlags			rgbComponentInterpolation affectedByWind
+
+	count				2 3
+
+	life				1e+004 8000
+
+	delay				1000 1200
+
+	intensity			0.5
+
+	origin				-100 -100 -100 100 100 100
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-13 13
+
+	velocity			-40 -40 -40 40 40 40
+
+	gravity				1 7
+
+	rgb
+	{
+		start			1 1 1 0.7961 0.7961 0.8275
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			400
+		end				500
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Particle
+{
+	name				SmokeThick
+
+	flags				useBBox useAlpha
+
+	spawnFlags			rgbComponentInterpolation affectedByWind
+
+	count				5 2
+
+	life				8000 1.5e+004
+
+	delay				50
+
+	intensity			0.1
+
+	origin				60 -140 -140 90 140 140
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-10 10
+
+	velocity			-15 -15 -15 15 15 15
+
+	gravity				5 10
+
+	rgb
+	{
+		start			1 1 1 0.7961 0.7961 0.8275
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.2 0.6
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			80 140
+		end				800 500
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+Particle
+{
+	name				Sparks
+
+	flags				useBBox usePhysics
+
+	count				500 100
+
+	life				2000 7000
+
+	delay				50 350
+
+	bounce				0.2 0.5
+
+	min					-0.5 -0.5 -0.5
+
+	max					0.5 0.5 0.5
+
+	velocity			-200 -500 -500 800 500 500
+
+	gravity				-800
+
+	rgb
+	{
+		start			0.9961 0.8863 0.7216 1 1 0.6157
+		end				1 0.4 0 0.8078 0.02353 0.02353
+		flags			linear
+	}
+
+	size
+	{
+		start			0.5 4
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteglow
+	]
+}
+
+OrientedParticle
+{
+	name				shocky1
+
+	spawnFlags			cheapOrgCalc
+
+	life				600 850
+
+	delay				50
+
+	origin				0 0 10 0 0 5
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 0.9961 0.9922 0.8039
+	}
+
+	alpha
+	{
+		start			0.6 0.5
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100
+		end				700 900
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}
+
+Particle
+{
+	name				shocky2
+
+	life				600 850
+
+	delay				50
+
+	alpha
+	{
+		start			0.4 0.2
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100
+		end				1000 800
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}
+
+Particle
+{
+	name				ExplosionRadius
+
+	spawnFlags			orgOnSphere
+
+	count				30
+
+	life				600 1000
+
+	delay				50
+
+	radius				100
+
+	height				100
+
+	rotation			0 360
+
+	rotationDelta		-13 13
+
+	velocity			0 0 0 100 0 0
+
+	rgb
+	{
+		start			0.1569 0.1569 0.1922
+	}
+
+	alpha
+	{
+		start			0.1 0.2
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			50 100
+		end				390 540
+		parm			5 25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Particle
+{
+	name				push
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				3
+
+	life				200 150
+
+	rotation			0 360
+
+	rgb
+	{
+		start			1 1 1 1 0.7098 0.4431
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			50 20
+		end				1 2
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/forcePush
+	]
+}
+
+Particle
+{
+	name				lightbeam
+
+	count				3 5
+
+	life				800 1300
+
+	delay				50
+
+	rotation			360 0
+
+	rotationDelta		15 -15
+
+	rgb
+	{
+		start			0.5765 0.7882 1 1 1 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.7
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10 100
+		end				880 500
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/saberFlare
+		gfx/misc/spikeb
+	]
+}
+
+Emitter
+{
+	name				explosion
+
+	flags				useModel
+
+	life				750 950
+
+	delay				50
+
+	rotation			0 360
+
+	size
+	{
+		end				10 11
+		parm			4
+		flags			linear
+	}
+
+	models
+	[
+		models/weapons2/thermal/sphereofdoom.md3
+	]
+}

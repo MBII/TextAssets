@@ -1,0 +1,385 @@
+repeatDelay				100
+
+Light
+{
+	name				dynamiclight
+
+	life				500 400
+
+	delay				0 50
+
+	rgb
+	{
+		start			1 0.502 0 1 0.03529 0.03529
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			10 50
+		end				200 150
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				shakez
+
+	flags				usePhysics
+
+	life				100 200
+
+	bounce				10 4
+
+	radius				2000 3000
+}
+
+Sound
+{
+	name				kaboomzor
+
+	spawnFlags			cheapOrgCalc
+
+	delay				50
+
+	sounds
+	[
+		sound/weapons/firenade/exp2.wav
+	]
+}
+
+Decal
+{
+	name				burnmarkz
+
+	delay				200 150
+
+	size
+	{
+		start			250 200
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+		gfx/damage/burnmark1
+	]
+}
+
+Flash
+{
+	name				flash
+
+	count				3
+
+	life				200 300
+
+	delay				200 350
+
+	rgb
+	{
+		start			0.9725 0.451 0.06275 1 0.03529 0.03529
+		end				0.9961 0.9608 0.7294 0.9922 0.9059 0.302
+		parm			5.5
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		end				10 30
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteGlow
+	]
+}
+
+Particle
+{
+	name				smokez
+
+	flags				useBBox useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				1 2
+
+	life				1500 1200
+
+	delay				100 350
+
+	intensity			0.1
+
+	origin				-1 0 0 0 0 0
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-10 10
+
+	velocity			-25 -25 -25 0 25 25
+
+	gravity				50 100
+
+	rgb
+	{
+		start			0 0 0
+		end				0.7255 0.7255 0.7255 0.502 0.502 0.502
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.6
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			55 85
+		end				200 400
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+Particle
+{
+	name				blueignite
+
+	flags				useBBox
+
+	spawnFlags			absoluteVel affectedByWind
+
+	count				5 10
+
+	life				500 1000
+
+	delay				0 200
+
+	origin				10 10 10 -10 -10 -10
+
+	rotation			360 0
+
+	rotationDelta		30 -20.25
+
+	velocity			100 -100 50 -100 100 30
+
+	gravity				100 50
+
+	rgb
+	{
+		start			0 0 0.502 0 0 1
+		end				0.9922 0.9059 0.302 0.9725 0.451 0.06275
+		flags			linear
+	}
+
+	alpha
+	{
+		start			1 0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				60 100
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/fire2
+		gfx/effects/fire3
+		gfx/effects/fire4
+	]
+}
+
+Particle
+{
+	name				quickflames
+
+	flags				useBBox
+
+	spawnFlags			cheapOrgCalc affectedByWind
+
+	count				10
+
+	life				200 500
+
+	delay				300 150
+
+	origin				30 30 30 -30 -30 -10
+
+	radius				100
+
+	height				0
+
+	rotation			360 100
+
+	rotationDelta		10 0.25
+
+	velocity			100 100 100 -100 -100 -100
+
+	gravity				50 100
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 1 1 1
+		end				0.9961 0.9608 0.7294 0.9725 0.451 0.06275
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 5
+		end				60 100
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/fire2
+		gfx/effects/fire3
+		gfx/effects/fire4
+	]
+}
+
+Particle
+{
+	name				upflames
+
+	flags				useBBox
+
+	spawnFlags			absoluteVel affectedByWind
+
+	count				2 5
+
+	life				200 400
+
+	delay				300 550
+
+	origin				10 10 10 -10 -10 -10
+
+	rotation			360 0
+
+	rotationDelta		52 -25.25
+
+	velocity			50 -50 200 -50 50 350
+
+	gravity				100 200
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 1 1 1
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			30 50
+		end				10 1
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/fire2
+		gfx/effects/fire3
+		gfx/effects/fire4
+	]
+}
+
+Particle
+{
+	name				radialspreading
+
+	spawnFlags			orgOnCylinder axisFromSphere rgbComponentInterpolation
+
+	count				75
+
+	life				300 600
+
+	delay				100 200
+
+	origin				0 0 5 0 0 0
+
+	radius				2
+
+	height				0
+
+	rotation			0 360
+
+	rotationDelta		25 -24
+
+	velocity			150 0 0 100 0 0
+
+	acceleration		50 0 0 100 0 0
+
+	gravity				100 50
+
+	rgb
+	{
+		start			1 0.9843 0.9412 0.9961 0.9608 0.7294
+		end				1 0.502 0 1 1 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 1
+		end				0
+		parm			1
+		flags			linear
+	}
+
+	size
+	{
+		start			5 1
+		end				50 20
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/fire2
+		gfx/effects/fire3
+		gfx/effects/fire4
+	]
+}

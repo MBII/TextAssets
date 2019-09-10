@@ -1,0 +1,471 @@
+repeatDelay				300
+
+Particle
+{
+	name				Fireball
+
+	flags				usePhysics
+
+	spawnFlags			orgOnCylinder axisFromSphere evenDistribution
+
+	count				70 100
+
+	life				1500 3400
+
+	delay				0 700
+
+	bounce				0.1
+
+	origin				-35 -90 -90 50 90 90
+
+	radius				50 400
+
+	height				50 400
+
+	rotation			0 360
+
+	rotationDelta		-13 13
+
+	velocity			30 -30 -30 180 30 30
+
+	acceleration		-20 -40 -40 20 40 40
+
+	gravity				3 25
+
+	rgb
+	{
+		start			0.9961 0.851 0.5804
+		end				0.6 0.1569 0.007843
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.3 0.6
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			80 120
+		end				230 260
+		flags			linear
+	}
+
+	shaders
+	[
+		republiccruiser/gfx/exp/expa6
+		republiccruiser/gfx/exp/expa7
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				2500
+
+	rgb
+	{
+		end				0.1725 0.04314 0.003922
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			1750
+		end				500
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				2000
+
+	bounce				10 13
+
+	radius				4000
+}
+
+Flash
+{
+	name				Flash
+
+	life				200
+
+	cullrange			600
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			5.5
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Flash
+{
+	name				Flash2
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				0 1
+
+	life				400 500
+
+	delay				150 200
+
+	cullrange			400
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608
+		end				0.6 0.502 0.4
+		parm			5.5
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Particle
+{
+	name				SmokepuffwhiteDetailed
+
+	flags				useBBox useAlpha
+
+	spawnFlags			orgOnCylinder axisFromSphere evenDistribution rgbComponentInterpolation affectedByWind
+
+	count				30 40
+
+	life				6000 7000
+
+	delay				80 120
+
+	intensity			0.1
+
+	origin				15 -90 -90 90 90 90
+
+	radius				100 300
+
+	height				100 300
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	velocity			20 -35 -35 180 35 35
+
+	gravity				1 5
+
+	rgb
+	{
+		start			0.7529 0.7529 0.7529
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.8
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			200 240
+		end				340 400
+		flags			linear
+	}
+
+	shaders
+	[
+		republiccruiser/gfx/effects/puffa4
+	]
+}
+
+Particle
+{
+	name				LingeringSmokeDetailed
+
+	flags				useBBox useAlpha
+
+	spawnFlags			absoluteAccel orgOnCylinder axisFromSphere rgbComponentInterpolation
+
+	count				5 7
+
+	life				6000 7000
+
+	delay				40 70
+
+	intensity			0.1
+
+	origin				40 -55 -55 50 55 55
+
+	radius				100 400
+
+	height				100 400
+
+	rotation			-180 180
+
+	rotationDelta		-8 8
+
+	velocity			90 -25 -25 180 25 25
+
+	gravity				3 10
+
+	rgb
+	{
+		start			0.7529 0.7529 0.7529
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.3 0.5
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			40 50
+		end				340 380
+		flags			linear
+	}
+
+	shaders
+	[
+		republiccruiser/gfx/effects/puffa4
+	]
+}
+
+Tail
+{
+	name				Sparktails
+
+	flags				usePhysics
+
+	spawnFlags			orgOnCylinder axisFromSphere affectedByWind
+
+	count				75 150
+
+	life				2000 4600
+
+	delay				0 100
+
+	bounce				0.3 0.6
+
+	origin				1 -10 -10 10 10 10
+
+	radius				250
+
+	height				100
+
+	wind				1 20
+
+	velocity			300 -130 -130 450 130 130
+
+	gravity				-200 -350
+
+	rgb
+	{
+		start			0.9922 0.7961 0.651 0.9843 0.6549 0.4078
+		end				0.9843 0.4863 0.2745 0.9686 0.4431 0.2157
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.8 1
+	}
+
+	size
+	{
+		start			7 8
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	length
+	{
+		start			7 10
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		republiccruiser/gfx/misc/SparkYellow2
+	]
+}
+
+Particle
+{
+	name				Sparks
+
+	flags				usePhysics
+
+	spawnFlags			orgOnSphere axisFromSphere affectedByWind
+
+	count				40 70
+
+	life				2000 3000
+
+	cullrange			2400
+
+	bounce				0.25 0.4
+
+	origin				0 0 0 20 20 20
+
+	radius				200
+
+	height				200
+
+	velocity			300 -115 -115 500 115 115
+
+	gravity				-450 -550
+
+	rgb
+	{
+		start			1 1 1 0.9843 0.8353 0.6353
+	}
+
+	size
+	{
+		start			1 2
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		republiccruiser/gfx/misc/colflare
+		republiccruiser/gfx/misc/spiker
+	]
+}
+
+Particle
+{
+	name				Ashes
+
+	flags				useBBox usePhysics
+
+	spawnFlags			orgOnCylinder axisFromSphere affectedByWind
+
+	count				20 40
+
+	life				7000 8000
+
+	bounce				0.25 0.4
+
+	min					-0.5 -0.5 -0.5
+
+	max					0.5 0.5 0.5
+
+	origin				1 0 0
+
+	radius				200
+
+	height				200
+
+	rotation			5 -5
+
+	velocity			80 -70 -70 180 70 70
+
+	gravity				-40 -80
+
+	rgb
+	{
+		start			0.9843 0.6863 0.4902 0.9804 0.5961 0.3373
+		end				1 0.4 0 0.8078 0.02353 0.02353
+		flags			linear
+	}
+
+	size
+	{
+		start			2 3
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		republiccruiser/gfx/effects/glowwhite
+	]
+}
+
+Sound
+{
+	name				Boom
+
+	count				2
+
+	origin				0 200 0 0 300 0
+
+	sounds
+	[
+		sound/rc/explode1.wav
+		sound/rc/explode2.wav
+		sound/rc/explode3.wav
+		sound/rc/explode4.wav
+		sound/rc/explode5.wav
+		sound/rc/explode6.wav
+		sound/rc/explode7.wav
+	]
+}
+
+Sound
+{
+	name				Boom2
+
+	delay				1800 2000
+
+	origin				0 300 0 0 400 0
+
+	sounds
+	[
+		sound/rc/buckle1.wav
+		sound/rc/buckle2.wav
+		sound/rc/buckle3.wav
+		sound/rc/buckle4.wav
+		sound/rc/buckle5.wav
+		sound/rc/buckle6.wav
+		sound/rc/buckle7.wav
+		sound/rc/buckle8.wav
+	]
+}

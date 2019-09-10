@@ -1,0 +1,190 @@
+repeatDelay				300
+
+Particle
+{
+	name				OrangeGlow
+
+	flags				setShaderTime
+
+	spawnFlags			orgOnSphere evenDistribution
+
+	count				35
+
+	life				1150
+
+	delay				0 1500
+
+	origin				50 -10 -10 60 10 10
+
+	radius				100
+
+	height				100
+
+	rotation			0 360
+
+	rotationDelta		-1 1
+
+	velocity			5 -20 -20 10 20 20
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			32 64
+		end				130 160
+		parm			10 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/rocket_explosion
+		gfx/exp/explosion1
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				8
+
+	life				3500 4000
+
+	delay				1300 1500
+
+	origin				0 -100 -100 120 100 100
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -20 -20 10 20 20
+
+	acceleration		-4 -8 -8 4 8 8
+
+	gravity				15 60
+
+	rgb
+	{
+		start			0.8784 0.8275 0.7373 0.8706 0.8784 0.6941
+	}
+
+	alpha
+	{
+		end				0
+		parm			60 80
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			20 40
+		end				145 160
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				950
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			350
+		end				100
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				4 6
+
+	radius				500 700
+}
+
+Decal
+{
+	size
+	{
+		start			120 200
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Particle
+{
+	name				Copy of OrangeGlow
+
+	flags				setShaderTime
+
+	spawnFlags			evenDistribution
+
+	count				2
+
+	life				1150
+
+	delay				0 350
+
+	origin				60 -10 -10 80 10 10
+
+	radius				120
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			5 -20 -20 10 20 20
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			400 500
+		end				150
+		parm			5 25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/rocket_explosion
+		gfx/exp/explosion1
+	]
+}

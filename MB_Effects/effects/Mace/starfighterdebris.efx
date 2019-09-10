@@ -1,0 +1,417 @@
+repeatDelay				2000
+
+Particle
+{
+	name				lightDust
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				10 5
+
+	life				300 800
+
+	delay				0 100
+
+	origin				-25 10 -25 25 10 25
+
+	rotation			0 360
+
+	rotationDelta		-3 3
+
+	velocity			0 -5 -5 0 5 5
+
+	gravity				-5 5
+
+	rgb
+	{
+		start			0.9176 0.9098 0.7765 0.9294 0.8863 0.8039
+	}
+
+	alpha
+	{
+		start			0.6 0.3
+		end				0
+		parm			70 80
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			20 5
+		end				150 350
+		parm			10
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Particle
+{
+	name				Copy of chunkyDust
+
+	flags				expensivePhysics usePhysics
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				30 20
+
+	life				200 2000
+
+	delay				100 0
+
+	bounce				0.3 0.4
+
+	origin				-25 30 -35 25 30 35
+
+	rotation			0 360
+
+	rotationDelta		-40 40
+
+	velocity			50 800 -500 340 1220 500
+
+	acceleration		-60 -60 -60 60 60 60
+
+	gravity				-200 -500
+
+	rgb
+	{
+		start			0.9961 0.9608 0.7294 1 1 0.502
+	}
+
+	alpha
+	{
+		start			0.7 0.9
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			0.5 5
+		end				0.1 3
+		parm			50 60
+		flags			random linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Particle
+{
+	name				Copy of Copy of chunkyDust
+
+	flags				usePhysics
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				25 10
+
+	life				200 2000
+
+	delay				200 0
+
+	bounce				0.3 0.4
+
+	origin				-10 10 -35 10 10 35
+
+	rotation			0 360
+
+	rotationDelta		-40 40
+
+	velocity			40 780 -700 450 1020 700
+
+	acceleration		-60 -60 -60 60 60 60
+
+	gravity				-900 -800
+
+	rgb
+	{
+		start			1 0.502 0 1 1 0.502
+	}
+
+	alpha
+	{
+		start			0.7 0.9
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			0.5 1.2
+		end				2
+		parm			50 60
+		flags			random
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_1
+	]
+}
+
+Emitter
+{
+	flags				useModel useBBox usePhysics
+
+	count				10 15
+
+	life				200 1000
+
+	delay				100 0
+
+	min					0.5 0.5 0.5
+
+	max					-0.5 -0.5 -0.5
+
+	origin				50 50 100 100 -50 -100
+
+	velocity			340 900 -800 10 1200 800
+
+	gravity				-500 -300
+
+	size
+	{
+		start			1 5
+	}
+
+	models
+	[
+		models/chunks/metal/metal1_1.md3
+		models/chunks/metal/metal1_2.md3
+		models/chunks/metal/metal1_3.md3
+		models/chunks/metal/metal1_4.md3
+		models/chunks/metal/metal2_1.md3
+		models/chunks/metal/metal2_2.md3
+		models/chunks/metal/metal2_3.md3
+		models/chunks/metal/metal2_4.md3
+		models/chunks/metal/wmetal1_1.md3
+		models/chunks/metal/wmetal1_2.md3
+		models/chunks/metal/wmetal1_3.md3
+		models/chunks/metal/wmetal1_4.md3
+	]
+}
+
+Particle
+{
+	name				trust
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				15 5
+
+	life				200 1000
+
+	delay				0 300
+
+	origin				-25 10 -25 25 10 25
+
+	rotation			0 360
+
+	rotationDelta		-3 3
+
+	velocity			10 500 -100 50 1300 100
+
+	gravity				-5 5
+
+	rgb
+	{
+		start			0.9176 0.9098 0.7765 0.9294 0.8863 0.8039
+	}
+
+	alpha
+	{
+		start			0.6 0.3
+		end				0
+		parm			70 80
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			20 5
+		end				450 750
+		parm			10
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Tail
+{
+	name				geiser
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	count				15 20
+
+	life				1500 1000
+
+	origin				-150 0 0
+
+	velocity			-2 8 -2 2 10 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.502 0.251 0 0.502 0.502 0.502
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			325 100
+		end				50 130
+		parm			50
+		flags			linear
+	}
+
+	length
+	{
+		start			-4 -2
+		end				-1520 -1720
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/ftail
+		gfx/effects/rocket_muz
+		gfx/effects/rocket_muz2
+		gfx/effects/water_splash
+	]
+}
+
+Tail
+{
+	name				geiseryellow
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	count				15 20
+
+	life				2000 1300
+
+	origin				-150 0 0
+
+	velocity			-2 8 -2 2 10 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.502 0.502 0.502 0.3922 0.2784 0.1098
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			130 150
+		end				0 1
+		parm			50
+		flags			linear
+	}
+
+	length
+	{
+		start			-40 -20
+		end				-850 -1520
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/ftail
+		gfx/effects/rocket_muz
+		gfx/effects/rocket_muz2
+		gfx/effects/water_splash
+	]
+}
+
+Tail
+{
+	name				geiserred
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	count				15 20
+
+	life				800 1300
+
+	origin				-150 0 0
+
+	velocity			-2 8 -2 2 10 2
+
+	gravity				-2 -1
+
+	rgb
+	{
+		start			0.3922 0.2784 0.1098 0.251 0.251 0.251
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			130 150
+		end				200 180
+		parm			50
+		flags			linear
+	}
+
+	length
+	{
+		start			-40 -20
+		end				-1550 -1020
+		parm			30 50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/ftail
+		gfx/effects/rocket_muz
+		gfx/effects/rocket_muz2
+		gfx/effects/water_splash
+	]
+}

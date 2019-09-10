@@ -1,0 +1,109 @@
+repeatDelay				100
+
+Particle
+{
+	name				smoke
+
+	flags				useAlpha
+
+	life				3000
+
+	rotation			-180
+
+	rotationDelta		-7 7
+
+	velocity			-1 -1 -1 1 1 1
+
+	gravity				1
+
+	alpha
+	{
+		start			0.5 0.6
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			2
+		end				3 6
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Particle
+{
+	name				fire
+
+	count				1 2
+
+	life				150
+
+	velocity			2 0 0 3 0 0
+
+	alpha
+	{
+		start			0.7
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			2 3
+	}
+
+	shaders
+	[
+		effects/fire
+	]
+}
+
+Tail
+{
+	name				Sparktails
+
+	flags				useBBox
+
+	spawnFlags			affectedByWind
+
+	count				5 2
+
+	life				100 150
+
+	intensity			0.3 0.6
+
+	wind				1 20
+
+	velocity			-120 -120 -120 120 120 120
+
+	gravity				-450 -650
+
+	rgb
+	{
+		start			1 1 1 0.9961 0.9922 0.8039
+	}
+
+	alpha
+	{
+		start			0.8 1
+	}
+
+	length
+	{
+		start			7 10
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/sparkyellow
+	]
+}

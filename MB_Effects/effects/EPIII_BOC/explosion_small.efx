@@ -1,0 +1,140 @@
+repeatDelay				300
+
+Particle
+{
+	name				OrangeGlow
+
+	count				5
+
+	life				700 2000
+
+	delay				0 150
+
+	origin				0 -20 -20 5 20 20
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	rgb
+	{
+		start			1 0.9725 0.6235 1 0.8353 0.4902
+		end				0.502 0 0 0.9451 0.4078 0.01176
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			70 85
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			10 20
+		end				35 50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+		gfx/misc/steam2
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	flags				useAlpha
+
+	count				10
+
+	life				2500 4000
+
+	delay				50 300
+
+	origin				0 -25 -25 20 25 25
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -20 -20 10 20 20
+
+	acceleration		-4 -8 -8 4 8 8
+
+	gravity				3 25
+
+	rgb
+	{
+		start			0 0 0
+		end				0 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				40 60
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Particle
+{
+	name				Copy of OrangeGlow
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				3
+
+	life				800 1300
+
+	delay				0 150
+
+	origin				0 -20 -20 5 20 20
+
+	rotation			-180 180
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		start			1 0.8
+		end				0
+		parm			40 60
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			10 20
+		end				45 65
+		parm			20 40
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_2
+	]
+}

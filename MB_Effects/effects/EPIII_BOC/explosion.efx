@@ -1,0 +1,124 @@
+repeatDelay				300
+
+Particle
+{
+	name				explosion_cloud
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				3
+
+	life				1000 2000
+
+	origin				0 -5 -5 5 5 5
+
+	rotation			0 360
+
+	rotationDelta		-8 8
+
+	velocity			5 -15 -15 40 15 15
+
+	rgb
+	{
+		start			1 1 1 0.9294 0.6 0.1529
+	}
+
+	alpha
+	{
+		start			0.7 0.8
+		end				0
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			50
+		end				500
+		parm			15 30
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/weapons/thermal/explode.wav
+	]
+}
+
+Decal
+{
+	count				0 1
+
+	life				25
+
+	size
+	{
+		start			125
+	}
+
+	shaders
+	[
+		textures/decals/burnmark2
+	]
+}
+
+Tail
+{
+	spawnFlags			cheapOrgCalc orgOnSphere axisFromSphere rgbComponentInterpolation
+
+	count				6
+
+	life				1200
+
+	origin				0 0 10
+
+	radius				18
+
+	velocity			500 0 0
+
+	gravity				-400
+
+	rgb
+	{
+		start			1 1 0.549 0.9882 0.7255 0.1804
+	}
+
+	alpha
+	{
+		start			0.5 0.3
+		end				0
+		parm			50 60
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			8
+		end				0.5
+		flags			linear
+	}
+
+	length
+	{
+		start			50
+		end				0
+		parm			70 80
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+	]
+}
