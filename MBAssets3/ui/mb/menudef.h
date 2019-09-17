@@ -22,6 +22,7 @@
 //[INTSLIDER]
 #define ITEM_TYPE_INTSLIDER				15	// mouse speed, volume, etc.
 //[/INTSLIDER]
+#define ITEM_TYPE_VERTSLIDER			16	// mouse speed, volume, etc.
 
 #define ITEM_ALIGN_LEFT					0	// left alignment
 #define ITEM_ALIGN_CENTER				1	// center alignment
