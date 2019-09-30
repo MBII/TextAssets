@@ -21,7 +21,8 @@
 			show				AUDIOBTN
 			show				OTHERBTN
 			show				UIBTN
-			uiScript			loadControls			
+			uiScript			loadControls
+			uiscript			mb_uischeme
 			show				movementcontrolbutton
 			show 				attackcontrolbutton
 			show				weaponscontrolbutton
@@ -35,9 +36,11 @@
 			hide				video2menubutton
 			hide				video3menubutton 
 			hide				soundmenubutton
-			hide				sound2menubutton
+			// hide				sound2menubutton
 			hide				gameoptionmenubutton
 			hide				uioptionmenubutton
+			hide				uioption2menubutton
+			hide				uioption3menubutton
 			hide				visualoptmenubutton
 			hide				trueviewmenubutton
 			hide				connectionoptmenubutton
@@ -52,12 +55,15 @@
 			hide				video2
 			hide				video3
 			hide				applyChanges
+			hide				applyscheme
 			hide				vidrestart
 			hide				sound
-			hide				sound2
+			// hide				sound2
 			hide				options
 			hide				options2
 			hide				uioptions
+			hide				uioptions2
+			hide				uioptions3
 			hide				visualopt
 			hide				camera
 			hide				trueview
@@ -237,7 +243,7 @@
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
 			background			"gfx/menus/alpha/Btn_Bg"			
-			rect				274 382 120 36
+			rect				334 382 120 36
 			textaligny			-8
 			font				6
 			textscale			0.3
@@ -249,7 +255,7 @@
 			mouseenter
 			{
 				show			btn_hl
-				setitemrect		btn_hl	274 382 120 36
+				setitemrect		btn_hl	334 382 120 36
 			}
 			mouseExit
 			{
@@ -264,7 +270,42 @@
 				hide			video2
 				hide			video3
 			}
-		}		
+		}
+
+		// APPLY UI CHANGES BUTTON
+
+		itemDef
+		{
+			name				applyscheme
+			group				none
+			text				"APPLY"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				334 382 120 36
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				0
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	334 382 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiscript		mb_uiapply
+			}
+		}
 
 // SECOND ROW MENU BUTTONS
 
@@ -310,9 +351,11 @@
 				hide				video2menubutton
 				hide				video3menubutton
 				hide				soundmenubutton
-				hide				sound2menubutton
+				// hide				sound2menubutton
 				hide				gameoptionmenubutton
 				hide				uioptionmenubutton
+				hide				uioption2menubutton
+				hide				uioption3menubutton
 				hide				visualoptmenubutton
 				hide				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -328,12 +371,15 @@
 				hide				video2
 				hide				video3
 				hide				applyChanges
+				hide				applyscheme
 				hide				vidrestart
 				hide				sound
-				hide				sound2
+				// hide				sound2
 				hide				options
 				hide				options2
 				hide				uioptions
+				hide				uioptions2
+				hide				uioptions3
 				hide				visualopt
 				hide				trueview
 				hide				connection 
@@ -413,9 +459,11 @@ itemDef
 				show				video2menubutton
 				show				video3menubutton
 				hide				soundmenubutton
-				hide				sound2menubutton
+				// hide				sound2menubutton
 				hide				gameoptionmenubutton
 				hide				uioptionmenubutton
+				hide				uioption2menubutton
+				hide				uioption3menubutton
 				show				visualoptmenubutton
 				hide				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -431,12 +479,15 @@ itemDef
 				hide				video2
 				hide				video3
 				hide				applyChanges
+				hide				applyscheme
 				hide				vidrestart
 				hide				sound
-				hide				sound2
+				// hide				sound2
 				hide				options
 				hide				options2
 				hide				uioptions
+				hide				uioptions2
+				hide				uioptions3
 				hide				visualopt
 				hide				camera
 				hide				trueview
@@ -514,10 +565,12 @@ itemDef
 				hide				video2menubutton
 				hide				video3menubutton
 				hide				soundmenubutton
-				hide				sound2menubutton
+				// hide				sound2menubutton
 				show				gameoptionmenubutton
 				show				gameoption2menubutton
-				show				uioptionmenubutton
+				hide				uioptionmenubutton
+				hide				uioption2menubutton
+				hide				uioption3menubutton
 				hide				visualoptmenubutton
 				hide				trueviewmenubutton
 				show				connectionoptmenubutton
@@ -532,12 +585,15 @@ itemDef
 				hide				video2
 				hide				video3
 				hide				applyChanges
+				hide				applyscheme
 				hide				vidrestart
 				hide				sound
-				hide				sound2
+				// hide				sound2
 				show				options
 				hide				options2
 				hide				uioptions
+				hide				uioptions2
+				hide				uioptions3
 				hide				visualopt
 				hide				camera
 				hide				trueview
@@ -613,9 +669,11 @@ itemDef
 				hide				video2menubutton
 				hide				video3menubutton
 				show				soundmenubutton
-				show				sound2menubutton
+				// show				sound2menubutton
 				hide				gameoptionmenubutton
 				hide				uioptionmenubutton
+				hide				uioption2menubutton
+				hide				uioption3menubutton
 				hide				visualoptmenubutton
 				hide				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -631,12 +689,15 @@ itemDef
 				hide				video2
 				hide				video3
 				hide				applyChanges
+				hide				applyscheme
 				hide				vidrestart
 				show				sound
-				hide				sound2
+				// hide				sound2
 				hide				options
 				hide				options2
 				hide				uioptions
+				hide				uioptions2
+				hide				uioptions3
 				hide				visualopt
 				hide				camera
 				hide				trueview
@@ -665,107 +726,7 @@ itemDef
 				setitemcolor	OTHERBTN		forecolor 1 1 1 0.9
 				setitemcolor	UIBTN			forecolor 1 1 1 0.9
 			}
-		}		
-		
-itemDef
-		{
-			name				OTHERBTN
-			group				none
-			style				WINDOW_STYLE_EMPTY
-			type				ITEM_TYPE_BUTTON
-			rect				367 45 60 35
-			text				"OTHER"
-			descText			"Configure other options"
-			font				7
-			textscale			0.2
-			textaligny			-1
-			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
-			textalignx			31
-			forecolor			1 1 1 0.9
-			visible				1
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	367 52 60 20
-			}
-			mouseExit
-			{
-				hide			button_glow 
-			}
-			action
-			{
-				play			"sound/interface/go.mp3"
-				uiScript			getvideosetup				
-				hide				movementcontrolbutton
-				hide 				attackcontrolbutton
-				hide				weaponscontrolbutton
-				hide				forcecontrolbutton
-				hide				forcecontrolbutton2
-				hide				mousejoystickcontrolbutton
-				hide				mediacontrolbutton
-				hide				othercontrolbutton
-				hide				video1menubutton
-				hide				video2menubutton
-				hide				video3menubutton
-				hide				soundmenubutton
-				hide				sound2menubutton
-				hide				gameoptionmenubutton
-				hide				uioptionmenubutton
-				hide				visualoptmenubutton
-				show				trueviewmenubutton
-				hide				connectionoptmenubutton
-				show				crosshairmenubutton
-				hide				gamedefaultsmenubutton
-				show				chatmenubutton
-				hide				gammamenubutton
-				show				cameramenubutton
-				show				crosshair2menubutton
-				hide				gameoption2menubutton
-				hide				setup_background
-				hide 				video
-				hide				video2
-				hide				video3
-				hide				applyChanges
-				hide				vidrestart
-				hide				sound
-				hide				sound2
-				hide				options2
-				hide				options
-				hide				uioptions
-				hide				visualopt
-				show				camera
-				hide				trueview
-				hide				connection 
-				hide				defaults
-				hide				highlights
-				hide				crosshair
-				hide				crosshair2
-				hide				chat
-				hide				gamma
-				hide				setup_background
-				hide				movecontrols
-				hide				attackcontrols
-				hide				weaponcontrols
-				hide				mbcontrols
-				hide				forcecontrols
-				hide				quickcontrols
-				hide				joycontrols
-				hide				mediacontrols
-				hide				othercontrols
-				setitemcolor	cameramenubutton		forecolor 0.5 0.5 0.5 0.9
-				setitemcolor	trueviewmenubutton		forecolor 1 1 1 0.9
-				setitemcolor	crosshairmenubutton		forecolor 1 1 1 0.9
-				setitemcolor	chatmenubutton		forecolor 1 1 1 0.9
-				setitemcolor	crosshair2menubutton		forecolor 1 1 1 0.9
-				setitemcolor	CONTROLSBTN		forecolor 1 1 1 0.9
-				setitemcolor	VIDEOBTN		forecolor 1 1 1 0.9
-				setitemcolor	GAMEPLAYBTN		forecolor 1 1 1 0.9
-				setitemcolor	AUDIOBTN		forecolor 1 1 1 0.9
-				setitemcolor	OTHERBTN		forecolor 0.5 0.5 0.5 0.9
-				setitemcolor	UIBTN			forecolor 1 1 1 0.9
-			}
-		}
+		}	
 
 itemDef
 		{
@@ -809,9 +770,11 @@ itemDef
 				hide				video2menubutton
 				hide				video3menubutton
 				hide				soundmenubutton
-				hide				sound2menubutton
+				// hide				sound2menubutton
 				hide				gameoptionmenubutton
-				hide				uioptionmenubutton
+				show				uioptionmenubutton
+				show				uioption2menubutton
+				show				uioption3menubutton
 				hide				visualoptmenubutton
 				hide				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -827,12 +790,15 @@ itemDef
 				hide				video2
 				hide				video3
 				hide				applyChanges
+				show				applyscheme
 				hide				vidrestart
 				hide				sound
-				hide				sound2
+				// hide				sound2
 				hide				options2
 				hide				options
-				hide				uioptions
+				show				uioptions
+				hide				uioptions2
+				hide				uioptions3
 				hide				visualopt
 				hide				camera
 				hide				trueview
@@ -853,8 +819,114 @@ itemDef
 				hide				joycontrols
 				hide				mediacontrols
 				hide				othercontrols
-				open				ingame_ui_loadout
-				close				settings
+				//open				ingame_ui_loadout
+				//close				settings
+				setitemcolor	cameramenubutton		forecolor 0.5 0.5 0.5 0.9
+				setitemcolor	trueviewmenubutton		forecolor 1 1 1 0.9
+				setitemcolor	crosshairmenubutton		forecolor 1 1 1 0.9
+				setitemcolor	chatmenubutton			forecolor 1 1 1 0.9
+				setitemcolor	crosshair2menubutton	forecolor 1 1 1 0.9
+				setitemcolor	CONTROLSBTN				forecolor 1 1 1 0.9
+				setitemcolor	VIDEOBTN				forecolor 1 1 1 0.9
+				setitemcolor	GAMEPLAYBTN				forecolor 1 1 1 0.9
+				setitemcolor	AUDIOBTN				forecolor 1 1 1 0.9
+				setitemcolor	OTHERBTN				forecolor 1 1 1 0.9
+				setitemcolor	UIBTN					forecolor 0.5 0.5 0.5 0.9
+			}
+		}
+
+		
+itemDef
+		{
+			name				OTHERBTN
+			group				none
+			style				WINDOW_STYLE_EMPTY
+			type				ITEM_TYPE_BUTTON
+			rect				367 45 60 35
+			text				"OTHER"
+			descText			"Configure other options"
+			font				7
+			textscale			0.2
+			textaligny			-1
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			31
+			forecolor			1 1 1 0.9
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	367 52 60 20
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				uiScript			getvideosetup				
+				hide				movementcontrolbutton
+				hide 				attackcontrolbutton
+				hide				weaponscontrolbutton
+				hide				forcecontrolbutton
+				hide				forcecontrolbutton2
+				hide				mousejoystickcontrolbutton
+				hide				mediacontrolbutton
+				hide				othercontrolbutton
+				hide				video1menubutton
+				hide				video2menubutton
+				hide				video3menubutton
+				hide				soundmenubutton
+				// hide				sound2menubutton
+				hide				gameoptionmenubutton
+				hide				uioptionmenubutton
+				hide				uioption2menubutton
+				hide				uioption3menubutton
+				hide				visualoptmenubutton
+				show				trueviewmenubutton
+				hide				connectionoptmenubutton
+				show				crosshairmenubutton
+				hide				gamedefaultsmenubutton
+				show				chatmenubutton
+				hide				gammamenubutton
+				show				cameramenubutton
+				show				crosshair2menubutton
+				hide				gameoption2menubutton
+				hide				setup_background
+				hide 				video
+				hide				video2
+				hide				video3
+				hide				applyChanges
+				hide				applyscheme
+				hide				vidrestart
+				hide				sound
+				// hide				sound2
+				hide				options2
+				hide				options
+				hide				uioptions
+				hide				uioptions2
+				hide				uioptions3
+				hide				visualopt
+				show				camera
+				hide				trueview
+				hide				connection 
+				hide				defaults
+				hide				highlights
+				hide				crosshair
+				hide				crosshair2
+				hide				chat
+				hide				gamma
+				hide				setup_background
+				hide				movecontrols
+				hide				attackcontrols
+				hide				weaponcontrols
+				hide				mbcontrols
+				hide				forcecontrols
+				hide				quickcontrols
+				hide				joycontrols
+				hide				mediacontrols
+				hide				othercontrols
 				setitemcolor	cameramenubutton		forecolor 0.5 0.5 0.5 0.9
 				setitemcolor	trueviewmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	crosshairmenubutton		forecolor 1 1 1 0.9
@@ -864,8 +936,8 @@ itemDef
 				setitemcolor	VIDEOBTN		forecolor 1 1 1 0.9
 				setitemcolor	GAMEPLAYBTN		forecolor 1 1 1 0.9
 				setitemcolor	AUDIOBTN		forecolor 1 1 1 0.9
-				setitemcolor	OTHERBTN		forecolor 1 1 1 0.9
-				setitemcolor	UIBTN			forecolor 0.5 0.5 0.5 0.9
+				setitemcolor	OTHERBTN		forecolor 0.5 0.5 0.5 0.9
+				setitemcolor	UIBTN			forecolor 1 1 1 0.9
 			}
 		}
 
@@ -909,10 +981,12 @@ itemDef
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
-				hide			sound2
+				// hide			sound2
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -966,10 +1040,12 @@ itemDef
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
-				hide			sound2
+				// hide			sound2
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1023,10 +1099,12 @@ itemDef
 				show			video3
 				hide			vidrestart
 				hide			sound
-				hide			sound2
+				// hide			sound2
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1082,10 +1160,12 @@ itemDef
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
-				hide			sound2
+				// hide			sound2
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1140,10 +1220,12 @@ itemDef
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
-				hide			sound2
+				// hide			sound2
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				show			visualopt
 				hide			camera
 				hide			trueview
@@ -1197,10 +1279,12 @@ itemDef
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
-				hide			sound2
+				// hide			sound2
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1256,10 +1340,12 @@ itemDef
 				hide			applyChanges
 				hide			vidrestart
 				show			sound
-				hide			sound2
+				// hide			sound2
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1274,7 +1360,7 @@ itemDef
 			}
 		}
 		
-itemDef
+/* itemDef
 		{
 			name				sound2menubutton
 			group				setup_submenu
@@ -1315,6 +1401,8 @@ itemDef
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1327,8 +1415,7 @@ itemDef
 				setitemcolor	setup_submenu		forecolor	1 1 1 0.9
 				setitemcolor	sound2menubutton	forecolor	0.5 0.5 0.5 0.9
 			}
-		}
-
+		} */
 		
 // GAMEPLAYBTN
 		// game options button
@@ -1374,6 +1461,8 @@ itemDef
 				show			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			langapply
 				hide			visualopt
 				hide			camera
@@ -1432,6 +1521,8 @@ itemDef
 				hide			options
 				show			options2
 				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
 				hide			langapply
 				hide			visualopt
 				hide			camera
@@ -1454,6 +1545,122 @@ itemDef
 			name				uioptionmenubutton
 			group				setup_submenu
 			text				@MENUS_UI_OPTIONS
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				10 110 120 17
+			font				6
+			textscale			0.17
+			textalignx			110
+			textaligny			-5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			@MENUS_CONFIGURE_UI_OPTIONS
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 112 120 17
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				defer			VideoSetup	videowarningMenu
+				show			setup_background
+				hide 			video
+				hide			video2
+				hide			video3
+				hide			applyChanges
+				hide			vidrestart
+				hide			sound
+				hide			sound2
+				hide			options
+				hide			options2
+				show			uioptions
+				hide			uioptions2
+				hide			uioptions3
+				hide			langapply
+				hide			visualopt
+				hide			camera
+				hide			trueview
+				hide			connection
+				hide			defaults
+				hide			crosshair
+				hide			crosshair2
+				hide			chat
+				hide			gamma
+				setitemcolor	setup_submenu			forecolor	1 1 1 0.9
+				setitemcolor	uioptionmenubutton		forecolor	0.5 0.5 0.5 0.9
+			}
+		}
+
+		itemDef
+		{
+			name				uioption2menubutton
+			group				setup_submenu
+			text				"UI LAYOUT"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_EMPTY
+			rect				10 132 120 17
+			font				6
+			textscale			0.17
+			textalignx			110
+			textaligny			-5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			@MENUS_CONFIGURE_UI_OPTIONS
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 134 120 17
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				defer			VideoSetup	videowarningMenu
+				show			setup_background
+				hide 			video
+				hide			video2
+				hide			video3
+				hide			applyChanges
+				hide			vidrestart
+				hide			sound
+				hide			sound2
+				hide			options
+				hide			options2
+				hide			uioptions
+				show			uioptions2
+				hide			uioptions3
+				hide			langapply
+				hide			visualopt
+				hide			camera
+				hide			trueview
+				hide			connection
+				hide			defaults
+				hide			crosshair
+				hide			crosshair2
+				hide			chat
+				hide			gamma
+				setitemcolor	setup_submenu			forecolor	1 1 1 0.9
+				setitemcolor	uioption2menubutton		forecolor	0.5 0.5 0.5 0.9
+			}
+		}
+
+		itemDef
+		{
+			name				uioption3menubutton
+			group				setup_submenu
+			text				"UI STYLE"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_EMPTY
 			rect				10 154 120 17
@@ -1489,7 +1696,9 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
-				show			uioptions
+				hide			uioptions
+				hide			uioptions2
+				show			uioptions3
 				hide			langapply
 				hide			visualopt
 				hide			camera
@@ -1501,10 +1710,10 @@ itemDef
 				hide			chat
 				hide			gamma
 				setitemcolor	setup_submenu			forecolor	1 1 1 0.9
-				setitemcolor	uioptionmenubutton		forecolor	0.5 0.5 0.5 0.9
+				setitemcolor	uioption3menubutton		forecolor	0.5 0.5 0.5 0.9
 			}
 		}
-		
+
 		// network button		
 
 		itemDef
@@ -1514,7 +1723,7 @@ itemDef
 			text				"NETWORK OPTIONS"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_EMPTY
-			rect				10 176 120 17
+			rect				10 154 120 17
 			font				6
 			textscale			0.17
 			textalignx			110
@@ -1527,7 +1736,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	10 178 120 17
+				setitemrect		button_glow	10 156 120 17
 			}
 			mouseExit
 			{
@@ -1548,6 +1757,7 @@ itemDef
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1607,6 +1817,7 @@ itemDef
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
 				hide			visualopt
 				show			camera
 				hide			trueview
@@ -1664,6 +1875,7 @@ itemDef
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
 				hide			visualopt
 				hide			camera
 				show			trueview
@@ -1721,6 +1933,7 @@ itemDef
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1778,6 +1991,7 @@ itemDef
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -1835,6 +2049,7 @@ itemDef
 				hide			options
 				hide			options2
 				hide			uioptions
+				hide			uioptions2
 				hide			visualopt
 				hide			camera
 				hide			trueview
@@ -3681,6 +3896,69 @@ itemDef
 			decoration
 		}
 
+		itemDef
+		{
+			name				voicespam
+			group				sound
+			text				"VoiceChat Antispam:"
+			rect				142 205 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				tauntspam
+			group				sound
+			text				"Taunt Antispam:"
+			rect				142 220 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				sound_subtitles
+			group				sound
+			text				"Subtitles:"
+			rect				142 235 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				sound_chat
+			group				sound
+			text				"Chat Sound:"
+			rect				142 250 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 // SOUND FIELDS 2
 
@@ -3841,7 +4119,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 189 230 15			
+				setitemrect		button_glow	142 191 230 15			
 			}
 			mouseExit
 			{
@@ -3859,87 +4137,19 @@ itemDef
 			name				eax_icon
 			group				sound
 			style				WINDOW_STYLE_SHADER
-			rect				207 215 100 50
+			rect				240 275 100 50
 			background			"gfx/menus/eax"
 			forecolor			1 1 1 1
 			visible				1
 			decoration
 			cvarTest			"s_UseOpenAL"
 			hideCvar			{ 0 }
-		}		
-		
-// SOUND 2 FIELDS
+		}
 
 		itemDef
 		{
 			name				voicespam
-			group				sound2
-			text				"VoiceChat Antispam:"
-			rect				142 110 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				tauntspam
-			group				sound2
-			text				"Taunt Antispam:"
-			rect				142 125 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				sound_subtitles
-			group				sound2
-			text				"Subtitles:"
-			rect				142 140 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				sound_chat
-			group				sound2
-			text				"Chat Sound:"
-			rect				142 155 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
-// SOUND 2 FIELDS 2
-
-		itemDef
-		{
-			name				voicespam
-			group				sound2
+			group				sound
 			type				ITEM_TYPE_MULTI
 			text				" "
 			cvar				"cg_voiceFloodProtect"
@@ -3948,7 +4158,7 @@ itemDef
 				"Off"			0
 				"On"			1
 			}
-			rect				142 110 230 14
+			rect				142 205 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3960,7 +4170,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 111 230 15			
+				setitemrect		button_glow	142 206 230 15			
 			}
 			mouseExit
 			{
@@ -3975,7 +4185,7 @@ itemDef
 		itemDef
 		{
 			name				tauntspam
-			group				sound2
+			group				sound
 			type				ITEM_TYPE_MULTI
 			text				" "
 			cvar				"cg_tauntFloodProtect"
@@ -3984,7 +4194,7 @@ itemDef
 				"Off"			0
 				"On"			1
 			}
-			rect				142 125 230 14
+			rect				142 220 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3996,7 +4206,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 126 230 15			
+				setitemrect		button_glow	142 221 230 15			
 			}
 			mouseExit
 			{
@@ -4011,7 +4221,7 @@ itemDef
 		itemDef
 		{
 			name				sound_subtitles
-			group				sound2
+			group				sound
 			type				ITEM_TYPE_MULTI
 			text				" "
 			cvar				"cg_subtitles"
@@ -4020,7 +4230,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 140 230 14
+			rect				142 235 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -4032,7 +4242,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 141 230 15			
+				setitemrect		button_glow	142 236 230 15			
 			}
 			mouseExit
 			{
@@ -4047,7 +4257,7 @@ itemDef
 		itemDef
 		{
 			name				sound_chat
-			group				sound2
+			group				sound
 			type				ITEM_TYPE_MULTI
 			text				" "
 			cvar				"cg_disableChatSound"
@@ -4056,7 +4266,7 @@ itemDef
 				@MENUS_OFF		1
 				@MENUS_ON		0
 			}
-			rect				142 155 230 14
+			rect				142 250 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -4068,7 +4278,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 156 230 15			
+				setitemrect		button_glow	142 251 230 15			
 			}
 			mouseExit
 			{
@@ -5359,7 +5569,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 201 230 19			
+				setitemrect		button_glow	142 200 230 19			
 			}
 			mouseExit
 			{
@@ -5482,7 +5692,637 @@ itemDef
 				play			"sound/interface/button1.wav" 
 			}
 		}
+
+// UI OPTIONS 2
+
+		itemDef
+		{
+			name				layout
+			group				uioptions2
+			text				"Layout"
+			rect				142 110 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				layoutslider
+			group				uioptions2
+			text				"Slider"
+			rect				297 110 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				layoutscroll
+			group				uioptions2
+			text				"Scroll"
+			rect				142 250 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+// UI OPTIONS 2 FIELDS 2
+
+		// Layout Selected
+		itemDef
+		{
+			name 				layoutname
+			group				uioptions2
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2 
+			text				""
+			cvar				"ui_SaveLayout"
+			maxchars			18
+			rect				142 214 145 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny 			-4
+			font				6
+			textscale			0.15
+			outlinecolor		1 1 1 1
+			backcolor			1 1 1 0.1
+			forecolor			1 1 1 1
+			border				0
+			bordercolor			0 0 0 0
+			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// Layout feeder
+		itemDef
+		{
+			name				layoutlist
+			group				uioptions2
+			rect				142 124 145 90
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth		120
+			elementheight		16
+			maxLineChars		18
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_UI_LAYOUT
+			font				6
+			textaligny			12
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			descText			"Choose a Layout."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// Slider Selected
+		itemDef
+		{
+			name 				slidername
+			group				uioptions2
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2 
+			text				""
+			cvar				"ui_SaveSlider"
+			maxchars			18
+			rect				297 214 145 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny 			-4
+			font				6
+			textscale			0.15
+			outlinecolor		1 1 1 1
+			backcolor			1 1 1 0.1
+			forecolor			1 1 1 1
+			border				0
+			bordercolor			0 0 0 0
+			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// Slider feeder
+		itemDef
+		{
+			name				sliderlist
+			group				uioptions2
+			rect				297 124 145 90
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth		120
+			elementheight		16
+			maxLineChars		18
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_UI_SLIDER
+			font				6
+			textaligny			12
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			descText			"Choose a Slider."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// Scroll Selected
+		itemDef
+		{
+			name 				scrollname
+			group				uioptions2
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2 
+			text				""
+			cvar				"ui_SaveScroll"
+			maxchars			18
+			rect				142 334 145 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny 			-4
+			font				6
+			textscale			0.15
+			outlinecolor		1 1 1 1
+			backcolor			1 1 1 0.1
+			forecolor			1 1 1 1
+			border				0
+			bordercolor			0 0 0 0
+			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
 		
+		// Scroll feeder
+		itemDef
+		{
+			name				scrolllist
+			group				uioptions2
+			rect				142 264 145 70
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth		120
+			elementheight		16
+			maxLineChars		18
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_UI_SCROLL
+			font				6
+			textaligny			12
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			descText			"Choose a Scroll bar."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+// UI OPTIONS 3
+
+		itemDef
+		{
+			name				graphics
+			group				uioptions3
+			text				"Graphics"
+			rect				142 110 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				textcolor
+			group				uioptions3
+			text				"Text Color"
+			rect				297 110 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				backgroundcolor
+			group				uioptions3
+			text				"Background Color"
+			rect				142 250 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				pulsespeed
+			group				uioptions3
+			text				"Pulse Speed"
+			rect				297 250 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+// UI OPTIONS 3 FIELDS 2
+		// Graphics Selected
+		itemDef
+		{
+			name 				graphicsname
+			group				uioptions3
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2 
+			text				""
+			cvar				"ui_SaveGraphics"
+			maxchars			18
+			rect				142 214 145 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny 			-4
+			font				6
+			textscale			0.15
+			outlinecolor		1 1 1 1
+			backcolor			1 1 1 0.1
+			forecolor			1 1 1 1
+			border				0
+			bordercolor			0 0 0 0
+			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// Graphics feeder
+		itemDef
+		{
+			name				graphicslist
+			group				uioptions3
+			rect				142 124 145 90
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth		120
+			elementheight		16
+			maxLineChars		18
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_UI_GRAPHICS
+			font				6
+			textaligny			12
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			descText			"Choose a Graphic set."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// ColorText Selected
+		itemDef
+		{
+			name 				colortxtname
+			group				uioptions3
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2 
+			text				""
+			cvar				"ui_SaveColourText"
+			maxchars			18
+			rect				297 214 145 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny 			-4
+			font				6
+			textscale			0.15
+			outlinecolor		1 1 1 1
+			backcolor			1 1 1 0.1
+			forecolor			1 1 1 1
+			border				0
+			bordercolor			0 0 0 0
+			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		// ColorText feeder
+		itemDef
+		{
+			name				colortxtlist
+			group				uioptions3
+			rect				297 124 145 90
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth		120
+			elementheight		16
+			maxLineChars		18
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_UI_COLOUR_TEXT
+			font				6
+			textaligny			12
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			descText			"Choose a Text Colour."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		// RGB SLIDERS for menu background
+		itemDef
+		{
+			name				menured
+			group				uioptions3
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"ui_Menu_foreColor_R" 1 0 1
+			rect				142 274 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		itemDef
+		{
+			name				menugreen
+			group				uioptions3
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"ui_Menu_foreColor_G" 1 0 1
+			rect				142 294 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		itemDef
+		{
+			name				menublue
+			group				uioptions3
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"ui_Menu_foreColor_B" 1 0 1
+			rect				142 314 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				menualpha
+			group				uioptions3
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"ui_Menu_foreColor_A" 1 0 1
+			rect				142 334 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		//RGB float values
+		itemDef
+		{
+			name				menured_value
+			group				uioptions3
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"R:"
+			cvar				"ui_Menu_foreColor_R"
+			maxchars			4
+			maxPaintChars		4
+			rect				250 274 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Red Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		itemDef
+		{
+			name				menugreen_value
+			group				uioptions3
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"G:"
+			cvar				"ui_Menu_foreColor_G"
+			maxchars			4
+			maxPaintChars 		4
+			rect				250 294 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Green Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1" 
+			}
+		}
+    
+		itemDef
+		{
+			name				menublue_value
+			group				uioptions3
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"B:"
+			cvar				"ui_Menu_foreColor_B"
+			maxchars			4
+			maxPaintChars		4
+			rect				250 314 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Blue Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				menualpha_value
+			group				uioptions3
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"A:"
+			cvar				"ui_Menu_foreColor_A"
+			maxchars			4
+			maxPaintChars		4
+			rect				250 334 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Alpha Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				pulse
+			group				uioptions3
+			type				ITEM_TYPE_INTSLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarInt				"ui_pulse" 1 1 200
+			rect				297 274 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale 			0.15
+			forecolor			1 1 1 1
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				pulse_value
+			group				uioptions3
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				""
+			cvar				"ui_pulse"
+			maxchars			4
+			maxPaintChars		4
+			rect				400 274 40 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale 			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Rate of button flash."
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
 // CHAT OPTIONS
 		
 		itemDef

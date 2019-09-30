@@ -1,3 +1,11 @@
+gfx/menus/eax
+{
+	{
+		map gfx/menus/eax
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+	}
+}
+
 gfx/hud/hudleft
 {
 	nopicmip
@@ -40,73 +48,6 @@ gfx/mp/icon_queued
 	}
 }
 
-mb_cursor
-{
-	nopicmip
-	nomipmaps
-	{
-		clampmap gfx/menus/mb_cursor1
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-	{
-		clampmap gfx/menus/mb_cursor2
-		blendFunc GL_ONE GL_ONE
-		rgbGen wave sin 0.5 0.35 0 0.6
-	}
-}
-
-gfx/menus/mb_buttonback
-{
-	nopicmip
-	nomipmaps
-	{
-		map gfx/menus/mb_buttonback
-		blendFunc GL_ONE GL_ONE
-	}
-	{
-		map gfx/hud/static_menu
-		blendFunc GL_DST_COLOR GL_ONE
-		tcMod scroll -1 0
-	}
-	{
-		map gfx/hud/static_menu
-		blendFunc GL_DST_COLOR GL_ONE
-		tcMod scroll 1 0
-	}
-	{
-		map gfx/hud/static_menu
-		blendFunc GL_DST_COLOR GL_ONE
-		tcMod scroll -1.3 0
-	}
-	{
-		map gfx/hud/static_menu
-		blendFunc GL_DST_COLOR GL_ONE
-		tcMod scroll 1.3 0
-	}
-}
-
-gfx/menus/mb_background
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/mb_background
-	}
-}
-
-gfx/menus/mb_logo
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/mb_logo
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-}
-
 menu/art/unknownmap_mb
 {
 	nopicmip
@@ -116,86 +57,6 @@ menu/art/unknownmap_mb
 		map menu/art/unknownmap_mb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
-	}
-}
-
-gfx/menus/mb_scrollbar_arrow_up_a
-{
-	nopicmip
-	nomipmaps
-	{
-		clampmap gfx/menus/mb_scrollbar_arrow_up_a
-		blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
-	}
-}
-
-gfx/menus/mb_scrollbar_arrow_left
-{
-	nopicmip
-	nomipmaps
-	{
-		clampmap gfx/menus/mb_scrollbar_arrow_left
-		blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
-	}
-}
-
-gfx/menus/mb_scrollbar_arrow_right
-{
-	nopicmip
-	nomipmaps
-	{
-		clampmap gfx/menus/mb_scrollbar_arrow_right
-		blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
-	}
-}
-
-gfx/menus/mb_scrollbar_arrow_dwn_a
-{
-	nopicmip
-	nomipmaps
-	{
-		clampmap gfx/menus/mb_scrollbar_arrow_dwn_a
-		blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
-	}
-}
-
-gfx/menus/mb_scrollbar
-{
-	nopicmip
-	nomipmaps
-	{
-		map gfx/menus/mb_scrollbar
-		blendFunc GL_ONE GL_ONE
-	}
-}
-
-gfx/menus/mb_scrollbar_thumb
-{
-	nopicmip
-	nomipmaps
-	{
-		clampmap gfx/menus/mb_scrollbar_thumb
-		blendFunc GL_ONE GL_ONE
-	}
-}
-
-menu/new/mb_slider
-{
-	nopicmip
-	nomipmaps
-	{
-		map menu/new/mb_slider
-		blendFunc GL_ONE GL_ONE
-	}
-}
-
-menu/new/mb_sliderthumb
-{
-	nopicmip
-	nomipmaps
-	{
-		map menu/new/mb_sliderthumb
-		blendFunc GL_ONE GL_ONE
 	}
 }
 
@@ -234,134 +95,27 @@ gfx/hud/mb_loadtick_cap
 	}
 }
 
-
-////MENUS////
-
-gfx/menus/menu_bar
+gfx/menus/greyscale2
 {
 	nopicmip
 	nomipmaps
 	notc
 	{
-		map gfx/menus/menu_bar
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-	{
-		map gfx/menus/menu_bar_glow
-		blendFunc GL_ONE GL_ONE
-		rgbGen wave sin 0.5 0.35 0 0.6
-	}
-}
-
-gfx/menus/menu_bar_play
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/menu_bar_play
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-	{
-		map gfx/menus/menu_bar_glow
-		blendFunc GL_ONE GL_ONE
-		rgbGen wave sin 0.5 0.35 0 0.6
-	}
-}
-
-gfx/menus/menu_bar_setcon
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/menu_bar_setcon
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-	{
-		map gfx/menus/menu_bar_glow
-		blendFunc GL_ONE GL_ONE
-		rgbGen wave sin 0.5 0.35 0 0.6
-	}
-}
-
-gfx/menus/movie
-{
-	notc
-		{
-		videomap EIII.roq
-		blendFunc add
-		rgbGen identity
-	}
-}
-
-gfx/menus/ingamebox1
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/ingamebox1
+		map gfx/menus/greyscale2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
 }
 
-gfx/menus/score_box
+gfx/menus/subtitle
 {
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/score_box
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
+    qer_editorimage    textures/colors/black
+    {
+        map textures/colors/black
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen const 0.8
+    }
 }
-
-gfx/menus/classmenu
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/classmenu
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-	{
-		map gfx/menus/classmenu_glow
-		blendFunc GL_ONE GL_ONE
-		rgbGen wave sin 0.5 0.35 0 0.6
-	}
-}
-
-gfx/menus/credits
-{
-	notc
-	{
-		videoMap video/credits
-	}
-}
-
-gfx/menus/MBIIcredits
-{
-	q3map_nolightmap
-	nopicmip
-	nomipmaps
-	{
-		map gfx/menus/MBIICreditsBack
-	}
-	{
-		map gfx/menus/MBIIcredits
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		tcMod scroll 0 0.0075
-	}
-}
-
 
 ////HUD NOMIPMAPS////
 
@@ -1294,5 +1048,19 @@ gfx/hud/pm_ammo
 	{
 	animmap 1 gfx/hud/pm_ammo2.tga gfx/hud/pm_ammo3.tga gfx/hud/pm_ammo4.tga gfx/hud/pm_ammo5.tga      
 	blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+	}
+}
+
+////TUTORIAL////
+
+gfx/tutorial/Tut_Completed
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/tutorial/Tut_Completed
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
 	}
 }
