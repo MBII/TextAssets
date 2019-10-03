@@ -418,7 +418,7 @@ gfx/menus/alpha/Menu_Quit
 	{
 		map gfx/menus/alpha/Menu_Quit
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
+		rgbGen vertex
 	}
 }
 
@@ -430,7 +430,7 @@ gfx/menus/alpha/Menu_Quit_Ingame
 	{
 		map gfx/menus/alpha/Menu_Quit_Ingame
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
+		rgbGen vertex
 	}
 }
 
