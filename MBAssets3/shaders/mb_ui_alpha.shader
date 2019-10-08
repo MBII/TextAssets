@@ -564,7 +564,7 @@ gfx/menus/alpha/Menu_CreateServer
 	{
 		map gfx/menus/alpha/Menu_CreateServer
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
+		rgbGen vertex
 	}
 }
 
