@@ -52,6 +52,23 @@ gfx/menus/alpha/Btn_Bg
 	}
 }
 
+gfx/menus/alpha/Btn_Bg1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Btn_hl
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
+	}
+}
+
 gfx/menus/alpha/Btn_hl
 {
 	nopicmip
@@ -326,7 +343,7 @@ gfx/menus/alpha/Scrollbar_Arrow_U
 	nopicmip
 	nomipmaps
 	{
-		clampmap gfx/menus/alpha/Scrollbar_Arrow_U
+		clampmap gfx/menus/alpha/Scrollbar_Arrow
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -337,7 +354,7 @@ gfx/menus/alpha/Scrollbar_Arrow_L
 	nopicmip
 	nomipmaps
 	{
-		clampmap gfx/menus/alpha/Scrollbar_Arrow_L
+		clampmap gfx/menus/alpha/Scrollbar_Arrow
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -348,7 +365,7 @@ gfx/menus/alpha/Scrollbar_Arrow_R
 	nopicmip
 	nomipmaps
 	{
-		clampmap gfx/menus/alpha/Scrollbar_Arrow_R
+		clampmap gfx/menus/alpha/Scrollbar_Arrow
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -359,9 +376,77 @@ gfx/menus/alpha/Scrollbar_Arrow_D
 	nopicmip
 	nomipmaps
 	{
-		clampmap gfx/menus/alpha/Scrollbar_Arrow_D
+		clampmap gfx/menus/alpha/Scrollbar_Arrow
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
+	}
+}
+
+gfx/menus/alpha/Scrollbar2_Arrow_U
+{
+	nopicmip
+	nomipmaps
+	{
+		map $whiteimage
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+		alphaGen const 0.1
+	}
+	{
+		clampmap gfx/menus/alpha/Scrollbar2_Arrow_U
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.6 0.6 0.6 )
+	}
+}
+
+gfx/menus/alpha/Scrollbar2_Arrow_L
+{
+	nopicmip
+	nomipmaps
+	{
+		map $whiteimage
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+		alphaGen const 0.1
+	}
+	{
+		clampmap gfx/menus/alpha/Scrollbar2_Arrow_L
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.6 0.6 0.6 )
+	}
+}
+
+gfx/menus/alpha/Scrollbar2_Arrow_R
+{
+	nopicmip
+	nomipmaps
+	{
+		map $whiteimage
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+		alphaGen const 0.1
+	}
+	{
+		clampmap gfx/menus/alpha/Scrollbar2_Arrow_R
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.6 0.6 0.6 )
+	}
+}
+
+gfx/menus/alpha/Scrollbar2_Arrow_D
+{
+	nopicmip
+	nomipmaps
+	{
+		map $whiteimage
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+		alphaGen const 0.1
+	}
+	{
+		clampmap gfx/menus/alpha/Scrollbar2_Arrow_D
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.6 0.6 0.6 )
 	}
 }
 
@@ -376,6 +461,18 @@ gfx/menus/alpha/Scrollbar
 	}
 }
 
+gfx/menus/alpha/Scrollbar2
+{
+	nopicmip
+	nomipmaps
+	{
+		map $whiteimage
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+		alphaGen const 0.1
+	}
+}
+
 gfx/menus/alpha/Scrollbar_Thumb
 {
 	nopicmip
@@ -387,6 +484,17 @@ gfx/menus/alpha/Scrollbar_Thumb
 	}
 }
 
+gfx/menus/alpha/Scrollbar2_Thumb
+{
+	nopicmip
+	nomipmaps
+	{
+		clampmap gfx/menus/alpha/Scrollbar2_Thumb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.6 0.6 0.6 )
+	}
+}
+
 gfx/menus/alpha/Slider
 {
 	nopicmip
@@ -395,6 +503,7 @@ gfx/menus/alpha/Slider
 		map gfx/menus/alpha/Slider
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
+		alphaGen const 0.1
 	}
 }
 
@@ -405,7 +514,53 @@ gfx/menus/alpha/SliderThumb
 	{
 		map gfx/menus/alpha/SliderThumb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.6 0.6 0.6 )
+	}
+}
+
+gfx/menus/alpha/Slider_v
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/menus/alpha/Slider_v
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
+		alphaGen const 0.1
+	}
+}
+
+gfx/menus/alpha/SliderThumb_v
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/menus/alpha/SliderThumb_v
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.6 0.6 0.6 )
+	}
+}
+
+gfx/menus/alpha/Slider_v_RGB
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/menus/alpha/Slider_v
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		alphaGen const 0.1
+	}
+}
+
+gfx/menus/alpha/SliderThumb_v_RGB
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/menus/alpha/SliderThumb_v
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
 	}
 }
 
@@ -446,6 +601,23 @@ gfx/menus/alpha/Menu_Mission
 	}
 }
 
+gfx/menus/alpha/Menu_Mission1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_Mission
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_Clean1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
+	}
+}
+
 gfx/menus/alpha/Menu_Settings
 {
 	nopicmip
@@ -455,6 +627,23 @@ gfx/menus/alpha/Menu_Settings
 		map gfx/menus/alpha/Menu_Settings
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Menu_Settings1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_Settings
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_Clean1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
 	}
 }
 
@@ -483,6 +672,23 @@ gfx/menus/alpha/Menu_Servers
 	}
 }
 
+gfx/menus/alpha/Menu_Servers1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_Servers
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_Clean1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
+	}
+}
+
 gfx/menus/alpha/Menu_Listbox
 {
 	nopicmip
@@ -508,6 +714,23 @@ gfx/menus/alpha/Menu_Help
 	}
 }
 
+gfx/menus/alpha/Menu_Help1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_Help
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_Clean1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
+	}
+}
+
 gfx/menus/alpha/Menu_ClassSelect
 {
 	nopicmip
@@ -517,6 +740,23 @@ gfx/menus/alpha/Menu_ClassSelect
 		map gfx/menus/alpha/Menu_ClassSelect
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Menu_ClassSelect1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_ClassSelect
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_ClassSelect1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
 	}
 }
 
@@ -556,6 +796,35 @@ gfx/menus/alpha/Menu_ClassSelect_Item2
 	}
 }
 
+gfx/menus/alpha/Menu_Clean
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_Clean
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Menu_Clean1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_Clean
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_Clean1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
+	}
+}
+
 gfx/menus/alpha/Menu_CreateServer
 {
 	nopicmip
@@ -568,6 +837,23 @@ gfx/menus/alpha/Menu_CreateServer
 	}
 }
 
+gfx/menus/alpha/Menu_CreateServer1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_CreateServer
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_Clean1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
+	}
+}
+
 gfx/menus/alpha/Menu_Escape
 {
 	nopicmip
@@ -577,6 +863,23 @@ gfx/menus/alpha/Menu_Escape
 		map gfx/menus/alpha/Menu_Escape
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Menu_Escape1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_Escape
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_Escape1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
 	}
 }
 
