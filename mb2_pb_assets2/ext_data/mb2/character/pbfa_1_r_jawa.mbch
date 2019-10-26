@@ -1,0 +1,134 @@
+//Siege class def file.
+
+ClassInfo
+{
+name			"pbfa_1_r_jawa"	
+weapons			WP_MELEE|WP_SABER|WP_TRIP_MINE|WP_DEMP2|WP_BLASTER
+saber1			"swissarmyknife"
+sabercolor		0
+saberstyle		SS_TAVION
+attributes		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,1|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_RESPAWNS,3|MB_ATT_BOWCASTER,1|MB_ATT_BLASTER,1
+maxhealth		80
+maxarmor		20
+ 	model 		"jawa"					
+ 	skin		"default_knuckles"
+uishader		"models/players/jawa/knucklesJawa"
+MBClass			MB_CLASS_BOUNTY_HUNTER 
+classflags		CFL_SHOTGUN|CFL_RUNFASTMELEE|CFL_STATVIEWER|CFL_HEAVYMELEE
+holdables		HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_EWEB|HI_HEALTHDISP
+WP_Demp2Flags 	HELD_PULSE|HELD_SLOW
+WP_SaberFlags 	HELD_PULSE
+modelscale		0.7
+speed			0.85
+forcepool        25
+classNumberLimit	4
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		 "models/weapons2/saber_4/saber_5.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon			"gfx/hud/swissarmyknife" 	//Required: Weapon change icon
+	WeaponName		"Swiss Army Knife"    					//Required: Weapon change display name
+}
+
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_DEMP2				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"  	//Required
+	NewViewModel		"models/weapons2/base_demp2/demp2.glm"   	//Required
+	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2" 				//Required
+	WeaponName			"DEMP 2"    					//Required
+	
+
+	//Efx
+		
+	MissileHitHumanEffect "effects/base_demp2/altdetonate"
+	MissileHitDroid 	"effects/base_demp2/altdetonate"
+
+	WallImpact 			"effects/base_demp2/wall_impact"
+	WallImpactEnhanced 	"effects/base_demp2/wall_impact"
+	WallImpactEnhanced2 	"effects/base_demp2/wall_impact"
+
+	MissileEffect		"effects/base_demp2/projectile"  					
+	AltMissileEffect 	"effects/base_demp2/projectile" 
+
+	MuzzleEffect		"effects/base_demp2/muzzle_flash"   				//Optional: New muzzle effect
+	AltMuzzleEffect		"effects/base_demp2/altmuzzle_flash" 				//Optional: New alt muzzle effect
+	FleshImpact 	 "effects/base_demp2/flesh_impact"
+	DroidImpact 	"effects/base_demp2/flesh_impact"
+	CustomAmmo 	400
+	ClipSize 		25
+	ReloadTimeModifier 	0.85		// default is 1 - 100%
+	ProjSpeedModifier 0.8
+
+	//IdleAnim	nameofanimation		
+	//FiringAnim	nameofanimation	
+
+	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
+	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
+
+
+	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound1		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound3		"sound/weapons/base_demp2/fire.mp3"
+	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
+
+	AltFireEnabled 0
+
+	}
+	
+	WeaponInfo2
+{
+	WeaponToReplace		WP_BLASTER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_BOWCASTER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/CR-1_cannon/rifle_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/CR-1_cannon/rifle.md3"   	//Required: New 1st person weapon model
+	MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
+	MissileEffect		"Blaster/Shot02B"  					//Optional: New effect to be displayed on the projectile
+	AltMissileEffect 	"Blaster/Shot02B"  					//Optional: Ditto for the alt fire
+	FlashSound0			"sound/weapons/t-21/alt_fire.mp3"  			//Optional: Sound played when the weapon fires
+	AltFlashSound0		"sound/weapons/t-21/alt_fire.mp3"
+	Icon				"gfx/hud/w_icon_clonerifle_blobs" 				//Required: Weapon change icon
+	WeaponName			"CR-1 Shotgun Cannon"   					//Required: Weapon change display name
+	CustomAmmo 	400
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/marvel/spidersense"
+	ForcePowerName	"Ugandan Senses"
+}
+
+description	"Ugandan Jawa
+
+Weaponry:
+Destructive Electromagnetic Pulse 2 (Demp 2)
+CR-1 Shotgun Cannon
+Swiss Army Knife
+Pulse Grenade (3)
+Poison Darts (2)
+
+Items:
+Portable Shield
+Sentry Gun
+
+Abilities:
+Knows De Wei
+Ugandan Senses
+Can heal others and see their wei / health.
+Acid Blood
+Dodge (3)
+Defense (1)
+Rechargeable shield
+Assemble
+Ugandan Shin Kick
+
+Three Extra Lives"

@@ -1,0 +1,160 @@
+	//Siege class def file.
+
+	ClassInfo
+	{
+		name		"pbfa_2_r_badman"
+		weapons		WP_MELEE|WP_REPEATER|WP_THERMAL|WP_TRIP_MINE|WP_SABER
+		attributes	MB_ATT_RALLY|MB_ATT_CLONERIFLE,1|MB_ATT_CLONEBLOBS,3|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ANTI_MT|MB_ATT_SONIC_DETONATOR,3|MB_ATT_POISON_DART,3|MB_ATT_THERMALS,3|MB_ATT_GRAPPLE_HOOK,3
+		classflags	CFL_HEAVYMELEE|CFL_STRONGAGAINSTPHYSICAL|CFL_SEEING_STEALTH|CFL_NOPICKUPS|CFL_FASTHACKING|CFL_BPFREEJUMPS|CFL_FORCEBLINDING
+		forcepowers	FP_SPEED,2|FP_LEVITATION,2|FP_TELEPATHY,1|FP_SEE,1|FP_SABER_DEFENSE,2|FP_LIGHTNING,3|FP_SABERTHROW,3
+		forceregen	1
+		saber1			pb_batarang
+		saber2			pb_batarang
+		APmultiplier		2
+		BPmultiplier		.5
+		saberstyle		SS_DUAL
+		forcepool   100
+		maxhealth	100
+		maxarmor	30
+		extralives	1
+		speed 1.2
+		meleeknockback  1.5
+		WP_RepeaterFlags	HELD_PULSE|HELD_LOWDAMAGE|HELD_AMMOREGEN
+		model "batman_begins"
+		skin  "pbfa"
+		uishader  "models/players/batman_begins/mb2_icon_pbfa"
+		mbclass	MB_CLASS_JEDI
+		classNumberLimit	3
+		WP_MeleeFlags		HELD_HEAL
+	}
+	
+	WeaponInfo0
+{
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_REPEATER
+  NewWorldModel		"models/weapons2/dummy/dummy.glm"
+  NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon  "gfx/mplevels/dc_universe/dc_batarang"
+	idleAnim		MELEE_STAND
+	firingAnim		SBD_FIRE
+	missileModel  "models/weapons2/dc_batarang/batarang.md3"
+	MissileMissEffect "melee_weap/block"
+	altMissileMissEffect  "melee_weap/block"
+	MuzzleEffect  "null/null"
+	AltMuzzleEffect  "null/null"
+	MissileHitHumanEffect	"melee_weap/block"
+  MissileHitDroid	"melee_weap/block"
+	WeaponName  "Batarang"
+	primFireEnabled		0
+}
+
+WeaponInfo1
+{
+	WeaponToReplace				WP_THERMAL
+	WeaponBasedOff				WP_THERMAL
+	NewWorldModel "models/weapons2/dc_smokepellet/smokepellet.glm"  
+  NewViewModel  "models/weapons2/dc_smokepellet/smokepellet.md3"
+	missileModel  "models/weapons2/dc_smokepellet/smokepellet.md3"
+  Icon  "gfx/mplevels/dc_universe/dc_smokepellet"
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	MissileMissEffect			"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	missileHitHumanEffect		"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	missileHitDroidEffect		"Grenades/EXP_Flash"
+	Icon						"gfx/hud/w_icon_StormiTD"
+	WeaponName					"Flashbang Pellet"
+	customammo					2
+	primFireEnabled				0
+	
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_MELEE
+	WeaponBasedOff		WP_MELEE  
+	NewWorldModel "models/weapons2/noweap/noweap.glm"
+	NewViewModel  "models/weapons2/dummy/dummy.md3"
+	Icon  "gfx/mplevels/dc_universe/bane_groundsmash"
+	WeaponName  "Melee"
+}
+
+WeaponInfo3
+{
+WeaponToReplace		WP_SABER
+WeaponBasedOff		WP_SABER
+NewWorldModel		"models/weapons2/dummy/dummy.md3"
+NewViewModel		"models/weapons2/dummy/dummy.md3"
+Icon			"gfx/mplevels/dc_universe/melee"
+WeaponName		"Advanced Melee"
+}
+
+WeaponInfo4
+{
+	WeaponToReplace		WP_TRIP_MINE
+	WeaponBasedOff		WP_TRIP_MINE
+	NewWorldModel		"models/weapons2/sonic_detonator/sonic_det_w.glm"
+	NewViewModel		"models/weapons2/sonic_detonator/sonic_det.md3"
+	missileModel		"models/weapons2/sonic_detonator/sonic_det_proj.md3"
+	Icon			"gfx/hud/w_icon_sonic_det"
+	WeaponName		"Sonic Detonator"
+	CustomAmmo	5
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_LIGHTNING
+	Icon		"gfx/marvel/vamp.png"
+	ForcePowerName	"Bats!"
+	StartSound "sound/pb/bat_lightninghit1"
+	LoopSound "sound/pb/bat_lightning2"
+	ConeEffect	"effects/force/bat_lightningwide.efx"
+	HandShaderRed	10
+	HandShaderBlue	10
+	HandShaderGreen	10
+	HandShader2Red	10
+	HandShader2Green	10
+	HandShader2Blue	10
+}
+
+ForceInfo1
+{
+	ForceToReplace  FP_SEE
+	ForcePowerName  "Detective Mode"
+	Icon  "gfx/mplevels/dc_universe/fp_batman"
+}
+
+description	"Badman
+
+Weapons:
+Batman's Advanced Melee
+(Defense 1, half BP, APx2)
+Sonic Detonator (5)
+Flashbang Grenade (2)
+Batarangs (Blobs)
+Grappling Hook
+Poison Darts (3)
+
+Abilities:
+Heals in melee
+Rally
+Speed	(2)
+Block (3)
+Bat Sense (1)
+Saber Defense (2)
+BATS! (Lightning 3)
+Blinding (1)
+Jump	  (2)
+
+Armor regen
+Cortosis Armor
+Blast Armor 
+Magnetic Plating
+
+Computer Expert (Fast Hacker)
+Cloaking Device
+Sense Immunity
+Mindtrick immunity
+
+Extra Life
+"
