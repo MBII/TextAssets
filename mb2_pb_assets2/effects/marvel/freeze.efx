@@ -1,0 +1,156 @@
+repeatDelay				800
+
+Particle
+{
+	life				250 350
+
+	rotation			0 360
+
+	rotationDelta		50 -20
+
+	gravity				100 200
+
+	rgb
+	{
+		start			0.4 0.6 0.898 1 1 1
+		end				0.8824 0.9569 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			15 5
+		end				30 50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/snowpuff2
+	]
+}
+
+OrientedParticle
+{
+	spawnFlags			cheapOrgCalc
+
+	life				200 350
+
+	origin				0 0 0.1
+
+	rotation			0 360
+
+	rgb
+	{
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1 0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				50 100
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/ball
+	]
+}
+
+Light
+{
+	origin				0 0 0.1
+
+	rgb
+	{
+		start			0.8824 0.9569 1
+	}
+
+	size
+	{
+		start			200
+	}
+}
+
+Emitter
+{
+	name				ice
+
+	flags				expensivePhysics useModel usePhysics
+
+	count				1 10
+
+	life				1.05e+004
+
+	origin				0 -20 -20 0 20 20
+
+	gravity				-500 -800
+
+	size
+	{
+		start			0.1 0.4
+		end				0.2 0.6
+		flags			linear
+	}
+
+	models
+	[
+		gfx/misc/ice1.md3
+		gfx/misc/ice2.md3
+		gfx/misc/ice3.md3
+		gfx/misc/ice4.md3
+		gfx/misc/ice5.md3
+	]
+}
+
+Decal
+{
+	name				Icemark
+
+	spawnFlags			cheapOrgCalc
+
+	life				1.005e+004
+
+	origin				10 10 0 -10 -10 0
+
+	rotation			0 360
+
+	alpha
+	{
+		start			0.7 0.2
+	}
+
+	size
+	{
+		start			30 50
+	}
+
+	shaders
+	[
+		gfx/misc/icedecal.jpg
+	]
+}
+
+CameraShake
+{
+	life				500
+
+	intensity			8 7
+
+	radius				200 300
+}

@@ -1,0 +1,104 @@
+Teams
+{
+	team1 Bespin
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_cloudcity/cloudcity"
+missionname "Delivery of Meme Solo"
+radartopleft "-4608, 17920"
+radarbottomright "8960, 6400"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cloudcity"
+		radargraphicfull "gfx/automap/mb2_cloudcityfull"
+	}
+}
+
+countin_time 0
+
+roundbegin_target ""
+
+Imperials
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "pbfa_dark"
+	TeamIcon "gfx/2d/logos/mb_impmander"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Hold the Rebellion off"
+		final 0
+		message_team1 "The Rebellion has been defeated."
+		message_team2 "You have been held off."
+		objdesc "SECONDARY GOAL:
+		Hold the rescue-mission of the Rebellion off."
+		objgfx "gfx/mplevels/mb2_cloudcity/imp_objective2"
+	}
+
+	Objective2
+	{
+		goalname "Deliver Meme Solo to the Slave I"
+		final 0
+		message_team1 "You have completed the delivery."
+		message_team2 "You have failed to regain Meme Solo."
+		objdesc "PRIMARY GOAL:
+		Deliver the in carbonite frozen Meme Solo to the Slave I."
+		objgfx "gfx/mplevels/mb2_cloudcity/imp_objective1"
+	}
+
+	wonround "Meme Solo has been delivered to the Slave I."
+	lostround "The Rebellion has taken Meme Solo."
+	roundover_sound_wewon "sound/pb/goodjob.mp3"
+	roundover_sound_welost "sound/pb/icantbelieve.mp3"
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Deliver Meme Solo."
+}
+
+Bespin
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "pbfa_light"
+	TeamIcon "gfx/2d/logos/mb_rebmander"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Regain Meme Solo"
+		final 0
+		message_team1 "The Imperial Forces have been held off."
+		message_team2 "You lost Meme Solo."
+		target ""
+		objdesc "SECONDARY GOAL:
+		Rescue the in carbonite frozen Meme Solo from the Imperial Forces."
+		objgfx "gfx/mplevels/mb2_cloudcity/reb_objective2"
+	}
+
+	Objective2
+	{
+		goalname "Regain Meme Solo"
+		final 0
+		message_team1 "Meme Solo has been taken to the Millennium Falcon."
+		message_team2 "The Rebellion has escaped with Meme Solo."
+		target ""
+		objdesc "PRIMARY GOAL:
+		Retrieve Meme Solo and deliver him to the Millennium Falcon to escape."
+		objgfx "gfx/mplevels/mb2_cloudcity/reb_objective1"
+	}
+
+	wonround "Meme Solo has been saved successfully."
+	lostround "The Rebellion has failed to regain Meme Solo."
+	roundover_sound_wewon "sound/pb/feelingit.mp3"
+	roundover_sound_welost "sound/pb/sein.mp3"
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Regain Meme Solo."
+}
