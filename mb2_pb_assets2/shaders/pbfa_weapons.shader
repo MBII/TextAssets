@@ -382,88 +382,88 @@ models/weapons2/dragonslayer_d/dragonslayer_d
     }
 }
 
-models/weapons2/guts/blade
+models/weapons2/berserk_golden_age/blade
 {
 	q3map_nolightmap
     {
-        map models/weapons2/guts/blade
+        map models/weapons2/berserk_golden_age/blade
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/guts/blade_spec
+        map models/weapons2/berserk_golden_age/blade_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/guts/saber_enviro
+        map models/weapons2/berserk_golden_age/saber_enviro
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         detail
         tcGen environment
     }
 }
 
-models/weapons2/guts/guard
+models/weapons2/berserk_golden_age/guard
 {
 	q3map_nolightmap
     {
-        map models/weapons2/guts/guard
+        map models/weapons2/berserk_golden_age/guard
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/guts/guard_spec
+        map models/weapons2/berserk_golden_age/guard_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/guts/saber_enviro
+        map models/weapons2/berserk_golden_age/saber_enviro
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         detail
         tcGen environment
     }
 }
 
-models/weapons2/guts/guard_holders
+models/weapons2/berserk_golden_age/guard_holders
 {
 	q3map_nolightmap
     {
-        map models/weapons2/guts/guard_holders
+        map models/weapons2/berserk_golden_age/guard_holders
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/guts/guard_holders_spec
+        map models/weapons2/berserk_golden_age/guard_holders_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/guts/saber_enviro
+        map models/weapons2/berserk_golden_age/saber_enviro
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         detail
         tcGen environment
     }
 }
 
-models/weapons2/guts/hilt_end
+models/weapons2/berserk_golden_age/hilt_end
 {
 	q3map_nolightmap
     {
-        map models/weapons2/guts/hilt_end
+        map models/weapons2/berserk_golden_age/hilt_end
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/guts/hilt_end_spec
+        map models/weapons2/berserk_golden_age/hilt_end_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/guts/saber_enviro
+        map models/weapons2/berserk_golden_age/saber_enviro
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         detail
         tcGen environment

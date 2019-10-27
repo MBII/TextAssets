@@ -82,12 +82,12 @@ models/players/bender/hands
     }
 }
 
-models/players/bender/torso
+models/players/bender/torsohips
 {
 	q3map_nolightmap
 	q3map_onlyvertexlighting
     {
-        map models/players/bender/torso
+        map models/players/bender/torsohips
         rgbGen lightingDiffuse
     }
     {
@@ -96,19 +96,19 @@ models/players/bender/torso
         tcGen environment
     }
     {
-        map models/players/bender/torso_spec
+        map models/players/bender/torsohips_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/bender/torso_red
+models/players/bender/torsohips_red
 {
 	q3map_nolightmap
 	q3map_onlyvertexlighting
     {
-        map models/players/bender/torso_red
+        map models/players/bender/torsohips_red
         rgbGen lightingDiffuse
     }
     {
@@ -117,19 +117,19 @@ models/players/bender/torso_red
         tcGen environment
     }
     {
-        map models/players/bender/torso_spec
+        map models/players/bender/torsohips_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/bender/torso_blue
+models/players/bender/torsohips_blue
 {
 	q3map_nolightmap
 	q3map_onlyvertexlighting
     {
-        map models/players/bender/torso_blue
+        map models/players/bender/torsohips_blue
         rgbGen lightingDiffuse
     }
     {
@@ -138,46 +138,25 @@ models/players/bender/torso_blue
         tcGen environment
     }
     {
-        map models/players/bender/torso_spec
+        map models/players/bender/torsohips_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/bender/hips
-{
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-    {
-        map models/players/bender/hips
-        rgbGen lightingDiffuse
-    }
-    {
-        map gfx/effects/silver_inv
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-    }
-    {
-        map models/players/bender/hips_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-//BENDER DIRTY
+BENDER DIRTY
 /////////////////////////
 
-models/players/bender_hat/torso_dirty
+models/players/bender_hat/torsohips_dirty
 {
     {
-        map models/players/bender_hat/torso_dirty
+        map models/players/bender_hat/torsohips_dirty
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/bender_hat/torso_dirty
+        map models/players/bender/torsohips_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         glow
@@ -193,7 +172,7 @@ models/players/bender_hat/arms_dirty
         rgbGen lightingDiffuse
     }
     {
-        map models/players/bender_hat/arms_dirty
+        map models/players/bender/arms_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         glow
@@ -209,7 +188,7 @@ models/players/bender_hat/leg_dirty
         rgbGen lightingDiffuse
     }
     {
-        map models/players/bender_hat/leg_dirty
+        map models/players/bender/leg_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         glow
@@ -225,23 +204,7 @@ models/players/bender_hat/hands_dirty
         rgbGen lightingDiffuse
     }
     {
-        map models/players/bender_hat/hands_dirty
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        glow
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/bender_hat/hips_dirty
-{
-    {
-        map models/players/bender_hat/hips_dirty
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/bender_hat/hips_dirty
+        map models/players/bender/hands_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         glow
@@ -257,7 +220,7 @@ models/players/bender_hat/head_dirty
         rgbGen lightingDiffuse
     }
     {
-        map models/players/bender_hat/head_dirty
+        map models/players/bender/head_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         glow
@@ -348,10 +311,10 @@ models/players/bender_gold/hands_gold
     }
 }
 
-models/players/bender_gold/torso_gold
+models/players/bender_gold/torsohips_gold
 {
     {
-        map models/players/bender_gold/torso_gold
+        map models/players/bender_gold/torsohips_gold
         blendFunc GL_ONE GL_ZERO
 	rgbGen lightingDiffuse
     }
@@ -361,17 +324,20 @@ models/players/bender_gold/torso_gold
         tcGen environment
     }
     {
-        map models/players/bender_gold/torso_gold_spec
+        map models/players/bender_gold/torsohips_gold_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/bender_gold/hips_gold
+
+/////////santa/////////
+
+models/players/bender_santa/arms_santa
 {
     {
-        map models/players/bender_gold/hips_gold
+        map models/players/bender_santa/arms_santa
         blendFunc GL_ONE GL_ZERO
 	rgbGen lightingDiffuse
     }
@@ -381,9 +347,50 @@ models/players/bender_gold/hips_gold
         tcGen environment
     }
     {
-        map models/players/bender_gold/hips_gold_spec
+        map models/players/bender/arms_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
+
+models/players/bender_santa/leg_santa
+{
+    {
+        map models/players/bender_santa/leg_santa
+        blendFunc GL_ONE GL_ZERO
+	rgbGen lightingDiffuse
+    }
+    {
+        map gfx/effects/gold_inv
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/bender/leg_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/bender_santa/torsohips_santa
+{
+    {
+        map models/players/bender_santa/torsohips_santa
+        blendFunc GL_ONE GL_ZERO
+	rgbGen lightingDiffuse
+    }
+    {
+        map gfx/effects/gold_inv
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/bender/torsohips_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
