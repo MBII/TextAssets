@@ -1,0 +1,89 @@
+Teams
+{
+	team1 Memers
+	team2 Tryhards
+}
+
+mapgraphic "gfx/VXOne/FDepot"
+missionname  "Fuel Depot"
+
+roundbegin_target ""
+
+Memers
+{
+	RequiredObjectives 2
+	Timed 300								
+	UseTeam "pbfa_light" 							
+	TeamIcon	"gfx/2d/logos/mb_rebmander"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Protect the meme fuel"
+		final 0
+		message_team1 "They've got the meme Fuel"
+		message_team2 "We've retrieved the meme Fuel"
+		objdesc "SECONDARY GOAL:
+		Stop the Imperial Force from recovering the meme Fuel"
+		objgfx "gfx/VXOne/objfd1"
+	}
+		Objective2
+	{
+		goalname "Stop them downloading the memes"
+		final 1
+		message_team1 "They've got the meme!"
+		message_team2 "Memes have been taken!"
+		objdesc "PRIMARY GOAL:
+		Stop the Download"
+		objgfx "gfx/VXOne/objfd2"
+	}
+
+	wonround "We did it" 						
+	lostround "We failed" 					
+	roundover_sound_wewon "sound/pb/woah.mp3"
+	roundover_sound_welost "sound/pb/curbyourpowerbattlestheme.mp3"
+	roundover_target ""
+	attackers 0 
+
+	briefing "Set a bomb near the fuel and then escape on the shuttle." 
+}
+
+Tryhards
+{
+	RequiredObjectives 2
+	UseTeam "pbfa_dark"
+	TeamIcon	"gfx/2d/logos/mb_impmander"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Recover the meme Fuel"
+		final 0
+		message_team1 "They've got the meme Fuel"
+		message_team2 "We've retrieved the meme Fuel"
+		objdesc "SECONDARY GOAL:
+		Determine Fuel loss and recover the meme Fuel"
+		objgfx "gfx/VXOne/objfd1"
+	}
+	
+	Objective2
+	{
+		goalname "Download Intel"
+		final 1
+		message_team1 "They've got the Meme!"
+		message_team2 "Meme taken"
+		objdesc "PRIMARY GOAL:
+		Escape on the Shuttle"
+		objgfx "gfx/VXOne/objfd2"
+	}
+	
+	wonround "We stopped them"
+	lostround "We failed"
+	roundover_sound_wewon "sound/pb/missioncomplete.mp3"
+	roundover_sound_welost "sound/pb/oof.mp3"
+	roundover_target ""
+	attackers 1
+	briefing "Recover meme fuel and download meme!" 
+}

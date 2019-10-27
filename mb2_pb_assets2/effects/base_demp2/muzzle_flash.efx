@@ -1,0 +1,89 @@
+// Simple muzzle flash effect
+
+Line
+{
+	life		10
+	origin2	24 0 0 	30 0 0
+
+	width
+	{
+		start 	4.75 	6.25
+		end	4.0
+		flags	linear
+	}
+
+	alpha
+	{
+		start	0.5	0.6
+		end	0.35
+		flags	linear
+	}
+
+	shader
+	[
+		gfx/effects/bryarSideFlash
+	]
+}
+
+Particle
+{
+	life	50
+	origin	8 0 0
+	rotation	0	360
+
+	size
+	{
+		start 	10.0	12.0
+	}
+
+	alpha
+	{
+		start	0.65	0.8
+		end	0.5
+		flags	linear
+	}
+
+	shader
+	[
+		gfx/misc/lightningFlash
+	]
+}
+
+Light
+{
+	size
+	{
+		start 	100	150
+	}
+
+	rgb
+	{
+		start  1.0 0.7 0.2
+	}
+}
+
+
+sound
+{
+	sounds
+	[
+		sound/weapons/demp2/fire.wav
+	]
+}
+
+forcefeedback
+{
+	forces
+	[
+		fffx/weapons/demp2/fire
+	]
+}
+
+CameraShake
+{
+	life				70
+
+	intensity			0.4 0.5
+
+	radius				60
+}
