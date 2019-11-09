@@ -24,17 +24,17 @@
 			setitembackground		team1_symbol	"*team1_icon"
 			setitembackground		team2_symbol	"*team2_icon"
 			// Enable team buttons, in case they'd been shut off
-			disable			team_button	0
-			disable			autoteam	0
+			disable			team_button		0
+			disable			autoteam		0
 			disable			team1_button	0
 			disable			team2_button	0
 			// and reset colors
-			setitemcolor	team1_button backcolor   1 1 1 0.1
-			setitemcolor	team2_button backcolor   1 1 1 0.1
-			setitemcolor	spectator_button backcolor   1 1 1 0.1
-			setitemcolor	team1name forecolor   0.5 0.5 0.5 1
-			setitemcolor	team2name forecolor   0.5 0.5 0.5 1
-			setitemcolor	team3name forecolor   0.5 0.5 0.5 1
+			setitemcolor	team1_button		backcolor   1 1 1 0.1
+			setitemcolor	team2_button		backcolor   1 1 1 0.1
+			setitemcolor	spectator_button	backcolor   1 1 1 0.1
+			setitemcolor	team1name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team2name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team3name	forecolor   0.5 0.5 0.5 1
 			setitemcolor	team1_count forecolor   0.5 0.5 0.5 1
 			setitemcolor	team2_count forecolor   0.5 0.5 0.5 1
 			setitemcolor	team3_count forecolor   0.5 0.5 0.5 1
@@ -190,6 +190,8 @@
 			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
 			backcolor			1 1 1 0.1
 			visible				1
+			//cvartest			"ui_lockRed"
+			//showcvar			{ "1"}
 
 			mouseEnter
 			{ 
@@ -208,7 +210,6 @@
 			action
 			{ 
 				// show the class stuff, cause this uses class
-				//show			class_button	
 				show			class_count	
 
 				play			"sound/interface/button1.wav"
@@ -226,7 +227,6 @@
 				disable			team_button	0
 				
 				// turn on class buttons
-				//disable		class_button	0
 				disable			reb_class 0
 				
 				// highlight this team button
@@ -236,6 +236,7 @@
 				
 				setitemcolor	reb_class	backcolor 1 1 1 0.1
 				setitemcolor	reb_class	forecolor 1 1 1 1
+				setitemcolor	class_count	forecolor 1 1 1 1
 				
 				setitemrect     mb_class_trooper_icon 12 72 26 33
 				setitemrect     mb_class_elitetrooper_icon 12 122 26 33
@@ -265,8 +266,12 @@
 				close 			mb_points_sbd
 				close 			mb_points_sith
 				close 			mb_points_soldier
+				
+				uiscript		resetsiegelistboxes
+				uiscript		feederselection
+				uiscript		setsiegeclassandteam
+				//uiscript		mb_updatelimits
 
-				show			borderclass
 				hide			imp_class
 				hide			imp_class_sm
 				hide			imp_class_icon
@@ -274,8 +279,6 @@
 				show			reb_class
 				hide			reb_class_sm
 				show			reb_class_icon
-				uiscript		resetsiegelistboxes
-				uiscript		feederselection
 				hide			feeders
 				hide			stats
 				hide 			headlist
@@ -289,11 +292,8 @@
 				hide			sithcust
 				hide 			headlist_tiny
 				hide			modelviewer
-				setitemcolor	class_count	forecolor 1 1 1 1
-				uiscript		setsiegeclassandteam
-				//hide 			headlist 
-				//hide 			headlist_tiny
 				
+				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutTeamSelect
 			}
 		}
@@ -314,6 +314,19 @@
 			visible				1
 			decoration
 		}
+		
+		itemDef
+		{
+			name				red_lock
+			group				lock_icon			
+			rect				8 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}	
 
 		itemDef
 		{
@@ -352,6 +365,8 @@
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 0.1
 			visible				1
+			//cvartest			"ui_lockBlue"
+			//showcvar			{ "1"}
 			
 			mouseEnter
 			{ 
@@ -370,7 +385,6 @@
 			action
 			{ 
 				// show the class stuff, cause this uses class
-				//show			class_button	
 				show			class_count	
 
 				play			"sound/interface/button1.wav"
@@ -387,7 +401,6 @@
 				disable				team_button	0
 				
 				// turn on class buttons
-				//disable			class_button	0
 				disable				imp_class 0
 				
 				// highlight this team button
@@ -397,6 +410,7 @@
 				
 				setitemcolor	imp_class  backcolor 1 1 1 0.1
 				setitemcolor	imp_class  forecolor 1 1 1 1
+				setitemcolor	class_count	forecolor 0.5 0.5 0.5 1
 
 				setitemrect     mb_class_soldier_icon 12 72 26 33
 				setitemrect     mb_class_commander_icon 12 122 26 33
@@ -426,7 +440,11 @@
 				close 			mb_points_trooper
 				close 			mb_points_wookiee
 
-				show			borderclass
+				uiscript		resetsiegelistboxes
+				uiscript		feederselection
+				uiscript		setsiegeclassandteam
+				//uiscript		mb_updatelimits
+
 				show			imp_class
 				hide			imp_class_sm
 				show			imp_class_icon
@@ -434,8 +452,6 @@
 				hide			reb_class
 				hide			reb_class_sm
 				hide			reb_class_icon
-				uiscript		resetsiegelistboxes
-				uiscript		feederselection
 				hide			feeders
 				hide			stats
 				hide 			headlist
@@ -449,10 +465,6 @@
 				hide			sithcust
 				hide 			headlist_tiny
 				hide			modelviewer
-				setitemcolor	class_count	forecolor 0.5 0.5 0.5 1
-				uiscript		setsiegeclassandteam
-				//hide 			headlist 
-				//hide 			headlist_tiny
 			}
 		}
 
@@ -504,7 +516,20 @@
 			visible				1
 			decoration
 		}
-		
+
+		itemDef
+		{
+			name				blue_lock
+			group				lock_icon
+			rect				291 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
 		itemDef
 		{
 			name				spectator_symbol
@@ -545,12 +570,12 @@
 			action
 			{ 
 				play			"sound/interface/button1.wav"
-				hide			borderclass
 				hide			reb_class
 				hide			imp_class
 				setcvar			ui_holdteam 3
 				exec			"cmd team s" 				
 				uiScript		closeingame
+				//uiscript        mb_updatelimits
 				setitemcolor	spectator_button backcolor   1 1 1 0.5
 			}
 		}
@@ -1121,6 +1146,7 @@
 				close 			mb_points_trooper
 				close 			mb_points_wookiee
 				
+				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutCloneSelect
 			}
 		}
@@ -1202,6 +1228,7 @@
 				close 			mb_points_trooper
 				close 			mb_points_wookiee
 				
+				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutCloneSelect
 			}
 		}
@@ -3491,6 +3518,8 @@
 				play			"sound/interface/button1"
 				uiScript		"getmodelcvars"	//needed for model display stuff
 				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutModelSelect
 			}
 			mouseEnter
@@ -3559,6 +3588,8 @@
 				play			"sound/interface/button1"
 				uiScript		"getmodelcvars"	//needed for model display stuff
 				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutModelSelect
 			}
 			mouseEnter
@@ -4813,6 +4844,7 @@
 				hide			stats
 				uiScript		closeingame
 
+				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutClassAndTeam
 			}
 			mouseenter
