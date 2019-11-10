@@ -205,7 +205,7 @@
 				setitemcolor		team1_count		forecolor	0.5 0.5 0.5 1
 				setitemcolor		team1name		forecolor	0.5 0.5 0.5 1
 			}
-			
+
 			// If you change this script, be sure to change	onteam1		
 			action
 			{ 
@@ -217,27 +217,27 @@
 				uiscript		updatesiegeclasscnt      1
 				uiscript		updatesiegecvars
 				//uiscript		printmsg	team1buttonunlockred
-		
+
 				// Darken the other team buttons				
 				setitemcolor	team_button	backcolor   1 1 1 0.1
 				setitemcolor	team_count	forecolor	0.5 0.5 0.5 1
 				setitemcolor	team2name	forecolor	0.5 0.5 0.5 1
-				
+
 				// turn on the other team buttons for input
 				disable			team_button	0
-				
+
 				// turn on class buttons
 				disable			reb_class 0
-				
+
 				// highlight this team button
 				setitemcolor	team1_button	backcolor 1 1 1 0.5
 				setitemcolor	team1_count		forecolor 1 1 1 1
 				setitemcolor	team1name 		forecolor 1 1 1 1
-				
+
 				setitemcolor	reb_class	backcolor 1 1 1 0.1
 				setitemcolor	reb_class	forecolor 1 1 1 1
 				setitemcolor	class_count	forecolor 1 1 1 1
-				
+
 				setitemrect     mb_class_trooper_icon 12 72 26 33
 				setitemrect     mb_class_elitetrooper_icon 12 122 26 33
 				setitemrect     mb_class_clonetrooper_icon 12 172 26 33
@@ -248,17 +248,9 @@
 
 				// no more input for this guy
 				disable			team1_button	1
-				
-				setitemtext		class1_count "*ui_tm1_c0_cnt"
-				setitemtext		class2_count "*ui_tm1_c1_cnt"
-				setitemtext		class3_count "*ui_tm1_c2_cnt"
-				setitemtext		class4_count "*ui_tm1_c3_cnt"
-				setitemtext		class5_count "*ui_tm1_c4_cnt"
-				setitemtext		class6_count "*ui_tm1_c5_cnt"
-				setitemtext		class7_count "*ui_tm1_c6_cnt"
-				
+
 				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
-				
+
 				close 			mb_points_bounty_hunter
 				close 			mb_points_commander
 				close 			mb_points_droideka
@@ -266,11 +258,11 @@
 				close 			mb_points_sbd
 				close 			mb_points_sith
 				close 			mb_points_soldier
-				
+
 				uiscript		resetsiegelistboxes
 				uiscript		feederselection
 				uiscript		setsiegeclassandteam
-				//uiscript		mb_updatelimits
+				uiscript		mb_updatelimits
 
 				hide			imp_class
 				hide			imp_class_sm
@@ -292,7 +284,7 @@
 				hide			sithcust
 				hide 			headlist_tiny
 				hide			modelviewer
-				
+
 				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutTeamSelect
 			}
@@ -367,7 +359,7 @@
 			visible				1
 			//cvartest			"ui_lockBlue"
 			//showcvar			{ "1"}
-			
+
 			mouseEnter
 			{ 
 				setitemcolor		team2_button	backcolor	1 1 1 0.3
@@ -380,7 +372,7 @@
 				setitemcolor		team2_count		forecolor	0.5 0.5 0.5 1
 				setitemcolor		team2name		forecolor	0.5 0.5 0.5 1
 			}
-			
+
 			// If you change this script, be sure to change	onteam2
 			action
 			{ 
@@ -399,15 +391,15 @@
 				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
 				// turn on the other team buttons for input
 				disable				team_button	0
-				
+
 				// turn on class buttons
 				disable				imp_class 0
-				
+
 				// highlight this team button
 				setitemcolor	team2_button	backcolor	1 1 1 0.5
 				setitemcolor	team2_count		forecolor	1 1 1 1
 				setitemcolor	team2name		forecolor	1 1 1 1
-				
+
 				setitemcolor	imp_class  backcolor 1 1 1 0.1
 				setitemcolor	imp_class  forecolor 1 1 1 1
 				setitemcolor	class_count	forecolor 0.5 0.5 0.5 1
@@ -422,16 +414,9 @@
 
 				// no more input for this guy
 				disable			team2_button	1
-				
-				setitemtext		class1_count "*ui_tm2_c0_cnt"
-				setitemtext		class2_count "*ui_tm2_c1_cnt"
-				setitemtext		class3_count "*ui_tm2_c2_cnt"
-				setitemtext		class4_count "*ui_tm2_c3_cnt"
-				setitemtext		class5_count "*ui_tm2_c4_cnt"
-				setitemtext		class6_count "*ui_tm2_c5_cnt"
-				
+
 				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
-				
+
 				close 			mb_points_arctrooper
 				close 			mb_points_clonetrooper
 				close 			mb_points_elitetrooper
@@ -443,7 +428,7 @@
 				uiscript		resetsiegelistboxes
 				uiscript		feederselection
 				uiscript		setsiegeclassandteam
-				//uiscript		mb_updatelimits
+				uiscript		mb_updatelimits
 
 				show			imp_class
 				hide			imp_class_sm
@@ -660,7 +645,7 @@
 		itemDef
 		{
 			name				mb_class_trooper
-			group				reb_class		
+			group				reb_class	
 			rect				8 66 146 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
@@ -842,8 +827,8 @@
 		
 		itemDef
 		{
-			name				class1_count
-			group				class_count
+			name				mb_class_trooper_cnt
+			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 72 26 32
@@ -857,7 +842,74 @@
 			visible				0
 			decoration
 		}
-		
+
+		itemDef
+		{
+			name				mb_class_trooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 72 26 32
+			cvar				mb_class_trooper_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_trooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 72 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_trooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 72 26 32
+			cvar				mb_class_trooper_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_trooper_lock
+			group				reb_class
+			rect				8 66 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
 		//rebel commander
 		itemDef
 		{
@@ -1041,8 +1093,8 @@
 
 		itemDef
 		{
-			name				class2_count
-			group				class_count
+			name				mb_class_elitetrooper_cnt
+			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 122 26 32
@@ -1056,7 +1108,74 @@
 			visible				0
 			decoration
 		}
-		
+
+		itemDef
+		{
+			name				mb_class_elitetrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 122 26 32
+			cvar				mb_class_elitetrooper_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_elitetrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 122 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_elitetrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 122 26 32
+			cvar				mb_class_elitetrooper_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_elitetrooper_lock
+			group				reb_class
+			rect				8 116 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
 		//CloneTrooper
 		itemDef
 		{
@@ -1247,8 +1366,8 @@
 
 		itemDef
 		{
-			name				class6_count
-			group				class_count
+			name				mb_class_clonetrooper_cnt
+			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 172 26 32
@@ -1261,6 +1380,73 @@
 			cvar				mb_class_clonetrooper_cnt
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_clonetrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 172 26 32
+			cvar				mb_class_clonetrooper_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_clonetrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 172 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_clonetrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 172 26 32
+			cvar				mb_class_clonetrooper_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_clonetrooper_lock
+			group				reb_class
+			rect				8 166 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 		//ARC Trooper
@@ -1447,8 +1633,8 @@
 
 		itemDef
 		{
-			name				class7_count
-			group				class_count
+			name				mb_class_arctrooper_cnt
+			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 222 26 32
@@ -1461,6 +1647,73 @@
 			cvar				mb_class_arctrooper_cnt
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_arctrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 222 26 32
+			cvar				mb_class_arctrooper_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_arctrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 222 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_arctrooper_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 222 26 32
+			cvar				mb_class_arctrooper_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_arctrooper_lock
+			group				reb_class
+			rect				8 216 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 		//HERO
@@ -1647,8 +1900,8 @@
 
 		itemDef
 		{
-			name				class4_count
-			group				class_count
+			name				mb_class_hero_cnt
+			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 272 26 32
@@ -1661,6 +1914,73 @@
 			cvar				mb_class_hero_cnt
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_hero_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 272 26 32
+			cvar				mb_class_hero_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_hero_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 272 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_hero_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 272 26 32
+			cvar				mb_class_hero_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_hero_lock
+			group				reb_class
+			rect				8 266 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 		//Wookiee
@@ -1847,8 +2167,8 @@
 
 		itemDef
 		{
-			name				class5_count
-			group				class_count
+			name				mb_class_wookie_cnt
+			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 322 26 32
@@ -1861,6 +2181,73 @@
 			cvar				mb_class_wookie_cnt
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_wookie_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 322 26 32
+			cvar				mb_class_wookie_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_wookie_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 322 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_wookie_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 322 26 32
+			cvar				mb_class_wookie_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_wookie_lock
+			group				reb_class
+			rect				8 316 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 		//Jedi
@@ -2048,8 +2435,8 @@
 
 		itemDef
 		{
-			name				class3_count
-			group				class_count
+			name				mb_class_jedi_cnt
+			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 372 26 32
@@ -2062,6 +2449,73 @@
 			cvar				mb_class_jedi_cnt
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_jedi_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 372 26 32
+			cvar				mb_class_jedi_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_jedi_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 372 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_jedi_limit
+			group				reb_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 372 26 32
+			cvar				mb_class_jedi_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_jedi_lock
+			group				reb_class
+			rect				8 366 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 		
 // IMPS		
@@ -2249,6 +2703,91 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				mb_class_soldier_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 72 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_soldier_cnt
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 72 26 32
+			cvar				mb_class_soldier_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 72 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 72 26 32
+			cvar				mb_class_soldier_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_soldier_lock
+			group				imp_class
+			rect				8 66 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
 		//imp commander
 		itemDef
 		{
@@ -2430,6 +2969,91 @@
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 122 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_commander_cnt
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 122 26 32
+			cvar				mb_class_commander_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 122 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 122 26 32
+			cvar				mb_class_commander_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_commander_lock
+			group				imp_class
+			rect				8 116 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 		//Sith
@@ -2618,7 +3242,92 @@
 			decoration
 		}
 
-		//bh
+		itemDef
+		{
+			name				mb_class_sith_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 372 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_sith_cnt
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 372 26 32
+			cvar				mb_class_sith_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 372 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 372 26 32
+			cvar				mb_class_sith_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_sith_lock
+			group				imp_class
+			rect				8 366 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		//Bounty Hunter
 		itemDef
 		{
 			name				mb_class_bounty_hunter
@@ -2799,6 +3508,91 @@
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 172 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_bounty_hunter_cnt
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 172 26 32
+			cvar				mb_class_bounty_hunter_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 172 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 172 26 32
+			cvar				mb_class_bounty_hunter_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_lock
+			group				imp_class
+			rect				8 166 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 		//deka
@@ -2984,6 +3778,91 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				mb_class_droideka_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 272 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_droideka_cnt
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 272 26 32
+			cvar				mb_class_droideka_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 272 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 272 26 32
+			cvar				mb_class_droideka_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_droideka_lock
+			group				imp_class
+			rect				8 266 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
 		//manda
 		itemDef
 		{
@@ -3167,6 +4046,91 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				mb_class_mandalorian_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 222 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_mandalorian_cnt
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 222 26 32
+			cvar				mb_class_mandalorian_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 222 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 222 26 32
+			cvar				mb_class_mandalorian_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_mandalorian_lock
+			group				imp_class
+			rect				8 216 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
 		//SBD
 		itemDef
 		{
@@ -3348,6 +4312,91 @@
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 322 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_sbd_cnt
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 322 26 32
+			cvar				mb_class_sbd_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 322 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				123 322 26 32
+			cvar				mb_class_sbd_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_sbd_lock
+			group				imp_class
+			rect				8 316 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 //--------------------------------------------------	
