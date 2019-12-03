@@ -5,118 +5,100 @@
 		name					"mb_class_commander"
 		visible					0
 		fullscreen				0
-		rect					267 87 147 330
+		outOfBoundsClick
+		rect					25 40 630 425
 		focusColor				1 1 1 1
+		style					1
+		border					1
 		descX					320
-		descY					445
+		descY					465
 		descScale				0.8
-		descColor				1 1 1 1
+		descColor				0.1 0.7 1 0.9
 		descAlignment			ITEM_ALIGN_CENTER
-		stayOpen
-
-		itemDef
+		onOpen
 		{
-			name				button_glow
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 0 0
-			background			"gfx/menus/alpha/Button_Highlight"
-			forecolor			1 1 1 0.8
-			visible				0
-			decoration
-		}	
-		
-		itemdef
+			
+			uiScript			"getmodelcvars"	//needed for model display stuff
+			uiScript			"getmodelskin"	//needed for model display stuff
+		}
+		onClose
 		{
-			name				buildbutton
-			text				"BUILD"
-			rect				0 0 74 20
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn3_Bg"
-			font				6
-			textscale			0.15
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			37
-			textaligny			-3
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
-			visible				1
-			mouseenter
-			{
-				show			button_glow
-				setitemrect		button_glow 0 0 74 20
-				setitemcolor	buildbutton		backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				hide			button_glow
-				setitemcolor	buildbutton		backcolor	1 1 1 0.05
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				hide			pointstemplates
-				show			pointssetup
-				setitemcolor	buildbutton		backcolor	1 1 1 0.5
-				setitemcolor	templatebutton	backcolor	1 1 1 0.05
-			}
+			
+		}
+		onEsc
+		{
+			
+			open				ingame_join
+			play				"sound/interface/back.mp3"
+			close 				mb_class_commander
 		}
 
-		itemdef
+		// Character model
+		itemDef
 		{
-			name				templatebutton
-			text				"TEMPLATES"
-			rect 				74 0 73 20
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn3_Bg"
-			font				6
-			textscale			0.15
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			37
-			textaligny			-3
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
+			name				modelviewer
+			group				models
+			type				ITEM_TYPE_MODEL
+			rect				0 -20 165 210
+			model_g2anim		"BOTH_WALK1"
+			asset_model			"ui_char_model"
+			model_angle			90
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2mins		-30 -20 -14
+			model_g2maxs		20 20 30
+			model_rotation		60
+			model_fovx			50
+			model_fovy			50
+			isCharacter			1
 			visible				1
-			mouseenter
-			{
-				show			button_glow
-				setitemrect		button_glow 74 0 73 20
-				setitemcolor	templatebutton	backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				hide			button_glow
-				setitemcolor	templatebutton	backcolor	1 1 1 0.05
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				show			pointstemplates
-				hide			pointssetup
-				setitemcolor	templatebutton	backcolor	1 1 1 0.5
-				setitemcolor	buildbutton		backcolor	1 1 1 0.05
-			}
+			decoration
+		}
+
+		// Overall window backdrop
+		itemDef
+		{
+			name				background_pic
+			group				bg_class
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 430 425
+			background			"ui/art/classmenu"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// Player Configuration title
+		itemDef
+		{
+			name				playerconfigtitle
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Configure your class"
+			rect				100 15 390 28
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			195
+			textaligny			2
+			font				3
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			decoration
 		}
 
 		// Skill points remaining
 		itemDef
 		{
 			name				siderank
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POINTS_REMAINING
 			ownerdraw			UI_FORCE_POINTS
-			rect 				0 20 147 15
+			rect				250 55 0 0
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			64
-			textaligny			-5
-			font				7
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			textalignx			60
+			textaligny			-15
+			font				2
+			textscale			1
+			forecolor			0.1 0.7 1 0.8
 			visible				1
 			decoration
 		}
@@ -126,16 +108,20 @@
 		itemDef
 		{
 			name				forceranktitle
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POWER
-			rect 				0 35 0 0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 82 0 0
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			104
+			textaligny			0
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -143,18 +129,384 @@
 		itemDef
 		{
 			name				forceranktitle2
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_1_2_3
-			rect 				105 35 0 0
+			rect				230 82 0 0
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			1
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			textalignx			115
+			textaligny			0
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
+		}
+		
+// RGB PRESETS
+// Preset slot 1
+		itemDef
+		{
+			name				vet_grey
+			text				""
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				20 237 25 25
+			background			"gfx/menus/colors/rgb_grey"
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Grey Preset"
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_char_color_red 165
+				setcvar			ui_char_color_green 165
+				setcvar			ui_char_color_blue 165
+			}
+		}
+
+// Preset slot 2
+		itemDef
+		{
+			name				vet_black
+			text				""
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				45 237 25 25
+			background			"gfx/menus/colors/rgb_black"
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Black Preset"
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_char_color_red 34
+				setcvar			ui_char_color_green 34
+				setcvar			ui_char_color_blue 34
+			}
+		}
+
+// Preset slot 3
+		itemDef
+		{
+			name				stormie_blue
+			text				""
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb"}
+			group				none
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				70 237 25 25
+			background			"gfx/menus/colors/rgb_blue"
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Blue Preset"
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_char_color_red 50
+				setcvar			ui_char_color_green 80
+				setcvar			ui_char_color_blue 150
+			}
+		}
+
+		itemDef
+		{
+			name				manda_blue
+			text				""
+			cvarTest			"model"
+			showCvar			{ "manda_et/default" }
+			group				none
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				70 237 25 25
+			background			"gfx/menus/colors/rgb_blue"
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Blue Preset"
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_char_color_red 0
+				setcvar			ui_char_color_green 125
+				setcvar			ui_char_color_blue 200
+			}
+		}
+
+// Preset slot 4
+		itemDef
+		{
+			name				vet_red
+			text				""
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				95 237 25 25
+			background			"gfx/menus/colors/rgb_red"
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Red Preset"
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_char_color_red 200
+				setcvar			ui_char_color_green 0
+				setcvar			ui_char_color_blue 0
+			}
+		}
+
+// Preset slot 5
+		itemDef
+		{
+			name				vet_orange
+			text				""
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				120 237 25 25
+			background			"gfx/menus/colors/rgb_orange"
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Orange Preset"
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_char_color_red 255
+				setcvar			ui_char_color_green 165
+				setcvar			ui_char_color_blue 0
+			}
+		}
+
+// RGB SLIDERS
+		itemDef
+		{
+			name				charrgb
+			style				WINDOW_STYLE_FILLED
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			text				"Colour Selection"
+			rect				77 265 150 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			2
+			textaligny			2
+			outlinecolor		0.1 0.7 1 0.2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				charred
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"ui_char_color_red" 50 0 255
+			rect				50 287 150 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale 			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			mouseenter
+			{
+				show			charred_glow
+			}
+			mouseExit
+			{
+				hide			charred_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				chargreen
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"ui_char_color_green" 50 0 255
+			rect				50 307 150 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale 			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			mouseenter
+			{
+				show			chargreen_glow
+			}
+			mouseExit
+			{
+				hide			chargreen_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				charblue
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"ui_char_color_blue" 50 0 255
+			rect				50 327 150 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale 			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			mouseenter
+			{
+				show			charblue_glow
+			}
+			mouseExit
+			{
+				hide			charblue_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		//RGB float values
+		itemDef
+		{
+			name				charred_value
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				"R:"
+			cvar				"ui_char_color_red"
+			maxchars			3
+			maxPaintChars		3
+			rect				26 290 80 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			visible				1
+			descText			"Red Channel Value (0-255)"
+			mouseenter
+			{
+				show			charred_glow
+			}
+			mouseExit
+			{
+				hide			charred_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				chargreen_value
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				"G:"
+			cvar				"ui_char_color_green"
+			maxchars			3
+			maxPaintChars 		3
+			rect				26 310 80 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			visible				1
+			descText			"Green Channel Value (0-255)"
+			mouseenter
+			{
+				show			chargreen_glow
+			}
+			mouseExit
+			{
+				hide			chargreen_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				charblue_value
+			cvarTest			"model"
+			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				0
+			text				"B:"
+			cvar				"ui_char_color_blue"
+			maxchars			3
+			maxPaintChars		3
+			rect				26 330 80 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-2
+			font				4
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			descText			"Blue Channel Value (0-255)"
+			mouseenter
+			{
+				show			charblue_glow
+			}
+			mouseExit
+			{
+				hide			charblue_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
 		}
 
 		// SPECIFIC CLASS ABILITIES
@@ -162,54 +514,41 @@
 		itemDef
 		{
 			name				setfp_jump
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Pistol"
-			rect				0 55 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 100 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
-		}
-
-		itemDef
-		{
-			name				Info_BlasterPistol
-			group				pointssetup
-			rect				23 55 12 16
-			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
-			forecolor			1 1 1 0.6
-			visible				1
-			decoration
-			mouseEnter
-			{
-				open			mb_weapon_pistol
-			}
-			mouseExit
-			{
-				close			mb_weapon_pistol
-			}
 		}
 
 		// Pistol assign
 		itemDef
 		{
 			name				setfp_jump
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LEVITATION
-			rect				0 55 147 16
+			rect				230 100 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.25
 			outlinecolor		1 1 1 1
-			forecolor			1 1 1 0.8
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Add a charge shot"
 			visible				1
 			action
@@ -218,11 +557,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_jump forecolor 1 1 1 1
+				setitemcolor	setfp_jump forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_jump forecolor 1 1 1 0.8
+				setitemcolor	setfp_jump forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -230,53 +569,41 @@
 		itemDef
 		{
 			name				setfp_push
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"E-11 Blaster"
-			rect				0 75 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 120 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
-		}
-
-		itemDef
-		{
-			name				Info_E11
-			group				pointssetup
-			rect				50 75 12 16
-			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
-			forecolor			1 1 1 0.6
-			visible				1
-			decoration
-			mouseEnter
-			{
-				open			mb_weapon_e11
-			}
-			mouseExit
-			{
-				close			mb_weapon_e11
-			}
 		}
 
 		// E-11 Blaster assign
 		itemDef
 		{
 			name				setfp_push
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
-			rect				0 75 147 16
+			rect				230 120 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.25
-			forecolor			1 1 1 0.8
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Add alt-fire mode, and improve accuracy, damage of alt-fire and weapon clip size"
 			visible				1
 			action
@@ -285,11 +612,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_push forecolor 1 1 1 1
+				setitemcolor	setfp_push forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_push forecolor 1 1 1 0.8
+				setitemcolor	setfp_push forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -297,17 +624,18 @@
 		itemDef
 		{
 			name				setfp_lightning
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"T-21"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 95 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 140 110 15 
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
 			visible				1
 			decoration
 		}
@@ -316,15 +644,19 @@
 		itemDef
 		{
 			name				setfp_lightning
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LIGHTNING
-			rect				0 95 147 16
+			rect				230 140 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.25
-			forecolor			1 1 1 0.8
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"A heavy weapon, add alt-fire mode, and improve weapon clip size and firing rate of primary fire"
 			visible				1
 			action
@@ -333,11 +665,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_lightning forecolor 1 1 1 1
+				setitemcolor	setfp_lightning forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_lightning forecolor 1 1 1 0.8
+				setitemcolor	setfp_lightning forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -345,16 +677,20 @@
 		itemDef
 		{
 			name				setfp_saberthrow
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Frag Grenade"
-			rect				0 115 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 160 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -363,17 +699,17 @@
 		itemDef
 		{
 			name				setfp_saberthrow
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERTHROW
-			rect				0 115 147 16
+			rect				230 160 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.25
 			outlinecolor		1 1 1 1
 			backcolor			0 0 0 0
-			forecolor			1 1 1 0.8
+			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
 			descText			"Buy Frag Grenades with high damage primary fire and instantly exploding alt-fire"
@@ -384,11 +720,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_saberthrow forecolor 1 1 1 1
+				setitemcolor	setfp_saberthrow forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_saberthrow forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberthrow forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -396,16 +732,20 @@
 		itemDef
 		{
 			name				setfp_see
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Fire Grenade"
-			rect				0 135 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 180 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -414,15 +754,19 @@
 		itemDef
 		{
 			name				setfp_see
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SEE
-			rect				0 135 147 16
+			rect				230 180 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.25
-			forecolor			1 1 1 0.8
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Buy Fire Grenades which deal high damage and can set large areas on fire"
 			visible				1
 			action
@@ -431,11 +775,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_see forecolor 1 1 1 1
+				setitemcolor	setfp_see forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_see forecolor 1 1 1 0.8
+				setitemcolor	setfp_see forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -443,16 +787,20 @@
 		itemDef
 		{
 			name				setfp_grip
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				darkpowers
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Reinforcement"
-			rect				0 165 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 210 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -461,14 +809,18 @@
 		itemDef
 		{
 			name				setfp_grip
-			group				pointssetup
+			group				darkpowers
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_GRIP
-			rect				0 165 147 16
+			rect				230 210 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
-			forecolor			1 1 1 0.8
+			textalignx			115
+			textaligny			-6
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Allows you to have an extra life in one round"
 			visible				1
 			action
@@ -477,11 +829,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_grip forecolor 1 1 1 1
+				setitemcolor	setfp_grip forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_grip forecolor 1 1 1 0.8
+				setitemcolor	setfp_grip forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -489,16 +841,20 @@
 		itemDef
 		{
 			name				setfp_rage
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Rally"
-			rect				0 185 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 230 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -507,14 +863,18 @@
 		itemDef
 		{
 			name				setfp_rage
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_RAGE
-			rect				0 185 147 16
+			rect				230 230 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
-			forecolor			1 1 1 0.8
+			textalignx			115
+			textaligny			-6
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Allows you to rally Soldiers to your location"
 			visible				1
 			action
@@ -523,11 +883,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_rage forecolor 1 1 1 1
+				setitemcolor	setfp_rage forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_rage forecolor 1 1 1 0.8
+				setitemcolor	setfp_rage forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -535,17 +895,21 @@
 		itemDef
 		{
 			name				setfp_drain
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				darkpowers
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Dodge"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 205 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 250 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -554,15 +918,19 @@
 		itemDef
 		{
 			name				setfp_drain
-			group				pointssetup
+			group				darkpowers
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_DRAIN
-			rect				0 205 147 16
+			rect				230 250 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.9
-			forecolor			1 1 1 0.8
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Increases your reflexes and allows you to dodge incoming sniper fire"
 			visible				1
 			action
@@ -572,11 +940,11 @@
 
 			mouseenter
 			{
-				setitemcolor	setfp_drain forecolor 1 1 1 1
+				setitemcolor	setfp_drain forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_drain forecolor 1 1 1 0.8
+				setitemcolor	setfp_drain forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -584,17 +952,21 @@
 		itemDef
 		{
 			name				setfp_saberattack
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Armour"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 235 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 280 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -603,15 +975,19 @@
 		itemDef
 		{
 			name				setfp_saberattack
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect				0 235 147 16
+			rect				230 280 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.25
-			forecolor			1 1 1 0.8
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Increase your armour strength"
 			visible				1
 			action
@@ -620,11 +996,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_saberattack forecolor 1 1 1 1
+				setitemcolor	setfp_saberattack forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_saberattack forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberattack forecolor1 0.1 0.7 1 0.7
 			}
 		}
 
@@ -632,17 +1008,21 @@
 		itemDef
 		{
 			name				setfp_saberdefend
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Ammo"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 255 147 16
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
+			rect				230 300 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
 			visible				1
 			decoration
 		}
@@ -651,15 +1031,19 @@
 		itemDef
 		{
 			name				setfp_saberdefend
-			group				pointssetup
+			group				"playersettingforcegroup"
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect				0 255 147 16
+			rect				230 300 175 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
+			textalignx			115
+			textaligny			-6
 			textscale			.25
-			forecolor			1 1 1 0.8
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			"Increase your ammo store for all your weapons"
 			visible				1
 			action
@@ -668,40 +1052,122 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
+				setitemcolor	setfp_saberdefend forecolor2 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_saberdefend forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberdefend forecolor1 0.1 0.7 1 0.7
+			}
+		}
+
+		// APPLY BUTTON
+		itemDef
+		{
+			name				applyjoinbutton
+			group				"playerforcejoin"
+			style				WINDOW_STYLE_SHADER
+			rect				270 384 65 32
+			background			"ui/art/button/mb_hl_classic"
+			forecolor			1 1 1 1
+			decoration
+			visible				0
+		}
+
+		itemDef
+		{
+			name				applyjoin
+			group				"playerforcejoin"
+			text				"Apply"
+			type				1
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				226 384 150 32
+			textalign			1
+			textalignx			75
+			textaligny			2
+			font				2
+			textscale			0.9
+			forecolor			0.1 0.7 1 0.9
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript 		mb_setskill
+				close 			mb_class_commander
+				uiScript		setsiegeclassandteam
+				uiScript		closeingame
+			}
+			mouseenter
+			{
+				show			applyjoinbutton
+			}
+			mouseExit
+			{
+				hide			applyjoinbutton
 			}
 		}
 
 		// FORCE TEMPLATES
+		// Force Template title
+		// Overall window backdrop
+		itemDef
+		{
+			name				background_pic
+			group				bg_class_ex
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				425 5 210 410
+			background			"ui/art/classmenu_extra"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+	
+		itemDef
+		{
+			name				fcflist
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Builds Template" //@MENUS_FORCE_TEMPLATES
+			rect				440 45 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			4
+			textaligny			0
+			//outlinecolor		0.1 0.7 1 0.8
+			//backcolor			0 0 0 0
+			font				2
+			textscale			0.8
+			//forecolor			.549 .854 1 1
+			forecolor			0.1 0.7 1 0.8
+			border				0
+			bordercolor			0 0 0 0
+			visible				1
+			decoration
+		}
+
 		// Force Template picker
 		itemDef
 		{
 			name				fcflist
-			group				pointstemplates
-			rect				0 20 147 240
+			rect				440 75 130 130
 			type				ITEM_TYPE_LISTBOX
 			style				WINDOW_STYLE_LISTBOX_RGB1
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			elementwidth		125
-			elementheight		15
-			font				6
-			textscale			.15
-			maxLineChars		24
+			elementwidth		155
+			elementheight		17
+			font				4
+			textscale			.75
+			maxLineChars			18
 			elementtype			LISTBOX_TEXT
 			feeder				FEEDER_MBCFG
-			textstyle			7
-			textalign			ITEM_ALIGN_CENTER
-			textaligny			-4
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
-			outlinecolor		1 1 1 .35
+			textstyle			6
+			textalign			3
+			textaligny			2
+			//border			1
+			//bordercolor		.5 .5 .5 1
+			forecolor			0.1 0.7 1 0.7
+			//backcolor			0 0 .5 .25
+			outlinecolor		.25 .464 .578 .5
 			descText			"Choose a pre-made allocation of abilities" //@MENUS_CHOOSE_A_PRE_MADE_ALLOCATION
-			visible				0
-			columns				1 2 135 125
+			visible				1
+			columns				1 2 190 250
 			mouseenter
 			{
 				setitemcolor	fcflist bordercolor 1 0 0 1
@@ -721,36 +1187,39 @@
 		itemDef
 		{
 			name 				namefield
-			group				pointstemplates
 			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				@MENUS_FILENAME
 			cvar				"ui_SaveFCF"
-			maxchars			16
-			rect				0 260 147 20
+			maxchars			18
+			rect				425 205 185 20
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny 			-4
-			font				6
-			textscale			0.15
-			backcolor			1 1 1 0.1
-			forecolor			1 1 1 1
+			textalignx			20
+			textaligny 			0
+			font				4
+			textscale			.9
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
 			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
-			visible				0
+			visible				1
 		}
 
 		//Save template button
 		itemDef
 		{
 			name				templatesavetext
+			group				"playerforcetemplatesave"
 			style				WINDOW_STYLE_TEXT_RGB1
-			textalign			ITEM_ALIGN_CENTER
-			rect				0 275 147 15
-			forecolor			1 1 1 0.5
-			font				6
-			textscale			0.15
-			textalignx			74
+			textalign			ITEM_ALIGN_LEFT
+			rect				430 245 185 32
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			font				4
+			textscale			0.75
 			text				@MENUS_MATCHING_NAMES
 			decoration
 			visible				0
@@ -759,40 +1228,281 @@
 		itemDef
 		{
 			name				templatesave
-			group				pointstemplates
+			group				"playerforcetemplatesave"
 			text				@MENUS_SAVE_FILE
 			type				1
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				13 295 121 32
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			60
-			textaligny			-1
-			font				6
-			textscale			0.2
-			backcolor			1 1 1 0.05
-			forecolor			1 1 1 1
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				415 225 185 32
+			textalign			1
+			textalignx			92
+			textaligny			2
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7 //forecolor			1 .682 0 1
 			descText			@MENUS_SAVE_CURRENT_FORCE_SETUP
-			visible				0
+			visible				1
 			action
 			{
 				play			"sound/interface/button1.wav"
 				uiScript 		saveTemplate
-				setitemcolor	templatesave			backcolor	1 1 1 0.5
 			}
 			mouseenter
 			{
 				show			templatesavetext
 				show			templatesavebutton
-				setitemcolor	templatesave			backcolor	1 1 1 0.3
 			}
 			mouseExit
 			{
 				hide			templatesavetext
 				hide			templatesavebutton
-				setitemcolor	templatesave			backcolor	1 1 1 0.05
 			}
+		}
+
+		//Armor and HP readouts - Dusty
+		itemDef
+		{
+			name				hp_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				550 284 175 15
+			text				"HP: "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-45
+			textaligny			0
+			textscale			.5
+			font				3
+			forecolor			0.1 0.65 1 0.6
+			cvar				"ui_maxhealth"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				armorpoints_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				550 296 175 15
+			text				"Armor: "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-45
+			textaligny			0
+			textscale			.5
+			font				3
+			forecolor			0.1 0.65 1 0.6
+			cvar				"ui_maxarmour"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				ammotitle
+			group				none
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				588 317 175 15
+			text				"(  Ammunition  )"
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-60
+			textaligny			0
+			textscale			.68
+			textstyle			ITEM_TEXTSTYLE_OUTLINESHADOWED
+			font				4
+			forecolor			0.2 0.7 1 0.35
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				pistol_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 334 175 15
+			text				"Blaster Pistol : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43 
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_pistol"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_Pistol"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				e11_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 344 175 15
+			text				"Blaster Rifle : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_e11"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_e11"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				e11_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 344 175 15
+			text				"Blaster Rifle : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.2
+			cvarTest			"ui_ammo_e11"
+			showCvar			{ "0" }
+			cvar				"ui_ammo_e11"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				t21_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 354 175 15
+			text				"T21 Repeater : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_flechette"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_flechette"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				t21_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 354 175 15
+			text				"T21 Repeater : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.2
+			cvarTest			"ui_ammo_flechette"
+			showCvar			{ "0" }
+			cvar				"ui_ammo_flechette"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				frag_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 364 175 15
+			text				"F. Grenades : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43 
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_extra1"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_extra1"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				frag_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 364 175 15
+			text				"F. Grenades : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43 
+			font				3
+			forecolor			0.1 0.7 1 0.2
+			cvarTest			"ui_ammo_extra1"
+			showCvar			{ "0" }
+			cvar				"ui_ammo_extra1"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				inades_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 374 175 15
+			text				"I. Grenades : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.6
+			cvarTest			"ui_ammo_extra2"
+			hideCvar			{ "0" }
+			cvar				"ui_ammo_extra2"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				inades_readout
+			group				none
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				602 374 175 15
+			text				"I. Grenades : "
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-70
+			textaligny			0
+			textscale			.43
+			font				3
+			forecolor			0.1 0.7 1 0.2
+			cvarTest			"ui_ammo_extra2"
+			showCvar			{ "0" }
+			cvar				"ui_ammo_extra2"
+			visible				1
+			decoration
 		}
 	}
 }

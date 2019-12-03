@@ -1,181 +1,228 @@
+// uberScreen
+// cvars used (at least some of them
+//	siege_mapgraphic - the name of the graphic of the map of the level.
+//	currentObjButton - the menu item name of currently active objective button
+//	team1_icon	- read in from siege file, the graphic of team1
+//	team2_icon	- read in from siege file, the graphic of team2
 {
 	menuDef
 	{
-		name					"ingame_siegeclass_duel"
+		name 					"ingame_siegeclass_duel"
 		fullScreen				0
-		visible					0
-		rect					93 5 454 475
+		visible 				0
+		rect					0 0 640 480
+		focusColor				1 1 1 1
 		style					1
 		descX					320
-		descY					443
-		descScale				1
-		descColor				1 1 1 1
+		descY					456
+		descScale				0.7
+		descColor				0.1 0.7 1 0.7
 		descAlignment			ITEM_ALIGN_CENTER
-		focusColor				1 1 1 1
 		backColor				0 0 0 0
-		disablecolor			1 1 1 1
+		disablecolor			.7 .7 .7 .7
 		onClose
 		{
-			//hide				siegeclassconfigtitle
+			hide				minidesc
+			hide				siegeclassconfigtitle
 		}
 		onOpen
-		{ 
-			//uiscript			updatesiegeobjgraphics
-			setitembackground		team1_symbol	"*team1_icon"
-			setitembackground		team2_symbol	"*team2_icon"
+		{
+			exec				"siegeCompleteCvarUpdate"
+			setitembackground	team1_symbol	"*team1_icon"
+			setitembackground	team2_symbol	"*team2_icon"
+			setitembackground	team1_button	"*team1_icon"
+			setitembackground	team2_button	"*team2_icon"
+			hide				headlist
+			hide				borderclass
 			// Enable team buttons, in case they'd been shut off
-			disable			team_button		0
-			disable			autoteam		0
-			disable			team1_button	0
-			disable			team2_button	0
-			// and reset colors
-			setitemcolor	team1_button		backcolor   1 1 1 0.1
-			setitemcolor	team2_button		backcolor   1 1 1 0.1
-			setitemcolor	spectator_button	backcolor   1 1 1 0.1
-			setitemcolor	team1name	forecolor   0.5 0.5 0.5 1
-			setitemcolor	team2name	forecolor   0.5 0.5 0.5 1
-			setitemcolor	team3name	forecolor   0.5 0.5 0.5 1
-			setitemcolor	team1_count forecolor   0.5 0.5 0.5 1
-			setitemcolor	team2_count forecolor   0.5 0.5 0.5 1
-			setitemcolor	team3_count forecolor   0.5 0.5 0.5 1
-			setitemtext		siegeclassconfigtitle	"SELECT A TEAM"
-			uiscript		setteamclassicons
-			uiScript		"getmodelcvars"	//needed for model display stuff
-			uiScript		"getmodelskin"	//needed for model display stuff
+			disable				team_button		0
+			disable				autoteam		0
+			disable				team1_button	0
+			disable				team2_button	0
+			//reset colors
+			setitemcolor		team1_button	backcolor1		0.1 0.7 1 0.7
+			setitemcolor		team2_button	backcolor1		0.1 0.7 1 0.7
+			setitemcolor		team1name		forecolor1			0.1 0.7 1 0.7
+			setitemcolor		team2name		forecolor1			0.1 0.7 1 0.7
+			setitemcolor		team1_count		forecolor1		0.1 0.7 1 0.7
+			setitemcolor		team2_count		forecolor1		0.1 0.7 1 0.7
+			hide				grey_button
+			hide				itemdescription
+			uiscript			setteamclassicons
+			
+			//uiscript			mb_modelfeeder
 		}
-		onESC
-		{
-			play			"sound/interface/back.mp3"
-			close			ingame_siegeclass_open
-			open			ingame			
-		}		
 
+		// Window backdrop
+		// Border around the objective half of the screen
 		itemDef
 		{
-			name				bg_teamselect
+			name				bg_clean1
 			group				none
 			style				WINDOW_STYLE_FILLED_RGB1
-			rect				0 0 454 50
-			background			"gfx/menus/alpha/Menu_TeamSelect"
+			rect				0 0 310 140
+			background			"gfx/menus/alpha/Menu_Clean"
 			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// Title of objective section
+		itemDef
+		{
+			name 				objectivetitle
+			style				WINDOW_STYLE_TEXT_RGB1
+			text 				"DUEL MODE"
+			rect				2 20 308 20
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			160
+			textaligny			-1
+			font				3
+			textscale			0.8
+			forecolor			0.1 0.7 1 0.7
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				bg_class
-			group				none
-			style				WINDOW_STYLE_FILLED_RGB1
-			rect				0 55 454 371
-			background			"gfx/menus/alpha/Menu_ClassSelect"
-			forecolor			1 1 1 1
+			name				mapname
+			group				time
+			style				WINDOW_STYLE_TEXT_RGB1
+//			text				@MENUS_MISSION
+			cvar				siege_missionname
+			maxChars			0
+			rect				70 40 180 18
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			90
+			font				3
+			textscale			.7
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			decoration
+		}
+
+// TEAM SYMBOLS
+		itemDef
+		{
+			name				team1_symbol
+			style				WINDOW_STYLE_FILLED_RGB2
+			rect				25 60 39 39
+			forecolor			0.1 0.7 1 0.7
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				bg_clean3
+			name				team2_symbol
+			style				WINDOW_STYLE_FILLED_RGB2
+			rect				253 60 39 39
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			decoration
+		}
+
+// MAP TIME SECTION
+		// Border
+		itemDef
+		{
+			name				bg_clean1 //border
 			group				none
 			style				WINDOW_STYLE_FILLED_RGB1
-			rect				75 430 304 36
+			rect				317 0 323 140
+			forecolor			1 1 1 1
+			background			"gfx/menus/alpha/Menu_Clean"
+			visible				1
+			decoration
+		}
+
+		// Background for "Okay" box - needs to be here because of desc texts
+		itemDef
+		{
+			name				bg_clean3 //border
+			group				none
+			style 				WINDOW_STYLE_FILLED_RGB1
+			rect				0 430 640 50
+			forecolor			1 1 1 1
 			background			"gfx/menus/alpha/Menu_ClassDescription"
-			forecolor			1 1 1 1
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				button_glow
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 0 0
-			background			"gfx/menus/alpha/Button_Highlight"
-			forecolor			1 1 1 0.8
-			visible				0
-			decoration
-		}		
+			name				playername
+			group				time
+			type				ITEM_TYPE_EDITFIELD
+			style 				WINDOW_STYLE_TEXT_RGB2
+			rect				330 8 120 18
+			text				@MENUS_NAME_TITLE
+			cvar				name
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+		}
 
-// BACKGROUND 
-//		itemDef
-//		{
-//			name				playerteam
-//			group				time
-//			type				ITEM_TYPE_MULTI
-//			style				WINDOW_STYLE_EMPTY
-//			rect				286 80 120 25
-//			text				@MENUS_TEAM
-//			cvar				ui_team
-//			cvarStrList
-//			{
-//				
-//				@MENUS_SPECTATOR	0
-//				"*cg_siegeTeam1Name"	1
-//				"*cg_siegeTeam2Name"	2
-//				@MENUS_SPECTATOR	3
-//			}
-//			
-//			textalign			ITEM_ALIGN_CENTER		
-//			textalignx			0
-//			font				3
-//			textscale			0.3
-//			forecolor			0.5 0.5 0.5 1
-//			visible				1
-//			decoration
-//		}
-
-		// Character model
 		itemDef
 		{
-			name				modelviewer
-			group				models
-			//cvarTest			"model"
-			//hideCvar			{ "droideka/default", "droideka/bronze", "droideka/black", "droideka/silver", "droideka/elite" }
-			type				ITEM_TYPE_MODEL
-			rect				337 61 113 210
-			model_g2anim		"BOTH_WALK1"
-			asset_model			"ui_char_model"
-			model_angle			80
-			//mins maxs format is apparently z x y (hmmm... y x z?)
-			model_g2mins		5 5 -14
-			model_g2maxs		5 -5 30
-			model_rotation		60
-			model_fovx			38
-			model_fovy			50
-			isCharacter			1
-			visible				0
+			name				playerteam
+			group				time
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				500 8 120 18
+			text				@MENUS_TEAM
+			cvar				ui_team
+			cvarStrList
+			{
+				@MENUS_SPECTATOR		0
+				"*cg_siegeTeam1Name"	1
+				"*cg_siegeTeam2Name"	2
+				@MENUS_SPECTATOR		3
+			}
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			visible				1
 			decoration
 		}
 
-//----------------------------------------------------------------------------------------------
 // TEAM SELECTION
-//----------------------------------------------------------------------------------------------
+		// join a team text
+		itemDef
+		{
+			name 				joinateam
+			rect				323 27 316 20
+			style 				WINDOW_STYLE_TEXT_RGB1
+			text 				@MENUS_JOIN_A_TEAM
+			font				3
+			textscale 			.7
+			textalign 			ITEM_ALIGN_LEFT
+			textalignx 			6
+			textaligny 			2
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			decoration
+		}
 
-	// TEAM SYMBOLS AND COUNTS PER TEAM
+		// TEAM SYMBOLS AND COUNTS PER TEAM
 		itemDef
 		{
 			name				team1name
 			group				none
-			rect				35 8 101 34
+			rect				355 47 45 45
+			style				WINDOW_STYLE_TEXT_RGB1	
 			cvar				cg_siegeTeam1Name
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			50
-			font				6
-			textscale			0.2
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				team1_symbol
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				12 13.5 19 24
-			forecolor			1 1 1 1
+			textalignx			23
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
 			visible				1
 			decoration
 		}
@@ -184,112 +231,72 @@
 		{
 			name				team1_button
 			group				team_button
-			rect				8 8 155 34
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
-			backcolor			1 1 1 0.1
+			rect				355 66 45 45
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB3	
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			0.1 0.7 1 0.7
 			visible				1
-			//cvartest			"ui_lockRed"
-			//showcvar			{ "1"}
-
-			mouseEnter
-			{ 
-				setitemcolor		team1_button	backcolor	1 1 1 0.3
-				setitemcolor		team1_count		forecolor	1 1 1 1
-				setitemcolor		team1name		forecolor	1 1 1 1
+			mouseenter
+			{
+				setitemcolor	team1_button	backcolor2	1 1 1 1
+				setitemcolor	team1_count		forecolor2	1 1 1 1
+				setitemcolor	team1name		forecolor2	1 1 1 1
 			}
 			mouseExit
-			{ 
-				setitemcolor		team1_button	backcolor   1 1 1 0.1
-				setitemcolor		team1_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		team1name		forecolor	0.5 0.5 0.5 1
+			{
+				setitemcolor	team1_button	backcolor1	0.1 0.7 1 0.7
+				setitemcolor	team1_count		forecolor1	0.1 0.7 1 0.7
+				setitemcolor	team1name		forecolor1	0.1 0.7 1 0.7
 			}
-
-			// If you change this script, be sure to change	onteam1		
+			// If you change this script, be sure to change	onteam1
 			action
-			{ 
+			{
 				// show the class stuff, cause this uses class
-				show			class_count	
-
+				//show			class_button
+				//show			class_count
+				show			classdescription
 				play			"sound/interface/button1.wav"
 				setcvar			ui_holdteam 1
-				uiscript		updatesiegeclasscnt      1
+				uiscript		updatesiegeclasscnt 1
 				uiscript		updatesiegecvars
-				//uiscript		printmsg	team1buttonunlockred
-
-				// Darken the other team buttons				
-				setitemcolor	team_button	backcolor   1 1 1 0.1
-				setitemcolor	team_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor	team2name	forecolor	0.5 0.5 0.5 1
-
+				// Darken the other team buttons
+				setitemcolor	team_button	backcolor1 0.1 0.7 1 0.7
+				setitemcolor	team_count	forecolor1 0.1 0.7 1 0.7
+				setitemcolor	team2name	forecolor1 0.1 0.7 1 0.7
 				// turn on the other team buttons for input
 				disable			team_button	0
-
 				// turn on class buttons
-				disable			reb_class 0
-
+				//disable		class_button	0
+				disable			classselect_button 0
 				// highlight this team button
-				setitemcolor	team1_button	backcolor 1 1 1 0.5
-				setitemcolor	team1_count		forecolor 1 1 1 1
-				setitemcolor	team1name 		forecolor 1 1 1 1
-
-				setitemcolor	reb_class	backcolor 1 1 1 0.1
-				setitemcolor	reb_class	forecolor 1 1 1 1
-				setitemcolor	class_count	forecolor 1 1 1 1
-
-				setitemrect     mb_class_trooper_icon 12 72 26 33
-				setitemrect     mb_class_elitetrooper_icon 12 122 26 33
-				setitemrect     mb_class_clonetrooper_icon 12 172 26 33
-				setitemrect     mb_class_arctrooper_icon 12 222 26 33
-				setitemrect     mb_class_hero_icon 12 272 26 33
-				setitemrect     mb_class_wookie_icon 12 322 26 33
-				setitemrect     mb_class_jedi_icon 12 372 26 33
-
+				setitemcolor	team1_button	backcolor2 1 1 1 1
+				setitemcolor	team1_count		forecolor2 1 1 1 1
+				setitemcolor	team1name		forecolor2 1 1 1 1
 				// no more input for this guy
 				disable			team1_button	1
-
-				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
-
-				close 			mb_class_bounty_hunter
-				close 			mb_class_commander
-				close 			mb_class_droideka
-				close 			mb_class_mandalorian
-				close 			mb_class_sbd
-				close 			mb_class_sith
-				close 			mb_class_soldier
-				
-				close			mb_stats_common
-
-				uiscript		resetsiegelistboxes
-				uiscript		feederselection
-				uiscript		setsiegeclassandteam
-				uiscript		mb_updatelimits
-
-				hide			imp_class
-				hide			imp_class_sm
-				hide			imp_class_icon
+				//show			grey_button
+				setitemtext		class1_count "*ui_tm1_c0_cnt"
+				setitemtext		class2_count "*ui_tm1_c1_cnt"
+				setitemtext		class3_count "*ui_tm1_c2_cnt"
+				setitemtext		class4_count "*ui_tm1_c3_cnt"
+				setitemtext		class5_count "*ui_tm1_c4_cnt"
+				setitemtext		class6_count "*ui_tm1_c5_cnt"
+				show			borderclass
+				hide			classselect2_button
 				show			siegeclassconfigtitle
-				show			reb_class
-				hide			reb_class_sm
-				show			reb_class_icon
+				show			classselect_button
+				uiscript		resetsiegelistboxes
+				uiscript		resetitemdescription
+				uiscript		feederselection
 				hide			feeders
 				hide			stats
+				hide			classdescription
+				setitemcolor	class_count	forecolor1 0.1 0.7 1 0.7
+				hide			itemdescription
+				hide			modellisttype
 				hide 			headlist
 				hide			custlist
-				hide			modellisttype
-				hide			hiltmodels
-				hide			hiltmodelsjedi
-				hide			hiltmodelssith
-				hide			hiltselect
-				hide			jedicust
-				hide			sithcust
-				hide 			headlist_tiny
-				hide			modelviewer
-				hide			model_rgb
-
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutTeamSelect
 			}
 		}
 
@@ -298,164 +305,167 @@
 			name				team1_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			rect				140 13.5 22 22
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				355 111 60 18
 			cvar				ui_tm1_cnt
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-6
-			font				7
-			textscale			0.2
-			forecolor			0.5 0.5 0.5 1		
+			textalignx			24
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
 			visible				1
 			decoration
 		}
-		
+
+		// This item is here just to have a script for C to run if the menu is opened by 
+		// a player who is already on a team
 		itemDef
 		{
-			name				red_lock
-			group				lock_icon			
-			rect				8 8 155 34
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
+			name				onteam1
+			group				none
+			rect				455 47 45 45
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			23
+			forecolor			0.1 0.7 1 0.7
 			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}	
+			decoration
+			action
+			{
+				// show the class stuff, cause this uses class
+				//show			class_button
+				//show			class_count
+				show			classdescription
+//				setitemcolorcvar	feeders bordercolor "team1_coloron"
+//				setitemcolorcvar	siegeclassconfigtitle forecolor "team1_coloron"
+				play			"sound/interface/button1.wav"
+				setcvar			ui_holdteam 1
+				uiscript		updatesiegeclasscnt 1
+				uiscript		updatesiegecvars
+				// Darken the other team buttons
+				setitemcolor	team_button	backcolor1	0.1 0.7 1 0.7
+				setitemcolor	team_count	forecolor1	0.1 0.7 1 0.7
+				setitemcolor	team2name	forecolor1	0.1 0.7 1 0.7
+				// turn on the other team buttons for input
+				disable			team_button	0
+				// turn on class buttons
+				//disable		class_button		0
+				disable			classselect_button	0
+				// highlight this team button
+				setitemcolor	team1_button	backcolor2	1 1 1 1
+				setitemcolor	team1_count		forecolor2	1 1 1 1
+				setitemcolor	team1name		forecolor2	1 1 1 1
+				// no more input for this guy
+				disable			team1_button	1
+				//show			grey_button
+				setitemtext		class1_count "*ui_tm1_c0_cnt"
+				setitemtext		class2_count "*ui_tm1_c1_cnt"
+				setitemtext		class3_count "*ui_tm1_c2_cnt"
+				setitemtext		class4_count "*ui_tm1_c3_cnt"
+				setitemtext		class5_count "*ui_tm1_c4_cnt"
+				setitemtext		class6_count "*ui_tm1_c5_cnt"
+				show			borderclass
+				hide			classselect2_button
+				show			siegeclassconfigtitle
+				show			classselect_button
+				uiscript		resetsiegelistboxes
+				uiscript		resetitemdescription
+				uiscript		feederselection
+				hide			feeders
+				hide			stats
+				hide			classdescription
+				setitemcolor	class_count	forecolor 0.1 0.7 1 0.7
+				hide			itemdescription
+				hide			modellisttype
+				hide 			headlist
+				hide			custlist
+			}
+		}
 
 		itemDef
 		{
 			name				team2name
 			group				none
-			rect				318 8 101 34
+			rect				455 47 45 45
 			cvar				cg_siegeTeam2Name
+			style				WINDOW_STYLE_TEXT_RGB1	
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			50
-			font				6
-			textscale			0.2
-			forecolor			0.5 0.5 0.5 1
+			textalignx			23
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
 			visible				1
 			decoration
 		}
-
-		itemDef
-		{
-			name				team2_symbol
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				295 13.5 19 24
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
 		itemDef
 		{
 			name				team2_button
 			group				team_button
-			rect				291 8 155 34
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
+			rect				455 67 45 45
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB3
 			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 0.1
+			backcolor			0.1 0.7 1 0.7
 			visible				1
-			//cvartest			"ui_lockBlue"
-			//showcvar			{ "1"}
-
-			mouseEnter
-			{ 
-				setitemcolor		team2_button	backcolor	1 1 1 0.3
-				setitemcolor		team2_count		forecolor	1 1 1 1
-				setitemcolor		team2name		forecolor	1 1 1 1
+			mouseenter
+			{
+				setitemcolor		team2_button	backcolor2	1 1 1 1
+				setitemcolor		team2_count		forecolor2	1 1 1 1
+				setitemcolor		team2name		forecolor2	1 1 1 1
 			}
 			mouseExit
-			{ 
-				setitemcolor		team2_button	backcolor	1 1 1 0.1
-				setitemcolor		team2_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		team2name		forecolor	0.5 0.5 0.5 1
+			{
+				setitemcolor		team2_button	backcolor1	0.1 0.7 1 0.7
+				setitemcolor		team2_count		forecolor1	0.1 0.7 1 0.7
+				setitemcolor		team2name		forecolor1	0.1 0.7 1 0.7
 			}
-
 			// If you change this script, be sure to change	onteam2
 			action
-			{ 
+			{
 				// show the class stuff, cause this uses class
-				show			class_count	
-
+				//show			class_button
+				//show			class_count
+				show			classdescription
 				play			"sound/interface/button1.wav"
 				setcvar			ui_holdteam 2
-				uiscript		updatesiegeclasscnt      2
+				uiscript		updatesiegeclasscnt 2
 				uiscript		updatesiegecvars
-				//uiscript		printmsg	team2buttonunlockblue
-
-				// Darken the other team buttons				
-				setitemcolor	team_button		backcolor   1 1 1 0.1
-				setitemcolor	team_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
+				// Darken the other team buttons
+				setitemcolor	team_button	backcolor1	0.1 0.7 1 0.7
+				setitemcolor	team_count	forecolor1	0.1 0.7 1 0.7
+				setitemcolor	team1name	forecolor1	0.1 0.7 1 0.7
 				// turn on the other team buttons for input
-				disable				team_button	0
-
+				disable			team_button	0
 				// turn on class buttons
-				disable				imp_class 0
-
+				//disable		class_button		0
+				disable			classselect2_button	0
 				// highlight this team button
-				setitemcolor	team2_button	backcolor	1 1 1 0.5
-				setitemcolor	team2_count		forecolor	1 1 1 1
-				setitemcolor	team2name		forecolor	1 1 1 1
-
-				setitemcolor	imp_class  backcolor 1 1 1 0.1
-				setitemcolor	imp_class  forecolor 1 1 1 1
-				setitemcolor	class_count	forecolor 0.5 0.5 0.5 1
-
-				setitemrect     mb_class_soldier_icon 12 72 26 33
-				setitemrect     mb_class_commander_icon 12 122 26 33
-				setitemrect     mb_class_bounty_hunter_icon 12 172 26 33
-				setitemrect     mb_class_mandalorian_icon 12 222 26 33
-				setitemrect     mb_class_droideka_icon 12 272 26 33
-				setitemrect     mb_class_sbd_icon 12 322 26 33
-				setitemrect     mb_class_sith_icon 12 372 26 33
-
+				setitemcolor	team2_button	backcolor2	1 1 1 1
+				setitemcolor	team2_count		forecolor2	1 1 1 1
+				setitemcolor	team2name		forecolor2	1 1 1 1
 				// no more input for this guy
 				disable			team2_button	1
-
-				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
-
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				close 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookiee
-				
-				close			mb_stats_common
-
-				uiscript		resetsiegelistboxes
-				uiscript		feederselection
-				uiscript		setsiegeclassandteam
-				uiscript		mb_updatelimits
-
-				show			imp_class
-				hide			imp_class_sm
-				show			imp_class_icon
+				//show			grey_button
+				setitemtext		class1_count	"*ui_tm2_c0_cnt"
+				setitemtext		class2_count	"*ui_tm2_c1_cnt"
+				setitemtext		class3_count	"*ui_tm2_c2_cnt"
+				setitemtext		class4_count	"*ui_tm2_c3_cnt"
+				setitemtext		class5_count	"*ui_tm2_c4_cnt"
+				setitemtext		class6_count	"*ui_tm2_c5_cnt"
+				show			borderclass
+				hide			classselect_button
 				show			siegeclassconfigtitle
-				hide			reb_class
-				hide			reb_class_sm
-				hide			reb_class_icon
+				show			classselect2_button
+				uiscript		resetsiegelistboxes
+				uiscript		resetitemdescription
+				uiscript		feederselection
 				hide			feeders
 				hide			stats
+				hide			classdescription
+				setitemcolor	class_count	forecolor1 0.1 0.7 1 0.7
+				hide			itemdescription
+				hide			modellisttype
 				hide 			headlist
 				hide			custlist
-				hide			modellisttype
-				hide			hiltmodels
-				hide			hiltmodelsjedi
-				hide			hiltmodelssith
-				hide			hiltselect
-				hide			jedicust
-				hide			sithcust
-				hide 			headlist_tiny
-				hide			modelviewer
-				hide			model_rgb
 			}
 		}
 
@@ -464,861 +474,330 @@
 			name				team2_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			rect				423 13.5 22 22
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				455 111 60 18
 			cvar				ui_tm2_cnt
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-6
-			font				7
-			textscale			0.2
-			forecolor			0.5 0.5 0.5 1
+			textalignx			24
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
 			visible				1
 			decoration
 		}
 
-/* 		itemDef
+// This item is here just to have a script for C to run if the menu is opened by a player who is already on a team
+		itemDef
+		{
+			name				onteam2
+			group				none
+			rect				455 47 45 45
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			23
+			forecolor			0.1 0.7 1 0.7
+			visible				0
+			decoration
+			action
+			{
+				// show the class stuff, cause this uses class
+				//show			class_button
+				//show			class_count
+				show			classdescription
+				play			"sound/interface/button1.wav"
+				setcvar			ui_holdteam 2
+				uiscript		updatesiegeclasscnt 2
+				uiscript		updatesiegecvars
+				// Darken the other team buttons
+				setitemcolor	team_button	backcolor1	0.1 0.7 1 0.7
+				setitemcolor	team_count	forecolor1	0.1 0.7 1 0.7
+				setitemcolor	team1name	forecolor1	0.1 0.7 1 0.7
+				// turn on the other team buttons for input
+				disable			team_button	0
+				// turn on class buttons
+				//disable		class_button		0
+				disable			classselect2_button	0
+				// highlight this team button
+				setitemcolor	team2_button	backcolor2	1 1 1 1
+				setitemcolor	team2_count		forecolor2	1 1 1 1
+				setitemcolor	team2name		forecolor2	1 1 1 1
+				// no more input for this guy
+				disable			team2_button	1
+				//show			grey_button
+				setitemtext		class1_count "*ui_tm2_c0_cnt"
+				setitemtext		class2_count "*ui_tm2_c1_cnt"
+				setitemtext		class3_count "*ui_tm2_c2_cnt"
+				setitemtext		class4_count "*ui_tm2_c3_cnt"
+				setitemtext		class5_count "*ui_tm2_c4_cnt"
+				setitemtext		class6_count "*ui_tm2_c5_cnt"
+				show			borderclass
+				hide			classselect_button
+				show			siegeclassconfigtitle
+				show			classselect2_button
+				uiscript		resetsiegelistboxes
+				uiscript		resetitemdescription
+				uiscript		feederselection
+				hide			feeders
+				hide			stats
+				hide			classdescription
+				setitemcolor	class_count	forecolor 0.1 0.7 1 0.7
+				hide			itemdescription
+				hide			modellisttype
+				hide 			headlist
+				hide			custlist
+			}
+		}
+
+		itemDef
 		{
 			name				team3name
 			group				none
-			rect				301 72 40 40
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				556 69 32 20
 			text				@MENUS_SPECTATOR
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			16
-			font				2
-			textscale			0.4
-			forecolor			0.5 0.5 0.5 1
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
 			visible				1
 			decoration
-		} */
-		
-		itemDef
-		{
-			name				team3_count
-			group				team_count
-			type 				ITEM_TYPE_TEXT
-			rect				231 13.5 22 22
-			cvar				ui_tm3_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-6
-			font				7
-			textscale			0.2
-			forecolor			0.5 0.5 0.5 1		
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				blue_lock
-			group				lock_icon
-			rect				291 8 155 34
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
 		}
 
 		itemDef
 		{
 			name				spectator_symbol
 			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				203.5 13.5 19 24
-			background			"gfx/2d/mp_spec_symbol"
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}
-		
-		itemDef
-		{
-			name				spectator_button
-			group				team_button
-			rect				200 8 55 34
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
+			rect				556 45 32 32
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB3
 			descText			@MENUS_WATCH_DESC
-			backcolor			1 1 1 0.1
+			backcolor			0.1 0.7 1 0.7
 			visible				1
-			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
-			mouseEnter
-			{ 
-				setitemcolor		spectator_symbol backcolor   1 1 1 1
-				setitemcolor		spectator_button backcolor   1 1 1 0.3
-				setitemcolor		team3name  forecolor 1 1 1 1
-				setitemcolor		team3_count  forecolor 1 1 1 1
+			background			"gfx/2d/mp_spec_symbol"
+			mouseenter
+			{
+				setitemcolor	spectator_symbol backcolor2 1 1 1 1
+				setitemcolor	team3name forecolor2 1 1 1 1
 			}
 			mouseExit
-			{ 
-				setitemcolor		spectator_symbol backcolor   0.5 0.5 0.5 1
-				setitemcolor		spectator_button backcolor   1 1 1 0.1
-				setitemcolor		team3name  forecolor 0.5 0.5 0.5 1
-				setitemcolor		team3_count  forecolor 0.5 0.5 0.5 1
+			{
+				setitemcolor	spectator_symbol backcolor1 0.1 0.7 1 0.7
+				setitemcolor	team3name forecolor1 0.1 0.7 1 0.7
 			}
 			action
-			{ 
-				play			"sound/interface/button1.wav"
-				hide			reb_class
-				hide			imp_class
-				setcvar			ui_holdteam 3
-				exec			"cmd team s" 				
-				uiScript		closeingame
-				//uiscript        mb_updatelimits
-				setitemcolor	spectator_button backcolor   1 1 1 0.5
-			}
-		}
-
-		itemDef
-		{
-			name				spectator_refresh
-			group				none			
-			action
-			{ 
-				hide			reb_class
-				hide			imp_class		
-			}
-		}
-
-		itemDef
-		{
-			name				autoteam_symbol
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				263.5 13.5 19 24
-			background			"gfx/menus/alpha/Icon_Shuffle"
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
-		itemDef 
-		{
-			name				autoteam_button
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_AUTO_JOIN_DESC
-			rect				260 8 26 34
-			backcolor			1 1 1 0.1
-			visible				1 
-			background			"gfx/menus/alpha/Menu_TeamSelect_Random"
-			
-			mouseEnter 
-			{ 
-				setitemcolor		autoteam_symbol backcolor   1 1 1 1
-				setitemcolor		autoteam_button backcolor   1 1 1 0.3
-			}
-			mouseExit 
-			{ 
-				setitemcolor		autoteam_symbol backcolor   0.5 0.5 0.5 1
-				setitemcolor		autoteam_button backcolor   1 1 1 0.1
-			}
-			action 
-			{ 
-				play				"sound/interface/button1.wav"
-				setitemcolor		autoteam_button backcolor   1 1 1 0.5
-				exec				"cmd team free"
+			{
+				setitemcolor		team_button 	backcolor1   	0.1 0.7 1 0.7
+				setitemcolor		team_count  	forecolor1 		0.1 0.7 1 0.7
 				
-				uiScript			closeingame 
+				setitemcolor		team1_button 	backcolor1   	0.1 0.7 1 0.7
+				setitemcolor		team1_count  	forecolor1 		0.1 0.7 1 0.7
+				setitemcolor		team1name  		forecolor1 		0.1 0.7 1 0.7
+
+				setitemcolor		team2_button 	backcolor1   	0.1 0.7 1 0.7
+				setitemcolor		team2_count  	forecolor1 		0.1 0.7 1 0.7
+				setitemcolor		team2name  		forecolor1 		0.1 0.7 1 0.7
+				
+				play			"sound/interface/button1.wav"
+				hide			borderclass
+				hide			classselect_button
+				hide			classselect2_button
+				setcvar			ui_holdteam 3
+				exec			"cmd team s"
+				uiScript		closeingame
 			}
 		}
 
-//----------------------------------------------------------------------------------------------
-// CLASS SELECTION
-//----------------------------------------------------------------------------------------------
-
-		// Choose a class text
+		// CLASS SELECTION
+		// Border around the objective half of the screen
 		itemDef
 		{
-			name 				siegeclassconfigtitle
-			group				class_button
-			rect 				245 66 10 15
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_CHOOSE_CLASS
-			font				7
-			textscale			0.2
-			textalign 			ITEM_ALIGN_CENTER
-			textalignx 			0
-			textaligny 			-10
+			name				bg_clean1 //borderclass
+			group				borderclass //class_button
+			style 				WINDOW_STYLE_FILLED_RGB1
+			rect				0 145 640 280
 			forecolor			1 1 1 1
-			visible 			1
+			background			"gfx/menus/alpha/Menu_Clean"
+			visible				1
 			decoration
 		}
 
 		//Jedi
 		itemDef
 		{
-			name				mb_class_jedi
-			group				reb_class		
-			rect				8 366 146 45
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
+			name				team1_class3button
+			group				classselect_button
+			rect				295 155 50 50
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB3
 			//descText			@MENUS_WATCH_DESC
-			text				"JEDI"
-			font				6
-			textscale			0.15
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.1
+			backcolor			0.1 0.7 1 0.7
 			visible 			0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
-			
-			mouseEnter
-			{ 
-				setitemcolor	mb_class_jedi backcolor   1 1 1 0.3
-				setitemcolor	mb_class_jedi forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_icon forecolor   1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor	mb_class_jedi backcolor   1 1 1 0.1
-				setitemcolor	mb_class_jedi forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_icon forecolor   0.75 0.75 0.75 1
-			}
-			action
-			{ 
-				disable			reb_class 0
-				disable			reb_class_sm 0
-				setitemcolor	reb_class backcolor 1 1 1 0.1
-				setitemcolor	reb_class forecolor 1 1 1 1
-				setitemcolor	reb_class_sm backcolor 1 1 1 0.1
-				setitemcolor	reb_class_sm forecolor 1 1 1 1
-				setitemcolor	reb_class_icon_sm background 0.5 0.5 0.5 1
-				setitemcolor	mb_class_jedi backcolor   1 1 1 0.5
-				setitemcolor	mb_class_jedi forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_sm backcolor   1 1 1 0.5
-				setitemcolor	mb_class_jedi_sm forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_icon forecolor   1 1 1 1
-				
-				setitemrect     mb_class_trooper_icon 6 68 19 24
-				setitemrect     mb_class_elitetrooper_icon 6 118 19 24
-				setitemrect     mb_class_clonetrooper_icon 6 168 19 24
-				setitemrect     mb_class_arctrooper_icon 6 218 19 24
-				setitemrect     mb_class_hero_icon 6 268 19 24
-				setitemrect     mb_class_wookie_icon 6 318 19 24
-				setitemrect     mb_class_jedi_icon 6 368 19 24
-				
-				setitemtext		siegeclassconfigtitle	"JEDI"
-				
-				play			"sound/interface/button1.wav"
-				uiscript		updatesiegecvars
-				show 			headlist
-				hide			custlist
-				show			modellisttype
-				hide			hiltmodels
-				hide			hiltmodelsjedi
-				hide			hiltmodelssith
-				hide			hiltselect
-				show			jedicust
-				hide			sithcust
-				show			reb_class_sm
-				hide			reb_class
-				hide			class_count
-				hide 			headlist_tiny //+ pen
-				show			modelviewer
-				show			model_rgb
-				disable			mb_class_jedi 1
-				uiscript		mb_class_jedi
-				uiScript		"getmodelcvars"	//needed for model display stuff
-				uiScript		"getmodelskin"	//needed for model display stuff
-				uiScript		getsabercvars "jedi"
-				
-				setitemrect		playermodels	25 86 132 318
-				
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				open 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookiee
-				
-				close			mb_stats_common
-			}
-		}
-
-		itemDef
-		{
-			name				mb_class_jedi_sm
-			group				reb_class_sm
-			rect				8 366 15 45
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			font				7
-			textscale			0.2
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			7
-			textaligny			16
-			forecolor			1 1 1 1
-			cvar				mb_class_wookie_cnt
-			backcolor			1 1 1 0.1
-			visible 			0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
-			
-			mouseEnter
-			{ 
-				setitemcolor	mb_class_jedi backcolor   1 1 1 0.3
-				setitemcolor	mb_class_jedi forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_icon forecolor   1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor	mb_class_jedi backcolor   1 1 1 0.1
-				setitemcolor	mb_class_jedi forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_icon forecolor   0.75 0.75 0.75 1
-			}
-			action
-			{ 
-				disable			reb_class 0
-				disable			reb_class_sm 0
-				setitemcolor	reb_class backcolor 1 1 1 0.1
-				setitemcolor	reb_class forecolor 1 1 1 1
-				setitemcolor	reb_class_sm backcolor 1 1 1 0.1
-				setitemcolor	reb_class_sm forecolor 1 1 1 1
-				setitemcolor	reb_class_icon_sm background 0.5 0.5 0.5 1
-				setitemcolor	mb_class_jedi backcolor   1 1 1 0.5
-				setitemcolor	mb_class_jedi forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_sm backcolor   1 1 1 0.5
-				setitemcolor	mb_class_jedi_sm forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_icon forecolor   1 1 1 1
-				
-				setitemtext		siegeclassconfigtitle	"JEDI"
-				
-				play			"sound/interface/button1.wav"
-				uiscript		updatesiegecvars
-				show 			headlist
-				hide			custlist
-				show			modellisttype
-				hide			hiltmodels
-				hide			hiltmodelsjedi
-				hide			hiltmodelssith
-				hide			hiltselect
-				show			jedicust
-				hide			sithcust
-				hide 			headlist_tiny //+ pen
-				show			modelviewer
-				show			model_rgb
-				disable			mb_class_jedi 1
-				disable			mb_class_jedi_sm 1
-				uiscript		mb_class_jedi
-				uiScript		"getmodelcvars"	//needed for model display stuff
-				uiScript		"getmodelskin"	//needed for model display stuff
-				
-				setitemrect		playermodels	25 86 132 318
-				
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				open 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookiee
-				
-				close			mb_stats_common
-			}
-		}
-
-		itemDef
-		{
-			name				mb_class_jedi_icon
-			group				reb_class_icon
-			style				WINDOW_STYLE_SHADER
-			rect				12 372 26 33
 			background			"gfx/menus/classes/jedi"
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			decoration
+			mouseenter
+			{
+				setitemcolor	team1_class3button backcolor2 1 1 1 1
+				setitemcolor	team1_class3text forecolor2 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	team1_class3button backcolor1 0.1 0.7 1 0.7
+				setitemcolor	team1_class3text forecolor1 0.1 0.7 1 0.7
+			}
+			action
+			{
+				disable			classselect_button 0
+				setitemcolor	classselect_button backcolor1 0.1 0.7 1 0.7
+				setitemcolor	classselect_button forecolor1 0.1 0.7 1 0.7
+				setitemcolor	team1_class3button backcolor2 1 1 1 1
+				setitemcolor	team1_class3text forecolor2 1 1 1 1
+				play			"sound/interface/button1.wav"
+				uiscript		mb_class_jedi
+				//uiscript		uiclass 2
+				show			modellisttype
+				show 			headlist
+				hide			custlist
+				disable			team1_class3button 1
+			}
 		}
 
 		itemDef
 		{
-			name				mb_class_jedi_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 372 26 32
+			name				team1_class3text
+			group				classselect_button
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Jedi"
+			rect				320 200 165 20
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvar				mb_class_jedi_cnt
+			textalignx			0
+			textaligny			-5
+			backcolor			0 0 0 0
+			font				2
+			textscale			.8
+			forecolor			0.1 0.7 1 0.7
 			visible				0
-			decoration
 		}
-		
-// IMPS
+
 		//Sith
 		itemDef
 		{
-			name				mb_class_sith
-			group				imp_class
-			rect				8 366 146 45
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
+			name				team2_class3button
+			group				classselect2_button
+			rect				295 155 50 50
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB3
 			//descText			@MENUS_WATCH_DESC
-			text				"SITH"
-			font				6
-			textscale			0.15
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.1
+			backcolor			0.1 0.7 1 0.7
 			visible 			0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
-			
-			mouseEnter
-			{ 
-				setitemcolor	mb_class_sith backcolor   1 1 1 0.3
-				setitemcolor	mb_class_sith forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor	mb_class_sith backcolor   1 1 1 0.1
-				setitemcolor	mb_class_sith forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_icon forecolor   0.75 0.75 0.75 1
-			}
-			action
-			{ 
-				disable			imp_class 0
-				disable			imp_class_sm 0
-				setitemcolor	imp_class backcolor 1 1 1 0.1
-				setitemcolor	imp_class forecolor 1 1 1 1
-				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
-				setitemcolor	imp_class_sm forecolor 1 1 1 1
-				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
-				setitemcolor	mb_class_sith backcolor   1 1 1 0.5
-				setitemcolor	mb_class_sith forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_sm backcolor   1 1 1 0.5
-				setitemcolor	mb_class_sith_sm forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
-				
-				setitemrect     mb_class_soldier_icon 6 68 19 24
-				setitemrect     mb_class_commander_icon 6 118 19 24
-				setitemrect     mb_class_bounty_hunter_icon 6 168 19 24
-				setitemrect     mb_class_mandalorian_icon 6 218 19 24
-				setitemrect     mb_class_droideka_icon 6 268 19 24
-				setitemrect     mb_class_sbd_icon 6 318 19 24
-				setitemrect     mb_class_sith_icon 6 368 19 24
-				
-				setitemtext		siegeclassconfigtitle	"SITH"
-
-				play			"sound/interface/button1.wav"
-				uiscript		updatesiegecvars
-				show 			headlist
-				hide			custlist
-				show			modellisttype
-				hide			hiltmodels
-				hide			hiltmodelsjedi
-				hide			hiltmodelssith
-				hide			hiltselect
-				hide			jedicust
-				show			sithcust
-				show			jedicharselect
-				show			imp_class_sm
-				hide			imp_class
-				hide			class_count
-				hide 			headlist_tiny //+ pen
-				show			modelviewer
-				show			model_rgb
-				disable			mb_class_sith 1
-				disable			mb_class_sith_sm 1
-				uiscript		mb_class_sith
-				uiScript		"getmodelcvars"	//needed for model display stuff
-				uiScript		"getmodelskin"	//needed for model display stuff
-				
-				setitemrect		playermodels	25 86 132 318
-				
-				close 			mb_class_bounty_hunter
-				close 			mb_class_commander
-				close 			mb_class_droideka
-				close 			mb_class_mandalorian
-				close 			mb_class_sbd
-				open 			mb_class_sith
-				close 			mb_class_soldier
-				
-				close			mb_stats_common
-			}
-		}
-
-		itemDef
-		{
-			name				mb_class_sith_sm
-			group				imp_class_sm
-			rect				8 366 15 45
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			font				7
-			textscale			0.2
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			7
-			textaligny			16
-			cvar				mb_class_sith_cnt
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.1
-			visible 			0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
-			
-			mouseEnter
-			{ 
-				setitemcolor	mb_class_sith backcolor   1 1 1 0.3
-				setitemcolor	mb_class_sith forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor	mb_class_sith backcolor   1 1 1 0.1
-				setitemcolor	mb_class_sith forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_icon forecolor   0.75 0.75 0.75 1
-			}
-			action
-			{ 
-				disable			imp_class 0
-				disable			imp_class_sm 0
-				setitemcolor	imp_class backcolor 1 1 1 0.1
-				setitemcolor	imp_class forecolor 1 1 1 1
-				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
-				setitemcolor	imp_class_sm forecolor 1 1 1 1
-				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
-				setitemcolor	mb_class_sith backcolor   1 1 1 0.5
-				setitemcolor	mb_class_sith forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_sm backcolor   1 1 1 0.5
-				setitemcolor	mb_class_sith_sm forecolor   1 1 1 1
-				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
-				
-				setitemtext		siegeclassconfigtitle	"SITH"
-
-				play			"sound/interface/button1.wav"
-				uiscript		updatesiegecvars
-				show 			headlist
-				hide			custlist
-				show			modellisttype
-				hide			hiltmodels
-				hide			hiltmodelsjedi
-				hide			hiltmodelssith
-				hide			hiltselect
-				hide			jedicust
-				show			sithcust
-				show			jedicharselect
-				hide 			headlist_tiny //+ pen
-				show			modelviewer
-				show			model_rgb
-				disable			mb_class_sith 1
-				disable			mb_class_sith_sm 1
-				uiscript		mb_class_sith
-				uiScript		"getmodelcvars"	//needed for model display stuff
-				uiScript		"getmodelskin"	//needed for model display stuff
-				uiScript		getsabercvars "sith"
-				
-				setitemrect		playermodels	25 86 132 318
-				
-				close 			mb_class_bounty_hunter
-				close 			mb_class_commander
-				close 			mb_class_droideka
-				close 			mb_class_mandalorian
-				close 			mb_class_sbd
-				open 			mb_class_sith
-				close 			mb_class_soldier
-				
-				close			mb_stats_common
-			}
-		}
-		
-		itemDef
-		{
-			name				mb_class_sith_icon
-			group				imp_class_icon
-			style				WINDOW_STYLE_SHADER
-			rect				12 372 26 33
 			background			"gfx/menus/classes/jedi"
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			decoration
+			mouseenter
+			{
+				setitemcolor	team2_class3button	backcolor2	1 1 1 1
+				setitemcolor	team2_class3text	forecolor2	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	team2_class3button	backcolor1	0.1 0.7 1 0.7
+				setitemcolor	team2_class3text	forecolor1	0.1 0.7 1 0.7
+			}
+			action
+			{
+				disable			classselect2_button	0
+				setitemcolor	classselect2_button	backcolor1	0.1 0.7 1 0.7
+				setitemcolor	classselect2_button	forecolor1	0.1 0.7 1 0.7
+				setitemcolor	team2_class3button	backcolor2	1 1 1 1
+				setitemcolor	team2_class3text	forecolor2	1 1 1 1
+				play			"sound/interface/button1.wav"
+				uiscript		mb_class_sith
+				//uiscript		uiclass 2
+				show			modellisttype
+				show 			headlist
+				hide			custlist
+				disable			team2_class3button 1
+			}
 		}
 
 		itemDef
 		{
-			name				mb_class_sith_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 372 26 32
+			name				team2_class3text
+			group				classselect2_button
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Sith"
+			rect				320 200 165 20
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvar				mb_class_sith_cnt
+			textalignx			0
+			textaligny			-5
+			backcolor			0 0 0 0
+			font				2
+			textscale			.8
+			forecolor			0.1 0.7 1 0.7
 			visible				0
-			decoration
 		}
 
-//--------------------------------------------------	
-// MB OPEN/SA MODE
-//--------------------------------------------------
-
-		itemdef
-		{
-			name				jedicharselect
-			text				"CHARACTERS"
-			GROUP				jedicust
-			rect				25 66 66 20
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn3_Bg"
-			font				6
-			textscale			0.15
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			33
-			textaligny			-3
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
-			visible				0
-			mouseenter
-			{
-				show			button_glow
-				setitemrect		button_glow 25 66 66 20
-				setitemcolor	jedicharselect	backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				hide			button_glow
-				setitemcolor	jedicharselect	backcolor	1 1 1 0.05
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				hide			hiltselect
-				hide			hiltmodels
-				hide			hiltmodelsjedi
-				hide			hiltmodelssith
-				show			headlist
-				show			modelviewer
-				show			modellisttype
-				setitemcolor	jedicharselect	backcolor	1 1 1 0.5
-				setitemcolor	jedihiltselect	backcolor	1 1 1 0.05
-				setitemcolor	sithhiltselect	backcolor	1 1 1 0.05
-			}
-		}
-
-		itemdef
-		{
-			name				jedihiltselect
-			text				"HILTS"
-			group				jedicust
-			rect 				91 66 65 20
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn3_Bg"
-			font				6
-			textscale			0.15
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			33
-			textaligny			-3
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
-			visible				0
-			mouseenter
-			{
-				show			button_glow
-				setitemrect		button_glow 91 66 65 20
-				setitemcolor	jedihiltselect			backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				hide			button_glow
-				setitemcolor	jedihiltselect			backcolor	1 1 1 0.05
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				show			hiltselect
-				show			hiltmodels
-				show			hiltmodelsjedi
-				hide			playermodels
-				hide			modelviewer
-				hide			modellisttype
-				setitemcolor	jedihiltselect	backcolor	1 1 1 0.5
-				setitemcolor	jedicharselect	backcolor	1 1 1 0.05
-				uiScript		"saber_hilt"
-				uiScript		"saber_color"
-				uiScript		"saber2_hilt"
-				uiScript		"saber2_color"
-				uiScript		getsaberhiltinfo
-			}
-		}
-
-		itemdef
-		{
-			name				sithhiltselect
-			text				"HILTS"
-			group				sithcust
-			rect 				91 66 65 20
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn3_Bg"
-			font				6
-			textscale			0.15
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			33
-			textaligny			-3
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
-			visible				0
-			mouseenter
-			{
-				show			button_glow
-				setitemrect		button_glow 91 66 65 20
-				setitemcolor	sithhiltselect			backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				hide			button_glow
-				setitemcolor	sithhiltselect			backcolor	1 1 1 0.05
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				show			hiltselect
-				show			hiltmodels
-				show			hiltmodelssith
-				hide			playermodels
-				hide			modelviewer
-				hide			modellisttype
-				setitemcolor	jedihiltselect	backcolor	1 1 1 0.5
-				setitemcolor	sithhiltselect	backcolor	1 1 1 0.05
-				uiScript		"saber_hilt"
-				uiScript		"saber_color"
-				uiScript		"saber2_hilt"
-				uiScript		"saber2_color"
-				uiScript		getsaberhiltinfo
-			}
-		}
-
+		// MB OPEN/SA MODE
 		// Scroll box with portraits.
 		itemDef
 		{
 			name 				headlist
-			group				playermodels
-			//rect 				25 86 135 318
-			rect 				25 66 130 338
+			group				class_button
+			rect				19 220 602 182
 			type 				ITEM_TYPE_LISTBOX
-			style 				WINDOW_STYLE_FILLED
-			elementwidth 		30
-			elementheight 		30
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth		45
+			elementheight		45
 			elementtype 		LISTBOX_IMAGE
-			feeder 				FEEDER_MBHEADS
-			//horizontalscroll		
+			feeder				FEEDER_MBHEADS
+			//horizontalscroll
+			border				0
+			bordercolor			0.1 0.7 1 0.9
 			forecolor 			1 1 1 1
 			descText			@MENUS_CHOOSE_THE_MODEL_FOR
-			visible				0
-			textscale 			0.2
+			visible				1
+			textscale			0.7
 			action
-			{  
+			{
 				play			"sound/interface/button1"
-				uiScript		"getmodelcvars"	//needed for model display stuff
-				uiScript		"getmodelskin"	//needed for model display stuff
-				
-				// TUTORIAL REQUIREMENT
-				//uiScript		tutCheckpoint TutModelSelect
 			}
-			mouseEnter
-			{ 
-				setitemcolor 	headlist bordercolor 1 1 1 1 
+			mouseenter
+			{
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
 			}
 			mouseExit
-			{ 
-				setitemcolor 	headlist bordercolor 0.1 0.7 1 0.9
+			{
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
 			}
 		}
-		
+
 		itemDef
 		{
 			name 				custlist
-			group				playermodels
-			rect 				25 66 130 324
+			group				class_button
+			rect				19 220 602 182
 			type 				ITEM_TYPE_LISTBOX
-			style 				WINDOW_STYLE_FILLED
-			elementwidth 		30
-			elementheight 		30
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth		45
+			elementheight		45
 			elementtype 		LISTBOX_IMAGE
-			feeder 				FEEDER_CMHEADS
+			feeder				FEEDER_CMHEADS
 			//horizontalscroll
+			border				0
+			bordercolor			0.1 0.7 1 0.9
 			forecolor 			1 1 1 1
 			descText			@MENUS_CHOOSE_THE_MODEL_FOR
-			visible				0
-			textscale 			0.2
+			visible				1
+			textscale			0.7
 			action
-			{ 
+			{
 				play			"sound/interface/button1"
-				uiScript		"getmodelcvars"	//needed for model display stuff
-				uiScript		"getmodelskin"	//needed for model display stuf
-				//uiScript  	"mb_open" 
 			}
-			mouseEnter
-			{ 
-				setitemcolor 	custlist bordercolor 1 1 1 1 
+			mouseenter
+			{
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
 			}
 			mouseExit
-			{ 
-				setitemcolor 	custlist bordercolor 0.1 0.7 1 0.9
+			{
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
 			}
 		}
-		
-		//+ pen New Scroll box for jedi/sith
-		// Scroll box with portraits.
-		itemDef
-		{
-			name 				headlist_tiny
-			group				playermodels
-			rect 				25 66 130 344//330 300 295 112//340 190 280 197
-			type 				ITEM_TYPE_LISTBOX
-			style 				WINDOW_STYLE_FILLED
-			elementwidth 		40//34//55
-			elementheight 		40//34//55
-			elementtype 		LISTBOX_IMAGE
-			feeder 				FEEDER_MBHEADS
-			//horizontalscroll
-			forecolor 			1 1 1 1				
-			descText			@MENUS_CHOOSE_THE_MODEL_FOR
-			visible				0
-			textscale 			0.2
-			action
-			{ 
-				play			"sound/interface/button1"
-				uiScript		"getmodelcvars"	//needed for model display stuff
-				uiScript		"getmodelskin"	//needed for model display stuff
-				
-				// TUTORIAL REQUIREMENT
-				//uiScript		tutCheckpoint TutModelSelect
-			}
-			mouseEnter
-			{ 
-				setitemcolor 	headlist_tiny bordercolor 1 1 1 1 
-			}
-			mouseExit
-			{ 
-				setitemcolor 	headlist_tiny bordercolor 0.1 0.7 1 0.9
-			}
-		}
-		//- pen
 
 		itemDef
 		{
@@ -1327,7 +806,7 @@
 			text				"DEFAULT"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				99 402 27 15
+			rect				20 402 27 15
 			font				6
 			textscale			0.1
 			textstyle			0
@@ -1345,7 +824,7 @@
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	99 406 27 10
+				setitemrect		button_glow	20 406 27 10
 			}
 			mouseExit
 			{
@@ -1360,7 +839,7 @@
 			text				"/"
 			type				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB1
-			rect				125 402 5 15
+			rect				46 402 5 15
 			font				6
 			textscale			0.1
 			textstyle			0
@@ -1378,7 +857,7 @@
 			text				"CUSTOM"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				130 402 27 15
+			rect				51 402 27 15
 			font				6
 			textscale			0.1
 			textstyle			0
@@ -1396,7 +875,7 @@
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	130 406 27 10
+				setitemrect		button_glow	51 406 27 10
 			}
 			mouseExit
 			{
@@ -1404,1229 +883,30 @@
 			}
 		}
 
-// HILTS
-
-		itemDef
-		{
-			name				typebut
-			group				none
-			text				@MENUS_SABER_TYPE
-			descText			@MENUS_SABER_TYPE_DESC
-			style				WINDOW_STYLE_EMPTY
-			rect				25 268 160 24
-			font				6
-			textscale			.25
-			textstyle			0
-			textalignx			0
-			textaligny			0
-			textalign			ITEM_ALIGN_LEFT
-			backcolor			0 0 0 0
-			forecolor			1.0 1.0 1.0 0.7
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				typebut_single
-			group				hiltselect
-			text				@MENUS_SINGLESABER
-			descText			@MENUS_SINGLESABER_DESC
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Icon_SaberSingle"
-			backcolor			1 1 1 0.5
-			rect				35 91 24 28
-			font				6
-			textscale			0.15
-			textstyle			0
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			20
-			forecolor			1 1 1 0
-			visible				0
-			cvarTest			ui_SingleSaberOnly
-			hideCvar			{ "2" }
-			mouseenter
-			{
-				setitemcolor	typebut_single backcolor	1 1 1 0.8
-				setitemcolor	typebut_single forecolor	1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	typebut_single backcolor	1 1 1 0.5
-				setitemcolor	typebut_single forecolor	1 1 1 0
-			}
-			action
-			{
-				play			"sound/interface/choose_saber.wav"
-				setcvar			ui_saber_type	"single"
-				uiScript		"saber_type"
-				setcvar			ui_saber		"single_1"
-				setcvar			ui_saber2		"none"
-				uiScript		"saber_hilt"
-				uiScript		"saber_color"
-				uiScript		"saber2_hilt"
-				uiScript		"saber2_color"
-				setitemcolor	typebut_single backcolor 1 1 1 1
-				setitemcolor	typebut_single forecolor 1 1 1 1
-				setitemcolor	typebut_dual backcolor 1 1 1 0.5
-				setitemcolor	typebut_dual forecolor 1 1 1 0
-				setitemcolor	typebut_staff backcolor 1 1 1 0.5
-				setitemcolor	typebut_staff forecolor 1 1 1 0
-			}
-		}
-
-		itemDef
-		{
-			name				typebut_dual
-			group				hiltselect
-			text				@MENUS_DUALSABERS
-			descText			@MENUS_DUALSABERS_DESC
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Icon_SaberDual"
-			backcolor			0.5 0.5 0.5 1
-			rect				75 91 24 28
-			font				6
-			textscale			0.15
-			textstyle			0
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny		 	20
-			forecolor			1 1 1 0
-			visible				0
-			cvarTest			ui_SingleSaberOnly
-			hideCvar			{ "1" }
-			mouseenter
-			{
-				setitemcolor	typebut_dual backcolor	1 1 1 0.8
-				setitemcolor	typebut_dual forecolor	1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	typebut_dual backcolor	1 1 1 0.5
-				setitemcolor	typebut_dual forecolor	1 1 1 0
-			}
-			action
-			{
-				play			"sound/interface/choose_saber.wav"
-				setcvar			ui_saber_type	"dual"
-				uiScript		"saber_type"
-				setcvar			ui_saber		"single_1"
-				setcvar			ui_saber2		"single_1"
-				uiScript		"saber_hilt"
-				uiScript		"saber_color"
-				uiScript		"saber2_hilt"
-				uiScript		"saber2_color"
-				setitemcolor	typebut_single backcolor 1 1 1 0.5
-				setitemcolor	typebut_single forecolor 1 1 1 0
-				setitemcolor	typebut_dual backcolor 1 1 1 1
-				setitemcolor	typebut_dual forecolor 1 1 1 1
-				setitemcolor	typebut_staff backcolor 1 1 1 0.5
-				setitemcolor	typebut_staff forecolor 1 1 1 0
-			}
-		}
-
-		itemDef
-		{
-			name				typebut_staff
-			group				hiltselect
-			text				@MENUS_SABERSTAFF
-			descText			@MENUS_SABERSTAFF_DESC
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Icon_SaberStaff"
-			backcolor			0.5 0.5 0.5 1
-			rect				115 91 24 28
-			font				6
-			textscale			0.15
-			textstyle			0
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			20
-			forecolor			1 1 1 0
-			visible				0
-			cvarTest			ui_SingleSaberOnly
-			hideCvar			{ "1" }
-			mouseenter
-			{
-				setitemcolor	typebut_staff backcolor	1 1 1 0.8
-				setitemcolor	typebut_staff forecolor	1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	typebut_staff backcolor	1 1 1 0.5
-				setitemcolor	typebut_staff forecolor	1 1 1 0
-			}
-			action
-			{
-				play			"sound/interface/choose_saber.wav"
-				setcvar			ui_saber_type	"staff"
-				uiScript		"saber_type"
-				setcvar			ui_saber		"dual_1"
-				setcvar			ui_saber2		"none"
-				uiScript		"saber_hilt"
-				uiScript		"saber_color"
-				uiScript		"saber2_hilt"
-				uiScript		"saber2_color"
-				setitemcolor	typebut_single backcolor 1 1 1 0.5
-				setitemcolor	typebut_single forecolor 1 1 1 0
-				setitemcolor	typebut_dual backcolor 1 1 1 0.5
-				setitemcolor	typebut_dual forecolor 1 1 1 0
-				setitemcolor	typebut_staff backcolor 1 1 1 1
-				setitemcolor	typebut_staff forecolor 1 1 1 1
-			}
-		}
-
-		itemDef
-		{
-			name				hiltbut
-			group				hiltselect
-			rect				25 129 132 286
-			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_LISTBOX_RGB1
-			textstyle			WINDOW_STYLE_TEXT_RGB1
-			elementwidth		120
-			elementheight		16
-			font				6
-			textaligny			-4
-			textscale			0.15
-			forecolor			1 1 1 1
-			backcolor			0 0 0 0
-			outlinecolor		1 1 1 0.35
-			elementtype			LISTBOX_TEXT
-			feeder 				FEEDER_SABER_SINGLE_INFO
-			descText			@MENUS_HILT1_DESC
-			elementtype			LISTBOX_TEXT
-			textalign			ITEM_ALIGN_LEFT
-			cvarTest			ui_saber_type
-			hideCvar			{ "staff" ; "dual" }
-			visible				0
-			columns				1 0 0 120
-			action
-			{
-				play			"sound/interface/choose_hilt.wav"
-				uiScript		"setscreensaberhilt"
-				uiScript		"saber_hilt"
-			}
-		}
-
-		// HILT BUTTON 1 - STAVES
-		itemDef
-		{
-			name				hiltbut_staves
-			group				hiltselect
-			rect				25 129 132 286
-			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_LISTBOX_RGB1
-			textstyle			WINDOW_STYLE_TEXT_RGB1
-			elementwidth		120
-			elementheight		16
-			font				6
-			textaligny			-4
-			textscale			0.15
-			forecolor			1 1 1 1
-			backcolor			0 0 0 0
-			outlinecolor		1 1 1 0.35
-			elementtype			LISTBOX_TEXT
-			feeder				FEEDER_SABER_STAFF_INFO
-			descText			@MENUS_HILT1_DESC
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "dual" }
-			visible				0
-			columns				1 0 0 120
-			action
-			{
-				play			"sound/interface/choose_hilt.wav"
-				uiScript		"setscreensaberstaff"
-				uiScript		"saber_hilt"
-			}
-		}
-
-		// HILT BUTTON 1 - DUAL
-		itemDef
-		{
-			name				hiltbut1
-			group				hiltselect
-			rect				25 129 132 140
-			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_LISTBOX_RGB1
-			textstyle			WINDOW_STYLE_TEXT_RGB1
-			elementwidth		120
-			elementheight		16
-			font				6
-			textaligny			-4
-			textscale			0.15
-			forecolor			1 1 1 1
-			backcolor			0 0 0 0
-			outlinecolor		1 1 1 0.35
-			elementtype			LISTBOX_TEXT
-			feeder				FEEDER_SABER_SINGLE_INFO
-//			text				@MENUS_HILT1
-			descText			@MENUS_HILT1_DESC
-			elementtype			LISTBOX_TEXT
-			textalign			ITEM_ALIGN_LEFT
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			visible				0
-			columns				1 0 0 120
-			action
-			{
-				play			"sound/interface/choose_hilt.wav"
-				uiScript		"setscreensaberhilt1"
-				uiScript		"saber_hilt"
-			}
-		}
-
-		// HILT BUTTON 2 - DUAL
-		itemDef
-		{
-			name				hiltbut2
-			group				hiltselect
-			rect				25 272 132 140
-			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_LISTBOX_RGB1
-			textstyle			WINDOW_STYLE_TEXT_RGB1
-			elementwidth		120
-			elementheight		16
-			font				6
-			textaligny			-4
-			textscale			0.15
-			forecolor			1 1 1 1
-			backcolor			0 0 0 0
-			outlinecolor		1 1 1 0.35
-			elementtype			LISTBOX_TEXT
-			feeder 				FEEDER_SABER_SINGLE_INFO
-//			text				@MENUS_HILT2
-			descText			@MENUS_HILT2_DESC
-			forecolor			1 1 1 1
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			visible				0
-			columns				1 0 0 120
-			action
-			{
-				play			"sound/interface/choose_hilt.wav"
-				uiScript		"setscreensaberhilt2"
-				uiScript		"saber2_hilt"
-			}
-		}
-
-//SABER MODELS
-		//FIRST SABER
-		itemDef
-		{
-			name				saber
-			group				hiltmodels
-			type				ITEM_TYPE_MODEL
-			rect				340 66 108 348
-			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
-			isSaber				1
-			model_angle			180
-			model_rotation		20
-			model_g2mins		10 -10 -10
-			model_g2maxs		10 10 15
-			model_fovx			13
-			model_fovy			30
-			visible				0
-			decoration
-			cvarTest			ui_saber_type
-			hideCvar			{ "staff"; "dual" }
-		}
-
-		//STAFF SABER
-		itemDef
-		{
-			name				saber4
-			group				hiltmodels
-			type				ITEM_TYPE_MODEL
-			rect				340 66 108 348
-			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
-			isSaber				1
-			model_angle			180
-			model_rotation		20
-			model_g2mins		10 -10 -18
-			model_g2maxs		10 10 18
-			model_fovx			13
-			model_fovy			30
-			visible				0
-			decoration
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "dual" }
-		}
-
-		//DUAL SABER NUMBER 1
-		itemDef
-		{
-			name				saber3
-			group				hiltmodels
-			type				ITEM_TYPE_MODEL
-			rect				340 66 108 348
-			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
-			isSaber				1
-			model_angle			180
-			model_rotation		20
-			model_g2mins		10 -6 -10
-			model_g2maxs		10 10 15
-			model_fovx			13
-			model_fovy			30
-			visible				0
-			decoration
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-		}
-
-		//SECOND SABER
-		itemDef
-		{
-			name				saber2
-			group				hiltmodels
-			type				ITEM_TYPE_MODEL
-			rect				340 66 108 348
-			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
-			isSaber2			1
-			model_angle			180
-			model_rotation		20
-			model_g2mins		10 -14 -10
-			model_g2maxs		10 10 15
-			model_fovx			13
-			model_fovy			30
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			decoration
-		}
-		
-		// HILT COLOR PRESETS
-		itemDef
-		{
-			name				blueicon
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				340 66 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Blue"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			mouseenter
-			{
-				setitemcolor	blueicon forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	blueicon forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	blueicon forecolor 1 1 1 1
-				setcvar			ui_saber1_hue 0.6277f
-			}
-		}
-		
-		itemDef
-		{
-			name				blueicon2
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				425 66 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Blue"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			mouseenter
-			{
-				setitemcolor	blueicon2 forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	blueicon2 forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	blueicon2 forecolor 1 1 1 1
-				setcvar			ui_saber2_hue 0.6277f
-			}
-		}
-
-		itemDef
-		{
-			name				greenicon
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				340 103 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Green"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			mouseenter
-			{
-				setitemcolor	greenicon forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	greenicon forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	greenicon forecolor 1 1 1 1
-				setcvar			ui_saber1_hue 0.3333
-			}
-		}
-
-		itemDef
-		{
-			name				greenicon2
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				425 103 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Green"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			mouseenter
-			{
-				setitemcolor	greenicon2 forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	greenicon2 forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	greenicon2 forecolor 1 1 1 1
-				setcvar			ui_saber2_hue 0.3333
-			}
-		}
-
-		itemDef
-		{
-			name				orangeicon
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				340 140 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Orange"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			mouseenter
-			{
-				setitemcolor	orangeicon forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	orangeicon forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	orangeicon forecolor 1 1 1 1
-				setcvar			ui_saber1_hue 0.0722
-			}
-		}
-
-		itemDef
-		{
-			name				orangeicon2
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				425 140 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Orange"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			mouseenter
-			{
-				setitemcolor	orangeicon2 forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	orangeicon2 forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	orangeicon2 forecolor 1 1 1 1
-				setcvar			ui_saber2_hue 0.0722
-			}
-		}
-
-		itemDef
-		{
-			name				yellowicon
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				340 177 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Yellow"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			mouseenter
-			{
-				setitemcolor	yellowicon forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	yellowicon forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	yellowicon forecolor 1 1 1 1
-				setcvar			ui_saber1_hue 0.166666
-			}
-		}
-
-		itemDef
-		{
-			name				yellowicon2
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				425 177 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Yellow"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			mouseenter
-			{
-				setitemcolor	yellowicon2 forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	yellowicon2 forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	yellowicon2 forecolor 1 1 1 1
-				setcvar			ui_saber2_hue 0.166666
-			}
-		}
-
-		itemDef
-		{
-			name				purpleicon
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				340 214 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Purple"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			mouseenter
-			{
-				setitemcolor	purpleicon forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	purpleicon forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	purpleicon forecolor 1 1 1 1
-				setcvar			ui_saber1_hue 0.8138
-			}
-		}
-
-		itemDef
-		{
-			name				purpleicon2
-			group				hiltmodelsjedi
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				425 214 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Purple"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			mouseenter
-			{
-				setitemcolor	purpleicon2 forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	purpleicon2 forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	purpleicon2 forecolor 1 1 1 1
-				setcvar			ui_saber2_hue 0.8138
-			}
-		}
-
-		itemDef
-		{
-			name				redorangeicon
-			group				hiltmodelssith
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				340 214 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_RedOrange"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			mouseenter
-			{
-				setitemcolor	redorangeicon forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	redorangeicon forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	redorangeicon forecolor 1 1 1 1
-				setcvar			ui_saber1_hue 1.02
-			}
-		}
-
-		itemDef
-		{
-			name				redorangeicon2
-			group				hiltmodelssith
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				425 214 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_RedOrange"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			mouseenter
-			{
-				setitemcolor	redorangeicon2 forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	redorangeicon2 forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	redorangeicon2 forecolor 1 1 1 1
-				setcvar			ui_saber2_hue 1.02
-			}
-		}
-
-		itemDef
-		{
-			name				redicon
-			group				hiltmodelssith
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				340 177 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			mouseenter
-			{
-				setitemcolor	redicon forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	redicon forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	redicon forecolor 1 1 1 1
-				setcvar			ui_saber1_hue 1.0f
-			}
-		}
-
-		itemDef
-		{
-			name				redicon2
-			group				hiltmodelssith
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				425 177 22 27
-			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
-			forecolor			1 1 1 0.5
-			descText			@MENUS_BLADE_COLOR_DESC
-			visible				0
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			mouseenter
-			{
-				setitemcolor	redicon2 forecolor 1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	redicon2 forecolor 1 1 1 0.5
-			}
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-				setitemcolor	redicon2 forecolor 1 1 1 1
-				setcvar			ui_saber2_hue 1.0f
-			}
-		}
-		
-		itemDef
-		{
-			name				slider_saber_rgb_1_jedi
-			group				hiltmodelsjedi
-			type				ITEM_TYPE_SLIDER_VERT
-			style				WINDOW_STYLE_TEXT_RGB2
-			cvarFloat			"ui_saber1_hue" 0.6277 0.07 0.85
-			rect				343 260 16 100
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			70
-			textaligny			0
-			font				4
-			textscale 			1 
-			forecolor			0.1 0.7 1 1
-			visible				0
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-			}
-		}
-
-		itemDef
-		{
-			name				slider_saber_rgb_2_jedi
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			group				hiltmodelsjedi
-			type				ITEM_TYPE_SLIDER_VERT
-			style				WINDOW_STYLE_TEXT_RGB2
-			cvarFloat			"ui_saber2_hue" 0.6277 0.07 0.85
-			rect				429 260 16 100
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			70
-			textaligny			0
-			font				4
-			textscale 			1 
-			forecolor			0.1 0.7 1 1
-			visible				0
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-			}
-		}
-
-		itemDef
-		{
-			name				slider_saber_rgb_1_sith
-			group				hiltmodelssith
-			type				ITEM_TYPE_SLIDER_VERT
-			style				WINDOW_STYLE_TEXT_RGB2
-			cvarFloat			"ui_saber1_hue" 1.0 0.97 1.02
-			rect				343 260 16 100
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			70
-			textaligny			0
-			font				4
-			textscale 			1 
-			forecolor			0.1 0.7 1 1
-			visible				0
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-			}
-		}
-
-		itemDef
-		{
-			name				slider_saber_rgb_2_sith
-			cvarTest			ui_saber_type
-			hideCvar			{ "single"; "staff" }
-			group				hiltmodelssith
-			type				ITEM_TYPE_SLIDER_VERT
-			style				WINDOW_STYLE_TEXT_RGB2
-			cvarFloat			"ui_saber2_hue" 1.0 0.97 1.02
-			rect				429 260 16 100
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			70
-			textaligny			0
-			font				4
-			textscale 			1 
-			forecolor			0.1 0.7 1 1
-			visible				0
-			action
-			{
-				play			"sound/interface/choose_blade.wav"
-			}
-		}
-
-// RGB SLIDERS
-		itemDef
-		{
-			name 				charred_icon
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			style				WINDOW_STYLE_FILLED
-			rect				341 273 3 10
-			backcolor			0.75 0 0 1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
-			visible				0
-		}
-
-		itemDef
-		{
-			name 				chargreen_icon
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			style				WINDOW_STYLE_FILLED
-			rect				341 290 3 10
-			backcolor			0 0.75 0 1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
-			visible				0
-		}
-
-		itemDef
-		{
-			name 				charblue_icon
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			style				WINDOW_STYLE_FILLED
-			rect				341 307 3 10
-			backcolor			0 0 0.75 1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
-			visible				0
-		}
-
-		itemDef
-		{
-			name				charrgb
-			style				WINDOW_STYLE_FILLED
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			text				"Color Selection"
-			rect				310 265 150 32
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			2
-			textaligny			2
-			outlinecolor		1.0 1.0 1.0 0.2
-			font				6
-			textscale			0.2
-			forecolor			1.0 1.0 1.0 0.8
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				charred
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			type				ITEM_TYPE_INTSLIDER
-			cvarInt				"ui_char_color_red" 50 0 255
-			rect				345 270 100 17
-			forecolor			1.0 1.0 1.0 0.8
-			visible				0
-			mouseenter
-			{
-				show			charred_glow
-			}
-			mouseExit
-			{
-				hide			charred_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				chargreen
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			type				ITEM_TYPE_INTSLIDER
-			cvarInt				"ui_char_color_green" 50 0 255
-			rect				345 287 100 17
-			forecolor			1.0 1.0 1.0 0.8
-			visible				0
-			mouseenter
-			{
-				show			chargreen_glow
-			}
-			mouseExit
-			{
-				hide			chargreen_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				charblue
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			type				ITEM_TYPE_INTSLIDER
-			cvarInt				"ui_char_color_blue" 50 0 255
-			rect				345 304 100 17
-			forecolor			1.0 1.0 1.0 0.8
-			visible				0
-			mouseenter
-			{
-				show			charblue_glow
-			}
-			mouseExit
-			{
-				hide			charblue_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		//RGB float values
-		itemDef
-		{
-			name				charred_value
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB2
-			text				""
-			cvar				"ui_char_color_red"
-			maxchars			3
-			maxPaintChars		3
-			rect				385 274 20 10
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-9
-			font				6
-			textscale			0.15
-			forecolor			1.0 1.0 1.0 0.8
-			outlinecolor		1 1 1 1
-			visible				0
-			descText			"Red Channel Value (0-255)"
-			mouseenter
-			{
-				show			charred_glow
-			}
-			mouseExit
-			{
-				hide			charred_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				chargreen_value
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB2
-			text				""
-			cvar				"ui_char_color_green"
-			maxchars			3
-			maxPaintChars 		3
-			rect				385 291 20 10
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-9
-			font				6
-			textscale			0.15
-			forecolor			1.0 1.0 1.0 0.8
-			outlinecolor		1 1 1 1
-			visible				0
-			descText			"Green Channel Value (0-255)"
-			mouseenter
-			{
-				show			chargreen_glow
-			}
-			mouseExit
-			{
-				hide			chargreen_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				charblue_value
-			cvarTest			"model"
-			showCvar			{ "clonetrooper/classic2_rgb", "clonepac/rgb", "clonetrooper/327_rgb", "clonetrooper/deviss_rgb", "clonetrooper/fives_rgb", "clonetrooper2/fives2", "clonetrooper/rex_rgb", "clonetrooper/neyo_rgb", "comkeller/rgb", "trandoshan/rgb", "gran/rgb", "weequay/rgb", "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb", "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default", "jedi_hm/hothelite2_rgb", "jedi_hf/default_hoth_rgb", "jedi_kdm/hoth_rgb", "jedi_zf/rgb_et", "jedi/rgb", "mbmandy/mbrgb1", "mbmandy/mbrgb2", "mbmandyfem/rgb", "cultist/rgb", "shadowtrooper/new_rgb", "reborn_new/rgb", "reborn_twin/rgb", "battledroid/rgb_pilot", "rebel_pilot/rgb", "oldrepsold/rgb2", "jedi_tf/diapassik_rgb", "tyriasarkin/rgb" }
-			group				model_rgb
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB2
-			text				""
-			cvar				"ui_char_color_blue"
-			maxchars			3
-			maxPaintChars		3
-			rect				385 308 20 10
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-9
-			font				6
-			textscale			0.15
-			forecolor			1.0 1.0 1.0 0.8
-			visible				0
-			descText			"Blue Channel Value (0-255)"
-			mouseenter
-			{
-				show			charblue_glow
-			}
-			mouseExit
-			{
-				hide			charblue_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-	//-----------------------------------------------
-	// JOIN + BACK BUTTONS
-	//-----------------------------------------------
-
-		// BACK BUTTON
-		itemDef
-		{
-			name				back
-			group				bg_button_l
-			text				"BACK"
-			descText			@MENUS_BACKUP_ONE_MENU
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB1
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Menu_ClassButtonL"
-			rect				0 430 70 36
-			textaligny			0
-			font				6
-			textscale			0.2
-			textalignx			35
-			textalign			ITEM_ALIGN_CENTER
-			visible				1
-			forecolor			1 1 1 1
-			action
-			{
-				play			"sound/interface/back.mp3"
-				close			all
-				open			main
-				open			ingame
-			}
-			mouseenter
-			{
-				show			ClassButtonL_Hl
-			}
-			mouseExit
-			{
-				hide			ClassButtonL_Hl
-			}
-		}
-
-		itemDef
-		{
-			name				ClassButtonL_Hl
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 430 70 36
-			background			"gfx/menus/alpha/Menu_ClassButtonL_Hl"
-			forecolor			1 1 1 0.8
-			visible				0
-			decoration
-		}
-
-		// OKAY/JOIN BUTTON
+		// OKAY BUTTON
 		itemDef
 		{
 			name				okay
-			group				bg_button_r
-			text				"OKAY"
-			descText			@MENUS_JOIN_GAME			
+			text				@MENUS_OKAY
 			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB1
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Menu_ClassButtonR"
-			rect				384 430 70 36
-			textaligny			0
-			font				6
-			textscale			0.2
-			textalignx			35
-			textalign			ITEM_ALIGN_CENTER
-			forecolor			1 1 1 1
+			textscale			.8
+			group				grpControlbutton
+			style 				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				244 437 150 26
+			textalign 			ITEM_ALIGN_CENTER
+			textalignx 			75
+			forecolor			0.1 0.7 1 0.7
+			backcolor 			1 1 1 1
 			visible				1
+			descText			@MENUS_JOIN_GAME
 			action
 			{
 				play			"sound/interface/button1.wav"
 				uiScript		setsiegeclassandteam
-				uiScript 		mb_setskill
-				uiScript		updatergbcvars
 				hide			stats
 				uiScript		closeingame
-
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutClassAndTeam
 			}
-			mouseenter
-			{
-				show			ClassButtonR_Hl
-			}
-			mouseExit
-			{
-				hide			ClassButtonR_Hl
-			}
-		}
-
-		itemDef
-		{
-			name				ClassButtonR_Hl
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				384 430 70 36
-			background			"gfx/menus/alpha/Menu_ClassButtonR_Hl"
-			forecolor			1 1 1 0.8
-			visible				0
-			decoration
 		}
 	}
 }
