@@ -1,9 +1,8 @@
-// First person arm cannon model - models/weapons2/concussion/c_rifle.md3
-models/players/sbd/Hands
+// ===== First person arm cannon model - models/weapons2/concussion/c_rifle.md3 =====
+models/players/sbd/arms_b
 {
-	cull	twosided
 	{
-		map models/players/sbd/Hands
+		map models/players/sbd/arms_b
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -13,13 +12,94 @@ models/players/sbd/Hands
 		detail
 		tcGen environment
 	}  
-{
-		map models/players/sbd/Hands_spec
+	{
+		map models/players/sbd/arms_b_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
+models/players/sbd/hands
+{
+	{
+		map models/players/sbd/hands
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map gfx/saber/saber_enviro3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}  
+	{
+		map models/players/sbd/hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/sbd/fingers
+{
+	{
+		map models/players/sbd/fingers
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map gfx/saber/saber_enviro3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}  
+	{
+		map models/players/sbd/fingers_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/sbd/r_forearm
+{
+	{
+		map models/players/sbd/r_forearm
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map gfx/saber/saber_enviro3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}  
+	{
+		map models/players/sbd/r_forearm_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/sbd/r_forearm_b
+{
+	{
+		map models/players/sbd/r_forearm_b
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map gfx/saber/saber_enviro3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}  
+	{
+		map models/players/sbd/r_forearm_b_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+// ===== End arm cannon model =====
 
 models/players/SBD/body
 {
