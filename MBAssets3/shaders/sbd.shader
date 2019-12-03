@@ -1,3 +1,26 @@
+// First person arm cannon model - models/weapons2/concussion/c_rifle.md3
+models/players/sbd/Hands
+{
+	cull	twosided
+	{
+		map models/players/sbd/Hands
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map gfx/saber/saber_enviro3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}  
+{
+		map models/players/sbd/Hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/SBD/body
 {
     {
