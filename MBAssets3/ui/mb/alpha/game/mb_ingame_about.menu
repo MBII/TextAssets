@@ -450,6 +450,140 @@
 			}
 		}
 
+		itemDef
+		{
+			name				team1obj5_button
+			group				team1obj_buttons
+			rect				132 20 20 25
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			text				@MENUS_5
+			font				7
+			textscale			.2
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx 			9
+			textaligny 			-5
+			backcolor			1 0 0 1
+			forecolor			.75 .75 .75 1
+			background			"gfx/menus/alpha/Mission_Obj"
+			visible				1
+			cvartest			"team1_objective5_inuse"
+			showcvar
+			{
+				"1" ;
+				"2"
+			}
+			mouseenter
+			{
+				setitemcolor		team1obj5_button forecolor 1 1 1 1
+				setitemcolor		team1obj5_button backcolor 1 1 1 0.35
+			}
+			mouseExit
+			{
+				setitemcolor		team1obj5_button forecolor 1 1 1 0.75
+				setitemcolor		team1obj5_button backcolor 1 1 1 0.1
+			}
+			action
+			{
+				// Because open and close menu hide these
+				show				obj_minidesc
+				show				obj_longdesc
+				show				objective_pic
+				// change color and stext of mini desc
+				setitemtext			obj_minidesc @MENUS_OBJECTIVE_5
+				//change text of long desc
+				setitemtext			obj_longdesc "*team1_objective5_longdesc"
+				// change pic to match objective
+				setitembackground	objective_pic	"*team1_objective5_gfx"
+				// Reset all buttons to their normal colors
+				setitembackground	team1obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team1obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team1obj_buttons	backcolor 1 1 1 0.1
+				setitembackground	team1obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team2obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team2obj_buttons	backcolor 1 1 1 0.1
+				setitemcolor		team2obj_buttons	bordercolor 0 0 0 0
+				// Disable current button and give it a border
+				setitembackground	team1obj5_button	"gfx/menus/alpha/Mission_Objselected"
+				setcvar				currentObjButton	"team1obj5_button"
+				setitemcolor		team1obj5_button 	backcolor 1 1 1 0.5
+				// Completed text
+				hide				completed_text
+				show				text_tm1_obj5
+				// Reset old map icon to old background and enable old obj button
+				// Set new map icon to hilite background and disable new obj button
+				uiscript			setsiegeobjbuttons tm1_icon5 team1_objective5_mapicon team1_objective5_litmapicon
+			}
+		}
+
+		itemDef
+		{
+			name				team1obj6_button
+			group				team1obj_buttons
+			rect				155 20 20 25
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			text				@MENUS_6
+			font				7
+			textscale			.2
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx 			9
+			textaligny 			-5
+			backcolor			1 0 0 1
+			forecolor			.75 .75 .75 1
+			background			"gfx/menus/alpha/Mission_Obj"
+			visible				1
+			cvartest			"team1_objective6_inuse"
+			showcvar
+			{
+				"1" ;
+				"2"
+			}
+			mouseenter
+			{
+				setitemcolor		team1obj6_button forecolor 1 1 1 1
+				setitemcolor		team1obj6_button backcolor 1 1 1 0.35
+			}
+			mouseExit
+			{
+				setitemcolor		team1obj6_button forecolor 1 1 1 0.75
+				setitemcolor		team1obj6_button backcolor 1 1 1 0.1
+			}
+			action
+			{
+				// Because open and close menu hide these
+				show				obj_minidesc
+				show				obj_longdesc
+				show				objective_pic
+				// change color and stext of mini desc
+				setitemtext			obj_minidesc @MENUS_OBJECTIVE_6
+				//change text of long desc
+				setitemtext			obj_longdesc "*team1_objective6_longdesc"
+				// change pic to match objective
+				setitembackground	objective_pic	"*team1_objective6_gfx"
+				// Reset all buttons to their normal colors
+				setitembackground	team1obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team1obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team1obj_buttons	backcolor 1 1 1 0.1
+				setitembackground	team1obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team2obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team2obj_buttons	backcolor 1 1 1 0.1
+				setitemcolor		team2obj_buttons	bordercolor 0 0 0 0
+				// Disable current button and give it a border
+				setitembackground	team1obj6_button	"gfx/menus/alpha/Mission_Objselected"
+				setcvar				currentObjButton	"team1obj6_button"
+				setitemcolor		team1obj6_button 	backcolor 1 1 1 0.5
+				// Completed text
+				hide				completed_text
+				show				text_tm1_obj6
+				// Reset old map icon to old background and enable old obj button
+				// Set new map icon to hilite background and disable new obj button
+				uiscript			setsiegeobjbuttons tm1_icon6 team1_objective6_mapicon team1_objective6_litmapicon
+			}
+		}
+
 // TEAM1 - MET OBJECTIVES BUTTONS
 		itemDef
 		{
@@ -523,6 +657,43 @@
 			}
 		}
 
+		itemDef
+		{
+			name				team1_met_obj5
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				132 20 20 25
+			forecolor			1 1 1 1
+			visible				1
+			background			"gfx/menus/x"
+			visible				1
+			cvartest			"team1_objective5"
+			decoration
+			showcvar
+			{
+				"1"
+			}
+		}
+
+		itemDef
+		{
+			name				team1_met_obj6
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				155 20 20 25
+			forecolor			1 1 1 1
+			visible				1
+			background			"gfx/menus/x"
+			visible				1
+			cvartest			"team1_objective6"
+			decoration
+			showcvar
+			{
+				"1"
+			}
+		}
+
+
 // TEAM2 - PRIMARY OBJECTIVE BUTTON
 		itemDef
 		{
@@ -590,7 +761,7 @@
 		{
 			name				team2obj2_button
 			group				team2obj_buttons
-			rect				373 20 20 25
+			rect				374 20 20 25
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			text				@MENUS_2
@@ -657,7 +828,7 @@
 		{
 			name				team2obj3_button
 			group				team2obj_buttons
-			rect				352 20 20 25
+			rect				351 20 20 25
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			text				@MENUS_3
@@ -724,7 +895,7 @@
 		{
 			name				team2obj4_button
 			group				team2obj_buttons
-			rect				327 20 20 25
+			rect				328 20 20 25
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			text				@MENUS_4
@@ -787,6 +958,140 @@
 			}
 		}
 
+		itemDef
+		{
+			name				team2obj5_button
+			group				team2obj_buttons
+			rect				305 20 20 25
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			text				@MENUS_5
+			font				7
+			textscale			.2
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx 			10
+			textaligny 			-5
+			backcolor			1 0 0 1
+			forecolor			.75 .75 .75 1
+			background			"gfx/menus/alpha/Mission_Obj"
+			visible				1
+			cvartest			"team2_objective5_inuse"
+			showcvar
+			{
+				"1" ;
+				"2"
+			}
+			mouseenter
+			{
+				setitemcolor		team2obj5_button forecolor 1 1 1 1
+				setitemcolor		team2obj5_button backcolor 1 1 1 0.35
+			}
+			mouseExit
+			{
+				setitemcolor		team2obj5_button forecolor 1 1 1 0.75
+				setitemcolor		team2obj5_button backcolor 1 1 1 0.1
+			}
+			action
+			{
+				// Because open and close menu hide these
+				show				obj_minidesc
+				show				obj_longdesc
+				show				objective_pic
+				// change color and text of mini desc
+				setitemtext			obj_minidesc @MENUS_OBJECTIVE_5
+				//change text of long desc
+				setitemtext			obj_longdesc "*team2_objective5_longdesc"
+				// change pic to match objective
+				setitembackground	objective_pic	"*team2_objective5_gfx"
+				// Reset all buttons to their normal colors
+				setitembackground	team1obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team1obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team1obj_buttons	backcolor 1 1 1 0.1
+				setitembackground	team2obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team2obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team2obj_buttons	backcolor 1 1 1 0.1
+				setitemcolor		team2obj_buttons	bordercolor 0 0 0 0
+				// Disable current button and give it a border
+				setitembackground	team2obj5_button	"gfx/menus/alpha/Mission_Objselected"
+				setcvar				currentObjButton	"team2obj5_button"
+				setitemcolor		team2obj5_button 	backcolor 1 1 1 0.5
+				// Completed text
+				hide				completed_text
+				show				text_tm2_obj5
+				// Reset old map icon to old background and enable old obj button
+				// Set new map icon to hilite background and disable new obj button
+				uiscript			setsiegeobjbuttons tm2_icon5 team2_objective5_mapicon team2_objective5_litmapicon
+			}
+		}
+
+		itemDef
+		{
+			name				team2obj6_button
+			group				team2obj_buttons
+			rect				282 20 20 25
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			text				@MENUS_6
+			font				7
+			textscale			.2
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx 			10
+			textaligny 			-5
+			backcolor			1 0 0 1
+			forecolor			.75 .75 .75 1
+			background			"gfx/menus/alpha/Mission_Obj"
+			visible				1
+			cvartest			"team2_objective6_inuse"
+			showcvar
+			{
+				"1" ;
+				"2"
+			}
+			mouseenter
+			{
+				setitemcolor		team2obj6_button forecolor 1 1 1 1
+				setitemcolor		team2obj6_button backcolor 1 1 1 0.35
+			}
+			mouseExit
+			{
+				setitemcolor		team2obj6_button forecolor 1 1 1 0.75
+				setitemcolor		team2obj6_button backcolor 1 1 1 0.1
+			}
+			action
+			{
+				// Because open and close menu hide these
+				show				obj_minidesc
+				show				obj_longdesc
+				show				objective_pic
+				// change color and text of mini desc
+				setitemtext			obj_minidesc @MENUS_OBJECTIVE_6
+				//change text of long desc
+				setitemtext			obj_longdesc "*team2_objective6_longdesc"
+				// change pic to match objective
+				setitembackground	objective_pic	"*team2_objective6_gfx"
+				// Reset all buttons to their normal colors
+				setitembackground	team1obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team1obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team1obj_buttons	backcolor 1 1 1 0.1
+				setitembackground	team2obj_buttons	"gfx/menus/alpha/Mission_Obj"
+				setitemcolor		team2obj_buttons	forecolor .75 .75 .75 1
+				setitemcolor		team2obj_buttons	backcolor 1 1 1 0.1
+				setitemcolor		team2obj_buttons	bordercolor 0 0 0 0
+				// Disable current button and give it a border
+				setitembackground	team2obj6_button	"gfx/menus/alpha/Mission_Objselected"
+				setcvar				currentObjButton	"team2obj6_button"
+				setitemcolor		team2obj6_button 	backcolor 1 1 1 0.5
+				// Completed text
+				hide				completed_text
+				show				text_tm2_obj6
+				// Reset old map icon to old background and enable old obj button
+				// Set new map icon to hilite background and disable new obj button
+				uiscript			setsiegeobjbuttons tm2_icon6 team2_objective6_mapicon team2_objective6_litmapicon
+			}
+		}
+
 // TEAM2 - MET OBJECTIVES
 		itemDef
 		{
@@ -811,7 +1116,7 @@
 			name				team2_met_obj2
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect				373 20 20 25
+			rect				374 20 20 25
 			forecolor			1 1 1 1
 			visible				1
 			background			"gfx/menus/x"
@@ -829,7 +1134,7 @@
 			name				team2_met_obj3
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect				352 20 20 25
+			rect				351 20 20 25
 			forecolor			1 1 1 1
 			visible				1
 			background			"gfx/menus/x"
@@ -847,12 +1152,48 @@
 			name				team2_met_obj4
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect				327 20 20 25
+			rect				328 20 20 25
 			forecolor			1 1 1 1
 			visible				1
 			background			"gfx/menus/x"
 			visible				1
 			cvartest			"team1_objective4"
+			decoration
+			showcvar
+			{
+				"1"
+			}
+		}
+
+		itemDef
+		{
+			name				team2_met_obj5
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				305 20 20 25
+			forecolor			1 1 1 1
+			visible				1
+			background			"gfx/menus/x"
+			visible				1
+			cvartest			"team1_objective5"
+			decoration
+			showcvar
+			{
+				"1"
+			}
+		}
+
+		itemDef
+		{
+			name				team2_met_obj6
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				282 20 20 25
+			forecolor			1 1 1 1
+			visible				1
+			background			"gfx/menus/x"
+			visible				1
+			cvartest			"team1_objective6"
 			decoration
 			showcvar
 			{
@@ -873,6 +1214,7 @@
 			textaligny			-7
 			forecolor			1 1 1 1
 			visible				0
+			autowrapped
 			decoration
 		}
 
@@ -880,7 +1222,7 @@
 		itemDef
 		{
 			name 				obj_longdesc
-			rect				93 67 355 37
+			rect				93 67 100 37
 			style 				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXT
 			font				6
@@ -963,9 +1305,10 @@
 		{
 			name				legend
 			group				none
-			style				WINDOW_STYLE_SHADER
+			style				WINDOW_STYLE_FILLED
 			rect				9 334 243 71
 			forecolor			1 1 1 1
+			backcolor			1 1 1 1
 			visible				1
 			decoration
 			background			"gfx/menus/mission_legend"
