@@ -27,14 +27,11 @@
 		disablecolor				.7 .7 .7 .7
 		onClose
 		{ 
-			hide				minidesc
 			hide				siegeclassconfigtitle
 		}
 		
 		onOpen
-		{ 
-			setcvar				currentObjButton "null"
-
+		{
 			exec				"siegeCompleteCvarUpdate"
 			
 			setitembackground		team1_symbol	"*team1_icon"
@@ -55,27 +52,8 @@
 			setitemcolor			team1_count forecolor1   0.1 0.7 1 0.7
 			setitemcolor			team2_count forecolor1   0.1 0.7 1 0.7
 			
-			// 
-			setitemcolor			team1obj_buttons bordercolor	0 0 0 0
-			setitemcolor			team2obj_buttons bordercolor	0 0 0 0
-			setitemcolor			team1obj_buttons forecolor	1 1 1 1
-			setitemcolor			team2obj_buttons forecolor	1 1 1 1
-
-			disable				team1obj_buttons	0
-			disable				team2obj_buttons	0
-			
 			hide				class_portrait
 			hide				itemdescription
-			
-			// Reset all buttons to their normal colors
-			setitemcolor		team1obj_buttons forecolor .75 .75 .75 1
-			setitemcolor		team1obj_buttons backcolor .7 0 0 1
-			setitemcolor		team2obj_buttons forecolor .75 .75 .75 1
-			setitemcolor		team2obj_buttons backcolor 0 0 .7 1
-			
-			// Disable current button and give it a border
-			setitemcolor		team1obj1_button 	bordercolor 1 1 1 1
-			setitemcolor		team1obj1_button 	backcolor 1 0 0 1
 
 			// Set the map icon picture to the updated graphic
 			uiscript		setteamclassicons
@@ -1462,102 +1440,6 @@
 		//	forecolor 			0.1 0.7 1 0.7
 		//	decoration
 		//}
-
-//--------------------------------------------------
-// BASE CLASS WEAPONS FEEDER
-//--------------------------------------------------
-		itemDef
-		{
-			name				base_class_weapons_feed
-			group				feeders
-			type 				ITEM_TYPE_LISTBOX
-			desctext			@MENUS_CLASS_WEAPONS
-			style 				WINDOW_STYLE_FILLED
-			elementwidth 			34
-			elementheight 			34
-			elementtype 			LISTBOX_IMAGE
-			feeder 				FEEDER_SIEGE_CLASS_WEAPONS
-			rect				326 246 148 52
-			horizontalscroll
-			backcolor 			0 0 0 0
-			border 				1
-			bordercolor 			1 1 1 1
-			forecolor 			0.1 0.7 1 0.7
-			visible				1
-			textscale 			0.7
-			action
-			{
-				hide			description
-				show			itemdescription
-				uiscript		updatesiegeweapondesc
-				uiscript		resetitemdescription
-			}
-
-		}
-			
-
-//--------------------------------------------------
-// BASE CLASS INVENTORY FEEDER
-//--------------------------------------------------
-		itemDef
-		{
-			name				base_class_inventory_feed
-			group				feeders
-			desctext			@MENUS_CLASS_INVENTORY
-			type 				ITEM_TYPE_LISTBOX
-			style 				WINDOW_STYLE_FILLED
-			elementwidth 			34
-			elementheight 			34
-			elementtype 			LISTBOX_IMAGE
-			feeder 				FEEDER_SIEGE_CLASS_INVENTORY
-			rect				479 246 148 52
-			horizontalscroll
-			backcolor 			0 0 0 0
-			border 				1
-			bordercolor 			1 1 1 1
-			forecolor 			0.1 0.7 1 0.7
-			visible				1
-			textscale 			0.7
-			action
-			{
-				hide			description
-				show			itemdescription
-				uiscript		updatesiegeinventorydesc
-				uiscript		resetitemdescription
-			}
-
-		}
-			
-//--------------------------------------------------
-// BASE CLASS FORCE POWER FEEDER
-//--------------------------------------------------
-		itemDef
-		{
-			name				base_class_force_feed
-			group				feeders
-			type 				ITEM_TYPE_LISTBOX
-			desctext			@MENUS_CLASS_FORCEPOWERS
-			style 				WINDOW_STYLE_FILLED
-			elementwidth 			34
-			elementheight 			34
-			elementtype 			LISTBOX_IMAGE
-			feeder 				FEEDER_SIEGE_CLASS_FORCE
-			rect				320 299 311 52
-			horizontalscroll
-			border 				1
-			bordercolor 			1 1 1 1
-			forecolor 			0.1 0.7 1 0.7
-			visible				1
-			textscale 			0.7
-			action
-			{
-				hide			description
-				show			itemdescription
-				uiscript		updatesiegeforcedesc
-				uiscript		resetitemdescription
-			}
-
-		}
 			
 		itemDef
 		{
