@@ -1,0 +1,2027 @@
+//	MULTIPLAYER - Library Menu
+{
+	menuDef 
+	{
+		name					"help_menu"
+		fullScreen				0
+		rect					93 50 454 418					// Size and position of the menu
+		focusColor				1 1 1 0.6				// Focus color for text and items
+		descX					320
+		descY					402
+		descScale				0.7
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		visible					1
+		onOpen 
+		{
+			exec				"vstr ui_help_class; vstr ui_help_weapon; vstr ui_help_force; vstr ui_help_gamemode; vstr ui_help_strategy; vstr ui_help_faq"
+			hide				weapons ;
+			hide				forcepowers ;
+			hide				strategy ;
+			hide				strategy2 ;
+			hide				gameopt ;
+			hide				gameopt2 ;
+			hide				performanceopt1 ;
+			hide				performanceopt2 ;
+			hide				faq ;
+			hide				faq1 ;
+			hide				faq2 ;
+			hide				tips ;
+			show				group1
+			show				classes
+			setitemcolor		classesbutton		forecolor 0.5 0.5 0.5 0.9
+			setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+			setitemcolor		forcebutton			forecolor 1 1 1 0.9
+			setitemcolor		strategybutton		forecolor 1 1 1 0.9
+			setitemcolor		strategy2button		forecolor 1 1 1 0.9
+			setitemcolor		gameoptbutton		forecolor 1 1 1 0.9
+			setitemcolor		gameopt2button		forecolor 1 1 1 0.9
+			setitemcolor		faqbutton			forecolor 1 1 1 0.9
+			setitemcolor		tipsbutton			forecolor 1 1 1 0.9
+		}
+		onESC 
+		{ 
+			play				"sound/interface/back.mp3" ;
+			close				all ;
+			open				ingame
+		}
+
+//----------------------------------------------------------------------------------------------
+//	MENU BACKGROUND
+//----------------------------------------------------------------------------------------------
+		itemDef
+		{
+			name				bg_help
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 377
+			background			"gfx/menus/alpha/Menu_Help"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}						
+
+		itemDef
+		{
+			name				btn_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Btn_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}		
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}			
+		
+// BACKGROUND			
+
+		//Menu opening screen end
+		itemDef 
+		{
+			name				classesbutton
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 50 100 20 
+			text				"CLASSES & SKILLS"
+			descText			"Describes the stats, skills, and abilities of the player classes in MBII"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0	  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 50 100 20
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				show			classes 
+				hide			weapons	
+				hide			forcepowers
+				hide			strategy
+				hide			strategy2
+				hide			gameopt 
+				hide			gameopt2
+				hide			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton			forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+				
+			}
+		}
+
+		itemDef 
+		{
+			name				weaponsbutton
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 80 100 20 
+			text				"WEAPONS & STYLES"
+			descText			"Describes the different levels of weapons, saber combat styles, and melee mechanics"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 80 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				hide			classes 
+				show			weapons	
+				hide			forcepowers
+				hide			strategy
+				hide			strategy2
+				hide			gameopt 
+				hide			gameopt2
+				hide			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton			forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+			}
+		}
+
+		
+		itemDef 
+		{
+			name				forcebutton
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 110 100 20 
+			text				"FORCE POWERS"
+			descText			"Describes the the levels and aspects of Force Powers"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 110 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ;  
+				hide			classes 
+				hide			weapons	
+				show			forcepowers
+				hide			strategy
+				hide			strategy2
+				hide			gameopt 
+				hide			gameopt2
+				hide			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton			forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+			}
+		}
+
+
+		itemDef 
+		{
+			name				strategybutton
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 140 100 20  
+			text				"HOW TO PLAY"
+			descText			"Overview of strategy for playing most types of classes"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0	  	  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 140 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				hide			classes 
+				hide			weapons	
+				hide			forcepowers
+				show			strategy
+				hide			strategy2
+				hide			gameopt 
+				hide			gameopt2
+				hide			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton		forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+			}
+		}
+
+		itemDef 
+		{
+			name				strategy2button
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 170 100 20 
+			text				"GAME MODES"
+			descText			"Overview of MB2 game modes"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0	  	  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 170 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				hide			classes 
+				hide			weapons	
+				hide			forcepowers
+				hide			strategy
+				show			strategy2
+				hide			gameopt 
+				hide			gameopt2
+				hide			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		gameoptbutton			forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+			}
+		}		
+		
+		itemDef 
+		{
+			name				gameoptbutton
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 200 100 20 
+			text				"PERFORMANCE"
+			descText			"Overview of and general tips for better performance in gameplay"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0	  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 200 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				hide			classes 
+				hide			weapons	
+				hide			forcepowers
+				hide			strategy
+				hide			strategy2
+				show			gameopt 
+				hide			gameopt2
+				hide			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton			forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+			}
+		}
+
+		itemDef 
+		{
+			name				gameopt2button
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 230 100 20 
+			text				"OPTIMIZATION"
+			descText			"Cvars and menu-adjustable options that can be tweaked to increase performance"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0	  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 230 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ;  
+				hide			classes 
+				hide			weapons	
+				hide			forcepowers
+				hide			strategy
+				hide			strategy2
+				hide			gameopt 
+				show			gameopt2
+				hide			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton			forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+			}
+		}		
+		
+		itemDef 
+		{
+			name				faqbutton
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 260 100 20 
+			text				"FAQ"
+			descText			"Find answers to frequently asked game and slang questions here"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0 	  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 260 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				hide			classes 
+				hide			weapons	
+				hide			forcepowers
+				hide			strategy
+				hide			strategy2
+				hide			gameopt 
+				hide			gameopt2
+				show			faq
+				hide			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton			forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 0.5 0.5 0.5 0.9
+				setitemcolor		tipsbutton			forecolor 1 1 1 0.9					
+			}
+		}
+
+		itemDef 
+		{
+			name				tipsbutton
+			group				group1
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				10 290 100 20 
+			text				"TIPS ARCHIVE"
+			descText			"Read through the tips displayed during loading screens at your leisure"
+			font				5
+			textscale			0.15
+			textaligny			-3
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			textalignx			90
+			forecolor			1 1 1 0.9
+			visible				0	  	  
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 290 100 20 
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				hide			classes 
+				hide			weapons	
+				hide			forcepowers
+				hide			strategy
+				hide			strategy2
+				hide			gameopt 
+				hide			gameopt2
+				hide			faq
+				show			tips
+				setitemcolor		classesbutton		forecolor 1 1 1 0.9
+				setitemcolor		weaponsbutton		forecolor 1 1 1 0.9
+				setitemcolor		forcebutton			forecolor 1 1 1 0.9
+				setitemcolor		strategybutton		forecolor 1 1 1 0.9
+				setitemcolor		strategy2button			forecolor 1 1 1 0.9
+				setitemcolor		gameoptbutton			forecolor 1 1 1 0.9
+				setitemcolor		gameopt2button	forecolor 1 1 1 0.9
+				setitemcolor		faqbutton			forecolor 1 1 1 0.9
+				setitemcolor		tipsbutton			forecolor 0.5 0.5 0.5 0.9				
+			}
+		}		
+
+//class menu and buttons
+		itemDef 
+		{
+			name				classbutton
+			group				classes
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				170 10 215 50 
+			text				"Class:"
+			descText			"Left-click and right-click to cycle"
+			font				7
+			textscale			0.3
+			textaligny			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0
+			textalignx			0
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				"ui_help_class"
+			cvarStrList
+			{
+			@NAMES_SOLDIER		"set ui_classdescription @HELP_SOLDIER_D; set ui_class_skills @HELP_SOLDIER"
+			@NAMES_ET			"set ui_classdescription @HELP_ET_D; set ui_class_skills @HELP_ET"
+			@NAMES_CLONE		"set ui_classdescription @HELP_CLONE_D; set ui_class_skills @HELP_CLONE"
+			@NAMES_ARC			"set ui_classdescription @HELP_ARC_D; set ui_class_skills @HELP_ARC"
+			@NAMES_HERO			"set ui_classdescription @HELP_HERO_D; set ui_class_skills @HELP_HERO"
+			@NAMES_WOOKIEE		"set ui_classdescription @HELP_WOOKIEE_D; set ui_class_skills @HELP_WOOKIEE"
+			@NAMES_JEDI			"set ui_classdescription @HELP_JEDI_D; set ui_class_skills @HELP_JEDI"
+			@NAMES_BH			"set ui_classdescription @HELP_BOUNTYHUNTER_D; set ui_class_skills @HELP_BOUNTYHUNTER"
+			@NAMES_MANDO		"set ui_classdescription @HELP_MANDO_D; set ui_class_skills @HELP_MANDO"
+			@NAMES_SBD			"set ui_classdescription @HELP_SBD_D; set ui_class_skills @HELP_SBD"
+			@NAMES_DEKA			"set ui_classdescription @HELP_DEKA_D; set ui_class_skills @HELP_DEKA"
+			}  	  
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				exec			"vstr ui_help_class"
+			}
+		}
+		
+//class icons - LONG list
+
+		itemDef 
+		{
+			name				classicon1
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/imp"
+			cvarTest			"ui_class_skills"
+			showCvar			{ "@HELP_SOLDIER" }
+			visible				0
+			forecolor			1 1 1 1			
+		}
+
+		itemDef 
+		{
+			name				classicon2
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/com"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_ET }
+			visible				0
+			forecolor			1 1 1 1			
+		}
+
+		itemDef 
+		{
+			name				classicon3
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/clone"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_CLONE }
+			visible				0
+			forecolor			1 1 1 1			
+		}
+
+		itemDef 
+		{
+			name				classicon4
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/arc"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_ARC }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				classicon5
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/hero"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_HERO }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				classicon6
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/wook"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_WOOKIEE }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				classicon7
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/jedi"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_JEDI }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}		
+
+		itemDef 
+		{
+			name				classicon8
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/bh"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_BOUNTYHUNTER }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				classicon9
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/manda"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_MANDO }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				classicon10
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50
+			background			"gfx/menus/classes/sbd"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_SBD }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				classicon11
+			group				classes
+			style				WINDOW_STYLE_SHADER
+			rect				120 10 50 50 
+			background			"gfx/menus/classes/deka"
+			cvarTest			"ui_class_skills"
+			showCvar			{ @HELP_DEKA }
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		//End list of class icons
+
+		itemDef 
+		{
+			name				classdesctextbox
+			group				classes
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 70 325 140
+			text				"*"							
+			cvar				ui_classdescription
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9			
+			lineHeight			11
+			maxLineChars		25
+		}
+
+		itemDef 
+		{
+			name				skillsdesctextbox
+			group				classes
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 215 325 140
+			text				"*"										
+			cvar				ui_class_skills
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 0.9		
+			lineHeight			11
+			maxLineChars		30
+		}
+
+//WEAPONS
+		itemDef 
+		{
+			name				list
+			group				weapons
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				120 10 325 70 
+			text				"Weapon:"						
+			descText			"Left-click and right-click to cycle"
+			font				6
+			textscale			0.2
+			textaligny			40
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			23
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				"ui_help_weapon"
+			cvarStrList
+			{
+			@NAMES_BLASTERPISTOL	"set ui_weaponchoice @HELP_WEAPS_BLASTERPISTOL"
+			@NAMES_E11				"set ui_weaponchoice @HELP_WEAPS_E11"
+			@NAMES_A280				"set ui_weaponchoice @HELP_WEAPS_A280"
+			@NAMES_T21				"set ui_weaponchoice @HELP_WEAPS_T21"
+			@NAMES_BOWCASTER		"set ui_weaponchoice @HELP_WEAPS_BOWCASTER"
+			@NAMES_CLONEPISTOL		"set ui_weaponchoice @HELP_WEAPS_CLONEPISTOL"
+			@NAMES_CLONERIFLE		"set ui_weaponchoice @HELP_WEAPS_CLONERIFLE"
+			@NAMES_WESTARM5			"set ui_weaponchoice @HELP_WEAPS_WESTARM5"
+			@NAMES_PLX1				"set ui_weaponchoice @HELP_WEAPS_PLX1"
+			@NAMES_WESTARPISTOL		"set ui_weaponchoice @HELP_WEAPS_WESTARPISTOL"
+			@NAMES_EE3				"set ui_weaponchoice @HELP_WEAPS_EE3"
+			@NAMES_PRIFLE			"set ui_weaponchoice @HELP_WEAPS_PRIFLE"
+			@NAMES_DISRUPTOR		"set ui_weaponchoice @HELP_WEAPS_DISRUPTOR"
+			@NAMES_FRAGNADES		"set ui_weaponchoice @HELP_WEAPS_FRAGNADES"
+			@NAMES_THERMALDET		"set ui_weaponchoice @HELP_WEAPS_THERMALDET"
+			@NAMES_PULSENADES		"set ui_weaponchoice @HELP_WEAPS_PULSENADES"
+			@NAMES_SONICNADES		"set ui_weaponchoice @HELP_WEAPS_SONICNADES"
+			@NAMES_FIRENADES		"set ui_weaponchoice @HELP_WEAPS_FIRENADES"
+			@NAMES_CONCNADES		"set ui_weaponchoice @HELP_WEAPS_CONCNADES"
+			@NAMES_ARMBLASTER		"set ui_weaponchoice @HELP_WEAPS_ARMBLASTER"
+			@NAMES_DEKABLASTERS		"set ui_weaponchoice @HELP_WEAPS_DEKABLASTERS"
+			@NAMES_MELEE			"set ui_weaponchoice @HELP_WEAPS_MELEE"
+			@NAMES_SABER_DESC		"set ui_weaponchoice @HELP_WEAPS_SABER_DESC_STYLES"
+			@NAMES_SABER_SPECIALS	"set ui_weaponchoice @HELP_WEAPS_SABER_SPECIALS"
+			}		 	  
+			action 
+			{ 			
+				exec			"vstr ui_help_weapon" ;
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		
+		itemDef 
+		{
+			name				weapondesc
+			group				weapons
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 90 325 265
+			cvar				"ui_weaponchoice"
+			text				"*"
+			visible				0
+			font				2
+			textscale			0.5
+			border				0
+			textalign			ITEM_ALIGN_LEFT	
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 0.9		
+			lineHeight			15
+			maxlinechars		45
+		}
+
+//Weapon Icons here, LONG list
+		itemDef 
+		{
+			name				weaponicon1a
+			group				weapons
+			rect				150 10 50 50 
+			background			"gfx/hud/w_icon_E11"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_E11 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon1b
+			group				weapons
+			rect				220 10 50 50  
+			background			"gfx/hud/w_icon_dh-17"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_E11 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon1c
+			group				weapons
+			rect				290 10 50 50 
+			background			"gfx/hud/w_icon_droidblaster"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_E11 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon2a
+			group				weapons
+			rect				150 10 50 50 
+			background			"gfx/hud/w_icon_blaster_pistol"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_BLASTERPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon2b
+			group				weapons
+			rect				220 10 50 50 
+			background			"gfx/hud/w_icon_blaster_pistol_3"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_BLASTERPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+	
+		itemDef 
+		{
+			name				weaponicon2c
+			group				weapons
+			rect				290 10 50 50 
+			background			"gfx/hud/w_icon_briar"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_BLASTERPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon3a
+			group				weapons
+			rect				175 10 50 50 
+			background			"gfx/hud/w_icon_A280"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_A280 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon3b
+			group				weapons
+			rect				245 10 50 50 
+			background			"gfx/hud/w_icon_DLT20a"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_A280 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon4
+			group				weapons
+			rect				210 10 50 50 
+			background			"gfx/hud/w_icon_t-21"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_T21 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon5a
+			group				weapons
+			rect				150 10 50 50  
+			background			"gfx/hud/w_icon_clonepistol"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_CLONEPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon5b
+			group				weapons
+			rect				220 10 50 50 
+			background			"gfx/hud/w_icon_clonepistol_1.tga"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_CLONEPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon5c
+			group				weapons
+			rect				290 10 50 50  
+			background			"gfx/hud/w_icon_clonepistol_3"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_CLONEPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon6
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_clonerifle"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_CLONERIFLE }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon7
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_cw-w5g.png"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_WESTARM5 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon8
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_cw_launcher"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_PLX1 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon9a
+			group				weapons
+			rect				175 10 50 50  
+			background			"gfx/hud/w_icon_westar"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_WESTARPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon9b
+			group				weapons
+			rect				245 10 50 50  
+			background			"gfx/hud/w_icon_westar_3"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_WESTARPISTOL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon10
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_ee-3"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_EE3 }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon11a
+			group				weapons
+			rect				175 10 50 50  
+			background			"gfx/hud/w_icon_proj_rifle"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_PRIFLE }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon11b
+			group				weapons
+			rect				245 10 50 50  
+			background			"gfx/hud/w_icon_proj_rifle_manda"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_PRIFLE }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon12
+			group				weapons
+			rect				210 10 50 50 
+			background			"gfx/hud/w_icon_disruptor"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_DISRUPTOR }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon13a
+			group				weapons
+			rect				175 10 50 50 
+			background			"gfx/hud/w_icon_fraggrenade"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_FRAGNADES }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon13b
+			group				weapons
+			rect				245 10 50 50 
+			background			"gfx/hud/w_icon_stormiTD"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_FRAGNADES }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon14
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_thermal"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_THERMALDET }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon15
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_rpgren"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_PULSENADES }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon16
+			group				weapons
+			rect				210 10 50 50 
+			background			"gfx/hud/w_icon_sonic_det"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_SONICNADES }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon17
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_plasma"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_FIRENADES }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon18
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_V-59_conc"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_CONCNADES }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				weaponicon19
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_lightsaber"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ "@HELP_WEAPS_SABER_DESC_STYLES", "@HELP_WEAPS_SABER_SPECIALS" }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon20
+			group				weapons
+			rect				210 10 50 50  
+			background			"gfx/hud/w_icon_melee"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_MELEE }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon21a
+			group				weapons
+			rect				175 10 50 50 
+			background			"gfx/hud/w_icon_bowcaster"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_BOWCASTER }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				weaponicon21b			
+			group				weapons
+			rect				245 10 50 50  
+			background			"gfx/hud/w_icon_wbowcaster3"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_BOWCASTER }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}	
+
+		itemDef 
+		{
+			name				weaponicon22
+			group				weapons
+			rect				210 10 50 50 
+			background			"gfx/hud/w_icon_sbdarm"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_ARMBLASTER }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}	
+
+		itemDef 
+		{
+			name				weaponicon23
+			group				weapons
+			rect				210 10 50 50 
+			background			"gfx/hud/w_icon_dekaarm"
+			cvarTest			"ui_weaponchoice"
+			showCvar			{ @HELP_WEAPS_DEKABLASTERS }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}	
+
+		//End weapon icons list
+
+		//Force Powers menu
+		itemDef 
+		{
+			name				list
+			group				forcepowers
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				120 10 325 70
+			text				"Force Power: "					
+			descText			"Left-click and right-click to cycle"
+			font				6
+			textscale			0.2
+			textaligny			40
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			34
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				ui_help_force
+			cvarStrList
+			{
+			@NAMES_JUMP				"set ui_forcechoice @HELP_FORCE_JUMP"
+			@NAMES_PUSH				"set ui_forcechoice @HELP_FORCE_PUSH"
+			@NAMES_PULL				"set ui_forcechoice @HELP_FORCE_PULL"
+			@NAMES_SENSE			"set ui_forcechoice @HELP_FORCE_SENSE"
+			@NAMES_SPEED			"set ui_forcechoice @HELP_FORCE_SPEED"
+			@NAMES_MINDTRICK		"set ui_forcechoice @HELP_FORCE_MINDTRICK"
+			@NAMES_LIGHTNING		"set ui_forcechoice @HELP_FORCE_LIGHTNING"
+			@NAMES_GRIP				"set ui_forcechoice @HELP_FORCE_GRIP"
+			@NAMES_SUPERPUSH		"set ui_forcechoice @HELP_FORCE_SUPERPUSH"
+			@NAMES_360PUSH			"set ui_forcechoice @HELP_FORCE_360PUSH"
+			@NAMES_HEAL				"set ui_forcechoice @HELP_FORCE_HEAL"
+			@NAMES_DRAIN			"set ui_forcechoice @HELP_FORCE_DRAIN"
+			@NAMES_BLIND			"set ui_forcechoice @HELP_FORCE_BLIND"
+			@NAMES_DESTRUCTION		"set ui_forcechoice @HELP_FORCE_DESTRUCTION"
+			@NAMES_DEADLYSIGHT		"set ui_forcechoice @HELP_FORCE_DEADLYSIGHT"
+			}			  
+			action 
+			{ 			
+				exec			"vstr ui_help_force"
+				play			"sound/interface/go.mp3" ;
+			}
+		}
+
+		itemDef 
+		{
+			name				forcedesc
+			group				forcepowers
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 90 325 265
+			cvar				ui_forcechoice
+			text				"*"
+			visible				0
+			font				2
+			textscale			0.5
+			border				0
+			textalign			ITEM_ALIGN_LEFT	
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 0.9		
+			lineHeight			16
+			maxlinechars		68
+		}
+
+//Force power icons
+		itemDef 
+		{
+			name				forceicon1
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_push"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_PUSH }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon2
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_pull"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_PULL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon3
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_jump"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_JUMP }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon4
+			group				forcepowers
+			rect				210 10 50 50  
+			background			"gfx/mp/new_f_icon_sight"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_SENSE }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon5
+			group				forcepowers
+			rect				210 10 50 50  
+			background			"gfx/mp/new_f_icon_speed"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_SPEED }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon6
+			group				forcepowers
+			rect				210 10 50 50 
+			background			"gfx/mp/new_f_icon_lt_mind_trick"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_MINDTRICK }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon7
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_dk_l1"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_LIGHTNING }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon8
+			group				forcepowers
+			rect				210 10 50 50 
+			background			"gfx/mp/new_f_icon_dk_grip"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_GRIP }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon9
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_lt_heal"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_HEAL }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon10
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/force_blind"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_BLIND }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon11
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/force_destruction"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_DESTRUCTION }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+
+		itemDef 
+		{
+			name				forceicon12
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/deadly_sight"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_DEADLYSIGHT }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}
+		
+		itemDef 
+		{
+			name				forceicon13
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_superpush"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_SUPERPUSH }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}		
+	
+		itemDef 
+		{
+			name				forceicon14
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_360_push"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_360PUSH }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}	
+		
+		itemDef 
+		{
+			name				forceicon15
+			group				forcepowers
+			rect				210 10 50 50
+			background			"gfx/mp/new_f_icon_dk_drain"
+			cvarTest			"ui_forcechoice"
+			showCvar			{ @HELP_FORCE_DRAIN }
+			style				WINDOW_STYLE_SHADER
+			visible				0
+			forecolor			1 1 1 1			
+			
+		}			
+		
+		//End force icons
+		
+//strategy menu
+			
+		itemDef 
+		{
+			name				button
+			group				strategy
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				120 10 325 70
+			text				"Situation Type: "
+			descText			"Left-click and right-click to cycle"
+			font				6
+			textscale			0.2
+			textaligny			10
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			40
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				"ui_help_strategy"
+			cvarStrList
+			{
+			@NAMES_GUNNING				"set ui_strategydescription @HELP_GAME_MBII_GUNNING"
+			@NAMES_SABERING_BATTLE		"set ui_strategydescription @HELP_GAME_MBII_SABERING_BATTLE"
+			@NAMES_SABERING_DUELING		"set ui_strategydescription @HELP_GAME_MBII_SABERING_DUELING"
+			@NAMES_SABERING_ADVANCED	"set ui_strategydescription @HELP_GAME_MBII_SABERING_ADVANCED"
+			}	  
+			action 
+			{ 			
+				exec			"vstr ui_help_strategy" ;						play			"sound/interface/go.mp3" ; 
+			}
+		}
+
+		itemDef 
+		{
+			name				textbox
+			group				strategy
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 90 325 265
+			text				"*"							
+			cvar				"ui_strategydescription"
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9			
+			lineHeight			16
+			maxLineChars			30
+		}
+
+		
+//strategy menu 2
+		
+		itemDef 
+		{
+			name				button
+			group				strategy2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				120 10 325 70
+			text				"Game Mode: "
+			descText			"Left-click and right-click to cycle"
+			font				6
+			textscale			0.2
+			textaligny			10
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			36
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				"ui_help_gamemode"
+			cvarStrList
+			{
+			@NAMES_OVERVIEW_OPENMODE	"set ui_modedescription @HELP_GAME_MBII_OVERVIEW"
+			@NAMES_FULL_AUTHENTIC		"set ui_modedescription @HELP_GAME_MBII_FA_GAME"
+			@NAMES_DUEL_OPEN			"set ui_modedescription @HELP_GAME_MBII_DUEL_OPEN_GAME"
+			@NAMES_DUEL_FA				"set ui_modedescription @HELP_GAME_MBII_DUEL_FA_GAME"
+			}  
+			action 
+			{ 			
+				exec			"vstr ui_help_gamemode" ;						play			"sound/interface/go.mp3" ; 
+			}
+		}
+
+		itemDef 
+		{
+			name				textbox
+			group				strategy2
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 90 325 265
+			text				"*"							
+			cvar				"ui_modedescription"
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9			
+			lineHeight			16
+			maxLineChars		30
+		}		
+		
+//game optimiziation menu
+
+		itemDef 
+		{
+			name				textbox
+			group				gameopt
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 10 325 345
+			text				@HELP_GAME_PERFORMANCE_OVERVIEW
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9		
+			lineHeight			16
+			maxLineChars		40
+		}
+
+		itemDef 
+		{
+			name				textbox
+			group				gameopt2
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 10 325 345
+			text				@HELP_GAME_PERFORMANCE_CVARS
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9		
+			lineHeight			16
+			maxLineChars		40
+		}
+			
+	//FAQ menu
+
+		itemDef 
+		{
+			name				button
+			group				faq
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				120 10 325 70
+			text				""
+			descText			"Left-click and right-click to cycle"
+			font				6
+			textscale			0.15
+			textaligny			10
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			textalignx			0
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				"ui_help_faq"
+			cvarStrList
+			{
+			@HELP_FAQ_QUESTION		"set ui_faqanswer @HELP_FAQ_ANSWER"
+			@HELP_FAQ_QUESTION1		"set ui_faqanswer @HELP_FAQ_ANSWER1"
+			@HELP_FAQ_QUESTION2		"set ui_faqanswer @HELP_FAQ_ANSWER2"
+			@HELP_FAQ_QUESTION3		"set ui_faqanswer @HELP_FAQ_ANSWER3"
+			@HELP_FAQ_QUESTION4		"set ui_faqanswer @HELP_FAQ_ANSWER4"
+			@HELP_FAQ_QUESTION5		"set ui_faqanswer @HELP_FAQ_ANSWER5"
+			@HELP_FAQ_QUESTION6		"set ui_faqanswer @HELP_FAQ_ANSWER6"
+			@HELP_FAQ_QUESTION7		"set ui_faqanswer @HELP_FAQ_ANSWER7"
+			@HELP_FAQ_QUESTION8		"set ui_faqanswer @HELP_FAQ_ANSWER8"
+			@HELP_FAQ_QUESTION9		"set ui_faqanswer @HELP_FAQ_ANSWER9"
+			@HELP_FAQ_QUESTION10	"set ui_faqanswer @HELP_FAQ_ANSWER10"
+			@HELP_FAQ_QUESTION11	"set ui_faqanswer @HELP_FAQ_ANSWER11"
+			@HELP_FAQ_QUESTION12	"set ui_faqanswer @HELP_FAQ_ANSWER12"
+			@HELP_FAQ_QUESTION13	"set ui_faqanswer @HELP_FAQ_ANSWER13"
+			@HELP_FAQ_QUESTION14	"set ui_faqanswer @HELP_FAQ_ANSWER14"
+			@HELP_FAQ_QUESTION15	"set ui_faqanswer @HELP_FAQ_ANSWER15"
+			@HELP_FAQ_QUESTION16	"set ui_faqanswer @HELP_FAQ_ANSWER16"
+			@HELP_FAQ_QUESTION17	"set ui_faqanswer @HELP_FAQ_ANSWER17"
+			@HELP_FAQ_QUESTION18	"set ui_faqanswer @HELP_FAQ_ANSWER18"
+			@HELP_FAQ_QUESTION19	"set ui_faqanswer @HELP_FAQ_ANSWER19"
+			@HELP_FAQ_QUESTION20	"set ui_faqanswer @HELP_FAQ_ANSWER20"
+			@HELP_FAQ_QUESTION21	"set ui_faqanswer @HELP_FAQ_ANSWER21"
+			@HELP_FAQ_QUESTION22	"set ui_faqanswer @HELP_FAQ_ANSWER22"
+			@HELP_FAQ_QUESTION23	"set ui_faqanswer @HELP_FAQ_ANSWER23"
+			}  	  
+			action 
+			{ 			
+				exec			"vstr ui_help_faq" ;						play			"sound/interface/go.mp3" ; 
+			}
+		}
+
+		itemDef 
+		{
+			name				textbox
+			group				faq
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 90 325 265
+			text				"*"
+			cvar				ui_faqanswer
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9		
+			lineHeight			18
+			maxLineChars		38
+		}
+
+		//TIPS ARCHIVE
+		
+		itemDef 
+		{
+			name				button1
+			group				tips
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				120 10 325 30
+			text				"Beginner Tips:"
+			descText			"Left-click and right-click to cycle"
+			font				6
+			textscale			0.2
+			textaligny			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0
+			textalignx			10
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				ui_help_tips
+			cvarStrList
+			{
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP1B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP2B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP3B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP4B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP5B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP6B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP7B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP8B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP9B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP10B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP11B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP12B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP13B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP14B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP15B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP16B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP17B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP18B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP19B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP20B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP21B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP22B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP23B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP24B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP25B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP26B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP27B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP28B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP29B"
+			@HELP_TIPS_NULL		"set ui_tipdisplay @HELP_TIPS_TIP30B"
+			} 	  
+			action 
+			{ 			
+				exec			"vstr ui_help_tips"						play			"sound/interface/go.mp3" ; 
+			}
+		}
+
+		itemDef 
+		{
+			name				button2
+			group				tips
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			rect				120 185 325 30
+			text				"Advanced Tips:"
+			descText			"Left-click and right-click to cycle"
+			font				6
+			textscale			0.2
+			textaligny			0
+			textalign			ITEM_ALIGN_LEFT
+			textstyle			0
+			textalignx			10
+			forecolor			1 1 1 0.9
+			visible				0
+			cvar				ui_help_tips2
+			cvarStrList
+			{
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP1A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP2A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP3A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP4A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP5A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP6A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP7A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP8A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP9A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP10A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP11A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP12A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP13A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP14A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP15A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP16A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP17A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP18A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP19A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP20A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP21A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP22A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP23A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP24A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP25A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP26A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP27A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP28A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP29A"
+			@HELP_TIPS_NULL		"set ui_tipdisplay2 @HELP_TIPS_TIP30A"
+			}  	  
+			action 
+			{ 			
+				exec			"vstr ui_help_tips2"						play			"sound/interface/go.mp3" ; 
+			}
+		}
+
+		itemDef 
+		{
+			name				textbox1
+			group				tips
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 50 325 130 
+			text				"*"
+			cvar				ui_tipdisplay
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9			
+			lineHeight			18
+			maxLineChars		38
+		}
+
+		itemDef 
+		{
+			name				textbox2
+			group				tips
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				120 225 325 130
+			text				"*"
+			cvar				ui_tipdisplay2
+			visible				0
+			font				2
+			textscale			0.5
+			textalign			ITEM_ALIGN_LEFT	
+			textaligny			0
+			textalignx			0
+			forecolor			1 1 1 0.9		
+			lineHeight			18
+			maxLineChars		38
+		}	
+
+
+//----------------------------------------------------------------------------------------------
+//	OTHER MAIN MENU BUTTONS
+//----------------------------------------------------------------------------------------------
+
+
+		itemDef
+		{
+			name				back
+			group				bg_button
+			text				"BACK"			
+			descText			@MENUS_BACKUP_ONE_MENU
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				0 382 120 36
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			visible				1
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/back.mp3"
+				close			all
+				open			ingame
+			}
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	0 382 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl
+			}
+		}	
+	}
+}

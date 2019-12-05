@@ -1,0 +1,148 @@
+// VIDEO WARNING
+{
+	menuDef
+	{
+		name					"videowarningMenu"
+		visible					0
+		fullScreen				0
+		rect					200 137 240 180
+		focusColor				1 1 1 0.6
+		outOfBoundsClick
+		descX					320
+		descY					315
+		descScale				0.7
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		popup
+		onESC
+		{
+			play				"sound/interface/button1.wav"
+			close				"videowarningMenu"
+			setcvar				"ui_r_modified" 0
+			rundeferred
+		}
+		onClose
+		{
+			play				"sound/interface/button1.wav"
+		}
+
+		itemDef
+		{
+			name				bg_small
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				16 0 200 200
+			background			"gfx/menus/alpha/Menu_Small"			
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+// VIDEO WARNING
+
+		// Video Warning title
+		itemDef
+		{
+			name				vidwarn_title
+			group				vidwarn
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_UNAPPLIED_VIDEO_CHANGES
+			rect				5 20 235 20
+			font				8
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			110
+			textaligny			1
+			forecolor			1 0 0 0.9
+			visible				1
+			decoration 
+		}
+
+
+		itemDef
+		{
+			name				vidwarn_text1
+			group				vidwarn
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_YOU_HAVE_MADE_CHANGES
+			rect				5 65 220 20
+			textalign			ITEM_ALIGN_CENTER
+			text2aligny			18
+			textalignx			110
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				vidwarn_text2
+			group				vidwarn
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_APPLY_THESE_CHANGES_OR
+			rect				5 90 220 20
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			110
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+		}
+
+// DISCARD button - return to Video Data screen
+
+		itemDef
+		{
+			name				vidwarn_no
+			group				vidwarn
+			text				@MENUS_DISCARD
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				30 150 80 24 
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			30
+			textaligny			0
+			descText			@MENUS_DO_NOT_APPLY_CHANGES
+			forecolor			1 1 1 0.9
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				close			"videowarningMenu"
+				setcvar			"ui_r_modified" 0
+				rundeferred
+			}
+		}
+
+		// APPLY button, use settings
+
+		itemDef
+		{
+			name				vidwarn_yes
+			group				vidwarn
+			text				@MENUS_APPLY
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				140 150 80 24 
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			30
+			textaligny			0
+			descText			@MENUS_APPLY_CHANGES_AND_THEN
+			forecolor			1 1 1 0.9
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		updatevideosetup
+				// uiScript		setvid1data	setupMenu
+				close			all
+			}
+		}
+	}
+}
