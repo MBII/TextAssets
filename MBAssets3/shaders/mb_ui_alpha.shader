@@ -518,6 +518,30 @@ gfx/menus/alpha/SliderThumb
 	}
 }
 
+gfx/menus/alpha/Slider_RGB
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/menus/alpha/Slider
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		alphaGen const 0.1
+	}
+}
+
+gfx/menus/alpha/SliderThumb_RGB
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/menus/alpha/SliderThumb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+
 gfx/menus/alpha/Slider_v
 {
 	nopicmip
@@ -1101,15 +1125,5 @@ gfx/menus/alpha/Icon_SaberCrystal_Purple
 		map gfx/menus/alpha/Icon_SaberCrystal
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen const ( 0.75 0 1 )
-	}
-}
-
-video/ClassWeapon_E11
-{
-	qer_editorimage	textures/mb2_tutorial/Video
-	{
-		videomap ClassWeapon_E11.roq
-		blendFunc GL_ONE GL_ZERO
-		rgbGen identity
 	}
 }
