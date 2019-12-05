@@ -1118,6 +1118,27 @@ models/weapons2/saber_plasma/saber_rahm_diff
     }
 }
 
+models/weapons2/saber_plasma/saber_rey3_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_rey3_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_rey3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_plasma/saber_rey3_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
 models/weapons2/saber_plasma/saber_reborn_diff
 {
     {
