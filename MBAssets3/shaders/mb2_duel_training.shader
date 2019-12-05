@@ -62,6 +62,16 @@ gfx/automap/mb2_duel_training3full
     }
 }
 
+gfx/mplevels/mb2_duel_training/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_training/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
 
 //	General
 
