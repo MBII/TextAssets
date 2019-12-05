@@ -626,7 +626,7 @@ models/weapons2/sbd_grapple/blade
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/SBD/chrome4.tga
+		map models/players/SBD/chrome2.tga
 		blendfunc gl_src_alpha gl_one
 		tcGen environment 
 	}
