@@ -1,43 +1,43 @@
-models/players/darthmalak/body
+models/players/malak/body
 {
 	cull	disable
     q3map_nolightmap
     {
-        map models/players/darthmalak/body
+        map models/players/malak/body
 		blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darthmalak/reflect
+        map models/players/malak/reflect
         blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
         alphaGen const 1
         tcGen environment
     }
 	{
-		map models/players/darthmalak/body
+		map models/players/malak/body
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
 }
 
-models/players/darthmalak/head
+models/players/malak/head
 {
     q3map_nolightmap
     {
-        map models/players/darthmalak/head
+        map models/players/malak/head
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darthmalak/reflect
+        map models/players/malak/reflect
         blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
         alphaGen const 1
         tcGen environment
     }
 	{
-		map models/players/darthmalak/head
+		map models/players/malak/head
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
