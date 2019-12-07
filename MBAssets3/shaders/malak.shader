@@ -1,44 +1,44 @@
-models/players/malak/head_c1_mask
+models/players/darthmalak/body
 {
-	{
-		map models/players/malak/head_c1_mask
+	cull	disable
+    q3map_nolightmap
+    {
+        map models/players/darthmalak/body
 		blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmalak/reflect
+        blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
-	}
+        alphaGen const 1
+        tcGen environment
+    }
 	{
-		map models/players/malak/head_c1r_mask_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/darthmalak/body
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
 	}
 }
 
-models/players/malak/torso_c1
+models/players/darthmalak/head
 {
-	{
-		map models/players/malak/torso_c1
-		blendFunc GL_ONE GL_ZERO
+    q3map_nolightmap
+    {
+        map models/players/darthmalak/head
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmalak/reflect
+        blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
-	}
+        alphaGen const 1
+        tcGen environment
+    }
 	{
-		map models/players/malak/torso_c1r_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/malak/torso_c1r
-{
-	{
-		map models/players/malak/torso_c1r
-		blendFunc GL_ONE GL_ZERO
+		map models/players/darthmalak/head
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/malak/torso_c1r_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
 	}
 }
