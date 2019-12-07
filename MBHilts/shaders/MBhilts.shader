@@ -1130,7 +1130,6 @@ models/weapons2/saber_depabillaba/depabillabaUVW
 }
 
 // Shader for Satele Shan saber //
-
 models/weapons2/tor_sabers/thorn
 {
 	q3map_nolightmap
@@ -1151,7 +1150,6 @@ models/weapons2/tor_sabers/thorn
 }
 
 // Shader for Centurion Saber //
-
 models/weapons2/tor_sabers/centurion
 {
 	q3map_nolightmap
@@ -1168,5 +1166,37 @@ models/weapons2/tor_sabers/centurion
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
+    }
+}
+
+// Shader for Sith Stalker Saber //
+models/weapons2/saber_st4lk3r/saber_st4lk3r
+{
+    {
+        map models/weapons2/saber_st4lk3r/saber_st4lk3r.tga
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_st4lk3r/default_reflect.jpg
+        blendFunc GL_ONE GL_ONE
+        rgbGen lightingDiffuse
+        tcGen environment
+    }
+    {
+        map models/weapons2/saber_st4lk3r/saber_st4lk3r.tga
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_st4lk3r/saber_st4lk3r_spec.jpg
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_st4lk3r/saber_st4lk3r_glow.jpg
+        blendFunc GL_ONE GL_ONE
+        detail
+        rgbGen identity
     }
 }
