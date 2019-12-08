@@ -1,0 +1,134 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_citadel/map"
+missionname  "Scarif Citadel Tower"
+radartopleft "-1144, 1784"
+radarbottomright "1600, -960"
+
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	UseTeam "scarif2_reb"							
+
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "DEFEND: Guard Cargo Intake Door Override Console"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Guard Cargo Intake Door Override Console from Hacking"
+		objgfx "gfx/mplevels/citadel/obj1icon"
+	}
+	Objective2
+	{
+		goalname "DEFEND: Guard Power Station 1 Console"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Guard Power Station 1 Console from Hacking"
+		objgfx "gfx/mplevels/citadel/obj2icon"
+	}
+	Objective3
+	{
+		goalname "DEFEND: Guard Power Station 1 Console"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Guard Power Station 2 Console from Hacking"
+		objgfx "gfx/mplevels/citadel/obj3icon"
+	}
+	Objective4
+	{
+		goalname "DEFEND: Guard Data Vault"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Prevent Data Vault intrusion and distruction!"
+		objgfx "gfx/mplevels/citadel/obj4icon"
+	}
+		
+	
+	wonround "For the future of the Rebellion!" 						//Printed to this team if they won the round.
+	lostround "The Rebellion is doomed because of our failure...."					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Guard the data vault until the data can be transmitted." //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "scarif2_imp"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Hack Cargo Intake Door Override Console"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Hack the Cargo Intake Door Override Console"
+		objgfx "gfx/mplevels/citadel/obj1icon"
+	}
+	Objective2
+	{
+		goalname "ACCOMPLISH: Guard Power Station 1 Console"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Hack the Power Station 1 Console"
+		objgfx "gfx/mplevels/citadel/obj2icon"
+	}
+	Objective3
+	{
+		goalname "ACCOMPLISH: Guard Power Station 1 Console"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Hack the Power Station 2 Console"
+		objgfx "gfx/mplevels/citadel/obj3icon"
+	}
+	Objective4
+	{
+		goalname "ACCOMPLISH: Enter and Destroy/Delete Data Vault"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Gain access to the Data Vault and delete or destroy the data!"
+		objgfx "gfx/mplevels/citadel/obj4icon"
+	}
+	
+	
+
+	wonround "The data is safe!"
+	lostround "We're detecting activity from the Deathstar..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Stop the Rebels from stealing the Deathstar data!"
+}
