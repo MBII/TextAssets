@@ -3,15 +3,27 @@
 ClassInfo
 {
 	name  "citadel_cassian"
+	MBClass	MB_CLASS_HERO
 	weapons WP_BLASTER_PISTOL|WP_FLECHETTE|WP_THERMAL
-	attributes  MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_A280,3|MB_ATT_THERMALS,2|MB_ATT_DODGE,1|MB_ATT_HEALING,2|MB_ATT_SPY_DISGUISE,1
+	attributes  MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_A280,3|MB_ATT_THERMALS,2|MB_ATT_DODGE,3|MB_ATT_HEALING,2|MB_ATT_SPY_DISGUISE,1
 	maxhealth 100
 	maxarmor  90
 	model "cassian"
 	skin  "default"
 	uishader  "models/players/cassian/mb2_icon_default"
-	MB_CLASS_HERO
 	classNumberLimit  1
+		classflags	CFL_STRONGAGAINSTPHYSICAL
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER_PISTOL					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/se-14c_pistol/blaster_pistol.md3"   	//Required: New 1st person weapon model
+	Icon				"gfx/hud/w_icon_se-14c" 					//Required: Weapon change icon
+	WeaponName			"SE-14c Blaster Pistol"    				//Required: Weapon change display name
+	customAmmo 			700
 }
 
 description	"Cassian Andor
@@ -22,9 +34,10 @@ A280  (3)
 Frag Grenades  (2)
 
 Attributes:
+Melee Damage Reduction
 Armour  (3)
 Ammo  (3)
-Dodge (1)
+Dodge (3)
 Healing (2)
 Disguise
 
