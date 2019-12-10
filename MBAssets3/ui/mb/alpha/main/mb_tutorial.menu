@@ -4,7 +4,7 @@
 	{
 		name					"tutorial"
 		fullScreen				0
-		rect					93 50 454 418
+		rect					93 20 454 448
 		visible					1
 		focusColor				1 1 1 0.6
 		descX					320
@@ -28,7 +28,7 @@
 			name				bg_clean1
 			group				none
 			style				WINDOW_STYLE_FILLED_RGB1
-			rect				0 0 454 377
+			rect				0 0 454 407
 			background			"gfx/menus/alpha/Menu_Clean"
 			forecolor			1 1 1 1
 			visible				1
@@ -40,7 +40,7 @@
 			name				bg_listbox
 			group				none
 			style				WINDOW_STYLE_FILLED_RGB1
-			rect				10 13 434 339
+			rect				10 13 434 369
 			background			"gfx/menus/alpha/Menu_Listbox"
 			forecolor			1 1 1 1
 			visible				1
@@ -59,12 +59,45 @@
 			decoration
 		}
 
-// TUTORIAL
+// SHOOTING RANGE
+		itemDef
+		{
+			name				ShootingRange
+			group				none
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			rect				13 17 427 40
+			background			"gfx/tutorial/Tut0_Bk"
+			text				"ENTER SHOOTING RANGE"
+			descText			"Enter the shooting range to practice classes and abilities against targets."
+			forecolor			1 1 1 1
+			backcolor			1 1 1 1
+			font				7
+			textscale			0.3
+			textalignx			214
+			textaligny			-6
+			textalign			ITEM_ALIGN_CENTER
+			visible				1
+			action
+			{
+				play			"sound/interface/back.mp3"
+				exec			"g_authenticity 0;g_minmbpoints 80;g_gametype 7;map mb2_tutorial00"
+			}
+			mouseEnter
+			{
+				setbackground	"gfx/tutorial/Tut0_Bk_hl"
+			}
+			mouseExit
+			{
+				setbackground	"gfx/tutorial/Tut0_Bk"
+			}
+		}
 
+// TUTORIAL
 		itemDef
 		{
 			name				TutBox
-			rect				10 18 429 329
+			rect				10 55 429 322
 			type				ITEM_TYPE_LISTBOX
 			style				WINDOW_STYLE_FILLED
 			elementwidth		412
@@ -82,7 +115,7 @@
 		{
 			name 				TutPlay
 			group				bg_button
-			rect				334 382 120 36
+			rect				334 412 120 36
 			type				ITEM_TYPE_BUTTON
 			text				"PLAY"
 			style				WINDOW_STYLE_FILLED_RGB1
@@ -103,7 +136,7 @@
 			mouseenter
 			{
 				show			btn_hl
-				setitemrect		btn_hl	334 382 120 36
+				setitemrect		btn_hl	334 412 120 36
 			}
 			mouseExit
 			{
@@ -115,7 +148,7 @@
 		{
 			name				TutDontPlay
 			group				bg_button
-			rect				334 382 120 36
+			rect				334 412 120 36
 			text				"PLAY"
 			font 				6
 			textscale 			0.3
@@ -131,18 +164,18 @@
 		{
 			name				back
 			group				bg_button
-			text				"BACK"			
+			text				"BACK"
 			descText			@MENUS_BACKUP_ONE_MENU
-			type				ITEM_TYPE_BUTTON			
+			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn_Bg"			
-			rect				0 382 120 36
+			background			"gfx/menus/alpha/Btn_Bg"
+			rect				0 412 120 36
 			textaligny			-8
 			font				6
 			textscale			0.3
 			textalignx			58
-			textalign			ITEM_ALIGN_CENTER		
+			textalign			ITEM_ALIGN_CENTER
 			visible				1
 			forecolor			1 1 1 1
 			action
@@ -154,7 +187,7 @@
 			mouseenter
 			{
 				show			btn_hl
-				setitemrect		btn_hl	0 382 120 36
+				setitemrect		btn_hl	0 412 120 36
 			}
 			mouseExit
 			{
