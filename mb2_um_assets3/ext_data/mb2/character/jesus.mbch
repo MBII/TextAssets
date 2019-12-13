@@ -4,11 +4,11 @@ ClassInfo
 {
 	name			"jesus"
 	weapons			WP_SABER|WP_THERMAL|WP_MELEE
-	saber1			wooden_stick
+	saber1			Jesus_saber
 	sabercolor		0
 	saberstyle		SS_STRONG
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_CORTOSIS,1|MB_ATT_THERMALS,1|MB_ATT_FORCEBLOCK,3|MB_ATT_DEFLECT,3
-	forcepowers		FP_PUSH,3|FP_LIGHTNING,3|FP_RAGE,3|FP_PULL,3|FP_SEE,3|FP_TELEPATHY,3
+	attributes		MB_ATT_ARMOUR,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_CORTOSIS,1|MB_ATT_THERMALS,1|MB_ATT_FORCEBLOCK,3|MB_ATT_DEFLECT,3|MB_ATT_FP_MIRALUKA
+	forcepowers		FP_PUSH,3|FP_LIGHTNING,3|FP_RAGE,3|FP_PULL,3|FP_SEE,3|FP_TELEPATHY,3|FP_TEAM_HEAL,3|FP_HEAL,1
 	maxhealth		500
 	maxarmor		500
 	forcepool		500
@@ -21,27 +21,29 @@ ClassInfo
 	uishader		"gfx/um_icons/jesus.jpg"
 	MBClass			MB_CLASS_JEDI
 	classNumberLimit	1
-	classflags		CFL_MIRALUKA
 }
+
 WeaponInfo0
 {
 	WeaponToReplace	WP_SABER
 	WeaponBasedOff	WP_SABER
-	NewWorldModel		"models/weapons2/wooden_stick/wooden_stick.glm"
+	NewWorldModel		"models/weapons2/saber_jesus/jesus.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon						"models/weapons2/wooden_stick/w_icon_wooden_stick"
-	WeaponName			"Jesus Stick"
+	Icon						"gfx/hud/cross"
+	WeaponName			"Holy Saber"
 }
 WeaponInfo1
+
 {
-	WeaponToReplace		WP_THERMAL
-	WeaponBasedOff		WP_THERMAL
-	NewWorldModel			"models/weapons2/fraggrenade/thermal_w.glm"
-	NewViewModel			"models/weapons2/fraggrenade/thermal.md3"
-	Icon							"gfx/hud/w_icon_fraggrenade"
-	WeaponName				"Holy Hand Grenade"
-	MissileModel 			"models/weapons2/fraggrenade/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/fraggrenade/thermal_proj.md3"
+	WeaponToReplace		WP_THERMAL					//Required: Slot of weapon you're replacing
+	WeaponBasedOff		WP_THERMAL					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/thermal/thermal_w.glm" 	//Required: New 3rd person/dropped weapon model 
+	NewViewModel		"models/weapons2/thermal/thermal.md3"   	//Required: New 1st person weapon model
+	MissileModel		"models/weapons2/thermal/thermal_proj.md3"
+	FlashSound0 		"sound/weapons/thermal/fire.mp3"
+	AltFlashSound0 		"sound/weapons/thermal/fire.mp3"
+	Icon				"gfx/hud/w_icon_thermal" 				//Required: Weapon change icon
+	WeaponName			"Holiest of Detonators"    					//Required: Weapon change display name
 }
 
 description	"Jesus Christ
