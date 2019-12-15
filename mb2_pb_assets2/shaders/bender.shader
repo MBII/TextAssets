@@ -145,8 +145,7 @@ models/players/bender/torsohips_blue
     }
 }
 
-BENDER DIRTY
-/////////////////////////
+//////////////////DIRTY////////////////
 
 models/players/bender_hat/torsohips_dirty
 {
