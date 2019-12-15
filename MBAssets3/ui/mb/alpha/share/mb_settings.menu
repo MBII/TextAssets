@@ -216,8 +216,8 @@
 			{
 				play			"sound/interface/back.mp3"
 				close			all
-				open			main_nomusic
 				open			ingame
+				open			main_nomusic
 			}
 			mouseenter
 			{
@@ -6600,10 +6600,10 @@ itemDef
 		
 		itemDef
 		{
-			name				swearfilter
+			name				teamchatsonly
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Chat Filtering:"
+			text				@MENUS_TEAM_CHATS_ONLY
 			rect				142 110 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6651,10 +6651,10 @@ itemDef
 
 		itemDef
 		{
-			name				teamchatsonly
+			name				swearfilter
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_TEAM_CHATS_ONLY
+			text				"Chat Filtering:"
 			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6665,35 +6665,54 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				swearfilterwords
+			group				chat
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Filter Words:"
+			rect				142 200 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			cvarTest			"cg_swearWordFilter"
+			hideCvar			{"0" }
+			visible				0
+			decoration
+		}
 
 // CHAT SETTINGS MENU	2
 	
 		itemDef
 		{
-			name				swearfilter
+			name				teamchatsonly
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
+			cvar				"cg_teamChatsOnly"
+			cvarFloatList
+			{
+				@MENUS_NO	0
+				@MENUS_YES	1
+			}
 			rect				142 110 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
-			cvar				"cg_swearwordfilter"
-			cvarFloatList
-			{
-				@MENUS_OFF		0
-				@MENUS_ON		1
-			}
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Toggle filtering of foul/profane language in chat."
+			descText			@MENUS_IGNORE_NON_TEAM_CHATS
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 111 230 15			
+				setitemrect		button_glow	142 110 230 15			
 			}
 			mouseExit
 			{
@@ -6703,7 +6722,7 @@ itemDef
 			{
 				play			"sound/interface/button1.wav"
 			}
-		}
+		}		
 
 		itemDef
 		{
@@ -6783,26 +6802,26 @@ itemDef
 
 		itemDef
 		{
-			name				teamchatsonly
+			name				swearfilter
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			cvar				"cg_teamChatsOnly"
-			cvarFloatList
-			{
-				@MENUS_NO	0
-				@MENUS_YES	1
-			}
 			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
+			cvar				"cg_swearwordfilter"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_IGNORE_NON_TEAM_CHATS
+			descText			"Toggle filtering of foul/profane language in chat."
 			mouseenter
 			{
 				show			button_glow 
@@ -6816,7 +6835,42 @@ itemDef
 			{
 				play			"sound/interface/button1.wav"
 			}
-		}		
+		}
+		
+		itemDef
+		{
+			name				swearfilterwords
+			group				chat
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				" "
+			rect				142 200 280 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			cvar				"cg_swearWords"
+			maxchars			35
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarTest			"cg_swearWordFilter"
+			hideCvar			{"0" }
+			visible				0
+			descText			"Separate words with spaces and use asterisk (*) for wildcard match. Use console (cg_swearWords) to set long lists."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 200 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
 			
 // TRUE VIEW SETTINGS MENU
 
