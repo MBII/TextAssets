@@ -2318,7 +2318,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			cvarFloatList {@MENUS_640_X_480 3 @MENUS_800_X_600 4 @MENUS_1024_X_768 6 @MENUS_1202_X_864 7 @MENUS_1280_X_1024 8 @MENUS_1600_X_1230 9 @MENUS_2048_X_1536 10 @MENUS_2400_X_600 12 "Custom Resolution" -1 }
+			cvarFloatList {@MENUS_640_X_480 3 @MENUS_800_X_600 4 @MENUS_1024_X_768 6 @MENUS_1280_X_1024 8 @MENUS_2048_X_1536 10 @MENUS_2400_X_600 12 "Custom Resolution" -1 }
 			cvar				"ui_r_mode"
 			rect				142 125 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -2975,9 +2975,9 @@ itemDef
 			type				ITEM_TYPE_SLIDER
 			text				@MENUS_VIDEO_BRIGHTNESS
 			cvarfloat			"r_gamma" 1 .5 3
-			rect				142 210 230 18
+			rect				127 210 230 18
 			textalign			ITEM_ALIGN_RIGHT
-			textalignx			124
+			textalignx			90
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -2996,6 +2996,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				brightnessNum
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUST_THE_BRIGHTNESS
+			cvarfloat			"r_gamma" 1 .5 3
+			rect				380 210 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -3474,7 +3498,7 @@ itemDef
 			cvarTest			r_ext_texture_filter_anisotropic_avail
 			disableCvar			{0 }
 			cvarfloat			r_ext_texture_filter_anisotropic 1 .5 16
-			rect				172 260 200 19
+			rect				152 260 200 19
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -3495,6 +3519,32 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				video_modeNum
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_TOGGLE_ADVANCED_TEXTURE
+			cvarTest			r_ext_texture_filter_anisotropic_avail
+			disableCvar			{0 }
+			cvarfloat			r_ext_texture_filter_anisotropic 1 .5 16
+			rect				380 260 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -4054,6 +4104,30 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				effects_volumeNum
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUST_VOLUME_FOR_SOUND
+			cvarfloat			"s_volume" 0 0 1
+			rect				380 110 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 
 		itemDef
 		{
@@ -4086,6 +4160,30 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				music_volumeNum
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUST_VOLUME_FOR_MUSIC
+			cvarfloat			"s_musicvolume" 0 0 1
+			rect				380 130 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 
 		itemDef
 		{
@@ -4116,6 +4214,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				voice_volumeNum
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_VOICE_VOLUME_DESC
+			cvarfloat			"s_volumeVoice" 0 0 1
+			rect				380 150 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -5698,6 +5820,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				minimapalphaNum
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Opacity of the large radar map."
+			cvarfloat			"cg_minimapalpha" 1 0 1
+			rect				380 200 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 		
@@ -7358,6 +7504,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				cgfovNum
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Field of View"
+			cvarfloat			"cg_fov" 1 80 97
+			rect				380 185 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 		
@@ -12263,7 +12433,7 @@ itemDef
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvarfloat			"sensitivity" 5 2 30
+			cvarfloat			"sensitivity" 5 0.5 10
 			rect				152 125 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
@@ -12287,6 +12457,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				mousejoystickNum
+			group				joycontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUSTS_CHARACTER_REACTION
+			cvarfloat			"sensitivity" 5 0.5 10
+			rect				380 125 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -12425,6 +12619,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				mousejoystickNum
+			group				joycontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUSTS_THE_SIZE_OF_THE
+			cvarfloat			"joy_threshold" .15 .05 .75
+			rect				380 185 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
