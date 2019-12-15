@@ -370,6 +370,7 @@
 			}
 			action 
 			{ 			
+				exec			"set ui_help_opt @HELP_GAME_PERFORMANCE_OVERVIEW" ;
 				play			"sound/interface/go.mp3" ; 
 				hide			classes 
 				hide			weapons	
@@ -419,7 +420,8 @@
 				hide			button_glow 
 			}
 			action 
-			{ 			
+			{
+				exec			"set ui_help_opt @HELP_GAME_PERFORMANCE_CVARS" ;
 				play			"sound/interface/go.mp3" ;  
 				hide			classes 
 				hide			weapons	
@@ -1715,7 +1717,7 @@
 			maxLineChars		30
 		}		
 		
-//game optimiziation menu
+//game optimization menu
 
 		itemDef 
 		{
@@ -1724,7 +1726,8 @@
 			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 10 325 345
-			text				@HELP_GAME_PERFORMANCE_OVERVIEW
+			text				"*"
+			cvar				"ui_help_opt" // using cvar to avoid text overflow bug on initial load
 			visible				0
 			font				2
 			textscale			0.5
@@ -1743,7 +1746,8 @@
 			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 10 325 345
-			text				@HELP_GAME_PERFORMANCE_CVARS
+			text				"*"
+			cvar				"ui_help_opt" // using cvar to avoid text overflow bug on initial load
 			visible				0
 			font				2
 			textscale			0.5
@@ -1883,7 +1887,7 @@
 			} 	  
 			action 
 			{ 			
-				exec			"vstr ui_help_tips"						play			"sound/interface/go.mp3" ; 
+				exec			"vstr ui_help_tips" ;						play			"sound/interface/go.mp3" ; 
 			}
 		}
 
@@ -1940,7 +1944,7 @@
 			}  	  
 			action 
 			{ 			
-				exec			"vstr ui_help_tips2"						play			"sound/interface/go.mp3" ; 
+				exec			"vstr ui_help_tips2" ;						play			"sound/interface/go.mp3" ; 
 			}
 		}
 
