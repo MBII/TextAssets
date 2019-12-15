@@ -7273,6 +7273,40 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				tpcamdamp
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"3rd Per. Cam Damp:"
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				tptargetdamp
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"3rd Per. Target Damp:"
+			rect				142 200 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 		itemDef
 		{
@@ -7280,7 +7314,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"FoV:"
-			rect				142 185 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7297,7 +7331,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Widescreen FoV:"
-			rect				142 215 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7314,7 +7348,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Widescreen UI:"
-			rect				142 230 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7476,6 +7510,118 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				cgtpcamdamp
+			group				camera
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
+			rect				152 185 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"How fast the camera tracks player movement. 1 = no dampening"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 185 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				cgtpcamdampNum
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"How fast the camera tracks player movement. 1 = no dampening"
+			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
+			rect				380 185 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				cgtptargetdamp
+			group				camera
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
+			rect				152 200 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"How fast the camera tracks crosshair movement. 1 = no dampening"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 200 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				cgtptargetdampNum
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"How fast the camera tracks crosshair movement. 1 = no dampening"
+			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
+			rect				380 200 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 
 		itemDef
 		{
@@ -7484,8 +7630,8 @@ itemDef
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvarfloat			"cg_fov" 1 80 97
-			rect				152 185 230 14
+			cvarfloat			"cg_fov" 80 80 97
+			rect				152 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -7497,7 +7643,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 184 230 19			
+				setitemrect		button_glow	142 230 230 19			
 			}
 			mouseExit
 			{
@@ -7517,8 +7663,8 @@ itemDef
 			type				ITEM_TYPE_EDITFIELD
 			text				""
 			descText			"Field of View"
-			cvarfloat			"cg_fov" 1 80 97
-			rect				380 185 230 14
+			cvarfloat			"cg_fov" 80 80 97
+			rect				380 230 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -7546,7 +7692,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 215 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7558,7 +7704,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
+				setitemrect		button_glow	142 246 230 15			
 			}
 			mouseExit
 			{
@@ -7583,7 +7729,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 230 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7595,7 +7741,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 231 230 15			
+				setitemrect		button_glow	142 261 230 15			
 			}
 			mouseExit
 			{
