@@ -5134,7 +5134,7 @@ itemDef
 			decoration
 		}
 
-		/*itemDef
+		itemDef
 		{
 			name				text
 			group				options2
@@ -5149,7 +5149,7 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
-		}*/
+		}
 
 		itemDef
 		{
@@ -5157,7 +5157,7 @@ itemDef
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_VOICE
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -5356,6 +5356,23 @@ itemDef
 				show			langapply
 			}
 		}*/
+		
+		itemDef // placeholder while other languages unavailable
+		{
+			name				text
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"English (others unavailable)"
+			rect				142 215 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			245
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 		itemDef
 		{
@@ -5372,7 +5389,7 @@ itemDef
 				Deutsch				deutsch
 				"Español"			espanol
 			}
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5384,7 +5401,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
+				setitemrect		button_glow	142 231 230 15			
 			}
 			mouseExit
 			{
@@ -5394,7 +5411,8 @@ itemDef
 			{
 				play			"sound/interface/button1.wav"
 			}
-		}		
+		}
+		
 		
 // UI OPTIONS FIELDS
 
@@ -5566,6 +5584,23 @@ itemDef
 			textscale			0.15
 			forecolor			1 1 1 0.9
 			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				roudnotify
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"New Round Notification:"
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
 			decoration
 		}
 		
@@ -5961,6 +5996,43 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				roundnotify
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			desctext			"Flash the game's taskbar button when a new round starts while minimized (Windows specific)"
+			cvar				"cg_roundnotify"
+			cvarFloatList
+			{
+				@MENUS_NO			0
+				@MENUS_YES			1
+			}
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 261 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
 			}
 		}
 
