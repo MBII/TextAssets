@@ -9086,13 +9086,13 @@ itemDef
 			visible				0
 			decoration
 		}
-
+		
 		itemDef
 		{
-			name				saberhiteffects
+			name				noattackcrosshair
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Lightsaber hit effects:"
+			text				"Attack Crosshair:"
 			rect				142 125 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -9102,15 +9102,32 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
-		}		
+		}
+
+		itemDef
+		{
+			name				saberhiteffects
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Lightsaber hit effects:"
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 		
 		itemDef
 		{
-			name				noattackcrosshair
+			name				pbindicator
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Attack Crosshair:"
-			rect				142 140 230 14
+			text				"Perfect Block Indicator:"
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -9164,16 +9181,16 @@ itemDef
 
 		itemDef
 		{
-			name				saberhiteffects
+			name				noattackcrosshair
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				""
-			cvar				"cg_drawHitEffects"
+			cvar				"cg_noCrosshairWhenAttacking"
 			cvarFloatList
 			{
-				@MENUS_OFF		0
-				@MENUS_ON			1
+				@MENUS_OFF		1
+				@MENUS_ON		0
 			}
 			rect				142 125 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -9184,7 +9201,7 @@ itemDef
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			// appearance_slot	1
-			descText			"Effect on crosshair for making bodyhits (red) and perfect blocks (green)."
+			descText			"Whether or not to display the crosshair while firing your weapon."
 			mouseenter
 			{
 				show			button_glow 
@@ -9198,20 +9215,20 @@ itemDef
 			{
 				play			"sound/interface/button1"
 			}
-		}
+		}	
 
 		itemDef
 		{
-			name				noattackcrosshair
+			name				saberhiteffects
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				""
-			cvar				"cg_noCrosshairWhenAttacking"
+			cvar				"cg_drawHitEffects"
 			cvarFloatList
 			{
-				@MENUS_OFF		1
-				@MENUS_ON		0
+				@MENUS_OFF		0
+				@MENUS_ON			1
 			}
 			rect				142 140 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -9222,7 +9239,7 @@ itemDef
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			// appearance_slot	1
-			descText			"Whether or not to display the crosshair while firing your weapon."
+			descText			"Show effect on crosshair for making bodyhits (red) and perfect blocks (green)."
 			mouseenter
 			{
 				show			button_glow 
@@ -9236,7 +9253,45 @@ itemDef
 			{
 				play			"sound/interface/button1"
 			}
-		}		
+		}
+		
+		itemDef
+		{
+			name				pbindicator
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				""
+			cvar				"pbindicator"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			// appearance_slot	1
+			descText			"Highlight crosshair quadrant corresponding to PB zone currently being matched for the enemy you are facing."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 156 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
 	
 // RESET DEFAULTS
 
