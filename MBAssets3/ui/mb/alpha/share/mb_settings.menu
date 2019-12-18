@@ -162,7 +162,7 @@
 			type				ITEM_TYPE_EDITFIELD
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				@MENUS_NAME1
-			cvar				name //ui_Name
+			cvar				ui_Name
 			maxchars			35
 			rect				112 13 250 25
 			textalign			ITEM_ALIGN_CENTER
@@ -180,11 +180,13 @@
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	25 14 325 23
+				setitemrect		button_glow	65 14 325 23
+				uiScript		update "ui_GetName"
 			}
 			mouseExit
 			{
 				hide			button_glow 
+				uiScript		update "ui_SetName"
 			}
 			action
 			{
@@ -11589,6 +11591,23 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				endduel
+			group				mbcontrols
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"End Private Duel:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 //	MBII 2 BINDING
 
@@ -11862,7 +11881,41 @@ itemDef
 			{
 				play			"sound/interface/go.mp3"
 			}
-		}		
+		}
+		
+		itemDef
+		{
+			name				endduel
+			group				mbcontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"duel_end"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Duel mode only: Prematurely end a private duel."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 276 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}	
 		
 // FORCE BINDING
 
