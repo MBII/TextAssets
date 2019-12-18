@@ -96,6 +96,10 @@
 			setitemcolor		mediacontrolbutton			forecolor 1 1 1 0.9
 			setitemcolor		othercontrolbutton			forecolor 1 1 1 0.9
 		}
+		onClose
+		{
+			uiScript			update "ui_SetName" // ensure new name is set if they ESC without clicking
+		}
 		onESC
 		{
 			play				"sound/interface/back.mp3"
@@ -103,7 +107,7 @@
 			close				all
 			open				ingame
 			open				main_nomusic
-			uiScript			saveControls			
+			uiScript			saveControls
 		}
 
 // MENU BACKGROUND		
@@ -186,7 +190,7 @@
 			mouseExit
 			{
 				hide			button_glow 
-				uiScript		update "ui_SetName"
+				// uiScript		update "ui_SetName" // this is handled on menu close instead as player may just hit ESC...
 			}
 			action
 			{
