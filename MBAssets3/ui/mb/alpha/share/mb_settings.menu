@@ -8719,7 +8719,7 @@ itemDef
 			{
 				"Static" 0
 				"World Only" 1
-				"All" 2
+				"Everything" 2
 			}
 			rect				142 110 230 18
 			textalign			ITEM_ALIGN_RIGHT
@@ -9137,6 +9137,40 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				crosshairsize
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Crosshair Size:"
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				shotgunsizemod
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Shotgun Size Modifier:"
+			rect				142 205 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 	
 // CROSSHAIR OPTIONS	2	
 		
@@ -9290,6 +9324,118 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				crosshairsize
+			group				crosshair2
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_crosshairSize" 12 1 48
+			rect				152 185 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Adjust size of the regular crosshair."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 185 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				crosshairsizeNum
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Adjust size of the regular crosshair."
+			cvarfloat			"cg_crosshairSize" 12 1 48
+			rect				380 185 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				shotgunsizemod
+			group				crosshair2
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_crosshairShotgunSizeMod" 3 1 12
+			rect				152 205 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Multiplier for crosshair size when using shotgun weapons."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 206 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				shotgunsizemodNum
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Multiplier for crosshair size when using shotgun weapons."
+			cvarfloat			"cg_crosshairShotgunSizeMod" 3 1 12
+			rect				380 205 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 	
