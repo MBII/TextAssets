@@ -7919,7 +7919,7 @@ itemDef
 			group				connection
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Set Recommended:"
-			rect				142 230 230 14
+			rect				142 235 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7936,26 +7936,8 @@ itemDef
 			group				connection
 			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXT
-			text				"See Optimization section of Library"
-			rect				142 260 300 20
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 0.5
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				notes
-			group				connection
-			style				WINDOW_STYLE_TEXT_RGB1
-			type				ITEM_TYPE_TEXT
-			text				"for more info"
-			rect				142 275 300 20
+			text				"See Optimization section of Library for more info."
+			rect				142 265 300 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -8085,7 +8067,7 @@ itemDef
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
-			descText			"Use custom values or choose from recommended presets"
+			descText			"Use custom values or click to cycle through recommended presets."
 			cvar				"ui_customnetsettings"
 			cvarStrList
 			{
@@ -8116,8 +8098,8 @@ itemDef
 			group				connection
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
-			text				"Click to Apply"
-			rect				150 230 230 14
+			text				"( Click to Apply )"
+			rect				150 235 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			140
 			textaligny			-5
@@ -8129,7 +8111,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 231 230 15			
+				setitemrect		button_glow	142 236 230 15			
 			}
 			mouseExit
 			{
@@ -8138,8 +8120,11 @@ itemDef
 			action
 			{
 				setcvar			rate "25000"
+				setcvar			cl_packetdup "1"
+				setcvar			cl_timenudge "0"
 				setcvar			snaps "40"
 				setcvar			cl_maxpackets "100"
+				setcvar			ui_customnetsettings "0"
 				play			"sound/interface/button1.wav"
 			}
 		}
