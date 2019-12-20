@@ -2083,6 +2083,24 @@ itemDef
 			visible				1
 			decoration
 		}
+		
+		itemDef
+		{
+			name				resPresets
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Resolution Presets:"
+			cvartest			ui_r_mode
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 		itemDef
 		{
@@ -2090,7 +2108,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_VIDEO_MODE
-			rect				142 125 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2108,7 +2126,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Width x Height:"
 			cvartest			ui_r_mode
-			rect				142 140 230 14
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2116,16 +2134,18 @@ itemDef
 			textscale			0.15
 			forecolor			1 1 1 0.9
 			visible				0
+			cvarTest			ui_r_mode
+			showcvar			{ "-1" }
 			decoration
 		}
-
+		
 		itemDef
 		{
 			name				color_depth
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_COLOR_DEPTH
-			rect				142 170 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2142,7 +2162,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_FULL_SCREEN
-			rect				142 185 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2159,7 +2179,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_GEOMETRIC_DETAIL
-			rect				142 200 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2176,7 +2196,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEXTURE_DETAIL
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2193,7 +2213,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEXTURE_QUALITY
-			rect				142 230 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2210,7 +2230,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEXTURE_FILTER
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2227,7 +2247,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_DETAILED_SHADERS
-			rect				142 260 230 14
+			rect				142 275 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2244,7 +2264,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_VIDEO_SYNC
-			rect				142 275 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2261,7 +2281,7 @@ itemDef
 			group				video_obsolete
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_COMPRESSED_TEXTURES
-			rect				142 290 230 14
+			rect				142 310 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2319,6 +2339,154 @@ itemDef
 
 		itemDef
 		{
+			name				resPresets1
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"768p"
+			rect				282 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			10
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 1366 x 768"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	282 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"1366"
+				setcvar			r_customHeight	"768"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				resPresets2
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"1080p"
+			rect				322 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 1920 x 1080"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	322 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"1920"
+				setcvar			r_customHeight	"1080"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
+			name				resPresets3
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"2K"
+			rect				362 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			15
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 2560 x 1440"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	362 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"2560"
+				setcvar			r_customHeight	"1440"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
+			name				resPresets4
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"4K"
+			rect				402 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			15
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 3840 x 2160"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	402 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"3840"
+				setcvar			r_customHeight	"2160"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
 			name				video_mode
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB2
@@ -2326,7 +2494,7 @@ itemDef
 			text				" "
 			cvarFloatList {@MENUS_640_X_480 3 @MENUS_800_X_600 4 @MENUS_1024_X_768 6 @MENUS_1280_X_1024 8 @MENUS_2048_X_1536 10 @MENUS_2400_X_600 12 "Custom Resolution" -1 }
 			cvar				"ui_r_mode"
-			rect				142 125 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2338,7 +2506,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 126 230 15			
+				setitemrect		button_glow	142 141 230 15			
 			}
 			mouseExit
 			{
@@ -2362,12 +2530,12 @@ itemDef
 			text				""
 			descText			"Change your custom width."
 			cvar				"r_customWidth"
-			rect				290 140 30 14
+			rect				290 155 30 14
 			textalignx			0
 			textaligny			-5
-			font				5
+			font				6
 			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
+			forecolor			1 1 1 1
 			maxchars			4
 			maxPaintChars		4
 			visible				0
@@ -2391,7 +2559,7 @@ itemDef
 			text				"X"
 			cvartest			ui_r_mode
 			showcvar			{ "-1" }
-			rect				323 140 0 0
+			rect				323 155 0 0
 			textalign			ITEM_ALIGN_RIGHT
 			textaligny			-5
 			font				5
@@ -2411,12 +2579,12 @@ itemDef
 			text				""
 			descText			"Change your custom height."
 			cvar				"r_customHeight"
-			rect				329 140 30 14
+			rect				329 155 30 14
 			textalignx			0
 			textaligny			-5
-			font				5
+			font				6
 			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
+			forecolor			1 1 1 1
 			maxchars			4
 			maxPaintChars		4
 			visible				0
@@ -2438,7 +2606,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 170 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2452,7 +2620,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 171 230 15			
+				setitemrect		button_glow	142 186 230 15			
 			}
 			mouseExit
 			{
@@ -2475,7 +2643,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 185 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2489,7 +2657,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 186 230 15			
+				setitemrect		button_glow	142 201 230 15			
 			}
 			mouseExit
 			{
@@ -2511,7 +2679,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 200 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2525,7 +2693,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 201 230 15			
+				setitemrect		button_glow	142 216 230 15			
 			}
 			mouseExit
 			{
@@ -2548,7 +2716,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2558,42 +2726,6 @@ itemDef
 			cvarFloatList{@MENUS_LOW 3 @MENUS_MEDIUM 2 @MENUS_HIGH 1 @MENUS_VERY_HIGH 0 }
 			descText			@MENUS_SELECT_THE_RESOLUTION
 			cvar				"ui_r_picmip"
-			visible				1
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}				
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiScript		glCustom
-				setcvar			ui_r_modified	1
-				show			applyChanges
-			}
-		}
-
-		itemDef
-		{
-			name				texture_quality
-			group				video
-			type				ITEM_TYPE_MULTI
-			style				WINDOW_STYLE_TEXT_RGB2
-			text				" "
-			rect				142 230 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			cvarFloatList{@MENUS_DEFAULT 0 @MENUS_16_BIT 16 @MENUS_32_BIT 32 }
-			descText			@MENUS_SELECT_THE_NUMBER_OF
-			cvar				"ui_r_texturebits"
 			visible				1
 			mouseenter
 			{
@@ -2615,10 +2747,10 @@ itemDef
 
 		itemDef
 		{
-			name				texture_filter
+			name				texture_quality
 			group				video
-			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -2627,9 +2759,9 @@ itemDef
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
-			cvarStrList			{@MENUS_BILINEAR , "GL_LINEAR_MIPMAP_NEAREST" , @MENUS_TRILINEAR , "GL_LINEAR_MIPMAP_LINEAR" }
-			descText			@MENUS_ADJUST_HOW_WELL_THE_TEXTURES
-			cvar				"ui_r_texturemode"
+			cvarFloatList{@MENUS_DEFAULT 0 @MENUS_16_BIT 16 @MENUS_32_BIT 32 }
+			descText			@MENUS_SELECT_THE_NUMBER_OF
+			cvar				"ui_r_texturebits"
 			visible				1
 			mouseenter
 			{
@@ -2651,12 +2783,48 @@ itemDef
 
 		itemDef
 		{
-			name				simple_shaders
+			name				texture_filter
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
 			rect				142 260 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarStrList			{@MENUS_BILINEAR , "GL_LINEAR_MIPMAP_NEAREST" , @MENUS_TRILINEAR , "GL_LINEAR_MIPMAP_LINEAR" }
+			descText			@MENUS_ADJUST_HOW_WELL_THE_TEXTURES
+			cvar				"ui_r_texturemode"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 261 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				simple_shaders
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 275 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2670,7 +2838,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 261 230 15			
+				setitemrect		button_glow	142 276 230 15			
 			}
 			mouseExit
 			{
@@ -2698,7 +2866,7 @@ itemDef
 				@MENUS_OFF	0
 				@MENUS_ON	1 
 			}
-			rect				142 275 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2710,7 +2878,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 276 230 15			
+				setitemrect		button_glow	142 291 230 15			
 			}
 			mouseExit
 			{
@@ -2729,7 +2897,7 @@ itemDef
 			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			rect				142 290 230 14
+			rect				142 305 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2743,7 +2911,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 291 230 15			
+				setitemrect		button_glow	142 306 230 15			
 			}
 			mouseExit
 			{
