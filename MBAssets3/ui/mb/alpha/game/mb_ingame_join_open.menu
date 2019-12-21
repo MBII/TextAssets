@@ -23,11 +23,12 @@
 		{ 
 			hide				minidesc
 			hide				siegeclassconfigtitle
-			uiScript			update "ui_SetName" // updating name here to ensure it's handled properly with ESC
 		}
 		onOpen
 		{ 
 			setcvar				currentObjButton "null"
+			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
+			
 			exec				"siegeCompleteCvarUpdate"
 			// set tm_icon fields to the proper mapicon graphic 
 			uiscript			updatesiegeobjgraphics
@@ -110,10 +111,10 @@
 			{
 				uiScript		update "ui_GetName"
 			}
-			// mouseExit
-			// {
-				// uiScript		update "ui_SetName" // this is handled on menu close instead as player may just hit ESC...
-			// }
+			mouseExit
+			{
+				uiScript		update "ui_SetName"
+			}
 			action
 			{
 				play			"sound/interface/button1.wav"

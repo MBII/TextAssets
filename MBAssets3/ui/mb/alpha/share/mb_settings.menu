@@ -23,6 +23,7 @@
 			show				UIBTN
 			uiScript			loadControls
 			uiscript			mb_uischeme
+			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
 			show				movementcontrolbutton
 			show 				attackcontrolbutton
 			show				weaponscontrolbutton
@@ -95,10 +96,6 @@
 			setitemcolor		mousejoystickcontrolbutton	forecolor 1 1 1 0.9
 			setitemcolor		mediacontrolbutton			forecolor 1 1 1 0.9
 			setitemcolor		othercontrolbutton			forecolor 1 1 1 0.9
-		}
-		onClose
-		{
-			uiScript			update "ui_SetName" // ensure new name is set if they ESC without clicking
 		}
 		onESC
 		{
@@ -190,7 +187,7 @@
 			mouseExit
 			{
 				hide			button_glow 
-				// uiScript		update "ui_SetName" // this is handled on menu close instead as player may just hit ESC...
+				uiScript		update "ui_SetName"
 			}
 			action
 			{

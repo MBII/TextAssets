@@ -28,12 +28,12 @@
 		onClose
 		{ 
 			hide				siegeclassconfigtitle
-			uiScript			update "ui_SetName" // updating name here to ensure it's handled properly with ESC
 		}
 		onOpen
 		{
-			exec				"siegeCompleteCvarUpdate"
+			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
 			
+			exec				"siegeCompleteCvarUpdate"
 			setitembackground		team1_symbol	"*team1_icon"
 			setitembackground		team2_symbol	"*team2_icon"
 			setitembackground		team1_button	"*team1_icon"
@@ -126,10 +126,10 @@
 			{
 				uiScript		update "ui_GetName"
 			}
-			// mouseExit
-			// {
-				// uiScript		update "ui_SetName" // this is handled on menu close instead as player may just hit ESC...
-			// }
+			mouseExit
+			{
+				uiScript		update "ui_SetName"
+			}
 			action
 			{
 				play			"sound/interface/button1.wav"
