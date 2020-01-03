@@ -1130,13 +1130,6 @@ models/weapons2/saber_plasma/saber_rey3_diff
         detail
         alphaGen lightingSpecular
     }
-    {
-        map models/weapons2/saber_plasma/saber_rey3_glow
-        blendFunc GL_ONE GL_ONE
-        glow
-        detail
-        rgbGen identity
-    }
 }
 
 models/weapons2/saber_plasma/saber_reborn_diff
