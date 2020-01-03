@@ -1,0 +1,75 @@
+Teams
+{
+	team1 GudBois
+	team2 BadBois
+}
+
+mapgraphic "gfx/mplevels/mb2_SDestroyer/mb2_SDestroyer"
+missionname "Imperial Star Destroyer"
+radartopleft "-1152, 8064"
+radarbottomright "8000, -3776"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_SDestroyer"
+		radargraphicfull "gfx/automap/mb2_SDestroyerfull"
+	}
+}
+
+roundbegin_target ""
+
+GudBois
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "pbfa_light" 							
+	TeamIcon "gfx/2d/logos/mb_rebmander"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Detonate the Meme Bomb"
+		final 0
+		message_team1 "The Memes are no longer operational"
+		message_team2 "The Memes are no longer operational"
+		objdesc "Release the memes!"
+		objgfx "gfx/mplevels/mb2_SDestroyer/TLaser"
+	}
+
+	wonround "The Memes are no longer operational"
+	lostround "Our ship is lost"
+	roundover_sound_wewon "s/pb/woah.mp3"
+	roundover_sound_welost "s/pb/icantbelieve.mp3"
+	roundover_target "roundover"
+	attackers 1
+	briefing "Destroy the memes."
+}
+
+BadBois
+{
+	RequiredObjectives 1
+	UseTeam "pbfa_dark"
+	TeamIcon "gfx/2d/logos/mb_impmander"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the memes!"
+		final 0
+		message_team1 "The Rebellion has been held off"
+		message_team2 "The Rebellion has been held off"
+		objdesc "Stop the Rebellion destroying the memes!"
+		objgfx "gfx/mplevels/mb2_SDestroyer/TLaser"
+	}
+
+	wonround "The victory is ours"
+	lostround "The Memes have been destroyed"
+	roundover_sound_wewon "s/pb/icantbelieve.mp3"
+	roundover_sound_welost "s/pb/Oh_no_no_no.wav"
+	roundover_target "roundoverimp"
+	attackers 0
+	briefing "Defend the mems!"
+}

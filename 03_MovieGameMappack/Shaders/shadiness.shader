@@ -49,9 +49,6 @@ gfx/effects/bloody_drops
 // blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 
         clampmap gfx/damage/bloody_drops
-            surfaceSprites effect 0 0 0 0
-            ssFXDuration 900
-            ssFXGrow 1 1
         blendFunc GL_DST_COLOR GL_ONE_MINUS_SRC_ALPHA
     }
 }

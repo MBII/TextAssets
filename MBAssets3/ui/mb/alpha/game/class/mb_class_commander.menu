@@ -5,7 +5,6 @@
 		name					"mb_class_commander"
 		visible					0
 		fullscreen				0
-		outOfBoundsClick
 		rect					25 40 630 425
 		focusColor				1 1 1 1
 		style					1
@@ -17,7 +16,7 @@
 		descAlignment			ITEM_ALIGN_CENTER
 		onOpen
 		{
-			
+			uiScript			getrgbvars
 			uiScript			"getmodelcvars"	//needed for model display stuff
 			uiScript			"getmodelskin"	//needed for model display stuff
 		}
@@ -153,7 +152,7 @@
 		{
 			name				vet_grey
 			text				""
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			style				WINDOW_STYLE_SHADER
@@ -177,7 +176,7 @@
 		{
 			name				vet_black
 			text				""
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			style				WINDOW_STYLE_SHADER
@@ -201,7 +200,7 @@
 		{
 			name				stormie_blue
 			text				""
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb"}
 			group				none
 			style				WINDOW_STYLE_SHADER
@@ -224,7 +223,7 @@
 		{
 			name				manda_blue
 			text				""
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "manda_et/default" }
 			group				none
 			style				WINDOW_STYLE_SHADER
@@ -248,7 +247,7 @@
 		{
 			name				vet_red
 			text				""
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			style				WINDOW_STYLE_SHADER
@@ -272,7 +271,7 @@
 		{
 			name				vet_orange
 			text				""
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			style				WINDOW_STYLE_SHADER
@@ -296,7 +295,7 @@
 		{
 			name				charrgb
 			style				WINDOW_STYLE_FILLED
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			text				"Colour Selection"
 			rect				77 265 150 32
@@ -314,7 +313,7 @@
 		itemDef
 		{
 			name				charred
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			type				ITEM_TYPE_INTSLIDER
@@ -344,7 +343,7 @@
 		itemDef
 		{
 			name				chargreen
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			type				ITEM_TYPE_INTSLIDER
@@ -374,7 +373,7 @@
 		itemDef
 		{
 			name				charblue
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			type				ITEM_TYPE_INTSLIDER
@@ -405,7 +404,7 @@
 		itemDef
 		{
 			name				charred_value
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			type				ITEM_TYPE_EDITFIELD
@@ -441,7 +440,7 @@
 		itemDef
 		{
 			name				chargreen_value
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			type				ITEM_TYPE_EDITFIELD
@@ -477,7 +476,7 @@
 		itemDef
 		{
 			name				charblue_value
-			cvarTest			"model"
+			cvarTest            "ui_model"
 			showCvar			{ "stormie/shoulderdefault", "sandtrooper/rgb", "stormie_tfa/rgb", "manda_et/default" }
 			group				none
 			type				ITEM_TYPE_EDITFIELD
@@ -1080,10 +1079,10 @@
 			text				"Apply"
 			type				1
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				226 384 150 32
+			rect				226 374 150 48
 			textalign			1
 			textalignx			75
-			textaligny			2
+			textaligny			12
 			font				2
 			textscale			0.9
 			forecolor			0.1 0.7 1 0.9
@@ -1095,6 +1094,7 @@
 				close 			mb_class_commander
 				uiScript		setsiegeclassandteam
 				uiScript		closeingame
+				uiScript		updatergbcvars
 			}
 			mouseenter
 			{
@@ -1244,7 +1244,7 @@
 			action
 			{
 				play			"sound/interface/button1.wav"
-				uiScript 		saveTemplate
+				uiScript 		mb_savetemplate
 			}
 			mouseenter
 			{

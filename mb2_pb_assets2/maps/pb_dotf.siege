@@ -1,0 +1,88 @@
+Teams
+{
+	team1 Heroes
+	team2 Villains
+}
+
+mapgraphic "gfx\mplevels\mb2_dotf_classic\map"
+missionname  "Duel of the Fates Classic"
+radartopleft "-6976, 7040"
+radarbottomright "5888, -7296"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_dotf_classic"
+		radargraphicfull "gfx/automap/mb2_dotf_classicfull"
+	}
+}
+
+
+roundbegin_target ""
+
+Heroes
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "pbfa_light_classic"
+	TeamIcon "gfx/2d/logos/mb_rebmander"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+		Objective1
+	{
+		goalname "Get to the generator room and unlock the secondary routes to throne!"
+		final -1
+		message_team1 "Secondary routes to memses unlocked!"
+		message_team2 "Meme security compromised!"
+		objdesc "SECONDARY GOAL:
+ 		Slice a console in the gen room to unlock secondary routes to throne."
+		objgfx "gfx/mplevels/mb2_dotf_classic/objectivea"
+	}
+
+	Objective2
+	{
+		goalname "Gain control of the throne room!"
+		final 0
+		message_team1 "They can kiss their Memes goodbye!"
+		message_team2 "They got the Meme!"
+		objdesc "PRIMARY GOAL:
+		Capture the Memes, win da games! Know d wei!"
+		objgfx "gfx/mplevels/mb2_dotf_classic/objectiveb"
+	}
+
+	wonround "Memed!"
+	lostround "Aw, heck!"
+	roundover_sound_wewon "s/pb/waaow.mp3"
+	roundover_sound_welost "s/pb/curbyourpowerbattlestheme.mp3"
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Memers, get to the Throne Room!"
+}
+
+Villains
+{
+	RequiredObjectives 1
+	UseTeam "pbfa_dark_classic"
+	TeamIcon "gfx/2d/logos/mb_impmander"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Keep the memers away from the throne room!"
+		final -1
+		target ""
+		objdesc "PRIMARY GOAL:
+		Keep the memers away from the throne room!"
+		objgfx "gfx/mplevels/mb2_dotf/objectiveb"
+	}
+
+	wonround "Memers vanquished!"
+	lostround "nani..."
+	roundover_sound_wewon "s/pb/waaow.mp3"
+	roundover_sound_welost "s/pb/sein.mp3"
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Keep the memers away from the throne room!"
+}

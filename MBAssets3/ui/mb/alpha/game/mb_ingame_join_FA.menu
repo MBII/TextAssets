@@ -29,11 +29,11 @@
 		{ 
 			hide				siegeclassconfigtitle
 		}
-		
 		onOpen
 		{
-			exec				"siegeCompleteCvarUpdate"
+			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
 			
+			exec				"siegeCompleteCvarUpdate"
 			setitembackground		team1_symbol	"*team1_icon"
 			setitembackground		team2_symbol	"*team2_icon"
 			setitembackground		team1_button	"*team1_icon"
@@ -114,13 +114,26 @@
 			style 				WINDOW_STYLE_TEXT_RGB2
 			rect				330 8 120 18
 			text				@MENUS_NAME_TITLE
-			cvar				name
+			cvar				ui_Name
+			maxchars			35
 			textalign			ITEM_ALIGN_LEFT		
 			textalignx			0
 			font				4
 			textscale			1
 			forecolor			0.1 0.7 1 0.7
 			visible				1
+			mouseenter
+			{
+				uiScript		update "ui_GetName"
+			}
+			mouseExit
+			{
+				uiScript		update "ui_SetName"
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
 		}
 		
 		itemDef
@@ -134,13 +147,11 @@
 			cvar				ui_team
 			cvarStrList
 			{
-				
-				@MENUS_SPECTATOR	0
+				@MENUS_SPECTATOR		0
 				"*cg_siegeTeam1Name"	1
 				"*cg_siegeTeam2Name"	2
-				@MENUS_SPECTATOR	3
+				@MENUS_SPECTATOR		3
 			}
-			
 			textalign			ITEM_ALIGN_LEFT		
 			textalignx			0
 			font				4

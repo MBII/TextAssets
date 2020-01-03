@@ -626,24 +626,7 @@
 			group				shuffset
 			text				"Auto team balance:"
 			style				WINDOW_STYLE_TEXT_RGB1
-			rect				37 90 120 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}	
-		
-		itemDef
-		{
-			name				unbalance
-			group				shuffset
-			text				"Stack per team:"
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				37 110 100 15
+			rect				37 85 100 15
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -673,51 +656,22 @@
 			maxchars			3
 			forecolor			0.7 0.7 0.7 0.9
 			visible				0
-			descText			"How long in seconds clients must wait before they can change teams"
+			descText			"How long in seconds clients must wait before they can change teams. Default: 300"
 			action
 			{
 				play			"sound/interface/button1"
 			}
 		}	
-		
+			
 		itemDef
 		{
 			name				teambalance
 			group				shuffset
-			type				ITEM_TYPE_MULTI
-			maxchars			4
-			text				" "
-			descText			"Allow team auto balance"
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				37 90 180 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			130
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.7 0.7 0.7 0.9
-			visible				0
-			cvar				"g_autoteambalance"
-			cvarFloatList
-			{
-				"OFF"				0 
-				"ON"				1 
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}	
-		
-		itemDef
-		{
-			name				unbalance
-			group				shuffset
 			type				ITEM_TYPE_NUMERICFIELD
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvar				"g_allowunbalance"
-			rect				37 110 180 15
+			cvar				"g_balance"
+			rect				37 85 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -726,7 +680,7 @@
 			maxchars			3
 			forecolor			0.7 0.7 0.7 0.9
 			visible				0
-			descText			"How many players a team may be stacked before auto balance intervenes"
+			descText			"How many players a team may be stacked before auto balance intervenes. Default: -1 (off)"
 			action
 			{
 				play			"sound/interface/button1"
@@ -1907,7 +1861,7 @@
 		itemDef
 		{
 			name				mappreview
-			style				0
+			style				WINDOW_STYLE_FILLED
 			ownerdraw			UI_STARTMAPCINEMATIC
 			rect				240 210 202 150
 			visible				1 

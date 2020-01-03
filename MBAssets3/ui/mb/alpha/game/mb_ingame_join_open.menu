@@ -27,6 +27,8 @@
 		onOpen
 		{ 
 			setcvar				currentObjButton "null"
+			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
+			
 			exec				"siegeCompleteCvarUpdate"
 			// set tm_icon fields to the proper mapicon graphic 
 			uiscript			updatesiegeobjgraphics
@@ -97,13 +99,26 @@
 			style 				WINDOW_STYLE_TEXT_RGB2
 			rect				330 8 120 18
 			text				@MENUS_NAME_TITLE
-			cvar				name
+			cvar				ui_Name
+			maxchars			35
 			textalign			ITEM_ALIGN_LEFT		
 			textalignx			0
 			font				4
 			textscale			1
 			forecolor			0.1 0.7 1 0.7
 			visible				1
+			mouseenter
+			{
+				uiScript		update "ui_GetName"
+			}
+			mouseExit
+			{
+				uiScript		update "ui_SetName"
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
 		}
 		
 		itemDef
@@ -117,13 +132,11 @@
 			cvar				ui_team
 			cvarStrList
 			{
-				
-				@MENUS_SPECTATOR	0
+				@MENUS_SPECTATOR		0
 				"*cg_siegeTeam1Name"	1
 				"*cg_siegeTeam2Name"	2
-				@MENUS_SPECTATOR	3
+				@MENUS_SPECTATOR		3
 			}
-			
 			textalign			ITEM_ALIGN_LEFT		
 			textalignx			0
 			font				4
@@ -360,8 +373,8 @@
 		itemDef
 		{
 			name				blue_lock
-			group				lock_icon			
-			rect				455 56 45 45
+			group				lock_icon		
+			rect				455 66 45 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
@@ -1176,7 +1189,7 @@
 			group				reb_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 290 0 0
+			rect				347 285 0 0
 			cvar				mb_class_wookie_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			34
@@ -2669,8 +2682,9 @@
 			action
 			{ 
 				play			"sound/interface/button1.wav"
-				uiScript		setsiegeclassandteam
+			//	uiScript		setsiegeclassandteam
 				uiScript		closeingame
+				uiScript		mb_close_open
 				
 				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutClassAndTeam

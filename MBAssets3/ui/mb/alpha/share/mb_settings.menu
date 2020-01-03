@@ -23,6 +23,7 @@
 			show				UIBTN
 			uiScript			loadControls
 			uiscript			mb_uischeme
+			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
 			show				movementcontrolbutton
 			show 				attackcontrolbutton
 			show				weaponscontrolbutton
@@ -101,14 +102,10 @@
 			play				"sound/interface/back.mp3"
 			defer				VideoSetup	videowarningMenu
 			close				all
-			open				main
 			open				ingame
-			uiScript			saveControls			
+			open				main_nomusic
+			uiScript			saveControls
 		}
-		onClose
-		{
-			uiScript			update "ui_SetName" 
-		}		
 
 // MENU BACKGROUND		
 		itemDef
@@ -166,8 +163,8 @@
 			type				ITEM_TYPE_EDITFIELD
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				@MENUS_NAME1
-			cvar				"ui_Name"
-			maxchars			30
+			cvar				ui_Name
+			maxchars			35
 			rect				112 13 250 25
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			95
@@ -184,11 +181,13 @@
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	25 14 325 23
+				setitemrect		button_glow	65 14 325 23
+				uiScript		update "ui_GetName"
 			}
 			mouseExit
 			{
 				hide			button_glow 
+				uiScript		update "ui_SetName"
 			}
 			action
 			{
@@ -220,8 +219,8 @@
 			{
 				play			"sound/interface/back.mp3"
 				close			all
-				open			main
 				open			ingame
+				open			main_nomusic
 			}
 			mouseenter
 			{
@@ -1310,14 +1309,13 @@ itemDef
 			group				setup_submenu
 			text				"SOUND OPTIONS"
 			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_TEXT_RGB1
+			style				WINDOW_STYLE_TEXT_RGB2
 			rect				10 110 120 17
 			font				6
 			textscale			0.17
 			textalignx			109
 			textaligny			-5
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0
 			forecolor			1 1 1 0.9
 			visible				0
 			descText			@MENUS_CONFIGURE_SOUND_SETTINGS
@@ -1427,14 +1425,13 @@ itemDef
 			group				setup_submenu
 			text				@MENUS_OPTIONS
 			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_TEXT_RGB1
+			style				WINDOW_STYLE_TEXT_RGB2
 			rect				10 110 120 17
 			font				6
 			textscale			0.17
 			textalignx			111
 			textaligny			-5
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0
 			forecolor			1 1 1 0.9
 			visible				0
 			descText			@MENUS_CONFIGURE_GAME_OPTIONS
@@ -1494,7 +1491,6 @@ itemDef
 			textalignx			111
 			textaligny			-5
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0
 			forecolor			1 1 1 0.9
 			visible				0
 			descText			@MENUS_CONFIGURE_GAME_OPTIONS
@@ -2084,6 +2080,24 @@ itemDef
 			visible				1
 			decoration
 		}
+		
+		itemDef
+		{
+			name				resPresets
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Resolution Presets:"
+			cvartest			ui_r_mode
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 		itemDef
 		{
@@ -2091,7 +2105,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_VIDEO_MODE
-			rect				142 125 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2109,7 +2123,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Width x Height:"
 			cvartest			ui_r_mode
-			rect				142 140 230 14
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2117,16 +2131,18 @@ itemDef
 			textscale			0.15
 			forecolor			1 1 1 0.9
 			visible				0
+			cvarTest			ui_r_mode
+			showcvar			{ "-1" }
 			decoration
 		}
-
+		
 		itemDef
 		{
 			name				color_depth
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_COLOR_DEPTH
-			rect				142 170 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2143,7 +2159,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_FULL_SCREEN
-			rect				142 185 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2160,7 +2176,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_GEOMETRIC_DETAIL
-			rect				142 200 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2177,7 +2193,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEXTURE_DETAIL
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2194,7 +2210,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEXTURE_QUALITY
-			rect				142 230 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2211,7 +2227,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEXTURE_FILTER
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2228,7 +2244,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_DETAILED_SHADERS
-			rect				142 260 230 14
+			rect				142 275 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2245,7 +2261,7 @@ itemDef
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_VIDEO_SYNC
-			rect				142 275 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2262,7 +2278,7 @@ itemDef
 			group				video_obsolete
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_COMPRESSED_TEXTURES
-			rect				142 290 230 14
+			rect				142 310 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -2320,14 +2336,162 @@ itemDef
 
 		itemDef
 		{
+			name				resPresets1
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"768p"
+			rect				282 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			10
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 1366 x 768"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	282 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"1366"
+				setcvar			r_customHeight	"768"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				resPresets2
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"1080p"
+			rect				322 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 1920 x 1080"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	322 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"1920"
+				setcvar			r_customHeight	"1080"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
+			name				resPresets3
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"2K"
+			rect				362 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			15
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 2560 x 1440"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	362 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"2560"
+				setcvar			r_customHeight	"1440"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
+			name				resPresets4
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"4K"
+			rect				402 125 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			15
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a custom resolution of 3840 x 2160"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	402 126 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			ui_r_mode		"-1"
+				setcvar			r_customWidth	"3840"
+				setcvar			r_customHeight	"2160"
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
 			name				video_mode
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			cvarFloatList {@MENUS_640_X_480 3 @MENUS_800_X_600 4 @MENUS_1024_X_768 6 @MENUS_1202_X_864 7 @MENUS_1280_X_1024 8 @MENUS_1600_X_1230 9 @MENUS_2048_X_1536 10 @MENUS_2400_X_600 12 "Custom Resolution" -1 }
+			cvarFloatList {@MENUS_640_X_480 3 @MENUS_800_X_600 4 @MENUS_1024_X_768 6 @MENUS_1280_X_1024 8 @MENUS_2048_X_1536 10 @MENUS_2400_X_600 12 "Custom Resolution" -1 }
 			cvar				"ui_r_mode"
-			rect				142 125 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2339,7 +2503,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 126 230 15			
+				setitemrect		button_glow	142 141 230 15			
 			}
 			mouseExit
 			{
@@ -2363,12 +2527,12 @@ itemDef
 			text				""
 			descText			"Change your custom width."
 			cvar				"r_customWidth"
-			rect				290 140 30 14
+			rect				290 155 30 14
 			textalignx			0
 			textaligny			-5
-			font				5
+			font				6
 			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
+			forecolor			1 1 1 1
 			maxchars			4
 			maxPaintChars		4
 			visible				0
@@ -2392,7 +2556,7 @@ itemDef
 			text				"X"
 			cvartest			ui_r_mode
 			showcvar			{ "-1" }
-			rect				323 140 0 0
+			rect				323 155 0 0
 			textalign			ITEM_ALIGN_RIGHT
 			textaligny			-5
 			font				5
@@ -2412,12 +2576,12 @@ itemDef
 			text				""
 			descText			"Change your custom height."
 			cvar				"r_customHeight"
-			rect				329 140 30 14
+			rect				329 155 30 14
 			textalignx			0
 			textaligny			-5
-			font				5
+			font				6
 			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
+			forecolor			1 1 1 1
 			maxchars			4
 			maxPaintChars		4
 			visible				0
@@ -2439,7 +2603,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 170 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2453,7 +2617,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 171 230 15			
+				setitemrect		button_glow	142 186 230 15			
 			}
 			mouseExit
 			{
@@ -2476,7 +2640,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 185 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2490,7 +2654,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 186 230 15			
+				setitemrect		button_glow	142 201 230 15			
 			}
 			mouseExit
 			{
@@ -2512,7 +2676,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 200 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2526,7 +2690,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 201 230 15			
+				setitemrect		button_glow	142 216 230 15			
 			}
 			mouseExit
 			{
@@ -2549,7 +2713,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2559,42 +2723,6 @@ itemDef
 			cvarFloatList{@MENUS_LOW 3 @MENUS_MEDIUM 2 @MENUS_HIGH 1 @MENUS_VERY_HIGH 0 }
 			descText			@MENUS_SELECT_THE_RESOLUTION
 			cvar				"ui_r_picmip"
-			visible				1
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}				
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiScript		glCustom
-				setcvar			ui_r_modified	1
-				show			applyChanges
-			}
-		}
-
-		itemDef
-		{
-			name				texture_quality
-			group				video
-			type				ITEM_TYPE_MULTI
-			style				WINDOW_STYLE_TEXT_RGB2
-			text				" "
-			rect				142 230 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			cvarFloatList{@MENUS_DEFAULT 0 @MENUS_16_BIT 16 @MENUS_32_BIT 32 }
-			descText			@MENUS_SELECT_THE_NUMBER_OF
-			cvar				"ui_r_texturebits"
 			visible				1
 			mouseenter
 			{
@@ -2616,10 +2744,10 @@ itemDef
 
 		itemDef
 		{
-			name				texture_filter
+			name				texture_quality
 			group				video
-			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -2628,9 +2756,9 @@ itemDef
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
-			cvarStrList			{@MENUS_BILINEAR , "GL_LINEAR_MIPMAP_NEAREST" , @MENUS_TRILINEAR , "GL_LINEAR_MIPMAP_LINEAR" }
-			descText			@MENUS_ADJUST_HOW_WELL_THE_TEXTURES
-			cvar				"ui_r_texturemode"
+			cvarFloatList{@MENUS_DEFAULT 0 @MENUS_16_BIT 16 @MENUS_32_BIT 32 }
+			descText			@MENUS_SELECT_THE_NUMBER_OF
+			cvar				"ui_r_texturebits"
 			visible				1
 			mouseenter
 			{
@@ -2652,12 +2780,48 @@ itemDef
 
 		itemDef
 		{
-			name				simple_shaders
+			name				texture_filter
 			group				video
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
 			rect				142 260 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarStrList			{@MENUS_BILINEAR , "GL_LINEAR_MIPMAP_NEAREST" , @MENUS_TRILINEAR , "GL_LINEAR_MIPMAP_LINEAR" }
+			descText			@MENUS_ADJUST_HOW_WELL_THE_TEXTURES
+			cvar				"ui_r_texturemode"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 261 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		glCustom
+				setcvar			ui_r_modified	1
+				show			applyChanges
+			}
+		}
+
+		itemDef
+		{
+			name				simple_shaders
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 275 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2671,7 +2835,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 261 230 15			
+				setitemrect		button_glow	142 276 230 15			
 			}
 			mouseExit
 			{
@@ -2699,7 +2863,7 @@ itemDef
 				@MENUS_OFF	0
 				@MENUS_ON	1 
 			}
-			rect				142 275 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2711,7 +2875,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 276 230 15			
+				setitemrect		button_glow	142 291 230 15			
 			}
 			mouseExit
 			{
@@ -2730,7 +2894,7 @@ itemDef
 			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			rect				142 290 230 14
+			rect				142 305 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -2744,7 +2908,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 291 230 15			
+				setitemrect		button_glow	142 306 230 15			
 			}
 			mouseExit
 			{
@@ -2982,9 +3146,9 @@ itemDef
 			type				ITEM_TYPE_SLIDER
 			text				@MENUS_VIDEO_BRIGHTNESS
 			cvarfloat			"r_gamma" 1 .5 3
-			rect				142 210 230 18
+			rect				127 210 230 18
 			textalign			ITEM_ALIGN_RIGHT
-			textalignx			124
+			textalignx			90
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -3003,6 +3167,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				brightnessNum
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUST_THE_BRIGHTNESS
+			cvarfloat			"r_gamma" 1 .5 3
+			rect				380 210 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -3481,7 +3669,7 @@ itemDef
 			cvarTest			r_ext_texture_filter_anisotropic_avail
 			disableCvar			{0 }
 			cvarfloat			r_ext_texture_filter_anisotropic 1 .5 16
-			rect				172 260 200 19
+			rect				152 260 200 19
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -3504,37 +3692,30 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
-
+		
 		itemDef
 		{
-			name				advancedvideo
+			name				video_modeNum
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_BUTTON
-			text				@MENUS_SHOW_DRIVER_INFO
-			rect				142 310 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_TOGGLE_ADVANCED_TEXTURE
+			cvarTest			r_ext_texture_filter_anisotropic_avail
+			disableCvar			{0 }
+			cvarfloat			r_ext_texture_filter_anisotropic 1 .5 16
+			rect				380 260 230 14
+			textalignx			0
 			textaligny			-5
-			font				5
+			font				6
 			textscale			0.15
-			forecolor			1 1 1 0.9
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
 			visible				0
-			descText			@MENUS_SHOW_ADVANCED_INFORMATION
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 311 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}				
 			action
 			{
-				play			"sound/interface/button1.wav"
-				hide			advancedvideobutton_glow
-				open 			videodriverMenu
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -3651,6 +3832,41 @@ itemDef
 			}
 		}
 		
+// VIDEO 3 3
+		
+		itemDef
+		{
+			name				advancedvideo
+			group				video3
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				@MENUS_SHOW_DRIVER_INFO
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			@MENUS_SHOW_ADVANCED_INFORMATION
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 170 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			advancedvideobutton_glow
+				open 			videodriverMenu
+			}
+		}
+		
 //	VISUAL OPTIONS
 
 		itemDef
@@ -3669,6 +3885,23 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				broadsword
+			group				visualopt
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Ragdolls:"
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 		itemDef
 		{
@@ -3676,7 +3909,7 @@ itemDef
 			group				visualopt
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Grenade Glows:"
-			rect				142 125 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3693,7 +3926,7 @@ itemDef
 			group				visualopt
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Draw Gun:"
-			rect				142 140 230 14
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3710,7 +3943,7 @@ itemDef
 			group				visualopt
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Seasonal Hats:"
-			rect				142 155 230 14
+			rect				142 170 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3760,6 +3993,43 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				broadsword
+			group				visualopt
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"broadsword"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		2
+			}
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Toggle ragdoll physics instead of animations on death (glitchy)."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 126 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
 
 		itemDef
 		{
@@ -3775,7 +4045,7 @@ itemDef
 				"Subtle"		1
 				"Bright"		2
 			}
-			rect				142 125 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3787,7 +4057,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 126 230 15			
+				setitemrect		button_glow	142 141 230 15			
 			}
 			mouseExit
 			{
@@ -3812,7 +4082,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 140 230 14
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3824,7 +4094,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 141 230 15			
+				setitemrect		button_glow	142 156 230 15			
 			}
 			mouseExit
 			{
@@ -3849,7 +4119,7 @@ itemDef
 				@MENUS_OFF		1
 				@MENUS_ON		0
 			}
-			rect				142 155 230 14
+			rect				142 170 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3861,7 +4131,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 156 230 15			
+				setitemrect		button_glow	142 171 230 15			
 			}
 			mouseExit
 			{
@@ -4061,6 +4331,30 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				effects_volumeNum
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUST_VOLUME_FOR_SOUND
+			cvarfloat			"s_volume" 0 0 1
+			rect				380 110 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 
 		itemDef
 		{
@@ -4093,6 +4387,30 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				music_volumeNum
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUST_VOLUME_FOR_MUSIC
+			cvarfloat			"s_musicvolume" 0 0 1
+			rect				380 130 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 
 		itemDef
 		{
@@ -4123,6 +4441,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				voice_volumeNum
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_VOICE_VOLUME_DESC
+			cvarfloat			"s_volumeVoice" 0 0 1
+			rect				380 150 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -5205,7 +5547,7 @@ itemDef
 			}
 		}
 
-		itemDef
+		/*itemDef
 		{
 			name				text
 			group				options2
@@ -5238,6 +5580,23 @@ itemDef
 				play			"sound/interface/button1"
 				show			langapply
 			}
+		}*/
+		
+		itemDef // placeholder while other languages unavailable
+		{
+			name				text
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"English (others unavailable)"
+			rect				142 215 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			245
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
 		}
 
 		itemDef
@@ -5277,7 +5636,8 @@ itemDef
 			{
 				play			"sound/interface/button1.wav"
 			}
-		}		
+		}
+		
 		
 // UI OPTIONS FIELDS
 
@@ -5437,10 +5797,10 @@ itemDef
 		
 		itemDef
 		{
-			name				drawrecording
+			name				deathmessages
 			group				uioptions
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Recording Notification:"
+			text				"Death Messages:"
 			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -5449,6 +5809,57 @@ itemDef
 			textscale			0.15
 			forecolor			1 1 1 0.9
 			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				consoleprint
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Console Printing:"
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				drawrecording
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Recording Notification:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				roudnotify
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"New Round Notification:"
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
 			decoration
 		}
 		
@@ -5710,6 +6121,30 @@ itemDef
 		
 		itemDef
 		{
+			name				minimapalphaNum
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Opacity of the large radar map."
+			cvarfloat			"cg_minimapalpha" 1 0 1
+			rect				380 200 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
 			name				drawstatus
 			group				uioptions
 			style				WINDOW_STYLE_TEXT_RGB2
@@ -5784,6 +6219,80 @@ itemDef
 		
 		itemDef
 		{
+			name				deathmessages
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			desctext			"Briefly display the names of players you kill."
+			cvar				"cg_BigDeathMessages"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 245 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 246 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				consoleprint
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			desctext			"Show or hide information printed to the console."
+			cvar				"cl_noprint"
+			cvarFloatList
+			{
+				@MENUS_OFF		1
+				@MENUS_ON		0
+			}
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 261 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
 			name				drawrecording
 			group				uioptions
 			style				WINDOW_STYLE_TEXT_RGB2
@@ -5797,7 +6306,7 @@ itemDef
 				"Icon"				2
 				"Blinking Icon"		3
 			}
-			rect				142 245 230 14
+			rect				142 275 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5809,7 +6318,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 246 230 15			
+				setitemrect		button_glow	142 276 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -5820,6 +6329,43 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				roundnotify
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			desctext			"Flash the game's taskbar button when a new round starts while minimized (Windows specific)"
+			cvar				"cg_roundnotify"
+			cvarFloatList
+			{
+				@MENUS_NO			0
+				@MENUS_YES			1
+			}
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 291 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
 			}
 		}
 
@@ -5889,6 +6435,7 @@ itemDef
 			text				""
 			cvar				"ui_SaveLayout"
 			maxchars			18
+			maxPaintChars		18
 			rect				142 214 145 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			6
@@ -5897,8 +6444,9 @@ itemDef
 			textscale			0.15
 			backcolor			1 1 1 0.1
 			forecolor			1 1 1 1
-			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			descText			"The selected config file within ui/cfg/layout"
 			visible				1
+			decoration
 			action
 			{
 				play			"sound/interface/button1.wav"
@@ -5944,6 +6492,7 @@ itemDef
 			text				""
 			cvar				"ui_SaveSlider"
 			maxchars			18
+			maxPaintChars		18
 			rect				297 214 145 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			6
@@ -5952,8 +6501,9 @@ itemDef
 			textscale			0.15
 			backcolor			1 1 1 0.1
 			forecolor			1 1 1 1
-			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			descText			"The selected config file within ui/cfg/slider"
 			visible				1
+			decoration
 			action
 			{
 				play			"sound/interface/button1.wav"
@@ -5999,6 +6549,7 @@ itemDef
 			text				""
 			cvar				"ui_SaveScroll"
 			maxchars			18
+			maxPaintChars		18
 			rect				142 334 145 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			6
@@ -6007,8 +6558,9 @@ itemDef
 			textscale			0.15
 			backcolor			1 1 1 0.1
 			forecolor			1 1 1 1
-			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			descText			"The selected config file within ui/cfg/scroll"
 			visible				1
+			decoration
 			action
 			{
 				play			"sound/interface/button1.wav"
@@ -6125,6 +6677,7 @@ itemDef
 			text				""
 			cvar				"ui_SaveGraphics"
 			maxchars			18
+			maxPaintChars		18
 			rect				142 214 145 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			6
@@ -6133,8 +6686,9 @@ itemDef
 			textscale			0.15
 			backcolor			1 1 1 0.1
 			forecolor			1 1 1 1
-			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			descText			"The selected config file within ui/cfg/gfx"
 			visible				1
+			decoration
 			action
 			{
 				play			"sound/interface/button1.wav"
@@ -6180,6 +6734,7 @@ itemDef
 			text				""
 			cvar				"ui_SaveColourText"
 			maxchars			18
+			maxPaintChars		18
 			rect				297 214 145 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			6
@@ -6188,8 +6743,9 @@ itemDef
 			textscale			0.15
 			backcolor			1 1 1 0.1
 			forecolor			1 1 1 1
-			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			descText			"The selected config file within ui/cfg/colortxt"
 			visible				1
+			decoration
 			action
 			{
 				play			"sound/interface/button1.wav"
@@ -6459,10 +7015,10 @@ itemDef
 		
 		itemDef
 		{
-			name				swearfilter
+			name				teamchatsonly
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Chat Filtering:"
+			text				@MENUS_TEAM_CHATS_ONLY
 			rect				142 110 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6510,10 +7066,10 @@ itemDef
 
 		itemDef
 		{
-			name				teamchatsonly
+			name				swearfilter
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_TEAM_CHATS_ONLY
+			text				"Chat Filtering:"
 			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6524,35 +7080,54 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				swearfilterwords
+			group				chat
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Filter Words:"
+			rect				142 200 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			cvarTest			"cg_swearWordFilter"
+			hideCvar			{"0" }
+			visible				0
+			decoration
+		}
 
 // CHAT SETTINGS MENU	2
 	
 		itemDef
 		{
-			name				swearfilter
+			name				teamchatsonly
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
+			cvar				"cg_teamChatsOnly"
+			cvarFloatList
+			{
+				@MENUS_NO	0
+				@MENUS_YES	1
+			}
 			rect				142 110 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
-			cvar				"cg_swearwordfilter"
-			cvarFloatList
-			{
-				@MENUS_OFF		0
-				@MENUS_ON		1
-			}
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Toggle filtering of foul/profane language in chat."
+			descText			@MENUS_IGNORE_NON_TEAM_CHATS
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 111 230 15			
+				setitemrect		button_glow	142 110 230 15			
 			}
 			mouseExit
 			{
@@ -6562,7 +7137,7 @@ itemDef
 			{
 				play			"sound/interface/button1.wav"
 			}
-		}
+		}		
 
 		itemDef
 		{
@@ -6642,26 +7217,26 @@ itemDef
 
 		itemDef
 		{
-			name				teamchatsonly
+			name				swearfilter
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				" "
-			cvar				"cg_teamChatsOnly"
-			cvarFloatList
-			{
-				@MENUS_NO	0
-				@MENUS_YES	1
-			}
 			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
+			cvar				"cg_swearwordfilter"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_IGNORE_NON_TEAM_CHATS
+			descText			"Toggle filtering of foul/profane language in chat."
 			mouseenter
 			{
 				show			button_glow 
@@ -6675,7 +7250,42 @@ itemDef
 			{
 				play			"sound/interface/button1.wav"
 			}
-		}		
+		}
+		
+		itemDef
+		{
+			name				swearfilterwords
+			group				chat
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				" "
+			rect				142 200 280 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			cvar				"cg_swearWords"
+			maxchars			35
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarTest			"cg_swearWordFilter"
+			hideCvar			{"0" }
+			visible				0
+			descText			"Separate words with spaces and use asterisk (*) for wildcard match. Use console (cg_swearWords) to set long lists."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 200 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
 			
 // TRUE VIEW SETTINGS MENU
 
@@ -7132,6 +7742,40 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				tpcamdamp
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"3rd Per. Cam Damp:"
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				tptargetdamp
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"3rd Per. Target Damp:"
+			rect				142 200 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 		itemDef
 		{
@@ -7139,7 +7783,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"FoV:"
-			rect				142 185 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7156,7 +7800,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Widescreen FoV:"
-			rect				142 215 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7173,7 +7817,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Widescreen UI:"
-			rect				142 230 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7335,6 +7979,118 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				cgtpcamdamp
+			group				camera
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
+			rect				152 185 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"How fast the camera tracks player movement. 1 = no dampening"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 185 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				cgtpcamdampNum
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"How fast the camera tracks player movement. 1 = no dampening"
+			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
+			rect				380 185 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				cgtptargetdamp
+			group				camera
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
+			rect				152 200 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"How fast the camera tracks crosshair movement. 1 = no dampening"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 200 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				cgtptargetdampNum
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"How fast the camera tracks crosshair movement. 1 = no dampening"
+			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
+			rect				380 200 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 
 		itemDef
 		{
@@ -7343,8 +8099,8 @@ itemDef
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvarfloat			"cg_fov" 1 80 97
-			rect				152 185 230 14
+			cvarfloat			"cg_fov" 80 80 97
+			rect				152 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -7356,7 +8112,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 184 230 19			
+				setitemrect		button_glow	142 230 230 19			
 			}
 			mouseExit
 			{
@@ -7365,6 +8121,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				cgfovNum
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Field of View"
+			cvarfloat			"cg_fov" 80 80 97
+			rect				380 230 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 		
@@ -7381,7 +8161,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 215 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7393,7 +8173,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
+				setitemrect		button_glow	142 246 230 15			
 			}
 			mouseExit
 			{
@@ -7418,7 +8198,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 230 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7430,7 +8210,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 231 230 15			
+				setitemrect		button_glow	142 261 230 15			
 			}
 			mouseExit
 			{
@@ -7459,21 +8239,20 @@ itemDef
 			visible				1
 			decoration
 		}
-
+		
 		itemDef
 		{
-			name				notes
+			name				setrecnet
 			group				connection
 			style				WINDOW_STYLE_TEXT_RGB1
-			type				ITEM_TYPE_TEXT
-			text				"See Optimization section of Library"
-			rect				142 260 300 20
+			text				"Set Recommended:"
+			rect				142 235 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
 			font				5
 			textscale			0.15
-			forecolor			0.5 0.5 0.5 0.5
+			forecolor			1 1 1 0.9
 			visible				1
 			decoration
 		}
@@ -7484,8 +8263,8 @@ itemDef
 			group				connection
 			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXT
-			text				"for more info"
-			rect				142 275 300 20
+			text				"See Optimization section of Library for more info."
+			rect				142 265 300 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -7509,7 +8288,6 @@ itemDef
 			textaligny		-5
 			font 			5
 			textscale 		0.15
-			style			WINDOW_STYLE_FILLED
 			forecolor		1 1 1 0.9
 			visible			1
 			decoration			
@@ -7527,7 +8305,6 @@ itemDef
 			textaligny		-5
 			font			5
 			textscale 		0.15
-			style			WINDOW_STYLE_FILLED
 			forecolor		1 1 1 0.9
 			visible			1
 			decoration			
@@ -7617,7 +8394,7 @@ itemDef
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
-			descText			"Use custom values or choose from recommended presets"
+			descText			"Use custom values or click to cycle through recommended presets."
 			cvar				"ui_customnetsettings"
 			cvarStrList
 			{
@@ -7640,7 +8417,45 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
-
+		
+		//force recommended settings
+		itemDef
+		{
+			name				setrecnet
+			group				connection
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"( Click to Apply )"
+			rect				150 235 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Apply recommended network settings for a typical high speed Internet connection."
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 236 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				setcvar			rate "25000"
+				setcvar			cl_packetdup "1"
+				setcvar			cl_timenudge "0"
+				setcvar			snaps "40"
+				setcvar			cl_maxpackets "100"
+				setcvar			ui_customnetsettings "0"
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
 		//if they want to choose recommended presets
 		itemDef
 		{
@@ -8226,7 +9041,7 @@ itemDef
 			{
 				"Static" 0
 				"World Only" 1
-				"All" 2
+				"Everything" 2
 			}
 			rect				142 110 230 18
 			textalign			ITEM_ALIGN_RIGHT
@@ -8593,13 +9408,13 @@ itemDef
 			visible				0
 			decoration
 		}
-
+		
 		itemDef
 		{
-			name				saberhiteffects
+			name				noattackcrosshair
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Lightsaber hit effects:"
+			text				"Attack Crosshair:"
 			rect				142 125 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -8609,15 +9424,66 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
-		}		
+		}
+
+		itemDef
+		{
+			name				saberhiteffects
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Lightsaber hit effects:"
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 		
 		itemDef
 		{
-			name				noattackcrosshair
+			name				pbindicator
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Attack Crosshair:"
-			rect				142 140 230 14
+			text				"Perfect Block Indicator:"
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				crosshairsize
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Crosshair Size:"
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				shotgunsizemod
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Shotgun Size Modifier:"
+			rect				142 205 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -8671,16 +9537,16 @@ itemDef
 
 		itemDef
 		{
-			name				saberhiteffects
+			name				noattackcrosshair
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				""
-			cvar				"cg_drawHitEffects"
+			cvar				"cg_noCrosshairWhenAttacking"
 			cvarFloatList
 			{
-				@MENUS_OFF		0
-				@MENUS_ON			1
+				@MENUS_OFF		1
+				@MENUS_ON		0
 			}
 			rect				142 125 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -8691,7 +9557,7 @@ itemDef
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			// appearance_slot	1
-			descText			"Effect on crosshair for making bodyhits (red) and perfect blocks (green)."
+			descText			"Whether or not to display the crosshair while firing your weapon."
 			mouseenter
 			{
 				show			button_glow 
@@ -8705,20 +9571,20 @@ itemDef
 			{
 				play			"sound/interface/button1"
 			}
-		}
+		}	
 
 		itemDef
 		{
-			name				noattackcrosshair
+			name				saberhiteffects
 			group				crosshair2
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			text				""
-			cvar				"cg_noCrosshairWhenAttacking"
+			cvar				"cg_drawHitEffects"
 			cvarFloatList
 			{
-				@MENUS_OFF		1
-				@MENUS_ON		0
+				@MENUS_OFF		0
+				@MENUS_ON			1
 			}
 			rect				142 140 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -8729,7 +9595,7 @@ itemDef
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			// appearance_slot	1
-			descText			"Whether or not to display the crosshair while firing your weapon."
+			descText			"Show effect on crosshair for making bodyhits (red) and perfect blocks (green)."
 			mouseenter
 			{
 				show			button_glow 
@@ -8743,7 +9609,157 @@ itemDef
 			{
 				play			"sound/interface/button1"
 			}
-		}		
+		}
+		
+		itemDef
+		{
+			name				pbindicator
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				""
+			cvar				"pbindicator"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			// appearance_slot	1
+			descText			"Highlight crosshair quadrant corresponding to PB zone currently being matched for the enemy you are facing."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 156 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				crosshairsize
+			group				crosshair2
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_crosshairSize" 12 1 48
+			rect				152 185 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Adjust size of the regular crosshair."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 185 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				crosshairsizeNum
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Adjust size of the regular crosshair."
+			cvarfloat			"cg_crosshairSize" 12 1 48
+			rect				380 185 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				shotgunsizemod
+			group				crosshair2
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_crosshairShotgunSizeMod" 3 1 12
+			rect				152 205 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Multiplier for crosshair size when using shotgun weapons."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 206 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				shotgunsizemodNum
+			group				crosshair2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Multiplier for crosshair size when using shotgun weapons."
+			cvarfloat			"cg_crosshairShotgunSizeMod" 3 1 12
+			rect				380 205 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 	
 // RESET DEFAULTS
 
@@ -11154,6 +12170,23 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				endduel
+			group				mbcontrols
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"End Private Duel:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 //	MBII 2 BINDING
 
@@ -11309,7 +12342,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"FA mode only: Alt control for Poison Darts if class special conflict occurs."
+			descText			"FA mode only: Alt control for Poison Darts and Gunbash if class special conflict occurs."
 			mouseenter
 			{
 				show			button_glow 
@@ -11427,7 +12460,41 @@ itemDef
 			{
 				play			"sound/interface/go.mp3"
 			}
-		}		
+		}
+		
+		itemDef
+		{
+			name				endduel
+			group				mbcontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"duel_end"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Duel mode only: Prematurely end a private duel."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 276 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}	
 		
 // FORCE BINDING
 
@@ -12272,7 +13339,7 @@ itemDef
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvarfloat			"sensitivity" 5 2 30
+			cvarfloat			"sensitivity" 5 0.5 10
 			rect				152 125 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
@@ -12296,6 +13363,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				mousejoystickNum
+			group				joycontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUSTS_CHARACTER_REACTION
+			cvarfloat			"sensitivity" 5 0.5 10
+			rect				380 125 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -12434,6 +13525,30 @@ itemDef
 			action
 			{
 				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				mousejoystickNum
+			group				joycontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			@MENUS_ADJUSTS_THE_SIZE_OF_THE
+			cvarfloat			"joy_threshold" .15 .05 .75
+			rect				380 185 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 

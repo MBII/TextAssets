@@ -1,0 +1,100 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name			"pbfa_4_b_rockettroopah"
+	weapons			WP_MELEE|WP_ROCKET_LAUNCHER|WP_DET_PACK
+	attributes		MB_ATT_PLX1,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_AMMO,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_ROCKET|MB_ATT_BLAST_ARMOUR|MB_ATT_MAGNETIC_PLATING
+	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|CFL_NO_FUEL_USE|CFL_FUEL_REGENERATION
+	maxhealth		100
+	maxarmor		100
+	modelscale		1.2
+	speed			0.85
+//	model			"pl_rockettrooper"
+//	skin			"default"
+//	uishader		"gfx/hud/FA_Icons/mb2_icon_imp_rockettrooper"
+	
+	model			"darktrooper"
+	skin			"default"
+	uishader		"models/players/DarkTrooper/mb2_icon_default"
+	extralives		1
+	
+
+	MBClass			MB_CLASS_MANDALORIAN
+	WP_ThermalFlags	HELD_LOWDAMAGE
+	WP_RocketLauncherFlags	HELD_ALTRELOAD|HELD_LOWDAMAGE
+	jetpackThrustEffect "effects/Jetpack/thrust"
+	jetpackIdleEffect 	"effects/Jetpack/idle"
+	jetpackJetTag		"*jet1"
+	jetpackJet2Tag		"*jet2"
+	jetpackThrustSound 	"sound/vehicles/tie/loop"
+	jetpackIdleSound		"sound/vehicles/tie/loop"
+	jetpackStartSound 	"sound/vehicles/x-wing/flyby"
+	classNumberLimit	2
+}
+WeaponInfo0
+{
+	WeaponToReplace		WP_ROCKET_LAUNCHER
+	WeaponBasedOff		WP_ROCKET_LAUNCHER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	//NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	//NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon			"gfx/hud/w_icon_sbdarm"
+	WeaponName		"Wrist Rocket"
+	customAmmo		50
+	ReloadTimeModifier 	.20
+    ProjSpeedModifier 	1.75
+	idleanim	BOTH_STAND3
+	firinganim	BOTH_WRISTBLASTER_ATTACK 
+	
+		//MissileModel					"models/weapons2/pumpkin/thermal_proj.md3"
+		
+	//	MuzzleEffect					"effects/turret/turb_muzzle_flash"
+ 	//	AltMuzzleEffect
+ 	//	MissileEffect 					"halo_smg/rings"
+
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_DET_PACK
+	WeaponBasedOff		WP_DET_PACK
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_sbdarm"
+	WeaponName		"Wrist Blast"
+	ReloadTimeModifier 	2
+    ProjSpeedModifier 	.25
+	firingAnim		SBD_GUN_OUT_STAND
+	Idleanim	MINIGUN_READY
+	isMinigun 1
+	
+// 	MissileEffect		"turret/shot"	
+//	MuzzleEffect		"base_concussion/muzzle_flash"
+//	AltMuzzleEffect		"base_concussion/altmuzzle_flash"
+//	FlashSound0		"sound/weapons/concussion/fire"
+//	AltFlashSound0		"sound/weapons/concussion/alt_fire"
+
+	customammo 500
+	}
+
+description	"Rocket Trooper
+
+Weaponry:
+Wrist Blast (T-21 Prim)
+Wrist Rocket (PLX)
+
+Items:
+Jetpack + Rocket
+
+Abilities:
+Dexterity (3)
+Stamina (3)
+Jetpack (3)
+Blast Armor
+Magnetic Plating
+Melee Damage Reduction
+
+Extra Life
+"

@@ -1,0 +1,67 @@
+Teams
+{
+	team1 Jedi
+	team2 Mercenaries
+}
+mapgraphic "gfx/reactor/layout"
+missionname  "Mercenary Reactor Sabotage"
+radartopleft "-3584, 4352"
+radarbottomright "3584, -2816"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/reactor_1"
+		radargraphicfull "gfx/automap/reactor_1_full"
+		height "32"
+	}
+	AutoMap1
+	{
+		radargraphic "gfx/automap/reactor_2"
+		radargraphicfull "gfx/automap/reactor_2_full"
+		height "544"
+	}
+}
+Jedi
+{
+	RequiredObjectives 1	
+	Timed 300					
+	UseTeam "pbfa_light" 							
+	TeamIcon	"gfx/2d/logos/mb_rebmander"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	Objective1
+	{
+		goalname "Destroy the reactor"
+		final 1
+		objdesc "PRIMARY GOAL:
+		Permenantly disable the mercenary reactor."
+		objgfx "gfx/reactor/obj_1"
+  }
+  wonround "For the Republic!"
+  lostround "We have failed."
+  roundover_sound_wewon "s/pb/goodjob.mp3"
+	roundover_sound_welost "s/pb/spaghet.mp3"
+  attackers 1
+}
+Mercenaries
+{
+	RequiredObjectives 1
+	UseTeam "pbfa_dark"
+	TeamIcon	"gfx/2d/logos/mb_impmander"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+  Objective1
+	{
+		goalname "Defend the reactor"
+		final 1
+		objdesc "PRIMARY GOAL:
+    Keep the reactor online."
+    objgfx "gfx/reactor/obj_1"
+	}
+	wonround "This sector is secure."
+	lostround "Do we still get paid?"
+	  roundover_sound_wewon "s/pb/goodjob.mp3"
+	roundover_sound_welost "s/pb/icantbelieve.mp3"
+	attackers 0
+}
