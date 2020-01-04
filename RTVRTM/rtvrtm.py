@@ -47,8 +47,8 @@ from zipfile import ZipFile, BadZipfile
 from tarfile import open as TarFile
 from traceback import format_exc
 
-VERSION = "3.6b"
-CFG = "3.6b"
+VERSION = "3.6c"
+CFG = "3.6c"
 SLEEP_INTERVAL = 0.075
 MAPLIST_MAX_SIZE = 750
 REPORT_UNHANDLED_EXCEPTION = False
@@ -838,7 +838,7 @@ class Config(object):
 
           self.default_game[0] = int(self.default_game[0])
 
-          if self.default_game[0] not in (0, 1, 2, 3):
+          if self.default_game[0] not in (0, 1, 2, 3, 4):
 
             error("Invalid mode for default game (0, 1, 2, 3).")
 
@@ -1719,14 +1719,21 @@ class Config(object):
                     5: (0, 2),
                     6: (1, 2),
                     7: (0, 1, 2),
-					8: (3),
-					9: (0, 3),
-					10: (1, 3),
-					11: (2, 3),
-					12: (0,2,3),
-					13: (1,2,3),
-					14: (0,1,2,3),
-                   }[int(self.rtm)]
+                8: (3),
+                9: (0, 3),
+                10: (1, 3),
+                11: (2, 3),
+                12: (0, 2, 3),
+                13: (1, 2, 3),
+                14: (0, 1, 2, 3),
+            15: (4),
+            16: (0, 4),
+            17: (2, 4),
+            18: (0, 3, 4),
+            19: (0, 2, 4),
+            20: (0, 2, 3, 4),
+            21: (0, 1, 2, 3, 4),
+                    }[int(self.rtm)]
 
         if self.rtm:
 
@@ -1736,27 +1743,31 @@ class Config(object):
 
             self.mode_priority = tuple((int(i) for i in iter(split(self.mode_priority))))
 
-            if len(self.mode_priority) == 5:
+            if len(self.mode_priority) == 6:
 
               if self.mode_priority[0] not in (0, 1, 2):
 
-                error("Invalid value for mode priority/open mode (0, 1, 2).")
+                error("Invalid value for mode priority/OPEN mode (0, 1, 2).")
 
               elif self.mode_priority[1] not in (0, 1, 2, 3):
 
-                error("Invalid value for mode priority/semi authentic mode (0, 1, 2).")
+                error("Invalid value for mode priority/SEMI AUTHENTIC mode (0, 1, 2).")
 
               elif self.mode_priority[2] not in (0, 1, 2):
 
-                error("Invalid value for mode priority/full authentic mode (0, 1, 2).")
+                error("Invalid value for mode priority/FULL AUTHENTIC mode (0, 1, 2).")
 
               elif self.mode_priority[3] not in (0, 1, 2):
 
-                error("Invalid value for mode priority/duel mode (0, 1, 2).")
+                error("Invalid value for mode priority/DUEL mode (0, 1, 2).")
 				
               elif self.mode_priority[4] not in (0, 1, 2):
 
-                error("Invalid value for mode priority/extend mode (0, 1, 2).")
+                error("Invalid value for mode priority/LEGENDS mode (0, 1, 2).")
+
+              elif self.mode_priority[5] not in (0, 1, 2):
+
+                error("Invalid value for mode priority/EXTEND mode (0, 1, 2).")
 
             else:
 
@@ -2337,9 +2348,9 @@ class Config(object):
 
           self._default_game[0] = int(self._default_game[0])
 
-          if self._default_game[0] not in (0, 1, 2, 3):
+          if self._default_game[0] not in (0, 1, 2, 3, 4):
 
-            warning("Invalid mode for default game (0, 1, 2, 3).", rehash=True)
+            warning("Invalid mode for default game (0, 1, 2, 3, 4).", rehash=True)
             return False
 
           elif lower(self._default_game[1]) not in lower_bsps:
@@ -3281,14 +3292,28 @@ class Config(object):
       try:
 
         self._rtm = {
-                     0: False,
-                     1: (0,),
-                     2: (1,),
-                     3: (2,),
-                     4: (0, 1),
-                     5: (0, 2),
-                     6: (1, 2),
-                     7: (0, 1, 2)
+                    0: False,
+                    1: (0,),
+                    2: (1,),
+                    3: (2,),
+                    4: (0, 1),
+                    5: (0, 2),
+                    6: (1, 2),
+                    7: (0, 1, 2),
+                8: (3),
+                9: (0, 3),
+                10: (1, 3),
+                11: (2, 3),
+                12: (0, 2, 3),
+                13: (1, 2, 3),
+                14: (0, 1, 2, 3),
+            15: (4),
+            16: (0, 4),
+            17: (2, 4),
+            18: (0, 3, 4),
+            19: (0, 2, 4),
+            20: (0, 2, 3, 4),
+            21: (0, 1, 2, 3, 4),
                     }[int(self._rtm)]
 
         if self._rtm:
@@ -4017,7 +4042,7 @@ def main(argv):
   voting_description = change_instructions = None
   admin_choices = []
   admin_choice = admin_choices.append
-  gamemodes = ("Open", "Semi Authentic", "Full Authentic", "Duel")
+  gamemodes = ("Open", "Semi Authentic", "Full Authentic", "Duel", "Legends")
   recently_played = defaultdict(int)
   check_votes = voting_instructions = start_voting = start_second_turn = \
   reset = recover = start_line = False
@@ -4100,7 +4125,7 @@ def main(argv):
 
       current_mode = int(cvars["g_authenticity"])
 
-      if current_mode not in (0, 1, 2, 3):
+      if current_mode not in (0, 1, 2, 3, 4):
 
         raise ValueError
 
