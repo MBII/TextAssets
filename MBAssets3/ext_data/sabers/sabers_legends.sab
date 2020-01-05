@@ -46,12 +46,13 @@ ewok_spear_legends
 	useGoreConfig 1
 	useGoreConfig2 1
 	noDismemberment 1
-		animSpeedScale		1.5
+		animSpeedScale		2
 		nokicks		1
 		noStabDown		1
 		
-			readyAnim BOTH_TAVION_BR
-	gloatanim BOTH_TAVION_SWORDPOWER
+			readyAnim 	BOTH_TAVION_BR
+	gloatanim	 	BOTH_TAVION_SWORDPOWER
+		//lungeAtkMove	LS_A_BLUE_DFA
 		lungeAtkMove LS_PULL_ATTACK_STAB  
 	tauntAnim	BOTH_ENGAGETAUNT
 	//flourishAnim BOTH_VICTORY_FAST
@@ -113,6 +114,27 @@ saber_asajj2_legacy
 	//lungeAtkMove    LS_PULL_ATTACK_STAB
 }
 
+
+Windu_legacy
+{
+//DO NOT EDIT ME UNLESS ASKED; --=Alpha=--//
+name		"Labs Special Mace Hilt"
+
+saberType	SABER_SINGLE
+saberModel	"models/weapons2/saber_plasma/saber_mace.glm"
+
+soundOn		"sound/weapons/saber/saberon.wav"
+soundLoop	"sound/weapons/saber/saberhum4.wav"
+soundOff	"sound/weapons/saber/saberoff.wav"
+
+lungeAtkMove	LS_A2_SPECIAL
+notInOpen	1
+saberLength	40
+saberColor	purple
+}
+
+
+
 saber_dooku_legacy
 {
 	name  "Count Dooku (Ep.2)"
@@ -135,7 +157,7 @@ saber_dooku_legacy
 
 	noMirrorAttacks		1
 	noKicks			1
-lungeAtkMove		LS_A3_SPECIAL
+	lungeAtkMove		LS_A3_SPECIAL
 	
 	readyAnim		BOTH_DOOKU_STANCE
 	drawAnim		BOTH_SHOWOFF_FAST
@@ -145,6 +167,7 @@ lungeAtkMove		LS_A3_SPECIAL
 	flourishAnim	BOTH_COME_ON1
 	meditateAnim	BOTH_CROUCH3
 	bowAnim 		BOTH_FORCEHEAL_START
+	lungeAtkMove	LS_A2_SPECIAL
 }
 
 droidmelee_legacy
@@ -307,14 +330,76 @@ saber_sidious_legacy
 	soundOn	"sound/weapons/saber_plasma/rd_saberon.wav"
 	soundOff	"sound/weapons/saber_plasma/rd_saberoff.wav"
 	damageScale	0.7
-	//readyanim	BOTH_TAVION_STANCE
-	//BOTH_PALPATINE_DFA
+	readyanim	BOTH_TAVION_STANCE
+	jumpAtkFwdMove LS_A_PALPATINE_DFA
 	//lungeAtkMove	BOTH_PULL_IMPALE_STAB
 	tauntanim	BOTH_STAFF_TAUNT
 	kataMove	LS_A_FLIP_STAB
 	
 	soundLoop	"sound/weapons/saber_plasma/rd_saberhum.wav"
 	notInOpen			1
+}
+
+rosh_legends
+{
+	name		"Sentinel (JA)"
+	saberType	SABER_SINGLE
+	saberModel	"models/weapons2/saber_6/saber_6.glm"
+	soundOn		"sound/weapons/saberot/saberon.wav"
+	soundLoop	"sound/weapons/saberot/saberhum4.wav"
+	soundOff	"sound/weapons/saberot/saberoff.wav"
+	saberLength	40
+	lungeAtkMove		LS_A_BLUE_DFA
+	jumpAtkBackMove 	LS_SPINATTACK_ALORA
+		gloatanim BOTH_TAVION_SCEPTERGROUND
+	saberColor	random
+}
+
+saber_maul_legends
+{
+	name  "Darth Maul (Ep.1)"
+	saberType	SABER_STAFF
+	saberModel  "models/weapons2/saber_plasma/saber_maul.glm"
+	saberColor	red
+	numBlades	2
+	saberLength	32
+	saberStyle	staff
+	throwable	0
+	singleBladeStyle	medium
+	singleBladeThrowable		1
+	brokenSaber1	saber_maul_broke
+	brokenSaber2	saber_maul_broke
+	twoHanded		1
+	slapAnim		BOTH_A7_HILT
+	soundOn	"sound/weapons/saber/enemy_saber_on.wav"
+	soundOff	"sound/weapons/saber/enemy_saber_off.wav"
+
+	soundLoop	"sound/weapons/saber_plasma/dm_saberhum.wav"
+}
+
+
+tavion_legends
+{
+	name		"tavion Scepter"
+	saberType	SABER_SINGLE
+	saberModel	"models/weapons2/sith_scepter/sith_scepter_w.glm"
+	saberLength	35
+	damageScale	0.8
+	notInOpen 	1
+	noWallMarks	1
+    noDlight	1
+	saberColor	2
+//	returnDamage 1
+	disarmable	0
+	throwable	0
+//	splashRadius	10
+//	splashDamage    0
+//	splashKnockback	5
+	knockbackScale	1
+	//readyAnim BOTH_TAVION_BL
+	gloatanim BOTH_TAVION_SCEPTERGROUND
+	jumpAtkFwdMove	BOTH_ALORA_SPIN_SLASH
+	//lungeAtkMove		LS_A_BLUE_DFA
 }
 
 sarlacc_gaffi_legacy
@@ -378,6 +463,8 @@ sarlacc_gaffi_legacy
 
 	noBladeEffects 		1 			//disables saber blade effects
 }
+
+
 
 Vibroblade_legacy
 {
