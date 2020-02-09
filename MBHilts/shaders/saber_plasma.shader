@@ -1118,20 +1118,6 @@ models/weapons2/saber_plasma/saber_rahm_diff
     }
 }
 
-models/weapons2/saber_plasma/saber_rey3_diff
-{
-    {
-        map models/weapons2/saber_plasma/saber_rey3_diff
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/saber_plasma/saber_rey3_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/weapons2/saber_plasma/saber_reborn_diff
 {
     {
@@ -1476,6 +1462,48 @@ models/weapons2/saber_plasma/saber_sidious2_diff
     }
     {
         map models/weapons2/saber_plasma/saber_sidious_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_rey3_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_rey3_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_rey3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_rey4_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_rey4_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_rey4_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_rey5_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_rey5_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_rey5_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
