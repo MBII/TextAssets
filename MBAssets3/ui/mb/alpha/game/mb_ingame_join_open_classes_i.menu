@@ -1,0 +1,2661 @@
+{
+	menuDef
+	{
+		name					"ingame_siegeclass_open_classes_i"
+		fullScreen				0
+		visible					0
+		rect					93 60 162 371
+		style					1
+		descX					320
+		descY					443
+		descScale				1
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		focusColor				1 1 1 1
+		backColor				0 0 0 0
+		disablecolor			1 1 1 1
+		stayopen
+		onOpen
+		{
+			// setitemtext		siegeclassconfigtitle	"SELECT A TEAM"
+			uiscript		setteamclassicons
+			disable			imp_class 0
+			disable			imp_class_sm 0
+		}
+		onClose
+		{
+			disable			imp_class 0
+			disable			imp_class_sm 0
+			hide			feeders
+			hide			stats
+			hide 			headlist
+			hide			custlist
+			hide			modellisttype
+			hide			hiltmodels
+			hide			hiltmodelssith
+			hide			hiltselect
+			hide			sithcust
+			hide			imp_class_sm
+			show			imp_class
+			show			class_count
+			hide 			headlist_tiny //+ pen
+			
+			close 			mb_class_bounty_hunter
+			close 			mb_class_commander
+			close 			mb_class_droideka
+			close 			mb_class_mandalorian
+			close 			mb_class_sbd
+			close 			mb_class_sith
+			close 			mb_class_soldier
+			close 			mb_class_arctrooper
+			close 			mb_class_clonetrooper
+			close 			mb_class_elitetrooper
+			close 			mb_class_hero
+			close 			mb_class_jedi
+			close 			mb_class_trooper
+			close 			mb_class_wookiee
+			
+			close			mb_stats_common
+			
+			setitemcolor	imp_class  backcolor 1 1 1 0.1
+			setitemcolor	imp_class  forecolor 1 1 1 1
+			setitemcolor	class_count	forecolor 0.5 0.5 0.5 1
+
+			setitemrect     mb_class_soldier_icon 12 17 26 33
+			setitemrect     mb_class_commander_icon 12 67 26 33
+			setitemrect     mb_class_bounty_hunter_icon 12 117 26 33
+			setitemrect     mb_class_mandalorian_icon 12 167 26 33
+			setitemrect     mb_class_droideka_icon 12 217 26 33
+			setitemrect     mb_class_sbd_icon 12 267 26 33
+			setitemrect     mb_class_sith_icon 12 317 26 33
+		}
+
+/* 		itemDef
+		{
+			name				bg_class
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 371
+			background			"gfx/menus/alpha/Menu_ClassSelect"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				ClassSelectL
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 162 371
+			background			"gfx/menus/alpha/Menu_ClassSelect_L"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		} */
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+
+//----------------------------------------------------------------------------------------------
+// CLASS SELECTION
+//----------------------------------------------------------------------------------------------	
+// IMPS		
+		
+		//imp soldier
+		itemDef
+		{
+			name				mb_class_soldier
+			group				imp_class
+			rect 8 11 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			text				"SOLDIER"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			10
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_soldier backcolor   1 1 1 0.3
+				setitemcolor	mb_class_soldier forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_soldier backcolor   1 1 1 0.1
+				setitemcolor	mb_class_soldier forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_soldier backcolor   1 1 1 0.5
+				setitemcolor	mb_class_soldier forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_soldier_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_icon forecolor   1 1 1 1
+				
+				setitemrect mb_class_soldier_icon 6 13 19 24
+				setitemrect mb_class_commander_icon 6 63 19 24
+				setitemrect mb_class_bounty_hunter_icon 6 113 19 24
+				setitemrect mb_class_mandalorian_icon 6 163 19 24
+				setitemrect mb_class_droideka_icon 6 213 19 24
+				setitemrect mb_class_sbd_icon 6 263 19 24
+				setitemrect mb_class_sith_icon 6 313 19 24
+				
+				setitemtext		siegeclassconfigtitle	"SOLDIER"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				show			imp_class_sm
+				hide			imp_class
+				hide			class_count
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_soldier 1
+				disable			mb_class_soldier_sm 1
+				uiscript		mb_class_soldier
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				open 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_sm
+			group				imp_class_sm
+			rect 8 11 15 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			7
+			textaligny			16
+			cvar				mb_class_soldier_cnt
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			0
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_soldier backcolor   1 1 1 0.3
+				setitemcolor	mb_class_soldier forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_soldier backcolor   1 1 1 0.1
+				setitemcolor	mb_class_soldier forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_soldier backcolor   1 1 1 0.5
+				setitemcolor	mb_class_soldier forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_soldier_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_icon forecolor   1 1 1 1
+				
+				setitemtext		siegeclassconfigtitle	"SOLDIER"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_soldier 1
+				disable			mb_class_soldier_sm 1
+				uiscript		mb_class_soldier
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				open 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_icon
+			group				imp_class_icon
+			style				WINDOW_STYLE_SHADER
+			rect 12 17 26 33
+			background			"gfx/menus/classes/imp"
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 17 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_soldier_cnt
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 17 26 32
+			cvar				mb_class_soldier_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 17 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 17 26 32
+			cvar				mb_class_soldier_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_soldier_lock
+			group				imp_class
+			rect 8 11 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		//imp commander
+		itemDef
+		{
+			name				mb_class_commander
+			group				imp_class
+			rect 8 61 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			text				"COMMANDER"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			10
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_commander backcolor   1 1 1 0.3
+				setitemcolor	mb_class_commander forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_commander backcolor   1 1 1 0.1
+				setitemcolor	mb_class_commander forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_commander backcolor   1 1 1 0.5
+				setitemcolor	mb_class_commander forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_commander_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_icon forecolor   1 1 1 1
+				
+				setitemrect mb_class_soldier_icon 6 13 19 24
+				setitemrect mb_class_commander_icon 6 63 19 24
+				setitemrect mb_class_bounty_hunter_icon 6 113 19 24
+				setitemrect mb_class_mandalorian_icon 6 163 19 24
+				setitemrect mb_class_droideka_icon 6 213 19 24
+				setitemrect mb_class_sbd_icon 6 263 19 24
+				setitemrect mb_class_sith_icon 6 313 19 24
+				
+				setitemtext		siegeclassconfigtitle	"COMMANDER"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				show			imp_class_sm
+				hide			imp_class
+				hide			class_count
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_commander 1
+				disable			mb_class_commander_sm 1
+				uiscript		mb_class_commander
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				open 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_sm
+			group				imp_class_sm
+			rect 8 61 15 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			7
+			textaligny			16
+			cvar				mb_class_commander_cnt
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			0
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_commander backcolor   1 1 1 0.3
+				setitemcolor	mb_class_commander forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_commander backcolor   1 1 1 0.1
+				setitemcolor	mb_class_commander forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_commander backcolor   1 1 1 0.5
+				setitemcolor	mb_class_commander forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_commander_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_icon forecolor   1 1 1 1
+				
+				setitemtext		siegeclassconfigtitle	"COMMANDER"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_commander 1
+				disable			mb_class_commander_sm 1
+				uiscript		mb_class_commander
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				open 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_icon
+			group				imp_class_icon
+			style				WINDOW_STYLE_SHADER
+			rect 12 67 26 33
+			background			"gfx/menus/classes/com"
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 67 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_commander_cnt
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 67 26 32
+			cvar				mb_class_commander_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 67 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_commander_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 67 26 32
+			cvar				mb_class_commander_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_commander_lock
+			group				imp_class
+			rect 8 61 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		//Sith
+		itemDef
+		{
+			name				mb_class_sith
+			group				imp_class
+			rect 8 311 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			text				"SITH"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			10
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_sith backcolor   1 1 1 0.3
+				setitemcolor	mb_class_sith forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_sith backcolor   1 1 1 0.1
+				setitemcolor	mb_class_sith forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_sith backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sith forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sith_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
+				
+				setitemrect mb_class_soldier_icon 6 13 19 24
+				setitemrect mb_class_commander_icon 6 63 19 24
+				setitemrect mb_class_bounty_hunter_icon 6 113 19 24
+				setitemrect mb_class_mandalorian_icon 6 163 19 24
+				setitemrect mb_class_droideka_icon 6 213 19 24
+				setitemrect mb_class_sbd_icon 6 263 19 24
+				setitemrect mb_class_sith_icon 6 313 19 24
+				
+				setitemtext		siegeclassconfigtitle	"SITH"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				show			sithcust
+				show			jedicharselect
+				show			imp_class_sm
+				hide			imp_class
+				hide			class_count
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_sith 1
+				disable			mb_class_sith_sm 1
+				uiscript		mb_class_sith
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 31 132 318
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				open 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				close			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_sm
+			group				imp_class_sm
+			rect 8 311 15 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			7
+			textaligny			16
+			cvar				mb_class_sith_cnt
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			0
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_sith backcolor   1 1 1 0.3
+				setitemcolor	mb_class_sith forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_sith backcolor   1 1 1 0.1
+				setitemcolor	mb_class_sith forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_sith backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sith forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sith_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_icon forecolor   1 1 1 1
+				
+				setitemtext		siegeclassconfigtitle	"SITH"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				show			sithcust
+				show			jedicharselect
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_sith 1
+				disable			mb_class_sith_sm 1
+				uiscript		mb_class_sith
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				uiScript		getsabercvars "sith"
+				
+				setitemrect playermodels 25 31 132 318
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				open 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				close			mb_stats_common
+			}
+		}
+		
+		itemDef
+		{
+			name				mb_class_sith_icon
+			group				imp_class_icon
+			style				WINDOW_STYLE_SHADER
+			rect 12 317 26 33
+			background			"gfx/menus/classes/jedi"
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 317 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_sith_cnt
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 317 26 32
+			cvar				mb_class_sith_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 317 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sith_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 317 26 32
+			cvar				mb_class_sith_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_sith_lock
+			group				imp_class
+			rect 8 311 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		//Bounty Hunter
+		itemDef
+		{
+			name				mb_class_bounty_hunter
+			group				imp_class
+			rect 8 111 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			text				"BOUNTY HUNTER"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			10
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_bounty_hunter backcolor   1 1 1 0.3
+				setitemcolor	mb_class_bounty_hunter forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_bounty_hunter backcolor   1 1 1 0.1
+				setitemcolor	mb_class_bounty_hunter forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_bounty_hunter backcolor   1 1 1 0.5
+				setitemcolor	mb_class_bounty_hunter forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_bounty_hunter_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon forecolor   1 1 1 1
+				
+				setitemrect mb_class_soldier_icon 6 13 19 24
+				setitemrect mb_class_commander_icon 6 63 19 24
+				setitemrect mb_class_bounty_hunter_icon 6 113 19 24
+				setitemrect mb_class_mandalorian_icon 6 163 19 24
+				setitemrect mb_class_droideka_icon 6 213 19 24
+				setitemrect mb_class_sbd_icon 6 263 19 24
+				setitemrect mb_class_sith_icon 6 313 19 24
+				
+				setitemtext		siegeclassconfigtitle	"BOUNTY HUNTER"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				show			imp_class_sm
+				hide			imp_class
+				hide			class_count
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_bounty_hunter 1
+				disable			mb_class_bounty_hunter_sm 1
+				uiscript		mb_class_bounty_hunter
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				open 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_sm
+			group				imp_class_sm
+			rect 8 111 15 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			7
+			textaligny			16
+			cvar				mb_class_bounty_hunter_cnt
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			0
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_bounty_hunter backcolor   1 1 1 0.3
+				setitemcolor	mb_class_bounty_hunter forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_bounty_hunter backcolor   1 1 1 0.1
+				setitemcolor	mb_class_bounty_hunter forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_bounty_hunter backcolor   1 1 1 0.5
+				setitemcolor	mb_class_bounty_hunter forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_bounty_hunter_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon forecolor   1 1 1 1
+				
+				setitemtext		siegeclassconfigtitle	"BOUNTY HUNTER"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_bounty_hunter 1
+				disable			mb_class_bounty_hunter_sm 1
+				uiscript		mb_class_bounty_hunter
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				open 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_icon
+			group				imp_class_icon
+			style				WINDOW_STYLE_SHADER
+			rect 12 117 26 33
+			background			"gfx/menus/classes/bh"
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 117 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_bounty_hunter_cnt
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 117 26 32
+			cvar				mb_class_bounty_hunter_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 117 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 117 26 32
+			cvar				mb_class_bounty_hunter_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_bounty_hunter_lock
+			group				imp_class
+			rect 8 111 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		//deka
+		itemDef
+		{
+			name				mb_class_droideka
+			group				imp_class
+			rect 8 211 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			text				"DROIDEKA"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			10
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_droideka backcolor   1 1 1 0.3
+				setitemcolor	mb_class_droideka forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_droideka backcolor   1 1 1 0.1
+				setitemcolor	mb_class_droideka forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_droideka backcolor   1 1 1 0.5
+				setitemcolor	mb_class_droideka forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_droideka_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_icon forecolor   1 1 1 1
+				
+				setitemrect mb_class_soldier_icon 6 13 19 24
+				setitemrect mb_class_commander_icon 6 63 19 24
+				setitemrect mb_class_bounty_hunter_icon 6 113 19 24
+				setitemrect mb_class_mandalorian_icon 6 163 19 24
+				setitemrect mb_class_droideka_icon 6 213 19 24
+				setitemrect mb_class_sbd_icon 6 263 19 24
+				setitemrect mb_class_sith_icon 6 313 19 24
+				
+				setitemtext		siegeclassconfigtitle	"DROIDEKA"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				show			imp_class_sm
+				hide			imp_class
+				hide			class_count
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_droideka 1
+				disable			mb_class_droideka_sm 1
+				uiscript		mb_class_droideka
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				open 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_sm
+			group				imp_class_sm
+			rect 8 211 15 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			7
+			textaligny			16
+			cvar				mb_class_droideka_cnt
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			0
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_droideka backcolor   1 1 1 0.3
+				setitemcolor	mb_class_droideka forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_droideka backcolor   1 1 1 0.1
+				setitemcolor	mb_class_droideka forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_droideka backcolor   1 1 1 0.5
+				setitemcolor	mb_class_droideka forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_droideka_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_icon forecolor   1 1 1 1
+				
+				setitemtext		siegeclassconfigtitle	"DROIDEKA"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_droideka 1
+				disable			mb_class_droideka_sm 1
+				uiscript		mb_class_droideka
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				open 			mb_class_droideka
+				close 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+		
+		itemDef
+		{
+			name				mb_class_droideka_icon
+			group				imp_class_icon
+			style				WINDOW_STYLE_SHADER
+			rect 12 217 26 33
+			background			"gfx/menus/classes/deka"
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 217 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_droideka_cnt
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 217 26 32
+			cvar				mb_class_droideka_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 217 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 217 26 32
+			cvar				mb_class_droideka_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_droideka_lock
+			group				imp_class
+			rect 8 211 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		//manda
+		itemDef
+		{
+			name				mb_class_mandalorian
+			group				imp_class
+			rect 8 161 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			text				"MANDALORIAN"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			10
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_mandalorian backcolor   1 1 1 0.3
+				setitemcolor	mb_class_mandalorian forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_mandalorian backcolor   1 1 1 0.1
+				setitemcolor	mb_class_mandalorian forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_mandalorian backcolor   1 1 1 0.5
+				setitemcolor	mb_class_mandalorian forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_mandalorian_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon forecolor   1 1 1 1
+				
+				setitemrect mb_class_soldier_icon 6 13 19 24
+				setitemrect mb_class_commander_icon 6 63 19 24
+				setitemrect mb_class_bounty_hunter_icon 6 113 19 24
+				setitemrect mb_class_mandalorian_icon 6 163 19 24
+				setitemrect mb_class_droideka_icon 6 213 19 24
+				setitemrect mb_class_sbd_icon 6 263 19 24
+				setitemrect mb_class_sith_icon 6 313 19 24
+				
+				setitemtext		siegeclassconfigtitle	"MANDALORIAN"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				show			imp_class_sm
+				hide			imp_class
+				hide			class_count
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_mandalorian 1
+				disable			mb_class_mandalorian_sm 1
+				uiscript		mb_class_mandalorian
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				open 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_sm
+			group				imp_class_sm
+			rect 8 161 15 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			7
+			textaligny			16
+			cvar				mb_class_mandalorian_cnt
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			0
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_mandalorian backcolor   1 1 1 0.3
+				setitemcolor	mb_class_mandalorian forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_mandalorian backcolor   1 1 1 0.1
+				setitemcolor	mb_class_mandalorian forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_mandalorian backcolor   1 1 1 0.5
+				setitemcolor	mb_class_mandalorian forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_mandalorian_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon forecolor   1 1 1 1
+				
+				setitemtext		siegeclassconfigtitle	"MANDALORIAN"
+				
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_mandalorian 1
+				disable			mb_class_mandalorian_sm 1
+				uiscript		mb_class_mandalorian
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				open 			mb_class_mandalorian
+				close 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_icon
+			group				imp_class_icon
+			style				WINDOW_STYLE_SHADER
+			rect 12 67 26 33
+			background			"gfx/menus/classes/manda"
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 167 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_mandalorian_cnt
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 167 26 32
+			cvar				mb_class_mandalorian_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 167 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 167 26 32
+			cvar				mb_class_mandalorian_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_mandalorian_lock
+			group				imp_class
+			rect 8 161 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		//SBD
+		itemDef
+		{
+			name				mb_class_sbd
+			group				imp_class
+			rect 8 261 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			text				"SUPER BATTLE DROID"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			10
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_sbd backcolor   1 1 1 0.3
+				setitemcolor	mb_class_sbd forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_sbd backcolor   1 1 1 0.1
+				setitemcolor	mb_class_sbd forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_sbd backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sbd forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sbd_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_icon forecolor   1 1 1 1
+				
+				setitemrect mb_class_soldier_icon 6 13 19 24
+				setitemrect mb_class_commander_icon 6 63 19 24
+				setitemrect mb_class_bounty_hunter_icon 6 113 19 24
+				setitemrect mb_class_mandalorian_icon 6 163 19 24
+				setitemrect mb_class_droideka_icon 6 213 19 24
+				setitemrect mb_class_sbd_icon 6 263 19 24
+				setitemrect mb_class_sith_icon 6 313 19 24
+				
+				setitemtext		siegeclassconfigtitle	"SUPER BATTLE DROID"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				show			imp_class_sm
+				hide			imp_class
+				hide			class_count
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_sbd 1
+				disable			mb_class_sbd_sm 1
+				uiscript		mb_class_sbd
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				open 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_sm
+			group				imp_class_sm
+			rect 8 261 15 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			//descText			@MENUS_WATCH_DESC
+			font				7
+			textscale			0.2
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			7
+			textaligny			16
+			cvar				mb_class_sbd_cnt
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.1
+			visible 			0
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			
+			mouseEnter
+			{ 
+				setitemcolor	mb_class_sbd backcolor   1 1 1 0.3
+				setitemcolor	mb_class_sbd forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_icon forecolor   1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor	mb_class_sbd backcolor   1 1 1 0.1
+				setitemcolor	mb_class_sbd forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_icon forecolor   0.75 0.75 0.75 1
+			}
+			action
+			{ 
+				disable			imp_class 0
+				disable			imp_class_sm 0
+				setitemcolor	imp_class backcolor 1 1 1 0.1
+				setitemcolor	imp_class forecolor 1 1 1 1
+				setitemcolor	imp_class_sm backcolor 1 1 1 0.1
+				setitemcolor	imp_class_sm forecolor 1 1 1 1
+				setitemcolor	imp_class_icon_sm background 0.5 0.5 0.5 1
+				setitemcolor	mb_class_sbd backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sbd forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_sm backcolor   1 1 1 0.5
+				setitemcolor	mb_class_sbd_sm forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_icon forecolor   1 1 1 1
+				
+				setitemtext		siegeclassconfigtitle	"SUPER BATTLE DROID"
+
+				play			"sound/interface/button1.wav"
+				uiscript		updatesiegecvars
+				show 			headlist
+				hide			custlist
+				show			modellisttype
+				hide			hiltmodels
+				hide			hiltmodelsjedi
+				hide			hiltmodelssith
+				hide			hiltselect
+				hide			jedicust
+				hide			sithcust
+				hide 			headlist_tiny //+ pen
+				show			modelviewer
+				show			model_rgb
+				disable			mb_class_sbd 1
+				disable			mb_class_sbd_sm 1
+				uiscript		mb_class_sbd
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				setitemrect playermodels 25 11 132 338
+				
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_mandalorian
+				open 			mb_class_sbd
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				
+				open			ingame_siegeclass_open_model
+				open			mb_stats_common
+			}
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_icon
+			group				imp_class_icon
+			style				WINDOW_STYLE_SHADER
+			rect 12 267 26 33
+			background			"gfx/menus/classes/sbd"
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_cnt
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 267 26 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-1
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			cvar				mb_class_sbd_cnt
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 267 26 32
+			cvar				mb_class_sbd_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-4
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 267 26 32
+			text				"__"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			-9
+			font				7
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			group				imp_class
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 123 267 26 32
+			cvar				mb_class_sbd_limit
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			13
+			textaligny			11
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}	
+
+		itemDef
+		{
+			name				mb_class_sbd_lock
+			group				imp_class
+			rect 8 261 146 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+//--------------------------------------------------	
+// MB OPEN/SA MODE
+//--------------------------------------------------
+
+		itemdef
+		{
+			name				jedicharselect
+			text				"CHARACTERS"
+			GROUP				jedicust
+			rect				25 11 66 20
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn3_Bg"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			33
+			textaligny			-3
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				0
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow 25 11 66 20
+				setitemcolor	jedicharselect	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	jedicharselect	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			hiltselect
+				hide			hiltmodels
+				hide			hiltmodelssith
+				show			headlist
+				show			modelviewer
+				show			modellisttype
+				setitemcolor	jedicharselect	backcolor	1 1 1 0.5
+				setitemcolor	sithhiltselect	backcolor	1 1 1 0.05
+
+				open			ingame_siegeclass_open_model
+				close			ingame_saber_sith
+			}
+		}
+
+		itemdef
+		{
+			name				sithhiltselect
+			text				"HILTS"
+			group				sithcust
+			rect 91 11 65 20
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn3_Bg"
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			33
+			textaligny			-3
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				0
+			mouseenter
+			{
+				show			button_glow
+				setitemrect button_glow 91 11 65 20
+				setitemcolor	sithhiltselect			backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	sithhiltselect			backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				show			hiltselect
+				show			hiltmodels
+				show			hiltmodelssith
+				hide			playermodels
+				hide			modelviewer
+				hide			modellisttype
+				setitemcolor	jedihiltselect	backcolor	1 1 1 0.5
+				setitemcolor	sithhiltselect	backcolor	1 1 1 0.05
+				uiScript		"saber_hilt"
+				uiScript		"saber_color"
+				uiScript		"saber2_hilt"
+				uiScript		"saber2_color"
+				uiScript		getsaberhiltinfo
+
+				close			ingame_siegeclass_open_model
+				open			ingame_saber_sith
+			}
+		}
+
+		// Scroll box with portraits.
+		itemDef
+		{
+			name 				headlist
+			group				playermodels
+			//rect 				25 86 135 318
+			rect 25 11 130 338
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		30
+			elementheight 		30
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_MBHEADS
+			//horizontalscroll		
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.2
+			action
+			{  
+				play			"sound/interface/button1"
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				// TUTORIAL REQUIREMENT
+				uiScript		tutCheckpoint TutModelSelect
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor 0.1 0.7 1 0.9
+			}
+		}
+		
+		itemDef
+		{
+			name 				custlist
+			group				playermodels
+			rect 25 11 130 324
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		30
+			elementheight 		30
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_CMHEADS
+			//horizontalscroll
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.2
+			action
+			{ 
+				play			"sound/interface/button1"
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuf
+				//uiScript  	"mb_open" 
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	custlist bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	custlist bordercolor 0.1 0.7 1 0.9
+			}
+		}
+		
+		//+ pen New Scroll box for jedi/sith
+		// Scroll box with portraits.
+		itemDef
+		{
+			name 				headlist_tiny
+			group				playermodels
+			rect 25 11 130 344//330 300 295 112//340 190 280 197
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		40//34//55
+			elementheight 		40//34//55
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_MBHEADS
+			//horizontalscroll
+			forecolor 			1 1 1 1				
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.2
+			action
+			{ 
+				play			"sound/interface/button1"
+				uiScript		"getmodelcvars"	//needed for model display stuff
+				uiScript		"getmodelskin"	//needed for model display stuff
+				
+				// TUTORIAL REQUIREMENT
+				uiScript		tutCheckpoint TutModelSelect
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist_tiny bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist_tiny bordercolor 0.1 0.7 1 0.9
+			}
+		}
+		//- pen
+
+		itemDef
+		{
+			name				normalmodels
+			group				modellisttype
+			text				"DEFAULT"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 99 347 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				show 			headlist
+				hide 			custlist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect button_glow 99 351 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"/"
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect 125 347 5 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"CUSTOM"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect 130 347 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				show 			custlist
+				hide 			headlist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect button_glow 130 351 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+// HILTS
+
+		itemDef
+		{
+			name				typebut
+			group				none
+			text				@MENUS_SABER_TYPE
+			descText			@MENUS_SABER_TYPE_DESC
+			style				WINDOW_STYLE_EMPTY
+			rect 25 213 160 24
+			font				6
+			textscale			.25
+			textstyle			0
+			textalignx			0
+			textaligny			0
+			textalign			ITEM_ALIGN_LEFT
+			backcolor			0 0 0 0
+			forecolor			1.0 1.0 1.0 0.7
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				typebut_single
+			group				hiltselect
+			text				@MENUS_SINGLESABER
+			descText			@MENUS_SINGLESABER_DESC
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Icon_SaberSingle"
+			backcolor			1 1 1 0.5
+			rect 35 36 24 28
+			font				6
+			textscale			0.15
+			textstyle			0
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			12
+			textaligny			20
+			forecolor			1 1 1 0
+			visible				0
+			cvarTest			ui_SingleSaberOnly
+			hideCvar			{ "2" }
+			mouseenter
+			{
+				setitemcolor	typebut_single backcolor	1 1 1 0.8
+				setitemcolor	typebut_single forecolor	1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	typebut_single backcolor	1 1 1 0.5
+				setitemcolor	typebut_single forecolor	1 1 1 0
+			}
+			action
+			{
+				play			"sound/interface/choose_saber.wav"
+				setcvar			ui_saber_type	"single"
+				uiScript		"saber_type"
+				setcvar			ui_saber		"single_1"
+				setcvar			ui_saber2		"none"
+				uiScript		"saber_hilt"
+				uiScript		"saber_color"
+				uiScript		"saber2_hilt"
+				uiScript		"saber2_color"
+				setitemcolor	typebut_single backcolor 1 1 1 1
+				setitemcolor	typebut_single forecolor 1 1 1 1
+				setitemcolor	typebut_dual backcolor 1 1 1 0.5
+				setitemcolor	typebut_dual forecolor 1 1 1 0
+				setitemcolor	typebut_staff backcolor 1 1 1 0.5
+				setitemcolor	typebut_staff forecolor 1 1 1 0
+			}
+		}
+
+		itemDef
+		{
+			name				typebut_dual
+			group				hiltselect
+			text				@MENUS_DUALSABERS
+			descText			@MENUS_DUALSABERS_DESC
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Icon_SaberDual"
+			backcolor			0.5 0.5 0.5 1
+			rect 75 36 24 28
+			font				6
+			textscale			0.15
+			textstyle			0
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			12
+			textaligny		 	20
+			forecolor			1 1 1 0
+			visible				0
+			cvarTest			ui_SingleSaberOnly
+			hideCvar			{ "1" }
+			mouseenter
+			{
+				setitemcolor	typebut_dual backcolor	1 1 1 0.8
+				setitemcolor	typebut_dual forecolor	1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	typebut_dual backcolor	1 1 1 0.5
+				setitemcolor	typebut_dual forecolor	1 1 1 0
+			}
+			action
+			{
+				play			"sound/interface/choose_saber.wav"
+				setcvar			ui_saber_type	"dual"
+				uiScript		"saber_type"
+				setcvar			ui_saber		"single_1"
+				setcvar			ui_saber2		"single_1"
+				uiScript		"saber_hilt"
+				uiScript		"saber_color"
+				uiScript		"saber2_hilt"
+				uiScript		"saber2_color"
+				setitemcolor	typebut_single backcolor 1 1 1 0.5
+				setitemcolor	typebut_single forecolor 1 1 1 0
+				setitemcolor	typebut_dual backcolor 1 1 1 1
+				setitemcolor	typebut_dual forecolor 1 1 1 1
+				setitemcolor	typebut_staff backcolor 1 1 1 0.5
+				setitemcolor	typebut_staff forecolor 1 1 1 0
+			}
+		}
+
+		itemDef
+		{
+			name				typebut_staff
+			group				hiltselect
+			text				@MENUS_SABERSTAFF
+			descText			@MENUS_SABERSTAFF_DESC
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Icon_SaberStaff"
+			backcolor			0.5 0.5 0.5 1
+			rect 115 36 24 28
+			font				6
+			textscale			0.15
+			textstyle			0
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			12
+			textaligny			20
+			forecolor			1 1 1 0
+			visible				0
+			cvarTest			ui_SingleSaberOnly
+			hideCvar			{ "1" }
+			mouseenter
+			{
+				setitemcolor	typebut_staff backcolor	1 1 1 0.8
+				setitemcolor	typebut_staff forecolor	1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	typebut_staff backcolor	1 1 1 0.5
+				setitemcolor	typebut_staff forecolor	1 1 1 0
+			}
+			action
+			{
+				play			"sound/interface/choose_saber.wav"
+				setcvar			ui_saber_type	"staff"
+				uiScript		"saber_type"
+				setcvar			ui_saber		"dual_1"
+				setcvar			ui_saber2		"none"
+				uiScript		"saber_hilt"
+				uiScript		"saber_color"
+				uiScript		"saber2_hilt"
+				uiScript		"saber2_color"
+				setitemcolor	typebut_single backcolor 1 1 1 0.5
+				setitemcolor	typebut_single forecolor 1 1 1 0
+				setitemcolor	typebut_dual backcolor 1 1 1 0.5
+				setitemcolor	typebut_dual forecolor 1 1 1 0
+				setitemcolor	typebut_staff backcolor 1 1 1 1
+				setitemcolor	typebut_staff forecolor 1 1 1 1
+			}
+		}
+
+		itemDef
+		{
+			name				hiltbut
+			group				hiltselect
+			rect 25 74 132 286
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_SABER_SINGLE_INFO
+			descText			@MENUS_HILT1_DESC
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			cvarTest			ui_saber_type
+			hideCvar			{ "staff" ; "dual" }
+			visible				0
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberhilt"
+				uiScript		"saber_hilt"
+			}
+		}
+
+		// HILT BUTTON 1 - STAVES
+		itemDef
+		{
+			name				hiltbut_staves
+			group				hiltselect
+			rect 25 74 132 286
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_SABER_STAFF_INFO
+			descText			@MENUS_HILT1_DESC
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "dual" }
+			visible				0
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberstaff"
+				uiScript		"saber_hilt"
+			}
+		}
+
+		// HILT BUTTON 1 - DUAL
+		itemDef
+		{
+			name				hiltbut1
+			group				hiltselect
+			rect 25 74 132 140
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_SABER_SINGLE_INFO
+//			text				@MENUS_HILT1
+			descText			@MENUS_HILT1_DESC
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			visible				0
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberhilt1"
+				uiScript		"saber_hilt"
+			}
+		}
+
+		// HILT BUTTON 2 - DUAL
+		itemDef
+		{
+			name				hiltbut2
+			group				hiltselect
+			rect 25 217 132 140
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_SABER_SINGLE_INFO
+//			text				@MENUS_HILT2
+			descText			@MENUS_HILT2_DESC
+			forecolor			1 1 1 1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			visible				0
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberhilt2"
+				uiScript		"saber2_hilt"
+			}
+		}
+	}
+}
