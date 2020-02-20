@@ -1509,3 +1509,24 @@ models/weapons2/saber_plasma/saber_rey5_diff
         alphaGen lightingSpecular
     }
 }
+
+models/weapons2/saber_plasma/saber_maul3_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_maul3_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_maul3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+    {
+        map models/weapons2/saber_plasma/saber_maul3_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
