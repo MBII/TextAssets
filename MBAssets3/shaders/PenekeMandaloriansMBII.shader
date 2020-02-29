@@ -1,93 +1,9 @@
-// FETT
+// ESB FETT
 
-models/players/mbmandy2/boba_head_revised
-{
-	q3map_nolightmap
-    {
-        map models/players/mbmandy2/boba_head_revised
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/mbmandy2/boba_head_revised
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map gfx/effects/chr_white_add_mild
-        blendFunc GL_ONE GL_ONE
-        detail
-        tcGen environment
-    }
-}
-
-models/players/mbmandy2/com_down
-{
-	q3map_nolightmap
-	{
-        map models/players/mbmandy2/com_down
-        rgbGen lightingDiffuse
-	}
-	{
-		map models/players/mbmandy2/scanner
-		blendfunc gl_one gl_one
-		glow
-		rgbGen wave sin 0 1 0 2.5
-	}
-	{
-        map gfx/effects/chr_white_add_mild
-        blendFunc GL_ONE GL_ONE
-		detail
-        tcGen environment
-  	}
-}
-
-models/players/mbmandy2/boba_head
+models/players/mbmandy2/bobafett_1_esb
 {
 	{
-		map models/players/mbmandy2/boba_head
-		rgbGen lightingDiffuse
-
-	}
-	{
-		map models/players/mbmandy2/envmap1
-		blendfunc add
-		rgbGen lightingDiffuse
-		tcGen environment 
-	}
-	{
-		map models/players/mbmandy2/boba_head
-		blendfunc blend
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/mbmandy2/lights
-		blendfunc gl_one gl_one
-		glow
-	}
- 	{
-        map models/players/mbmandy2/boba_1_spec
-       	blendFunc GL_SRC_ALPHA GL_ONE
-      	detail
-       	alphaGen lightingSpecular
-   	}
-	{
-		map models/players/mbmandy2/boba_amb
-		blendFunc GL_DST_COLOR GL_ZERO
-       	detail
-	}
-	{
-		map models/players/mbmandy2/heartmonitorglow.jpg
-		blendfunc gl_one gl_one
-		glow
-		rgbGen wave sin 0 1 0 0.5
-	}
-}
-
-models/players/mbmandy2/boba_body
-{
-	{
-		map models/players/mbmandy2/boba_body
+		map models/players/mbmandy2/bobafett_1_esb
 		rgbGen lightingDiffuse
 	}
 	{
@@ -97,42 +13,12 @@ models/players/mbmandy2/boba_body
 		tcGen environment 
 	}
 	{
-		map models/players/mbmandy2/boba_body
-		blendfunc blend
-		rgbGen lightingDiffuse
-	}
-	{
-        map models/players/mbmandy2/boba_2_spec
-       	blendFunc GL_SRC_ALPHA GL_ONE
-      	detail
-        alphaGen lightingSpecular
-   	}
-	{	
-		map models/players/mbmandy2/boba_amb2
-		blendFunc GL_DST_COLOR GL_ZERO
-       	detail
-	}
-}
-
-models/players/mbmandy2/esb
-{
-	{
-		map models/players/mbmandy2/esb
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/mbmandy2/envmap1
-		blendfunc add
-		rgbGen lightingDiffuse
-		tcGen environment 
-	}
-	{
-		map models/players/mbmandy2/esb
+		map models/players/mbmandy2/bobafett_1_esb
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
  	{
-        map models/players/mbmandy2/esb_1_spec
+        map models/players/mbmandy2/bobafett1esb_spec
        	blendFunc GL_SRC_ALPHA GL_ONE
       	detail
        	alphaGen lightingSpecular
@@ -143,7 +29,7 @@ models/players/mbmandy2/esb
 		glow
 	}
 	{
-		map models/players/mbmandy2/esb_amb
+		map models/players/mbmandy2/bobafett1esb_amb
 		blendFunc GL_DST_COLOR GL_ZERO
        	detail
 	}
@@ -155,10 +41,10 @@ models/players/mbmandy2/esb
 	}
 }
 
-models/players/mbmandy2/esb2
+models/players/mbmandy2/bobafett_2_esb
 {
 	{
-		map models/players/mbmandy2/esb2
+		map models/players/mbmandy2/bobafett_2_esb
 		rgbGen lightingDiffuse
 
 	}
@@ -169,22 +55,22 @@ models/players/mbmandy2/esb2
 		tcGen environment 
 	}
 	{
-		map models/players/mbmandy2/esb2
+		map models/players/mbmandy2/bobafett_2_esb
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
 	{
-        map models/players/mbmandy2/esb2_2_spec
+        map models/players/mbmandy2/bobafett2esb_spec
        	blendFunc GL_SRC_ALPHA GL_ONE
 		detail
        	alphaGen lightingSpecular
    	}
 	{
-		map models/players/mbmandy2/esb_amb2
+		map models/players/mbmandy2/bobafett2esb_amb
 		blendFunc GL_DST_COLOR GL_ZERO
        	detail
 	}
-	}
+}
 
 models/players/mbmandy2/jodo
 {
@@ -256,34 +142,13 @@ models/players/mbmandy2/jodo_body
        	detail
 	}
 }
-	
-// HOLIDAY BOBA
-	
-models/players/mbmandy2/com_down
-{
-	q3map_nolightmap
-    {
-        map models/players/mbmandy2/com_down
-        rgbGen lightingDiffuse
-    }
-	{
-		map models/players/mbmandy2/scanner
-		blendfunc gl_one gl_one
-		glow
-		rgbGen wave sin 0 1 0 2.5
-	}
-	{
-        map gfx/effects/chr_white_add_mild
-        blendFunc GL_ONE GL_ONE
-		detail
-        tcGen environment
-  	}
-}
 
-models/players/mbmandy2/boba_head
+// HOLIDAY BOBA
+
+models/players/mbmandy2/bobafett_1_hs
 {
 	{
-		map models/players/mbmandy2/boba_head
+		map models/players/mbmandy2/bobafett_1_hs
 		rgbGen lightingDiffuse
 	}
 	{
@@ -293,7 +158,7 @@ models/players/mbmandy2/boba_head
 		tcGen environment 
 	}
 	{
-		map models/players/mbmandy2/boba_head
+		map models/players/mbmandy2/bobafett_1_hs
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
@@ -309,22 +174,22 @@ models/players/mbmandy2/boba_head
 		glow
 	}
  	{
-        map models/players/mbmandy2/boba_1_spec
+        map models/players/mbmandy2/bobafett1rotj_spec
        	blendFunc GL_SRC_ALPHA GL_ONE
       	detail
        	alphaGen lightingSpecular
    	}
 	{
-		map models/players/mbmandy2/boba_amb
+		map models/players/mbmandy2/bobafett1hs_amb
 		blendFunc GL_DST_COLOR GL_ZERO
 		detail
 	}
 }
 
-models/players/mbmandy2/boba_body
+models/players/mbmandy2/bobafett_2_hs
 {
 	{
-		map models/players/mbmandy2/boba_body
+		map models/players/mbmandy2/bobafett_2_hs
 		rgbGen lightingDiffuse
 	}
 	{
@@ -334,18 +199,18 @@ models/players/mbmandy2/boba_body
 		tcGen environment 
 	}
 	{
-		map models/players/mbmandy2/boba_body
+		map models/players/mbmandy2/bobafett_2_hs
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
 	{
-        map models/players/mbmandy2/boba_2_spec
+        map models/players/mbmandy2/bobafett2rotj_spec
         blendFunc GL_SRC_ALPHA GL_ONE
       	detail
        	alphaGen lightingSpecular
    	}
 	{	
-		map models/players/mbmandy2/boba_amb2
+		map models/players/mbmandy2/bobafett2hs_amb
 		blendFunc GL_DST_COLOR GL_ZERO
         detail
 	}
@@ -377,42 +242,6 @@ models/players/mbmandy2/bobafett_2
 	cull	twosided
     {
         map models/players/mbmandy2/bobafett_2
-        alphaFunc GE192
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/mbmandy2/bobafett_2_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/mbmandy2/bobafett_1_esb
-{
-	q3map_onlyvertexlighting
-	cull	twosided
-    {
-        map models/players/mbmandy2/bobafett_1_esb
-        alphaFunc GE192
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/mbmandy2/bobafett_1_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/mbmandy2/bobafett_2_esb
-{
-	q3map_onlyvertexlighting
-	cull	twosided
-    {
-        map models/players/mbmandy2/bobafett_2_esb
         alphaFunc GE192
         depthWrite
         rgbGen lightingDiffuse
@@ -693,45 +522,66 @@ models/players/mbmandy2/jangofett_2_rgb2
 
 // ROTJ BOBA
 
-models/players/mbmandy2/rotjboba_1
+models/players/mbmandy2/bobafett_1_rotj
 {
 	cull disable
 	{
-		map models/players/mbmandy2/rotjboba_1.tga
+		map models/players/mbmandy2/bobafett_1_rotj
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/mbmandy2/envmap1.tga
+		map models/players/mbmandy2/envmap1
 		blendfunc add
 		rgbGen lightingDiffuse
 		tcGen environment 
 	}
 	{
-		map models/players/mbmandy2/rotjboba_1.tga
+		map models/players/mbmandy2/bobafett_1_rotj
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
-	
+	{
+        map models/players/mbmandy2/bobafett1rotj_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+   	}
+	{
+		map models/players/mbmandy2/lights
+		blendfunc gl_one gl_one
+		glow
+	}
+	{
+		map models/players/mbmandy2/heartmonitorglow
+		blendfunc gl_one gl_one
+		glow
+		rgbGen wave sin 0 1 0 0.5
+	}
 }
 
-models/players/mbmandy2/mbmando2
+models/players/mbmandy2/bobafett_2_rotj
 {
 	{
-	
-		map models/players/mbmandy2/rotjboba_2.tga
+		map models/players/mbmandy2/bobafett_2_rotj
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/mbmandy2/envmap1.tga
+		map models/players/mbmandy2/envmap1
 		blendfunc add
 		rgbGen lightingDiffuse
 		tcGen environment 
 	}
 	{
-		map models/players/mbmandy2/rotjboba_2.tga
+		map models/players/mbmandy2/bobafett_2_rotj
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
+	{
+        map models/players/mbmandy2/bobafett2rotj_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+       	alphaGen lightingSpecular
+   	}
 }
 
 // DW MANDO

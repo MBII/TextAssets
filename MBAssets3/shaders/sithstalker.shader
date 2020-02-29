@@ -112,3 +112,17 @@ models/players/sithstalker/tabs
 		alphaGen lightingSpecular
 	}
 }
+
+models/players/sithstalker/headb
+{
+    {
+        map models/players/sithstalker/headb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/sithstalker/headb_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
