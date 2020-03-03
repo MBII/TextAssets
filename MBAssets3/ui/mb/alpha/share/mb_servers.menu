@@ -504,7 +504,7 @@
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				"GAME MODE:"
 			descText			@MENUS_FILTER_FOR_SPECIFIC_GAME
-			ownerdraw			299
+			ownerdraw			UI_JOINMBMODE
 			rect				220 35 110 15
 			font				6
 			textscale			0.125
@@ -594,6 +594,54 @@
 				play			"sound/interface/button1.wav"
 			//	uiScript		RefreshFilter
 				uiScript		RefreshServers
+			}
+		}
+
+		//Ping Filter selector
+		itemDef
+		{
+			name 				pingLimit
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"PING LIMIT:"
+			rect				360 50 80 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			10
+			textaligny			-3
+			font				6
+			textscale			0.125
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration			
+		}
+
+		itemDef
+		{
+			name 				pingLimit
+			text				" "
+			type 				ITEM_TYPE_EDITFIELD	
+			rect				360 50 80 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			45
+			textaligny			-3
+			font				6
+			textscale			0.125
+			style				WINDOW_STYLE_TEXT_RGB2
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set maximum allowed ping to a server."
+			cvar				"cl_maxping"
+			visible 			1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	360 50 80 15		
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
 			}
 		}
 
@@ -734,7 +782,7 @@
 			{
 				play			"sound/interface/button1.wav"
 				uiScript		checkpassword
-				uiScript		JoinServer
+			//	uiScript		JoinServer
 			//	close			joinserver 
 			}
 

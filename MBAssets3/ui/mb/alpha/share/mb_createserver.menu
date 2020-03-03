@@ -64,6 +64,18 @@
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
 
 // SERVER NAME ENTRY FIELD
 
@@ -363,6 +375,7 @@
 		{
 			name				rcon
 			group				adminset
+			type				ITEM_TYPE_EDITFIELD
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"rconpassword"
@@ -386,6 +399,7 @@
 		{
 			name				smod
 			group				adminset
+			type				ITEM_TYPE_EDITFIELD
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_smodAdminPassword_1"
@@ -1082,6 +1096,50 @@
 			decoration
 		}
 		
+		itemDef
+		{
+			name				siegeteam1
+			group				mb2set
+			text				"Legends Team 1:"
+			style				WINDOW_STYLE_TEXT_RGB1
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 170 100 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				siegeteam2
+			group				mb2set
+			text				"Legends Team 2:"
+			style				WINDOW_STYLE_TEXT_RGB1
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 190 100 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
 //MB II SETTINGS 2
 
 		itemDef
@@ -1113,6 +1171,7 @@
 				"Semi-Authentic"	1 
 				"Full Authentic"	2 
 				"Duel"				3	
+				"Legends"			4	
 			}
 			action
 			{
@@ -1224,8 +1283,103 @@
 			{
 				play			"sound/interface/button1"
 			}
-		}		
+		}
 		
+		itemDef
+		{
+			name				siegeteam1
+			group				mb2set
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvar				"g_siegeTeam1"
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 170 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			60
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			32
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Name of full authentic team config for team 1 in Legends."
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				siegeteam2
+			group				mb2set
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvar				"g_siegeTeam2"
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 190 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			60
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			32
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Name of full authentic team config for team 2 in Legends."
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				siegeteamreset
+			group				mb2set
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"( Reset Legends Teams )"
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 210 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			132
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Click to reset Legends teams to default values."
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	67 211 120 15		
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}	
+			action
+			{
+				setcvar			g_siegeTeam1 "LEG_Good"
+				setcvar			g_siegeTeam2 "LEG_Evil"
+				play			"sound/interface/button1.wav"
+			}
+		}
 		
 
 //MISC SETTINGS
@@ -1381,6 +1535,7 @@
 		{
 			name				password
 			group				miscset
+			type				ITEM_TYPE_EDITFIELD
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_password"

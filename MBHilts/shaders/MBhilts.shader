@@ -1170,33 +1170,16 @@ models/weapons2/tor_sabers/centurion
 }
 
 // Shader for Sith Stalker Saber //
-models/weapons2/saber_st4lk3r/saber_st4lk3r
+models/weapons2/saber_stalker/saber
 {
-    {
-        map models/weapons2/saber_st4lk3r/saber_st4lk3r.tga
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/saber_st4lk3r/default_reflect.jpg
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcGen environment
-    }
-    {
-        map models/weapons2/saber_st4lk3r/saber_st4lk3r.tga
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/saber_st4lk3r/saber_st4lk3r_spec.jpg
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/weapons2/saber_st4lk3r/saber_st4lk3r_glow.jpg
-        blendFunc GL_ONE GL_ONE
-        detail
-        rgbGen identity
+	{
+		map models/weapons2/saber_stalker/saber
+		rgbGen lightingDiffuse
+	}
+	{
+        map models/weapons2/saber_stalker/saber_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
     }
 }
