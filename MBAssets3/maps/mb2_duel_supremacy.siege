@@ -1,0 +1,89 @@
+Teams
+{
+	team1 Reylo
+	team2 PraetorianGuards
+}
+
+mapgraphic "gfx/mplevels/duel_sup/layout"
+missionname "Supremacy Duel"
+radartopleft "-2304, 3072"
+radarbottomright "2304, -1536"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_supremacy1"
+		radargraphicfull "gfx/automap/mb2_duel_supremacy1full"
+		height "0"
+	}
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_duel_supremacy1"
+		radargraphicfull "gfx/automap/mb2_duel_supremacy1full"
+		height "768"
+	}
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_duel_supremacy2"
+		radargraphicfull "gfx/automap/mb2_duel_supremacy2full"
+		height "1024"
+	}
+}
+roundbegin_target ""
+
+Reylo
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelSUPReylo"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Defeat the Praetorian Guards"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Defeat the Praetorian Guards."
+		objgfx "gfx/mplevels/duel_sup/obj"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Buy the Resistance time to escape, hold off Kylo Ren and the First Order."
+}
+
+PraetorianGuards
+{
+	RequiredObjectives 1
+	UseTeam "DuelSUPPG"
+	TeamIcon "gfx/2d/logos/mb_firstorder"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Avenge the Supreme Leader"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Avenge the Supreme Leader."
+		objgfx "gfx/mplevels/duel_sup/obj"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Avenge the Supreme Leader."
+}
