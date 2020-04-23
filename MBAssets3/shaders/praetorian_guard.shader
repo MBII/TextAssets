@@ -1,40 +1,6 @@
-models/players/praetorian_guard/headb
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-    {
-        map models/players/praetorian_guard/headb
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/praetorian_guard/head_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-		detail
-    }
-    {
-        map models/players/praetorian_guard/spec2
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/players/praetorian_guard/reflect
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/praetorian_guard/helmet_diff
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
+{
+	cull	twosided
     {
         map models/players/praetorian_guard/helmet_diff
         blendFunc GL_ONE GL_ZERO
@@ -47,66 +13,55 @@ models/players/praetorian_guard/helmet_diff
     }
     {
         map models/players/praetorian_guard/reflect
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
+		alphaGen lightingSpecular
+		tcGen environment
     }
 }
 
-models/players/praetorian_guard/headc_neck
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
+models/players/praetorian_guard/helmetb_diff
+{
     {
-        map models/players/praetorian_guard/headc_neck
+        map models/players/praetorian_guard/helmetb_diff
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/praetorian_guard/headc_neck_spec
+        map models/players/praetorian_guard/helmetb_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+    {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
+    }
+}
+
+models/players/praetorian_guard/helmetc_diff
+{
+    {
+        map models/players/praetorian_guard/helmetc_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/praetorian_guard/helmetc_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
     }
     {
         map models/players/praetorian_guard/reflect
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/praetorian_guard/head
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-    {
-        map models/players/praetorian_guard/head
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/praetorian_guard/head_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-    {
-        map models/players/praetorian_guard/reflect
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
+		alphaGen lightingSpecular
+		tcGen environment
     }
 }
 
 models/players/praetorian_guard/torso
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
+{
     {
         map models/players/praetorian_guard/torso
         blendFunc GL_ONE GL_ZERO
@@ -119,55 +74,43 @@ models/players/praetorian_guard/torso
     }
     {
         map models/players/praetorian_guard/reflect
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
+		alphaGen lightingSpecular
+		tcGen environment
     }
-    {
-        map models/players/praetorian_guard/torso-noshine
+	{
+        map models/players/praetorian_guard/torso
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        detail
-        rgbGen lightingDiffuse
+		rgbGen lightingDiffuse
     }
 }
 
 models/players/praetorian_guard/body
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
+{
     {
         map models/players/praetorian_guard/body
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
-    }
-    {
-        map models/players/praetorian_guard/body-spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-		detail
     }
     {
         map models/players/praetorian_guard/reflect
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
+		alphaGen lightingSpecular
+		tcGen environment
     }
-    {
-        map models/players/praetorian_guard/body-noshine
+	{
+        map models/players/praetorian_guard/body
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        detail
-        rgbGen lightingDiffuse
+		rgbGen lightingDiffuse
+    }
+	{
+        map models/players/praetorian_guard/body-spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
     }
 }
 
 models/players/praetorian_guard/armor_belt
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
+{
     {
         map models/players/praetorian_guard/armor_belt
         blendFunc GL_ONE GL_ZERO
@@ -181,11 +124,9 @@ models/players/praetorian_guard/armor_belt
     }
     {
         map models/players/praetorian_guard/reflect
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
+		alphaGen lightingSpecular
+		tcGen environment
     }
 }
 
@@ -197,7 +138,7 @@ models/players/praetorian_guard/extras
         rgbGen lightingDiffuse
     }
     {
-        map models/players/praetorian_guard/extras
+        map models/players/praetorian_guard/extras_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
