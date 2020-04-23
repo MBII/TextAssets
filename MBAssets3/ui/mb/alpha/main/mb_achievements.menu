@@ -3,36 +3,35 @@
 	menuDef
 	{
 		name					"achievements"
-		fullScreen				1
-		rect					0 0 640 480
+		fullScreen				0
+		rect					93 50 454 418
+		visible					1
 		focusColor				1 1 1 0.6
 		descX					320
-		descY					383
-		descScale				0.125
-		descColor				0.5 0.5 0.5 0.5
+		descY					402
+		descScale				0.7
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		onOpen
 		{
 			uiScript			update "ui_GetName" 
-			uiScript			"achievements"
-			uiScript			"getmodelcvars"	//needed for model display stuff
-			uiScript			"getmodelskin"	//needed for model display stuff			
+			uiScript			"achievements"		
 		}
 		onESC
 		{
 			play				"sound/interface/back.mp3"
-			close				achievements
-			//open				main_nomusic
+			close				all
+			open				main_nomusic
 		}
 
 // MENU BACKGROUND
 		itemDef
 		{
-			name				background
+			name				bg_clean1
 			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/alpha/Main_Background"
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 377
+			background			"gfx/menus/alpha/Menu_Clean"
 			forecolor			1 1 1 1
 			visible				1
 			decoration
@@ -40,130 +39,15 @@
 
 		itemDef
 		{
-			name				diorama
-			group				models
-			type				ITEM_TYPE_MODEL
-			//1,3125
-			rect				465 0 200 450
-			asset_model			"models/map_objects/mb2_diorama/DeathStar1.md3"
-			model_angle			235
-			//mins maxs format is apparently z x y (hmmm... y x z?)
-			model_origin		-200 -200 -200
-			model_g2mins		-200 -200 -200
-			model_g2maxs		200 200 200
-			model_fovx			30
-			model_fovy			30
-			isCharacter			0
-			visible				1
-			decoration
-		}	
-
-		itemDef
-		{
-			name				background2_2
+			name				bg_listbox
 			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/alpha/Main_Background2_2"
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				10 13 434 339
+			background			"gfx/menus/alpha/Menu_Listbox"
 			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}	
-		
-		itemDef
-		{
-			name				background_rays
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/alpha/Main_Background_rays"
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}		
-		
-		itemDef
-		{
-			name				background4
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/alpha/Main_Background4"
-			forecolor			1 1 1 0.6
 			visible				1
 			decoration
 		}
-
-		itemDef
-		{
-			name				background5
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/alpha/Main_Background5"
-			forecolor			1 1 1 0.5
-			visible				1
-			decoration
-		}		
-		
-		// Character model
-		itemDef
-		{
-			name				modelviewer
-			group				models
-			type				ITEM_TYPE_MODEL
-			//1,3125
-			rect				360 0 400 525
-			model_g2anim		"BOTH_STAND4"
-			asset_model			"ui_char_model"
-			model_angle			90
-			//mins maxs format is apparently z x y (hmmm... y x z?)
-			model_g2mins		-30 -20 -14
-			model_g2maxs		20 20 30
-			model_rotation		300
-			model_fovx			50
-			model_fovy			50
-			isCharacter			1
-			visible				1
-			decoration
-		}			
-
-		
-		itemDef
-		{
-			name				background3
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/alpha/Main_Background3"
-			forecolor			1 1 1 0.6
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				background2
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/alpha/Main_Background2"
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}							
-		
-		itemDef
-		{
-			name				menu_scroll
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
-			background			"gfx/menus/menu_scroll"
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}				
 
 		itemDef
 		{
@@ -175,21 +59,21 @@
 			forecolor			1 1 1 1
 			visible				0
 			decoration
-		}		
-		
+		}
 
 // Player Model label
 
 		itemDef
 		{
 			name				achievement_feeder
-			rect				170 103 330 275
+			rect				10 18 429 329
 			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_FILLED
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			elementwidth		258
 			elementheight		66
-			elementtype			LISTBOX_IMAGE			
-			feeder				45
+			elementtype			LISTBOX_IMAGE
+			feeder				FEEDER_ACHIEVEMENTS
 			forecolor			1 1 1 0.9
 			visible				1
 			columns 			1	2 40 280
@@ -198,30 +82,31 @@
 		itemDef
 		{
 			name				back
-			text				"BACK"			
+			group				bg_button
+			text				"BACK"
 			descText			@MENUS_BACKUP_ONE_MENU
-			type				ITEM_TYPE_BUTTON			
+			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
-			background			"gfx/menus/alpha/Btn_Bg"			
-			rect				125 412 120 36
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn_Bg"
+			rect				0 382 120 36
 			textaligny			-8
 			font				6
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0			
 			visible				1
 			forecolor			1 1 1 1
 			action
 			{
 				play			"sound/interface/back.mp3"
 				close			all
-				//open			main_nomusic
+				open			main_nomusic
 			}
 			mouseenter
 			{
 				show			btn_hl
-				setitemrect		btn_hl	125 412 120 36
+				setitemrect		btn_hl	0 382 120 36
 			}
 			mouseExit
 			{

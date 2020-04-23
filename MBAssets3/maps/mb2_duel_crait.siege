@@ -1,0 +1,67 @@
+Teams
+{
+	team1 Resistance
+	team2 FirstOrder
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname "Crait Duel"
+
+roundbegin_target ""
+
+Resistance
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelCRTRes"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Hold off Kylo Ren"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Buy the Resistance time to escape, hold off Kylo Ren and the First Order."
+		objgfx "gfx/mplevels/duel_crt/obj"
+	}
+
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Buy the Resistance time to escape, hold off Kylo Ren and the First Order."
+}
+
+FirstOrder
+{
+	RequiredObjectives 1
+	UseTeam "DuelCRTFO"
+	TeamIcon "gfx/2d/logos/mb_firstorder"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Luke"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Luke."
+		objgfx "gfx/mplevels/duel_crt/obj"
+	}
+	
+	wonround "Win!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Kill Luke and crush the Resistance."
+}

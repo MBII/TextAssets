@@ -1,30 +1,13 @@
-models/players/bastila/arms_01
+models/players/bastila/body
 {
-	cull	twosided
 	{
-		map models/players/bastila/arms_01
-		alphaFunc GE192
-		depthWrite
+		map models/players/bastila/body
 		rgbGen lightingDiffuse
 	}
-}
-
-models/players/bastila/bastila_body
-{
-	cull	twosided
 	{
-		map models/players/bastila/bastila_body
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/bastila/pants_03
-{
-	cull	twosided
-	{
-		map models/players/bastila/pants_03
-		alphaFunc GE192
-		depthWrite
-		rgbGen lightingDiffuse
+		map models/players/bastila/body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }

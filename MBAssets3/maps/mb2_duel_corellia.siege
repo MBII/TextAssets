@@ -1,0 +1,86 @@
+Teams
+{
+	team1 Republic
+	team2 Mandalorians
+}
+
+mapgraphic "gfx/mplevels/mb2_corellia/layout_duel"
+missionname  "Corellian Engineering Corp. Duel"
+radartopleft "-6400, 3072"
+radarbottomright "-768, -2560"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_corellia1"
+		radargraphicfull "gfx/automap/mb2_duel_corellia1full"
+		height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_duel_corellia1"
+		radargraphicfull "gfx/automap/mb2_duel_corellia1full"
+		height "576"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_duel_corellia2"
+		radargraphicfull "gfx/automap/mb2_duel_corellia2full"
+		height "900"
+	}
+}
+roundbegin_target ""
+Republic
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "CorelliaMB2_Rep"
+	TeamIcon "gfx/2d/logos/mb_clonerepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Eliminate the mandos"
+		final 0
+		target ""
+		objdesc "Wipe out the Mandalorians!"
+		objgfx "gfx/mplevels/mb2_corellia/obj_duel"
+	}
+	wonround "We have secured the facility!"
+	lostround "We failed..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Eliminate the Mandalorians."
+}
+
+Mandalorians
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "CorelliaMB2_Droid"
+	TeamIcon "gfx/2d/logos/mb_mand"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+	
+	Objective1
+	{
+		goalname "Eliminate the intruders"
+		final 0
+		target ""
+		objdesc "Stop the Republic scum!"
+		objgfx "gfx/mplevels/mb2_corellia/obj_duel"
+	}
+
+	wonround "The Republic forces have been eliminated!"
+	lostround "The enemy has overwhelmed us..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Eliminate the Republic forces."
+}

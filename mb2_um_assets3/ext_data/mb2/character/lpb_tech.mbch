@@ -3,13 +3,15 @@
 ClassInfo
 {
 	name			"lpb_tech"
-	weapons			WP_MELEE|WP_ROCKET_LAUNCHER|WP_THERMAL|WP_TRIP_MINE
-	attributes		MB_ATT_PULSE_GRENADES,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_PLX1,1|MB_ATT_POISON_DART,3|MB_ATT_THERMALS,1
-	classflags		CFL_THERMALROCKETS|CFL_REALTD|CFL_MIRALUKA
+	weapons			WP_MELEE|WP_ROCKET_LAUNCHER|WP_THERMAL|WP_TRIP_MINE|WP_SABER
+	attributes		MB_ATT_PULSE_GRENADES,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_PLX1,1|MB_ATT_POISON_DART,3|MB_ATT_THERMALS,1|MB_ATT_FP_MIRALUKA
+	classflags		CFL_THERMALROCKETS|CFL_REALTD
+	forcepowers		FP_SEE,2
+	saber1 			heavymelee
 	maxhealth		100
 	maxarmor		100
 	holdables		HI_MEDPAC|HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_EWEB|HI_SHIELD|HI_SEEKER|HI_CLOAK
-	meleeknockback		100
+	//meleeknockback		100
 	model			"grievous" 				//this is optional, if it's here it forces the model to this.
 	skin			"default"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/grievous/mb2_icon_default"
@@ -17,4 +19,45 @@ ClassInfo
 	extralives		2
 }
 
-description	"TECH!"
+ForceInfo0
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/marvel/radar"
+	ForcePowerName	"Wallh@x"
+    StartSound "sound/mb2/Silence.wav"
+    LoopSound  "sound/mb2/AnnoyingBastardLoop.wav"
+}
+
+WeaponInfo0
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+  NewWorldModel		"models/weapons2/dummy/dummy.glm"
+  NewViewModel		"models/weapons2/dummy/dummy.md3"
+  Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Strongk Fists"
+	primGore		1
+	altGore			1
+}
+
+
+description	"Tech
+
+Weapons:
+- Thermal Rocket Launcher (1)
+- Thermal Detonator (2)
+- Heavy Melee (has knockback)
+
+Attributes:
+- Miraluka Sense (2)
+
+Holdable Inventory:
+- Medpacks
+- Sentry 
+- E-Web
+- Cloak
+- Forcefield
+- Seeker Droid
+
+Two extra lives
+"

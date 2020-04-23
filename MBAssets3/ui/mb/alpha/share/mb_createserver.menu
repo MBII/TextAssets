@@ -5,13 +5,13 @@
 	{
 		name					"createserver"
 		fullScreen				0//MENU_TRUE
-		rect					0 0 640 480
+		rect					93 50 454 418
 		visible					1
 		focusColor				1 1 1 0.6
 		descX					320
-		descY					383
-		descScale				0.15
-		descColor				0.5 0.5 0.5 0.5
+		descY					402
+		descScale				0.7
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		onEsc 
 		{
@@ -37,151 +37,22 @@
 			hide				shuffset
 			hide				serverset
 			hide				mb2set
-			hide				miscset
-			//uiScript			"getmodelcvars"	//needed for model display stuff
-			//uiScript			"getmodelskin"	//needed for model display stuff			
+			hide				miscset		
 		}
 
 // MENU BACKGROUND
-	//	itemDef
-	//	{
-	//		name				background
-	//		group				none
-	//		style				WINDOW_STYLE_SHADER
-	//		rect				0 0 640 480
-	//		background			"gfx/menus/alpha/Main_Background"
-	//		forecolor			1 1 1 1
-	//		visible				1
-	//		decoration
-	//	}
-    //
-	//	itemDef
-	//	{
-	//		name				diorama
-	//		group				models
-	//		type				ITEM_TYPE_MODEL
-	//		//1,3125
-	//		rect				465 0 200 450
-	//		asset_model			"models/map_objects/mb2_diorama/DeathStar1.md3"
-	//		model_angle			235
-	//		//mins maxs format is apparently z x y (hmmm... y x z?)
-	//		model_origin		-200 -200 -200
-	//		model_g2mins		-200 -200 -200
-	//		model_g2maxs		200 200 200
-	//		model_fovx			30
-	//		model_fovy			30
-	//		isCharacter			0
-	//		visible				1
-	//		decoration
-	//	}	
-    //
-	//	itemDef
-	//	{
-	//		name				background2_2
-	//		group				none
-	//		style				WINDOW_STYLE_SHADER
-	//		rect				0 0 640 480
-	//		background			"gfx/menus/alpha/Main_Background2_2"
-	//		forecolor			1 1 1 1
-	//		visible				1
-	//		decoration
-	//	}	
-	//	
-	//	itemDef
-	//	{
-	//		name				background_rays
-	//		group				none
-	//		style				WINDOW_STYLE_SHADER
-	//		rect				0 0 640 480
-	//		background			"gfx/menus/alpha/Main_Background_rays"
-	//		forecolor			1 1 1 1
-	//		visible				1
-	//		decoration
-	//	}		
-	//	
-	//	itemDef
-	//	{
-	//		name				background4
-	//		group				none
-	//		style				WINDOW_STYLE_SHADER
-	//		rect				0 0 640 480
-	//		background			"gfx/menus/alpha/Main_Background4"
-	//		forecolor			1 1 1 0.6
-	//		visible				1
-	//		decoration
-	//	}
-    //
-	//	itemDef
-	//	{
-	//		name				background5
-	//		group				none
-	//		style				WINDOW_STYLE_SHADER
-	//		rect				0 0 640 480
-	//		background			"gfx/menus/alpha/Main_Background5"
-	//		forecolor			1 1 1 0.5
-	//		visible				1
-	//		decoration
-	//	}		
-	//	
-	//	// Character model
-	//	itemDef
-	//	{
-	//		name				modelviewer
-	//		group				models
-	//		type				ITEM_TYPE_MODEL
-	//		//1,3125
-	//		rect				360 0 400 525
-	//		model_g2anim		"BOTH_STAND4"
-	//		asset_model			"ui_char_model"
-	//		model_angle			90
-	//		//mins maxs format is apparently z x y (hmmm... y x z?)
-	//		model_g2mins		-30 -20 -14
-	//		model_g2maxs		20 20 30
-	//		model_rotation		300
-	//		model_fovx			50
-	//		model_fovy			50
-	//		isCharacter			1
-	//		visible				1
-	//		decoration
-	//	}			
-    //
-	//	
-	//	itemDef
-	//	{
-	//		name				background3
-	//		group				none
-	//		style				WINDOW_STYLE_SHADER
-	//		rect				0 0 640 480
-	//		background			"gfx/menus/alpha/Main_Background3"
-	//		forecolor			1 1 1 0.6
-	//		visible				1
-	//		decoration
-	//	}
-    //
-	//	itemDef
-	//	{
-	//		name				background2
-	//		group				none
-	//		style				WINDOW_STYLE_SHADER
-	//		rect				0 0 640 480
-	//		background			"gfx/menus/alpha/Main_Background2"
-	//		forecolor			1 1 1 1
-	//		visible				1
-	//		decoration
-	//	}						
-
 		itemDef
 		{
-			name				menu_createserver
+			name				bg_createserver
 			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 640 480
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 377
 			background			"gfx/menus/alpha/Menu_CreateServer"
 			forecolor			1 1 1 1
 			visible				1
 			decoration
 		}
-		
+
 		itemDef
 		{
 			name				btn_hl
@@ -192,8 +63,19 @@
 			forecolor			1 1 1 1
 			visible				0
 			decoration
-		}		
+		}
 		
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
 
 // SERVER NAME ENTRY FIELD
 
@@ -201,14 +83,15 @@
 		{
 			name				expert
 			group				name
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_EDITFIELD
 			text				@MENUS_SERVER_NAME_1
 			cvar				"sv_hostname"
 			maxChars			32
 			maxPaintChars		18
-			rect				220 93 310 20
+			rect				127 15 310 20
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -233,10 +116,10 @@
 			name				top
 			group				adminset
 			text				"Administration Settings:"
-			textstyle			0
-			rect				200 120 120 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				10 50 217 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			20
+			textalignx			108
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -250,10 +133,10 @@
 			name				top
 			group				shuffset
 			text				"Shuffle and Auto-balance Settings:"
-			textstyle			0
-			rect				200 120 120 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				10 50 217 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			20
+			textalignx			108
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -267,10 +150,10 @@
 			name				top
 			group				serverset
 			text				"Server Settings:"
-			textstyle			0
-			rect				200 120 120 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				10 50 217 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			20
+			textalignx			108
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -284,10 +167,10 @@
 			name				top
 			group				mb2set
 			text				"Movie Battles II Settings:"
-			textstyle			0
-			rect				200 120 120 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				10 50 217 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			20
+			textalignx			108
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -301,10 +184,10 @@
 			name				top
 			group				miscset
 			text				"Other Settings:"
-			textstyle			0
-			rect				200 120 120 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				10 50 217 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			20
+			textalignx			108
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -321,9 +204,10 @@
 			name				rcon
 			group				adminset
 			text				"RCON password"
-			rect				130 140 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 70 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -337,9 +221,10 @@
 			name				smod
 			group				adminset
 			text				"SMOD password"
-			rect				130 160 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 90 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -353,9 +238,10 @@
 			name				anticheat
 			group				adminset
 			text				"Anti-Cheat"
-			rect				130 180 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 110 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -369,9 +255,10 @@
 			name				TKSpecPoints
 			group				adminset
 			text				"TK Spectator Points"
-			rect				130 200 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 130 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -385,9 +272,10 @@
 			name				TKKickPoints
 			group				adminset
 			text				"TK Kick Points"
-			rect				130 220 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 150 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -401,9 +289,10 @@
 			name				TKTempBanRounds
 			group				adminset
 			text				"TK Temp. Ban Rounds"
-			rect				130 240 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 170 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -417,9 +306,10 @@
 			name				TKForgiveRounds
 			group				adminset
 			text				"TK Forgive Rounds"
-			rect				130 260 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 190 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -433,9 +323,10 @@
 			name				TKRemovedRounds
 			group				adminset
 			text				"TK Removed Per Round"
-			rect				130 280 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 210 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -449,9 +340,10 @@
 			name				TKMinorFriendly
 			group				adminset
 			text				"TK Minor Friendly"
-			rect				130 300 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 230 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -465,9 +357,10 @@
 			name				ChatProtectTime
 			group				adminset
 			text				"Chat Protect Time"
-			rect				130 320 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 250 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -482,10 +375,11 @@
 		{
 			name				rcon
 			group				adminset
-			type 				4
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"rconpassword"
-			rect				130 140 190 15 
+			rect				37 70 190 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -505,10 +399,11 @@
 		{
 			name				smod
 			group				adminset
-			type 				4
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_smodAdminPassword_1"
-			rect				130 160 190 15 
+			rect				37 90 190 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -532,8 +427,8 @@
 			maxchars			4
 			text				" "
 			descText			"Enable anti-cheat verification checks."
-			textstyle			0
-			rect				130 180 180 15 
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				37 110 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -558,9 +453,10 @@
 			name				TKSpecPoints
 			group				adminset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_TKPointsSpecCount"
-			rect				130 200 180 15 
+			rect				37 130 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -580,9 +476,10 @@
 			name				TKKickPoints
 			group				adminset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_TKPointsKickCount"
-			rect				130 220 180 15 
+			rect				37 150 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -602,9 +499,10 @@
 			name				TKTempBanRounds
 			group				adminset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_TKTempBanForRounds"
-			rect				130 240 180 15 
+			rect				37 170 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -624,9 +522,10 @@
 			name				TKForgiveRounds
 			group				adminset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_TKForgiveAfterRounds"
-			rect				130 260 180 15 
+			rect				37 190 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -646,9 +545,10 @@
 			name				TKRemovedRounds
 			group				adminset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_TKRemovedPerRound"
-			rect				130 280 180 15 
+			rect				37 210 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -671,8 +571,8 @@
 			maxchars			4
 			text				" "
 			descText			"Ignore damage <5 for TK points (prevent minor splash damage TK points)."
-			textstyle			0
-			rect				130 300 180 15 
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				37 230 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -697,9 +597,10 @@
 			name				ChatProtectTime
 			group				adminset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"cg_chatprotecttime"
-			rect				130 320 180 15 
+			rect				37 250 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -721,9 +622,10 @@
 			name				shuffle
 			group				shuffset
 			text				"Shuffle timer:"
-			rect				130 140 100 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 70 100 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -737,26 +639,10 @@
 			name				teambalance
 			group				shuffset
 			text				"Auto team balance:"
-			textstyle			0
-			rect				130 160 120 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 85 100 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}	
-		
-		itemDef
-		{
-			name				unbalance
-			group				shuffset
-			text				"Stack per team:"
-			rect				130 180 100 15 
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -772,9 +658,10 @@
 			name				shuffle
 			group				shuffset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_ShuffleTimer"
-			rect				130 140 180 15 
+			rect				37 70 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -783,50 +670,22 @@
 			maxchars			3
 			forecolor			0.7 0.7 0.7 0.9
 			visible				0
-			descText			"How long in seconds clients must wait before they can change teams"
+			descText			"How long in seconds clients must wait before they can change teams. Default: 300"
 			action
 			{
 				play			"sound/interface/button1"
 			}
 		}	
-		
+			
 		itemDef
 		{
 			name				teambalance
 			group				shuffset
-			type				ITEM_TYPE_MULTI
-			maxchars			4
-			text				" "
-			descText			"Allow team auto balance"
-			textstyle			0
-			rect				130 160 180 15 
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			130
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.7 0.7 0.7 0.9
-			visible				0
-			cvar				"g_autoteambalance"
-			cvarFloatList
-			{
-				"OFF"				0 
-				"ON"				1 
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}	
-		
-		itemDef
-		{
-			name				unbalance
-			group				shuffset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvar				"g_allowunbalance"
-			rect				130 180 180 15 
+			cvar				"g_balance"
+			rect				37 85 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -835,7 +694,7 @@
 			maxchars			3
 			forecolor			0.7 0.7 0.7 0.9
 			visible				0
-			descText			"How many players a team may be stacked before auto balance intervenes"
+			descText			"How many players a team may be stacked before auto balance intervenes. Default: -1 (off)"
 			action
 			{
 				play			"sound/interface/button1"
@@ -848,10 +707,11 @@
 		{
 			name				dedicatedserver
 			group				serverset
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_DEDICATED_SERVER
-			rect				130 140 95 15 
+			rect				37 70 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -864,10 +724,11 @@
 		{
 			name				maxclients
 			group				serverset
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_MAXIMUM_PLAYERS
-			rect				130 160 100 15 
+			rect				37 90 100 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -880,10 +741,11 @@
 		{
 			name				svfpsserver
 			group				serverset
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Server FPS:"
-			rect				130 180 180 15 
+			rect				37 110 180 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -896,10 +758,11 @@
 		{
 			name				maxrateserver
 			group				serverset
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Max. Rate:"
-			rect				130 200 180 15 
+			rect				37 130 180 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -912,10 +775,11 @@
 		{
 			name				minsnapsserver
 			group				serverset
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Min. Snaps:"
-			rect				130 220 180 15 
+			rect				37 150 180 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -928,10 +792,11 @@
 		{
 			name				minrateserver
 			group				serverset
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Min. Rate:"
-			rect				130 240 180 15 
+			rect				37 170 180 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -944,10 +809,11 @@
 		{
 			name				banlistfunction
 			group				serverset
+			style				WINDOW_STYLE_TEXT_RGB1
 			text				"List Function:"
-			rect				130 260 180 15 
+			rect				37 190 180 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -963,15 +829,18 @@
 			name				dedicatedserver
 			group				serverset
 			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			// syntax for this is cvar name followed by a semicolan separated list of choices first choice equals 0
 			// dedicated is a special cvar in that as soon as it is set, the game goes to console only so the ui catches this one specifically
 			cvar				"ui_dedicated"
 			cvarFloatList
 			{
-				@MENUS_NO 0 @MENUS_LAN 1 @MENUS_INTERNET 2 
+				@MENUS_NO 0
+				@MENUS_LAN 1
+				@MENUS_INTERNET 2 
 			}
-			rect				130 140 180 15 
+			rect				37 70 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -991,9 +860,10 @@
 			name				maxclients
 			group				serverset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"sv_maxclients"
-			rect				130 160 180 15 
+			rect				37 90 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1023,9 +893,10 @@
 			name				svfpsserver
 			group				serverset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"sv_fps"
-			rect				130 180 180 15 
+			rect				37 110 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1045,9 +916,10 @@
 			name				maxrateserver
 			group				serverset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"sv_maxRate"
-			rect				130 200 180 15 
+			rect				37 130 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1067,9 +939,10 @@
 			name				minsnapsserver
 			group				serverset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"sv_minSnaps"
-			rect				130 220 180 15 
+			rect				37 150 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1089,9 +962,10 @@
 			name				minrateserver
 			group				serverset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"sv_minRate"
-			rect				130 240 180 15 
+			rect					37 170 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1114,8 +988,8 @@
 			maxchars			4
 			text				" "
 			descText			"Whether the list functions as a ban list or a white list."
-			textstyle			0
-			rect				130 260 180 15 
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				37 190 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1142,10 +1016,10 @@
 			name				mbmode
 			group				mb2set
 			text				"MB Mode:"
-			textstyle			0
-			rect				130 140 120 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 70 120 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1159,9 +1033,10 @@
 			name				minmbpoints
 			group				mb2set
 			text				"Min. MB Points:"
-			rect				130 160 100 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 90 100 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1175,9 +1050,10 @@
 			name				mbpointsperround
 			group				mb2set
 			text				"MB Points per round:"
-			rect				130 180 180 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 110 180 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1191,9 +1067,10 @@
 			name				fraglimit
 			group				mb2set
 			text				"Win Limit:"
-			rect				130 200 100 15
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 130 100 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1207,9 +1084,54 @@
 			name				roundlimit
 			group				mb2set
 			text				"Round Limit:"
-			rect				130 220 100 15
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 150 100 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				siegeteam1
+			group				mb2set
+			text				"Legends Team 1:"
+			style				WINDOW_STYLE_TEXT_RGB1
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 170 100 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				siegeteam2
+			group				mb2set
+			text				"Legends Team 2:"
+			style				WINDOW_STYLE_TEXT_RGB1
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 190 100 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1228,8 +1150,8 @@
 			maxchars			4
 			text				" "
 			descText			"Select MB Mode."
-			textstyle			0
-			rect				130 140 180 15 
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				37 70 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1249,6 +1171,7 @@
 				"Semi-Authentic"	1 
 				"Full Authentic"	2 
 				"Duel"				3	
+				"Legends"			4	
 			}
 			action
 			{
@@ -1261,9 +1184,10 @@
 			name				minmbpoints
 			group				mb2set
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_MinMBPoints"
-			rect				130 160 180 15 
+			rect				37 90 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1284,9 +1208,10 @@
 			name				mbpointsperround
 			group				mb2set
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_MBPointsPerRound"
-			rect				130 180 180 15 
+			rect				37 110 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1307,6 +1232,7 @@
 			name				fraglimit
 			group				mb2set
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"fraglimit"
 			cvarTest			"ui_netGameType"
@@ -1314,7 +1240,7 @@
 			{
 				"6"
 			}
-			rect				130 200 180 15
+			rect				37 130 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1335,6 +1261,7 @@
 			name				roundlimit
 			group				mb2set
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"roundlimit"
 			cvarTest			"ui_netGameType"
@@ -1342,7 +1269,7 @@
 			{
 				"6"
 			}
-			rect				130 220 180 15
+			rect				37 150 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1356,8 +1283,103 @@
 			{
 				play			"sound/interface/button1"
 			}
-		}		
+		}
 		
+		itemDef
+		{
+			name				siegeteam1
+			group				mb2set
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvar				"g_siegeTeam1"
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 170 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			60
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			32
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Name of full authentic team config for team 1 in Legends."
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				siegeteam2
+			group				mb2set
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvar				"g_siegeTeam2"
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 190 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			60
+			textaligny			-5
+			font				5
+			textscale			0.15
+			maxchars			32
+			forecolor			0.7 0.7 0.7 0.9
+			visible				0
+			descText			"Name of full authentic team config for team 2 in Legends."
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				siegeteamreset
+			group				mb2set
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"( Reset Legends Teams )"
+			cvarTest			"g_Authenticity"
+			showCvar
+			{
+				"4"
+			}
+			rect				37 210 180 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			132
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Click to reset Legends teams to default values."
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	67 211 120 15		
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}	
+			action
+			{
+				setcvar			g_siegeTeam1 "LEG_Good"
+				setcvar			g_siegeTeam2 "LEG_Evil"
+				play			"sound/interface/button1.wav"
+			}
+		}
 		
 
 //MISC SETTINGS
@@ -1367,9 +1389,10 @@
 			name				password
 			group				miscset
 			text				@MENUS_PASSWORD_1
-			rect				130 140 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 70 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1384,9 +1407,10 @@
 			name				ghosting
 			group				miscset
 			text				"Disable ghosting:"
-			rect				130 160 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 90 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1401,9 +1425,10 @@
 			name				spectateteamonly
 			group				miscset
 			text				"Spectate team only:"
-			rect				130 180 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 110 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1418,9 +1443,10 @@
 			name				hidehud
 			group				miscset
 			text				"Hide HUD from spectators:"
-			rect				130 200 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 130 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1435,9 +1461,10 @@
 			name				inactivitykick
 			group				miscset
 			text				"Time until Kick:"
-			rect				130 220 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 150 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1452,9 +1479,10 @@
 			name				inactivityspec
 			group				miscset
 			text				"Time until Spec:"
-			rect				130 240 95 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 170 95 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1469,9 +1497,10 @@
 			name				automapcycle
 			group				miscset
 			text				@MENUS_AUTO_MAP_CYCLE
-			rect				130 260 82 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 190 82 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1485,9 +1514,10 @@
 			name				allowvote
 			group				miscset
 			text				@MENUS_ENABLE_VOTING
-			rect				130 280 82 15 
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				37 210 82 15
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
+			textalignx			0
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -1505,10 +1535,11 @@
 		{
 			name				password
 			group				miscset
-			type 				4
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_password"
-			rect				130 140 190 15 
+			rect				37 70 190 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -1529,9 +1560,10 @@
 			name				ghosting
 			group				miscset
 			type				ITEM_TYPE_YESNO
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_FullSpecTalkToPlayers"
-			rect				130 160 180 15 
+			rect				37 90 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1551,9 +1583,10 @@
 			name				spectateteamonly
 			group				miscset
 			type				ITEM_TYPE_YESNO
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_spectateTeamOnly"
-			rect				130 180 180 15 
+			rect				37 110 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1573,9 +1606,10 @@
 			name				hidehud
 			group				miscset
 			type				ITEM_TYPE_YESNO
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_HideHUDFromSpecs"
-			rect				130 200 180 15 
+			rect				37 130 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1595,9 +1629,10 @@
 			name				inactivitykick
 			group				miscset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_InactivityKick"
-			rect				130 220 180 15 
+			rect				37 150 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1617,9 +1652,10 @@
 			name				inactivityspec
 			group				miscset
 			type				ITEM_TYPE_NUMERICFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_InactivitySpec"
-			rect				130 240 180 15 
+			rect				37 170 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1639,9 +1675,10 @@
 			name				automapcycle
 			group				miscset
 			type				ITEM_TYPE_YESNO
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_autoMapCycle"
-			rect				130 260 180 15 
+			rect				37 190 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1661,9 +1698,10 @@
 			name				allowvote
 			group				miscset
 			type				ITEM_TYPE_YESNO
+			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvar				"g_allowvote"
-			rect				130 280 180 15 
+			rect				37 210 180 15
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			130
 			textaligny			-5
@@ -1684,17 +1722,16 @@
 		{
 			name				adminsetprev
 			group				adminset
-			text				"Prev"			
+			text				"Prev"
 			descText			"Previous settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER			
-			rect				175 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				82 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			45
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB2
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1712,17 +1749,16 @@
 		{
 			name				adminsetnext
 			group				adminset
-			text				"Next"			
+			text				"Next"
 			descText			"Next settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER				
-			rect				230 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				137 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			0
 			textalign			ITEM_ALIGN_LEFT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB2
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1740,17 +1776,16 @@
 		{
 			name				shuffsetprev
 			group				shuffset
-			text				"Prev"			
+			text				"Prev"
 			descText			"Previous settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER			
-			rect				175 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				82 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			45
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1768,17 +1803,16 @@
 		{
 			name				shuffsetnext
 			group				shuffset
-			text				"Next"			
+			text				"Next"
 			descText			"Next settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER				
-			rect				230 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				137 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			0
 			textalign			ITEM_ALIGN_LEFT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1796,17 +1830,16 @@
 		{
 			name				serversetprev
 			group				serverset
-			text				"Prev"			
+			text				"Prev"
 			descText			"Previous settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER			
-			rect				175 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				82 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			45
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1824,17 +1857,16 @@
 		{
 			name				serversetnext
 			group				serverset
-			text				"Next"			
+			text				"Next"
 			descText			"Next settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER				
-			rect				230 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect 				137 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			0
 			textalign			ITEM_ALIGN_LEFT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1852,17 +1884,16 @@
 		{
 			name				mb2setprev
 			group				mb2set
-			text				"Prev"			
+			text				"Prev"
 			descText			"Previous settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER			
-			rect				175 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				82 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			45
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1880,17 +1911,16 @@
 		{
 			name				mb2setnext
 			group				mb2set
-			text				"Next"			
+			text				"Next"
 			descText			"Next settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER				
-			rect				230 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				137 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			0
 			textalign			ITEM_ALIGN_LEFT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1908,17 +1938,16 @@
 		{
 			name				miscsetprev
 			group				miscset
-			text				"Prev"			
+			text				"Prev"
 			descText			"Previous settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER			
-			rect				175 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				82 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			45
 			textalign			ITEM_ALIGN_RIGHT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1936,17 +1965,16 @@
 		{
 			name				miscsetnext
 			group				miscset
-			text				"Next"			
+			text				"Next"
 			descText			"Next settings"
-			type				ITEM_TYPE_BUTTON			
-			style				WINDOW_STYLE_SHADER				
-			rect				230 370 50 15 
+			type				ITEM_TYPE_BUTTON
+			rect				137 300 50 15
 			textaligny			-5
 			font				5
 			textscale			0.15
 			textalignx			0
 			textalign			ITEM_ALIGN_LEFT
-			textstyle			0			
+			style				WINDOW_STYLE_TEXT_RGB1
 			visible				0
 			forecolor			1 1 1 1
 			action
@@ -1967,63 +1995,50 @@
 		itemDef
 		{
 			name				maplist
-			rect				325 120 180 135
+			rect				240 50 202 155
 			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_FILLED
-			elementwidth		100
-			elementheight		12
-			font				2
-			textscale			0.4
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		14
+			font				6
+			textscale			0.15
 			elementtype			LISTBOX_TEXT
 			feeder				FEEDER_ALLMAPS
-			textstyle			0
-			textalign			3
-			textaligny			2
-			forecolor			1 1 1 0.9
-			outlinecolor		0.3 0.3 0.3 0.2	
+			textaligny			10
+			forecolor			1 1 1 1
+			outlinecolor		1 1 1 0.1
 			descText			@MENUS_CHOOSE_YOUR_GAME
 			visible				1
-			columns				1 2 196 120
 		}
 
 // MAP SCREENSHOT
-
-		itemDef
-		{
-			name				mappreview
-			style				0
-			ownerdraw			UI_STARTMAPCINEMATIC
-			//rect				7 57 190 141
-			rect				335 268 155 110
-			visible				1 
-		}
-
 		itemDef
 		{
 			name				mappreview
 			style				WINDOW_STYLE_FILLED
-			//rect				6 56 192 143
-			rect				313 253 212 160
-			visible				1
+			ownerdraw			UI_STARTMAPCINEMATIC
+			rect				240 210 202 150
+			visible				1 
 		}
 
 // BOTTOM BUTTONS OPTIONS
-
 		itemDef
 		{
 			name				back
+			group				bg_button
 			text				"BACK"			
 			descText			@MENUS_BACKUP_ONE_MENU
 			type				ITEM_TYPE_BUTTON			
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
 			background			"gfx/menus/alpha/Btn_Bg"			
-			rect				125 412 120 36
+			rect				0 382 120 36
 			textaligny			-8
 			font				6
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0			
 			visible				1
 			forecolor			1 1 1 1
 			action
@@ -2035,7 +2050,7 @@
 			mouseenter
 			{
 				show			btn_hl
-				setitemrect		btn_hl	125 412 120 36
+				setitemrect		btn_hl 0 382 120 36
 			}
 			mouseExit
 			{
@@ -2046,19 +2061,19 @@
 		itemDef
 		{
 			name				accept
-			group				none
+			group				bg_button
 			text				@MENUS_BEGIN
 			descText			@MENUS_START_SERVER			
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
 			background			"gfx/menus/alpha/Btn_Bg"			
-			rect				390 412 120 36
+			rect				334 382 120 36
 			textaligny			-8
 			font				6
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
 			forecolor			1 1 1 1		
 			visible				1	
 			action
@@ -2073,7 +2088,7 @@
 			mouseenter
 			{
 				show			btn_hl
-				setitemrect		btn_hl	390 412 120 36
+				setitemrect		btn_hl 334 382 120 36
 			}
 			mouseExit
 			{

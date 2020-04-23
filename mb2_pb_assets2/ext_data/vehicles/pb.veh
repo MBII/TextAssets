@@ -37,7 +37,7 @@ traction		18
 friction		0.75
 speedDependantTurning	0
 maxSlope		0.65
-mass			15
+mass			30
 armor 		75
 NoDamageWalls       1
 malfunctionArmorLevel	-1
@@ -65,7 +65,7 @@ icon_left		"gfx/menus/radar/goblinglider_left"
 crosshairShader		"gfx/menus/radar/XW_reticle"
 
 soundOn 		"sound/chars/troll/misc/taunt1.mp3"
-soundLoop 		"sound/vehicles/troll/loop.wav"
+soundLoop 		"s/v/troll/loop.wav"
 soundOff 		"sound/chars/troll/misc/taunt2.mp3"
 soundFlyBy 		"sound/chars/troll/misc/att_attack.mp3"
 soundFlyBy2 		"sound/chars/troll/misc/def_position.mp3"
@@ -145,7 +145,7 @@ Gonk_vehicle
 name			Gonk_vehicle
 type			VH_WALKER
 
-maxpassengers 		4
+//maxpassengers 		4
 hideRider			1
 numHands			2
 killRiderOnDeath 	1
@@ -173,14 +173,9 @@ turnWhenStopped		0
 //traction			100
 friction			100
 maxSlope			0.7
-mass				60000
+mass				30000
 
-armor 		500
-
-health_front	700
-health_back		700
-health_right	700
-health_left		700
+armor 		300
 
 toughness 		20
 model			battle_gonk
@@ -217,10 +212,8 @@ cameraFOV			100
 //cameraAlpha			0.25
 cameraPitchDependantVertOffset	0
 
-model			battle_gonk
 riderAnim		BOTH_VS_IDLE
 radarIcon		"gfx/menus/radar/gonk"
-
 impactFX	"ships/scrape_sparks"
 //exhaustFX		"jetpack/idle"
 turboFX			"jetpack/thrust"
@@ -235,16 +228,16 @@ soundEngineStart "sound/chars/gonk/misc/gonktalk1.mp3"
 soundSpin		"sound/chars/pitdroid/misc/death1.mp3"
 //soundHyper		"sound/directory/nameofsound.mp3"
 
-soundLand"		"sound/chars/gonk/misc/gonktalk1.mp3"
-soundFlyBy		"sound/chars/gonk/misc/gonktalk1.mp3"
-soundFlyBy2		"sound/chars/gonk/misc/gonktalk1.mp3"
-soundShift1		"sound/chars/gonk/misc/gonktalk1.mp3"
-soundShift2		"sound/chars/gonk/misc/gonktalk1.mp3"
-soundShift3		"sound/chars/gonk/misc/gonktalk1.mp3"
-soundShift4		"sound/chars/gonk/misc/gonktalk1.mp3"
+//soundLand		"sound/chars/gonk/misc/gonktalk1.mp3"
+//soundFlyBy		"sound/chars/gonk/misc/gonktalk1.mp3"
+//soundFlyBy2		"sound/chars/gonk/misc/gonktalk1.mp3"
+//soundShift1		"sound/chars/gonk/misc/gonktalk1.mp3"
+//soundShift2		"sound/chars/gonk/misc/gonktalk1.mp3"
+//soundShift3		"sound/chars/gonk/misc/gonktalk1.mp3"
+//soundShift4		"sound/chars/gonk/misc/gonktalk1.mp3"
 
-shields              0
-//shieldRechargeMS         0
+shields              100
+shieldRechargeMS    100
 AllWeaponsDoDamageToShields  1
 AllWeaponsDoDamageToArmor  1
 //MBFdisableshields  7
@@ -272,13 +265,13 @@ maxrebo
 {
 name      maxrebo
 type      VH_WALKER
-numHands    2
+numHands    0
 killRiderOnDeath 1
 hiderider 1
 
 weap1				maxrebo_laser	//Name of weapon (must be inside ext_data/vehicles/weapons or it won't be read)
 //weap1Aim			0/1				//Whether or not to auto-aim the projectiles at the thing under the crosshair when we fire
-weap1Delay			400				//The delay between shots for this weapon, in msec
+weap1Delay			200				//The delay between shots for this weapon, in msec
 //weap1Link						//0 for unlinkable, 1 for linkable, 2 for always linked (linked delay = weapon delay * number of muzzles linked!)
 weap1AmmoMax		900 				//Max amount of ammo
 weap1AmmoRechargeMS	500				//Ammo recharge rate - milliseconds per unit (minimum of 100, which is 10 ammo per second)
@@ -312,11 +305,11 @@ pitchLimit    0
 braking      15
 mouseYaw    0.003
 mousePitch    0.01
-turningSpeed    50
+turningSpeed    70
 turnWhenStopped    1
 friction    100
 maxSlope    .5
-mass      10
+mass      6000
 armor       900
 toughness     1
 model      maxrebo
@@ -325,7 +318,7 @@ radarIcon    "gfx/menus/radar/max"
 explosionRadius 200
 explosionDamage 100
 explodeFX		"ships/ship_explosion2"
-explosionDelay	2450
+explosionDelay	3000
 
 	exhaustFX	 	"maxrebo/exhaust"		//Exhaust effect, played from "*exhaust" bolt(s)
 //	turboFX			"directory/nameofeffect"		//Turbo exhaust effect, played from "*exhaust" bolt(s) when ship is in "turbo" mode
@@ -356,9 +349,9 @@ cameraFOV      100
 cameraAlpha      0
 //cameraPitchDependantVertOffset  0
 
-//MBFstopprimaryfiring 30
-//MBFstopaltfiring  30
-//MBFdisableshields  7
+MBFstopprimaryfiring 30
+MBFstopaltfiring  30
+MBFdisableshields  7
 
 AllWeaponsDoDamageToArmor  1
 AllWeaponsDoDamageToShields  1
@@ -368,7 +361,7 @@ shieldRechargeMS    80
 
 ResistsMarking      1
 
-SpeedMultiplierForRamDamage  0.01
+SpeedMultiplierForRamDamage  0.02
 RamDamage      1
 
 VehicleScale 70
@@ -416,24 +409,24 @@ mass			20
 armor 			450
 toughness 		10
 RamDamage       1
-SpeedMultiplierForRamDamage 1.000002
+SpeedMultiplierForRamDamage 1.000005
 malfunctionArmorLevel	-1
 model			moped
 skin			default
 riderAnim		BOTH_VS_IDLE
 radarIcon		"gfx/menus/radar/moped"
 
-soundOn			"sound/vehicles/moped/on.mp3"
-soundOff		"sound/vehicles/moped/off.mp3"
-soundLoop		"sound/vehicles/moped/loop.mp3"
-soundTakeOff		"sound/vehicles/moped/takeoff.mp3"
-soundEngineStart	"sound/vehicles/moped/on.mp3"
-soundSpin		"sound/vehicles/moped/loop.mp3"
-soundTurbo		"sound/vehicles/moped/turbo.mp3"
+soundOn			"s/v/moped/on.mp3"
+soundOff		"s/v/moped/off.mp3"
+soundLoop		"s/v/moped/loop.mp3"
+soundTakeOff		"s/v/moped/takeoff.mp3"
+soundEngineStart	"s/v/moped/on.mp3"
+soundSpin		"s/v/moped/loop.mp3"
+soundTurbo		"s/v/moped/turbo.mp3"
 
 exhaustFX		"volumetric/black_smoke"
 impactFX		"ships/scrape_sparks"
-turboStartFX	"ships/swoop_turbo_start"
+//turboStartFX	"ships/swoop_turbo_start"
 //armorLowFX		"volumetric/black_smoke"
 armorGoneFX		"ships/fire"
 flammable		0
@@ -574,7 +567,7 @@ turnWhenStopped	0
 //traction		14
 friction		18 //9
 maxSlope		0.1
-mass			20
+mass			20000
 armor 			700
 toughness 		40
 model			wampa
@@ -584,7 +577,7 @@ soundOn 		"sound/vehicles/wampa/on.mp3"
 
 NoDamageWalls       1
 VehicleScale 100
-SpeedMultiplierForRamDamage 0.00005
+SpeedMultiplierForRamDamage 0.0002
 RamDamage 1
 
 cameraOverride		1

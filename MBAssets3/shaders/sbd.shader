@@ -1,1414 +1,8 @@
-// bs skin
-
-models/players/sbd/bs_Arms
+// ===== First person arm cannon model - models/weapons2/concussion/c_rifle.md3 =====
+models/players/sbd/arms_b
 {
-	cull	twosided
 	{
-		map models/players/sbd/bs_Arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Arms_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Arms_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/bs_Arms_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Head
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Head
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Hips
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Hips
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Hips_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Knees
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Knees
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Knees_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_L_Forearm
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_L_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Legs
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Legs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Shins
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Shins
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Shins_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Shoulders
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Shoulders
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Shoulders_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Torso
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Torso
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	} 
-{
-		map models/players/sbd/bs_Torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Torso_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Torso_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/bs_Torso_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Feet
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Feet
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Feet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Thumbs
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Thumbs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Thumbs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_R_Forearm_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_R_Forearm_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_R_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_R_Forearm
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_R_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_R_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_L_Forearm_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_L_Forearm_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_L_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_L_Forearm
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_L_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Hands_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Hands_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Hands_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Hands
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Hands
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/bs_Fingers
-{
-	cull	twosided
-	{
-		map models/players/sbd/bs_Fingers
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/bs_Fingers_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
-// cortosis skin
-
-models/players/sbd/Arms_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Arms_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Arms_B_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Arms_B_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Arms_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Head_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Head_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Hips_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Hips_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-{
-		map models/players/sbd/Hips_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Knees_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Knees_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Knees_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/L_Forearm_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/L_Forearm_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Legs_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Legs_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Shins_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Shins_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Shins_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Shoulders_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Shoulders_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Shoulders_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Torso_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Torso_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Torso_B_Darkcort
-{
-	cull	twosided
-	{
-		map models/players/sbd/Torso_B_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Torso_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Feet_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Feet_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Feet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Thumbs_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Thumbs_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Thumbs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/R_Forearm_B_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/R_Forearm_B_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/R_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/R_Forearm_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/R_Forearm_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/R_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/L_Forearm_B_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/L_Forearm_B_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/L_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/L_Forearm_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/L_Forearm_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Hands_B_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Hands_B_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Hands_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Hands_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Hands_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-models/players/sbd/Fingers_Darkcort
-{
-	cull	twosided
-
-	{
-		map models/players/sbd/Fingers_Darkcort
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/chrome4.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/players/sbd/Fingers_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
-}
-
-
-// dark skin
-
-models/players/sbd/Arms_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Arms_dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Arms_B_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Arms_B_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Arms_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Head_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Head_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Hips_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Hips_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Hips_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Knees_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Knees_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Knees_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/L_Forearm_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/L_Forearm_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Legs_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Legs_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Shins_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Shins_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Shins_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Shoulders_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Shoulders_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Shoulders_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Torso_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Torso_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Torso_B_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Torso_B_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Torso_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Feet_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Feet_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Feet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Thumbs_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Thumbs_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Thumbs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/R_Forearm_B_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/R_Forearm_B_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/R_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/R_Forearm_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/R_Forearm_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/R_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/L_Forearm_B_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/L_Forearm_B_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/L_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/L_Forearm_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/L_Forearm_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Hands_B_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Hands_B_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Hands_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Hands_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Hands_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Fingers_Dark
-{
-	cull	twosided
-	{
-		map models/players/sbd/Fingers_Dark
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-	{
-		map models/players/sbd/Fingers_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
-// default skin
-
-models/players/sbd/Arms
-{
-	cull	twosided
-	{
-		map models/players/sbd/Arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-{
-		map models/players/sbd/Arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Arms_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/Arms_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-	{
-		map models/players/sbd/Arms_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Head
-{
-	cull	twosided
-	{
-		map models/players/sbd/Head
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}    
-{
-		map models/players/sbd/Head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Hips
-{
-	cull	twosided
-	{
-		map models/players/sbd/Hips
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}   
-{
-		map models/players/sbd/Hips_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Knees
-{
-	cull	twosided
-	{
-		map models/players/sbd/Knees
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}    
-{
-		map models/players/sbd/Knees_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/L_Forearm
-{
-	cull	twosided
-	{
-		map models/players/sbd/L_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}    
-{
-		map models/players/sbd/L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Legs
-{
-	cull	twosided
-	{
-		map models/players/sbd/Legs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}   
-{
-		map models/players/sbd/Legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Shins
-{
-	cull	twosided
-	{
-		map models/players/sbd/Shins
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}    
-{
-		map models/players/sbd/Shins_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Shoulders
-{
-	cull	twosided
-	{
-		map models/players/sbd/Shoulders
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}   
-{
-		map models/players/sbd/Shoulders_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Torso
-{
-	cull	twosided
-	{
-		map models/players/sbd/Torso
+		map models/players/sbd/arms_b
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1418,107 +12,17 @@ models/players/sbd/Torso
 		detail
 		tcGen environment
 	}  
-{
-		map models/players/sbd/Torso_spec
+	{
+		map models/players/sbd/arms_b_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
-
-models/players/sbd/Torso_B
+models/players/sbd/hands
 {
-	cull	twosided
 	{
-		map models/players/sbd/Torso_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-	{
-		map models/players/sbd/Torso_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Feet
-{
-	cull	twosided
-	{
-		map models/players/sbd/Feet
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}    
-{
-		map models/players/sbd/Feet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Thumbs
-{
-	cull	twosided
-	{
-		map models/players/sbd/Thumbs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}    
-{
-		map models/players/sbd/Thumbs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/R_Forearm_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/R_Forearm_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}    
-{
-		map models/players/sbd/R_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/R_Forearm
-{
-	cull	twosided
-	{
-		map models/players/sbd/R_Forearm
+		map models/players/sbd/hands
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1528,19 +32,17 @@ models/players/sbd/R_Forearm
 		detail
 		tcGen environment
 	}  
-{
-		map models/players/sbd/R_Forearm_spec
+	{
+		map models/players/sbd/hands_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
-
-models/players/sbd/L_Forearm_B
+models/players/sbd/fingers
 {
-	cull	twosided
 	{
-		map models/players/sbd/L_Forearm_B
+		map models/players/sbd/fingers
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1550,63 +52,17 @@ models/players/sbd/L_Forearm_B
 		detail
 		tcGen environment
 	}  
-{
-		map models/players/sbd/L_Forearm_B_spec
+	{
+		map models/players/sbd/fingers_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
-
-models/players/sbd/L_Forearm
+models/players/sbd/r_forearm
 {
-	cull	twosided
 	{
-		map models/players/sbd/L_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}     
-{
-		map models/players/sbd/L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Hands_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/Hands_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	} 
-{
-		map models/players/sbd/Hands_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/Hands
-{
-	cull	twosided
-	{
-		map models/players/sbd/Hands
+		map models/players/sbd/r_forearm
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1616,19 +72,17 @@ models/players/sbd/Hands
 		detail
 		tcGen environment
 	}  
-{
-		map models/players/sbd/Hands_spec
+	{
+		map models/players/sbd/r_forearm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
-
-models/players/sbd/Fingers
+models/players/sbd/r_forearm_b
 {
-	cull	twosided
 	{
-		map models/players/sbd/Fingers
+		map models/players/sbd/r_forearm_b
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1637,328 +91,343 @@ models/players/sbd/Fingers
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		detail
 		tcGen environment
-	}   
-{
-		map models/players/sbd/Fingers_spec
+	}  
+	{
+		map models/players/sbd/r_forearm_b_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
+// ===== End arm cannon model =====
 
-
-// rusty skin
-
-models/players/sbd/rusty_Arms
+models/players/SBD/body
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/body
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
 }
 
-models/players/sbd/rusty_Arms_B
+models/players/SBD/body_bs
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Arms_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/rusty_Arms_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/body_bs
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
 }
 
-models/players/sbd/rusty_Head
+models/players/SBD/body_cortosis
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Head
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/body_cortosis
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome2
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
 }
 
-models/players/sbd/rusty_Hips
+models/players/SBD/body_dark
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Hips
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Hips_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/body_dark
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
 }
 
-models/players/sbd/rusty_Knees
+models/players/SBD/body_rusty
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Knees
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Knees_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/body_rusty
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
 }
 
-models/players/sbd/rusty_L_Forearm
+models/players/SBD/body_grapple
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_L_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/body_grapple
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_grapple_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_grapple_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_Legs
+models/players/SBD/body_grapple2
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Legs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/body_grapple2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_grapple2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_grapple2_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_Shins
+models/players/SBD/light
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Shins
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Shins_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/light
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/light_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/light_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_Shoulders
+models/players/SBD/light_bs
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Shoulders
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Shoulders_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/light_bs
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/light_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome2
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/light_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_Torso
+models/players/SBD/light_cortosis
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Torso
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/light_cortosis
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/light_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome2
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/light_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_Torso_B
+models/players/SBD/light_dark
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Torso_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sbd/rusty_Torso_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/light_dark
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/light_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/light_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_Feet
+models/players/SBD/light_rusty
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Feet
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Feet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/light_rusty
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/light_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/light_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_Thumbs
+models/players/SBD/light_grapple
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Thumbs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
+    {
+        map models/players/SBD/light_grapple
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/light_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        tcGen environment
+    }
+    {
+        map models/players/SBD/light_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
-models/players/sbd/rusty_R_Forearm_B
+models/players/SBD/caps
 {
-	cull	twosided
-	{
-		map models/players/sbd/rusty_R_Forearm_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_R_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/SBD/caps
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/caps_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen wave noise 1 0.5 0 2
+        glow
+        detail
+    }
 }
 
-models/players/sbd/rusty_R_Forearm
-{
-	cull	twosided
-	{
-		map models/players/sbd/rusty_R_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_R_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/rusty_L_Forearm_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/rusty_L_Forearm_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_L_Forearm_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/rusty_L_Forearm
-{
-	cull	twosided
-	{
-		map models/players/sbd/rusty_L_Forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_L_Forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/rusty_Hands_B
-{
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Hands_B
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Hands_B_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/rusty_Hands
-{
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Hands
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sbd/rusty_Fingers
-{
-	cull	twosided
-	{
-		map models/players/sbd/rusty_Fingers
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-{
-		map models/players/sbd/rusty_Fingers_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}

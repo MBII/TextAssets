@@ -7,9 +7,9 @@
 		rect					93 50 454 418					// Size and position of the menu
 		focusColor				1 1 1 0.6				// Focus color for text and items
 		descX					320
-		descY					415
-		descScale				0.3
-		descColor				0.5 0.5 0.5 0.5
+		descY					402
+		descScale				0.7
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		visible					1
 		onOpen 
@@ -44,6 +44,7 @@
 			play				"sound/interface/back.mp3" ;
 			close				all ;
 			open				ingame
+			open				main_nomusic
 		}
 
 //----------------------------------------------------------------------------------------------
@@ -51,7 +52,7 @@
 //----------------------------------------------------------------------------------------------
 		itemDef
 		{
-			name				menu_help
+			name				bg_help
 			group				none
 			style				WINDOW_STYLE_FILLED_RGB1
 			rect				0 0 454 377
@@ -85,25 +86,14 @@
 			decoration
 		}			
 		
-// BACKGROUND
-		itemDef
-		{
-			name				button_glow
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				0 0 0 0
-			background			"gfx/menus/alpha/Button_Highlight"
-			forecolor			1 1 1 0.8
-			visible				0
-			decoration
-		}			
+// BACKGROUND			
 
 		//Menu opening screen end
 		itemDef 
 		{
 			name				classesbutton
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 50 100 20 
 			text				"CLASSES & SKILLS"
@@ -154,7 +144,7 @@
 		{
 			name				weaponsbutton
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 80 100 20 
 			text				"WEAPONS & STYLES"
@@ -205,7 +195,7 @@
 		{
 			name				forcebutton
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 110 100 20 
 			text				"FORCE POWERS"
@@ -256,7 +246,7 @@
 		{
 			name				strategybutton
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 140 100 20  
 			text				"HOW TO PLAY"
@@ -306,7 +296,7 @@
 		{
 			name				strategy2button
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 170 100 20 
 			text				"GAME MODES"
@@ -356,7 +346,7 @@
 		{
 			name				gameoptbutton
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 200 100 20 
 			text				"PERFORMANCE"
@@ -380,6 +370,7 @@
 			}
 			action 
 			{ 			
+				exec			"set ui_help_opt @HELP_GAME_PERFORMANCE_OVERVIEW" ;
 				play			"sound/interface/go.mp3" ; 
 				hide			classes 
 				hide			weapons	
@@ -406,7 +397,7 @@
 		{
 			name				gameopt2button
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 230 100 20 
 			text				"OPTIMIZATION"
@@ -429,7 +420,8 @@
 				hide			button_glow 
 			}
 			action 
-			{ 			
+			{
+				exec			"set ui_help_opt @HELP_GAME_PERFORMANCE_CVARS" ;
 				play			"sound/interface/go.mp3" ;  
 				hide			classes 
 				hide			weapons	
@@ -456,7 +448,7 @@
 		{
 			name				faqbutton
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 260 100 20 
 			text				"FAQ"
@@ -506,7 +498,7 @@
 		{
 			name				tipsbutton
 			group				group1
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				10 290 100 20 
 			text				"TIPS ARCHIVE"
@@ -557,7 +549,7 @@
 		{
 			name				classbutton
 			group				classes
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				170 10 215 50 
 			text				"Class:"
@@ -598,11 +590,11 @@
 		{
 			name				classicon1
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/imp"
 			cvarTest			"ui_class_skills"
 			showCvar			{ "@HELP_SOLDIER" }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 		}
@@ -611,11 +603,11 @@
 		{
 			name				classicon2
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/com"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_ET }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 		}
@@ -624,11 +616,11 @@
 		{
 			name				classicon3
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/clone"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_CLONE }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 		}
@@ -637,11 +629,11 @@
 		{
 			name				classicon4
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/arc"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_ARC }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -651,11 +643,11 @@
 		{
 			name				classicon5
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/hero"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_HERO }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -665,11 +657,11 @@
 		{
 			name				classicon6
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/wook"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_WOOKIEE }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -679,11 +671,11 @@
 		{
 			name				classicon7
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/jedi"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_JEDI }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -693,11 +685,11 @@
 		{
 			name				classicon8
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/bh"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_BOUNTYHUNTER }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -707,11 +699,11 @@
 		{
 			name				classicon9
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/manda"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_MANDO }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -721,11 +713,11 @@
 		{
 			name				classicon10
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50
 			background			"gfx/menus/classes/sbd"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_SBD }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -735,11 +727,11 @@
 		{
 			name				classicon11
 			group				classes
+			style				WINDOW_STYLE_SHADER
 			rect				120 10 50 50 
 			background			"gfx/menus/classes/deka"
 			cvarTest			"ui_class_skills"
 			showCvar			{ @HELP_DEKA }
-			style				WINDOW_STYLE_SHADER
 			visible				0
 			forecolor			1 1 1 1			
 			
@@ -750,7 +742,7 @@
 		{
 			name				classdesctextbox
 			group				classes
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 70 325 140
 			text				"*"							
@@ -770,7 +762,7 @@
 		{
 			name				skillsdesctextbox
 			group				classes
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 215 325 140
 			text				"*"										
@@ -791,7 +783,7 @@
 		{
 			name				list
 			group				weapons
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				120 10 325 70 
 			text				"Weapon:"						
@@ -802,31 +794,22 @@
 			textalign			ITEM_ALIGN_CENTER
 			textstyle			0
 			textalignx			23
-			//elementheight			20
-			//elementwidth			40
-			//elementtype			LISTBOX_TEXT
 			forecolor			1 1 1 0.9
 			visible				0
-			//border				1
-			//bordercolor			0.1 0.7 1 0.8
-			//forecolor			0.1 0.7 1 0.8
-			//backcolor			0 0 0 0
-			//outlinecolor			0.1 0.7 1 0.3
-			//columns				1 2 196 172
 			cvar				"ui_help_weapon"
 			cvarStrList
 			{
-			@NAMES_BLASTERPISTOL		"set ui_weaponchoice @HELP_WEAPS_BLASTERPISTOL"
-			@NAMES_E11			"set ui_weaponchoice @HELP_WEAPS_E11"
-			@NAMES_A280			"set ui_weaponchoice @HELP_WEAPS_A280"
-			@NAMES_T21			"set ui_weaponchoice @HELP_WEAPS_T21"
+			@NAMES_BLASTERPISTOL	"set ui_weaponchoice @HELP_WEAPS_BLASTERPISTOL"
+			@NAMES_E11				"set ui_weaponchoice @HELP_WEAPS_E11"
+			@NAMES_A280				"set ui_weaponchoice @HELP_WEAPS_A280"
+			@NAMES_T21				"set ui_weaponchoice @HELP_WEAPS_T21"
 			@NAMES_BOWCASTER		"set ui_weaponchoice @HELP_WEAPS_BOWCASTER"
 			@NAMES_CLONEPISTOL		"set ui_weaponchoice @HELP_WEAPS_CLONEPISTOL"
 			@NAMES_CLONERIFLE		"set ui_weaponchoice @HELP_WEAPS_CLONERIFLE"
 			@NAMES_WESTARM5			"set ui_weaponchoice @HELP_WEAPS_WESTARM5"
-			@NAMES_PLX1			"set ui_weaponchoice @HELP_WEAPS_PLX1"
+			@NAMES_PLX1				"set ui_weaponchoice @HELP_WEAPS_PLX1"
 			@NAMES_WESTARPISTOL		"set ui_weaponchoice @HELP_WEAPS_WESTARPISTOL"
-			@NAMES_EE3			"set ui_weaponchoice @HELP_WEAPS_EE3"
+			@NAMES_EE3				"set ui_weaponchoice @HELP_WEAPS_EE3"
 			@NAMES_PRIFLE			"set ui_weaponchoice @HELP_WEAPS_PRIFLE"
 			@NAMES_DISRUPTOR		"set ui_weaponchoice @HELP_WEAPS_DISRUPTOR"
 			@NAMES_FRAGNADES		"set ui_weaponchoice @HELP_WEAPS_FRAGNADES"
@@ -835,11 +818,11 @@
 			@NAMES_SONICNADES		"set ui_weaponchoice @HELP_WEAPS_SONICNADES"
 			@NAMES_FIRENADES		"set ui_weaponchoice @HELP_WEAPS_FIRENADES"
 			@NAMES_CONCNADES		"set ui_weaponchoice @HELP_WEAPS_CONCNADES"
-			@NAMES_ARMBLASTER			"set ui_weaponchoice @HELP_WEAPS_ARMBLASTER"
-			@NAMES_DEKABLASTERS			"set ui_weaponchoice @HELP_WEAPS_DEKABLASTERS"
+			@NAMES_ARMBLASTER		"set ui_weaponchoice @HELP_WEAPS_ARMBLASTER"
+			@NAMES_DEKABLASTERS		"set ui_weaponchoice @HELP_WEAPS_DEKABLASTERS"
 			@NAMES_MELEE			"set ui_weaponchoice @HELP_WEAPS_MELEE"
-			@NAMES_SABER_DESC			"set ui_weaponchoice @HELP_WEAPS_SABER_DESC_STYLES"
-			@NAMES_SABER_SPECIALS			"set ui_weaponchoice @HELP_WEAPS_SABER_SPECIALS"
+			@NAMES_SABER_DESC		"set ui_weaponchoice @HELP_WEAPS_SABER_DESC_STYLES"
+			@NAMES_SABER_SPECIALS	"set ui_weaponchoice @HELP_WEAPS_SABER_SPECIALS"
 			}		 	  
 			action 
 			{ 			
@@ -853,11 +836,11 @@
 		{
 			name				weapondesc
 			group				weapons
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 90 325 265
 			cvar				"ui_weaponchoice"
 			text				"*"
-			style				WINDOW_STYLE_EMPTY
 			visible				0
 			font				2
 			textscale			0.5
@@ -1354,7 +1337,7 @@
 		{
 			name				list
 			group				forcepowers
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				120 10 325 70
 			text				"Force Power: "					
@@ -1365,17 +1348,8 @@
 			textalign			ITEM_ALIGN_CENTER
 			textstyle			0
 			textalignx			34
-			//elementheight			20
-			//elementwidth			40
-			//elementtype			LISTBOX_TEXT
 			forecolor			1 1 1 0.9
 			visible				0
-			//border				1
-			//bordercolor			0.1 0.7 1 0.8
-			//forecolor			0.1 0.7 1 0.8
-			//backcolor			0 0 0 0
-			//outlinecolor			0.1 0.7 1 0.3
-			//columns				1 2 196 172
 			cvar				ui_help_force
 			cvarStrList
 			{
@@ -1406,11 +1380,11 @@
 		{
 			name				forcedesc
 			group				forcepowers
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 90 325 265
 			cvar				ui_forcechoice
 			text				"*"
-			style				WINDOW_STYLE_EMPTY
 			visible				0
 			font				2
 			textscale			0.5
@@ -1642,7 +1616,7 @@
 		{
 			name				button
 			group				strategy
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				120 10 325 70
 			text				"Situation Type: "
@@ -1673,7 +1647,7 @@
 		{
 			name				textbox
 			group				strategy
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 90 325 265
 			text				"*"							
@@ -1696,7 +1670,7 @@
 		{
 			name				button
 			group				strategy2
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				120 10 325 70
 			text				"Game Mode: "
@@ -1727,7 +1701,7 @@
 		{
 			name				textbox
 			group				strategy2
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 90 325 265
 			text				"*"							
@@ -1743,16 +1717,18 @@
 			maxLineChars		30
 		}		
 		
-//game optimiziation menu
+//game optimization menu
 
 		itemDef 
 		{
 			name				textbox
 			group				gameopt
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 10 325 345
-			text				@HELP_GAME_PERFORMANCE_OVERVIEW							visible				0
+			text				"*"
+			cvar				"ui_help_opt" // using cvar to avoid text overflow bug on initial load
+			visible				0
 			font				2
 			textscale			0.5
 			textalign			ITEM_ALIGN_LEFT	
@@ -1767,10 +1743,12 @@
 		{
 			name				textbox
 			group				gameopt2
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 10 325 345
-			text				@HELP_GAME_PERFORMANCE_CVARS							visible				0
+			text				"*"
+			cvar				"ui_help_opt" // using cvar to avoid text overflow bug on initial load
+			visible				0
 			font				2
 			textscale			0.5
 			textalign			ITEM_ALIGN_LEFT	
@@ -1787,7 +1765,7 @@
 		{
 			name				button
 			group				faq
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				120 10 325 70
 			text				""
@@ -1803,21 +1781,27 @@
 			cvar				"ui_help_faq"
 			cvarStrList
 			{
-			@HELP_FAQ_QUESTION		"set ui_faqanswer @HELP_FAQ_ANSWER"						@HELP_FAQ_QUESTION1		"set ui_faqanswer @HELP_FAQ_ANSWER1"
+			@HELP_FAQ_QUESTION		"set ui_faqanswer @HELP_FAQ_ANSWER"
+			@HELP_FAQ_QUESTION1		"set ui_faqanswer @HELP_FAQ_ANSWER1"
 			@HELP_FAQ_QUESTION2		"set ui_faqanswer @HELP_FAQ_ANSWER2"
 			@HELP_FAQ_QUESTION3		"set ui_faqanswer @HELP_FAQ_ANSWER3"
-			@HELP_FAQ_QUESTION4		"set ui_faqanswer @HELP_FAQ_ANSWER4"						@HELP_FAQ_QUESTION5		"set ui_faqanswer @HELP_FAQ_ANSWER5"
+			@HELP_FAQ_QUESTION4		"set ui_faqanswer @HELP_FAQ_ANSWER4"
+			@HELP_FAQ_QUESTION5		"set ui_faqanswer @HELP_FAQ_ANSWER5"
 			@HELP_FAQ_QUESTION6		"set ui_faqanswer @HELP_FAQ_ANSWER6"
 			@HELP_FAQ_QUESTION7		"set ui_faqanswer @HELP_FAQ_ANSWER7"
-			@HELP_FAQ_QUESTION8		"set ui_faqanswer @HELP_FAQ_ANSWER8"						@HELP_FAQ_QUESTION9		"set ui_faqanswer @HELP_FAQ_ANSWER9"
+			@HELP_FAQ_QUESTION8		"set ui_faqanswer @HELP_FAQ_ANSWER8"
+			@HELP_FAQ_QUESTION9		"set ui_faqanswer @HELP_FAQ_ANSWER9"
 			@HELP_FAQ_QUESTION10	"set ui_faqanswer @HELP_FAQ_ANSWER10"
 			@HELP_FAQ_QUESTION11	"set ui_faqanswer @HELP_FAQ_ANSWER11"
-			@HELP_FAQ_QUESTION12	"set ui_faqanswer @HELP_FAQ_ANSWER12"						@HELP_FAQ_QUESTION13		"set ui_faqanswer @HELP_FAQ_ANSWER13"
+			@HELP_FAQ_QUESTION12	"set ui_faqanswer @HELP_FAQ_ANSWER12"
+			@HELP_FAQ_QUESTION13	"set ui_faqanswer @HELP_FAQ_ANSWER13"
 			@HELP_FAQ_QUESTION14	"set ui_faqanswer @HELP_FAQ_ANSWER14"
 			@HELP_FAQ_QUESTION15	"set ui_faqanswer @HELP_FAQ_ANSWER15"
-			@HELP_FAQ_QUESTION16	"set ui_faqanswer @HELP_FAQ_ANSWER16"						@HELP_FAQ_QUESTION17		"set ui_faqanswer @HELP_FAQ_ANSWER17"
+			@HELP_FAQ_QUESTION16	"set ui_faqanswer @HELP_FAQ_ANSWER16"
+			@HELP_FAQ_QUESTION17	"set ui_faqanswer @HELP_FAQ_ANSWER17"
 			@HELP_FAQ_QUESTION18	"set ui_faqanswer @HELP_FAQ_ANSWER18"
-			@HELP_FAQ_QUESTION19	"set ui_faqanswer @HELP_FAQ_ANSWER19"						@HELP_FAQ_QUESTION20		"set ui_faqanswer @HELP_FAQ_ANSWER20"
+			@HELP_FAQ_QUESTION19	"set ui_faqanswer @HELP_FAQ_ANSWER19"
+			@HELP_FAQ_QUESTION20	"set ui_faqanswer @HELP_FAQ_ANSWER20"
 			@HELP_FAQ_QUESTION21	"set ui_faqanswer @HELP_FAQ_ANSWER21"
 			@HELP_FAQ_QUESTION22	"set ui_faqanswer @HELP_FAQ_ANSWER22"
 			@HELP_FAQ_QUESTION23	"set ui_faqanswer @HELP_FAQ_ANSWER23"
@@ -1832,7 +1816,7 @@
 		{
 			name				textbox
 			group				faq
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 90 325 265
 			text				"*"
@@ -1854,7 +1838,7 @@
 		{
 			name				button1
 			group				tips
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				120 10 325 30
 			text				"Beginner Tips:"
@@ -1903,7 +1887,7 @@
 			} 	  
 			action 
 			{ 			
-				exec			"vstr ui_help_tips"						play			"sound/interface/go.mp3" ; 
+				exec			"vstr ui_help_tips" ;						play			"sound/interface/go.mp3" ; 
 			}
 		}
 
@@ -1911,7 +1895,7 @@
 		{
 			name				button2
 			group				tips
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_MULTI
 			rect				120 185 325 30
 			text				"Advanced Tips:"
@@ -1960,7 +1944,7 @@
 			}  	  
 			action 
 			{ 			
-				exec			"vstr ui_help_tips2"						play			"sound/interface/go.mp3" ; 
+				exec			"vstr ui_help_tips2" ;						play			"sound/interface/go.mp3" ; 
 			}
 		}
 
@@ -1968,7 +1952,7 @@
 		{
 			name				textbox1
 			group				tips
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 50 325 130 
 			text				"*"
@@ -1988,7 +1972,7 @@
 		{
 			name				textbox2
 			group				tips
-			style				WINDOW_STYLE_EMPTY
+			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_TEXTSCROLL
 			rect				120 225 325 130
 			text				"*"
@@ -2013,10 +1997,12 @@
 		itemDef
 		{
 			name				back
+			group				bg_button
 			text				"BACK"			
 			descText			@MENUS_BACKUP_ONE_MENU
 			type				ITEM_TYPE_BUTTON			
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn_Bg"			
 			rect				0 382 120 36
 			textaligny			-8
@@ -2024,7 +2010,6 @@
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0			
 			visible				1
 			forecolor			1 1 1 1
 			action
@@ -2032,6 +2017,7 @@
 				play			"sound/interface/back.mp3"
 				close			all
 				open			ingame
+				open			main_nomusic
 			}
 			mouseenter
 			{

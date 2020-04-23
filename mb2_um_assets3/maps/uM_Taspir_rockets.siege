@@ -1,0 +1,58 @@
+Teams
+{
+	team1 Heroes
+	team2 Villains
+}
+
+mapgraphic "gfx\mapgraphic\canyon\canyon"
+missionname "Taspir"
+
+roundbegin_target ""
+
+Heroes
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "Taspir_RedContestants" 							
+	TeamIcon	"gfx/2d/logos/mb_newrepublic"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "dummy"
+		final 1
+		objdesc "Kill the Blue Team!"
+		objgfx "gfx/mplevels/taspir/blue"
+	}
+
+	wonround "Victory!" 						//Printed to this team if they won the round.
+	lostround "Failure..."						//Printed to this team if they lost the round.
+	attackers 1 								//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Destroy the Blue Team!" 			//Displayed on the mission briefing menu.
+}
+
+Villains
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "Taspir_BlueContestants"
+	TeamIcon	gfx/2d/logos/mb_sithempire
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "dummy"
+		final 1
+		objdesc "Kill the Red Team!"
+		objgfx "gfx/mplevels/taspir/red"
+	}
+	
+	wonround "Victory!"
+	lostround "Failure..." 	
+	attackers 0
+
+	briefing "Destroy the Red Team!"
+}

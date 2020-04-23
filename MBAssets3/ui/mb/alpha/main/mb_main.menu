@@ -46,12 +46,13 @@
 		focusColor				1 1 1 0.6
 		descX					320
 		descY					448
-		descScale				0.2
-		descColor				0.5 0.5 0.5 0.5
+		descScale				0.7
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		onOpen
 		{
 			exec				"music music/ThemeMusicB19.mp3"
+			setcvar				g_gametype "7"	//set game type to siege for easy map commands
 			uiScript			"getmodelcvars"	//needed for model display stuff
 			uiScript			"getmodelskin"	//needed for model display stuff			
 		}
@@ -222,7 +223,7 @@
 			group				none
 			style				WINDOW_STYLE_SHADER
 			rect				0 0 0 0
-			background			"gfx/menus/btn_ach_hl"
+			background			"gfx/menus/Alpha/btn_ach_hl"
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
@@ -234,7 +235,7 @@
 			group				none
 			style				WINDOW_STYLE_SHADER
 			rect				0 0 0 0
-			background			"gfx/menus/btn_demo_hl"
+			background			"gfx/menus/Alpha/btn_demo_hl"
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
@@ -246,7 +247,7 @@
 			group				none
 			style				WINDOW_STYLE_SHADER
 			rect				0 0 0 0
-			background			"gfx/menus/btn_tutorial_hl"
+			background			"gfx/menus/Alpha/btn_tutorial_hl"
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
@@ -255,9 +256,10 @@
 		itemDef
 		{
 			name				playbutton
-			group				mainbuttons
+			group				bg_button
 			text				"PLAY"
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			rect				257 200 120 36 
 			descText			"Start playing"
@@ -267,7 +269,6 @@
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
 			forecolor			1 1 1 1
 			cvarTest 			"tut_levelstatus"
 			hideCvar	 		{ "0" }	
@@ -295,19 +296,19 @@
 		itemDef
 		{
 			name				settingsbutton
-			group				mainbuttons
+			group				bg_button
 			text				"SETTINGS"
 			descText			"Configure game settings"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			rect				257 240 120 36 
-			background			"gfx/menus/alpha/Btn_Bg"			
+			background			"gfx/menus/alpha/Btn_Bg"
 			textaligny			-8
 			font				6
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
 			forecolor			1 1 1 1
 			cvarTest 			"tut_levelstatus"
 			hideCvar	 		{ "0" }	
@@ -334,11 +335,12 @@
 		itemDef
 		{
 			name				librarybutton
-			group				mainbuttons
+			group				bg_button
 			text				"LIBRARY"
 			descText			"Access the ingame library menus."
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			rect				257 280 120 36 
 			background			"gfx/menus/alpha/Btn_Bg"			
 			textaligny			-8
@@ -346,7 +348,6 @@
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
 			forecolor			1 1 1 1
 			cvarTest 			"tut_levelstatus"
 			hideCvar	 		{ "0" }	
@@ -373,11 +374,12 @@
 		itemDef
 		{
 			name				quitgamebutton
-			group				mainbuttons
+			group				bg_button
 			text				"QUIT"
 			descText			"Leave the game"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			rect				257 320 120 36 
 			background			"gfx/menus/alpha/Btn_Bg"			
 			textaligny			-8
@@ -385,7 +387,6 @@
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
 			forecolor			1 1 1 1
 			cvarTest 			"tut_levelstatus"
 			hideCvar	 		{ "0" }	
@@ -416,14 +417,13 @@
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_SHADER
 			rect				268 376 25 33 
-			background			"gfx/menus/btn_tutorial"			
+			background			"gfx/menus/Alpha/btn_tutorial"			
 			textaligny			2
 			font				6
 			textscale			0.3
 			textalignx			69
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
-			forecolor			1 1 1 0.4
+			forecolor			1 1 1 0.2
 			cvarTest 			"tut_levelstatus"
 			hideCvar	 		{ "0" }	
 			showTutorial		{ "2" }	
@@ -441,6 +441,7 @@
 			{
 				play			"sound/interface/go.mp3"
 				close			all
+				open			background
 				open			tutorial 
 			}
 		}
@@ -453,14 +454,13 @@
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_SHADER
 			rect				305 376 25 33 
-			background			"gfx/menus/btn_ach"			
+			background			"gfx/menus/Alpha/btn_ach"			
 			textaligny			2
 			font				6
 			textscale			0.3
 			textalignx			69
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
-			forecolor			1 1 1 0.4
+			forecolor			1 1 1 0.2
 			cvarTest 			"tut_levelstatus"
 			hideCvar	 		{ "0" }	
 			showTutorial		{ "2" }			
@@ -478,6 +478,7 @@
 			{
 				play			"sound/interface/go.mp3"
 				close			all
+				open			background
 				open			achievements 
 			}
 		}
@@ -490,14 +491,13 @@
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_SHADER
 			rect				342 376 25 33 
-			background			"gfx/menus/btn_demo"			
+			background			"gfx/menus/Alpha/btn_demo"			
 			textaligny			2
 			font				6
 			textscale			0.3
 			textalignx			69
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
-			forecolor			1 1 1 0.4
+			forecolor			1 1 1 0.2
 			cvarTest 			"tut_levelstatus"
 			hideCvar	 		{ "0" }	
 			showTutorial		{ "2" }		
@@ -515,6 +515,7 @@
 			{
 				play			"sound/interface/go.mp3"
 				close			all
+				open			background
 				open			demo 
 			}
 		}
@@ -544,12 +545,13 @@
 			name				starttutorial_center
 			group				starttutorial
 			text				"Would you like to play the tutorial?"
-			style				WINDOW_STYLE_SHADER
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
 			rect				179 205 280 100
 			background			"gfx/menus/alpha/Menu_Quit"
 			textaligny			25
 			font				6
-			textscale			0.4
+			textscale			0.25
 			textalignx			135
 			textalign			ITEM_ALIGN_CENTER
 			textstyle			0					
@@ -569,13 +571,13 @@
 			text				"NO"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn_Bg"
 			textaligny			-8
 			font				6
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0					
 			rect				181 310 120 36
 			forecolor			1 1 1 0.8
 			cvarTest 			"tut_levelstatus"
@@ -610,13 +612,13 @@
 			text				"YES"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn_Bg"
 			textaligny			-8
 			font				6
 			textscale			0.3
 			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textstyle			0					
 			rect				338 310 120 36
 			forecolor			1 1 1 0.8
 			cvarTest 			"tut_levelstatus"
@@ -627,7 +629,7 @@
 			{
 				play			"sound/interface/button1.wav"
 				uiscript		setTutorialStarted
-				exec			"g_authenticity 0;g_minmbpoints 80;g_AllowEntity_target_level_change 1;g_gametype 7;map mb2_tutorial01"
+				exec			"g_authenticity 0;g_minmbpoints 80;g_AllowEntity_target_level_change 1;g_gametype 7;cg_dynamiccrosshair 2;map mb2_tutorial01"
 			}
 			mouseEnter
 			{

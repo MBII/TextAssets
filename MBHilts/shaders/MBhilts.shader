@@ -1065,8 +1065,7 @@ models/weapons2/reys_quarterstaff/reys_quarterstaff
     }
 }
 
-// Shader for Knight of the old republic saber //
-
+// Shader for KOTOR Saber //
 models/weapons2/kotorsab/tex
 {
 	cull	twosided
@@ -1094,26 +1093,6 @@ models/weapons2/kotorsab/tex
     }
 }
 
-// Shader for Darth Malgus saber //
-models/weapons2/tor_sabers/malgus
-{
-	q3map_nolightmap
-    {
-        map models/weapons2/tor_sabers/malgus
-    }
-    {
-        map models/weapons2/tor_sabers/enviro
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-    }
-    {
-        map models/weapons2/tor_sabers/malgus_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 // Shader for Depa Billaba saber //
 models/weapons2/saber_depabillaba/depabillabaUVW
 {
@@ -1129,44 +1108,17 @@ models/weapons2/saber_depabillaba/depabillabaUVW
     }
 }
 
-// Shader for Satele Shan saber //
-
-models/weapons2/tor_sabers/thorn
+// Shader for Sith Stalker Saber //
+models/weapons2/saber_stalker/saber
 {
-	q3map_nolightmap
-    {
-        map models/weapons2/tor_sabers/thorn
-    }
-    {
-        map models/weapons2/tor_sabers/enviro
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-    }
-    {
-        map models/weapons2/tor_sabers/thorn_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-// Shader for Centurion Saber //
-
-models/weapons2/tor_sabers/centurion
-{
-	q3map_nolightmap
-    {
-        map models/weapons2/tor_sabers/centurion
-    }
-    {
-        map models/weapons2/tor_sabers/enviro
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-    }
-    {
-        map models/weapons2/tor_sabers/centurion_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
+	{
+		map models/weapons2/saber_stalker/saber
+		rgbGen lightingDiffuse
+	}
+	{
+        	map models/weapons2/saber_stalker/saber_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
     }
 }

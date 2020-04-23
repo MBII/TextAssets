@@ -8,20 +8,20 @@ ClassInfo
 	classNumberLimit	1
 	saberstyle		SS_MEDIUM
 	weapons		WP_SABER|WP_MELEE|WP_TRIP_MINE|WP_BLASTER
-	attributes		MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1
+	attributes		MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FORCEBLOCK,3
 	maxhealth		300
 	maxarmor		30
 	forcepool		100
 	forceregen		1
-	forcepowers		FP_SABERTHROW,3
 	model			"chefporkins" 				//this is optional, if it's here it forces the model to this.
 	skin			"default"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/chefporkins/mb2_icon_default"
-	extralives		2
+	extralives		1
 	customveh		moped
+	rateOfFire		.3
 	MBClass		MB_CLASS_DROIDEKA
 	WP_TripMineFlags	HELD_HIGHDAMAGE
-	WP_BlasterPistolFlags 	HELD_EXPLOSIVE|HELD_KNOCKDOWN
+	WP_BlasterPistolFlags 	HELD_LOWDAMAGE
 	classflags		CFL_SEEING_STEALTH
 	speed       1
 
@@ -29,14 +29,16 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_TRIP_MINE
-	WeaponBasedOff		WP_TRIP_MINE
-	NewWorldModel		"models/weapons2/fraggrenade/thermal_w.glm"  
-    NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_fraggrenade"
-	WeaponName		"Potent Frag Grenade"
-	altFireEnabled		0
-	customAmmo          7
+		WeaponToReplace				WP_TRIP_MINE
+ 		WeaponBasedOff				WP_TRIP_MINE
+ 		NewWorldModel				"models/weapons2/oldfraggrenade/thermal_w.glm"
+ 		NewViewModel				"models/weapons2/oldfraggrenade/thermal.md3"
+ 		MissileModel 				"models/weapons2/oldfraggrenade/thermal_proj.md3"
+ 		AltMissileModel 				"models/weapons2/oldfraggrenade/thermal_proj.md3"
+ 		Icon						"gfx/hud/w_icon_oldfraggrenade"
+		altFireEnabled		0
+		customAmmo          7
+		WeaponName		"Potent Frag Grenade"
 }
 
 WeaponInfo1
@@ -57,8 +59,8 @@ Commander Porkins is now offering cooking lessons!
 
 Weapons:
 Family Frying Pan
-E-11 (3)
-Potent Grenades (3)
+Greased-up E-11
+Potent Grenades (7)
 
 Vehicle:
 Specialty Moped
@@ -70,5 +72,5 @@ Invisible to force sight
 Dodge (3)
 Force Block (3)
 
-2 Extra Lives
+1 Extra Life
 "
