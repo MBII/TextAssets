@@ -310,30 +310,6 @@ levelshots/mb2_duel_boc2
 	}
 }
 
-levelshots/mb2_duel_cargoheist
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map levelshots/mb2_duel_cargoheist
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-}
-
-levelshots/mb2_duel_cargoheist2
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map levelshots/mb2_duel_cargoheist2
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-}
-
 levelshots/mb2_duel_cc
 {
 	nopicmip
