@@ -365,7 +365,40 @@
 			action
 			{
 				play			"sound/interface/button1.wav" 
-				open			createfavorite_popmenu 
+				open			createfavorite_popmenu
+			}
+		}
+		
+		// FIND PLAYER
+		itemDef
+		{
+			name				findplayerText
+			text				"FIND PLAYER"
+			descText			@MENUS_SEARCH_CURRENT_SERVER
+			type				ITEM_TYPE_BUTTON
+			font				6
+			textscale			0.125
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				110 50 80 15
+			textalign			ITEM_ALIGN_LEFT
+			textaligny			-3
+			textalignx			10
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	110 50 80 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				open			findplayer_popmenu
+				close			joinserver
 			}
 		}
 
