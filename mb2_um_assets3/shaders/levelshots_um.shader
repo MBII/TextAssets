@@ -1000,25 +1000,25 @@ levelshots/um_prisonraid_v42
     }
 }
 
-levelshots/um_rising
+levelshots/um_lavarising
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_rising
+        map levelshots/um_lavarising
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
 }
 
-levelshots/um_rising2
+levelshots/um_lavarising2
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_rising2
+        map levelshots/um_lavarising2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
