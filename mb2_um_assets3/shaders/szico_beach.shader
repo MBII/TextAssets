@@ -1,6 +1,4 @@
-################################
 ////// Alpha-Fade Volumes //////
-################################
 
 textures/szico_beach/alpha_000
 {
@@ -79,9 +77,7 @@ textures/szico_beach/alpha_100
 	qer_trans 0.75
 }
 
-#########################
 ////// Sky Shaders //////
-#########################
 
 textures/szico_beach/sky
 {
@@ -95,9 +91,7 @@ textures/szico_beach/sky
 	skyParms textures/szico_beach/beach 512 -
 }
 
-###########################
 ////// Phong Shaders //////
-###########################
 
 textures/szico_beach/sand
 {
@@ -116,9 +110,7 @@ textures/szico_beach/sand
     }
 }
 
-###################
 ////// Other //////
-###################
 
 textures/szico_beach/sandblue_blend
 {

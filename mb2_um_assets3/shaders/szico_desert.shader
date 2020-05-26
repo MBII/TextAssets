@@ -1,6 +1,4 @@
-################################
 ////// Alpha-Fade Volumes //////
-################################
 
 textures/szico_desert/alpha_000
 {
@@ -79,9 +77,7 @@ textures/szico_desert/alpha_100
 	qer_trans 0.75
 }
 
-#########################
 ////// Sky Shaders //////
-#########################
 
 textures/szico_desert/sky
 {
@@ -94,9 +90,8 @@ textures/szico_desert/sky
 	q3map_nolightmap
 	skyParms textures/szico_desert/desert 512 -
 }
-###########################
+
 ////// Phong Shaders //////
-###########################
 
 textures/szico_desert/sand
 {
@@ -115,9 +110,7 @@ textures/szico_desert/sand
     }
 }
 
-####################
 ////// Blends //////
-####################
 
 textures/szico_desert/sandyellow_blend
 {
