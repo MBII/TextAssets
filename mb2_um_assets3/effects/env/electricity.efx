@@ -1,0 +1,43 @@
+// Quick and dirty lightning effect....let's make the shader do all the hard work. :)
+
+Electricity
+{
+	life	150 225
+
+	spawnflags	org2fromTrace
+
+	// unfortunately these flags do not mean what you think they do...so be careful if you mess with this
+	flags	useModel useBBox usePhysics
+
+	intensity	1.0	3.3
+	
+	size
+	{
+		start	4.0	7.0
+		end 	1.0
+		flags	linear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Particle
+{
+	life	10
+
+	size
+	{
+		start	3	5
+		flags	random
+	}
+
+	rotation	0 360
+
+	shaders
+	[
+		gfx/misc/lightningFlash
+	]
+}

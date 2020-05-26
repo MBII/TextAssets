@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Frenzy
+	team2 Birds
+}
+
+mapgraphic "gfx/mplevels/map_none'
+missionname "Birdmino"
+radartopleft "-4352, 4608"
+radarbottomright "4608, -4352"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_kamino"
+	}
+}
+
+roundbegin_target ""
+
+Frenzy
+{
+	RequiredObjectives 1
+	UseTeam "Birdmino_Frenz"
+	TeamIcon	"gfx/2d/logos/mb_smugglers"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Blast those Birds!"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Blast those Birds!"
+		objgfx "gfx/mplevels/frenzy_birdmino/objective"
+	}
+
+	wonround "Win!"
+	lostround "Bird food..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1
+	briefing "Blast those Birds!"
+}
+
+Birds
+{
+	RequiredObjectives 1
+	Timed 120
+	UseTeam "Birdmino_Birds"
+	TeamIcon	"gfx/2d/logos/mb_grievous"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Swarm and destroy Frenzy"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Swarm and destroy Frenzy."
+		objgfx "gfx/mplevels/frenzy_birdmino/objective"
+	}
+
+	wonround "Caw Caw!"
+	lostround "Failure..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Swarm and destroy Frenzy."
+}

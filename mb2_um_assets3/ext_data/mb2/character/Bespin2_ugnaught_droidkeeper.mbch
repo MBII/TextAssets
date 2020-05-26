@@ -1,0 +1,140 @@
+//Siege class def file.
+
+ClassInfo
+{
+name			"Bespin2_ugnaught_droidkeeper"
+weapons			WP_MELEE|WP_SABER|WP_THERMAL|WP_DET_PACK
+saber1			ugnaught_shockhand
+saber2			ugnaught_shockhand
+saberstyle		SS_DUAL|SS_STRONG
+sabercolor		0
+bpmultiplier	.5
+apmultiplier	2
+attributes		MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,1|MB_ATT_THERMALS,1|MB_ATT_POISON_DART,2|MB_ATT_TRACKING_DART,2|MB_ATT_T21,2
+maxhealth		80
+maxarmor		50
+classflags 		CFL_STATVIEWER|CFL_SEEING_STEALTH|CFL_CONCUSSIONRIFLE
+WP_DetPackFlags 	HELD_PULSE|HELD_LOWDAMAGE
+extralives			1
+model			"ugnaught_technician"
+skin			"default"
+uishader		"models/players/ugnaught_technician/mb2_icon_default"
+MBClass			MB_CLASS_ARCTROOPER
+classNumberLimit	1
+holdables		HI_SHIELD|HI_SENTRY_GUN
+modelscale		0.7
+speed			1
+}
+
+WeaponInfo0
+{
+WeaponToReplace		WP_SABER
+WeaponBasedOff		WP_SABER
+NewWorldModel		"models/weapons2/saber_electric/saber_electric.glm"
+NewViewModel		"models/weapons2/dummy/dummy.md3"
+Icon			"gfx/hud/w_icon_melee"
+WeaponName		"Shock Wave Gloves"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_THERMAL
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons2/blackegg/thermal_w.glm"
+	NewViewModel			"models/weapons2/blackegg/thermal.md3"
+	MissileModel 			"models/weapons2/blackegg/thermal_proj.md3"
+	MissileModel2 			"models/weapons2/blackegg/thermal_proj.md3"
+	altMissileMissEffect		"flashbang/realthermal"
+	MissileMissEffect		"flashbang/realthermal"
+	altMissileHitHumanEffect	"flashbang/realthermal"
+	missileHitHumanEffect		"flashbang/realthermal"
+	altMissileHitDroidEffect	"flashbang/realthermal"
+	missileHitDroidEffect		"flashbang/realthermal"
+	Icon				"gfx/hud/w_icon_blackegg.png"
+	WeaponName			"Flash Nade"
+	customammo			2
+	primFireEnabled			0
+}
+
+WeaponInfo2
+{
+
+	WeaponToReplace		WP_DET_PACK				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"  	//Required
+	NewViewModel		"models/weapons2/base_demp2/demp2.glm"   	//Required
+	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2" 				//Required
+	WeaponName			"Stun DEMP 2"    					//Required
+	
+	WeaponToReplace		WP_DET_PACK
+	WeaponBasedOff		WP_DET_PACK
+	
+	MuzzleEffect		"ships/reb_torpmuzzleflash"
+	AltMuzzleEffect		"ships/reb_torpmuzzleflash"
+	
+	//MuzzleEffect		"base_concussion/muzzle_flash"
+	//AltMuzzleEffect		"base_concussion/altmuzzle_flash"
+	MissileEffect		"base_concussion/shot"
+	
+	FlashSound0		"sound/weapons/concussion/fire"
+	AltFlashSound0		"sound/weapons/concussion/alt_fire"
+	altFireEnabled 0
+
+
+	//Efx
+	MissileHitHumanEffect "effects/base_demp2/altdetonate"
+	MissileHitDroid 	"effects/base_demp2/altdetonate"
+
+	WallImpact 			"effects/base_demp2/wall_impact"
+	WallImpactEnhanced 	"effects/base_demp2/wall_impact"
+	WallImpactEnhanced2 	"effects/base_demp2/wall_impact"
+
+	//MissileEffect		"effects/base_demp2/projectile"  					
+	//AltMissileEffect 	"effects/base_demp2/projectile" 
+
+	//MuzzleEffect		"effects/base_demp2/muzzle_flash"   				//Optional: New muzzle effect
+	//AltMuzzleEffect		"effects/base_demp2/altmuzzle_flash" 				//Optional: New alt muzzle effect
+
+	FleshImpact 	 "effects/base_demp2/flesh_impact"
+	DroidImpact 	"effects/base_demp2/flesh_impact"
+
+	CustomAmmo 	100
+	ClipSize 		20
+	ReloadTimeModifier 	.05		// default is 1 - 100%
+	ProjSpeedModifier .1
+
+	//IdleAnim	nameofanimation		
+	//FiringAnim	nameofanimation	
+
+	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
+	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
+
+
+	//FlashSound0		"sound/weapons/base_demp2/fire.mp3"
+	//FlashSound1		"sound/weapons/base_demp2/fire.mp3"
+	//FlashSound3		"sound/weapons/base_demp2/fire.mp3"
+	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
+
+	AltFireEnabled 0
+
+	}
+
+description	"Ugnaught Droid Keeper
+
+Weaponry:
+Shock Wave Gloves
+Stun Demp 2
+Pistol (3)
+Flash Nade
+Poison Darts (2)
+
+Items:
+Portable Shield
+Sentry Gun
+
+Attributes:
+Armour (3)
+Ammo (3)
+
+This Ugnaught keeps the droids in line."

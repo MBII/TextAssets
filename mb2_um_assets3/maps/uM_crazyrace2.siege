@@ -1,0 +1,115 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Jawas
+	team2 <=
+}
+
+mapgraphic "gfx/mplevels/map_none'
+missionname  "Crazy Race 2"
+
+roundbegin_target "siegestart"
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Jawas
+{
+	Timed	900
+	RequiredObjectives 3
+	UseTeam "cr2_jawas"
+	TeamIcon	"gfx/crazyrace2/jawas"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Race for First!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Must Race for first!"
+		objgfx "gfx/crazyrace2/1st"
+	}
+	
+	Objective2
+	{
+		goalname "Race for Second!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Must Race for second!"
+		objgfx "gfx/crazyrace2/2nd"
+	}
+
+	Objective3
+	{
+		goalname "Race for Third!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Must Race for third!"
+		objgfx "gfx/crazyrace2/3rd"
+	}
+
+		
+	wonround "Must Race!?"
+	lostround "Must Race!?"
+	roundover_sound_wewon "sound/crazyrace2/jawas"
+	roundover_sound_welost "sound/crazyrace2/jawas"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Go for"
+}
+
+<=
+{
+	RequiredObjectives 3
+	UseTeam "cr2_spect"
+	TeamIcon	"gfx/crazyrace2/spect"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Must Race for First!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Must Race for First!"
+		objgfx "gfx/crazyrace2/1st"
+	}
+	
+	Objective2
+	{
+		goalname "Must Race for Second!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Must Race for Second!"
+		objgfx "gfx/crazyrace2/2nd"
+	}
+
+	Objective3
+	{
+		goalname "Must Race for Third!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Must Race for Third!"
+		objgfx "gfx/crazyrace2/3rd"
+	}
+
+	
+	wonround "Must Race!??" 	//Printed to this team if they won the round.
+	lostround "Must Race!??" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/crazyrace2/jawas2"
+	roundover_sound_welost "sound/crazyrace2/jawas2"
+	roundover_target "siegeend"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Go for" //Displayed on the mission briefing menu.
+}
