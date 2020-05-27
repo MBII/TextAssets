@@ -1,30 +1,48 @@
+////// Objectives //////
+textures/sarlacc/obj_border
+{
+	qer_editorimage	gfx/misc/grayring
+	q3map_nolightmap
+	surfaceparm	nonsolid
+	cull	twosided
+    {
+        map gfx/misc/grayring
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+        tcMod scroll 0.5 0
+    }
+    {
+        map gfx/misc/grayring
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+        tcMod scroll -0.1 0
+	detail
+    }
+}
 
-#########################
 ////// Models //////
-#########################
 
 
-models/map_objects/sarlacc/desertskiff
+models/map_objects/ships/desertskiff
 {
     {
         map $lightmap
     }
     {
-        map models/map_objects/sarlacc/desertskiff
+        map models/map_objects/ships/desertskiff
         blendFunc GL_ZERO GL_SRC_COLOR
 	depthWrite
     }
     {
-        map models/map_objects/sarlacc/desertskiff_spec
+        map models/map_objects/ships/desertskiff_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-#########################
 ////// Sky Shaders //////
-#########################
 
 textures/sarlacc/sky
 {
@@ -39,9 +57,8 @@ textures/sarlacc/sky
 	q3map_nolightmap
 	skyParms textures/sarlacc/desert 512 -
 }
-###########################
+
 ////// Phong Shaders //////
-###########################
 
 textures/sarlacc/sand
 {
@@ -62,9 +79,7 @@ textures/sarlacc/sand
     }
 }
 
-####################
 ////// Blends //////
-####################
 
 textures/sarlacc/sand_blend
 {
