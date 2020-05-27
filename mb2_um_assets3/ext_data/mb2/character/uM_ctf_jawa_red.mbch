@@ -1,0 +1,118 @@
+//Siege class def file.
+
+ClassInfo
+{
+name			"uM_ctf_jawa_red"	
+weapons			WP_MELEE|WP_SABER|WP_TRIP_MINE|WP_BOWCASTER
+saber1			ot_Baton
+WP_SaberFlags 	HELD_PULSE
+sabercolor		0
+saberstyle		SS_TAVION
+attributes		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_RESPAWNS,3|MB_ATT_BOWCASTER,1
+maxhealth		80
+model			"jawa"
+skin			"sr_default"
+uishader		"models/players/sr_jawa/mb2_icon_red"
+MBClass			MB_CLASS_BOUNTY_HUNTER 
+WP_BowcasterFlags 	HELD_PULSE|HELD_SLOW
+modelscale		0.7
+speed			1.10
+forcepool        25
+}
+
+WeaponInfo0
+{
+WeaponToReplace		WP_SABER
+WeaponBasedOff		WP_SABER
+NewWorldModel		"models/weapons2/base_baton/stun_baton.glm"
+NewViewModel		"models/weapons2/dummy/dummy.md3"
+Icon			"gfx/hud/w_icon_stun_baton"
+WeaponName		"Stun Baton"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace	WP_TRIP_MINE
+	WeaponBasedOff	WP_TRIP_MINE
+	NewWorldModel	"models/weapons2/b17polaritypulse/laser_trap_w.glm"
+	NewViewModel	"models/weapons2/b17polaritypulse/laser_trap.md3"
+	MissileModel	"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
+	altMissileModel	"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
+	Icon	"gfx/hud/w_icon_polarity"
+	WeaponName	"Pulse Grenade"
+	customammo         3
+}
+
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_BOWCASTER				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"  	//Required
+	NewViewModel		"models/weapons2/base_demp2/demp2.glm"   	//Required
+	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2" 				//Required
+	WeaponName			"DEMP 2"    					//Required
+	
+
+	//Efx
+		
+	MissileHitHumanEffect "base_demp2/altdetonate"
+	MissileHitDroid 	"base_demp2/altdetonate"
+
+	WallImpact 			"base_demp2/wall_impact"
+	WallImpactEnhanced 	"base_demp2/wall_impact"
+	WallImpactEnhanced2 	"base_demp2/wall_impact"
+
+	MissileEffect		"base_demp2/projectile"  					
+	AltMissileEffect 	"base_demp2/projectile" 
+
+	MuzzleEffect		"base_demp2/muzzle_flash"   				//Optional: New muzzle effect
+	AltMuzzleEffect		"base_demp2/altmuzzle_flash" 				//Optional: New alt muzzle effect
+
+	FleshImpact 	 "base_demp2/flesh_impact"
+	DroidImpact 	"base_demp2/flesh_impact"
+
+	CustomAmmo 	100
+	ClipSize 		5
+	ReloadTimeModifier 	.85		// default is 1 - 100%
+	ProjSpeedModifier .8
+
+	//IdleAnim	nameofanimation		
+	//FiringAnim	nameofanimation	
+
+	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
+	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
+
+
+	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound1		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound3		"sound/weapons/base_demp2/fire.mp3"
+	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
+
+	AltFireEnabled 0
+
+	}
+
+description	"Scout
+
+Weaponry:
+Destructive Electromagnetic Pulse 2 (Demp 2)
+Stun Baton
+Pulse Grenade (3)
+Poison Darts (2)
+
+Items:
+Portable Shield
+Sentry Gun
+
+Attributes:
+Armour (3)
+Ammo (3)
+
+Abilities:
+Assemble
+Jawa Shin Kick
+Three Extra Lives
+
+Utinni!"

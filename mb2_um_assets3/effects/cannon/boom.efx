@@ -1,0 +1,176 @@
+repeatDelay				500
+
+Particle
+{
+	name				explosion_cloud
+
+	spawnFlags			rgbComponentInterpolation affectedByWind
+
+	count				6 8
+
+	life				200 500
+
+	origin				0 -10 -26 10 10 0
+
+	wind				7 8
+
+	rotation			0 360
+
+	rotationDelta		-8 8
+
+	velocity			46 -13 10 83 34 38
+
+	rgb
+	{
+		start			0.502 0.502 0.251 0.502 0.502 0.502
+	}
+
+	alpha
+	{
+		start			0.8 0.5
+		end				0
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			9 19
+		end				45 90
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				6
+
+	life				100 300
+
+	delay				250 500
+
+	origin				0 -20 -20 5 20 20
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	velocity			100 -100 -100 -100 100 100
+
+	acceleration		-5 -5 -11 5 5 5
+
+	gravity				-50 -30
+
+	rgb
+	{
+		start			0 0 0 0.5059 0.4941 0.4941
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			1 6
+		end				20 30
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				8 14
+
+	radius				300 400
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/vehicles/weapons/cannon/hit_wall.wav
+	]
+}
+
+Decal
+{
+	rotation			360 0
+
+	size
+	{
+		start			30 15
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Particle
+{
+}
+
+Emitter
+{
+	flags				useModel usePhysics
+
+	spawnFlags			absoluteVel
+
+	count				2 5
+
+	life				1050 2100
+
+	delay				20 0
+
+	bounce				0.2 0.4
+
+	velocity			300 300 300 -300 -300 400
+
+	gravity				-550 -600
+
+	size
+	{
+		start			0.1 0.5
+	}
+
+	models
+	[
+		models/chunks/metal/metal1_1.md3
+		models/chunks/metal/metal1_2.md3
+		models/chunks/metal/metal1_3.md3
+		models/chunks/metal/metal1_4.md3
+		models/chunks/metal/metal2_1.md3
+		models/chunks/metal/metal2_2.md3
+		models/chunks/metal/metal2_3.md3
+		models/chunks/metal/metal2_4.md3
+	]
+}
