@@ -310,18 +310,6 @@ levelshots/um_crazyrace2
     }
 }
 
-levelshots/um_crazyrace2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_crazyrace2
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
 levelshots/um_crazyrace22
 {
     nopicmip
