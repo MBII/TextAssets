@@ -1,3 +1,4 @@
+
 models/map_objects/christmashat/pumpkin
 {
     {
@@ -12,3 +13,11 @@ models/map_objects/christmashat/pumpkin
     }
 }
 
+models/map_objects/christmashat/mask
+{
+	cull	twosided
+	{
+		map models/map_objects/christmashat/mask
+		rgbGen lightingDiffuse
+	}
+}
