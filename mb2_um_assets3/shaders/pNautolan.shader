@@ -8,17 +8,6 @@ cull disable
        depthWrite
        rgbGen lightingDiffuse
    }
-   {
-        map GFX/Effects/Arm_Env
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-   }
-   {
-       map models/players/pNautola/arms
-       blendFunc GL_SRC_ALPHA GL_ONE
-       detail
-       alphaGen lightingSpecular
-   }
 }
 
 models/players/pNautola/arms_insignia
@@ -30,24 +19,7 @@ cull disable
        depthWrite
        rgbGen lightingDiffuse
    }
-   {
-        map GFX/Effects/Arm_Env
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-   }
-   {
-       map models/players/pNautola/arms_insignia
-       blendFunc GL_SRC_ALPHA GL_ONE
-       detail
-       alphaGen lightingSpecular
-   }
 }
-
-
-
-
-
-
 
 models/players/pNautola/cape
 {
@@ -59,13 +31,6 @@ models/players/pNautola/cape
     }
 
 }
-
-
-
-
-
-
-
 
 models/players/pNautola/torso
 {
@@ -83,62 +48,6 @@ models/players/pNautola/torso
     }
 }
 
-models/players/pNautola/legs
-{
-
-    {
-        map models/players/pNautola/legs
-        rgbGen lightingDiffuse
-        //alphaFunc GE128
-    }
-    {
-        map models/players/pNautola/legs_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
-}
-
-models/players/pNautola/boots
-{
-
-    {
-        map models/players/pNautola/boots
-        rgbGen lightingDiffuse
-        //alphaFunc GE128
-    }
-    {
-        map models/players/pNautola/legs_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
-}
-
-
-
-models/players/pNautola/suit
-{
-
-    {
-        map models/players/pNautola/suit
-        rgbGen lightingDiffuse
-        //alphaFunc GE128
-    }
-    {
-        map models/players/pNautola/suit_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
-}
-
-
-
-
-
-
-
 models/players/pNautola/head
 {
 cull disable
@@ -147,11 +56,6 @@ cull disable
        alphaFunc GE128
        depthWrite
        rgbGen lightingDiffuse
-   }
-   {
-        map GFX/Effects/Arm_Env
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
    }
    {
        map models/players/pNautola/head_eyes
@@ -169,17 +73,6 @@ cull disable
        alphaFunc GE128
        depthWrite
        rgbGen lightingDiffuse
-   }
-   {
-        map GFX/Effects/Arm_Env
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-   }
-   {
-       map models/players/pNautola/head_tenticle2
-       blendFunc GL_SRC_ALPHA GL_ONE
-       detail
-       alphaGen lightingSpecular
    }
 }
 
@@ -200,9 +93,6 @@ models/players/pNautola/head_eyes
     }
 }
 
-
-
-
 models/players/pNautola/head_tenticle
 {
 	cull twosided
@@ -213,7 +103,6 @@ models/players/pNautola/head_tenticle
     }
 
 }
-
 
 models/players/pNautola/arms
 {
