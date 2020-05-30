@@ -68,6 +68,7 @@ levelshots/um_bespin_classic2
         rgbGen identity
     }
 }
+
 levelshots/um_bespin_open
 {
     nopicmip
