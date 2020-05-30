@@ -22,26 +22,3 @@ models/droidy_flags/flag2
     }
 }
 
-gfx/hud/mpi_rflag
-{
-	nopicmip
-	nomipmaps
-    {
-        map gfx/hud/mpi_rflag
-        blendFunc GL_ONE GL_ONE
-        glow
-        rgbGen vertex
-    }
-}
-
-gfx/hud/mpi_bflag
-{
-	nopicmip
-	nomipmaps
-    {
-        map gfx/hud/mpi_bflag
-        blendFunc GL_ONE GL_ONE
-        glow
-        rgbGen vertex
-    }
-}

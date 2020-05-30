@@ -121,7 +121,7 @@ textures/Holosigns/T4
     {
         map textures/Holosigns/T4
         blendFunc GL_ONE GL_ONE
-        rgbGen wave sin 1 0.6
+        rgbGen wave sin 1 0.6 1 1
 	  tcMod scroll 0.09 0
     }
     {
