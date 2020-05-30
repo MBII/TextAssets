@@ -45,6 +45,7 @@ levelshots/um_bespin2
         rgbGen identity
     }
 }
+
 levelshots/um_bespin_classic
 {
     nopicmip
@@ -93,6 +94,30 @@ levelshots/um_bespin_open2
     }
 }
 
+levelshots/um_birdmino
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_birdmino
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_birdmino2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_birdmino2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_bouncy
 {
     nopicmip
@@ -112,30 +137,6 @@ levelshots/um_bouncy2
     notc
     {
         map levelshots/um_bouncy2
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_Birdmino
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_Birdmino
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_Birdmino2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_Birdmino2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -165,13 +166,13 @@ levelshots/um_bouncybash2
     }
 }
 
-levelshots/um_canyon
+levelshots/um_cantina
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_canyon
+        map levelshots/um_cantina
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -188,13 +189,14 @@ levelshots/um_cantina2
         rgbGen identity
     }
 }
-levelshots/um_cantina
+
+levelshots/um_canyon
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_cantina
+        map levelshots/um_canyon
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -307,6 +309,7 @@ levelshots/um_crazyrace2
         rgbGen identity
     }
 }
+
 levelshots/um_crazyrace2
 {
     nopicmip
@@ -331,6 +334,29 @@ levelshots/um_crazyrace22
     }
 }
 
+levelshots/um_crazytrain
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_crazytrain
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_crazytrain2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_crazytrain2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
 
 levelshots/um_crypt
 {
@@ -355,7 +381,6 @@ levelshots/um_crypt2
         rgbGen identity
     }
 }
-
 
 levelshots/um_ctf_bespin
 {
@@ -404,48 +429,50 @@ levelshots/um_ctf_coruscant2
         rgbGen identity
     }
 }
-levelshots/um_ctf_Narshaddaa
+
+levelshots/um_ctf_narshaddaa
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_ctf_Narshaddaa
+        map levelshots/um_ctf_narshaddaa
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
 }
 
-levelshots/um_ctf_Narshaddaa2
+levelshots/um_ctf_narshaddaa2
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_ctf_Narshaddaa2
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-levelshots/um_ctf_OceanTemple
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_ctf_OceanTemple
+        map levelshots/um_ctf_narshaddaa2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
 }
 
-levelshots/um_ctf_OceanTemple2
+levelshots/um_ctf_oceantemple
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_ctf_OceanTemple
+        map levelshots/um_ctf_oceantemple
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_oceantemple2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_oceantemple2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -474,6 +501,31 @@ levelshots/um_cultbattle2
         rgbGen identity
     }
 }
+
+levelshots/um_dojo
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_dojo
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_dojo2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_dojo2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_downfall
 {
     nopicmip
@@ -594,49 +646,49 @@ levelshots/um_gib_coruscant2
     }
 }
 
-levelshots/um_gib_Narshaddaa
+levelshots/um_gib_imperial
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_gib_Narshaddaa
+        map levelshots/um_gib_imperial
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
 }
 
-levelshots/um_gib_Narshaddaa2
+levelshots/um_gib_imperial2
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_gib_Narshaddaa2
+        map levelshots/um_gib_imperial2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
 }
 
-levelshots/um_gib_Imperial
+levelshots/um_gib_narshaddaa
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_gib_Imperial
+        map levelshots/um_gib_narshaddaa
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
 }
 
-levelshots/um_gib_Imperial2
+levelshots/um_gib_narshaddaa2
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_gib_Imperial2
+        map levelshots/um_gib_narshaddaa2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -738,30 +790,6 @@ levelshots/um_lasertag2
     }
 }
 
-levelshots/um_lavaparty
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_lavaparty
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_lastonesinking2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_lastonesinking2
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
 levelshots/um_lastonesinking
 {
     nopicmip
@@ -785,6 +813,79 @@ levelshots/um_lastonesinking2
         rgbGen identity
     }
 }
+
+levelshots/um_lavaduel
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavaduel
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavaduel2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavaduel2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavaparty
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavaparty
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavaparty2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavaparty2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavarising
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavarising
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavarising2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavarising2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_medievil
 {
     nopicmip
@@ -996,30 +1097,6 @@ levelshots/um_prisonraid_v42
     notc
     {
         map levelshots/um_prisonraid_v42
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_lavarising
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_lavarising
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_lavarising2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_lavarising2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }

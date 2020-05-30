@@ -1,8 +1,8 @@
-models/players/bao_durarm_energy
+models/players/bao_dur/arm_energy
 {
 	cull	twosided
     {
-        map models/players/bao_durarm_energy
+        map models/players/bao_dur/arm_energy
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
 	glow
         rgbGen entity
@@ -20,11 +20,11 @@ models/players/bao_durarm_energy
     }
 }
 
-models/players/bao_durarm_energy_red
+models/players/bao_dur/arm_energy_red
 {
 	cull	twosided
     {
-        map models/players/bao_durarm_energy_red
+        map models/players/bao_dur/arm_energy_red
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
 	glow
         rgbGen entity
