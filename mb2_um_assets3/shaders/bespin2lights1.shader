@@ -263,5 +263,27 @@ textures/bespinnew/besy
     }
 
 }
+
+textures/bespinnew/DARKbuilding4
+{
+	qer_editorimage	textures/bespinnew/DARKbuilding4
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/DARKbuilding4
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/DARKbuilding4_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
 		
 		
