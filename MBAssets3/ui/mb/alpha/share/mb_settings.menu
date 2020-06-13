@@ -5385,11 +5385,79 @@ itemDef
 		
 		itemDef
 		{
+			name				drawfriend
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Team Indicators"
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				drawfriendRestrict
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Indicator Visibility"
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				drawfriendRedHue
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Team 1 Indicator Hue"
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				drawfriendBlueHue
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Team 2 Indicator Hue"
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
 			name				footsteps
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_FOOTSTEPS
-			rect				142 110 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -5406,7 +5474,7 @@ itemDef
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Jetpack Activation:"
-			rect				142 140 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -5423,7 +5491,7 @@ itemDef
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Achievements:"
-			rect				142 170 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -5440,7 +5508,7 @@ itemDef
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Screenshot Achievements:"
-			rect				142 185 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -5457,7 +5525,7 @@ itemDef
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEXT
-			rect				142 215 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -5474,7 +5542,7 @@ itemDef
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_VOICE
-			rect				142 230 230 14
+			rect				142 305 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -5486,6 +5554,199 @@ itemDef
 		}
 
 // OPTION 2 FIELDS		
+		
+		itemDef
+		{
+			name				drawfriend
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			desctext			"Show icons and/or names above allied players in-game (all players while spectating)."
+			cvar				"cg_drawFriend"
+			cvarFloatList
+			{
+				@MENUS_OFF							0
+				"Faction Icon"	 					1
+				"Triangle Icon"						2
+				"Faction Icon (on body)"			3
+				"Player Name"						4
+				"Player Name (mono color)"			5
+				"Faction Icon & Name"				6
+				"Faction Icon & Name (mono color)"	7
+			}
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 111 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				drawfriendRestrict
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			desctext			"Restrict display of team indicators to only in-game or spectating."
+			cvar				"cg_restrictDrawFriend"
+			cvarFloatList
+			{
+				"No Restrictions"				0
+				"Only Spectating"	 			1
+				"Only In-game"					2
+			}
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 126 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				drawfriendRedHue
+			group				options2
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_redIconHue" -1 -1 1
+			rect				152 140 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Color of first team's icon and mono color names (set negative for map default)."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 141 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				drawfriendRedHueNum
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Color of first team's icon and mono color names (set negative for map default)."
+			cvarfloat			"cg_redIconHue" -1 -1 1
+			rect				380 140 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				drawfriendBlueHue
+			group				options2
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_blueIconHue" -1 -1 1
+			rect				152 155 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Color of second team's icon and mono color names (set negative for map default)."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 156 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				drawfriendBlueHueNum
+			group				options2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Color of second team's icon and mono color names (set negative for map default)."
+			cvarfloat			"cg_blueIconHue" -1 -1 1
+			rect				380 155 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 		
 		itemDef
 		{
@@ -5503,7 +5764,7 @@ itemDef
 				@MENUS_SOUNDS_AND_EFFECTS		2
 				"Snd, Efx and Gfx"				3
 			}
-			rect				142 110 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5514,7 +5775,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 111 230 15			
+				setitemrect		button_glow	142 186 230 15			
 			}
 			mouseExit
 			{
@@ -5541,7 +5802,7 @@ itemDef
 				"Hold Jump" 		1
 				"Jump Twice"		2
 			}
-			rect				142 140 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5552,7 +5813,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 141 230 15			
+				setitemrect		button_glow	142 216 230 15			
 			}
 			mouseExit
 			{
@@ -5579,7 +5840,7 @@ itemDef
 				"Graphics only"			1
 				"Graphics and sound"	2
 			}
-			rect				142 170 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5590,7 +5851,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 171 230 15			
+				setitemrect		button_glow	142 246 230 15			
 			}
 			mouseExit
 			{
@@ -5616,7 +5877,7 @@ itemDef
 				@MENUS_NO			0
 				@MENUS_YES			1
 			}
-			rect				142 185 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5627,7 +5888,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 186 230 15			
+				setitemrect		button_glow	142 261 230 15			
 			}
 			mouseExit
 			{
@@ -5649,7 +5910,7 @@ itemDef
 			cvar				"se_language"
 			feeder				40
 			cvarStrList			feeder
-			rect				142 215 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5661,7 +5922,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
+				setitemrect		button_glow	142 291 230 15			
 			}
 			mouseExit
 			{
@@ -5680,7 +5941,7 @@ itemDef
 			group				options2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"English (others unavailable)"
-			rect				142 215 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			245
 			textaligny			-5
@@ -5706,7 +5967,7 @@ itemDef
 				Deutsch				deutsch
 				"Español"			espanol
 			}
-			rect				142 230 230 14
+			rect				142 305 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -5718,7 +5979,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 231 230 15			
+				setitemrect		button_glow	142 306 230 15			
 			}
 			mouseExit
 			{
