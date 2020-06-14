@@ -32,7 +32,7 @@ models/map_objects/ships/desertskiff
     {
         map models/map_objects/ships/desertskiff
         blendFunc GL_ZERO GL_SRC_COLOR
-	depthWrite
+		depthWrite
     }
     {
         map models/map_objects/ships/desertskiff_spec
@@ -159,6 +159,33 @@ textures/sarlacc/base_blend3
         blendFunc GL_DST_COLOR GL_ZERO
         rgbGen identity
     }
+}
+
+///// Other //////
+textures/sarlacc/skin
+{
+	qer_editorimage textures/sarlacc/skin
+	surfaceparm nonsolid
+	{
+		map $lightmap
+	}
+	{
+		map textures/sarlacc/skin
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/sarlacc/skin2
+{
+	qer_editorimage textures/sarlacc/skin2
+	surfaceparm nonsolid
+	{
+		map $lightmap
+	}
+	{
+		map textures/sarlacc/skin2
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
 }
 
 textures/sarlacc/flesh
