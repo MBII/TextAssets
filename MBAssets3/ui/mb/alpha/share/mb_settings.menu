@@ -5571,9 +5571,9 @@ itemDef
 				"Triangle Icon"						2
 				"Faction Icon (on body)"			3
 				"Player Name"						4
-				"Player Name (mono color)"			5
+				"Player Name (no color)"			5
 				"Faction Icon & Name"				6
-				"Faction Icon & Name (mono color)"	7
+				"Faction Icon & Name (no color)"	7
 			}
 			rect				142 110 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -5638,12 +5638,24 @@ itemDef
 		
 		itemDef
 		{
+			name				drawfriendHueBG
+			group				options2
+			style				WINDOW_STYLE_SHADER
+			rect				250 154 96 3
+			background			"gfx/menus/hslstrip"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
 			name				drawfriendRedHue
 			group				options2
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvarfloat			"cg_redIconHue" -1 -1 1
+			cvarfloat			"cg_redIconHue" 0 0 1
 			rect				152 140 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
@@ -5652,11 +5664,11 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Color of first team's icon and mono color names (set negative for map default)."
+			descText			"Color of first team's icon (0 for default and -1 for map color)."
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 141 230 19			
+				setitemrect		button_glow	142 141 230 14			
 			}
 			mouseExit
 			{
@@ -5675,8 +5687,8 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_EDITFIELD
 			text				""
-			descText			"Color of first team's icon and mono color names (set negative for map default)."
-			cvarfloat			"cg_redIconHue" -1 -1 1
+			descText			"Color of first team's icon (0 for default and -1 for map color)."
+			cvarfloat			"cg_redIconHue" 0 -1 1
 			rect				380 140 230 14
 			textalignx			0
 			textaligny			-5
@@ -5699,7 +5711,7 @@ itemDef
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
-			cvarfloat			"cg_blueIconHue" -1 -1 1
+			cvarfloat			"cg_blueIconHue" 0 0 1
 			rect				152 155 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
@@ -5708,11 +5720,11 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Color of second team's icon and mono color names (set negative for map default)."
+			descText			"Color of second team's icon (0 for default and -1 for map color)."
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 156 230 19			
+				setitemrect		button_glow	142 156 230 14			
 			}
 			mouseExit
 			{
@@ -5731,8 +5743,8 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_EDITFIELD
 			text				""
-			descText			"Color of second team's icon and mono color names (set negative for map default)."
-			cvarfloat			"cg_blueIconHue" -1 -1 1
+			descText			"Color of second team's icon (0 for default and -1 for map color)."
+			cvarfloat			"cg_blueIconHue" 0 -1 1
 			rect				380 155 230 14
 			textalignx			0
 			textaligny			-5
