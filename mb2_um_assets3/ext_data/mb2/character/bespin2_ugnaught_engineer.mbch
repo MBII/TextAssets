@@ -1,0 +1,148 @@
+//Siege class def file.
+
+ClassInfo
+{
+name			"bespin2_ugnaught_engineer"	
+weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_TRIP_MINE|WP_DET_PACK
+saber1			mwrench
+sabercolor		0
+saberstyle		SS_TAVION
+attributes		MB_ATT_CCTRAINING,2|MB_ATT_SOLDIER_TDS,1|MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_RESPAWNS,1|MB_ATT_DODGE,1|MB_ATT_SHIELD_RECHARGE
+maxhealth		80
+maxarmor		60
+model			"ugnaught"
+skin			"default_nopurse"
+uishader		"models/players/ugnaught/mb2_icon_base"
+MBClass			MB_CLASS_SOLDIER
+classNumberLimit	2
+holdables		HI_SHIELD|HI_SENTRY_GUN
+classflags		CFL_STATVIEWER|CFL_FASTHACKING
+modelscale		0.7
+speed			1
+forcepool        25
+WP_Demp2Flags 	HELD_PULSE
+}
+
+WeaponInfo0
+{
+	WeaponToReplace WP_BLASTER_PISTOL
+	WeaponBasedOff  WP_BRYAR_OLD
+	NewWorldModel "models/weapons2/Glie-44/Glie-44_w.glm"
+	NewViewModel  "models/weapons2/Glie-44/Glie-44.md3"
+	Icon  "gfx/hud/w_icon_glie-44"
+	WeaponName			"Glie-44"
+  FlashSound0		"sound/weapons/glie-44/fire.wav"
+  AltFlashSound0		"sound/weapons/glie-44/alt_fire.wav"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash03B"
+	MissileEffect		"Blaster/Shot10B"
+	Missile3Effect		"Blaster/Shot04B"
+	AltMissileEffect	"Blaster/Shot04B"
+	PowerupShotEffect	"Blaster/Shot04B"
+	ChargeEffect		"gfx/effects/cloneFrontFlash"
+		customAmmo		200
+	clipSize		5
+}
+
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_DEMP2				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"  	//Required
+	NewViewModel		"models/weapons2/base_demp2/demp2.glm"   	//Required
+	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2" 				//Required
+	WeaponName			"DEMP 2"    					//Required
+	
+
+	//Efx
+		
+	MissileHitHumanEffect "effects/base_demp2/altdetonate"
+	MissileHitDroid 	"effects/base_demp2/altdetonate"
+
+	WallImpact 			"effects/base_demp2/wall_impact"
+	WallImpactEnhanced 	"effects/base_demp2/wall_impact"
+	WallImpactEnhanced2 	"effects/base_demp2/wall_impact"
+
+	MissileEffect		"effects/base_demp2/projectile"  					
+	AltMissileEffect 	"effects/base_demp2/projectile" 
+
+	MuzzleEffect		"effects/base_demp2/muzzle_flash"   				//Optional: New muzzle effect
+	AltMuzzleEffect		"effects/base_demp2/altmuzzle_flash" 				//Optional: New alt muzzle effect
+	FleshImpact 	 "effects/base_demp2/flesh_impact"
+	DroidImpact 	"effects/base_demp2/flesh_impact"
+	CustomAmmo 	400
+	ClipSize 		25
+	ReloadTimeModifier 	0.85		// default is 1 - 100%
+	ProjSpeedModifier 0.8
+
+	firingAnim		BOTH_ATTACK3
+	idleAnim		TORSO_WEAPONREADY3
+
+	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
+	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
+
+
+	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound1		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound3		"sound/weapons/base_demp2/fire.mp3"
+	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
+
+	AltFireEnabled 0
+
+	}
+
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_mwrench" 	//Required: Weapon change icon
+	WeaponName		"Monkeywrench"    					//Required: Weapon change display name
+}
+
+WeaponInfo3
+{
+	WeaponToReplace			WP_TRIP_MINE
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons2/oldfraggrenade/thermal_w.glm"
+	NewViewModel			"models/weapons2/oldfraggrenade/thermal.md3"
+	MissileModel 			"models/weapons2/oldfraggrenade/thermal_proj.md3"
+	MissileModel2 			"models/weapons2/oldfraggrenade/thermal_proj.md3"
+	altMissileMissEffect		"conc_nade/concussion_nade"
+	MissileMissEffect		"conc_nade/concussion_nade"
+	altMissileHitHumanEffect	"conc_nade/concussion_nade"
+	missileHitHumanEffect		"conc_nade/concussion_nade"
+	altMissileHitDroidEffect	"conc_nade/concussion_nade"
+	missileHitDroidEffect		"conc_nade/concussion_nade"
+	Icon				"gfx/hud/w_icon_oldfraggrenade"
+	WeaponName			"Concussion Grenade"
+	
+}
+
+description	"Ugnaught Engineer
+
+Weaponry:
+Wrench
+Stun DEMP 2
+Pistol (2)
+Poison Darts (2)
+Concussion grenade
+
+Items:
+Portable Shield
+Sentry Gun
+
+Attributes:
+Armour (3)
+Ammo (3)
+
+Abilities:
+Assemble
+Shin Kick
+
+One extra life
+"

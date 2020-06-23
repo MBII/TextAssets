@@ -3,18 +3,18 @@
 ClassInfo
 {
 	name			"_h_c_Padme"
-	weapons			WP_FLECHETTE|WP_MELEE|WP_TRIP_MINE
-	attributes		MB_ATT_STAMINA,3|MB_ATT_SONIC_DETONATOR,3|MB_ATT_PISTOL,3|MB_ATT_A280,1|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1
+	weapons			WP_FLECHETTE|WP_MELEE
+	attributes		MB_ATT_PISTOL,2|MB_ATT_A280,1|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1
 	maxhealth		100
 	maxarmor		100
 	model			"padme_e2" 				//this is optional, if it's here it forces the model to this.
 	skin			"battle"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/padme_e2/mb2_icon_default"
-	MBClass			MB_CLASS_CLONETROOPER
+	MBClass			MB_CLASS_HERO
 	modelscale 		0.94
-	speed			1.1
+	speed			1
 	classNumberLimit 		1
-	damageProtection 0.8
+	damageProtection 		0.8
 	holdables		HI_HEALTHDISP
 }
 
@@ -23,14 +23,14 @@ WeaponInfo0
 	WeaponToReplace		WP_FLECHETTE        					//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_FLECHETTE      						//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel 		"models/weapons2/droidblaster/bd_blaster_w.glm"
-	NewViewModel 		"models/weapons2/droidblaster/padme_blaster.md3"
+	NewViewModel 		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_droidblaster"
 	MuzzleEffect		"Blaster/MuzzleFlash01R"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot01R"
 	AltMissileEffect 	"Blaster/Shot01R"
-//	FlashSound0			"sound/weapons/e-5/fire.mp3"  		
-//	AltFlashSound0		"sound/weapons/e-5/alt_fire.mp3"
+	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound0 		"sound/weapons/ee3/sniperfire.mp3"
 	WeaponName			"E-5 Blaster Rifle"
 	customAmmo			500
 	altFireEnabled		0
@@ -38,28 +38,36 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_TRIP_MINE
-	WeaponBasedOff		WP_TRIP_MINE
-	NewWorldModel		"models/weapons2/sonic_detonator/sonic_det_w.glm"
-	NewViewModel		"models/weapons2/sonic_detonator/sonic_det.md3"
-	missileModel		"models/weapons2/sonic_detonator/sonic_det_proj.md3"
-	Icon				"gfx/hud/w_icon_sonic_det"
-	WeaponName			"Sonic Detonator"
+	WeaponToReplace		WP_BLASTER_PISTOL        						//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_BLASTER_PISTOL       						//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/elg-3a/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/elg-3a/blaster_pistol.md3"   	//Required: New 1st person weapon model
+	Icon				"gfx/hud/w_icon_elg-3a" 						//Required: Weapon change icon
+	WeaponName			"ELG-3A Diplomat's Pistol"    					//Required: Weapon change display name
+	MuzzleEffect		"Blaster/MuzzleFlash01G"	   					//Optional: New muzzle effect
+	AltMuzzleEffect		"Blaster/MuzzleFlash01G" 						//Optional: New alt muzzle effect
+	MissileEffect		"Blaster/Shot11G"  								//Optional: New effect to be displayed on the projectile
+	Missile3Effect		"Blaster/Shot03G"  								//Optional: New effect to be displayed on the projectile
+	AltMissileEffect	"Blaster/Shot11G"  								//Optional: Ditto for the alt fire
+	PowerupShotEffect	"Blaster/Shot04G"  								//Optional: Ditto for the alt fire
+	ChargeEffect		"gfx/effects/greenFrontFlash"
+	OverchargeEffect	"Blaster/MuzzleCharge01G"
 }
-
-
 description	"Padme Amidala
 
+Class Summary: 
+Support class (medic) with accurate blaster
+
 Weapons:
-Pistol (3)
-E-5 Blaster
+- Pistol (2)
+- E-5 Blaster
 
 Attributes:
-Can heal others (press use)
-20 percent damage reduction
-Stamina (3)
-Dodge: (3)
-Health Regeneration: (3)
-Rally
+- Can heal others (press use)
+- 20 percent damage reduction
+- Stamina (3)
+- Dodge (3)
+- Health Regeneration (3)
+- Rally
 
 Though sustaining a glancing slash from a ferocious nexu, Padme can hold her own with a stolen battledroid blaster."

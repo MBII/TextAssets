@@ -29,6 +29,7 @@ gfx/mp/cq_holo
 textures/mp/cq_border
 {
 	qer_editorimage	gfx/misc/grayring
+	surfaceparm	nonsolid
 	q3map_nolightmap
 	cull	twosided
     {

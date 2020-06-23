@@ -2,24 +2,25 @@
 
 ClassInfo
 {
-  name  "_v_c_Phasma"
-  weapons WP_MELEE|WP_BLASTER_PISTOL|WP_FLECHETTE|WP_SABER
-  attributes  MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_ARC_RIFLE_SCOPE,2|MB_ATT_A280|MB_ATT_BLASTER
-  saber1  phasma_staff_legends
-  saberstyle  SS_STAFF
-  maxhealth 130
-	classNumberLimit  1
-	model "phasma"
-	skin  "default"
-	uishader  "gfx/hud/FA_icons/mb2_icon_phasma"
-  MBClass MB_CLASS_ARCTROOPER
-  forcepowers		FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
-  	APmultiplier		0.3
-	BPmultiplier		0.3
-  speed	.95
-  //rateoffire	1.2
- damageProtection 0.75
- ASmultiplier 	0.5
+	name 				 "_v_c_Phasma"
+	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_FLECHETTE|WP_SABER
+	attributes  		MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_ARC_RIFLE_SCOPE,2|MB_ATT_A280|MB_ATT_BLASTER
+	saber1  			phasma_staff_legends
+	saberstyle  		SS_STAFF
+	maxhealth 			150
+	classNumberLimit  	1
+	model 				"phasma"
+	skin  				"default"
+	uishader  			"gfx/hud/FA_icons/mb2_icon_phasma"
+	MBClass 			MB_CLASS_ARCTROOPER
+	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+  	APmultiplier		0.75
+	speed				0.95
+	rateoffire			1.2
+	damageProtection 	0.75
+	ASmultiplier 		0.5
+ 	jetpackFuelCooldown 1000
+	jetpackFuelAmount 8
  
 }
 
@@ -31,8 +32,8 @@ WeaponInfo0
 	NewViewModel  "models/weapons2/SE-44C/se-44c_phasma.md3"
 	Icon  "gfx/hud/w_icon_se-44c_p"
 	WeaponName  "Phasma's Blaster Pistol"
-  FlashSound0 "sound/weapons/ee3/fire.mp3"
-  AltFlashSound0  "sound/weapons/ee3/fire.mp3"
+	FlashSound0 "sound/weapons/ee3/fire.mp3"
+	AltFlashSound0  "sound/weapons/ee3/fire.mp3"
 	ProjSpeedModifier 	1.1
 }
 
@@ -53,34 +54,56 @@ WeaponInfo1
 	CustomAmmo	600
 	ProjSpeedModifier 	1.1
 }
-
-
-
 WeaponInfo2
+{
+	WeaponToReplace WP_BLASTER
+	WeaponBasedOff  WP_BLASTER
+	NewWorldModel "models/weapons2/f11d_blaster/F11D_Phasma_W.glm"
+	NewViewModel  "models/weapons2/f11d_blaster/F11D_Phasma.md3"
+	Icon  "gfx/hud/w_icon_f11_p"
+	WeaponName  "Phasma's Blaster Rifle"
+	MuzzleEffect  "Blaster/MuzzleFlash01R"
+	MissileEffect "Blaster/Shot02R"
+	AltMissleEffect "Blaster/Shot02R"
+	PowerUpShotEffect	"Blaster/Shot02R"
+	altFireEnabled 0
+	CustomAmmo	600
+	ProjSpeedModifier 	1.1
+}
+
+
+WeaponInfo3
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
 	NewWorldModel "models/weapons2/dummy/dummy.glm"
 	NewViewModel  "models/weapons2/dummy/dummy.md3"
 	Icon  "gfx/hud/w_icon_phasma_staff"
-	WeaponName  "Staff"
+	WeaponName  "Phasma's Staff"
 }
 
 description	"Captain Phasma
 
+Class Summary: 
+Tanky commander with saber reductive armor, staff and scoped blaster.
+
 Weaponry:
-Phasma's Blaster Pistol (2)
-Phasma's Blaster Rifle
-- scope attachement (m5)
+- Blaster Pistol (2)
+- Blaster Rifle
+  - scope attachement
 
 Staff
-- Very Few Block Points
+- Defense 1
+- 25 percent less attack points
 - 50 percent faster chain attack speed
+- Regenerate BP even when running
+- Does not block blaster fire
 
 Plasma's Advanced armor:
 - 25 percent overall damage reduction
 - Blast and Cortosis armor
 
-Rally
+Attributes:
+- Rally
 
 Charged with commanding the stormtrooper forces of the First Order, Phasma's true rank is higher than the simplistic label "captain" would suggest. Although her position could easily afford her a well-appointed war room far from the battlefield, Phasma insists on seeing combat operations first-hand, and shuns any comfortable trappings of elevated rank."

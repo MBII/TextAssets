@@ -1,0 +1,87 @@
+	//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Hutts
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname  "Sarlacc Barge"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "SarlaccBarge_Rebels" 							
+	TeamIcon	"gfx/2d/logos/mb_Rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+
+	Objective1
+	{
+		goalname "Retrieve the turret codes on the datapad"
+		final -1
+		message_team1 "Good, now activate the gun!"
+		message_team2 "The Rebels have the codes, stop them!"
+		objdesc "PRIMARY GOAL:
+		Steal the turret codes deep within the Sailbarge."
+		objgfx "gfx/mplevel/sarlaccbarge/datapad"
+	}
+
+	Objective2
+	{
+		goalname "Enable Auto-Fire on the Gun Turret"
+		final 0
+		message_team1 "Off the Sailbarge, it's gonna blow!"
+		message_team2 "Jabba and the Sailbarge are lost, save yourselves!"
+		objdesc "PRIMARY GOAL:
+		Enable Auto-Fire on the Sail Barge Gun Turret"
+		objgfx "gfx/mplevel/sarlaccbarge/turret"
+	}
+	
+	wonround "Their Sailbarge lies in ruins!"						//Printed to this team if they won the round.
+	lostround "We are doomed to digestion in the Sarlaac"					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/luke/misc/victory1.mp3"
+	roundover_sound_welost "sound/chars/luke/misc/anger1.mp3"
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Get to the Sail Barge and Hack the Gun Turret" //Displayed on the mission briefing menu.
+}
+
+Hutts
+{
+	RequiredObjectives 1
+	UseTeam "SarlaccBarge_Hutt"
+	TeamIcon	"gfx/2d/logos/mb_hutt"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the Gun Turret!"
+		final -1
+		message_team1 "We are doomed to digestion in the Sarlaac"
+		message_team2 "Lord Jabba will be pleased!"
+		objdesc "PRIMARY GOAL:
+		Defend the Gun Turret!"
+		objgfx "gfx/mplevel/sarlaccbarge/turret"
+	}
+	
+	wonround "We fed them to the Sarlacc!"
+	lostround "Jabba the Hutt has fallen, we must flee!"
+	roundover_sound_wewon "sound/chars/hutt/misc/taunt.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "roundoverimp"
+	attackers 0
+
+	briefing "Prevent any of the rebels accessing the gun turret!"
+}
