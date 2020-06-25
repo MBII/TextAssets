@@ -3,20 +3,16 @@
 {
 	menuDef
 	{
-		name "findplayer_popmenu"
-		visible					0
-		fullscreen				0
-		outOfBoundsClick
-		rect					150 85 240 180
+		name					"findplayer_popmenu"
+		fullScreen				0
+		rect					93 50 454 418
+		visible					1
 		focusColor				1 1 1 0.6
-		style					1
-		border					1
 		descX					320
-		descY					355
+		descY					402
 		descScale				0.7
 		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
-		popup
 		onOpen
 		{
 			uiScript			FindPlayer
@@ -26,37 +22,62 @@
 		{
 			play				"sound/interface/back.mp3"
 			close				findplayer_popmenu
+			open				joinserver
 		}
 
 // MENU BACKGROUND
-
 		itemDef
 		{
-			name				bg_small
+			name				bg_clean1
 			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				16 0 300 300
-			background			"gfx/menus/alpha/Menu_Small"		
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 377
+			background			"gfx/menus/alpha/Menu_Clean"
 			forecolor			1 1 1 1
 			visible				1
 			decoration
 		}
 		
+		itemDef
+		{
+			name				bg_listbox
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				10 128 434 224
+			background			"gfx/menus/alpha/Menu_Listbox"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				bg_listbox
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				230 40 214 75
+			background			"gfx/menus/alpha/Menu_Listbox"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+		
+// CONTENT
 		// title
 		itemDef
 		{
 			name				screenTitle
-			text				@MENUS_FIND_PLAYER
-			style				WINDOW_STYLE_EMPTY
-			rect				10 17 340 20
+			text				"FIND PLAYER"
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				15 5 429 20
 			font				6
-			textscale			0.2
+			textscale			0.15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			156
-			textaligny			1
-			forecolor			1 1 1 0.9
-			visible				1 
-			decoration 
+			textalignx			209
+			textaligny			0
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
 		}
 
 		// PLAYER NAME
@@ -68,9 +89,9 @@
 			decoration
 			font				5
 			textscale			0.2
-			rect				15 40 90 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			115
+			rect				11 58 45 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
 			textaligny			0
 			forecolor			1 1 1 0.9
 			visible				1
@@ -82,17 +103,17 @@
 			style				1
 			descText			@MENUS_INPUT_PLAYER_NAME
 			text				@MENUS_BLANK_1
-			maxchars			15
+			maxchars			24
 			font				5
 			textscale			0.2
 			type				ITEM_TYPE_EDITFIELD
 			cvar				"ui_findplayer"
-			rect				135 40 80 15
+			rect				50 68 174 15
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			-5
-			textaligny			1
+			textaligny			-10
 			forecolor			1 1 1 0.9
-			backcolor			0.5 0.5 0.5 0.2
+			backcolor			0.4 0.4 0.4 0.2
 			visible				1
 			action
 			{
@@ -105,13 +126,13 @@
 		itemDef
 		{
 			name				serverNameList
-			rect				95 70 150 50
+			rect				235 45 204 65
 			type				ITEM_TYPE_LISTBOX
 			style				WINDOW_STYLE_FILLED
 			elementwidth		50
 			elementheight		10
-			font				5
-			textscale			0.2
+			font				2
+			textscale			0.5
 			forecolor			1 1 1 0.9
 			elementtype			LISTBOX_TEXT
 			feeder				FEEDER_FINDPLAYER
@@ -125,9 +146,9 @@
 			cvar				"ui_playerServersFound"
 			type				0
 			style				0
-			rect				110 60 390 30
-			font				5
-			textscale			0.2
+			rect				239 25 199 15
+			font				2
+			textscale			0.5
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			1
@@ -140,100 +161,103 @@
 		itemDef
 		{
 			name				serverInfoList
-			rect				35 125 265 130
+			rect				10 133 429 204
 			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_FILLED
-			elementwidth		50
-			elementheight		10
-			font				5
-			textscale			0.2
-			backcolor			0 0 0 0
-			elementtype			LISTBOX_TEXT
+			style				WINDOW_STYLE_LISTBOX_RGB1
 			feeder				FEEDER_SERVERSTATUS
+			elementtype			LISTBOX_TEXT
+			elementwidth		300
+			elementheight		12
+			font				6
+			textscale			0.15
+			textaligny			2 // offset from the top			
+			forecolor			1 1 1 0.9
 			notselectable
 			visible				1
-			columns				4 2 40 80
-								35 10 120
-								70 10 120
-								105 10 120
+			columns				4  0 15 180
+								30 15 30 
+								60 15 30 
+								150 15 200
 		}
 
+// VERY BOTTOM ROW BUTTONS
+		// BACK BUTTON
 		itemDef
 		{
-			name				serverInfowindow 
-			rect				25 160 340 150
-			style				1
-			backcolor			0 0 0 0
-			forecolor			1 1 1 0.9
+			name				back
+			group				bg_button
+			text				"BACK"			
+			descText			@MENUS_BACKUP_ONE_MENU
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				0 382 120 36
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0			
 			visible				1
-			decoration
+			forecolor			1 1 1 1
+			action
+			{
+				play			"sound/interface/back.mp3"
+				close			findplayer_popmenu
+				open			joinserver
+			}
 		}
 
-// BUTTONS
-
+		// SEARCH BUTTON	
 		itemDef
 		{
 			name				search
-			text				@MENUS_SEARCH_CAPS
+			group				bg_button
+			text				@MENUS_SEARCH_CAPS			
 			descText			@MENUS_SEARCH_DESC
-			type				1
+			type				ITEM_TYPE_BUTTON			
+			style				WINDOW_STYLE_FILLED_RGB1
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				167 382 120 36
+			textaligny			-8
 			font				6
-			textscale			0.2
-			style				WINDOW_STYLE_FILLED
-			rect				15 250 80 30
+			textscale			0.3
+			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			60
-			textaligny			5
-			forecolor			1 1 1 0.9
+			textstyle			0			
 			visible				1
+			forecolor			1 1 1 1
 			action
 			{
 				play			"sound/interface/button1.wav"
-				ui_script		FindPlayer 
+				ui_script		FindPlayer
 			}
 		}
 
+		// JOIN BUTTON
 		itemDef
 		{
-			name				doneText
-			text				@MENUS_DONE_CAPS
-			descText			@MENUS_DONE_DESC
-			type				1
+			name				join_button
+			group				bg_button
+			text				"JOIN"
+			descText			@MENUS_JOIN_CHOSEN_SERVER			
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			background			"gfx/menus/alpha/Btn_Bg"			
+			rect				334 382 120 36
+			textaligny			-8
 			font				6
-			textscale			0.2
-			style				WINDOW_STYLE_FILLED
-			rect				105 250 80 30
+			textscale			0.3
+			textalignx			58
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			60
-			textaligny			5
-			forecolor			1 1 1 0.9
-			visible				1
+			textstyle			0
+			forecolor			1 1 1 1		
+			visible				1	
 			action
 			{
 				play			"sound/interface/button1.wav"
-				close			findplayer_popmenu
-			}
-		}
-
-		itemDef
-		{
-			name				join
-			text				@MENUS_JOIN_CAPS
-			descText			@MENUS_JOIN_PLAYER_DESC
-			type				1
-			font				6
-			textscale			0.2
-			style				WINDOW_STYLE_FILLED
-			rect				205 250 80 30
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			60
-			textaligny			5
-			forecolor			1 1 1 0.9
-			visible				1
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				ui_script		FoundPlayerJoinServer 
+				uiScript		checkpassword	//FoundPlayerJoinServer
 			}
 		}
 	}

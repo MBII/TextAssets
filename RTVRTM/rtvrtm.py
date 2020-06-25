@@ -96,7 +96,7 @@ class DummyTime(object):
     return self
 
 def report_unhandled_exception(bugreport):
-
+  return # disable
   """Report an unhandled exception to a remote server."""
 
   print("\nERROR: Caught unhandled exception!")
@@ -3988,7 +3988,7 @@ def main(argv):
                     metavar="<0-100>", default=5)
   parser_updater = OptionGroup(parser, "Built-in Updater Options")
   parser_updater.add_option("--noupdate", action="store_true", dest="noupdate",
-                            help="Skip the update check.", default=False)
+                            help="Skip the update check.", default=True)
   parser_updater.add_option("--quit", action="store_true", dest="quit",
                             help="Quit after checking for updates. This option will have no effect if --noupdate is set.",
                             default=False)
@@ -4092,8 +4092,14 @@ def main(argv):
           line = line[7:-1]
 
           if startswith(line, "ClientConnect: "):
+            line_tmp = line.split()
+            try: 
+              line_id_idx = line_tmp.index("ID:") + 1
+              player_id = int(line_tmp[line_id_idx]) # new log format
+            except ValueError:
+              player_id = int(line_tmp[1]) # old log format
 
-            players[int(line[15:17])] = [0, False, False, None, None] # Timer, RTV, RTM, Nomination, Vote Option.
+            players[player_id] = [0, False, False, None, None] # Timer, RTV, RTM, Nomination, Vote Option.
 
           elif startswith(line, "ClientDisconnect: "):
 
@@ -4243,8 +4249,12 @@ def main(argv):
             line = line[7:-1]
 
             if startswith(line, "ClientConnect: "):
-
-              player_id = int(line[15:17])
+              line_tmp = line.split()
+              try: 
+                line_id_idx = line_tmp.index("ID:") + 1
+                player_id = int(line_tmp[line_id_idx]) # new log format
+              except ValueError:
+                player_id = int(line_tmp[1]) # old log format
 
               if player_id not in players:
 
