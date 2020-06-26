@@ -3,8 +3,8 @@
 ClassInfo
 {
 	name			"_h_h_rako"
-	weapons			WP_MELEE|WP_DEMP2|WP_FLECHETTE|WP_BLASTER
-	attributes		MB_ATT_BLASTER,3|MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_A280,1|MB_ATT_DEXTERITY,2|MB_ATT_FUEL,2|MB_ATT_STAMINA,3
+	weapons			WP_MELEE|WP_DEMP2|WP_FLECHETTE
+	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_A280,1|MB_ATT_DEXTERITY,2|MB_ATT_FUEL,1|MB_ATT_STAMINA,3|MB_ATT_ARC_RIFLE_SCOPE
 	maxhealth		100
 	maxarmor		70
 	Forcepool		7
@@ -17,10 +17,13 @@ ClassInfo
 	customblue		0.6
 	MBClass			MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	uishader "models/players/Rako_Hardeen/mb2_icon_default"
-	headSwapModel "rgb_jetpack_pb"
-	headSwapSkin "default"
+	uishader 			"models/players/Rako_Hardeen/mb2_icon_default"
+	headSwapModel 		"rgb_jetpack_pb"
+	headSwapSkin 		"default"
 	classNumberLimit	1
+	rateoffire			1.15
+	jetpackFuelCooldown 2000
+	jetpackFuelAmount 	5 
 	
 //jetpackThrustEffect "jetpack/thrust"
 //jetpackThrustEffectEnhanced1 "effects/jetpack/thrust"
@@ -38,50 +41,43 @@ jetpackJetTag	"*holster_launcher"
 jetpackJet2Tag	"*holster_launcher2"	
 				
 }
+
 WeaponInfo0
 {
-WeaponToReplace		WP_FLECHETTE
-WeaponBasedOff		WP_FLECHETTE
-NewWorldModel		"models/weapons2/westarm5/heavy_repeater_w.glm"
-NewViewModel		"models/weapons2/westarm5/heavy_repeater_1.md3"
-Icon			"gfx/hud/w_icon_cw-w5"
-MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
-MissileEffect		"blaster/Shot01B"
-AltMissileEffect 	"blaster/Shot01B"
-//FlashSound0		"sound/weapons/cw-w5/fire.mp3"
-//AltFlashSound0		"sound/weapons/cw-w5/hit_wall.mp3"
-//FlashSound0		"sound/weapons/A280/fire.mp3"
-//AltFlashSound0		"sound/weapons/A280/fire.mp3"
-WeaponName		"Westar M5"
-}
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/cloneblaster_r/blaster_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/cloneblaster_r/blaster.md3"   	//Required: New 1st person weapon model
+	WeaponToReplace		WP_FLECHETTE
+	WeaponBasedOff		WP_FLECHETTE	
+	NewWorldModel		"models/weapons2/DC-17m/sniper.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_dc-17mS"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
-	MissileEffect		"Blaster/Shot02B"  					//Optional: New effect to be displayed on the projectile
-	AltMissileEffect 	"Blaster/Shot02B"  					//Optional: Ditto for the alt fire
-//	FlashSound0		"sound/weapons/repeater/fire.mp3"  			//Optional: Sound played when the weapon fires
-//	AltFlashSound0		"sound/weapons/repeater/fire.mp3"
-	Icon			"gfx/hud/w_icon_dc-15s" 				//Required: Weapon change icon
-	WeaponName		"DC-15S Blaster"    					//Required: Weapon change display name
-	customammo		480
+	MissileEffect		"blaster/Shot01B"
+	AltMissileEffect 	"blaster/Shot01B"
+	FlashSound0			"sound/weapons/dc17m/fire.mp3"
+	WeaponName		"DC-17m"
 }
-
+WeaponInfo1
+{
+	WeaponToReplace		WP_DEMP2
+	WeaponBasedOff		WP_DEMP2
+	NewWorldModel		"models/weapons2/DE-10/blaster_pistol_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_DE-10"
+	WeaponName		"Pistol"
+	customAmmo 		600
+}
 
 description	"Rako Hardeen
 
+Class Summary: 
+A dexterous jetpack sniper.
+
 Weapons:
-Clone Pistol (2)
-Westar M5 
-DC-15S Blaster
+- Pistol (2)
+- DC-17m (Sniper)
 
 Abilities: 
-Dexterity (2)
-Jetpack 
-"
+- Dexterity (2)
+- Jetpack 
+
+While celebrating his high-profile kill at Trueping's cantina, Rako Hardeen was summoned into the back room to meet his employer and receive payment. There, he was met by Jedi Masters Mace Windu and Obi-Wan Kenobi–his supposed victim, now physically altered to look like him. Hardeen was apprehended by the two Jedi, and his identity assumed by Kenobi in order to plant himself in a Republic prison. Hardeen's reputation for having killed a Jedi was essential to the plan, as Kenobi used it to gain the trust of other prisoners and attract the attention of Moralo Eval, from whom Kenobi was to acquire intel that would help the Jedi prevent a kidnapping attempt."

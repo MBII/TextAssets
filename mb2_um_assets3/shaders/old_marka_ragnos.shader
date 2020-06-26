@@ -1,31 +1,3 @@
-////ladder animado
-
-models/players/old_marka_ragnos/icon_default
-{
-	qer_editorimage	gfx/ladder/icon_over
-    {
-        map gfx/ladder/black
-        blendFunc GL_ONE GL_ZERO
-        tcMod scale 8 1
-    }
-    {
-        map gfx/ladder/over_energy
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave sin 1 0.25 0 8
-        tcMod scroll 5 0.1
-        tcMod scale 1 1
-    }
-    {
-        animMap 6.5 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/01 gfx/ladder/old_marka_ragnos/02 gfx/ladder/old_marka_ragnos/03 gfx/ladder/old_marka_ragnos/04 gfx/ladder/old_marka_ragnos/05 gfx/ladder/old_marka_ragnos/06 gfx/ladder/old_marka_ragnos/05 gfx/ladder/old_marka_ragnos/04 gfx/ladder/old_marka_ragnos/03 gfx/ladder/old_marka_ragnos/02 gfx/ladder/old_marka_ragnos/01 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/07 gfx/ladder/old_marka_ragnos/08 gfx/ladder/old_marka_ragnos/09 gfx/ladder/old_marka_ragnos/10 gfx/ladder/old_marka_ragnos/11 gfx/ladder/old_marka_ragnos/12 gfx/ladder/old_marka_ragnos/13 gfx/ladder/old_marka_ragnos/14 gfx/ladder/old_marka_ragnos/14 gfx/ladder/old_marka_ragnos/13 gfx/ladder/old_marka_ragnos/12 gfx/ladder/old_marka_ragnos/11 gfx/ladder/old_marka_ragnos/10 gfx/ladder/old_marka_ragnos/09 gfx/ladder/old_marka_ragnos/08 gfx/ladder/old_marka_ragnos/07
-        blendFunc GL_ONE GL_ONE
-    }
-    {
-        map gfx/ladder/icon_over
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-    }
-}
-
-
 ///default
 
 
@@ -129,32 +101,6 @@ models/players/old_marka_ragnos/marka_legs
         alphaGen lightingSpecular
     }
 }
-
-models/players/old_marka_ragnos/icon_default
-{
-	qer_editorimage	gfx/ladder/icon_over
-    {
-        map gfx/ladder/black
-        blendFunc GL_ONE GL_ZERO
-        tcMod scale 8 1
-    }
-    {
-        map gfx/ladder/over_energy
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave sin 1 0.25 0 8
-        tcMod scroll 5 0.1
-        tcMod scale 1 1
-    }
-    {
-        animMap 6.5 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/01 gfx/ladder/old_marka_ragnos/02 gfx/ladder/old_marka_ragnos/03 gfx/ladder/old_marka_ragnos/04 gfx/ladder/old_marka_ragnos/05 gfx/ladder/old_marka_ragnos/06 gfx/ladder/old_marka_ragnos/05 gfx/ladder/old_marka_ragnos/04 gfx/ladder/old_marka_ragnos/03 gfx/ladder/old_marka_ragnos/02 gfx/ladder/old_marka_ragnos/01 gfx/ladder/old_marka_ragnos/00 gfx/ladder/old_marka_ragnos/07 gfx/ladder/old_marka_ragnos/08 gfx/ladder/old_marka_ragnos/09 gfx/ladder/old_marka_ragnos/10 gfx/ladder/old_marka_ragnos/11 gfx/ladder/old_marka_ragnos/12 gfx/ladder/old_marka_ragnos/13 gfx/ladder/old_marka_ragnos/14 gfx/ladder/old_marka_ragnos/14 gfx/ladder/old_marka_ragnos/13 gfx/ladder/old_marka_ragnos/12 gfx/ladder/old_marka_ragnos/11 gfx/ladder/old_marka_ragnos/10 gfx/ladder/old_marka_ragnos/09 gfx/ladder/old_marka_ragnos/08 gfx/ladder/old_marka_ragnos/07
-        blendFunc GL_ONE GL_ONE
-    }
-    {
-        map gfx/ladder/icon_over
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-    }
-}
-
 
 ///default
 

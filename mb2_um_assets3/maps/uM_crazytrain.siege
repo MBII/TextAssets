@@ -1,0 +1,76 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Red
+	team2 Blue
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname  "Crazy Train"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Red
+{
+	RequiredObjectives 1
+	UseTeam "train_male"
+	Timed 300
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Defeat the blue team"
+		final -1
+		wonround  "The Force is male!"
+		lostround "The Force is female :("
+		objdesc "Defeat the blue team"
+		objgfx ""
+	}
+
+	
+	wonround "This blue team has been defeated" 	//Printed to this team if they won the round.
+	lostround "The force is female!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/wewon"
+	roundover_sound_welost "sound/welost"
+	roundover_target "siegeend"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Defeat the blue team" //Displayed on the mission briefing menu.
+}
+
+Blue
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "train_female"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defeat the red team"
+		final -1
+		message_team1 "The Force is male!"
+		message_team2 "The Force is male :("
+		objdesc "Defeat the red team"
+		objgfx ""
+	}
+
+		
+	wonround  "The red team has been defeated!"
+	lostround "The Force is male :("
+	roundover_sound_wewon "sound/wewon"
+	roundover_sound_welost "sound/welost"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Defeat the red team"
+}
