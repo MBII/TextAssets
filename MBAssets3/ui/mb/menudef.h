@@ -22,9 +22,10 @@
 //[INTSLIDER]
 #define ITEM_TYPE_INTSLIDER				15	// mouse speed, volume, etc.
 //[/INTSLIDER]
-#define ITEM_TYPE_VERTSLIDER			16	// mouse speed, volume, etc.
-#define ITEM_TYPE_SLIDER_VERT			17	// mouse speed, volume, etc.
-#define ITEM_TYPE_INTSLIDER_VERT		18	// mouse speed, volume, etc.
+#define ITEM_TYPE_VERTSLIDER			16 // vertical version of the previous slider
+
+#define ITEM_TYPE_SLIDER_VERT			17	// mouse speed, volume, etc. //#ifdef GCJ_VERT_SLIDER
+#define ITEM_TYPE_INTSLIDER_VERT		18	// mouse speed, volume, etc. //#ifdef GCJ_VERT_SLIDER
 
 
 #define ITEM_ALIGN_LEFT					0	// left alignment
@@ -141,7 +142,8 @@
 //#endif
 
 //#ifdef GCJ_CLASS
-#define FEEDER_MBCFG					0x39	// moviebattles class config list
+#define FEEDER_MBCFG					0x39 // moviebattles class config list
+#define FEEDER_SIEGE_TEAM_ALL			0x3a // All Siege Class Feeder
 
 // Xbox specific, hope no one minds
 #define FEEDER_XBL_ACCOUNTS				0xA0	// list of available XBL accounts
@@ -377,6 +379,18 @@
 #define UI_CLASS					298
 #define UI_JOINMBMODE				299
 #define UI_CHAT_HAND				300
+
+//#ifdef GCJ_FA_REVERSE_SELECTION
+#define UI_FA_00 700
+#define UI_FA_01 701
+#define UI_FA_02 702
+#define UI_FA_03 703
+#define UI_FA_04 704
+#define UI_FA_05 705
+#define UI_FA_06 706
+#define UI_FA_07 707
+#define UI_FA_08 708
+//#endif
 
 #define VOICECHAT_GETFLAG			"getflag"			// command someone to get the flag
 #define VOICECHAT_OFFENSE			"offense"			// command someone to go on offense
