@@ -27,6 +27,8 @@
 #define ITEM_TYPE_SLIDER_VERT			17	// mouse speed, volume, etc. //#ifdef GCJ_VERT_SLIDER
 #define ITEM_TYPE_INTSLIDER_VERT		18	// mouse speed, volume, etc. //#ifdef GCJ_VERT_SLIDER
 
+#define ITEM_TYPE_SLIDER_ROTATE			19  // turns mouse movements to a rotation, associated with a cvar
+
 
 #define ITEM_ALIGN_LEFT					0	// left alignment
 #define ITEM_ALIGN_CENTER				1	// center alignment
