@@ -42,6 +42,7 @@
 			hide				uioptionmenubutton
 			hide				uioption2menubutton
 			hide				uioption3menubutton
+			hide				uioption4menubutton
 			hide				visualoptmenubutton
 			hide				trueviewmenubutton
 			hide				connectionoptmenubutton
@@ -359,6 +360,7 @@
 				hide				uioptionmenubutton
 				hide				uioption2menubutton
 				hide				uioption3menubutton
+				hide				uioption4menubutton
 				hide				visualoptmenubutton
 				hide				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -470,6 +472,7 @@ itemDef
 				hide				uioptionmenubutton
 				hide				uioption2menubutton
 				hide				uioption3menubutton
+				hide				uioption4menubutton
 				show				visualoptmenubutton
 				hide				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -580,6 +583,7 @@ itemDef
 				hide				uioptionmenubutton
 				hide				uioption2menubutton
 				hide				uioption3menubutton
+				hide				uioption4menubutton
 				hide				visualoptmenubutton
 				hide				trueviewmenubutton
 				show				connectionoptmenubutton
@@ -686,6 +690,7 @@ itemDef
 				hide				uioptionmenubutton
 				hide				uioption2menubutton
 				hide				uioption3menubutton
+				hide				uioption4menubutton
 				hide				visualoptmenubutton
 				hide				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -902,6 +907,7 @@ itemDef
 				hide				uioptionmenubutton
 				hide				uioption2menubutton
 				hide				uioption3menubutton
+				hide				uioption4menubutton
 				hide				visualoptmenubutton
 				show				trueviewmenubutton
 				hide				connectionoptmenubutton
@@ -6629,6 +6635,23 @@ itemDef
 			decoration
 		}
 		
+		itemDef
+		{
+			name				siegehelpicons
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Objective Hint Icons"
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
 // UI OPTIONS 2 FIELDS 2
 
 		itemDef
@@ -6833,6 +6856,46 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				siegehelpicons
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			desctext			"Control display of objective hint icons."
+			cvar				"cg_drawSiegeHelp"
+			cvarFloatList
+			{
+				"None"								0
+				"Large Primary - Small Secondary"	1
+				"Small Primary - Tiny Secondary"	2
+				"Tiny Primary - Hidden Secondary"	3
+				"Large Primary & Secondary"			4
+			}
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 186 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
 			}
 		}
 
