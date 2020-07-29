@@ -46,6 +46,78 @@ levelshots/um_bespin2
     }
 }
 
+levelshots/um_bespin_classic
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_classic
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_bespin_classic2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_classic2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_bespin_open
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_open
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_bespin_open2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_open2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_birdmino
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_birdmino
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_birdmino2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_birdmino2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_bouncy
 {
     nopicmip
@@ -89,6 +161,30 @@ levelshots/um_bouncybash2
     notc
     {
         map levelshots/um_bouncybash2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_cantina
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_cantina
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_cantina2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_cantina2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -166,6 +262,30 @@ levelshots/um_castlevania2
     }
 }
 
+levelshots/um_colosseum
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_colosseum
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_colosseum2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_colosseum2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_crazyrace
 {
     nopicmip
@@ -190,6 +310,42 @@ levelshots/um_crazyrace2
     }
 }
 
+levelshots/um_crazyrace22
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_crazyrace22
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_crazytrain
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_crazytrain
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_crazytrain2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_crazytrain2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_crypt
 {
     nopicmip
@@ -209,6 +365,150 @@ levelshots/um_crypt2
     notc
     {
         map levelshots/um_crypt2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_bespin
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_bespin
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_bespin2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_bespin2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_coruscant
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_coruscant
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_coruscant2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_coruscant2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_narshaddaa
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_narshaddaa
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_narshaddaa2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_narshaddaa2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_oceantemple
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_oceantemple
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_ctf_oceantemple2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_ctf_oceantemple2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_cultbattle
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_cultbattle
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_cultbattle2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_cultbattle2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_dojo
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_dojo
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_dojo2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_dojo2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -281,6 +581,102 @@ levelshots/um_football2
     notc
     {
         map levelshots/um_football2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_bespin
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_bespin
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_bespin2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_bespin2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_coruscant
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_coruscant
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_coruscant2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_coruscant2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_imperial
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_imperial
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_imperial2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_imperial2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_narshaddaa
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_narshaddaa
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_gib_narshaddaa2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_gib_narshaddaa2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -382,6 +778,54 @@ levelshots/um_lasertag2
     }
 }
 
+levelshots/um_lastonesinking
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lastonesinking
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lastonesinking2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lastonesinking2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavaduel
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavaduel
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavaduel2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavaduel2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_lavaparty
 {
     nopicmip
@@ -401,6 +845,30 @@ levelshots/um_lavaparty2
     notc
     {
         map levelshots/um_lavaparty2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavarising
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavarising
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_lavarising2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_lavarising2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -694,6 +1162,30 @@ levelshots/um_sailbarge2
     }
 }
 
+levelshots/um_sarlaccbarge
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_sarlaccbarge
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_sarlaccbarge2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_sarlaccbarge2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_sniperlabs
 {
     nopicmip
@@ -929,6 +1421,30 @@ levelshots/um_vjun2
     notc
     {
         map levelshots/um_vjun2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_water
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_water
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_water2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_water2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
