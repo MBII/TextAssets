@@ -5,7 +5,7 @@
 		name					"mb_class_commander"
 		visible					0
 		fullscreen				0
-		rect					267 87 147 330
+		rect					259 60 163 371
 		focusColor				1 1 1 1
 		descX					320
 		descY					445
@@ -13,6 +13,17 @@
 		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		stayOpen
+
+/* 		itemDef
+		{
+			name				ClassSelectC
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 163 371
+			background			"gfx/menus/alpha/Menu_ClassSelect_C"
+			visible				1
+			decoration
+		} */
 
 		itemDef
 		{
@@ -30,7 +41,7 @@
 		{
 			name				buildbutton
 			text				"BUILD"
-			rect				0 0 74 20
+			rect 8 10 74 20
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
@@ -46,7 +57,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow 0 0 74 20
+				setitemrect button_glow 8 10 74 20
 				setitemcolor	buildbutton		backcolor	1 1 1 0.3
 			}
 			mouseExit
@@ -68,7 +79,7 @@
 		{
 			name				templatebutton
 			text				"TEMPLATES"
-			rect 				74 0 73 20
+			rect 82 10 73 20
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
@@ -84,7 +95,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow 74 0 73 20
+				setitemrect button_glow 82 10 73 20
 				setitemcolor	templatebutton	backcolor	1 1 1 0.3
 			}
 			mouseExit
@@ -110,7 +121,7 @@
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POINTS_REMAINING
 			ownerdraw			UI_FORCE_POINTS
-			rect 				0 20 147 15
+			rect 8 30 147 15
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			64
 			textaligny			-5
@@ -129,7 +140,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POWER
-			rect 				0 35 0 0
+			rect 8 45 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -146,7 +157,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_1_2_3
-			rect 				105 35 0 0
+			rect 113 45 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			1
 			textaligny			-5
@@ -165,7 +176,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Pistol"
-			rect				0 55 147 16
+			rect 8 65 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -180,7 +191,7 @@
 		{
 			name				Info_BlasterPistol
 			group				pointssetup
-			rect				23 55 12 16
+			rect 31 65 12 16
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0.6
@@ -203,7 +214,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LEVITATION
-			rect				0 55 147 16
+			rect 8 65 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -233,7 +244,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"E-11 Blaster"
-			rect				0 75 147 16
+			rect 8 85 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -248,7 +259,7 @@
 		{
 			name				Info_E11
 			group				pointssetup
-			rect				50 75 12 16
+			rect 58 85 12 16
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0.6
@@ -271,7 +282,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
-			rect				0 75 147 16
+			rect 8 85 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -301,7 +312,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"T-21"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 95 147 16
+			rect 8 105 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -312,6 +323,26 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				Info_T21
+			group				pointssetup
+			rect				31 105 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_weapon_t21
+			}
+			mouseExit
+			{
+				close			mb_weapon_t21
+			}
+		}
+
 		// T-21 assign
 		itemDef
 		{
@@ -319,7 +350,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LIGHTNING
-			rect				0 95 147 16
+			rect 8 105 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -348,7 +379,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Frag Grenade"
-			rect				0 115 147 16
+			rect 8 125 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -359,6 +390,26 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				Info_FragGrenade
+			group				pointssetup
+			rect				68 125 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_weapon_fraggrenade
+			}
+			mouseExit
+			{
+				close			mb_weapon_fraggrenade
+			}
+		}
+
 		// Frag Grenade assign
 		itemDef
 		{
@@ -366,7 +417,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERTHROW
-			rect				0 115 147 16
+			rect 8 125 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -399,7 +450,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Fire Grenade"
-			rect				0 135 147 16
+			rect 8 145 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -410,6 +461,26 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				Info_FireGrenade
+			group				pointssetup
+			rect				68 145 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_weapon_firegrenade
+			}
+			mouseExit
+			{
+				close			mb_weapon_firegrenade
+			}
+		}
+
 		// Fire Grenade assign
 		itemDef
 		{
@@ -417,7 +488,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SEE
-			rect				0 135 147 16
+			rect 8 145 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -446,7 +517,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Reinforcement"
-			rect				0 165 147 16
+			rect 8 175 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -464,7 +535,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_GRIP
-			rect				0 165 147 16
+			rect 8 175 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -492,7 +563,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Rally"
-			rect				0 185 147 16
+			rect 8 195 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -510,7 +581,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_RAGE
-			rect				0 185 147 16
+			rect 8 195 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -539,7 +610,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Dodge"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 205 147 16
+			rect 8 215 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -557,7 +628,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_DRAIN
-			rect				0 205 147 16
+			rect 8 215 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -588,7 +659,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Armour"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 235 147 16
+			rect 8 245 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -606,7 +677,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect				0 235 147 16
+			rect 8 245 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -636,7 +707,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Ammo"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				0 255 147 16
+			rect 8 265 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -654,7 +725,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect				0 255 147 16
+			rect 8 265 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -682,7 +753,7 @@
 		{
 			name				fcflist
 			group				pointstemplates
-			rect				0 20 147 240
+			rect 8 30 147 240
 			type				ITEM_TYPE_LISTBOX
 			style				WINDOW_STYLE_LISTBOX_RGB1
 			textstyle			WINDOW_STYLE_TEXT_RGB2
@@ -728,7 +799,7 @@
 			text				@MENUS_FILENAME
 			cvar				"ui_SaveFCF"
 			maxchars			16
-			rect				0 260 147 20
+			rect 8 270 147 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny 			-4
@@ -746,7 +817,7 @@
 			name				templatesavetext
 			style				WINDOW_STYLE_TEXT_RGB1
 			textalign			ITEM_ALIGN_CENTER
-			rect				0 275 147 15
+			rect 8 285 147 15
 			forecolor			1 1 1 0.5
 			font				6
 			textscale			0.15
@@ -765,7 +836,7 @@
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				13 295 121 32
+			rect 21 305 121 32
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			60
 			textaligny			-1
