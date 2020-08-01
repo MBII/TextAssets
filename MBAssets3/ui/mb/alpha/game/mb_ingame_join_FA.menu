@@ -6,9 +6,9 @@
 		visible					0
 		rect					93 5 454 475
 		descX					320
-		descY					393 //383
-		descScale				0.3
-		descColor				0.5 0.5 0.5 0.5
+		descY					443
+		descScale				1
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		focusColor				1 1 1 0.8
 		backColor				0 0 0 0
@@ -22,7 +22,8 @@
 			exec				"siegeCompleteCvarUpdate"
 			
 			show			class_button
-		    show			class_count	
+		    show			class_count
+			show			class_portrait
 			
 			setitembackground		team1_symbol	"*team1_icon"
 			setitembackground		team2_symbol	"*team2_icon"
@@ -41,7 +42,6 @@
 			setitemcolor	team1_count forecolor   0.5 0.5 0.5 1
 			setitemcolor	team2_count forecolor   0.5 0.5 0.5 1
 			setitemcolor	team3_count forecolor   0.5 0.5 0.5 1
-			setitemtext		siegeclassconfigtitle	"SELECT A TEAM"	
 
 			uiscript		setteamclassicons
 			uiScript		"getmodelcvars"	//needed for model display stuff
@@ -239,12 +239,14 @@
 				
 				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
 				show			siegeclassconfigtitle
+
 				
 				uiscript		resetsiegelistboxes
 				uiscript		feederselection
 				hide			feeders
 				hide			stats
 				hide			classdescription
+				show			character_title
 				uiscript		setsiegeclassandteam
 
 				setitembackground	class_portrait	"*ui_classportrait"
@@ -380,6 +382,7 @@
 				hide			feeders
 				hide			stats
 				hide			classdescription
+				show			character_title
 				uiscript		setsiegeclassandteam
 				
 				setitembackground	class_portrait	"*ui_classportrait"
@@ -499,7 +502,7 @@
 			}
 		}
 
-		itemDef
+/* 		itemDef
 		{
 			name				autoteam_symbol
 			group				none
@@ -540,13 +543,13 @@
 				
 				uiScript			closeingame 
 			}
-		}
+		} */
 
 //----------------------------------------------------------------------------------------------
 // CLASS SELECTION
 //----------------------------------------------------------------------------------------------
 
-		// Choose a class text
+/* 		// Choose a class text
 		itemDef
 		{
 			name 				siegeclassconfigtitle
@@ -562,7 +565,7 @@
 			forecolor			1 1 1 1
 			visible 			1
 			decoration
-		}
+		} */
 
 //--------------------------------------------------	
 // MB FA MODE
@@ -575,7 +578,7 @@
 		{
 			name 				classmultiicon1_1
 			group				class_button
-			rect 				10 70 45 45
+			rect 				10 90 45 45
 			style				WINDOW_STYLE_FILLED
 			forecolor			1 1 1 .6
 			backcolor			1 1 1 1
@@ -598,7 +601,7 @@
 			style				WINDOW_STYLE_SHADER
 			background			"*ui_classportrait0"
 			ownerdraw			UI_FA_00
-			rect				10 75 45 45
+			rect				10 95 45 45
 			forecolor			0.5 0.5 0.5 1
 			backcolor			1 1 1 1
 			visible				1 
@@ -640,7 +643,7 @@
 //	setitemtext	description 		"*ui_classdesc"
 				show				class_portrait
 				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	10 75 45 45
+				setitemrect			class_portrait	10 95 45 45
 
 				uiscript			resetsiegelistboxes
 				uiscript			resetitemdescription
@@ -672,7 +675,7 @@
 			group				class_count
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				10 120 45 18
+			rect				10 140 45 18
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			23
 			font				4
@@ -691,7 +694,7 @@
 		{
 			name 				classmultiicon2_1
 			group				class_button
-			rect 				60 70 45 45
+			rect 				60 90 45 45
 			style				WINDOW_STYLE_FILLED
 			forecolor			1 1 1 .6
 			backcolor			0 0 0.1 0.9
@@ -714,7 +717,7 @@
 			style				WINDOW_STYLE_SHADER
 			background			"*ui_classportrait1"
 			ownerdraw			UI_FA_01
-			rect				60 75 45 45
+			rect				60 95 45 45
 			forecolor			.5  .5  .5  1
 			visible				1 
 			descText			@MENUS_CLASS_CHOICE_DESC
@@ -755,7 +758,7 @@
 //setitemtext	description			"*ui_classdesc"
 				show				class_portrait
 				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	60 75 45 45
+				setitemrect			class_portrait	60 95 45 45
 				
 				uiscript			resetsiegelistboxes
 				uiscript			resetitemdescription
@@ -787,7 +790,7 @@
 			group				class_count
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				60 120 45 18
+			rect				60 140 45 18
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			23
 			font				4
@@ -806,7 +809,7 @@
 		{
 			name 				classmultiicon3_1
 			group				class_button
-			rect 				110 70 45 45
+			rect 				110 90 45 45
 			style				WINDOW_STYLE_FILLED
 			forecolor			1 1 1 .6
 			backcolor			0 0 0.1 0.9
@@ -830,7 +833,7 @@
 			style				WINDOW_STYLE_SHADER
 			background			"*ui_classportrait2"
 			ownerdraw			UI_FA_02
-			rect				110 75 45 45
+			rect				110 95 45 45
 			forecolor			.5  .5  .5  1
 			visible				1 
 			descText			@MENUS_CLASS_CHOICE_DESC
@@ -871,7 +874,7 @@
 //		setitemtext		description 	"*ui_classdesc"
 				show			class_portrait
 				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	110 75 45 45
+				setitemrect		class_portrait	110 95 45 45
 
 				uiscript		resetsiegelistboxes
 				uiscript		resetitemdescription
@@ -904,7 +907,7 @@
 			group				class_count
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				110 120 45 18
+			rect				110 140 45 18
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			23
 			font				4
@@ -923,7 +926,7 @@
 		{
 			name 				classmultiicon4_1
 			group				class_button
-			rect 				10 165 45 45
+			rect 				10 195 45 45
 			style				WINDOW_STYLE_FILLED
 			forecolor			1 1 1 .6
 			backcolor			0 0 0.1 0.9
@@ -947,7 +950,7 @@
 			style				WINDOW_STYLE_SHADER
 			background			"*ui_classportrait3"
 			ownerdraw			UI_FA_03
-			rect				10 170 45 45
+			rect				10 200 45 45
 			forecolor			.5  .5  .5  1
 			visible				1 
 			descText			@MENUS_CLASS_CHOICE_DESC
@@ -987,7 +990,7 @@
 //		setitemtext		description 	"*ui_classdesc"
 				show			class_portrait
 				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	10 170 45 45
+				setitemrect		class_portrait	10 200 45 45
 
 				uiscript		resetsiegelistboxes
 				uiscript		resetitemdescription
@@ -1020,7 +1023,7 @@
 			group				class_count
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				10 215 60 18
+			rect				10 245 60 18
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			24
 			font				4
@@ -1039,7 +1042,7 @@
 		{
 			name 				classmultiicon5_1
 			group				class_button
-			rect 				60 165 45 45
+			rect 				60 195 45 45
 			style				WINDOW_STYLE_FILLED
 			forecolor			1 1 1 .6
 			backcolor			0 0 0.1 0.9
@@ -1063,7 +1066,7 @@
 			style				WINDOW_STYLE_SHADER
 			background			"*ui_classportrait4"
 			ownerdraw			UI_FA_04
-			rect				60 170 45 45
+			rect				60 200 45 45
 			forecolor			.5  .5  .5  1
 			visible				1 
 			descText			@MENUS_CLASS_CHOICE_DESC
@@ -1103,7 +1106,7 @@
 //		setitemtext		description 	"*ui_classdesc"
 				show			class_portrait
 				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	60 170 45 45
+				setitemrect		class_portrait	60 200 45 45
 
 				uiscript		resetsiegelistboxes
 				uiscript		resetitemdescription
@@ -1136,7 +1139,7 @@
 			group				class_count
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				60 215 60 18
+			rect				60 245 60 18
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			23
 			font				4
@@ -1155,7 +1158,7 @@
 		{
 			name 				classmultiicon6_1
 			group				class_button
-			rect 				110 165 45 45
+			rect 				110 195 45 45
 			style				WINDOW_STYLE_FILLED
 			forecolor			1 1 1 .6
 			backcolor			0 0 0.1 0.9
@@ -1179,7 +1182,7 @@
 			style				WINDOW_STYLE_SHADER
 			background			"*ui_classportrait5"
 			ownerdraw			UI_FA_05
-			rect				110 170 45 45
+			rect				110 200 45 45
 			forecolor			.5  .5  .5  1
 			visible				1 
 			descText			@MENUS_CLASS_CHOICE_DESC
@@ -1219,7 +1222,7 @@
 //		setitemtext		description 	"*ui_classdesc"
 				show			class_portrait
 				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	110 170 45 45
+				setitemrect		class_portrait	110 200 45 45
 
 				uiscript		resetsiegelistboxes
 				uiscript		resetitemdescription
@@ -1252,7 +1255,7 @@
 			group				class_count
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				110 215 60 18
+			rect				110 245 60 18
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			23
 			font				4
@@ -1267,6 +1270,25 @@
 //--------------------------------------------------
 // CLASS PORTRAIT - this gets its background value from ui_classportrait
 //--------------------------------------------------
+		// HEADER
+		itemDef
+		{
+			name 				character_title
+			group				classdescription
+			rect 				81 66 10 15
+			style 				WINDOW_STYLE_FILLED
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"CHARACTER"
+			font				7
+			textscale			0.2
+			textalign 			ITEM_ALIGN_CENTER
+			textalignx 			0
+			textaligny 			-10
+			forecolor			1 1 1 1
+			visible 			0
+			decoration
+		}
+
 		itemDef
 		{
 			name				class_portrait
@@ -1295,7 +1317,7 @@
 			textalignx 			0
 			textaligny 			-10
 			forecolor			1 1 1 1
-			visible 			1
+			visible 			0
 			decoration
 		}
 
@@ -1334,7 +1356,7 @@
 			textalignx 			0
 			textaligny 			-10
 			forecolor			1 1 1 1
-			visible 			1
+			visible 			0
 			decoration
 		}
 
