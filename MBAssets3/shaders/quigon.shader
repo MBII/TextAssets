@@ -12,16 +12,57 @@ models/players/quigon/boots
     }
 }
 
+models/players/quigon/face
+{
+    {
+        map models/players/quigon/face
+        rgbGen lightingDiffuse
+        //alphaFunc GE128
+    }
+    {
+        map models/players/quigon/face_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/quigon/face2
+{
+    {
+        map models/players/quigon/face2
+        rgbGen lightingDiffuse
+        //alphaFunc GE128
+    }
+    {
+        map models/players/quigon/face_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 models/players/quigon/hair
 {
-	q3map_nolightmap
 	cull	disable
     {
         map models/players/quigon/hair
         alphaFunc GE128
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/quigon/hair_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
     }
 }
 
+models/players/quigon/poncho
+{
+	cull	twosided
+    {
+        map models/players/quigon/poncho
+        rgbGen lightingDiffuse
+    }
+}
