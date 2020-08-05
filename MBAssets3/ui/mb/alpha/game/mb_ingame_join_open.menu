@@ -34,6 +34,9 @@
 			setitemcolor	team1_count forecolor   0.5 0.5 0.5 1
 			setitemcolor	team2_count forecolor   0.5 0.5 0.5 1
 			setitemcolor	team3_count forecolor   0.5 0.5 0.5 1
+			
+			show			spectator_button
+			show			spectator_symbol
 		}
 		onESC
 		{
@@ -151,13 +154,15 @@
 				// no more input for this guy
 				disable			team1_button	1
 
-				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
-
 				open			ingame_siegeclass_open_classes_r
 				close			ingame_siegeclass_open_classes_i
 				open			ingame_siegeclass_open_lower
 				
+				close			ingame_siegeclass_open_model_list
+				close			ingame_siegeclass_open_model_listtall
 				close			ingame_siegeclass_open_model
+				close			ingame_siegeclass_open_menuswitch
+				close			ingame_siegeclass_open_hilt_list
 				close			mb_stats_common
 				close			ingame_saber_jedi
 				close			ingame_saber_sith
@@ -280,7 +285,11 @@
 				open			ingame_siegeclass_open_classes_i
 				open			ingame_siegeclass_open_lower
 				
+				close			ingame_siegeclass_open_model_list
+				close			ingame_siegeclass_open_model_listtall
 				close			ingame_siegeclass_open_model
+				close			ingame_siegeclass_open_menuswitch
+				close			ingame_siegeclass_open_hilt_list
 				close			mb_stats_common
 				close			ingame_saber_jedi
 				close			ingame_saber_sith
@@ -360,7 +369,7 @@
 			rect				203.5 13.5 19 24
 			background			"gfx/2d/mp_spec_symbol"
 			forecolor			1 1 1 1
-			visible				1
+			visible				0
 			decoration
 		}
 		
@@ -373,7 +382,7 @@
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_WATCH_DESC
 			backcolor			1 1 1 0.1
-			visible				1
+			visible				0
 			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
 			mouseEnter
 			{ 
@@ -392,8 +401,17 @@
 			action
 			{ 
 				play			"sound/interface/button1.wav"
-				hide			reb_class
-				hide			imp_class
+				close			ingame_siegeclass_open_classes_r
+				close			ingame_siegeclass_open_classes_i
+				
+				close			ingame_siegeclass_open_model_list
+				close			ingame_siegeclass_open_model
+				close			ingame_siegeclass_open_menuswitch
+				close			ingame_siegeclass_open_hilt_list
+				close			mb_stats_common
+				close			ingame_saber_jedi
+				close			ingame_saber_sith
+				close			mb_class_templates
 				setcvar			ui_holdteam 3
 				exec			"cmd team s" 				
 				uiScript		closeingame
@@ -402,7 +420,7 @@
 			}
 		}
 
-		itemDef
+/* 		itemDef
 		{
 			name				spectator_refresh
 			group				none			
@@ -411,7 +429,7 @@
 				hide			reb_class
 				hide			imp_class		
 			}
-		}
+		} */
 
 /* 		itemDef
 		{

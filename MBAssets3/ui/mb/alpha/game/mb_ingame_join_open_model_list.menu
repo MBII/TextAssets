@@ -1,0 +1,263 @@
+{
+	menuDef
+	{
+		name					"ingame_siegeclass_open_model_list"
+		fullScreen				0
+		visible					1
+		rect					118 60 137 371
+		style					1
+		descX					320
+		descY					443
+		descScale				1
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		focusColor				1 1 1 1
+		backColor				0 0 0 0
+		disablecolor			1 1 1 1
+		stayopen
+		onOpen
+		{
+			show 			headlist
+			show			headlist_tall
+			hide			custlist
+		}
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+//--------------------------------------------------	
+// MB OPEN/SA MODE
+//--------------------------------------------------
+
+		// Scroll box with portraits.
+		itemDef
+		{
+			name 				headlist
+			group				playermodels
+			rect				0 7 132 344
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		30
+			elementheight 		38
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_MBHEADS
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.2
+			cvartest			ui_class
+			hideCvar			{ "9", "11" }
+			action
+			{  
+				play			"sound/interface/button1"
+				uiScript		mb_char
+				
+				// TUTORIAL REQUIREMENT
+				uiScript		tutCheckpoint TutModelSelect
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor 0.1 0.7 1 0.9
+			}
+		}
+
+		itemDef
+		{
+			name 				headlist_tall
+			group				playermodels
+			rect				0 7 132 344
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		30
+			elementheight 		76
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_MBHEADS
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.2
+			cvartest			ui_class
+			showCvar			{ "9", "11" }
+			action
+			{  
+				play			"sound/interface/button1"
+				uiScript		mb_char
+				
+				// TUTORIAL REQUIREMENT
+				uiScript		tutCheckpoint TutModelSelect
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist_tall bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist_tall bordercolor 0.1 0.7 1 0.9
+			}
+		}
+		
+		itemDef
+		{
+			name 				custlist
+			group				playermodels
+			rect				0 7 132 344
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		30
+			elementheight 		38
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_CMHEADS
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.2
+			action
+			{ 
+				play			"sound/interface/button1"
+				uiScript		mb_char
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	custlist bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	custlist bordercolor 0.1 0.7 1 0.9
+			}
+		}
+
+		itemDef
+		{
+			name				normalmodels
+			group				modellisttype
+			text				"DEFAULT"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				74 349 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				1
+			cvartest			ui_class
+			hideCvar			{ "9", "11" }
+			action
+			{
+				play			"sound/interface/button1"
+				show 			headlist
+				hide 			custlist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow 74 353 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+		itemDef
+		{
+			name				normalmodels_tall
+			group				modellisttype
+			text				"DEFAULT"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				74 349 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				1
+			cvartest			ui_class
+			showCvar			{ "9", "11" }
+			action
+			{
+				play			"sound/interface/button1"
+				show 			headlist_tall
+				hide 			custlist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow 74 353 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"/"
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				100 349 5 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				1
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"CUSTOM"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				105 349 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+				show 			custlist
+				hide 			headlist
+				hide 			headlist_tall
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow 105 353 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+	}
+}
