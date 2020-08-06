@@ -165,66 +165,6 @@ gfx/menus/alpha/Icon_Eye
 	}
 }
 
-gfx/menus/alpha/Icon_PlayerModel
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/alpha/Icon_PlayerModel
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen vertex
-	}
-}
-
-gfx/menus/alpha/Icon_SaberCustom
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/alpha/Icon_SaberCustom
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen vertex
-	}
-}
-
-gfx/menus/alpha/Icon_SaberDual
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/alpha/Icon_SaberDual
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen vertex
-	}
-}
-
-gfx/menus/alpha/Icon_SaberSingle
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/alpha/Icon_SaberSingle
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen vertex
-	}
-}
-
-gfx/menus/alpha/Icon_SaberStaff
-{
-	nopicmip
-	nomipmaps
-	notc
-	{
-		map gfx/menus/alpha/Icon_SaberStaff
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen vertex
-	}
-}
-
 gfx/menus/alpha/Icon_Shuffle
 {
 	nopicmip
@@ -1006,6 +946,108 @@ gfx/menus/alpha/Btn5_Bg
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen const ( 1 1 1 )
 		alphaGen const 0.5
+	}
+}
+
+gfx/menus/alpha/Icon_PlayerModel
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_PlayerModel
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Icon_SaberCustom
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_SaberCustom
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Icon_SaberDual
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_SaberDual
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Icon_SaberSingle
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_SaberSingle
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Icon_SaberStaff
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_SaberStaff
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Icon_Templates
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_Templates
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
 	}
 }
 
