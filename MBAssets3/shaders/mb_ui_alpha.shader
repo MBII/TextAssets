@@ -1178,7 +1178,7 @@ gfx/menus/alpha/Menu_ClassSelect_Item_Lock
 	{
 		map gfx/menus/alpha/Menu_ClassSelect_Item_Lock
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen const ( 0.8 0 0 )
+		rgbGen const ( 0.6 0 0 )
 	}
 }
 
@@ -1190,7 +1190,7 @@ gfx/menus/alpha/Menu_ClassSelect_Item2_Lock
 	{
 		map gfx/menus/alpha/Menu_ClassSelect_Item2_Lock
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen const ( 0.8 0 0 )
+		rgbGen const ( 0.6 0 0 )
 	}
 }
 
@@ -1202,6 +1202,6 @@ gfx/menus/alpha/Menu_TeamSelect_Team_Lock
 	{
 		map gfx/menus/alpha/Menu_TeamSelect_Team_Lock
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen const ( 0.8 0 0 )
+		rgbGen const ( 0.6 0 0 )
 	}
 }
