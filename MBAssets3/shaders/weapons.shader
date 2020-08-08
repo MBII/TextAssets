@@ -722,116 +722,79 @@ models/weapons2/dc-17/w_dc17
 	}
 }
 
-///////////// Clone DC-15 Rifle ///////////// 
+///////////// Clone DC-15A Rifle ///////////// 
 
-models/weapons2/heavy_repeater/barrel
+// DC-15A Rifle
+models/weapons2/dc-15a/dc15a_diff
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/barrel
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/heavy_repeater/barrel_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/dc-15a/dc15a_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dc-15a/dc15a_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/heavy_repeater/case
+// DC-15A Grenade Attachment
+models/weapons2/dc-15_ext/dc-15_ext
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/case
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/heavy_repeater/case_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/dc-15_ext/dc-15_ext
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dc-15_ext/dc-15_ext_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/heavy_repeater/shaft
+///////////// Clone DC-15S Carbine ///////////// 
+
+models/weapons2/dc-15s/world
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/shaft
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/heavy_repeater/shaft_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/dc-15s/world
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dc-15s/world_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/dc-15s/world_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+		glow
+    }
 }
 
-models/weapons2/dc-15_ext/extension
+models/weapons2/dc-15s/view
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/dc-15_ext/extension
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/dc-15_ext/extension_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/dc-15s/view
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dc-15s/view_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/dc-15s/view_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+		glow
+    }
 }
-
-
-///////////// Clone EP3 Blaster ///////////// 
-
-models/weapons2/blaster_r/cloneblaster_w
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/blaster_r/cloneblaster_w
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/blaster_r/cloneblaster_w-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/blaster_r/cloneblaster2_w
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/blaster_r/cloneblaster2_w
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/blaster_r/cloneblaster2_w-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/blaster_r/cloneblaster3_w
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/blaster_r/cloneblaster3_w
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/blaster_r/cloneblaster3_w-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 
 ///////////// Clone CW-W5 Rifle ///////////// 
 
@@ -906,127 +869,113 @@ models/weapons2/a280/A280
     }
 }
 
-///////////// Arc Pistols ///////////// 
+///////////// Clone Pistols ///////////// 
 
-models/weapons2/demp2/w_gun
+// DC-15 Sidearm
+models/weapons2/dc-15/dc15_diff
 {
-		q3map_nolightmap
-	{
-		map models/weapons2/demp2/w_gun
-	rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/demp2/w_gun_glow
-		blendFunc GL_ONE GL_ONE
-		glow
-		rgbGen wave sin 1 0.15 0 8
-	}    
-	{
-		map models/weapons2/demp2/w_gun_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}    
-}
-
-models/weapons2/demp2/dc17p
-{
-		q3map_nolightmap
-	{
-		map models/weapons2/demp2/dc17p
-	rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/demp2/dc17p_glow
-		blendFunc GL_ONE GL_ONE
-		glow
-		rgbGen wave sin 1 0.15 0 8
-	}    
-	{
-		map models/weapons2/demp2/dc17p_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}    
-}
-
-models/weapons2/demp2_dual/w_gun
-{
-		q3map_nolightmap
-	{
-		map models/weapons2/demp2_dual/w_gun
-	rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/demp2_dual/w_gun_glow
-		blendFunc GL_ONE GL_ONE
-		glow
-		rgbGen wave sin 1 0.15 0 8
-	}    
-	{
-		map models/weapons2/demp2_dual/w_gun_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}    
-}
-
-
-///////////// PLX Rocket Launcher ///////////// 
-
-models/weapons2/cw_launcher/cw_launcher
-{
-	{
-		map models/weapons2/cw_launcher/cw_launcher.tga
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/cw_launcher/cw_launcher_bluh.tga
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/cw_launcher/screen
-{
-	surfaceparm	nonopaque
 	q3map_nolightmap
+    {
+        map models/weapons2/dc-15/dc15_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dc-15/dc15_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
 	{
-		map models/weapons2/cw_launcher/screentex.tga
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-	{
-		map textures/byss/static_field
-		blendFunc GL_ONE GL_ONE
-		tcMod scroll 0 -5
-	}
-	{
-		map textures/byss/static_field2
-		blendFunc GL_ONE GL_ONE
-		tcMod scroll 0 2
-	}
-	{
-		map textures/byss/static_field3
-		blendFunc GL_ONE GL_ONE
-		rgbGen wave sawtooth 0 4 0 2
-		tcMod scroll 0 2
-	}
-
+        map models/weapons2/dc-15/dc15_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+		glow
+    }
 }
 
-models/weapons2/cw_launcher/circles
+//DC-17 Sidearm Blaster
+models/weapons2/dc-17/dc17_diff
 {
-	surfaceparm	nonopaque
 	q3map_nolightmap
-	{
-		map models/weapons2/cw_launcher/circles.tga
-		blendFunc GL_SRC_ALPHA GL_ONE
-	tcMod rotate 8
-	}
+    {
+        map models/weapons2/dc-17/dc17_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dc-17/dc17_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
+//DC-17 CW 2003
+models/weapons2/dc-17_cw/dc17_cw_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/dc-17_cw/dc17_cw_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dc-17_cw/dc17_cw_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/dc-17_cw/dc17_cw_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+		glow
+    }
+}
+
+///////////// PLX-1 Rocket Launcher ///////////// 
+
+//PLX-1 Portable Missile Launcher
+models/weapons2/plx-1/plx
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/plx-1/plx
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/plx-1/plx_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/plx-1/plx_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+		glow
+    }
+}
+
+//PLX-1 CW 2003
+models/weapons2/plx-1/plx_cw
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/plx-1/plx_cw
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/plx-1/plx_cw_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/plx-1/plx_cw_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+		glow
+    }
+}
 
 ///////////// Thermal Detonator ///////////// 
 
