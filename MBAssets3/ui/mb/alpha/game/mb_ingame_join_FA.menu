@@ -173,26 +173,27 @@
 			action
 			{ 
 				// show the class stuff, cause this uses class
-				show			class_button	
-				show			class_count	
+				show			class_button
+				show			class_count
+				show			class_count_bk
 
 				play			"sound/interface/button1.wav"
 				setcvar			ui_holdteam 1
 				uiscript		updatesiegeclasscnt      1
 				uiscript		updatesiegecvars
 				//uiscript		printmsg	team1buttonunlockred
-		
+
 				// Darken the other team buttons				
 				setitemcolor	team_button		backcolor   1 1 1 0.1
 				setitemcolor	team_count		forecolor	0.5 0.5 0.5 1
 				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
-				
+
 				// turn on the other team buttons for input
 				disable			team_button	0
-				
+
 				// turn on class buttons
 				disable			class_button	0
-				
+
 				// highlight this team button
 				setitemcolor	team1_button	backcolor 1 1 1 0.5
 				setitemcolor	team1_count		forecolor 1 1 1 1
@@ -208,11 +209,7 @@
 				setitemtext		class5_count "*ui_tm1_c4_cnt"
 				setitemtext		class6_count "*ui_tm1_c5_cnt"
 				setitemtext		class7_count "*ui_tm1_c6_cnt"
-				
-				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
-				show			siegeclassconfigtitle
 
-				
 				uiscript		resetsiegelistboxes
 				uiscript		feederselection
 				hide			feeders
@@ -306,7 +303,6 @@
 				setitemcolor		team2_count		forecolor	0.5 0.5 0.5 1
 				setitemcolor		team2name		forecolor	0.5 0.5 0.5 1
 			}
-			
 			// If you change this script, be sure to change	onteam2
 			action
 			{ 
@@ -327,10 +323,10 @@
 				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
 				// turn on the other team buttons for input
 				disable			team_button		0
-				
+
 				// turn on class buttons
 				disable			class_button	0
-				
+
 				// highlight this team button
 				setitemcolor	team2_button	backcolor	1 1 1 0.5
 				setitemcolor	team2_count		forecolor	1 1 1 1
@@ -338,16 +334,13 @@
 				
 				// no more input for this guy
 				disable			team2_button	1
-				
+
 				setitemtext		class1_count "*ui_tm2_c0_cnt"
 				setitemtext		class2_count "*ui_tm2_c1_cnt"
 				setitemtext		class3_count "*ui_tm2_c2_cnt"
 				setitemtext		class4_count "*ui_tm2_c3_cnt"
 				setitemtext		class5_count "*ui_tm2_c4_cnt"
 				setitemtext		class6_count "*ui_tm2_c5_cnt"
-
-				setitemtext		siegeclassconfigtitle	@MENUS_CHOOSE_CLASS
-				show			siegeclassconfigtitle
 
 				show			borderclass
 				uiscript		resetsiegelistboxes
@@ -357,9 +350,9 @@
 				hide			classdescription
 				show			character_title
 				uiscript		setsiegeclassandteam
-				
+
 				setitembackground	class_portrait	"*ui_classportrait"
-				
+
 				setitembackground	class1_button	"*ui_classportrait0"
 				setitembackground	class2_button	"*ui_classportrait1"
 				setitembackground	class3_button	"*ui_classportrait2"
@@ -450,17 +443,17 @@
 			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
 			mouseEnter
 			{ 
-				setitemcolor		spectator_symbol backcolor   1 1 1 1
-				setitemcolor		spectator_button backcolor   1 1 1 0.3
-				setitemcolor		team3name  forecolor 1 1 1 1
-				setitemcolor		team3_count  forecolor 1 1 1 1
+				setitemcolor		spectator_symbol	backcolor   1 1 1 1
+				setitemcolor		spectator_button	backcolor   1 1 1 0.3
+				setitemcolor		team3name			forecolor 1 1 1 1
+				setitemcolor		team3_count			forecolor 1 1 1 1
 			}
 			mouseExit
 			{ 
-				setitemcolor		spectator_symbol backcolor   0.5 0.5 0.5 1
-				setitemcolor		spectator_button backcolor   1 1 1 0.1
-				setitemcolor		team3name  forecolor 0.5 0.5 0.5 1
-				setitemcolor		team3_count  forecolor 0.5 0.5 0.5 1
+				setitemcolor		spectator_symbol	backcolor   0.5 0.5 0.5 1
+				setitemcolor		spectator_button	backcolor   1 1 1 0.1
+				setitemcolor		team3name			forecolor 0.5 0.5 0.5 1
+				setitemcolor		team3_count			forecolor 0.5 0.5 0.5 1
 			}
 			action
 			{ 
@@ -468,10 +461,13 @@
 				hide			borderclass
 				hide			stats
 				hide			classdescription
+				hide			class_button
+				hide			class_count
+				hide			class_count_bk
 				setcvar			ui_holdteam 3
 				exec			"cmd team s"
 				uiScript		closeingame
-				setitemcolor	spectator_button backcolor   1 1 1 0.5
+				setitemcolor	spectator_button		backcolor   1 1 1 0.5
 			}
 		}
 
@@ -532,7 +528,7 @@
 			rect 				10 89 45 4
 			style				WINDOW_STYLE_FILLED
 			backcolor			1 1 1 0.5
-			visible				1
+			visible				0
 			cvartest			"class1multiflag"
 			hidecvar
 			{
@@ -552,7 +548,7 @@
 			rect				10 95 45 45
 			forecolor			0.5 0.5 0.5 1
 			backcolor			1 1 1 1
-			visible				1 
+			visible				0
 			descText			@MENUS_CLASS_CHOICE_DESC
 			cvartest			"ui_class1_cnt"
 			hidecvar			{ "0" }
@@ -630,7 +626,7 @@
 			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
 			cvartest			"ui_class1_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 
@@ -649,7 +645,7 @@
 			forecolor			1 1 1 1
 			cvartest			"ui_class1_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 		
@@ -663,7 +659,7 @@
 			rect 				60 89 45 4
 			style				WINDOW_STYLE_FILLED
 			backcolor			1 1 1 0.5
-			visible				1
+			visible				0
 			cvartest			"class2multiflag"
 			hidecvar
 			{
@@ -682,7 +678,7 @@
 			ownerdraw			UI_FA_01
 			rect				60 95 45 45
 			forecolor			.5  .5  .5  1
-			visible				1 
+			visible				0
 			descText			@MENUS_CLASS_CHOICE_DESC
 			cvartest			"ui_class2_cnt"
 			hidecvar			{ "0" }
@@ -760,7 +756,7 @@
 			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
 			cvartest			"ui_class2_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 
@@ -779,7 +775,7 @@
 			forecolor			1 1 1 1
 			cvartest			"ui_class2_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 		
@@ -793,7 +789,7 @@
 			rect 				110 89 45 4
 			style				WINDOW_STYLE_FILLED
 			backcolor			1 1 1 0.5
-			visible				1
+			visible				0
 			cvartest			"class3multiflag"
 			hidecvar
 			{
@@ -813,7 +809,7 @@
 			ownerdraw			UI_FA_02
 			rect				110 95 45 45
 			forecolor			.5  .5  .5  1
-			visible				1 
+			visible				0
 			descText			@MENUS_CLASS_CHOICE_DESC
 			cvartest			"ui_class3_cnt"
 			hidecvar			{ "0" }
@@ -892,7 +888,7 @@
 			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
 			cvartest			"ui_class3_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 
@@ -911,7 +907,7 @@
 			forecolor			1 1 1 1
 			cvartest			"ui_class3_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 		
@@ -925,7 +921,7 @@
 			rect 				10 224 45 4
 			style				WINDOW_STYLE_FILLED
 			backcolor			1 1 1 0.5
-			visible				1
+			visible				0
 			cvartest			"class4multiflag"
 			hidecvar
 			{
@@ -945,7 +941,7 @@
 			ownerdraw			UI_FA_03
 			rect				10 230 45 45
 			forecolor			.5  .5  .5  1
-			visible				1 
+			visible				0
 			descText			@MENUS_CLASS_CHOICE_DESC
 			cvartest			"ui_class4_cnt"
 			hidecvar			{ "0" }
@@ -1023,7 +1019,7 @@
 			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
 			cvartest			"ui_class4_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 
@@ -1042,7 +1038,7 @@
 			forecolor			1 1 1 1
 			cvartest			"ui_class4_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 
@@ -1056,7 +1052,7 @@
 			rect 				60 224 45 4
 			style				WINDOW_STYLE_FILLED
 			backcolor			1 1 1 0.5
-			visible				1
+			visible				0
 			cvartest			"class5multiflag"
 			hidecvar
 			{
@@ -1076,7 +1072,7 @@
 			ownerdraw			UI_FA_04
 			rect				60 230 45 45
 			forecolor			.5  .5  .5  1
-			visible				1 
+			visible				0
 			descText			@MENUS_CLASS_CHOICE_DESC
 			cvartest			"ui_class5_cnt"
 			hidecvar			{ "0" }
@@ -1154,7 +1150,7 @@
 			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
 			cvartest			"ui_class5_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 
@@ -1173,7 +1169,7 @@
 			forecolor			1 1 1 1
 			cvartest			"ui_class5_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 		
@@ -1187,7 +1183,7 @@
 			rect 				110 224 45 4
 			style				WINDOW_STYLE_FILLED
 			backcolor			1 1 1 0.5
-			visible				1
+			visible				0
 			cvartest			"class6multiflag"
 			hidecvar
 			{
@@ -1207,7 +1203,7 @@
 			ownerdraw			UI_FA_05
 			rect				110 230 45 45
 			forecolor			.5  .5  .5  1
-			visible				1 
+			visible				0
 			descText			@MENUS_CLASS_CHOICE_DESC
 			cvartest			"ui_class6_cnt"
 			hidecvar			{ "0" }
@@ -1285,7 +1281,7 @@
 			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
 			cvartest			"ui_class6_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 
@@ -1304,7 +1300,7 @@
 			forecolor			1 1 1 1
 			cvartest			"ui_class6_cnt"
 			hidecvar			{ "0" }
-			visible				1
+			visible				0
 			decoration
 		}
 		
