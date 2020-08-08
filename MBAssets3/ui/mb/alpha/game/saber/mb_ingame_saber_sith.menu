@@ -130,7 +130,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 7 165 22 27
+			rect 7 116 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_RedOrange"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -157,7 +157,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 92 165 22 27
+			rect 92 116 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_RedOrange"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -186,7 +186,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 7 128 22 27
+			rect 7 149 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -213,7 +213,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 92 128 22 27
+			rect 92 149 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -243,7 +243,7 @@
 			type				ITEM_TYPE_SLIDER_VERT
 			style				WINDOW_STYLE_TEXT_RGB2
 			cvarFloat			"ui_saber1_hue" 1.0 0.97 1.02
-			rect 10 211 16 100
+			rect 10 185 16 100
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			70
 			textaligny			0
@@ -266,7 +266,7 @@
 			type				ITEM_TYPE_SLIDER_VERT
 			style				WINDOW_STYLE_TEXT_RGB2
 			cvarFloat			"ui_saber2_hue" 1.0 0.97 1.02
-			rect 96 211 16 100
+			rect 96 185 16 100
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			70
 			textaligny			0
@@ -277,6 +277,36 @@
 			action
 			{
 				play			"sound/interface/choose_blade.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				AuthenticSaber
+			group				hiltmodelsjedi
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				7 290 22 27
+			background			"gfx/menus/alpha/Icon_SaberAuth"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	AuthenticSaber forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	AuthenticSaber forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	AuthenticSaber forecolor 1 1 1 1
+				uiScript        "saber_type"
+                uiScript        mb_rgb_saber
+                uiScript        mb_auth_saber
+                uiScript        updatesabercvars
 			}
 		}
 	}
