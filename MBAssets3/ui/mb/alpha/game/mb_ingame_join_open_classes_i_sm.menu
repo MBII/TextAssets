@@ -1,7 +1,7 @@
 {
 	menuDef
 	{
-		name					"ingame_siegeclass_open_classes_r"
+		name					"ingame_siegeclass_open_classes_i_sm"
 		fullScreen				0
 		visible					0
 		rect					93 60 162 371
@@ -17,7 +17,7 @@
 		stayopen
 		onOpen
 		{
-			disable			reb_class 0
+			disable			imp_class 0
 			uiscript		setteamclassicons
 			uiscript		mb_updatelimits
 
@@ -47,12 +47,12 @@
 			close			ingame_siegeclass_open_model
 			close			ingame_siegeclass_open_menuswitch
 
-			setitemcolor	reb_class	backcolor 1 1 1 0.1
-			setitemcolor	reb_class	forecolor 0.75 0.75 0.75 1
+			setitemcolor	imp_class	backcolor 1 1 1 0.1
+			setitemcolor	imp_class	forecolor 0.75 0.75 0.75 1
 		}
 		onClose
 		{			
-			disable			reb_class 0
+			disable			imp_class 0
 				
 			close 			mb_class_bounty_hunter
 			close 			mb_class_commander
@@ -80,8 +80,8 @@
 			close			ingame_siegeclass_open_model
 			close			ingame_siegeclass_open_menuswitch
 
-			setitemcolor	reb_class	backcolor 1 1 1 0.1
-			setitemcolor	reb_class	forecolor 0.75 0.75 0.75 1
+			setitemcolor	imp_class	backcolor 1 1 1 0.1
+			setitemcolor	imp_class	forecolor 0.75 0.75 0.75 1
 		}
 
 		itemDef
@@ -100,69 +100,65 @@
 // CLASS SELECTION
 //----------------------------------------------------------------------------------------------
 		
-		//rebel soldier
+		//imperial soldier
 		itemDef
 		{
-			name				mb_class_trooper
-			group				reb_class	
-			rect				8 11 146 45
+			name				mb_class_soldier
+			group				imp_class
+			rect				8 11 15 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			text				"SOLDIER"
-			font				6
-			textscale			0.15
+			font				7
+			textscale			0.2
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
+			textalignx			7
+			textaligny			16
 			forecolor			0.75 0.75 0.75 1
 			backcolor			1 1 1 0.1
 			visible 			1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			
 			mouseEnter
 			{ 
-				setitemcolor	mb_class_trooper		backcolor   1 1 1 0.3
-				setitemcolor	mb_class_trooper		forecolor   1 1 1 1
-				setitemcolor	mb_class_trooper_icon	forecolor   1 1 1 1
-				setitemcolor	mb_class_trooper_cnt	forecolor   1 1 1 1
-				setitemcolor	mb_class_trooper_limit	forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier		backcolor   1 1 1 0.3
+				setitemcolor	mb_class_soldier		forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_icon	forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_cnt	forecolor   1 1 1 1
+				setitemcolor	mb_class_soldier_limit	forecolor   1 1 1 1
 				
 			}
 			mouseExit
 			{ 
-				setitemcolor	mb_class_trooper		backcolor   1 1 1 0.1
-				setitemcolor	mb_class_trooper		forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_trooper_icon	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_trooper_cnt	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_trooper_limit	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_soldier		backcolor   1 1 1 0.1
+				setitemcolor	mb_class_soldier		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_soldier_icon	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_soldier_cnt	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_soldier_limit	forecolor   0.75 0.75 0.75 1
 			}
 			action
 			{ 
-				disable			reb_class 0
-				setitemcolor	reb_class					backcolor 1 1 1 0.1
-				setitemcolor	reb_class					forecolor 0.75 0.75 0.75 1
-				setitemcolor	reb_class_icon				forecolor 0.75 0.75 0.75 1
-				setitemcolor	mb_class_trooper			backcolor 1 1 1 0.5
-				setitemcolor	mb_class_trooper			forecolor 1 1 1 1
-				setitemcolor	mb_class_trooper_icon		forecolor 1 1 1 1
+				disable			imp_class 0
+				setitemcolor	imp_class					backcolor 1 1 1 0.1
+				setitemcolor	imp_class					forecolor 0.75 0.75 0.75 1
+				setitemcolor	imp_class_icon				forecolor 0.75 0.75 0.75 1
+				setitemcolor	mb_class_soldier			backcolor 1 1 1 0.5
+				setitemcolor	mb_class_soldier			forecolor 1 1 1 1
+				setitemcolor	mb_class_soldier_icon		forecolor 1 1 1 1
 				
 				play			"sound/interface/button1.wav"
 				uiscript		updatesiegecvars
-				close			ingame_siegeclass_open_classes_r
-				open			ingame_siegeclass_open_classes_r_sm
-				disable			mb_class_trooper 1
-				uiscript		mb_class_trooper
+				disable			mb_class_soldier 1
+				uiscript		mb_class_soldier
 				uiScript		mb_char
 
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				close 			mb_class_jedi
-				open 			mb_class_trooper
-				close 			mb_class_wookie
+				close 			mb_class_mandalorian
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_sith
+				open 			mb_class_soldier
+				close 			mb_class_sbd
 				
 				close 			ingame_saber_jedi
 				close 			ingame_saber_sith
@@ -175,14 +171,14 @@
 				open			mb_stats_common
 			}
 		}
-		
+
 		itemDef
 		{
-			name				mb_class_trooper_icon
-			group				reb_class_icon
+			name				mb_class_soldier_icon
+			group				imp_class_icon
 			style				WINDOW_STYLE_SHADER
-			rect				12 17 26 33
-			background			"gfx/menus/classes/reb"
+			rect				6 13 19 24
+			background			"gfx/menus/classes/imp"
 			forecolor			0.75 0.75 0.75 1
 			visible				1
 			decoration
@@ -190,30 +186,30 @@
 		
 		itemDef
 		{
-			name				mb_class_trooper_cnt
-			group				reb_class
+			name				mb_class_soldier_cnt
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 17 26 32
+			rect				8 11 15 45
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
+			textalignx			7
+			textaligny			16
 			font				7
 			textscale			0.2
 			forecolor			0.75 0.75 0.75 1
-			cvar				mb_class_trooper_cnt
+			cvar				mb_class_soldier_cnt
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				mb_class_trooper_limit
-			group				reb_class
+			name				mb_class_soldier_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 17 26 32
-			cvar				mb_class_trooper_cnt
+			cvar				mb_class_soldier_cnt
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			-4
@@ -226,8 +222,8 @@
 
 		itemDef
 		{
-			name				mb_class_trooper_limit
-			group				reb_class
+			name				mb_class_soldier_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 17 26 32
@@ -244,12 +240,12 @@
 
 		itemDef
 		{
-			name				mb_class_trooper_limit
-			group				reb_class
+			name				mb_class_soldier_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 17 26 32
-			cvar				mb_class_trooper_limit
+			cvar				mb_class_soldier_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			11
@@ -262,79 +258,76 @@
 
 		itemDef
 		{
-			name				mb_class_trooper_lock
-			group				reb_class
-			rect				8 11 146 45
+			name				mb_class_soldier_lock
+			group				imp_class
+			rect				6 13 19 24
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item_Lock"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2_Lock"
 		}
 
-		//rebel commander
+		//imperial commander		
 		itemDef
 		{
-			name				mb_class_elitetrooper
-			group				reb_class		
-			rect				8 61 146 45
+			name				mb_class_commander
+			group				imp_class
+			rect				8 61 15 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			text				"ELITE TROOPER"
-			font				6
-			textscale			0.15
+			font				7
+			textscale			0.2
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
+			textalignx			7
+			textaligny			16
 			forecolor			0.75 0.75 0.75 1
 			backcolor			1 1 1 0.1
 			visible 			1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			
 			mouseEnter
 			{ 
-				setitemcolor	mb_class_elitetrooper		backcolor   1 1 1 0.3
-				setitemcolor	mb_class_elitetrooper		forecolor   1 1 1 1
-				setitemcolor	mb_class_elitetrooper_icon	forecolor   1 1 1 1
-				setitemcolor	mb_class_elitetrooper_cnt	forecolor   1 1 1 1
-				setitemcolor	mb_class_elitetrooper_limit	forecolor   1 1 1 1
+				setitemcolor	mb_class_commander			backcolor   1 1 1 0.3
+				setitemcolor	mb_class_commander			forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_icon		forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_cnt		forecolor   1 1 1 1
+				setitemcolor	mb_class_commander_limit	forecolor   1 1 1 1
 				
 			}
 			mouseExit
 			{ 
-				setitemcolor	mb_class_elitetrooper		backcolor   1 1 1 0.1
-				setitemcolor	mb_class_elitetrooper		forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_elitetrooper_icon	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_elitetrooper_cnt	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_elitetrooper_limit	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_commander			backcolor   1 1 1 0.1
+				setitemcolor	mb_class_commander			forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_commander_icon		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_commander_cnt		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_commander_limit	forecolor   0.75 0.75 0.75 1
 			}
 			action
 			{ 
-				disable			reb_class 0
-				setitemcolor	reb_class						backcolor 1 1 1 0.1
-				setitemcolor	reb_class						forecolor 0.75 0.75 0.75 1
-				setitemcolor	reb_class_icon					forecolor 0.75 0.75 0.75 1
-				setitemcolor	mb_class_elitetrooper			backcolor 1 1 1 0.5
-				setitemcolor	mb_class_elitetrooper			forecolor 1 1 1 1
-				setitemcolor	mb_class_elitetrooper_icon		forecolor 1 1 1 1
+				disable			imp_class 0
+				setitemcolor	imp_class					backcolor 1 1 1 0.1
+				setitemcolor	imp_class					forecolor 0.75 0.75 0.75 1
+				setitemcolor	imp_class_icon				forecolor 0.75 0.75 0.75 1
+				setitemcolor	mb_class_commander			backcolor 1 1 1 0.5
+				setitemcolor	mb_class_commander			forecolor 1 1 1 1
+				setitemcolor	mb_class_commander_icon		forecolor 1 1 1 1
 				
 				play			"sound/interface/button1.wav"
-				close			ingame_siegeclass_open_classes_r
-				open			ingame_siegeclass_open_classes_r_sm
-				disable			mb_class_elitetrooper 1
-				uiscript		mb_class_elitetrooper
+				uiscript		updatesiegecvars
+				disable			mb_class_commander 1
+				uiscript		mb_class_commander
 				uiScript		mb_char
 
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				open 			mb_class_elitetrooper
-				close 			mb_class_hero
-				close 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookie
+				close 			mb_class_mandalorian
+				close 			mb_class_bounty_hunter
+				open 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				close 			mb_class_sbd
 				
 				close 			ingame_saber_jedi
 				close 			ingame_saber_sith
@@ -350,10 +343,10 @@
 
 		itemDef
 		{
-			name				mb_class_elitetrooper_icon
-			group				reb_class_icon
+			name				mb_class_commander_icon
+			group				imp_class_icon
 			style				WINDOW_STYLE_SHADER
-			rect				12 67 26 33
+			rect				6 63 19 24
 			background			"gfx/menus/classes/com"
 			forecolor			0.75 0.75 0.75 1
 			visible				1
@@ -362,30 +355,30 @@
 
 		itemDef
 		{
-			name				mb_class_elitetrooper_cnt
-			group				reb_class
+			name				mb_class_commander_cnt
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 67 26 32
+			rect				8 61 15 45
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
+			textalignx			7
+			textaligny			16
 			font				7
 			textscale			0.2
 			forecolor			0.75 0.75 0.75 1
-			cvar				mb_class_elitetrooper_cnt
+			cvar				mb_class_commander_cnt
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				mb_class_elitetrooper_limit
-			group				reb_class
+			name				mb_class_commander_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 67 26 32
-			cvar				mb_class_elitetrooper_cnt
+			cvar				mb_class_commander_cnt
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			-4
@@ -398,8 +391,8 @@
 
 		itemDef
 		{
-			name				mb_class_elitetrooper_limit
-			group				reb_class
+			name				mb_class_commander_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 67 26 32
@@ -416,12 +409,12 @@
 
 		itemDef
 		{
-			name				mb_class_elitetrooper_limit
-			group				reb_class
+			name				mb_class_commander_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 67 26 32
-			cvar				mb_class_elitetrooper_limit
+			cvar				mb_class_commander_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			11
@@ -434,80 +427,76 @@
 
 		itemDef
 		{
-			name				mb_class_elitetrooper_lock
-			group				reb_class
-			rect				8 61 146 45
+			name				mb_class_commander_lock
+			group				imp_class
+			rect				6 63 19 24
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item_Lock"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2_Lock"
 		}
 
-		//CloneTrooper
+		//Bounty Hunter
 		itemDef
 		{
-			name				mb_class_clonetrooper
-			group				reb_class		
-			rect				8 111 146 45
+			name				mb_class_bounty_hunter
+			group				imp_class
+			rect				8 111 15 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			text				"CLONE TROOPER"
-			font				6
-			textscale			0.15
+			font				7
+			textscale			0.2
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
+			textalignx			7
+			textaligny			16
 			forecolor			0.75 0.75 0.75 1
 			backcolor			1 1 1 0.1
 			visible 			1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			
 			mouseEnter
 			{ 
-				setitemcolor	mb_class_clonetrooper		backcolor   1 1 1 0.3
-				setitemcolor	mb_class_clonetrooper		forecolor   1 1 1 1
-				setitemcolor	mb_class_clonetrooper_icon	forecolor   1 1 1 1
-				setitemcolor	mb_class_clonetrooper_cnt	forecolor   1 1 1 1
-				setitemcolor	mb_class_clonetrooper_limit	forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter			backcolor   1 1 1 0.3
+				setitemcolor	mb_class_bounty_hunter			forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon		forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_cnt		forecolor   1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_limit	forecolor   1 1 1 1
 				
 			}
 			mouseExit
 			{ 
-				setitemcolor	mb_class_clonetrooper		backcolor   1 1 1 0.1
-				setitemcolor	mb_class_clonetrooper		forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_clonetrooper_icon	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_clonetrooper_cnt	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_clonetrooper_limit	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_bounty_hunter			backcolor   1 1 1 0.1
+				setitemcolor	mb_class_bounty_hunter			forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_bounty_hunter_icon		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_bounty_hunter_cnt		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_bounty_hunter_limit	forecolor   0.75 0.75 0.75 1
 			}
 			action
 			{ 
-				disable			reb_class 0
-				setitemcolor	reb_class						backcolor 1 1 1 0.1
-				setitemcolor	reb_class						forecolor 0.75 0.75 0.75 1
-				setitemcolor	reb_class_icon					forecolor 0.75 0.75 0.75 1
-				setitemcolor	mb_class_clonetrooper			backcolor 1 1 1 0.5
-				setitemcolor	mb_class_clonetrooper			forecolor 1 1 1 1
-				setitemcolor	mb_class_clonetrooper_icon		forecolor 1 1 1 1
+				disable			imp_class 0
+				setitemcolor	imp_class						backcolor 1 1 1 0.1
+				setitemcolor	imp_class						forecolor 0.75 0.75 0.75 1
+				setitemcolor	imp_class_icon					forecolor 0.75 0.75 0.75 1
+				setitemcolor	mb_class_bounty_hunter			backcolor 1 1 1 0.5
+				setitemcolor	mb_class_bounty_hunter			forecolor 1 1 1 1
+				setitemcolor	mb_class_bounty_hunter_icon		forecolor 1 1 1 1
 				
 				play			"sound/interface/button1.wav"
 				uiscript		updatesiegecvars
-				close			ingame_siegeclass_open_classes_r
-				open			ingame_siegeclass_open_classes_r_sm
-				disable			mb_class_clonetrooper 1
-				uiscript		mb_class_clonetrooper
+				disable			mb_class_bounty_hunter 1
+				uiscript		mb_class_bounty_hunter
 				uiScript		mb_char
 
-				close 			mb_class_arctrooper
-				open 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				close 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookie
+				close 			mb_class_mandalorian
+				open 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				close 			mb_class_sbd
 				
 				close 			ingame_saber_jedi
 				close 			ingame_saber_sith
@@ -518,19 +507,16 @@
 				open			ingame_siegeclass_open_model
 				open			ingame_siegeclass_open_menuswitch
 				open			mb_stats_common
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutCloneSelect
 			}
 		}
 
 		itemDef
 		{
-			name				mb_class_clonetrooper_icon
-			group				reb_class_icon
+			name				mb_class_bounty_hunter_icon
+			group				imp_class_icon
 			style				WINDOW_STYLE_SHADER
-			rect				12 117 26 33
-			background			"gfx/menus/classes/clone"
+			rect				6 113 19 24
+			background			"gfx/menus/classes/bh"
 			forecolor			0.75 0.75 0.75 1
 			visible				1
 			decoration
@@ -538,30 +524,30 @@
 
 		itemDef
 		{
-			name				mb_class_clonetrooper_cnt
-			group				reb_class
+			name				mb_class_bounty_hunter_cnt
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 117 26 32
+			rect				8 111 15 45
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
+			textalignx			7
+			textaligny			16
 			font				7
 			textscale			0.2
 			forecolor			0.75 0.75 0.75 1
-			cvar				mb_class_clonetrooper_cnt
+			cvar				mb_class_bounty_hunter_cnt
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				mb_class_clonetrooper_limit
-			group				reb_class
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 117 26 32
-			cvar				mb_class_clonetrooper_cnt
+			cvar				mb_class_bounty_hunter_cnt
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			-4
@@ -574,8 +560,8 @@
 
 		itemDef
 		{
-			name				mb_class_clonetrooper_limit
-			group				reb_class
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 117 26 32
@@ -592,12 +578,12 @@
 
 		itemDef
 		{
-			name				mb_class_clonetrooper_limit
-			group				reb_class
+			name				mb_class_bounty_hunter_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 117 26 32
-			cvar				mb_class_clonetrooper_limit
+			cvar				mb_class_bounty_hunter_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			11
@@ -610,80 +596,76 @@
 
 		itemDef
 		{
-			name				mb_class_clonetrooper_lock
-			group				reb_class
-			rect				8 111 146 45
+			name				mb_class_bounty_hunter_lock
+			group				imp_class
+			rect				6 113 19 24
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item_Lock"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2_Lock"
 		}
 
-		//ARC Trooper
+		//Mandalorian
 		itemDef
 		{
-			name				mb_class_arctrooper
-			group				reb_class		
-			rect				8 161 146 45
+			name				mb_class_mandalorian
+			group				imp_class
+			rect				8 161 15 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			text				"ARC TROOPER"
-			font				6
-			textscale			0.15
+			font				7
+			textscale			0.2
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
+			textalignx			7
+			textaligny			16
 			forecolor			0.75 0.75 0.75 1
 			backcolor			1 1 1 0.1
 			visible 			1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			
 			mouseEnter
 			{ 
-				setitemcolor	mb_class_arctrooper			backcolor   1 1 1 0.3
-				setitemcolor	mb_class_arctrooper			forecolor   1 1 1 1
-				setitemcolor	mb_class_arctrooper_icon	forecolor   1 1 1 1
-				setitemcolor	mb_class_arctrooper_cnt		forecolor   1 1 1 1
-				setitemcolor	mb_class_arctrooper_limit	forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian		backcolor   1 1 1 0.3
+				setitemcolor	mb_class_mandalorian		forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon	forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_cnt	forecolor   1 1 1 1
+				setitemcolor	mb_class_mandalorian_limit	forecolor   1 1 1 1
 				
 			}
 			mouseExit
 			{ 
-				setitemcolor	mb_class_arctrooper			backcolor   1 1 1 0.1
-				setitemcolor	mb_class_arctrooper			forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_arctrooper_icon	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_arctrooper_cnt		forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_arctrooper_limit	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_mandalorian		backcolor   1 1 1 0.1
+				setitemcolor	mb_class_mandalorian		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_mandalorian_icon	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_mandalorian_cnt	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_mandalorian_limit	forecolor   0.75 0.75 0.75 1
 			}
 			action
 			{ 
-				disable			reb_class 0
-				setitemcolor	reb_class					backcolor 1 1 1 0.1
-				setitemcolor	reb_class					forecolor 0.75 0.75 0.75 1
-				setitemcolor	reb_class_icon				forecolor 0.75 0.75 0.75 1
-				setitemcolor	mb_class_arctrooper			backcolor 1 1 1 0.5
-				setitemcolor	mb_class_arctrooper			forecolor 1 1 1 1
-				setitemcolor	mb_class_arctrooper_icon	forecolor 1 1 1 1
+				disable			imp_class 0
+				setitemcolor	imp_class					backcolor 1 1 1 0.1
+				setitemcolor	imp_class					forecolor 0.75 0.75 0.75 1
+				setitemcolor	imp_class_icon				forecolor 0.75 0.75 0.75 1
+				setitemcolor	mb_class_mandalorian		backcolor 1 1 1 0.5
+				setitemcolor	mb_class_mandalorian		forecolor 1 1 1 1
+				setitemcolor	mb_class_mandalorian_icon	forecolor 1 1 1 1
 				
 				play			"sound/interface/button1.wav"
 				uiscript		updatesiegecvars
-				close			ingame_siegeclass_open_classes_r
-				open			ingame_siegeclass_open_classes_r_sm
-				disable			mb_class_arctrooper 1
-				uiscript		mb_class_arctrooper
+				disable			mb_class_mandalorian 1
+				uiscript		mb_class_mandalorian
 				uiScript		mb_char
-	
-				open 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				close 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookie
+
+				open 			mb_class_mandalorian
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				close 			mb_class_sbd
 				
 				close 			ingame_saber_jedi
 				close 			ingame_saber_sith
@@ -699,11 +681,11 @@
 
 		itemDef
 		{
-			name				mb_class_arctrooper_icon
-			group				reb_class_icon
+			name				mb_class_mandalorian_icon
+			group				imp_class_icon
 			style				WINDOW_STYLE_SHADER
-			rect				12 167 26 33
-			background			"gfx/menus/classes/arc"
+			rect				6 163 19 24
+			background			"gfx/menus/classes/manda"
 			forecolor			0.75 0.75 0.75 1
 			visible				1
 			decoration
@@ -711,30 +693,30 @@
 
 		itemDef
 		{
-			name				mb_class_arctrooper_cnt
-			group				reb_class
+			name				mb_class_mandalorian_cnt
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 167 26 32
+			rect				8 161 15 45
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
+			textalignx			7
+			textaligny			16
 			font				7
 			textscale			0.2
 			forecolor			0.75 0.75 0.75 1
-			cvar				mb_class_arctrooper_cnt
+			cvar				mb_class_mandalorian_cnt
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				mb_class_arctrooper_limit
-			group				reb_class
+			name				mb_class_mandalorian_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 167 26 32
-			cvar				mb_class_arctrooper_cnt
+			cvar				mb_class_mandalorian_cnt
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			-4
@@ -747,8 +729,8 @@
 
 		itemDef
 		{
-			name				mb_class_arctrooper_limit
-			group				reb_class
+			name				mb_class_mandalorian_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 167 26 32
@@ -765,12 +747,12 @@
 
 		itemDef
 		{
-			name				mb_class_arctrooper_limit
-			group				reb_class
+			name				mb_class_mandalorian_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 167 26 32
-			cvar				mb_class_arctrooper_limit
+			cvar				mb_class_mandalorian_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			11
@@ -783,80 +765,76 @@
 
 		itemDef
 		{
-			name				mb_class_arctrooper_lock
-			group				reb_class
-			rect				8 161 146 45
+			name				mb_class_mandalorian_lock
+			group				imp_class
+			rect				6 163 19 24
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item_Lock"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2_Lock"
 		}
 
-		//HERO
+		//Droideka
 		itemDef
 		{
-			name				mb_class_hero
-			group				reb_class		
-			rect				8 211 146 45
+			name				mb_class_droideka
+			group				imp_class
+			rect				8 211 15 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			text				"HERO"
-			font				6
-			textscale			0.15
+			font				7
+			textscale			0.2
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
+			textalignx			7
+			textaligny			16
 			forecolor			0.75 0.75 0.75 1
 			backcolor			1 1 1 0.1
 			visible 			1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			
 			mouseEnter
 			{ 
-				setitemcolor	mb_class_hero		backcolor   1 1 1 0.3
-				setitemcolor	mb_class_hero		forecolor   1 1 1 1
-				setitemcolor	mb_class_hero_icon	forecolor   1 1 1 1
-				setitemcolor	mb_class_hero_cnt	forecolor   1 1 1 1
-				setitemcolor	mb_class_hero_limit	forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka			backcolor   1 1 1 0.3
+				setitemcolor	mb_class_droideka			forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_icon		forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_cnt		forecolor   1 1 1 1
+				setitemcolor	mb_class_droideka_limit		forecolor   1 1 1 1
 				
 			}
 			mouseExit
 			{ 
-				setitemcolor	mb_class_hero		backcolor   1 1 1 0.1
-				setitemcolor	mb_class_hero		forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_hero_icon	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_hero_cnt	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_hero_limit	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_droideka			backcolor   1 1 1 0.1
+				setitemcolor	mb_class_droideka			forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_droideka_icon		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_droideka_cnt		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_droideka_limit		forecolor   0.75 0.75 0.75 1
 			}
 			action
 			{ 
-				disable			reb_class 0
-				setitemcolor	reb_class				backcolor 1 1 1 0.1
-				setitemcolor	reb_class				forecolor 0.75 0.75 0.75 1
-				setitemcolor	reb_class_icon			forecolor 0.75 0.75 0.75 1
-				setitemcolor	mb_class_hero			backcolor 1 1 1 0.5
-				setitemcolor	mb_class_hero			forecolor 1 1 1 1
-				setitemcolor	mb_class_hero_icon		forecolor 1 1 1 1
+				disable			imp_class 0
+				setitemcolor	imp_class				backcolor 1 1 1 0.1
+				setitemcolor	imp_class				forecolor 0.75 0.75 0.75 1
+				setitemcolor	imp_class_icon			forecolor 0.75 0.75 0.75 1
+				setitemcolor	mb_class_droideka		backcolor 1 1 1 0.5
+				setitemcolor	mb_class_droideka		forecolor 1 1 1 1
+				setitemcolor	mb_class_droideka_icon	forecolor 1 1 1 1
 				
 				play			"sound/interface/button1.wav"
 				uiscript		updatesiegecvars
-				close			ingame_siegeclass_open_classes_r
-				open			ingame_siegeclass_open_classes_r_sm
-				disable			mb_class_hero 1
-				uiscript		mb_class_hero
+				disable			mb_class_droideka 1
+				uiscript		mb_class_droideka
 				uiScript		mb_char
 
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				open 			mb_class_hero
-				close 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookie
+				close 			mb_class_mandalorian
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				open 			mb_class_droideka
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				close 			mb_class_sbd
 				
 				close 			ingame_saber_jedi
 				close 			ingame_saber_sith
@@ -872,11 +850,11 @@
 
 		itemDef
 		{
-			name				mb_class_hero_icon
-			group				reb_class_icon
+			name				mb_class_droideka_icon
+			group				imp_class_icon
 			style				WINDOW_STYLE_SHADER
-			rect				12 217 26 33
-			background			"gfx/menus/classes/hero"
+			rect				6 213 19 24
+			background			"gfx/menus/classes/deka"
 			forecolor			0.75 0.75 0.75 1
 			visible				1
 			decoration
@@ -884,30 +862,30 @@
 
 		itemDef
 		{
-			name				mb_class_hero_cnt
-			group				reb_class
+			name				mb_class_droideka_cnt
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 217 26 32
+			rect				8 211 15 45
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
+			textalignx			7
+			textaligny			16
 			font				7
 			textscale			0.2
 			forecolor			0.75 0.75 0.75 1
-			cvar				mb_class_hero_cnt
+			cvar				mb_class_droideka_cnt
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				mb_class_hero_limit
-			group				reb_class
+			name				mb_class_droideka_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 217 26 32
-			cvar				mb_class_hero_cnt
+			cvar				mb_class_droideka_cnt
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			-4
@@ -920,8 +898,8 @@
 
 		itemDef
 		{
-			name				mb_class_hero_limit
-			group				reb_class
+			name				mb_class_droideka_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 217 26 32
@@ -938,12 +916,12 @@
 
 		itemDef
 		{
-			name				mb_class_hero_limit
-			group				reb_class
+			name				mb_class_droideka_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 217 26 32
-			cvar				mb_class_hero_limit
+			cvar				mb_class_droideka_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			11
@@ -956,80 +934,77 @@
 
 		itemDef
 		{
-			name				mb_class_hero_lock
-			group				reb_class
-			rect				8 211 146 45
+			name				mb_class_droideka_lock
+			group				imp_class
+			rect				6 213 19 24
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item_Lock"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2_Lock"
 		}
 
-		//Wookiee
+		//Super Battle Droid
 		itemDef
 		{
-			name				mb_class_wookie
-			group				reb_class		
-			rect				8 261 146 45
+			name				mb_class_sbd
+			group				imp_class
+			rect				8 261 15 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			text				"WOOKIEE"
-			font				6
-			textscale			0.15
+			font				7
+			textscale			0.2
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
+			textalignx			7
+			textaligny			16
 			forecolor			0.75 0.75 0.75 1
+			cvar				mb_class_sbd_cnt
 			backcolor			1 1 1 0.1
 			visible 			1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			
 			mouseEnter
 			{ 
-				setitemcolor	mb_class_wookie			backcolor   1 1 1 0.3
-				setitemcolor	mb_class_wookie			forecolor   1 1 1 1
-				setitemcolor	mb_class_wookie_icon	forecolor   1 1 1 1
-				setitemcolor	mb_class_wookie_cnt		forecolor   1 1 1 1
-				setitemcolor	mb_class_wookie_limit	forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd		backcolor   1 1 1 0.3
+				setitemcolor	mb_class_sbd		forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_icon	forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_cnt	forecolor   1 1 1 1
+				setitemcolor	mb_class_sbd_limit	forecolor   1 1 1 1
 				
 			}
 			mouseExit
 			{ 
-				setitemcolor	mb_class_wookie			backcolor   1 1 1 0.1
-				setitemcolor	mb_class_wookie			forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_wookie_icon	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_wookie_cnt		forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_wookie_limit	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sbd		backcolor   1 1 1 0.1
+				setitemcolor	mb_class_sbd		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sbd_icon	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sbd_cnt	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sbd_limit	forecolor   0.75 0.75 0.75 1
 			}
 			action
 			{ 
-				disable			reb_class 0
-				setitemcolor	reb_class					backcolor 1 1 1 0.1
-				setitemcolor	reb_class					forecolor 0.75 0.75 0.75 1
-				setitemcolor	reb_class_icon				forecolor 0.75 0.75 0.75 1
-				setitemcolor	mb_class_wookie				backcolor 1 1 1 0.5
-				setitemcolor	mb_class_wookie				forecolor 1 1 1 1
-				setitemcolor	mb_class_wookie_icon		forecolor 1 1 1 1
+				disable			imp_class 0
+				setitemcolor	imp_class			backcolor 1 1 1 0.1
+				setitemcolor	imp_class			forecolor 0.75 0.75 0.75 1
+				setitemcolor	imp_class_icon		forecolor 0.75 0.75 0.75 1
+				setitemcolor	mb_class_sbd		backcolor 1 1 1 0.5
+				setitemcolor	mb_class_sbd		forecolor 1 1 1 1
+				setitemcolor	mb_class_sbd_icon	forecolor 1 1 1 1
 				
 				play			"sound/interface/button1.wav"
 				uiscript		updatesiegecvars
-				close			ingame_siegeclass_open_classes_r
-				open			ingame_siegeclass_open_classes_r_sm
-				disable			mb_class_wookie 1
-				uiscript		mb_class_wookie
+				disable			mb_class_sbd 1
+				uiscript		mb_class_sbd
 				uiScript		mb_char
 
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				close 			mb_class_jedi
-				close 			mb_class_trooper
-				open 			mb_class_wookie
+				close 			mb_class_mandalorian
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				close 			mb_class_sith
+				close 			mb_class_soldier
+				open 			mb_class_sbd
 				
 				close 			ingame_saber_jedi
 				close 			ingame_saber_sith
@@ -1045,11 +1020,11 @@
 
 		itemDef
 		{
-			name				mb_class_wookie_icon
-			group				reb_class_icon
+			name				mb_class_sbd_icon
+			group				imp_class_icon
 			style				WINDOW_STYLE_SHADER
-			rect				12 267 26 33
-			background			"gfx/menus/classes/wook"
+			rect				6 263 19 24
+			background			"gfx/menus/classes/sbd"
 			forecolor			0.75 0.75 0.75 1
 			visible				1
 			decoration
@@ -1057,30 +1032,30 @@
 
 		itemDef
 		{
-			name				mb_class_wookie_cnt
-			group				reb_class
+			name				mb_class_sbd_cnt
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 267 26 32
+			rect				8 261 15 45
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
+			textalignx			7
+			textaligny			16
 			font				7
 			textscale			0.2
 			forecolor			0.75 0.75 0.75 1
-			cvar				mb_class_wookie_cnt
+			cvar				mb_class_sbd_cnt
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				mb_class_wookie_limit
-			group				reb_class
+			name				mb_class_sbd_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 267 26 32
-			cvar				mb_class_wookie_cnt
+			cvar				mb_class_sbd_cnt
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			-4
@@ -1093,8 +1068,8 @@
 
 		itemDef
 		{
-			name				mb_class_wookie_limit
-			group				reb_class
+			name				mb_class_sbd_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 267 26 32
@@ -1111,12 +1086,12 @@
 
 		itemDef
 		{
-			name				mb_class_wookie_limit
-			group				reb_class
+			name				mb_class_sbd_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 267 26 32
-			cvar				mb_class_wookie_limit
+			cvar				mb_class_sbd_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			11
@@ -1129,81 +1104,78 @@
 
 		itemDef
 		{
-			name				mb_class_wookie_lock
-			group				reb_class
-			rect				8 261 146 45
+			name				mb_class_sbd_lock
+			group				imp_class
+			rect				6 263 19 24
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item_Lock"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2_Lock"
 		}
 
-		//Jedi
+		//Sith
 		itemDef
 		{
-			name				mb_class_jedi
-			group				reb_class		
-			rect				8 311 146 45
+			name				mb_class_sith
+			group				imp_class
+			rect				8 311 15 45
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			//descText			@MENUS_WATCH_DESC
-			text				"JEDI"
-			font				6
-			textscale			0.15
+			font				7
+			textscale			0.2
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			72
-			textaligny			10
+			textalignx			7
+			textaligny			16
 			forecolor			0.75 0.75 0.75 1
+			cvar				mb_class_sith_cnt
 			backcolor			1 1 1 0.1
 			visible 			1
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			
 			mouseEnter
 			{ 
-				setitemcolor	mb_class_jedi		backcolor   1 1 1 0.3
-				setitemcolor	mb_class_jedi		forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_icon	forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_cnt	forecolor   1 1 1 1
-				setitemcolor	mb_class_jedi_limit	forecolor   1 1 1 1
+				setitemcolor	mb_class_sith			backcolor   1 1 1 0.3
+				setitemcolor	mb_class_sith			forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_icon		forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_cnt		forecolor   1 1 1 1
+				setitemcolor	mb_class_sith_limit		forecolor   1 1 1 1
 				
 			}
 			mouseExit
 			{ 
-				setitemcolor	mb_class_jedi		backcolor   1 1 1 0.1
-				setitemcolor	mb_class_jedi		forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_jedi_icon	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_jedi_cnt	forecolor   0.75 0.75 0.75 1
-				setitemcolor	mb_class_jedi_limit	forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sith			backcolor   1 1 1 0.1
+				setitemcolor	mb_class_sith			forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sith_icon		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sith_cnt		forecolor   0.75 0.75 0.75 1
+				setitemcolor	mb_class_sith_limit		forecolor   0.75 0.75 0.75 1
 			}
 			action
 			{ 
-				disable			reb_class 0
-				setitemcolor	reb_class				backcolor 1 1 1 0.1
-				setitemcolor	reb_class				forecolor 0.75 0.75 0.75 1
-				setitemcolor	reb_class_icon			forecolor 0.75 0.75 0.75 1
-				setitemcolor	mb_class_jedi			backcolor 1 1 1 0.5
-				setitemcolor	mb_class_jedi			forecolor 1 1 1 1
-				setitemcolor	mb_class_jedi_icon		forecolor 1 1 1 1
+				disable			imp_class 0
+				setitemcolor	imp_class				backcolor 1 1 1 0.1
+				setitemcolor	imp_class				forecolor 0.75 0.75 0.75 1
+				setitemcolor	imp_class_icon			forecolor 0.75 0.75 0.75 1
+				setitemcolor	mb_class_sith			backcolor 1 1 1 0.5
+				setitemcolor	mb_class_sith			forecolor 1 1 1 1
+				setitemcolor	mb_class_sith_icon		forecolor 1 1 1 1
 				
 				play			"sound/interface/button1.wav"
 				uiscript		updatesiegecvars
-				close			ingame_siegeclass_open_classes_r
-				open			ingame_siegeclass_open_classes_r_sm
-				disable			mb_class_jedi 1
-				uiscript		mb_class_jedi
+				disable			mb_class_sith 1
+				uiscript		mb_class_sith
 				uiScript		mb_char
 
-				close 			mb_class_arctrooper
-				close 			mb_class_clonetrooper
-				close 			mb_class_elitetrooper
-				close 			mb_class_hero
-				open 			mb_class_jedi
-				close 			mb_class_trooper
-				close 			mb_class_wookie
-				
+				close 			mb_class_mandalorian
+				close 			mb_class_bounty_hunter
+				close 			mb_class_commander
+				close 			mb_class_droideka
+				open 			mb_class_sith
+				close 			mb_class_soldier
+				close 			mb_class_sbd
+
 				close 			ingame_saber_jedi
 				close 			ingame_saber_sith
 				close			ingame_siegeclass_open_hilt_list
@@ -1218,10 +1190,10 @@
 
 		itemDef
 		{
-			name				mb_class_jedi_icon
-			group				reb_class_icon
+			name				mb_class_sith_icon
+			group				imp_class_icon
 			style				WINDOW_STYLE_SHADER
-			rect				12 317 26 33
+			rect				6 313 19 24
 			background			"gfx/menus/classes/jedi"
 			forecolor			0.75 0.75 0.75 1
 			visible				1
@@ -1230,30 +1202,30 @@
 
 		itemDef
 		{
-			name				mb_class_jedi_cnt
-			group				reb_class
+			name				mb_class_sith_cnt
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				123 317 26 32
+			rect				8 311 15 45
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			13
-			textaligny			-1
+			textalignx			7
+			textaligny			16
 			font				7
 			textscale			0.2
 			forecolor			0.75 0.75 0.75 1
-			cvar				mb_class_jedi_cnt
+			cvar				mb_class_sith_cnt
 			visible				1
 			decoration
 		}
 
 		itemDef
 		{
-			name				mb_class_jedi_limit
-			group				reb_class
+			name				mb_class_sith_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 317 26 32
-			cvar				mb_class_jedi_cnt
+			cvar				mb_class_sith_cnt
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			-4
@@ -1266,8 +1238,8 @@
 
 		itemDef
 		{
-			name				mb_class_jedi_limit
-			group				reb_class
+			name				mb_class_sith_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 317 26 32
@@ -1284,12 +1256,12 @@
 
 		itemDef
 		{
-			name				mb_class_jedi_limit
-			group				reb_class
+			name				mb_class_sith_limit
+			group				imp_class
 			type 				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB2
 			rect				123 317 26 32
-			cvar				mb_class_jedi_limit
+			cvar				mb_class_sith_limit
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			13
 			textaligny			11
@@ -1302,15 +1274,15 @@
 
 		itemDef
 		{
-			name				mb_class_jedi_lock
-			group				reb_class
-			rect				8 311 146 45
+			name				mb_class_sith_lock
+			group				imp_class
+			rect				6 313 19 24
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/menus/alpha/Menu_ClassSelect_Item_Lock"
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2_Lock"
 		}
 	}
 }
