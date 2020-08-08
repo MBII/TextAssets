@@ -505,7 +505,7 @@ gfx/menus/alpha/SliderThumb_v
 	}
 }
 
-gfx/menus/alpha/Slider_v_RGB
+gfx/menus/alpha/Slider_RGB_v
 {
 	nopicmip
 	nomipmaps
@@ -517,7 +517,7 @@ gfx/menus/alpha/Slider_v_RGB
 	}
 }
 
-gfx/menus/alpha/SliderThumb_v_RGB
+gfx/menus/alpha/SliderThumb_RGB_v
 {
 	nopicmip
 	nomipmaps
@@ -1029,6 +1029,23 @@ gfx/menus/alpha/Icon_SaberStaff
 	}
 	{
 		map gfx/menus/alpha/Icon_SaberStaff
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Icon_SaberAuth
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_SaberAuth
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
