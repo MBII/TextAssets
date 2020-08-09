@@ -243,3 +243,62 @@ models/players/anakin2/robe
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// TCW anakin
+
+models/players/anakin_tcw/arms
+{
+	{
+		map models/players/anakin_tcw/arms
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/arms-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/boots
+{
+	{
+		map models/players/anakin_tcw/boots
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/boots-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/hips
+{
+	{
+		map models/players/anakin_tcw/hips
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/hips-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/torso
+{
+	{
+		map models/players/anakin_tcw/torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/torso-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
