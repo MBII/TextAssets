@@ -250,4 +250,12 @@ models/players/palpatine/robe-partsen2
 	}
 }
 
-
+// TRoS
+models/players/palpatine_tros/robe
+{
+	cull	twosided
+	{
+		map models/players/palpatine_tros/robe
+		rgbGen lightingDiffuse
+	}
+}
