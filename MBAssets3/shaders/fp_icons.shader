@@ -213,3 +213,88 @@ gfx/mp/new_f_icon_speed
 		rgbGen identity
 	}
 }
+
+// FA force icon replacements
+gfx/forcepowers/annoyingbastard
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/forcepowers/annoyingbastard
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+gfx/forcepowers/lightning
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/forcepowers/lightning
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+gfx/forcepowers/push
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/forcepowers/push
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+gfx/forcepowers/radar
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/forcepowers/radar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+gfx/forcepowers/repulsivebelch
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/forcepowers/repulsivebelch
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+gfx/hud/RC/radar
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/hud/RC/radar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+gfx/marvel/spidersense
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/marvel/spidersense
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
