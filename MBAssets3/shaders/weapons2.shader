@@ -416,26 +416,58 @@ models/weapons2/sbd_grapple/sparks
 	}
 }
 
-models/weapons2/sbd_grapple/blade
+models/weapons2/SBD_Grapple/grapple
 {
-	cull	twosided
+    {
+        map models/weapons2/SBD_Grapple/grapple
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/SBD_Grapple/grapple_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/weapons2/SBD_Grapple/grapple_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
 
-	{
-		map models/weapons2/sbd_grapple/blade
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/SBD/chrome2.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/weapons2/sbd_grapple/blade
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
+models/weapons2/SBD_Grapple2/grapple2
+{
+    {
+        map models/weapons2/SBD_Grapple2/grapple2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/SBD_Grapple2/grapple2_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/weapons2/SBD_Grapple2/grapple2_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
 
