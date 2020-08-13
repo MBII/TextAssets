@@ -5,7 +5,7 @@
 		name					"mb_class_templates"
 		visible					0
 		fullscreen				0
-		rect					430 106 113 371
+		rect					430 106 113 318
 		focusColor				1 1 1 1
 		descX					320
 		descY					445
@@ -20,7 +20,7 @@
 		{
 			name				fcflist
 			group				pointstemplates
-			rect				2 0 110 240
+			rect				2 0 110 224
 			type				ITEM_TYPE_LISTBOX
 			style				WINDOW_STYLE_LISTBOX_RGB1
 			textstyle			WINDOW_STYLE_TEXT_RGB2
@@ -66,7 +66,7 @@
 			text				@MENUS_FILENAME
 			cvar				"ui_SaveFCF"
 			maxchars			16
-			rect				2 240 110 20
+			rect				2 224 110 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny 			-4
@@ -84,14 +84,14 @@
 			name				templatesavetext
 			style				WINDOW_STYLE_TEXT_RGB1
 			textalign			ITEM_ALIGN_CENTER
-			rect				0 255 110 15
+			rect				0 239 110 15
 			forecolor			1 1 1 0.5
 			font				6
 			textscale			0.125
 			textalignx			55
 			text				@MENUS_MATCHING_NAMES
-			decoration
 			visible				0
+			decoration
 		}
 
 		itemDef
@@ -103,7 +103,7 @@
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				3 285 107 28
+			rect				3 269 107 28
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			53
 			textaligny			-3
@@ -116,7 +116,7 @@
 			action
 			{
 				play			"sound/interface/button1.wav"
-				uiScript 		saveTemplate
+				uiScript 		mb_savetemplate
 				setitemcolor	templatesave			backcolor	1 1 1 0.5
 			}
 			mouseenter
@@ -130,6 +130,116 @@
 				hide			templatesavetext
 				hide			templatesavebutton
 				setitemcolor	templatesave			backcolor	1 1 1 0.05
+			}
+		}
+
+		itemDef
+		{
+			name				templatedelete
+			group				pointstemplates
+			text				@MENUS_DELETE_FILE
+			type				1
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn2_Bg"
+			rect				3 299 107 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			53
+			textaligny			-3
+			font				6
+			textscale			0.125
+			backcolor			1 0 0 0.05
+			forecolor			1 1 1 1
+			descText			@MENUS_DELETE_CURRENT_FORCE_SETUP
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setitemcolor	templatedelete			backcolor	1 0 0 0.5
+				hide			templatedelete
+				show			pointstemplatesdelete
+			}
+			mouseenter
+			{
+				setitemcolor	templatedelete			backcolor	1 0 0 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	templatedelete			backcolor	1 0 0 0.05
+			}
+		}
+
+		itemDef
+		{
+			name				templatedeleteconfirm
+			group				pointstemplatesdelete
+			text				@MENUS_CONFIRM_DELETE_FILE
+			type				1
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn2_Bg"
+			rect				3 299 53 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			27
+			textaligny			-3
+			font				6
+			textscale			0.125
+			backcolor			1 0 0 0.05
+			forecolor			1 1 1 1
+			descText			@MENUS_DELETE_CURRENT_FORCE_SETUP
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript 		mb_deletetemplate
+				uiScript 		mb_updatetemplates
+				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.5
+				show			templatedelete
+				hide			pointstemplatesdelete
+			}
+			mouseenter
+			{
+				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.05
+			}
+		}
+
+		itemDef
+		{
+			name				templatedeletecancel
+			group				pointstemplatesdelete
+			text				@MENUS_CANCEL_DELETE_FILE
+			type				1
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn2_Bg"
+			rect				58 299 53 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			27
+			textaligny			-3
+			font				6
+			textscale			0.125
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			descText			@MENUS_CANCEL_DELETE_FILE
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setitemcolor	templatedeletecancel	backcolor	1 1 1 0.5
+				show			templatedelete
+				hide			pointstemplatesdelete
+			}
+			mouseenter
+			{
+				setitemcolor	templatedeletecancel	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	templatedeletecancel	backcolor	1 1 1 0.05
 			}
 		}
 	}
