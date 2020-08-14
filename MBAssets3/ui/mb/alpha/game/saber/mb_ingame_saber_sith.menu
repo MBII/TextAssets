@@ -4,7 +4,7 @@
 		name					"ingame_saber_sith"
 		fullScreen				0
 		visible					0
-		rect					430 67 113 364
+		rect					430 101 113 323
 		style					1
 		descX					320
 		descY					443
@@ -16,9 +16,7 @@
 		disablecolor			1 1 1 1
 		stayopen
 		onOpen
-		{
-			close			ingame_siegeclass_open_menuswitch
-			
+		{			
 			uiScript			getsabercvars "sith"
 		}
 		onClose
@@ -33,7 +31,7 @@
 			name				saber
 			group				hiltmodels
 			type				ITEM_TYPE_MODEL
-			rect				0 0 113 357
+			rect 0 -34 113 357
 			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
 			isSaber				1
 			model_angle			180
@@ -54,7 +52,7 @@
 			name				saber4
 			group				hiltmodels
 			type				ITEM_TYPE_MODEL
-			rect				0 0 113 357
+			rect 0 -34 113 357
 			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
 			isSaber				1
 			model_angle			180
@@ -75,7 +73,7 @@
 			name				saber3
 			group				hiltmodels
 			type				ITEM_TYPE_MODEL
-			rect				0 0 113 357
+			rect 0 -34 113 357
 			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
 			isSaber				1
 			model_angle			180
@@ -96,7 +94,7 @@
 			name				saber2
 			group				hiltmodels
 			type				ITEM_TYPE_MODEL
-			rect				0 0 113 357
+			rect 0 -34 113 357
 			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
 			isSaber2			1
 			model_angle			180
@@ -117,7 +115,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect				2 143 22 27
+			rect 2 109 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_RedOrange"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -144,7 +142,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect				87 143 22 27
+			rect 87 109 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_RedOrange"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -173,7 +171,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect				2 176 22 27
+			rect 2 142 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -200,7 +198,7 @@
 			group				hiltmodelssith
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect				87 176 22 27
+			rect 87 142 22 27
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -230,7 +228,7 @@
 			type				ITEM_TYPE_SLIDER_VERT
 			style				WINDOW_STYLE_TEXT_RGB2
 			cvarFloat			"ui_saber1_hue" 1.0 0.97 1.02
-			rect				5 212 16 100
+			rect 5 178 16 100
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			70
 			textaligny			0
@@ -254,7 +252,7 @@
 			type				ITEM_TYPE_SLIDER_VERT
 			style				WINDOW_STYLE_TEXT_RGB2
 			cvarFloat			"ui_saber2_hue" 1.0 0.97 1.02
-			rect				91 212 16 100
+			rect 91 178 16 100
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			70
 			textaligny			0
@@ -275,7 +273,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect				2 317 22 27
+			rect 2 283 22 27
 			background			"gfx/menus/alpha/Icon_SaberAuth"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_AUTHENTIC_BTN_DESC
@@ -296,149 +294,6 @@
                 uiScript        mb_rgb_saber
                 uiScript        mb_auth_saber
                 uiScript        updatesabercvars
-			}
-		}
-
-		itemDef
-		{
-			name				MenuSwitchBack
-			group				none
-			style				WINDOW_STYLE_FILLED_RGB1
-			rect				0 0 113 34
-			background			"gfx/menus/alpha/Menu_MenuSwitchBack"
-			forecolor			0 0 0 1
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Templates
-			group				MenuSwitch
-			text				"BUILDS"
-			descText			"A list of build templates for the selected class."
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Icon_Templates"
-			backcolor			1 1 1 0.5
-			rect				10 3 24 28
-			font				6
-			textscale			0.15
-			textstyle			0
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			20
-			forecolor			1 1 1 0
-			visible				1
-			mouseenter
-			{
-				setitemcolor	Templates backcolor	1 1 1 0.8
-				setitemcolor	Templates forecolor	1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	Templates backcolor	1 1 1 0.5
-				setitemcolor	Templates forecolor	1 1 1 0
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				close			ingame_siegeclass_open_hilt_list
-				close 			ingame_saber_jedi
-				close 			ingame_saber_sith
-				open			mb_class_templates
-				close			ingame_siegeclass_open_model
-				close			mb_stats_common
-				open			ingame_siegeclass_open_menuswitch
-				open			ingame_siegeclass_open_model_list
-			}
-		}
-
-		itemDef
-		{
-			name				PlayerModel
-			group				MenuSwitch
-			text				"MODEL"
-			descText			"View your currently selected model"
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Icon_PlayerModel"
-			backcolor			0.5 0.5 0.5 1
-			rect				44 3 24 28
-			font				6
-			textscale			0.15
-			textstyle			0
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny		 	20
-			forecolor			1 1 1 0
-			visible				1
-			mouseenter
-			{
-				setitemcolor	PlayerModel backcolor	1 1 1 0.8
-				setitemcolor	PlayerModel forecolor	1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	PlayerModel backcolor	1 1 1 0.5
-				setitemcolor	PlayerModel forecolor	1 1 1 0
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				close			ingame_siegeclass_open_hilt_list
-				close 			ingame_saber_jedi
-				close 			ingame_saber_sith
-				close			mb_class_templates
-				open			ingame_siegeclass_open_model
-				open			mb_stats_common
-				open			ingame_siegeclass_open_menuswitch
-				open			ingame_siegeclass_open_model_list
-			}
-		}
-
-		itemDef
-		{
-			name				Hilts_Sith
-			group				MenuSwitch
-			text				"HILTS"
-			descText			"Customize your lightsaber hilt."
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Icon_SaberCustom"
-			backcolor			1 1 1 0.5
-			rect				79 3 24 28
-			font				6
-			textscale			0.15
-			textstyle			0
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			20
-			forecolor			1 1 1 0
-			visible				1
-			mouseenter
-			{
-				setitemcolor	Hilts_Sith backcolor	1 1 1 0.8
-				setitemcolor	Hilts_Sith forecolor	1 1 1 0.8
-			}
-			mouseExit
-			{
-				setitemcolor	Hilts_Sith backcolor	1 1 1 0.5
-				setitemcolor	Hilts_Sith forecolor	1 1 1 0
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				open			ingame_siegeclass_open_hilt_list
-				close 			ingame_saber_jedi
-				open 			ingame_saber_sith
-				close			mb_class_templates
-				close			ingame_siegeclass_open_model
-				close			mb_stats_common
-				close			ingame_siegeclass_open_model_list
 			}
 		}
 	}
