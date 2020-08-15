@@ -748,6 +748,18 @@ gfx/menus/alpha/Menu_ClassSelect_Item
 	}
 }
 
+gfx/menus/alpha/Menu_ClassSelect_Item_Clone
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_ClassSelect_Item
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
 gfx/menus/alpha/Menu_ClassSelect_Item2
 {
 	nopicmip
@@ -884,6 +896,18 @@ gfx/menus/alpha/Menu_TeamSelect_Spec
 }
 
 gfx/menus/alpha/Menu_TeamSelect_Team
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_TeamSelect_Team
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/menus/alpha/Menu_TeamSelect_Team_Rebel
 {
 	nopicmip
 	nomipmaps
