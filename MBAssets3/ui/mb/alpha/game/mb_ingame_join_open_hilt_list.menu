@@ -1,0 +1,342 @@
+{
+	menuDef
+	{
+		name					"ingame_siegeclass_open_hilt_list"
+		fullScreen				0
+		visible					0
+		rect					118 60 137 371
+		style					1
+		descX					320
+		descY					443
+		descScale				1
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		focusColor				1 1 1 1
+		backColor				0 0 0 0
+		disablecolor			1 1 1 1
+		stayopen
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+
+// HILTS
+/* 		itemDef
+		{
+			name				typebut
+			group				none
+			text				@MENUS_SABER_TYPE
+			descText			@MENUS_SABER_TYPE_DESC
+			style				WINDOW_STYLE_EMPTY
+			rect				0 5 137 24
+			font				6
+			textscale			.25
+			textstyle			0
+			textalignx			68
+			textaligny			-5
+			textalign			ITEM_ALIGN_CENTER
+			backcolor			0 0 0 0
+			forecolor			1.0 1.0 1.0 0.7
+			visible				1
+			decoration
+		} */
+
+		itemDef
+		{
+			name				typebut_single
+			group				hiltselect
+			text				@MENUS_SINGLESABER
+			descText			@MENUS_SINGLESABER_DESC
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Icon_SaberSingle"
+			backcolor			1 1 1 0.5
+			rect 10 11 24 28
+			font				6
+			textscale			0.15
+			textstyle			0
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			12
+			textaligny			20
+			forecolor			1 1 1 0
+			visible				1
+			cvarTest			ui_SingleSaberOnly
+			hideCvar			{ "2" }
+			mouseenter
+			{
+				setitemcolor	typebut_single backcolor	1 1 1 0.8
+				setitemcolor	typebut_single forecolor	1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	typebut_single backcolor	1 1 1 0.5
+				setitemcolor	typebut_single forecolor	1 1 1 0
+			}
+			action
+			{
+				play			"sound/interface/choose_saber.wav"
+				setcvar			ui_saber_type	"single"
+				uiScript		"saber_type"
+				setcvar			ui_saber		"single_1"
+				setcvar			ui_saber2		"none"
+				uiScript		"saber_hilt"
+				uiScript		"saber_color"
+				uiScript		"saber2_hilt"
+				uiScript		"saber2_color"
+				setitemcolor	typebut_single backcolor 1 1 1 1
+				setitemcolor	typebut_single forecolor 1 1 1 1
+				setitemcolor	typebut_dual backcolor 1 1 1 0.5
+				setitemcolor	typebut_dual forecolor 1 1 1 0
+				setitemcolor	typebut_staff backcolor 1 1 1 0.5
+				setitemcolor	typebut_staff forecolor 1 1 1 0
+			}
+		}
+
+		itemDef
+		{
+			name				typebut_dual
+			group				hiltselect
+			text				@MENUS_DUALSABERS
+			descText			@MENUS_DUALSABERS_DESC
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Icon_SaberDual"
+			backcolor			0.5 0.5 0.5 1
+			rect 50 11 24 28
+			font				6
+			textscale			0.15
+			textstyle			0
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			12
+			textaligny		 	20
+			forecolor			1 1 1 0
+			visible				1
+			cvarTest			ui_SingleSaberOnly
+			hideCvar			{ "1" }
+			mouseenter
+			{
+				setitemcolor	typebut_dual backcolor	1 1 1 0.8
+				setitemcolor	typebut_dual forecolor	1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	typebut_dual backcolor	1 1 1 0.5
+				setitemcolor	typebut_dual forecolor	1 1 1 0
+			}
+			action
+			{
+				play			"sound/interface/choose_saber.wav"
+				setcvar			ui_saber_type	"dual"
+				uiScript		"saber_type"
+				setcvar			ui_saber		"single_1"
+				setcvar			ui_saber2		"single_1"
+				uiScript		"saber_hilt"
+				uiScript		"saber_color"
+				uiScript		"saber2_hilt"
+				uiScript		"saber2_color"
+				setitemcolor	typebut_single backcolor 1 1 1 0.5
+				setitemcolor	typebut_single forecolor 1 1 1 0
+				setitemcolor	typebut_dual backcolor 1 1 1 1
+				setitemcolor	typebut_dual forecolor 1 1 1 1
+				setitemcolor	typebut_staff backcolor 1 1 1 0.5
+				setitemcolor	typebut_staff forecolor 1 1 1 0
+			}
+		}
+
+		itemDef
+		{
+			name				typebut_staff
+			group				hiltselect
+			text				@MENUS_SABERSTAFF
+			descText			@MENUS_SABERSTAFF_DESC
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Icon_SaberStaff"
+			backcolor			0.5 0.5 0.5 1
+			rect 90 11 24 28
+			font				6
+			textscale			0.15
+			textstyle			0
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			12
+			textaligny			20
+			forecolor			1 1 1 0
+			visible				1
+			cvarTest			ui_SingleSaberOnly
+			hideCvar			{ "1" }
+			mouseenter
+			{
+				setitemcolor	typebut_staff backcolor	1 1 1 0.8
+				setitemcolor	typebut_staff forecolor	1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	typebut_staff backcolor	1 1 1 0.5
+				setitemcolor	typebut_staff forecolor	1 1 1 0
+			}
+			action
+			{
+				play			"sound/interface/choose_saber.wav"
+				setcvar			ui_saber_type	"staff"
+				uiScript		"saber_type"
+				setcvar			ui_saber		"dual_1"
+				setcvar			ui_saber2		"none"
+				uiScript		"saber_hilt"
+				uiScript		"saber_color"
+				uiScript		"saber2_hilt"
+				uiScript		"saber2_color"
+				setitemcolor	typebut_single backcolor 1 1 1 0.5
+				setitemcolor	typebut_single forecolor 1 1 1 0
+				setitemcolor	typebut_dual backcolor 1 1 1 0.5
+				setitemcolor	typebut_dual forecolor 1 1 1 0
+				setitemcolor	typebut_staff backcolor 1 1 1 1
+				setitemcolor	typebut_staff forecolor 1 1 1 1
+			}
+		}
+
+		itemDef
+		{
+			name				hiltbut
+			group				hiltselect
+			rect 0 49 132 311
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_SABER_SINGLE_INFO
+			descText			@MENUS_HILT1_DESC
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			cvarTest			ui_saber_type
+			hideCvar			{ "staff" ; "dual" }
+			visible				1
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberhilt"
+				uiScript		"saber_hilt"
+			}
+		}
+
+		// HILT BUTTON 1 - STAVES
+		itemDef
+		{
+			name				hiltbut_staves
+			group				hiltselect
+			rect 0 49 132 311
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_SABER_STAFF_INFO
+			descText			@MENUS_HILT1_DESC
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "dual" }
+			visible				1
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberstaff"
+				uiScript		"saber_hilt"
+			}
+		}
+
+		// HILT BUTTON 1 - DUAL
+		itemDef
+		{
+			name				hiltbut1
+			group				hiltselect
+			rect 0 49 132 152
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder				FEEDER_SABER_SINGLE_INFO
+//			text				@MENUS_HILT1
+			descText			@MENUS_HILT1_DESC
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			visible				1
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberhilt1"
+				uiScript		"saber_hilt"
+			}
+		}
+
+		// HILT BUTTON 2 - DUAL
+		itemDef
+		{
+			name				hiltbut2
+			group				hiltselect
+			rect 0 204 132 152
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_SABER_SINGLE_INFO
+//			text				@MENUS_HILT2
+			descText			@MENUS_HILT2_DESC
+			forecolor			1 1 1 1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			visible				1
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+				uiScript		"setscreensaberhilt2"
+				uiScript		"saber2_hilt"
+			}
+		}
+	}
+}

@@ -5,154 +5,40 @@
 		name					"mb_class_clonetrooper"
 		visible					0
 		fullscreen				0
-		rect					25 40 630 425
+		rect					259 60 163 371
 		focusColor				1 1 1 1
-		style					1
-		border					1
 		descX					320
-		descY					465
+		descY					445
 		descScale				0.8
-		descColor				0.1 0.7 1 0.9
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
+		stayOpen
 		onOpen
 		{
-			
-			uiScript			getrgbvars
-			uiScript			"getmodelcvars"	//needed for model display stuff
-			uiScript			"getmodelskin"	//needed for model display stuff
-			
 			// TUTORIAL REQUIREMENT
 			uiScript		tutCheckpoint TutSetupOpen
 		}
-		onClose
-		{
-			
-		}
-		onEsc
-		{
-			
-			open				ingame_join
-			play				"sound/interface/back.mp3"
-			close 				mb_class_clonetrooper
-		}
 
-		// Character model
-		itemDef
+/* 		itemDef
 		{
-			name				modelviewer
-			group				models
-			type				ITEM_TYPE_MODEL
-			rect				0 -20 165 210
-			model_g2anim		"BOTH_WALK1"
-			asset_model			"ui_char_model"
-			model_angle			90
-			//mins maxs format is apparently z x y (hmmm... y x z?)
-			model_g2mins		-30 -20 -14
-			model_g2maxs		20 20 30
-			model_rotation		60
-			cvar                "ui_char_model_angle"
-			model_fovx			50
-			model_fovy			50
-			isCharacter			1
+			name				ClassSelectC
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 163 371
+			background			"gfx/menus/alpha/Menu_ClassSelect_C"
 			visible				1
 			decoration
-		}
-		
-        itemDef
-        {
-            name				character_rotate
-            descText			"Click and drag to rotate."
-            group				models
-            type				ITEM_TYPE_SLIDER_ROTATE
-            rect				0 0 165 220
-            cvarRotateScale		ui_char_model_angle 360
-            visible				1
-        }
+		} */
 
-		// Overall window backdrop
 		itemDef
 		{
-			name				background_pic
-			style				WINDOW_STYLE_FILLED
-			rect				0 0 430 425
-			background			"gfx/menus/classmenu"
-			forecolor			1 1 1 1
-			backcolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
-/*		itemDef
-		{
-			name				rgbpic
-			cvarTest            "ui_model"
-			showCvar			{ "clonespac/rgbclone1" }
+			name				button_glow
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect				330 290 50 50
-			background			"gfx/menus/rgb/rgbclone1_2"
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				rgbpic2
-			cvarTest            "ui_model"
-			showCvar			{ "clonespac/rgbclone1" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				330 290 50 50
-			background			"gfx/menus/rgb/rgbclone1"
-			forecolor			-1
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				rgbpic
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgbclone2" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				330 290 50 50
-			background			"gfx/menus/rgb/rgbclone2_2"
-			forecolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				rgbpic2
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgbclone2" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect				330 290 50 50
-			background			"gfx/menus/rgb/rgbclone2"
-			forecolor			-1
-			visible				1
-			decoration
-		}
-*/
-
-		// Player Configuration title
-		itemDef
-		{
-			name				playerconfigtitle
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Configure your class"
-			rect				100 15 390 28
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			195
-			textaligny			2
-			font				3
-			textscale			0.8
-			forecolor			0.1 0.7 1 0.9
-			visible				1
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
 			decoration
 		}
 
@@ -160,36 +46,36 @@
 		itemDef
 		{
 			name				siderank
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POINTS_REMAINING
 			ownerdraw			UI_FORCE_POINTS
-			rect				250 55 0 0
+			rect 8 10 147 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			60
-			textaligny			-15
-			font				2
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
+			textalignx			64
+			textaligny			-5
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 0.85
 			visible				1
 			decoration
 		}
-		
+
 		// SETUP LEGEND
 		// Skills title
 		itemDef
 		{
 			name				forceranktitle
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POWER
-			rect				230 82 0 0
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			104
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			rect 8 25 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
@@ -197,543 +83,18 @@
 		itemDef
 		{
 			name				forceranktitle2
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_1_2_3
-			rect				230 82 0 0
+			rect 113 25 0 0
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			textalignx			1
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
-		}
-		
-
-// RGB PRESETS
-// Preset slot 1
-		itemDef
-		{
-			name				clones_white
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonerc2/rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				20 237 25 25
-			background			"gfx/menus/colors/rgb_white"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"White Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 255
-				setcvar			ui_char_color_green 255
-				setcvar			ui_char_color_blue 255
-			}
-		}
-
-		itemDef
-		{
-			name				clones_black
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper/bacara_rgb", "clonetrooper/visor_rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				20 237 25 25
-			background			"gfx/menus/colors/rgb_black"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Black Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 34
-				setcvar			ui_char_color_green 34
-				setcvar			ui_char_color_blue 34
-			}
-		}	
-
-// Preset slot 2
-		itemDef
-		{
-			name				clones_yellow
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				45 237 25 25
-			background			"gfx/menus/colors/rgb_yellow"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Yellow Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 240
-				setcvar			ui_char_color_green 190
-				setcvar			ui_char_color_blue 0
-			}
-		}
-		
-		itemDef
-		{
-			name				clones_brown
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper/visor_rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				45 237 25 25
-			background			"gfx/menus/colors/rgb_brown"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Brown Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 250
-				setcvar			ui_char_color_green 200
-				setcvar			ui_char_color_blue 150
-			}
-		}
-
-		itemDef
-		{
-			name				clone_orange
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				45 237 25 25
-			background			"gfx/menus/colors/rgb_orange"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Orange Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 255
-				setcvar			ui_char_color_green 140
-				setcvar			ui_char_color_blue 25
-			}
-		}
-
-// Preset slot 3
-		itemDef
-		{
-			name				clones_blue
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonerc2/rgb", "clonetrooper/cody_rgb", "clonetrooper/visor_rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				70 237 25 25
-			background			"gfx/menus/colors/rgb_blue"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Blue Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 0
-				setcvar			ui_char_color_green 125
-				setcvar			ui_char_color_blue 200
-			}
-		}
-		
-		itemDef
-		{
-			name				clones_blue2
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/bacara_rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				70 237 25 25
-			background			"gfx/menus/colors/rgb_blue"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Blue Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 0
-				setcvar			ui_char_color_green 80
-				setcvar			ui_char_color_blue 160
-			}
-		}
-
-// Preset slot 4
-		itemDef
-		{
-			name				clones_red
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				95 237 25 25
-			background			"gfx/menus/colors/rgb_red"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Red Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 160
-				setcvar			ui_char_color_green 20
-				setcvar			ui_char_color_blue 20
-			}
-		}
-		
-		itemDef
-		{
-			name				clones_redb
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper/visor_rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				95 237 25 25
-			background			"gfx/menus/colors/rgb_red"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Red Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 255
-				setcvar			ui_char_color_green 20
-				setcvar			ui_char_color_blue 20
-			}
-		}
-		
-		itemDef
-		{
-			name				clones_red2
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonerc2/rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				95 237 25 25
-			background			"gfx/menus/colors/rgb_red"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Red Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 180
-				setcvar			ui_char_color_green 40
-				setcvar			ui_char_color_blue 40
-			}
-		}
-		
-		itemDef
-		{
-			name				clones_purple
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper/bacara_rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				95 237 25 25
-			background			"gfx/menus/colors/rgb_purple"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Purple Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 160
-				setcvar			ui_char_color_green 50
-				setcvar			ui_char_color_blue 80
-			}
-		}
-
-// Preset slot 5
-		itemDef
-		{
-			name				clones_green
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonerc2/rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				120 237 25 25
-			background			"gfx/menus/colors/rgb_green"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Green Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 0
-				setcvar			ui_char_color_green 125
-				setcvar			ui_char_color_blue 0
-			}
-		}
-
-		itemDef
-		{
-			name				clones_green2
-			text				""
-			cvarTest            "ui_model"
-			showCvar			{ "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonetrooper/visor_rgb" }
-			group				none
-			style				WINDOW_STYLE_SHADER
-			type				ITEM_TYPE_BUTTON
-			rect				120 237 25 25
-			background			"gfx/menus/colors/rgb_green"
-			forecolor			1 1 1 1
-			visible				1
-			descText			"Green Preset"
-			action
-			{
-				play			"sound/interface/button1"
-				setcvar			ui_char_color_red 90
-				setcvar			ui_char_color_green 180
-				setcvar			ui_char_color_blue 90
-			}
-		}
-
-// RGB SLIDERS
-		itemDef
-		{
-			name				charrgb
-			style				WINDOW_STYLE_FILLED
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb" }
-			text				"Colour Selection"
-			rect				77 265 150 32
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			2
-			textaligny			2
-			outlinecolor		0.1 0.7 1 0.2
-			font				4
-			textscale			0.8
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				charred
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb" }
-			group				none
-			type				ITEM_TYPE_INTSLIDER
-			cvarInt				"ui_char_color_red" 50 0 255
-			rect				50 287 150 18
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			70
-			textaligny			0
-			font				4
-			textscale 			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			
-			mouseenter
-			{
-				show			charred_glow
-			}
-			mouseExit
-			{
-				hide			charred_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				chargreen
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb" }
-			group				none
-			type				ITEM_TYPE_INTSLIDER
-			cvarInt				"ui_char_color_green" 50 0 255
-			rect				50 307 150 18
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			70
-			textaligny			0
-			font				4
-			textscale 			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			mouseenter
-			{
-				show			chargreen_glow
-			}
-			mouseExit
-			{
-				hide			chargreen_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				charblue
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb" }
-			group				none
-			type				ITEM_TYPE_INTSLIDER
-			cvarInt				"ui_char_color_blue" 50 0 255
-			rect				50 327 150 18
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			70
-			textaligny			0
-			font				4
-			textscale 			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			mouseenter
-			{
-				show			charblue_glow
-			}
-			mouseExit
-			{
-				hide			charblue_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		//RGB float values
-		itemDef
-		{
-			name				charred_value
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb" }
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				0
-			text				"R:"
-			cvar				"ui_char_color_red"
-			maxchars			3
-			maxPaintChars		3
-			rect				26 290 80 18
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			0
-			textaligny			-2
-			font				4
-			textscale			0.8
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			visible				1
-			descText			"Red Channel Value (0-255)"
-			mouseenter
-			{
-				show			charred_glow
-			}
-			mouseExit
-			{
-				hide			charred_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				chargreen_value
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb" }
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				0
-			text				"G:"
-			cvar				"ui_char_color_green"
-			maxchars			3
-			maxPaintChars 		3
-			rect				26 310 80 18
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			0
-			textaligny			-2
-			font				4
-			textscale			0.8
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			visible				1
-			descText			"Green Channel Value (0-255)"
-			mouseenter
-			{
-				show			chargreen_glow
-			}
-			mouseExit
-			{
-				hide			chargreen_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
-		}
-
-		itemDef
-		{
-			name				charblue_value
-			cvarTest            "ui_model"
-			showCvar			{ "new_clones/rgb", "clonetrooper2/poncho", "clonetrooper/guard_rgb", "clonetrooper/212_rgb", "clonetrooper/41_rgb", "clonetrooper/501_rgb", "clonetrooper/airborne_rgb", "clonetrooper/cody_rgb", "clonetrooper/bacara_rgb", "clonerc2/rgb", "clonetrooper/visor_rgb" }
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				0
-			text				"B:"
-			cvar				"ui_char_color_blue"
-			maxchars			3
-			maxPaintChars		3
-			rect				26 330 80 18
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			0
-			textaligny			-2
-			font				4
-			textscale			0.8
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			descText			"Blue Channel Value (0-255)"
-			mouseenter
-			{
-				show			charblue_glow
-			}
-			mouseExit
-			{
-				hide			charblue_glow
-			}
-			action
-			{
-				play			"sound/interface/button1"
-			}
 		}
 
 		// SPECIFIC CLASS ABILITIES
@@ -741,37 +102,53 @@
 		itemDef
 		{
 			name				setfp_jump
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Clone Pistol"
-			rect				230 100 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
+			rect 8 45 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
+		}
+
+		itemDef
+		{
+			name				Info_ClonePistol
+			group				pointssetup
+			rect 58 45 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_weapon_clonepistol
+			}
+			mouseExit
+			{
+				close			mb_weapon_clonepistol
+			}
 		}
 
 		// Pistol assign
 		itemDef
 		{
 			name				setfp_jump
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LEVITATION
-			rect				230 100 175 15
+			rect 8 45 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Add a charge bounce shot"
 			visible				1
 			action
@@ -780,11 +157,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_jump forecolor2 1 1 1 1
+				setitemcolor	setfp_jump forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_jump forecolor1 0.1 0.7 1 0.8
+				setitemcolor	setfp_jump forecolor 1 1 1 0.8
 			}
 		}
 
@@ -792,41 +169,53 @@
 		itemDef
 		{
 			name				setfp_push
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Clone Rifle"
-			rect				230 120 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 8 65 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
+		}
+
+		itemDef
+		{
+			name				Info_CloneRifle
+			group				pointssetup
+			rect 58 65 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_weapon_clonerifle
+			}
+			mouseExit
+			{
+				close			mb_weapon_clonerifle
+			}
 		}
 
 		// Clone Rifle assign
 		itemDef
 		{
 			name				setfp_push
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
-			rect				230 120 175 15
+			rect 8 65 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Buy a Clone Rifle and improve its rate of fire"
 			visible				1
 			action
@@ -835,109 +224,101 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_push forecolor2 1 1 1 1
+				setitemcolor	setfp_push forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_push forecolor1 0.1 0.7 1 0.8
+				setitemcolor	setfp_push forecolor 1 1 1 0.8
 			}
 		}
 
 		// SPECIFIC CLASS ABILITIES
-		// Reinforcement title
+
+		// Clone Rifle Sub ability main line
 		itemDef
 		{
-			name				setfp_absorb
-			group				lightpowers
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Reinforcement"
-			rect				230 190 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			name 				setfp_protect
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect 11 81 3 34
+			backcolor			1 1 1 0.8
 			visible				1
-			decoration
 		}
 
-		// Reinforcement assign
+		// Clone Rifle Sub ability secondary line 1
 		itemDef
 		{
-			name				setfp_absorb
-			group				lightpowers
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_ABSORB
-			rect				230 190 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
-			descText			"Allows you to have an extra life in one round"
+			name 				setfp_protect
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect 14 91 4 4
+			backcolor			1 1 1 0.8
 			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_absorb forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_absorb forecolor1 0.1 0.7 1 0.8
-			}
+		}
+
+		// Clone Rifle Sub ability secondary line 2
+		itemDef
+		{
+			name 				setfp_teamheal
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect 14 111 4 4
+			backcolor			1 1 1 0.8
+			visible				1
 		}
 
 		// Protect title
 		itemDef
 		{
 			name				setfp_protect
-			group				lightpowers
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Concussive blasts"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 140 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 20 85 135 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
+		}
+
+		itemDef
+		{
+			name				setfp_protect
+			group				pointssetup
+			rect 88 85 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_concblob
+			}
+			mouseExit
+			{
+				close			mb_ability_concblob
+			}
 		}
 
 		// Protect assign
 		itemDef
 		{
 			name				setfp_protect
-			group				lightpowers
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PROTECT
-			rect				230 140 175 15
+			rect 8 85 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.9
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Buy concussive blasts (per life), deals knockdown and high damage on direct hits and very light splash damage"
 			visible				1
 			action
@@ -946,53 +327,65 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_protect forecolor2 1 1 1 1
+				setitemcolor	setfp_protect forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_protect forecolor1 0.1 0.7 1 0.8
+				setitemcolor	setfp_protect forecolor 1 1 1 0.8
 			}
 		}
 
 		itemDef
 		{
 			name				setfp_teamheal
-			group				lightpowers
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Ion blasts"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 160 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 20 105 135 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
+		}
+
+		itemDef
+		{
+			name				setfp_teamheal
+			group				pointssetup
+			rect 58 105 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_ionblob
+			}
+			mouseExit
+			{
+				close			mb_ability_ionblob
+			}
 		}
 
 		// Protect assign
 		itemDef
 		{
 			name				setfp_teamheal
-			group				lightpowers
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TEAM_HEAL
-			rect				230 160 175 15
+			rect 8 105 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.9
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Buy Ion Blasts (per life), deals electrical splash damage and must be charged to increase range and blast radius"
 			visible				1
 			action
@@ -1001,11 +394,57 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_teamheal forecolor2 1 1 1 1
+				setitemcolor	setfp_teamheal forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_teamheal forecolor1 0.1 0.7 1 0.8
+				setitemcolor	setfp_teamheal forecolor 1 1 1 0.8
+			}
+		}
+
+		// Reinforcement title
+		itemDef
+		{
+			name				setfp_absorb
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Reinforcement"
+			rect 8 135 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Reinforcement assign
+		itemDef
+		{
+			name				setfp_absorb
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_ABSORB
+			rect 8 135 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			forecolor			1 1 1 0.8
+			descText			"Allows you to have an extra life in one round"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_absorb forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_absorb forecolor 1 1 1 0.8
 			}
 		}
 
@@ -1013,21 +452,17 @@
 		itemDef
 		{
 			name				setfp_healself
-			group				lightpowers
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Stamina"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 210 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 8 155 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
@@ -1036,19 +471,15 @@
 		itemDef
 		{
 			name				setfp_healself
-			group				lightpowers
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_HEAL
-			rect				230 210 175 15
+			rect 8 155 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.9
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Drained from sprinting, higher levels allow faster regeneration"
 			visible				1
 			action
@@ -1057,11 +488,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_healself forecolor2 1 1 1 1
+				setitemcolor	setfp_healself forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_healself forecolor1 0.1 0.7 1 0.8
+				setitemcolor	setfp_healself forecolor 1 1 1 0.8
 			}
 		}
 
@@ -1069,21 +500,17 @@
 		itemDef
 		{
 			name				setfp_saberattack
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Armour"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 240 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 8 185 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
@@ -1092,19 +519,15 @@
 		itemDef
 		{
 			name				setfp_saberattack
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect				230 240 175 15
+			rect 8 185 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Increase your armour strength"
 			visible				1
 			action
@@ -1113,11 +536,11 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_saberattack forecolor2 1 1 1 1
+				setitemcolor	setfp_saberattack forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_saberattack forecolor1 0.1 0.7 1 0.8
+				setitemcolor	setfp_saberattack forecolor 1 1 1 0.8
 			}
 		}
 
@@ -1125,21 +548,17 @@
 		itemDef
 		{
 			name				setfp_saberdefend
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Ammo"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 260 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 8 205 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
@@ -1148,19 +567,15 @@
 		itemDef
 		{
 			name				setfp_saberdefend
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect				230 260 175 15
+			rect 8 205 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Increase your ammo store for all your weapons"
 			visible				1
 			action
@@ -1169,443 +584,12 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_saberdefend forecolor2 1 1 1 1
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_saberdefend forecolor1 0.1 0.7 1 0.8
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 0.8
 			}
-		}
-
-		// APPLY BUTTON
-		itemDef
-		{
-			name				applyjoinbutton
-			group				"playerforcejoin"
-			style				WINDOW_STYLE_SHADER
-			rect				270 384 65 32
-			background			"ui/art/button/mb_hl_classic"
-			forecolor			1 1 1 1
-			decoration
-			visible				0
-		}
-
-		itemDef
-		{
-			name				applyjoin
-			group				"playerforcejoin"
-			text				"Apply"
-			type				1
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				226 374 150 48
-			textalign			1
-			textalignx			75
-			textaligny			12
-			font				2
-			textscale			0.9
-			forecolor			0.1 0.7 1 0.9
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiScript 		mb_setskill
-				close 			mb_class_clonetrooper
-				uiScript		setsiegeclassandteam
-				uiScript		closeingame
-				uiScript		updatergbcvars
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutBuildApply
-			}
-			mouseenter
-			{
-				show			applyjoinbutton
-			}
-			mouseExit
-			{
-				hide			applyjoinbutton
-			}
-		}
-
-		// FORCE TEMPLATES
-		// Force Template title
-		// Overall window backdrop
-		itemDef
-		{
-			name				background_pic
-			style				WINDOW_STYLE_FILLED
-			rect				425 5 210 410
-			background			"gfx/menus/classmenu_extra"
-			forecolor			1 1 1 1
-			backcolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				fcflist
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Builds Template" //@MENUS_FORCE_TEMPLATES
-			rect				440 45 0 0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			4
-			textaligny			0
-			//outlinecolor		0.1 0.7 1 0.8
-			//backcolor			0 0 0 0
-			font				2
-			textscale			0.8
-			//forecolor			.549 .854 1 1
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Force Template picker
-		itemDef
-		{
-			name				fcflist
-			rect				440 75 130 130
-			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_LISTBOX_RGB1
-			elementwidth		155
-			elementheight		17
-			font				4
-			textscale			.75
-			maxLineChars			18
-			elementtype			LISTBOX_TEXT
-			feeder				FEEDER_MBCFG
-			textstyle			6
-			textalign			3
-			textaligny			2
-			//border			1
-			//bordercolor		.5 .5 .5 1
-			forecolor			0.1 0.7 1 0.7
-			//backcolor			0 0 .5 .25
-			outlinecolor		.25 .464 .578 .5
-			descText			"Choose a pre-made allocation of abilities" //@MENUS_CHOOSE_A_PRE_MADE_ALLOCATION
-			visible				1
-			columns				1 2 190 250
-			mouseenter
-			{
-				setitemcolor	fcflist bordercolor 1 0 0 1
-			}
-			mouseExit
-			{
-				setitemcolor	fcflist bordercolor .5 .5 .5 1
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutBuildSelect
-			}
-		}
-
-		// SAVE TEMPLATE
-		//Save template title entry field
-		itemDef
-		{
-			name 				namefield
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB2
-			text				@MENUS_FILENAME
-			cvar				"ui_SaveFCF"
-			maxchars			18
-			rect				425 205 185 20
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny 			0
-			font				4
-			textscale			.9
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
-			visible				1
-		}
-
-		//Save template button
-		itemDef
-		{
-			name				templatesavetext
-			group				"playerforcetemplatesave"
-			style				WINDOW_STYLE_TEXT_RGB1
-			textalign			ITEM_ALIGN_LEFT
-			rect				430 245 185 32
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			font				4
-			textscale			0.75
-			text				@MENUS_MATCHING_NAMES
-			decoration
-			visible				0
-		}
-
-		itemDef
-		{
-			name				templatesave
-			group				"playerforcetemplatesave"
-			text				@MENUS_SAVE_FILE
-			type				1
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				415 225 185 32
-			textalign			1
-			textalignx			92
-			textaligny			2
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7 //forecolor			1 .682 0 1
-			descText			@MENUS_SAVE_CURRENT_FORCE_SETUP
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiScript 		mb_savetemplate
-			}
-			mouseenter
-			{
-				show			templatesavetext
-				show			templatesavebutton
-			}
-			mouseExit
-			{
-				hide			templatesavetext
-				hide			templatesavebutton
-			}
-		}
-
-		//Armor and HP readouts - Dusty
-		itemDef
-		{
-			name				hp_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				550 284 175 15
-			text				"HP: "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-45
-			textaligny			0
-			textscale			.5
-			font				3
-			forecolor			0.1 0.65 1 0.6
-			cvar				"ui_maxhealth"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				armorpoints_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				550 296 175 15
-			text				"Armor: "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-45
-			textaligny			0
-			textscale			.5
-			font				3
-			forecolor			0.1 0.65 1 0.6
-			cvar				"ui_maxarmour"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				ammotitle
-			group				none
-			type				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				588 317 175 15
-			text				"(  Ammunition  )"
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-60
-			textaligny			0
-			textscale			.68
-			textstyle			ITEM_TEXTSTYLE_OUTLINESHADOWED
-			font				4
-			forecolor			0.2 0.7 1 0.35
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				pistol_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				596 334 175 15
-			text				"Clone Pistol : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43 
-			font				3
-			forecolor			0.1 0.7 1 0.6
-			cvarTest			"ui_ammo_pistol"
-			hideCvar			{ "0" }
-			cvar				"ui_ammo_Pistol"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				pistol_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				596 334 175 15
-			text				"Clone Pistol : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43 
-			font				3
-			forecolor			0.1 0.7 1 0.2
-			cvarTest			"ui_ammo_pistol"
-			showCvar			{ "0" }
-			cvar				"ui_ammo_Pistol"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				rifle_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				594 344 175 15
-			text				"Clone Rifle : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43 
-			font				3
-			forecolor			0.1 0.7 1 0.6
-			cvarTest			"ui_ammo_clonerifle"
-			hideCvar			{ "0" }
-			cvar				"ui_ammo_clonerifle"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				rifle_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				594 344 175 15
-			text				"Clone Rifle : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43
-			font				3
-			forecolor			0.1 0.7 1 0.2
-			cvarTest			"ui_ammo_clonerifle"
-			showCvar			{ "0" }
-			cvar				"ui_ammo_clonerifle"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				conc_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				610 361 175 15
-			text				"Concussive Blasts : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43 
-			font				3
-			forecolor			0.1 0.7 1 0.6
-			cvarTest			"ui_ammo_extra1"
-			hideCvar			{ "0" }
-			cvar				"ui_ammo_extra1"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				conc_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				610 361 175 15
-			text				"Concussive Blasts : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43 
-			font				3
-			forecolor			0.1 0.7 1 0.2
-			cvarTest			"ui_ammo_extra1"
-			showCvar			{ "0" }
-			cvar				"ui_ammo_extra1"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				ion_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				604 371 175 15
-			text				"Ion Blasts : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43
-			font				3
-			forecolor			0.1 0.7 1 0.6
-			cvarTest			"ui_ammo_extra2"
-			hideCvar			{ "0" }
-			cvar				"ui_ammo_extra2"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				ion_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				604 371 175 15
-			text				"Ion Blasts : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-70
-			textaligny			0
-			textscale			.43
-			font				3
-			forecolor			0.1 0.7 1 0.2
-			cvarTest			"ui_ammo_extra2"
-			showCvar			{ "0" }
-			cvar				"ui_ammo_extra2"
-			visible				1
-			decoration
 		}
 	}
 }
