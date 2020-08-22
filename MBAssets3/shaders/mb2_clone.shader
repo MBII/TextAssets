@@ -3240,6 +3240,48 @@ models/players/MB2_Clones/jetpack_p1_rgb
     }
 }
 
+models/players/MB2_Clones/jetpack_p1_clean_rgb
+{
+	cull	disable
+    {
+        map models/players/MB2_Clones/jetpack_p1_clean_rgb
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuseEntity
+    }
+	{
+		map models/players/MB2_Clones/jetpack_p1_clean_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/MB2_Clones/jetpack_p1_clean_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/MB2_Clones/jetpack_501_rgb
+{
+	cull	disable
+    {
+        map models/players/MB2_Clones/jetpack_501_rgb
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuseEntity
+    }
+	{
+		map models/players/MB2_Clones/jetpack_501_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/MB2_Clones/jetpack_501_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 //Helmets
 models/players/MB2_Clones_RC/helmet_rccaptain
 {
