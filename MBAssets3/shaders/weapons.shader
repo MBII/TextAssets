@@ -236,34 +236,32 @@ models/weapons2/proj_rifle/proj_rifle_w
 
 ///////////// EE-3 Rifle ///////////// 
 
-models/weapons2/ee-3/w_blaster
+models/weapons2/ee-3/ee3_diff
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/ee-3/w_blaster
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/ee-3/w_blaster_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/ee-3/ee3_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/ee-3/ee3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/ee-3/w_blaster_inview
+models/weapons2/ee-3/ee3_dirty_diff
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/ee-3/w_blaster_inview
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/ee-3/w_blaster_inview_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/ee-3/ee3_dirty_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/ee-3/ee3_dirty_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 ///////////// Battle Droid Rifle ///////////// 
