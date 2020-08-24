@@ -617,49 +617,23 @@ models/weapons2/blaster_pistol/skin2
 		alphaGen lightingSpecular
 	}
 }
+
 ///////////// DLT-20A Rifle ///////////// 
 
-models/weapons2/dlt20a/dlt20a
+models/weapons2/dlt20a/dlt20a_diff
 {
-	{
-		map models/weapons2/dlt20a/dlt20a.tga
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/dlt20a/dlt20a_spec.tga
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/blaster_r/parts
-{
-	{
-		map models/weapons2/dlt20a/parts.tga
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/blaster_r/blaster_r_spec.tga
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/dlt20a/scope
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/blaster_r/scope
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/blaster_r/scope_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+	cull	disable
+    {
+        map models/weapons2/dlt20a/dlt20a_diff
+		alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dlt20a/dlt20a_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 
