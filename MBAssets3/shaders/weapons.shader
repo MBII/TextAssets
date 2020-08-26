@@ -170,53 +170,20 @@ models/weapons2/briar_pistol/briar_pistol
 }
 
 
-///////////// T-21 Rifle ///////////// 
-
-models/weapons2/t-21/w_barrel
+///////////// T-21 Rifle /////////////
+models/weapons2/t-21/t21_diff
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/t-21/w_barrel
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/t-21/w_barrel_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/t-21/t21_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/t-21/t21_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
-
-models/weapons2/t-21/w_gun
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/t-21/w_gun
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/t-21/w_gun_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/t-21/w_gun_inview
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/t-21/w_gun_inview
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/t-21/w_gun_inview_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 
 ///////////// Projectile Rifle ///////////// 
 
