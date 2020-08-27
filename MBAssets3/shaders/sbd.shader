@@ -768,7 +768,6 @@ models/players/SBD/caps
 {
     {
         map models/players/SBD/caps
-        rgbGen lightingDiffuse
     }
     {
         map models/players/SBD/caps_glow
