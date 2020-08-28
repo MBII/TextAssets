@@ -1,155 +1,3 @@
-//	arcrifles
-
-models/weapons2/heavy_repeater/arcriflet1
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/arcriflet1
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-		tcGen base
-	}
-	{
-		map models/weapons2/heavy_repeater/arcriflet1_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/heavy_repeater/arcriflet1_glow
-		blendFunc GL_ONE GL_ONE
-		detail
-		glow
-		rgbGen identity
-	}
-}
-
-models/weapons2/heavy_repeater/arcriflet2
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/arcriflet2
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-		tcGen base
-	}
-	{
-		map models/weapons2/heavy_repeater/arcriflet2_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/heavy_repeater/arcriflet2_glow
-		blendFunc GL_ONE GL_ONE
-		detail
-		glow
-		rgbGen identity
-	}
-}
-
-models/weapons2/heavy_repeater/dc17a21
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/dc17a21
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/heavy_repeater/dc17a21_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/heavy_repeater/dc17a21_glow
-		blendFunc GL_ONE GL_ONE
-		glow
-		rgbGen wave sin 0 1 0 1
-	}
-}
-
-models/weapons2/heavy_repeater/dc17a22
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/dc17a22
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-		alphaGen identity
-	}
-	{
-		map models/weapons2/heavy_repeater/dc17a22_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/heavy_repeater/dc17a23
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/dc17a23
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/heavy_repeater/dc17a23_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/heavy_repeater/lens
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/lens
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/heavy_repeater/lens_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/heavy_repeater/lens_glow
-		blendFunc GL_ONE GL_ONE
-		glow
-		alphaGen identity
-	}
-}
-
-models/weapons2/heavy_repeater/glow
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/heavy_repeater/glow
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-		tcMod scale 0 0
-	}
-	{
-		map models/weapons2/heavy_repeater/glow_2
-		blendFunc GL_ONE GL_ONE
-		detail
-	}
-	{
-		map models/weapons2/heavy_repeater/g_glow
-		blendFunc GL_ONE GL_ONE
-		glow
-		detail
-		rgbGen identity
-		tcMod scroll 0.5 0
-	}
-}
-
-
 //	beamrifle
 
 models/weapons2/beamrifle/gun
@@ -212,31 +60,6 @@ models/weapons2/boushh_staff/pike
 }
 
 
-//	dc-17 command pistol
-
-models/weapons2/dc-17/command
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/dc-17/command
-		tcGen base
-	}
-	{
-		map models/weapons2/dc-17/command
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		rgbGen identity
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/dc-17/command_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
 //	concussion
 
 models/weapons2/concussion/silver.jpg
@@ -252,30 +75,6 @@ models/weapons2/concussion/silver.jpg
 		alphaGen lightingSpecular
 	}
 }
-
-
-//	dc17p
-
-models/weapons2/demp2/dc17p
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/demp2/dc17p
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/demp2/dc17p_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	}
-{
-		map models/weapons2/demp2/dc17p_glow
-		blendFunc GL_ONE GL_ONE
-	glow
-	}
-}
-
 
 //	e60r launcher
 
@@ -617,26 +416,58 @@ models/weapons2/sbd_grapple/sparks
 	}
 }
 
-models/weapons2/sbd_grapple/blade
+models/weapons2/SBD_Grapple/grapple
 {
-	cull	twosided
+    {
+        map models/weapons2/SBD_Grapple/grapple
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/SBD_Grapple/grapple_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/weapons2/SBD_Grapple/grapple_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
 
-	{
-		map models/weapons2/sbd_grapple/blade
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/SBD/chrome2.tga
-		blendfunc gl_src_alpha gl_one
-		tcGen environment 
-	}
-	{
-		map models/weapons2/sbd_grapple/blade
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-
+models/weapons2/SBD_Grapple2/grapple2
+{
+    {
+        map models/weapons2/SBD_Grapple2/grapple2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/SBD_Grapple2/grapple2_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/weapons2/SBD_Grapple2/grapple2_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
 }
 
 

@@ -828,47 +828,6 @@ models/players/mbmandyfem/plate_rgb
 }
 
 
-//	new_clones
-
-models/players/new_clones/torso_rgb
-{
-	{
-		map models/players/new_clones/torso_rgb
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/new_clones/torso_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/new_clones/torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/new_clones/helmet_rgb
-{
-	{
-		map models/players/new_clones/helmet_rgb
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/new_clones/helmet_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/new_clones/helmet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
 //	oldrepsold
 
 models/players/OldRepSold/basic_hand_rgb
