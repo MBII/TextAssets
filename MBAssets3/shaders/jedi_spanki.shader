@@ -1,6 +1,15 @@
+models/players/jedi_spanki/robe_1
+{
+	cull	disable
+	{
+		map models/players/jedi_spanki/robe_1
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
 models/players/jedi_spanki/robe-caps
 {
-	q3map_nolightmap
 	{
 		map models/players/jedi_spanki/robe-caps
 	}

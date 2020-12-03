@@ -1635,32 +1635,6 @@ models/players/clonetrooper/acc_shadow
 
 //  FA HELMET
 
-models/players/clonetrooper/helm_aerial_rgb
-{
-	cull	twosided
-	{
-		map models/players/clonetrooper/helm_aerial_rgb
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/clonetrooper/helm_aerial_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/clonetrooper/spec/helm_defaultd-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/clonetrooper/spec/helm_aerial-glow
-		blendFunc GL_ONE GL_ONE
-		glow
-	}
-}
-
 models/players/clonetrooper/helm_shadow
 {
 	cull	twosided
@@ -1679,30 +1653,6 @@ models/players/clonetrooper/helm_shadow
 		map models/players/clonetrooper/spec/helm_shadow-glow
 		blendFunc GL_ONE GL_ONE
 		glow
-	}
-}
-
-
-//   FA JETPACK
-
-models/players/clonetrooper/jetpack_rgb
-{
-	cull	twosided
-	{
-		map models/players/clonetrooper/jetpack_rgb
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/clonetrooper/jetpack_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/clonetrooper/spec/jetpack-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
 	}
 }
 

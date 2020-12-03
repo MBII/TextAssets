@@ -1,122 +1,30 @@
-// ===== First person arm cannon model - models/weapons2/concussion/c_rifle.md3 =====
-models/players/sbd/arms_b
-{
-	{
-		map models/players/sbd/arms_b
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}  
-	{
-		map models/players/sbd/arms_b_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-models/players/sbd/hands
-{
-	{
-		map models/players/sbd/hands
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}  
-	{
-		map models/players/sbd/hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-models/players/sbd/fingers
-{
-	{
-		map models/players/sbd/fingers
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}  
-	{
-		map models/players/sbd/fingers_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-models/players/sbd/r_forearm
-{
-	{
-		map models/players/sbd/r_forearm
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}  
-	{
-		map models/players/sbd/r_forearm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-models/players/sbd/r_forearm_b
-{
-	{
-		map models/players/sbd/r_forearm_b
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/saber/saber_enviro3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}  
-	{
-		map models/players/sbd/r_forearm_b_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-// ===== End arm cannon model =====
-
-models/players/SBD/body
+////////////////////
+// BODY SHADERS
+////////////////////
+models/players/sbd/body
 {
     {
-        map models/players/SBD/body
+        map models/players/sbd/body
         rgbGen lightingDiffuse
-    }
+    }    
     {
-        map models/players/SBD/body_s
-        blendFunc GL_SRC_ALPHA GL_ONE
+        map models/players/sbd/body_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -127,15 +35,23 @@ models/players/SBD/body_bs
         rgbGen lightingDiffuse
     }
     {
-        map models/players/SBD/body_s
-        blendFunc GL_SRC_ALPHA GL_ONE
+        map models/players/SBD/body_bs_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -146,15 +62,23 @@ models/players/SBD/body_cortosis
         rgbGen lightingDiffuse
     }
     {
-        map models/players/SBD/body_s
-        blendFunc GL_SRC_ALPHA GL_ONE
+        map models/players/SBD/body_cortosis_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
     }
     {
-        map models/players/sbd/chrome2
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -165,15 +89,23 @@ models/players/SBD/body_dark
         rgbGen lightingDiffuse
     }
     {
-        map models/players/SBD/body_s
-        blendFunc GL_SRC_ALPHA GL_ONE
+        map models/players/SBD/body_dark_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -184,15 +116,77 @@ models/players/SBD/body_rusty
         rgbGen lightingDiffuse
     }
     {
-        map models/players/SBD/body_s
-        blendFunc GL_SRC_ALPHA GL_ONE
+        map models/players/SBD/body_rusty_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/SBD/body_mando
+{
+    {
+        map models/players/SBD/body_mando
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_mando_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_mando_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/SBD/body_jet
+{
+    {
+        map models/players/SBD/body_jet
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/body_jet_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -204,17 +198,18 @@ models/players/SBD/body_grapple
     }
     {
         map models/players/SBD/body_grapple_s
-        blendFunc GL_SRC_ALPHA GL_ONE
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
     }
     {
-        map models/players/SBD/body_grapple_g
+        map models/players/SBD/body_grapple_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -230,17 +225,165 @@ models/players/SBD/body_grapple2
     }
     {
         map models/players/SBD/body_grapple2_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_grapple2_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_cw
+{
+    {
+        map models/players/sbd/body_cw
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/body_cw_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_beta
+{
+    {
+        map models/players/sbd/body_beta
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/sbd/body_beta
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/sbd/body_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_imperial
+{
+    {
+        map models/players/sbd/body_imperial
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/body_imperial_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_mando_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_mortar
+{
+    {
+        map models/players/sbd/body_mortar
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/sbd/body_mortar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/sbd/body_cortosis_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_rocket
+{
+	{
+		map models/players/sbd/body_rocket
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/sbd/body_rocket_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
     }
     {
-        map models/players/SBD/body_grapple2_g
+        map models/players/SBD/body_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -248,27 +391,26 @@ models/players/SBD/body_grapple2
     }
 }
 
-models/players/SBD/light
+models/players/sbd/body_training
 {
+	{
+		map models/players/sbd/body_training
+		rgbGen lightingDiffuse
+	}
     {
-        map models/players/SBD/light
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/SBD/light_s
+        map models/players/sbd/body_training_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
     }
     {
-        map models/players/SBD/light_glow
+        map models/players/SBD/body_training_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -276,83 +418,26 @@ models/players/SBD/light
     }
 }
 
-models/players/SBD/light_bs
+models/players/sbd/body_b1
 {
+	{
+		map models/players/sbd/body_b1
+		rgbGen lightingDiffuse
+	}
     {
-        map models/players/SBD/light_bs
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/SBD/light_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/players/sbd/chrome2
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        tcGen environment
-    }
-    {
-        map models/players/SBD/light_glow
-        blendFunc GL_ONE GL_ONE
-        glow
-        detail
-        rgbGen identity
-    }
-}
-
-models/players/SBD/light_cortosis
-{
-    {
-        map models/players/SBD/light_cortosis
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/SBD/light_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/players/sbd/chrome2
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        tcGen environment
-    }
-    {
-        map models/players/SBD/light_glow
-        blendFunc GL_ONE GL_ONE
-        glow
-        detail
-        rgbGen identity
-    }
-}
-
-models/players/SBD/light_dark
-{
-    {
-        map models/players/SBD/light_dark
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/SBD/light_s
+        map models/players/sbd/body_b1_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
     }
     {
-        map models/players/SBD/light_glow
+        map models/players/SBD/body_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -360,55 +445,315 @@ models/players/SBD/light_dark
     }
 }
 
-models/players/SBD/light_rusty
+////////////////////
+// EXTRAS SHADERS
+////////////////////
+models/players/SBD/extras
 {
     {
-        map models/players/SBD/light_rusty
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
+        map models/players/SBD/extras
         rgbGen lightingDiffuse
     }
     {
-        map models/players/SBD/light_s
+        map models/players/SBD/extras_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_bs
+{
+    {
+        map models/players/SBD/extras_bs
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_bs_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_dark
+{
+    {
+        map models/players/SBD/extras_dark
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_dark_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_rusty
+{
+    {
+        map models/players/SBD/extras_rusty
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_rusty_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_mando
+{
+    {
+        map models/players/SBD/extras_mando
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_mando_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_jet
+{
+    {
+        map models/players/SBD/extras_jet
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_jet_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_cortosis
+{
+    {
+        map models/players/SBD/extras_cortosis
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_cortosis_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_grapple
+{
+    {
+        map models/players/SBD/extras_grapple
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_grapple_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_grapple2
+{
+    {
+        map models/players/SBD/extras_grapple2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_grapple2_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/sbd/extras_cw
+{
+    {
+        map models/players/sbd/extras_cw
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/extras_cw_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/sbd/extras_imperial
+{
+    {
+        map models/players/sbd/extras_imperial
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/extras_imperial_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/sbd/extras_mortar
+{
+    {
+        map models/players/sbd/extras_mortar
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/sbd/extras_mortar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/sbd/extras_cortosis_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/sbd/extras_rocket
+{
+	{
+		map models/players/sbd/extras_rocket
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/sbd/extras_rocket_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        tcGen environment
-    }
-    {
-        map models/players/SBD/light_glow
-        blendFunc GL_ONE GL_ONE
-        glow
+        blendFunc GL_DST_COLOR GL_ZERO
         detail
-        rgbGen identity
+        tcGen environment
     }
 }
 
-models/players/SBD/light_grapple
+models/players/sbd/extras_training
 {
+	{
+		map models/players/sbd/extras_training
+		rgbGen lightingDiffuse
+	}
     {
-        map models/players/SBD/light_grapple
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/SBD/light_s
+        map models/players/sbd/extras_training_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
         map models/players/sbd/chrome
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/sbd/extras_b1
+{
+	{
+		map models/players/sbd/extras_b1
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/sbd/extras_b1_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
         tcGen environment
     }
     {
-        map models/players/SBD/light_glow
+        map models/players/SBD/body_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -416,11 +761,13 @@ models/players/SBD/light_grapple
     }
 }
 
+///////////////////////////
+// CAPS SHADER
+///////////////////////////
 models/players/SBD/caps
 {
     {
         map models/players/SBD/caps
-        rgbGen lightingDiffuse
     }
     {
         map models/players/SBD/caps_glow
@@ -430,4 +777,3 @@ models/players/SBD/caps
         detail
     }
 }
-

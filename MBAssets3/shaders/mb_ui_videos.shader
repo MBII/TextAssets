@@ -38,6 +38,36 @@ video/ClassAbility_ConcBlob
 	}
 }
 
+video/ClassAbility_Cortosis
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassAbility_Cortosis.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassAbility_Flamethrower
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassAbility_Flamethrower.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassAbility_Fuel
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassAbility_Fuel.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
 video/ClassAbility_IonBlob
 {
 	qer_editorimage	textures/mb2_tutorial/Video
@@ -63,6 +93,36 @@ video/ClassAbility_MagneticPlating
 	qer_editorimage	textures/mb2_tutorial/Video
 	{
 		videomap ClassAbility_MagneticPlating.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassAbility_MandoRocket
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassAbility_MandoRocket.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassAbility_ShieldDischarge
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassAbility_ShieldDischarge.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassAbility_WristBlaster
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassAbility_WristBlaster.roq
 		blendFunc GL_ONE GL_ZERO
 		rgbGen identity
 	}
@@ -188,6 +248,16 @@ video/ClassWeapon_Proj
 	}
 }
 
+video/ClassWeapon_PLX
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassWeapon_PLX.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
 video/ClassWeapon_SonicGrenade
 {
 	qer_editorimage	textures/mb2_tutorial/Video
@@ -213,6 +283,36 @@ video/ClassWeapon_ThermalDetonator
 	qer_editorimage	textures/mb2_tutorial/Video
 	{
 		videomap ClassWeapon_ThermalDetonator.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassWeapon_WestarM5
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassWeapon_WestarM5.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassWeapon_WestarM5Launcher
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassWeapon_WestarM5Launcher.roq
+		blendFunc GL_ONE GL_ZERO
+		rgbGen identity
+	}
+}
+
+video/ClassWeapon_WestarM5Scope
+{
+	qer_editorimage	textures/mb2_tutorial/Video
+	{
+		videomap ClassWeapon_WestarM5Scope.roq
 		blendFunc GL_ONE GL_ZERO
 		rgbGen identity
 	}
