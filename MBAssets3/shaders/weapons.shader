@@ -163,7 +163,6 @@ models/weapons2/westar34/w34_diff
         alphaGen lightingSpecular
         detail
     }
-
 }
 
 ///////////// kyle's briar pistol ///////////// 
@@ -1874,4 +1873,20 @@ models/weapons2/saber_luke/newsaber
 		detail
 		tcGen environment
 	}
+}
+
+// Stellan Gios Saber
+models/weapons2/saber_dough/saber_stellangios_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_stellangios_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_stellangios_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
 }
