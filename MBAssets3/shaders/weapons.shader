@@ -150,6 +150,21 @@ models/weapons2/briar_pistol/brass
 	}
 }
 
+models/weapons2/westar34/w34_diff
+{
+    {
+        map models/weapons2/westar34/w34_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/westar34/w34_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+
+}
 
 ///////////// kyle's briar pistol ///////////// 
 
