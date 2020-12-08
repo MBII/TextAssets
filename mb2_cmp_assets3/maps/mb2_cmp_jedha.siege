@@ -1,0 +1,93 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+  //  LevelshotDesc
+  //  {
+     //   desc1
+      //  {   
+     //       text "Rebel : We had a contact, one of Saws rebels. But he has just gone missing. We have to hurry and find him, this town is ready to blow!"
+      //      
+     //       rect "410 147 220 55"
+    //        scale 0.125
+    //    }
+   //     desc2
+  //      {   
+   //         text "Imperial: Protect the kyber shipment until it is ready for transport to our secure location, be on the lookout for insurgency!"
+   //         
+   //         rect "410 258 220 55"
+  //          scale 0.125
+  //      }
+ //   }
+
+mapgraphic "gfx/MPLevels/mb2_jedha/pyro_jedha_layout.jpg"
+missionname  "Jedha City"
+
+radartopleft "-6912, 6400"
+radarbottomright "6336, -6848"
+
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 300						
+	UseTeam "jedha_reb" 							
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	".0 0 .7 1"	
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Capture the Kyber!"
+		final 0
+		message_team1 "The Kyber is ours!"
+		message_team2 "They ambushed us!"
+		objdesc "ACCOMPLISH: Ambush the Imperial Kyber shipment!"
+		objgfx "gfx/MPLevels/mb2_jedha/obj1.jpg"
+	}
+	
+	wonround "There is hope!" 						//Printed to this team if they won the round.
+	lostround "Things have blown up!" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/jedha/hope.mp3"
+	roundover_sound_welost "sound/jedha/target.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+	briefing "Ambush the Imperials and capture their Kyber!" //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1	
+	UseTeam "jedha_imp"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Fend of the ambush!"
+		final 0
+		message_team1 "They captured our Kyber!"
+		message_team2 "We won!"
+		objdesc "ACCOMPLISH: Prevent the Rebels from taking our Kyber!"
+		objgfx "gfx/MPLevels/mb2_jedha/obj1.jpg"
+	}
+	
+	wonround "Their ambush was crushed!"
+	lostround "Our patrol was intercepted!"
+	roundover_sound_wewon "sound/jedha/target.mp3"
+	roundover_sound_welost "sound/jedha/hope.mp3"
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Fend off the ambush forces, and don't let them take our Kyber!"
+}
