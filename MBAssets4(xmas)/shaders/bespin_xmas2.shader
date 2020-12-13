@@ -1,4 +1,3 @@
-
 textures/bespin_xmas/fogy
 {
 	qer_editorimage	textures/skies/cloudlayer2
@@ -9,7 +8,7 @@ textures/bespin_xmas/fogy
 	//q3map_nolightmap
 	fogparms	( 193 240 232 ) 12000
 }
-//fog_clouds
+
 textures/bespin_xmas/bespin_cloud_layer
 {
 	qer_editorimage	textures/skies/cloudlayer2
