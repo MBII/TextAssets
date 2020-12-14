@@ -1,380 +1,205 @@
-// cvars used (at least some of them
-//	siege_mapgraphic - the name of the graphic of the map of the level.
-//	currentObjButton - the menu item name of currently active objective button
-//	team1_icon	- read in from siege file, the graphic of team1
-//	team2_icon	- read in from siege file, the graphic of team2
 {
 	menuDef
 	{
 		name					"ingame_siegeclass_open"
 		fullScreen				0
 		visible					0
-		rect					0 0 640 480
-		focusColor				1 1 1 1
+		rect					93 5 454 50
 		style					1
-		descX					476
-		descY					456
-		descScale				0.7
-		descColor				0.1 0.7 1 0.7
+		descX					320
+		descY					443
+		descScale				1
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
+		focusColor				1 1 1 1
 		backColor				0 0 0 0
-		disablecolor			.7 .7 .7 .7
-		onClose
-		{ 
-			hide				minidesc
-			hide				siegeclassconfigtitle
-		}
+		disablecolor			1 1 1 1
+		stayopen
 		onOpen
 		{ 
-			setcvar				currentObjButton "null"
-			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
-			
-			exec				"siegeCompleteCvarUpdate"
-			// set tm_icon fields to the proper mapicon graphic 
-			uiscript			updatesiegeobjgraphics
 			setitembackground		team1_symbol	"*team1_icon"
 			setitembackground		team2_symbol	"*team2_icon"
-			setitembackground		team1_button	"*team1_icon"
-			setitembackground		team2_button	"*team2_icon"
 			// Enable team buttons, in case they'd been shut off
-			disable				team_button	0
-			disable				autoteam	0
-			disable				team1_button	0
-			disable				team2_button	0
+			disable			team_button		0
+			disable			autoteam		0
+			disable			team1_button	0
+			disable			team2_button	0
 			// and reset colors
-			setitemcolor			team1_button backcolor1   0.1 0.7 1 0.7
-			setitemcolor			team2_button backcolor1   0.1 0.7 1 0.7
-			setitemcolor			team1name forecolor1   0.1 0.7 1 0.7
-			setitemcolor			team2name forecolor1   0.1 0.7 1 0.7
-			setitemcolor			team1_count forecolor1   0.1 0.7 1 0.7
-			setitemcolor			team2_count forecolor1   0.1 0.7 1 0.7
-			// Set the map icon picture to the updated graphic
-			uiscript		setteamclassicons
+			setitemcolor	team1_button		backcolor   1 1 1 0.1
+			setitemcolor	team2_button		backcolor   1 1 1 0.1
+			setitemcolor	spectator_button	backcolor   1 1 1 0.1
+			setitemcolor	team1name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team2name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team3name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team1_count forecolor   0.5 0.5 0.5 1
+			setitemcolor	team2_count forecolor   0.5 0.5 0.5 1
+			setitemcolor	team3_count forecolor   0.5 0.5 0.5 1
+			
+			show			spectator_button
+			show			spectator_symbol
 		}
-		//onESC 
-		//{ 
-			//hide				minidesc
-			//hide				fulldesc
-			//hide				objective_pic
-			//disable			team_button	0
-			//close 			all
-		//}
+		onESC
+		{
+			play			"sound/interface/back.mp3"
+			close			ingame_siegeclass_open
+			open			ingame			
+		}		
 
-// Window backdrop
-//----------------------------------------------------------------------------------------------
-// MAP TIME SECTION
-//----------------------------------------------------------------------------------------------
-
-		// Border
 		itemDef
 		{
-			name				bg_clean1 //border
+			name				bg_teamselect
 			group				none
 			style				WINDOW_STYLE_FILLED_RGB1
-			rect				317 5 323 130
+			rect				0 0 454 50
+			background			"gfx/menus/alpha/Menu_TeamSelect"
 			forecolor			1 1 1 1
-			background			"gfx/menus/alpha/Menu_Clean"
 			visible				1
 			decoration
 		}
-		
-		// Background for "Okay" box - needs to be here because of desc texts
+
 		itemDef
 		{
-			name				bg_clean3 //border
+			name				bg_class
 			group				none
-			style 				WINDOW_STYLE_FILLED_RGB1
-			rect				317 435 323 40
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 55 454 371
+			background			"gfx/menus/alpha/Menu_ClassSelect"
 			forecolor			1 1 1 1
-			background			"gfx/menus/alpha/Menu_ClassDescription"
 			visible				1
 			decoration
 		}
-		
-		itemDef
-		{
-			name				playername
-			group				time
-			type				ITEM_TYPE_EDITFIELD
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				330 8 120 18
-			text				@MENUS_NAME_TITLE
-			cvar				ui_Name
-			maxchars			35
-			textalign			ITEM_ALIGN_LEFT		
-			textalignx			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			mouseenter
-			{
-				uiScript		update "ui_GetName"
-			}
-			mouseExit
-			{
-				uiScript		update "ui_SetName"
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}
-		
-		itemDef
-		{
-			name				playerteam
-			group				time
-			type				ITEM_TYPE_MULTI
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				500 8 120 18
-			text				@MENUS_TEAM
-			cvar				ui_team
-			cvarStrList
-			{
-				@MENUS_SPECTATOR		0
-				"*cg_siegeTeam1Name"	1
-				"*cg_siegeTeam2Name"	2
-				@MENUS_SPECTATOR		3
-			}
-			textalign			ITEM_ALIGN_LEFT		
-			textalignx			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			decoration
-		}
-			
+
 //----------------------------------------------------------------------------------------------
 // TEAM SELECTION
 //----------------------------------------------------------------------------------------------
 
-		// join a team text
-		itemDef
-		{
-			name 				joinateam
-			rect 				323 27 0 0
-			style 				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_JOIN_A_TEAM
-			font				3
-			textscale			.7
-			textalign 			ITEM_ALIGN_LEFT
-			textalignx 			6
-			textaligny 			2
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			decoration
-		}
-
-	// TEAM SYMBOLS AND COUNTS PER TEAM	
-		itemDef
-		{
-			name				team1_button
-			group				team_button			
-			rect				355 66 45 45
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3	
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			0.1 0.7 1 0.7
-			visible				1
-
-			mouseEnter
-			{ 
-				setitemcolor		team1_button backcolor2   1 1 1 1
-				setitemcolor		team1_count  forecolor2 	1 1 1 1
-				setitemcolor		team1name  forecolor2 1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		team1_button backcolor1   0.1 0.7 1 0.7
-				setitemcolor		team1_count  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		team1name  forecolor1 0.1 0.7 1 0.7
-			}
-			
-			// If you change this script, be sure to change	onteam1		
-			action
-			{ 
-				//show			class_button	
-
-				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 1
-				uiscript		updatesiegeclasscnt      1
-				uiscript		updatesiegecvars
-				
-	
-				//uiscript		printmsg	team1buttonunlockred
-		
-				// Darken the other team buttons				
-				setitemcolor		team_button backcolor1   0.1 0.7 1 0.7
-				setitemcolor		team_count  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		team2name  forecolor1 0.1 0.7 1 0.7
-				
-				// turn on the other team buttons for input
-				disable			team_button	0
-				
-				// turn on class buttons
-				//disable			class_button	0
-				
-				// highlight this team button
-				setitemcolor		team1_button backcolor2 1 1 1 1
-				setitemcolor		team1_count  forecolor2 1 1 1 1
-				setitemcolor		team1name  forecolor2 1 1 1 1
-
-				// no more input for this guy
-				disable			team1_button	1
-	
-			//	setitemtext		class1_count "*ui_tm1_c0_cnt"
-			//	setitemtext		class2_count "*ui_tm1_c1_cnt"
-			//	setitemtext		class3_count "*ui_tm1_c2_cnt"
-			//	setitemtext		class4_count "*ui_tm1_c3_cnt"
-			//	setitemtext		class5_count "*ui_tm1_c4_cnt"
-			//	setitemtext		class6_count "*ui_tm1_c5_cnt"
-				show			borderclass
-				hide			imp_class
-				show			siegeclassconfigtitle
-				show			reb_class
-				hide			headlist
-				hide			custlist
-				hide			modellisttype
-				uiscript		resetsiegelistboxes
-				uiscript		feederselection
-
-				uiscript		mb_updatelimits			
-
-				setcvar			ui_saber1_hue 0.6277
-				setcvar			ui_saber2_hue 0.6277
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutTeamSelect
-			}
-		}
-		itemDef
-		{
-			name				red_lock
-			group				lock_icon			
-			rect				355 66 45 45
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}	
+	// TEAM SYMBOLS AND COUNTS PER TEAM
 		itemDef
 		{
 			name				team1name
 			group				none
-			rect				355 47 45 45
-			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				35 8 101 34
 			cvar				cg_siegeTeam1Name
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			textalignx			50
+			font				6
+			textscale			0.2
+			forecolor			1 1 1 1
 			visible				1
 			decoration
 		}
+
+		itemDef
+		{
+			name				team1_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				12 13.5 19 24
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				team1_button
+			group				team_button
+			rect				8 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Rebel"
+			backcolor			1 1 1 0.1
+			visible				1
+			//cvartest			"ui_lockRed"
+			//showcvar			{ "1"}
+
+			mouseEnter
+			{ 
+				setitemcolor		team1_button	backcolor	1 1 1 0.3
+				setitemcolor		team1_count		forecolor	1 1 1 1
+				setitemcolor		team1name		forecolor	1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor		team1_button	backcolor   1 1 1 0.1
+				setitemcolor		team1_count		forecolor	0.5 0.5 0.5 1
+				setitemcolor		team1name		forecolor	0.5 0.5 0.5 1
+			}
+
+			// If you change this script, be sure to change	onteam1		
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_holdteam 1
+				setcvar			ui_class	0
+				uiscript		updatesiegeclasscnt      1
+				uiscript		updatesiegecvars
+				//uiscript		printmsg	team1buttonunlockred
+
+				// Darken the other team buttons				
+				setitemcolor	team_button	backcolor   1 1 1 0.1
+				setitemcolor	team_count	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2name	forecolor	0.5 0.5 0.5 1
+
+				// turn on the other team buttons for input
+				disable			team_button	0
+
+				// turn on class buttons
+				disable			reb_class 0
+
+				// highlight this team button
+				setitemcolor	team1_button	backcolor 1 1 1 0.5
+				setitemcolor	team1_count		forecolor 1 1 1 1
+				setitemcolor	team1name 		forecolor 1 1 1 1
+
+				// no more input for this guy
+				disable			team1_button	1
+
+				open			ingame_siegeclass_open_classes_r
+				close			ingame_siegeclass_open_classes_r_sm
+				close			ingame_siegeclass_open_classes_i
+				close			ingame_siegeclass_open_classes_i_sm
+				open			ingame_siegeclass_open_lower
+				
+				close			ingame_siegeclass_open_model_list
+				close			ingame_siegeclass_open_model_listtall
+				close			ingame_siegeclass_open_model
+				close			ingame_siegeclass_open_menuswitch
+				close			ingame_siegeclass_open_hilt_list
+				close			mb_stats_common
+				close			ingame_saber_jedi
+				close			ingame_saber_sith
+				close			mb_class_templates
+
+				uiscript		mb_updatelimits
+
+				// TUTORIAL REQUIREMENT
+				uiScript		tutCheckpoint TutTeamSelect
+			}
+		}
+
 		itemDef
 		{
 			name				team1_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				355 111 60 18
+			rect				140 13.5 22 22
 			cvar				ui_tm1_cnt
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7		
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1		
 			visible				1
 			decoration
-		}	
-		
-		
-		itemDef
-		{
-			name				team2_button			
-			group				team_button			
-			rect				455 67 45 45
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3	
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			0.1 0.7 1 0.7
-			visible				1
-			
-			mouseEnter
-			{ 
-				setitemcolor		team2_button backcolor2   1 1 1 1
-				setitemcolor		team2_count  forecolor2 	1 1 1 1
-				setitemcolor		team2name  forecolor2 1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		team2_button backcolor1   0.1 0.7 1 0.7
-				setitemcolor		team2_count  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		team2name  forecolor1 0.1 0.7 1 0.7
-			}
-
-			action
-			{ 
-				//show			class_button	
-
-				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 2
-				uiscript		updatesiegeclasscnt      2
-				uiscript		updatesiegecvars
-				
-				
-				//uiscript		printmsg	team2buttonunlockblue
-
-				// Darken the other team buttons				
-				setitemcolor		team_button backcolor1   0.1 0.7 1 0.7
-				setitemcolor		team_count  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		team1name  forecolor1 0.1 0.7 1 0.7
-				// turn on the other team buttons for input
-				disable			team_button	0
-				
-				// turn on class buttons
-				//disable			class_button	0
-				
-				
-				// highlight this team button
-				setitemcolor		team2_button backcolor2 1 1 1 1
-				setitemcolor		team2_count  forecolor2 1 1 1 1
-				setitemcolor		team2name  forecolor2 1 1 1 1
-				// no more input for this guy
-				disable			team2_button	1
-				
-			//	setitemtext		class1_count "*ui_tm2_c0_cnt"
-			//	setitemtext		class2_count "*ui_tm2_c1_cnt"
-			//	setitemtext		class3_count "*ui_tm2_c2_cnt"
-			//	setitemtext		class4_count "*ui_tm2_c3_cnt"
-			//	setitemtext		class5_count "*ui_tm2_c4_cnt"
-			//	setitemtext		class6_count "*ui_tm2_c5_cnt"
-				show			borderclass
-				hide			reb_class
-				show			siegeclassconfigtitle
-				show			imp_class
-				hide			headlist
-				hide			custlist
-				hide			modellisttype
-				uiscript		resetsiegelistboxes
-				uiscript		feederselection
-				
-				uiscript		mb_updatelimits
-			
-				setcvar			ui_saber1_hue 1.0
-				setcvar			ui_saber2_hue 1.0
-			}
 		}
+		
 		itemDef
 		{
-			name				blue_lock
-			group				lock_icon		
-			rect				455 66 45 45
+			name				red_lock
+			group				lock_icon			
+			rect				8 8 155 34
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_JOIN_TEAM_DESC
@@ -382,2313 +207,277 @@
 			visible				0
 			background			"gfx/2d/logos/forbidden.tga"
 		}	
+
 		itemDef
 		{
 			name				team2name
 			group				none
-			rect				455 47 45 45
-			style				WINDOW_STYLE_TEXT_RGB1
+			rect				318 8 101 34
 			cvar				cg_siegeTeam2Name
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			textalignx			50
+			font				6
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
 		}
+
+		itemDef
+		{
+			name				team2_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				295 13.5 19 24
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				team2_button
+			group				team_button
+			rect				291 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 0.1
+			visible				1
+			//cvartest			"ui_lockBlue"
+			//showcvar			{ "1"}
+
+			mouseEnter
+			{ 
+				setitemcolor		team2_button	backcolor	1 1 1 0.3
+				setitemcolor		team2_count		forecolor	1 1 1 1
+				setitemcolor		team2name		forecolor	1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor		team2_button	backcolor	1 1 1 0.1
+				setitemcolor		team2_count		forecolor	0.5 0.5 0.5 1
+				setitemcolor		team2name		forecolor	0.5 0.5 0.5 1
+			}
+
+			// If you change this script, be sure to change	onteam2
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_holdteam 2
+				setcvar			ui_class	0
+				uiscript		updatesiegeclasscnt      2
+				uiscript		updatesiegecvars
+
+				// Darken the other team buttons				
+				setitemcolor	team_button		backcolor   1 1 1 0.1
+				setitemcolor	team_count		forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
+				// turn on the other team buttons for input
+				disable				team_button	0
+
+				// highlight this team button
+				setitemcolor	team2_button	backcolor	1 1 1 0.5
+				setitemcolor	team2_count		forecolor	1 1 1 1
+				setitemcolor	team2name		forecolor	1 1 1 1
+
+				// no more input for this guy
+				disable			team2_button	1
+
+				close			ingame_siegeclass_open_classes_r
+				close			ingame_siegeclass_open_classes_r_sm
+				open			ingame_siegeclass_open_classes_i
+				close			ingame_siegeclass_open_classes_i_sm
+				open			ingame_siegeclass_open_lower
+				
+				close			ingame_siegeclass_open_model_list
+				close			ingame_siegeclass_open_model_listtall
+				close			ingame_siegeclass_open_model
+				close			ingame_siegeclass_open_menuswitch
+				close			ingame_siegeclass_open_hilt_list
+				close			mb_stats_common
+				close			ingame_saber_jedi
+				close			ingame_saber_sith
+				close			mb_class_templates
+
+				uiscript		mb_updatelimits
+			}
+		}
+
 		itemDef
 		{
 			name				team2_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				455 111 60 18
+			rect				423 13.5 22 22
 			cvar				ui_tm2_cnt
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
-		}			
-		
-		
-		itemDef
-		{
-			name				spectator_symbol
-			group				none			
-			rect				556 45 32 32
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			descText			@MENUS_WATCH_DESC
-			backcolor			0.1 0.7 1 0.7
-			visible				1
-			background			"gfx/2d/mp_spec_symbol"
-			
-			mouseEnter
-			{ 
-				setitemcolor		spectator_symbol backcolor2   1 1 1 1
-				setitemcolor		team3name  forecolor2 1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		spectator_symbol backcolor1   0.1 0.7 1 0.7
-				setitemcolor		team3name  forecolor1 0.1 0.7 1 0.7
-			}
-			action
-			{ 
-
-				setitemcolor		team_button backcolor1   	0.1 0.7 1 0.7
-				setitemcolor		team_count  forecolor1 		0.1 0.7 1 0.7
-				
-				setitemcolor		team1_button backcolor1   	0.1 0.7 1 0.7
-				setitemcolor		team1_count  forecolor1 	0.1 0.7 1 0.7
-				setitemcolor		team1name  forecolor1 		0.1 0.7 1 0.7
-
-				setitemcolor		team2_button backcolor1   	0.1 0.7 1 0.7
-				setitemcolor		team2_count  forecolor1 	0.1 0.7 1 0.7
-				setitemcolor		team2name  forecolor1 		0.1 0.7 1 0.7
-			
-				play			"sound/interface/button1.wav"
-				show			borderclass
-				//hide			borderclass
-				hide			reb_class
-				hide			imp_class
-				setcvar			ui_holdteam 3
-				exec			"cmd team s" 				
-				uiScript		closeingame 						
-			}
 		}
-		itemDef
+
+/* 		itemDef
 		{
 			name				team3name
 			group				none
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 69 32 20
+			rect				301 72 40 40
 			text				@MENUS_SPECTATOR
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			16
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			font				2
+			textscale			0.4
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
-		}		
-	
-// CLASS SELECTION
-		// Border around the objective half of the screen		
+		} */
+		
 		itemDef
 		{
-			name				bg_clean1 //borderclass
-			group				borderclass //class_button
-			style 				WINDOW_STYLE_FILLED_RGB1
-			rect				317 140 323 288 //145
+			name				team3_count
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				231 13.5 22 22
+			cvar				ui_tm3_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1		
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				blue_lock
+			group				lock_icon
+			rect				291 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+
+		itemDef
+		{
+			name				spectator_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				203.5 13.5 19 24
+			background			"gfx/2d/mp_spec_symbol"
 			forecolor			1 1 1 1
-			background			"gfx/menus/alpha/Menu_Clean"
-			visible				1
+			visible				0
 			decoration
 		}
-		// Class Text
 		
-		//rebel soldier
 		itemDef
 		{
-			name				mb_class_trooper
-			group				reb_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Soldier"
-			rect				365 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}
-		
-		itemDef 
-		{
-			name				mb_class_trooper
-			group				reb_class		
-			rect				340 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/reb"
-
-		//	text				"Soldier"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_trooper backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_trooper backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		reb_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		reb_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_trooper backcolor2   1 1 1 1
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Trooper"
-				disable				mb_class_trooper 1
-				uiscript			mb_class_trooper
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_trooper_lock
-			group				reb_class			
-			rect				340 150 50 50
+			name				spectator_button
+			group				team_button
+			rect				200 8 55 34
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
+			descText			@MENUS_WATCH_DESC
+			backcolor			1 1 1 0.1
 			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_trooper_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			cvar				mb_class_trooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_trooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			cvar				mb_class_trooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_trooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_trooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			cvar				mb_class_trooper_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}			
-			
-			
-		//rebel commander
-		itemDef
-		{
-			name				mb_class_elitetrooper
-			group				reb_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Elite Trooper"
-			rect				447 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}
-		itemDef 
-		{
-			name				mb_class_elitetrooper
-			group				reb_class		
-			rect				422 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/com"
-			
-		//	text				"ET"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_elitetrooper backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_elitetrooper backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		reb_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		reb_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_elitetrooper backcolor2   1 1 1 1
-				play			"sound/interface/button1.wav"
-				setitemtext		Cname		"Elite Trooper"	
-				disable			mb_class_elitetrooper 1	
-				uiscript		mb_class_elitetrooper
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_elitetrooper_lock
-			group				reb_class			
-			rect				422 150 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_elitetrooper_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			cvar				mb_class_elitetrooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_elitetrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			cvar				mb_class_elitetrooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_elitetrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_elitetrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			cvar				mb_class_elitetrooper_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		
-		
-		//Jedi
-		itemDef
-		{
-			name				mb_class_jedi
-			group				reb_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Jedi"
-			rect				519 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}
-		itemDef 
-		{
-			name				mb_class_jedi
-			group				reb_class		
-			rect				494 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/jedi"
-			
-		//	text				"Jedi"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			10
-		//	textaligny			40
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_jedi backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_jedi backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		reb_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		reb_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_jedi backcolor2   1 1 1 1	
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Jedi"
-				disable				mb_class_jedi 1
-				uiscript			mb_class_jedi
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_jedi_lock
-			group				reb_class			
-			rect				494 150 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_jedi_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			cvar				mb_class_jedi_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_jedi_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			cvar				mb_class_jedi_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_jedi_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_jedi_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			cvar				mb_class_jedi_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		
-		//Hero
-		itemDef
-		{
-			name				mb_class_hero
-			group				reb_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Hero"
-			rect				581 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_hero
-			group				reb_class		
-			rect				556 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/hero"
-			
-		//	text				"Hero"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_hero backcolor2   1 1 1 11
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_hero backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		reb_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		reb_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_hero backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Hero"
-				disable				mb_class_hero 1
-				uiscript			mb_class_hero
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_hero_lock
-			group				reb_class			
-			rect				556 165 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_hero_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			cvar				mb_class_hero_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_hero_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			cvar				mb_class_hero_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_hero_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_hero_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			cvar				mb_class_hero_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}	
-
-		
-		//Wookiee
-		itemDef
-		{
-			name				mb_class_wookie
-			group				reb_class
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Wookiee"
-			rect				372 265 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}
-		itemDef 
-		{
-			name				mb_class_wookie
-			group				reb_class		
-			rect				347 220 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/wook"
-			
-		//	text				"Wookiee"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_wookie backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_wookie backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{
-							
-				setitemcolor		reb_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		reb_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_wookie backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Wookiee"
-				disable				mb_class_wookie 1
-				uiscript			mb_class_wookie
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_wookie_lock
-			group				reb_class			
-			rect				347 220 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_wookie_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			cvar				mb_class_wookie_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_wookie_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			cvar				mb_class_wookie_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_wookie_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_wookie_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			cvar				mb_class_wookie_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}	
-
-		
-		//CloneTrooper
-		itemDef
-		{
-			name				mb_class_clonetrooper
-			group				reb_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Clonetrooper"
-			rect				467 265 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}
-		itemDef 
-		{
-			name				mb_class_clonetrooper
-			group				reb_class		
-			rect				442 220 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/clone"
-			
-		//	text				"Clone"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_clonetrooper backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_clonetrooper backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		reb_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		reb_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_clonetrooper backcolor2   1 1 1 1	
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Clone Trooper"
-				disable				mb_class_clonetrooper 1
-				uiscript			mb_class_clonetrooper
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutCloneSelect
-			}
-		}
-		itemDef
-		{
-			name				mb_class_clonetrooper_lock
-			group				reb_class			
-			rect				442 220 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_clonetrooper_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			cvar				mb_class_clonetrooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_clonetrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			cvar				mb_class_clonetrooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_clonetrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_clonetrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			cvar				mb_class_clonetrooper_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}			
-
-		//ARC Trooper
-		itemDef
-		{
-			name				mb_class_arctrooper
-			group				reb_class
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Arc Trooper"
-			rect				573 265 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_arctrooper
-			group				reb_class		
-			rect				548 220 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/arc"
-			
-		//	text				"ARC"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_arctrooper backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_arctrooper backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		reb_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		reb_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_arctrooper backcolor2   1 1 1 1			
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Arc Trooper"
-				disable				mb_class_arctrooper 1
-				uiscript			mb_class_arctrooper
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_arctrooper_lock
-			group				reb_class			
-			rect				548 220 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_arctrooper_cnt
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			cvar				mb_class_arctrooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_arctrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			cvar				mb_class_arctrooper_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_arctrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_arctrooper_limit
-			group				reb_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			cvar				mb_class_arctrooper_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-	
-		//imp soldier
-		itemDef
-		{
-			name				mb_class_soldier
-			group				imp_class
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Soldier"
-			rect				365 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_soldier
-			group				imp_class		
-			rect				340 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/imp"
-			
-		//	text				"Soldier"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_soldier backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_soldier backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{
-				
-				setitemcolor		imp_class  backcolor1   0.1 0.7 1 0.7
-				setitemcolor		imp_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_soldier backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Soldier"
-				disable				mb_class_soldier 1
-				uiscript			mb_class_soldier
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_soldier_lock
-			group				imp_class			
-			rect				340 150 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_soldier_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			cvar				mb_class_soldier_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_soldier_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			cvar				mb_class_soldier_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_soldier_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_soldier_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				340 215 0 0
-			cvar				mb_class_soldier_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}	
-		
-		
-		
-		//imp commander
-		itemDef
-		{
-			name				mb_class_commander
-			group				imp_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Commander"
-			rect				447 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}
-		itemDef 
-		{
-			name				mb_class_commander
-			group				imp_class		
-			rect				422 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/com"
-			
-		//	text				"Commander"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_commander backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_commander backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				setitemcolor		imp_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		imp_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_commander backcolor2   1 1 1 1
-				play			"sound/interface/button1.wav"
-				setitemtext		Cname		"Commander"
-				disable			mb_class_commander 1
-				uiscript		mb_class_commander
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_commander_lock
-			group				imp_class			
-			rect				422 150 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_commander_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			cvar				mb_class_commander_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_commander_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			cvar				mb_class_commander_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_commander_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_commander_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				422 215 0 0
-			cvar				mb_class_commander_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-
-		//Sith
-		itemDef
-		{
-			name				mb_class_sith
-			group				imp_class
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Sith"
-			rect				519 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_sith
-			group				imp_class		
-			rect				494 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/jedi"
-			
-		//	text				"Sith"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_sith backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_sith backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-							
-				setitemcolor		imp_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		imp_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_sith backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Sith"
-				disable				mb_class_sith 1
-				uiscript			mb_class_sith
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_sith_lock
-			group				imp_class			
-			rect				494 150 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_sith_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			cvar				mb_class_sith_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_sith_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			cvar				mb_class_sith_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_sith_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_sith_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				494 215 0 0
-			cvar				mb_class_sith_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-
-		
-
-		
-		//bh
-		itemDef
-		{
-			name				mb_class_bounty_hunter
-			group				imp_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Bounty Hunter"
-			rect				372 265 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_bounty_hunter
-			group				imp_class		
-			rect				347 220 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/bh"
-			
-		//	text				"BH"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_bounty_hunter backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_bounty_hunter backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		imp_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		imp_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_bounty_hunter backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Bounty Hunter"
-				disable				mb_class_bounty_hunter 1
-				uiscript			mb_class_bounty_hunter
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_bounty_hunter_lock
-			group				imp_class			
-			rect				347 220 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_bounty_hunter_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			cvar				mb_class_bounty_hunter_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}				
-		itemDef
-		{
-			name				mb_class_bounty_hunter_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			cvar				mb_class_bounty_hunter_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_bounty_hunter_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_bounty_hunter_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				347 285 0 0
-			cvar				mb_class_bounty_hunter_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		
-
-		//SBD
-		itemDef
-		{
-			name				mb_class_sbd
-			group				imp_class
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Super Battle Droid"
-			rect				573 265 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_sbd
-			group				imp_class		
-			rect				548 220 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/sbd"
-			
-		//	text				"SBD"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_sbd backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_sbd backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-							
-				setitemcolor		imp_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		imp_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_sbd backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Super Battle Droid"
-				disable				mb_class_sbd 1
-				uiscript			mb_class_sbd
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_sbd_lock
-			group				imp_class			
-			rect				548 220 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_sbd_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			cvar				mb_class_sbd_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_sbd_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			cvar				mb_class_sbd_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_sbd_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_sbd_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				548 285 0 0
-			cvar				mb_class_sbd_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}	
-		
-		
-		//deka
-		itemDef
-		{
-			name				mb_class_droideka
-			group				imp_class	
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Droideka"
-			rect				581 195 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_droideka
-			group				imp_class		
-			rect				556 150 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/deka"
-			
-		//	text				"Deka"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_droideka backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_droideka backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		imp_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		imp_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_droideka backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Droideka"
-				disable				mb_class_droideka 1
-				uiscript			mb_class_droideka
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_droideka_lock
-			group				imp_class			
-			rect				556 150 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_droideka_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			cvar				mb_class_droideka_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_droideka_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			cvar				mb_class_droideka_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_droideka_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_droideka_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 215 0 0
-			cvar				mb_class_droideka_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}	
-		
-		
-		//manda
-		itemDef
-		{
-			name				mb_class_mandalorian
-			group				imp_class
-			style				WINDOW_STYLE_TEXT_RGB2	
-			text				"Mandalorian"
-			rect				467 265 165 20
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.8
-			forecolor			0.1 0.7 1 0.7
-			visible				0 
-		}		
-		itemDef 
-		{
-			name				mb_class_mandalorian
-			group				imp_class		
-			rect				442 220 50 50
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			backcolor			0.1 0.7 1 0.7
-			visible 			0
-			background			"gfx/menus/classes/manda"
-			
-		//	text				"Mando"
-		//	textalign			ITEM_ALIGN_LEFT
-		//	textalignx			0
-		//	textaligny			0
-		//	font				2
-		//	textscale			1.00
-			
-			mouseEnter 
-			{ 
-				setitemcolor		mb_class_mandalorian backcolor2   1 1 1 1
-			}
-			mouseExit 
-			{ 
-				setitemcolor		mb_class_mandalorian backcolor1   0.1 0.7 1 0.7
-			}
-			action 
-			{ 
-				
-				setitemcolor		imp_class backcolor1   0.1 0.7 1 0.7
-				setitemcolor		imp_class  forecolor1 0.1 0.7 1 0.7
-				setitemcolor		mb_class_mandalorian backcolor2   1 1 1 1		
-				play				"sound/interface/button1.wav"
-				setitemtext			Cname		"Mandalorian"
-				disable				mb_class_mandalorian 1
-				uiscript			mb_class_mandalorian
-				//uiscript			getmodelcvars
-				//uiscript			getmodelskin
-				show 				headlist
-				hide				custlist
-				show				modellisttype
-			}
-		}
-		itemDef
-		{
-			name				mb_class_mandalorian_lock
-			group				imp_class			
-			rect				442 220 50 50
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 1
-			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
-		}
-		itemDef
-		{
-			name				mb_class_mandalorian_cnt
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			cvar				mb_class_mandalorian_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			26
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}		
-		itemDef
-		{
-			name				mb_class_mandalorian_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			cvar				mb_class_mandalorian_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			19
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_mandalorian_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			text				"/"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-		itemDef
-		{
-			name				mb_class_mandalorian_limit
-			group				imp_class
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				442 285 0 0
-			cvar				mb_class_mandalorian_limit
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			34
-			textaligny			-10
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-		}
-
-//--------------------------------------------------	
-// MB OPEN/SA MODE
-//--------------------------------------------------
-		// Scroll box with portraits.
-		itemDef
-		{
-			name 				headlist
-			group				class_button
-			rect 				330 290 295 112 //340 190 280 197
-			type 				ITEM_TYPE_LISTBOX
-			style 				WINDOW_STYLE_LISTBOX_RGB1
-			elementwidth 			35//34//55
-			elementheight 			36//34//55
-			elementtype 			LISTBOX_IMAGE
-			feeder 				FEEDER_MBHEADS
-			//horizontalscroll
-			border 				0
-			bordercolor 		0.1 0.7 1 0.9
-			forecolor 			1 1 1 1
-			descText			@MENUS_CHOOSE_THE_MODEL_FOR
-			visible				1
-			textscale 			0.7
-			action
-			{ 
-				play			"sound/interface/button1"
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutModelSelect
-			}
+			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
 			mouseEnter
 			{ 
-				setitemcolor 	headlist bordercolor2 1 1 1 1 
+				setitemcolor		spectator_symbol backcolor   1 1 1 1
+				setitemcolor		spectator_button backcolor   1 1 1 0.3
+				setitemcolor		team3name  forecolor 1 1 1 1
+				setitemcolor		team3_count  forecolor 1 1 1 1
 			}
 			mouseExit
 			{ 
-				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
+				setitemcolor		spectator_symbol backcolor   0.5 0.5 0.5 1
+				setitemcolor		spectator_button backcolor   1 1 1 0.1
+				setitemcolor		team3name  forecolor 0.5 0.5 0.5 1
+				setitemcolor		team3_count  forecolor 0.5 0.5 0.5 1
 			}
-		}
-
-		itemDef
-		{
-			name 				custlist
-			group				class_button
-			rect 				330 290 295 112 //340 190 280 197
-			type 				ITEM_TYPE_LISTBOX
-			style 				WINDOW_STYLE_LISTBOX_RGB1
-			elementwidth 			35//34//55
-			elementheight 			36//34//55
-			elementtype 			LISTBOX_IMAGE
-			feeder 				FEEDER_CMHEADS
-			//horizontalscroll
-			border 				0
-			bordercolor 		0.1 0.7 1 0.9
-			forecolor 			1 1 1 1
-			descText			@MENUS_CHOOSE_THE_MODEL_FOR
-			visible				1
-			textscale 			0.7
-			action
-			{ 
-				play			"sound/interface/button1"
-			}
-			mouseEnter
-			{ 
-				setitemcolor 	headlist bordercolor2 1 1 1 1 
-			}
-			mouseExit
-			{ 
-				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
-			}
-		}
-
-		itemDef
-		{
-			name				normalmodels
-			group				modellisttype
-			text				"DEFAULT"
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				330 402 27 15
-			font				6
-			textscale			0.1
-			textstyle			0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			0
-			forecolor			1 1 1 1
-			visible				0
-			action
-			{
-				play			"sound/interface/button1"
-				show 			headlist
-				hide 			custlist
-			}
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	330 406 27 10
-			}
-			mouseExit
-			{
-				hide			button_glow
-			}
-		}
-
-		itemDef
-		{
-			name				custommodels
-			group				modellisttype
-			text				"/"
-			type				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				356 402 5 15
-			font				6
-			textscale			0.1
-			textstyle			0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			0
-			forecolor			1 1 1 1
-			visible				0
-		}
-
-		itemDef
-		{
-			name				custommodels
-			group				modellisttype
-			text				"CUSTOM"
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				361 402 27 15
-			font				6
-			textscale			0.1
-			textstyle			0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			1
-			textaligny			0
-			forecolor			1 1 1 1
-			visible				0
-			action
-			{
-				play			"sound/interface/button1"
-				show 			custlist
-				hide 			headlist
-			}
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	361 406 27 10
-			}
-			mouseExit
-			{
-				hide			button_glow
-			}
-		}
-
- 		// Class Chooser
-		itemDef
-		{
-			name				MBsetclass
-			group				class_button
-			style				WINDOW_STYLE_TEXT_RGB1	
-			text				"Class:"
-			ownerdraw			UI_CLASS
-			rect				340 173 165 20
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			backcolor			0 0 0 0
-			font				2
-			textscale			.9
-			forecolor			0.1 0.7 1 0.7
-			descText			"Choose which class you wish to play as"
-			visible				1 
-			action
-			{ 
-				play			"sound/interface/button1"
-			}
-		}
-		
-	//-----------------------------------------------
-	// OKAY BUTTON
-	//-----------------------------------------------
-		itemDef
-		{
-			name 				okay
-			text				@MENUS_OKAY
-			type 				1
-			textscale			.8
-			group 				grpControlbutton
-			type				ITEM_TYPE_BUTTON
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect 				403 437 150 26
-			textalign			ITEM_ALIGN_CENTER
-			textalignx 			75
-			forecolor			0.1 0.7 1 0.7
-			backcolor 			1 1 1 1
-			visible				1
-			descText			@MENUS_JOIN_GAME
 			action
 			{ 
 				play			"sound/interface/button1.wav"
-			//	uiScript		setsiegeclassandteam
+				close			ingame_siegeclass_open_classes_r
+				close			ingame_siegeclass_open_classes_i
+				
+				close			ingame_siegeclass_open_model_list
+				close			ingame_siegeclass_open_model
+				close			ingame_siegeclass_open_menuswitch
+				close			ingame_siegeclass_open_hilt_list
+				close			mb_stats_common
+				close			ingame_saber_jedi
+				close			ingame_saber_sith
+				close			mb_class_templates
+				setcvar			ui_holdteam 3
+				exec			"cmd team s" 				
 				uiScript		closeingame
-				uiScript		mb_close_open
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutClassAndTeam
+				//uiscript        mb_updatelimits
+				setitemcolor	spectator_button backcolor   1 1 1 0.5
 			}
 		}
+
+/* 		itemDef
+		{
+			name				spectator_refresh
+			group				none			
+			action
+			{ 
+				hide			reb_class
+				hide			imp_class		
+			}
+		} */
+
+/* 		itemDef
+		{
+			name				autoteam_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				263.5 13.5 19 24
+			background			"gfx/menus/alpha/Icon_Shuffle"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef 
+		{
+			name				autoteam_button
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_AUTO_JOIN_DESC
+			rect				260 8 26 34
+			backcolor			1 1 1 0.1
+			visible				1 
+			background			"gfx/menus/alpha/Menu_TeamSelect_Random"
+			
+			mouseEnter 
+			{ 
+				setitemcolor		autoteam_symbol backcolor   1 1 1 1
+				setitemcolor		autoteam_button backcolor   1 1 1 0.3
+			}
+			mouseExit 
+			{ 
+				setitemcolor		autoteam_symbol backcolor   0.5 0.5 0.5 1
+				setitemcolor		autoteam_button backcolor   1 1 1 0.1
+			}
+			action 
+			{ 
+				play				"sound/interface/button1.wav"
+				setitemcolor		autoteam_button backcolor   1 1 1 0.5
+				exec				"cmd team free"
+				
+				uiScript			closeingame 
+			}
+		} */
 	}
 }

@@ -1,14 +1,12 @@
 models/players/Purgetrooper/helmet_purge
 {
-	q3map_nolightmap
-	cull	disable
     {
         map models/players/Purgetrooper/helmet_purge
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Purgetrooper/helmet_purge_spec
+        map models/players/Purgetrooper/helmet_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
     }
@@ -16,32 +14,13 @@ models/players/Purgetrooper/helmet_purge
 
 models/players/Purgetrooper/helmet_purge_grey
 {
-	q3map_nolightmap
-	cull	disable
     {
         map models/players/Purgetrooper/helmet_purge_grey
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Purgetrooper/helmet_purge_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
-// Bodysuit // Visors
-models/players/Purgetrooper/bodysuit_clean
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/Purgetrooper/bodysuit_clean
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/Purgetrooper/bodysuit_clean_spec
+        map models/players/Purgetrooper/helmet_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
     }
@@ -49,8 +28,6 @@ models/players/Purgetrooper/bodysuit_clean
 
 models/players/Purgetrooper/visor_purge
 {
-	q3map_nolightmap
-	cull	disable
     {
         map models/players/Purgetrooper/visor_purge
         blendFunc GL_ONE GL_ZERO
@@ -60,145 +37,63 @@ models/players/Purgetrooper/visor_purge
         map textures/common/environ9a
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
+		detail
         tcGen environment
     }
 }
 
-// Arms and Legs
-models/players/Purgetrooper/arms_legs_purge
+// Armor
+models/players/Purgetrooper/body
 {
-	q3map_nolightmap
 	cull	disable
     {
-        map models/players/Purgetrooper/arms_legs_purge
+        map models/players/Purgetrooper/body
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Purgetrooper/arms_legs_clean_spec
+        map models/players/MB2_Clones/body_clean_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
+		detail
     }
 }
 
-models/players/Purgetrooper/arms_legs2_purge
+models/players/Purgetrooper/body_electro
 {
-	q3map_nolightmap
 	cull	disable
     {
-        map models/players/Purgetrooper/arms_legs2_purge
+        map models/players/Purgetrooper/body_electro
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Purgetrooper/arms_legs2_clean_spec
+        map models/players/MB2_Clones/body_clean_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
+		detail
     }
 }
 
-models/players/Purgetrooper/arms_legs_purge_electro
+models/players/Purgetrooper/body_red
 {
-	q3map_nolightmap
 	cull	disable
     {
-        map models/players/Purgetrooper/arms_legs_purge_electro
+        map models/players/Purgetrooper/body_red
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Purgetrooper/arms_legs_clean_spec
+        map models/players/MB2_Clones/body_clean_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
-    }
-}
-
-models/players/Purgetrooper/arms_legs2_purge_electro
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/Purgetrooper/arms_legs2_purge_electro
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/Purgetrooper/arms_legs2_clean_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/Purgetrooper/arms_legs_purge_red
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/Purgetrooper/arms_legs_purge_red
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/Purgetrooper/arms_legs_clean_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/Purgetrooper/arms_legs2_purge_red
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/Purgetrooper/arms_legs2_purge_red
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/Purgetrooper/arms_legs2_clean_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
-// Belts
-models/players/Purgetrooper/belt_purge
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/Purgetrooper/belt_purge
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/Purgetrooper/belt_clean_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
-// Torsos
-models/players/Purgetrooper/torso_purge
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/Purgetrooper/torso_purge
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/Purgetrooper/torso_clean_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
+		detail
     }
 }
 
 // Accessories
 models/players/Purgetrooper/purge_parts
 {
-	q3map_nolightmap
 	cull	twosided
     {
         map models/players/Purgetrooper/purge_parts
@@ -209,12 +104,12 @@ models/players/Purgetrooper/purge_parts
         map models/players/Purgetrooper/purge_parts_specular
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
+		detail
     }
 }
 
 models/players/Purgetrooper/purge_parts_black
 {
-	q3map_nolightmap
 	cull	twosided
     {
         map models/players/Purgetrooper/purge_parts_black
@@ -225,12 +120,12 @@ models/players/Purgetrooper/purge_parts_black
         map models/players/Purgetrooper/purge_parts_specular
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
+		detail
     }
 }
 
 models/players/Purgetrooper/purge_parts_white
 {
-	q3map_nolightmap
 	cull	twosided
     {
         map models/players/Purgetrooper/purge_parts_white
@@ -241,5 +136,6 @@ models/players/Purgetrooper/purge_parts_white
         map models/players/Purgetrooper/purge_parts_specular
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
+		detail
     }
 }

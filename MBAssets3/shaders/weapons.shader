@@ -170,53 +170,20 @@ models/weapons2/briar_pistol/briar_pistol
 }
 
 
-///////////// T-21 Rifle ///////////// 
-
-models/weapons2/t-21/w_barrel
+///////////// T-21 Rifle /////////////
+models/weapons2/t-21/t21_diff
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/t-21/w_barrel
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/t-21/w_barrel_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/t-21/t21_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/t-21/t21_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
-
-models/weapons2/t-21/w_gun
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/t-21/w_gun
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/t-21/w_gun_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/t-21/w_gun_inview
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/t-21/w_gun_inview
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/t-21/w_gun_inview_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 
 ///////////// Projectile Rifle ///////////// 
 
@@ -236,34 +203,32 @@ models/weapons2/proj_rifle/proj_rifle_w
 
 ///////////// EE-3 Rifle ///////////// 
 
-models/weapons2/ee-3/w_blaster
+models/weapons2/ee-3/ee3_diff
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/ee-3/w_blaster
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/ee-3/w_blaster_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/ee-3/ee3_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/ee-3/ee3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/ee-3/w_blaster_inview
+models/weapons2/ee-3/ee3_dirty_diff
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/ee-3/w_blaster_inview
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/ee-3/w_blaster_inview_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/ee-3/ee3_dirty_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/ee-3/ee3_dirty_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 ///////////// Battle Droid Rifle ///////////// 
@@ -619,49 +584,23 @@ models/weapons2/blaster_pistol/skin2
 		alphaGen lightingSpecular
 	}
 }
+
 ///////////// DLT-20A Rifle ///////////// 
 
-models/weapons2/dlt20a/dlt20a
+models/weapons2/dlt20a/dlt20a_diff
 {
-	{
-		map models/weapons2/dlt20a/dlt20a.tga
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/dlt20a/dlt20a_spec.tga
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/blaster_r/parts
-{
-	{
-		map models/weapons2/dlt20a/parts.tga
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/blaster_r/blaster_r_spec.tga
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/dlt20a/scope
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/blaster_r/scope
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/blaster_r/scope_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+	cull	disable
+    {
+        map models/weapons2/dlt20a/dlt20a_diff
+		alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dlt20a/dlt20a_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 
