@@ -100,56 +100,6 @@ models/weapons2/zamrifle/zamrifle
 
 ///////////// Westar Pistols ///////////// 
 
-models/weapons2/briar_pistol/westar
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/weapons2/briar_pistol/westar
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/briar_pistol/silver
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/weapons2/briar_pistol/westarspec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/briar_pistol/brass
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/weapons2/briar/brass
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/briar/gold
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/briar_pistol/gold
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/weapons2/westar34/w34_diff
 {
     {
