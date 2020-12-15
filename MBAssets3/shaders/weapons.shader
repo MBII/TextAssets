@@ -726,11 +726,11 @@ models/weapons2/cw-w5/wm52
 models/weapons2/a280/A280
 {
     {
-        map models/weapons2/a280/a280.tga
+        map models/weapons2/a280/a280
 		rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/a280/a280spec
+        map models/weapons2/a280/a280_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
