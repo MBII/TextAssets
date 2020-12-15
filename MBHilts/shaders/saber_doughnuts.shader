@@ -475,3 +475,20 @@ models/weapons2/legacy_dough/saber_shadow_diff
         alphaGen lightingSpecular
     }
 }
+
+//Stellangios
+models/weapons2/saber_dough/saber_stellangios_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_stellangios_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_stellangios_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+
+}

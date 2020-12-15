@@ -100,56 +100,6 @@ models/weapons2/zamrifle/zamrifle
 
 ///////////// Westar Pistols ///////////// 
 
-models/weapons2/briar_pistol/westar
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/weapons2/briar_pistol/westar
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/briar_pistol/silver
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/weapons2/briar_pistol/westarspec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/briar_pistol/brass
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/weapons2/briar/brass
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/briar/gold
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/briar_pistol/gold
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/weapons2/westar34/w34_diff
 {
     {
@@ -303,98 +253,27 @@ models/weapons2/blaster_r/blaster_w
 	}
 }
 
-///////////// Droid Blaster ///////////// 
+///////////// E-5 ///////////// 
 
-models/weapons2/droidblaster/karabin
+models/weapons2/e5/e5
 {
-	q3map_nolightmap
-	{
-		map models/weapons2/droidblaster/karabin
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/droidblaster/karabin-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+	cull	disable
+    {
+        map models/weapons2/e5/e5_base
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/e5/e5_base
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/e5/e5_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
-
-models/weapons2/droidblaster/reka
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/droidblaster/reka
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/droidblaster/reka-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/droidblaster/reka
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/droidblaster/luneta
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/droidblaster/luneta-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/droidblaster/karabin
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/droidblaster/karabin
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/droidblaster/karabin-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/droidblaster/reka
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/droidblaster/reka
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/droidblaster/reka-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/droidblaster/reka
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/droidblaster/luneta
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/droidblaster/luneta-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 
 ///////////// Leia's Pistol ///////////// 
 
