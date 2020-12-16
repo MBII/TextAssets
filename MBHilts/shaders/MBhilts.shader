@@ -965,6 +965,20 @@ models/weapons2/droid_shiv/blade
 	}
 }
 
+models/weapons2/droid_shiv/arminfantry
+{
+	{
+		map models/weapons2/droid_shiv/arminfantry
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/droid_shiv/arminfantry_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 // Shader for double-vibroblade saber //
 models/weapons2/NWN_2_Bladed_sword/handle
 {
