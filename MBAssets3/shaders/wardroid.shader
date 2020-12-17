@@ -1,79 +1,26 @@
 models/players/wardroid/wardroid
 {
-	cull	twosided
+	{
+		map models/players/wardroid/wardroid
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/battledroid/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+	{
+		map models/players/wardroid/wardroid
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		detail
+		rgbGen lightingDiffuse
+	}
     {
-        map models/players/wardroid/wardroid
-        rgbGen lightingDiffuse
-    }
-    {
-        map gfx/world/mc
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcGen environment
-    }
-}
-
-models/players/wardroid/wardroid2
-{
-	qer_editorimage	models/players/wardroid/wardroid
-	cull	twosided
-    {
-        map models/players/wardroid/wardroid2
-        rgbGen lightingDiffuse
-    }
-    {
-        map gfx/world/mc
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcGen environment
+        map models/players/wardroid/wardroid_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
     }
 }
-
-models/players/wardroid/wardroid3
-{
-	qer_editorimage	models/players/wardroid/wardroid
-	cull	twosided
-    {
-        map models/players/wardroid/wardroid3
-        rgbGen lightingDiffuse
-    }
-    {
-        map gfx/world/mc
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcGen environment
-    }
-}
-
-models/players/wardroid/wardroid4
-{
-	qer_editorimage	models/players/wardroid/wardroid
-	cull	twosided
-    {
-        map models/players/wardroid/wardroid4
-        rgbGen lightingDiffuse
-    }
-    {
-        map gfx/world/mc
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcGen environment
-    }
-}
-
-models/players/wardroid/wardroid5
-{
-	qer_editorimage	models/players/wardroid/wardroid
-	cull	twosided
-    {
-        map models/players/wardroid/wardroid5
-        rgbGen lightingDiffuse
-    }
-    {
-        map gfx/world/mc
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcGen environment
-    }
-}
-
