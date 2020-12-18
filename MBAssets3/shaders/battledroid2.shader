@@ -580,6 +580,210 @@ models/players/battledroid/resistance_packs
     }
 }
 
+// Tan Variants
+
+models/players/battledroid/tan_rocket_head
+{
+    {
+        map models/players/battledroid/head
+        rgbGen const ( 0.811765 0.713726 0.603922 )
+    }
+    {
+        map models/players/battledroid/masks/rocket_head
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.301961 0.301961 0.301961 )
+    }
+    {
+        map models/players/battledroid/head
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+        map models/players/battledroid/head
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/battledroid/head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/battledroid/tan_rocket_comm_head
+{
+    {
+        map models/players/battledroid/head
+        rgbGen const ( 0.811765 0.713726 0.603922 )
+    }
+    {
+        map models/players/battledroid/masks/rocket_head
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.301961 0.301961 0.301961 )
+    }
+    {
+        map models/players/battledroid/masks/comm_head
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.972549 0.776471 0.176471 )
+    }
+    {
+        map models/players/battledroid/head
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+        map models/players/battledroid/head
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/battledroid/head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/battledroid/tan_rocket_packs
+{
+    {
+        map models/players/battledroid/packs
+        rgbGen const ( 0.811765 0.713726 0.603922 )
+    }
+    {
+        map models/players/battledroid/masks/rocket_packs
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.301961 0.301961 0.301961 )
+    }
+    {
+        map models/players/battledroid/packs
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+        map models/players/battledroid/packs
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/battledroid/packs_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/battledroid/tan_rocket_arms
+{
+    {
+        map models/players/battledroid/arms
+        rgbGen const ( 0.811765 0.713726 0.603922 )
+    }
+    {
+        map models/players/battledroid/masks/rocket_arms
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.301961 0.301961 0.301961 )
+    }
+    {
+        map models/players/battledroid/arms
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+        map models/players/battledroid/arms
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/battledroid/arms_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/battledroid/arms_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+    }
+}
+
+models/players/battledroid/tan_rocket_legs
+{
+    {
+        map models/players/battledroid/legs
+        rgbGen const ( 0.811765 0.713726 0.603922 )
+    }
+    {
+        map models/players/battledroid/masks/rocket_legs
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.301961 0.301961 0.301961 )
+    }
+    {
+        map models/players/battledroid/legs
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+        map models/players/battledroid/legs
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/battledroid/legs_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/battledroid/tan_heavy_arms
+{
+    {
+        map models/players/battledroid/arms
+        rgbGen const ( 0.811765 0.713726 0.603922 )
+    }
+    {
+        map models/players/battledroid/masks/heavy_arms
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.301961 0.301961 0.301961 )
+    }
+    {
+        map models/players/battledroid/arms
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+        map models/players/battledroid/arms
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/battledroid/arms_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/battledroid/tan_bones
+{
+    {
+        map models/players/battledroid/bones
+        rgbGen const ( 0.811765 0.713726 0.603922 )
+    }
+    {
+        map models/players/battledroid/bones
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+        map models/players/battledroid/bones
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/battledroid/bones_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 // End Special Shaders//
 
 // Begin RGB Shaders//
