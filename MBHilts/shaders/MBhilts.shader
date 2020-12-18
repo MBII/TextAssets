@@ -979,6 +979,34 @@ models/weapons2/droid_shiv/arminfantry
 	}
 }
 
+models/weapons2/droid_shiv/blade_bones
+{
+	{
+		map models/weapons2/droid_shiv/blade_bones
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/battledroid/env_chrome
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        tcGen environment
+    }
+}
+
+models/weapons2/droid_shiv/arm_bones
+{
+	{
+		map models/weapons2/droid_shiv/arm_bones
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/droid_shiv/arm_bones_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 // Shader for double-vibroblade saber //
 models/weapons2/NWN_2_Bladed_sword/handle
 {
