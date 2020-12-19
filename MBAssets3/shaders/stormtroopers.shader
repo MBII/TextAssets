@@ -309,8 +309,12 @@ models/players/stormie/flame_pauldron
 	{
 		map models/players/stormie/shoulder-rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
 	}
+    {
+        map models/players/stormie/shoulder-rgb
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
 }
 
 // Mortar Trooper Stormie
@@ -394,8 +398,12 @@ models/players/stormie/mortar_pauldron
 	{
 		map models/players/stormie/shoulder-rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
 	}
+    {
+        map models/players/stormie/shoulder-rgb
+        blendFunc GL_ZERO GL_SRC_COLOR
+        rgbGen lightingDiffuse
+    }
 }
 
 // Mimban Stormie
