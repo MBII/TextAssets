@@ -263,7 +263,6 @@ models/players/stormie/flame_helmet
 	{
 		map models/players/stormie/flame_helmet_rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
 	}
 	{
 		map models/players/stormie/flame_helmet_rgb
@@ -502,6 +501,14 @@ models/players/stormie/Shadow_Arms
 		rgbGen lightingDiffuse
 	}
 	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
 		map models/players/stormie/Shadow_Arms_S
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -516,6 +523,14 @@ models/players/stormie/Shadow_Helmet
 		rgbGen lightingDiffuse
 	}
 	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
 		map models/players/stormie/Shadow_Helmet_S
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -525,12 +540,30 @@ models/players/stormie/Shadow_Helmet
 
 models/players/stormie/Shadow_Body
 {
+	q3map_onlyvertexlighting
 	{
 		map models/players/stormie/Shadow_Body
 		rgbGen lightingDiffuse
 	}
 	{
 		map models/players/stormie/Shadow_Body_S
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/Shadow_Body2
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/stormie/Shadow_Body2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
