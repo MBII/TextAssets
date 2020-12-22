@@ -3,31 +3,31 @@
 ClassInfo
 {
 	name 				 "_h_m_Din"
+	attributes  		MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_DISRUPTOR,1|MB_ATT_ROCKET,1|MB_ATT_FUEL,1	
 	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_DISRUPTOR|WP_SABER
-	attributes  		MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_DISRUPTOR,1|MB_ATT_ROCKET,1
-	saber1  			phasma_staff_legends
+	saber1  			mando_pike_legends
 	saberstyle  		SS_STAFF
 	maxhealth 			100
-	maxarmor			100
+	maxarmor			70
 	classNumberLimit  	1
 	model 				"mbmandy"
 	skin  				"mbrgb2"
-	customred			.216
-	customgreen			.13
-	customblue			.08
+	customred			0.216
+	customgreen			0.13
+	customblue			0.08
 	uishader  			"models/players/mbmandy/mb2_icon_mbrgb2"
 	MBClass 			MB_CLASS_MANDALORIAN
 	forcepool			10
 	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
-	classflags			CFL_BPFREEJUMPS
+	classflags			CFL_BPFREEJUMPS|CFL_FUEL_REGENERATION
 	speed				0.95
 	rateoffire			1.1
 	damageTaken 		0.75
 	APmultiplier		0.75
-	CSmultiplier 		1.5wa
+	CSmultiplier 		1.5
 	jetpackFuelCooldown 1000
 	jetpackFuelAmount 	8
-	damageAmplify		2
+	damageAmplify		1.8
 	WP_DisruptorFlags	HELD_HIGHDAMAGE|HELD_ALTRELOAD
 	WP_BlasterPistolFlags	HELD_LOWDAMAGE
 }
@@ -36,12 +36,10 @@ WeaponInfo0
 {
 	WeaponToReplace WP_BLASTER_PISTOL
 	WeaponBasedOff  WP_BLASTER_PISTOL
-	NewWorldModel "models/weapons2/cb_pistol/pistol_w.glm"
-	NewViewModel  "models/weapons2/cb_pistol/pistol_w.md3"
+	NewWorldModel "models/weapons2/mando_pistol/mando_pistol.glm"
+	NewViewModel  "models/weapons2/mando_pistol/pistol.md3"
 	WeaponName  "Blaster Pistol"
-	Icon                    "gfx/hud/w_icon_cadduals"
-	FlashSound0			"sound/chars/cadbane/misc/cadblast" 			
-	AltFlashSound0		"sound/chars/cadbane/misc/cadblast"
+	Icon                    "gfx/hud/w_icon_mandopistol"
 	MuzzleEffect		"Blaster/MuzzleCharge01R"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot02r"
@@ -49,32 +47,46 @@ WeaponInfo0
 	AltMissileEffect	"Blaster/Shot04r"
 	PowerupShotEffect	"Blaster/Shot04r"
 	ChargeEffect		"gfx/effects/bryarfrontflash"
+	FlashSound0			"sound/weapons/lvl3pistol/fire.mp3" 			
+	AltFlashSound0		"sound/weapons/lvl3pistol/fire.mp3"
 	customAmmo			350
 	altFireEnabled		0
+	altFireEnabled 0
+	firingAnim		BOTH_ATTACK3
+	idleAnim		TORSO_WEAPONIDLE2
+	CustomAmmo		700
 }
 
 WeaponInfo1
 {
 	WeaponToReplace WP_DISRUPTOR
 	WeaponBasedOff  WP_STUN_BATON
-	NewWorldModel "models/weapons2/zamrifle/zamrifle_w.glm"
-	NewViewModel  "models/weapons2/zamrifle/zamrifle.md3"
-	Icon  "gfx/hud/w_icon_zamrifle"
+	NewWorldModel "models/weapons2/mando_rifle/mando_rifle.glm"
+	NewViewModel  "models/weapons2/mando_rifle/mando_rifle.md3"
+	Icon  "gfx/hud/w_icon_mandorifle"
 	WeaponName  "Amban Phase-Pulse Blaster"
 	CustomAmmo	150
 	clipSize 10
+ 		FlashSound0		"sound/weapons/mando_rifle/fire.wav"
+ 		FlashSound1		"sound/weapons/mando_rifle/fire.wav"
+ 		FlashSound3		"sound/weapons/mando_rifle/fire.wav"
+ 		AltFlashSound0	"sound/weapons/mando_rifle/fire.wav"
+ 		AltFlashSound1	"sound/weapons/mando_rifle/fire.wav"
+ 		AltFlashSound2	"sound/weapons/mando_rifle/fire.wav"
+ 		AltFlashSound3	"sound/weapons/mando_rifle/fire.wav"
 }
 WeaponInfo2
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
-	NewWorldModel "models/weapons2/dummy/dummy.glm"
+	NewWorldModel "models/weapons2/beskarpike/beskarpike.glm"
 	NewViewModel  "models/weapons2/dummy/dummy.md3"
-	Icon  "gfx/hud/w_icon_phasma_staff"
+	Icon  "gfx/hud/w_icon_beskarpike"
 	WeaponName  "Beskar Staff"
 }
 
 description	"Din Djarin
+(this is a temporary model while one is being made)
 
 Class Summary: 
 Tanky Mandalorian with beskar armor, a beskar staff, and a Phase-Pulse Rifle.
@@ -91,6 +103,6 @@ Beskar armor:
 - Resists blaster shots and lightsaber attacks
 
 Attributes:
-- JetPack
+- Rockets
 
  With his Mandalorian armor and distinctive beskar helmet, Djarin was both well-equipped and enigmatic—a stranger whose past was shrouded in mystery to others."

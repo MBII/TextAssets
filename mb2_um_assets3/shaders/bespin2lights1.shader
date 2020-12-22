@@ -149,8 +149,7 @@ textures/bespinnew/bespindoor4
 textures/eldritch_rata/sign02
 {
 	qer_editorimage textures/eldritch_rata/sign02.jpg
-	q3map_surfacelight 300
-	q3map_nolightmap
+	//q3map_nolightmap
 	surfaceparm trans
 	cull none
 	{
@@ -193,7 +192,7 @@ textures/eldritch_rata/sign06
 {
 	qer_editorimage textures/eldritch_rata/sign06.jpg
 	q3map_surfacelight 300
-	q3map_nolightmap
+	//q3map_nolightmap
 	surfaceparm trans
 	cull none
 	
