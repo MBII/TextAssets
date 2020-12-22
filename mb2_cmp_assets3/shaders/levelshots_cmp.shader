@@ -382,6 +382,30 @@ levelshots/mb2_cmp_hotfo2
     }
 }
 
+levelshots/mb2_cmp_jedha
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/mb2_cmp_jedha
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/mb2_cmp_jedha2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/mb2_cmp_jedha2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/mb2_cmp_kashyyyk
 {
     nopicmip
