@@ -799,7 +799,7 @@ models/players/battledroid/assault_head_rgb
     {
         map models/players/battledroid/masks/engineer_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head2
@@ -827,7 +827,7 @@ models/players/battledroid/flamethrower_head_rgb
     {
         map models/players/battledroid/masks/flamethrower_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head3
@@ -855,7 +855,7 @@ models/players/battledroid/security_head_rgb
     {
         map models/players/battledroid/masks/security_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head2
@@ -883,7 +883,7 @@ models/players/battledroid/point_rain_head_rgb
     {
         map models/players/battledroid/masks/point_rain_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head4
@@ -911,7 +911,7 @@ models/players/battledroid/citadel_head_rgb
     {
         map models/players/battledroid/masks/citadel_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head2
@@ -939,7 +939,7 @@ models/players/battledroid/grenadier_head_rgb
     {
         map models/players/battledroid/masks/grenadier_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head5
@@ -967,7 +967,7 @@ models/players/battledroid/pilot_head_rgb
     {
         map models/players/battledroid/masks/pilot_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head3
@@ -995,7 +995,7 @@ models/players/battledroid/flame_head_rgb
     {
         map models/players/battledroid/masks/flame_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head
@@ -1023,7 +1023,7 @@ models/players/battledroid/r2d2_head_rgb
     {
         map models/players/battledroid/masks/r2d2_head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/head
@@ -1053,7 +1053,7 @@ models/players/battledroid/security_arms_rgb
     {
         map models/players/battledroid/masks/security_arms
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/arms
@@ -1081,7 +1081,7 @@ models/players/battledroid/point_rain_arms_rgb
     {
         map models/players/battledroid/masks/security_arms
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/arms
@@ -1109,7 +1109,7 @@ models/players/battledroid/r2d2_arms_rgb
     {
         map models/players/battledroid/masks/r2d2_arms
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/arms
@@ -1139,7 +1139,7 @@ models/players/battledroid/point_rain_legs_rgb
     {
         map models/players/battledroid/masks/citadel_legs
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/legs
@@ -1167,7 +1167,7 @@ models/players/battledroid/citadel_legs_rgb
     {
         map models/players/battledroid/masks/citadel_legs
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/legs
@@ -1195,7 +1195,7 @@ models/players/battledroid/r2d2_legs_rgb
     {
         map models/players/battledroid/masks/r2d2_legs
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/legs
@@ -1225,7 +1225,7 @@ models/players/battledroid/point_rain_packs_rgb
     {
         map models/players/battledroid/masks/citadel_packs
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/packs
@@ -1253,7 +1253,7 @@ models/players/battledroid/citadel_packs_rgb
     {
         map models/players/battledroid/masks/citadel_packs
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/packs6
@@ -1281,7 +1281,7 @@ models/players/battledroid/flame_packs_rgb
     {
         map models/players/battledroid/masks/engineer_packs
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/packs
@@ -1309,7 +1309,7 @@ models/players/battledroid/r2d2_packs_rgb
     {
         map models/players/battledroid/masks/r2d2_packs
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuseEntity
+        rgbGen Entity
     }
     {
         map models/players/battledroid/packs
