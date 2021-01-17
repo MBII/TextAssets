@@ -1,0 +1,656 @@
+// MULTIPLAYER - MAIN MENU
+// Opening menu. Called when game is first started.
+{
+	assetGlobalDef
+	{
+		font					"ergoec"	18
+		smallFont				"ocr_a"		18
+		bigFont					"anewhope"	20
+		small2Font				"arialnb"	14
+		lightFont				"mainlight"	48
+		regularFont				"main"		48
+		boldFont				"mainbold"	48
+		blackFont				"mainblack"	48
+		regular2Font			"secondary"	48
+		cursor					"gfx/menus/alpha/Cursor"
+		gradientBar				"ui/assets/gradientbar2.tga"
+		itemFocusSound			"sound/interface/tic.mp3"
+		fadeClamp				1.0
+		fadeCycle				1
+		fadeAmount				0.1
+		moveRollSound			"sound/player/roll1"
+		moveJumpSound			"sound/weapons/force/jump"
+		shadowColor				0.1 0.1 0.1 0.25
+		focuscolor				1 1 1 0.6
+		precacheSound
+		{
+			"sound/interface/choose_color.wav" ;
+			"sound/interface/choose_head.wav" ;
+			"sound/interface/choose_torso.wav" ;
+			"sound/interface/choose_saber.wav" ;
+			"sound/interface/choose_hilt.wav" ;
+			"sound/interface/choose_blade.wav" ;
+			"sound/interface/transition.wav" ;
+			"sound/interface/empty.mp3" ;
+			"sound/interface/back.mp3"
+			"sound/interface/sub_select.wav" ;
+		}
+	}
+
+	menuDef
+	{
+		name					"main"
+		fullScreen				1
+		rect					0 0 640 480
+		visible					1
+		focusColor				1 1 1 0.6
+		descX					320
+		descY					448
+		descScale				0.7
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		onOpen
+		{
+			exec				"music music/ThemeMusicB19.mp3"
+			setcvar				g_gametype "7"	//set game type to siege for easy map commands
+			uiScript			"getmodelcvars"	//needed for model display stuff
+			uiScript			"getmodelskin"	//needed for model display stuff
+		}
+		onESC
+		{
+			play				"sound/interface/back.mp3" 
+			close				all 
+			open				quitMenu
+		}
+
+// MENU BACKGROUND
+		itemDef
+		{
+			name				background
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Main_Background"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				diorama
+			group				models
+			type				ITEM_TYPE_MODEL
+			//1,3125
+			rect				465 0 200 450
+			asset_model			"models/map_objects/mb2_diorama/DeathStar1.md3"
+			model_angle			235
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_origin		-200 -200 -200
+			model_g2mins		-200 -200 -200
+			model_g2maxs		200 200 200
+			model_fovx			30
+			model_fovy			30
+			isCharacter			0
+			visible				1
+			decoration
+		}	
+
+		itemDef
+		{
+			name				background2_2
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Main_Background2_2"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}	
+		
+		itemDef
+		{
+			name				background_rays
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Main_Background_rays"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}		
+		
+		itemDef
+		{
+			name				background4
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Main_Background4"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				background5
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Main_Background5"
+			forecolor			1 1 1 0.5
+			visible				1
+			decoration
+		}		
+		
+		// Character model
+		itemDef
+		{
+			name				modelviewer
+			group				models
+			type				ITEM_TYPE_MODEL
+			//1,3125
+			rect				360 0 400 525
+			model_g2anim		"BOTH_STAND4"
+			asset_model			"ui_char_model"
+			model_angle			90
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2mins		-30 -20 -14
+			model_g2maxs		20 20 30
+			model_rotation		300
+			model_fovx			50
+			model_fovy			50
+			cvar                "ui_char_model_angle"
+			isCharacter			1
+			visible				1
+			decoration
+		}
+
+        itemDef
+        {
+            name				character_rotate
+            descText			"Click and drag to rotate."
+            group				models
+            type				ITEM_TYPE_SLIDER_ROTATE
+            rect				360 0 400 525
+            cvarRotateScale		ui_char_model_angle 360
+            visible				1
+        }
+		
+		itemDef
+		{
+			name				background3
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Main_Background3"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				background2
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 640 480
+			background			"gfx/menus/alpha/Main_Background2"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}				
+	
+		itemDef
+		{
+			name				mblogo
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				111 40 415 140
+			background			"gfx/menus/alpha/MB_Logo"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+		
+		
+// TOP MENU BUTTONS
+		itemDef
+		{
+			name				btn_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Btn_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				btn_ach_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/Alpha/btn_ach_hl"
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}		
+
+		itemDef
+		{
+			name				btn_demo_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/Alpha/btn_demo_hl"
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}		
+
+		itemDef
+		{
+			name				btn_tutorial_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/Alpha/btn_tutorial_hl"
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				playbutton
+			group				bg_button
+			text				"PLAY"
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			rect				257 200 120 36 
+			descText			"Start playing"
+			background			"gfx/menus/alpha/Btn_Bg"			
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			1 1 1 1
+			cvarTest 			"tut_levelstatus"
+			hideCvar	 		{ "0" }	
+			showTutorial		{ "2" }
+			visible				1
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	257 200 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			background
+				open			joinserver 
+			}
+		}
+
+		// Big button "SETTINGS"
+		itemDef
+		{
+			name				settingsbutton
+			group				bg_button
+			text				"SETTINGS"
+			descText			"Configure game settings"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			rect				257 240 120 36 
+			background			"gfx/menus/alpha/Btn_Bg"
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			1 1 1 1
+			cvarTest 			"tut_levelstatus"
+			hideCvar	 		{ "0" }	
+			showTutorial		{ "2" }
+			visible				1
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	257 240 120 36 
+			}
+			mouseExit
+			{
+				hide			btn_hl 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			background
+				open			settings
+			}
+		}
+
+		itemDef
+		{
+			name				librarybutton
+			group				bg_button
+			text				"LIBRARY"
+			descText			"Access the ingame library menus."
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			rect				257 280 120 36 
+			background			"gfx/menus/alpha/Btn_Bg"			
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			1 1 1 1
+			cvarTest 			"tut_levelstatus"
+			hideCvar	 		{ "0" }	
+			showTutorial		{ "2" }	
+			visible				1
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	257 280 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			background
+				open			help_menu
+			}
+		}
+
+		itemDef
+		{
+			name				quitgamebutton
+			group				bg_button
+			text				"QUIT"
+			descText			"Leave the game"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			rect				257 320 120 36 
+			background			"gfx/menus/alpha/Btn_Bg"			
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			1 1 1 1
+			cvarTest 			"tut_levelstatus"
+			hideCvar	 		{ "0" }	
+			showTutorial		{ "2" }
+			visible				1
+			mouseenter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	257 320 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl 
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			quitMenu 
+			}
+		}
+
+		itemDef
+		{
+			name				tutorial
+			group				lowerbuttons
+			descText			"Want to improve your skills soldier? Try out our tutorial courses."
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				268 376 25 33 
+			background			"gfx/menus/Alpha/btn_tutorial"			
+			textaligny			2
+			font				6
+			textscale			0.3
+			textalignx			69
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			1 1 1 0.2
+			cvarTest 			"tut_levelstatus"
+			hideCvar	 		{ "0" }	
+			showTutorial		{ "2" }	
+			visible				1
+			mouseenter
+			{
+				show			btn_tutorial_hl
+				setitemrect		btn_tutorial_hl	268 376 25 33		
+			}
+			mouseExit
+			{
+				hide			btn_tutorial_hl 
+			}			
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			background
+				open			tutorial 
+			}
+		}
+
+		itemDef
+		{
+			name				achievements
+			group				lowerbuttons
+			descText			"Your achievements"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				305 376 25 33 
+			background			"gfx/menus/Alpha/btn_ach"			
+			textaligny			2
+			font				6
+			textscale			0.3
+			textalignx			69
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			1 1 1 0.2
+			cvarTest 			"tut_levelstatus"
+			hideCvar	 		{ "0" }	
+			showTutorial		{ "2" }			
+			visible				1
+			mouseenter
+			{
+				show			btn_ach_hl
+				setitemrect		btn_ach_hl	305 376 25 33		
+			}
+			mouseExit
+			{
+				hide			btn_ach_hl 
+			}			
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			background
+				open			achievements 
+			}
+		}
+
+		itemDef
+		{
+			name				demo
+			group				lowerbuttons
+			descText			"Playback a saved demo file"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				342 376 25 33 
+			background			"gfx/menus/Alpha/btn_demo"			
+			textaligny			2
+			font				6
+			textscale			0.3
+			textalignx			69
+			textalign			ITEM_ALIGN_CENTER
+			forecolor			1 1 1 0.2
+			cvarTest 			"tut_levelstatus"
+			hideCvar	 		{ "0" }	
+			showTutorial		{ "2" }		
+			visible				1
+			mouseenter
+			{
+				show			btn_demo_hl
+				setitemrect		btn_demo_hl	342 376 25 33				
+			}
+			mouseExit
+			{
+				hide			btn_demo_hl 
+			}			
+			action
+			{
+				play			"sound/interface/go.mp3"
+				close			all
+				open			background
+				open			demo 
+			}
+		}
+		
+		itemDef
+		{
+			name				mb2version
+			group				none
+			text				"#mbversion"
+			style				WINDOW_STYLE_SHADER
+			rect				249 422 20 20	
+			textaligny			2
+			font				6
+			textscale			0.1
+			textalignx			69
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			forecolor			0.5 0.5 0.5 0.5		
+			visible				1
+			decoration			
+		}
+
+		// TUTORIAL START MENU
+		
+		itemDef
+		{
+			name				starttutorial_center
+			group				starttutorial
+			text				"Would you like to play the tutorial?"
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			rect				179 205 280 100
+			background			"gfx/menus/alpha/Menu_Quit"
+			textaligny			25
+			font				6
+			textscale			0.25
+			textalignx			135
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0					
+			forecolor			1 1 1 1
+			cvarTest 			"tut_levelstatus"
+			showTutorial 		{ "0" }
+			hideTutorial		{ "2" }
+			visible				1
+			decoration
+		}
+		
+		// TUTORIAL START CANCEL button
+		itemDef
+		{
+			name				starttutorial_no
+			group				starttutorial
+			text				"NO"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn_Bg"
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			rect				181 310 120 36
+			forecolor			1 1 1 0.8
+			cvarTest 			"tut_levelstatus"
+			showTutorial 		{ "0" }
+			hideTutorial		{ "2" }
+			visible				1
+			action
+			{
+				play			"sound/interface/back.mp3"
+				uiscript		setTutorialAsked
+				hide			starttutorial
+				show			lowerbuttons
+				show			mainbuttons
+				hide			btn_hl
+			}
+			mouseEnter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	181 310 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl 
+			}
+		}
+
+		// TUTORIAL START YES button
+		itemDef
+		{
+			name				starttutorial_yes
+			group				starttutorial
+			text				"YES"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn_Bg"
+			textaligny			-8
+			font				6
+			textscale			0.3
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			rect				338 310 120 36
+			forecolor			1 1 1 0.8
+			cvarTest 			"tut_levelstatus"
+			showTutorial 		{ "0" }
+			hideTutorial		{ "2" }
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiscript		setTutorialStarted
+				exec			"g_authenticity 0;g_minmbpoints 80;g_AllowEntity_target_level_change 1;g_gametype 7;cg_dynamiccrosshair 2;map mb2_tutorial01"
+			}
+			mouseEnter
+			{
+				show			btn_hl
+				setitemrect		btn_hl	338 310 120 36
+			}
+			mouseExit
+			{
+				hide			btn_hl
+			}
+		}
+	}
+}

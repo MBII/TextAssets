@@ -264,6 +264,20 @@ models/weapons2/saber_plasma/saber_anakin2_diff
     }
 }
 
+models/weapons2/saber_plasma/saber_ancient_cg_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_ancient_cg_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_ancient_cg_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/weapons2/saber_plasma/saber_asajj_diff
 {
     {
@@ -334,6 +348,20 @@ models/weapons2/saber_plasma/saber_byph_diff
     }
 }
 
+models/weapons2/saber_plasma/saber_corvax_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_corvax_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_corvax_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/weapons2/saber_plasma/saber_darksaber_diff
 {
     {
@@ -359,6 +387,27 @@ models/weapons2/saber_plasma/saber_darksaber2_diff
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_darksaber3_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_darksaber3_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_darksaber3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+    {
+        map models/weapons2/saber_plasma/saber_darksaber3_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
     }
 }
 
@@ -650,6 +699,20 @@ models/weapons2/saber_plasma/saber_jerec_diff
     }
     {
         map models/weapons2/saber_plasma/saber_jerec_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_jocasta_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_jocasta_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_jocasta_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -1266,6 +1329,20 @@ models/weapons2/saber_plasma/saber_temple_guard_diff
     }
     {
         map models/weapons2/saber_plasma/saber_temple_guard_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_the_ren_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_the_ren_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_the_ren_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular

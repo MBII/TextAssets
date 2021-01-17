@@ -3324,7 +3324,7 @@ class Config(object):
 
             self._mode_priority = tuple((int(i) for i in iter(split(self._mode_priority))))
 
-            if len(self._mode_priority) == 5:
+            if len(self._mode_priority) == 6:
 
               if self._mode_priority[0] not in (0, 1, 2):
 
@@ -3345,8 +3345,13 @@ class Config(object):
 
                 warning("Invalid value for mode priority/duel mode (0, 1, 2).", rehash=True)
                 return False
-				
+
               elif self._mode_priority[4] not in (0, 1, 2):
+
+                warning("Invalid value for mode priority/legends mode (0, 1, 2).", rehash=True)
+                return False	
+				
+              elif self._mode_priority[5] not in (0, 1, 2):
 
                 warning("Invalid value for mode priority/extend mode (0, 1, 2).", rehash=True)
                 return False				

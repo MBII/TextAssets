@@ -1,0 +1,426 @@
+{
+	menuDef
+	{
+		name					"ingame_siegeclass_duel"
+		fullScreen				0
+		visible					0
+		rect					93 5 454 50
+		style					1
+		descX					320
+		descY					443
+		descScale				1
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		focusColor				1 1 1 1
+		backColor				0 0 0 0
+		disablecolor			1 1 1 1
+		stayopen
+		onOpen
+		{ 
+			setitembackground		team1_symbol	"*team1_icon"
+			setitembackground		team2_symbol	"*team2_icon"
+			// Enable team buttons, in case they'd been shut off
+			disable			team_button		0
+			disable			autoteam		0
+			disable			team1_button	0
+			disable			team2_button	0
+			// and reset colors
+			setitemcolor	team1_button		backcolor   1 1 1 0.1
+			setitemcolor	team2_button		backcolor   1 1 1 0.1
+			setitemcolor	spectator_button	backcolor   1 1 1 0.1
+			setitemcolor	team1name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team2name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team3name	forecolor   0.5 0.5 0.5 1
+			setitemcolor	team1_count forecolor   0.5 0.5 0.5 1
+			setitemcolor	team2_count forecolor   0.5 0.5 0.5 1
+			setitemcolor	team3_count forecolor   0.5 0.5 0.5 1
+			
+			show			spectator_button
+			show			spectator_symbol
+		}
+		onESC
+		{
+			play			"sound/interface/back.mp3"
+			close			all
+			open			ingame
+		}		
+
+		itemDef
+		{
+			name				bg_teamselect
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 50
+			background			"gfx/menus/alpha/Menu_TeamSelect"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				bg_class
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 55 454 371
+			background			"gfx/menus/alpha/Menu_ClassSelect"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+//----------------------------------------------------------------------------------------------
+// TEAM SELECTION
+//----------------------------------------------------------------------------------------------
+
+	// TEAM SYMBOLS AND COUNTS PER TEAM
+		itemDef
+		{
+			name				team1name
+			group				none
+			rect				35 8 101 34
+			cvar				cg_siegeTeam1Name
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			50
+			font				6
+			textscale			0.2
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				team1_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				12 13.5 19 24
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				team1_button
+			group				team_button
+			rect				8 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Rebel"
+			backcolor			1 1 1 0.1
+			visible				1
+			//cvartest			"ui_lockRed"
+			//showcvar			{ "1"}
+
+			mouseEnter
+			{ 
+				setitemcolor		team1_button	backcolor	1 1 1 0.3
+				setitemcolor		team1_count		forecolor	1 1 1 1
+				setitemcolor		team1name		forecolor	1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor		team1_button	backcolor   1 1 1 0.1
+				setitemcolor		team1_count		forecolor	0.5 0.5 0.5 1
+				setitemcolor		team1name		forecolor	0.5 0.5 0.5 1
+			}
+
+			// If you change this script, be sure to change	onteam1		
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_holdteam 1
+				uiscript		updatesiegeclasscnt      1
+				uiscript		updatesiegecvars
+				//uiscript		printmsg	team1buttonunlockred
+
+				// Darken the other team buttons				
+				setitemcolor	team_button	backcolor   1 1 1 0.1
+				setitemcolor	team_count	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2name	forecolor	0.5 0.5 0.5 1
+
+				// turn on the other team buttons for input
+				disable			team_button	0
+
+				// turn on class buttons
+				disable			reb_class 0
+
+				// highlight this team button
+				setitemcolor	team1_button	backcolor 1 1 1 0.5
+				setitemcolor	team1_count		forecolor 1 1 1 1
+				setitemcolor	team1name 		forecolor 1 1 1 1
+
+				// no more input for this guy
+				disable			team1_button	1
+
+				uiscript		mb_updatelimits
+				disable			mb_class_jedi 1
+				uiscript		mb_class_jedi
+				uiScript		mb_char
+
+				open 			mb_class_jedi
+				close 			mb_class_sith
+				
+				close 			ingame_saber_jedi
+				close 			ingame_saber_sith
+				close			ingame_siegeclass_open_hilt_list
+				close			mb_class_templates
+
+				open			ingame_siegeclass_open_lower
+				open			ingame_siegeclass_open_model
+				open			ingame_siegeclass_open_menuswitch
+				open			mb_stats_common
+				open			ingame_siegeclass_open_model_list
+			}
+		}
+
+		itemDef
+		{
+			name				team1_count
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				140 13.5 22 22
+			cvar				ui_tm1_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1		
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				red_lock
+			group				lock_icon			
+			rect				8 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
+		}	
+
+		itemDef
+		{
+			name				team2name
+			group				none
+			rect				318 8 101 34
+			cvar				cg_siegeTeam2Name
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			50
+			font				6
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				team2_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				295 13.5 19 24
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				team2_button
+			group				team_button
+			rect				291 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 0.1
+			visible				1
+			//cvartest			"ui_lockBlue"
+			//showcvar			{ "1"}
+
+			mouseEnter
+			{ 
+				setitemcolor		team2_button	backcolor	1 1 1 0.3
+				setitemcolor		team2_count		forecolor	1 1 1 1
+				setitemcolor		team2name		forecolor	1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor		team2_button	backcolor	1 1 1 0.1
+				setitemcolor		team2_count		forecolor	0.5 0.5 0.5 1
+				setitemcolor		team2name		forecolor	0.5 0.5 0.5 1
+			}
+
+			// If you change this script, be sure to change	onteam2
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_holdteam 2
+				uiscript		updatesiegeclasscnt      2
+				uiscript		updatesiegecvars
+
+				// Darken the other team buttons				
+				setitemcolor	team_button		backcolor   1 1 1 0.1
+				setitemcolor	team_count		forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
+				// turn on the other team buttons for input
+				disable				team_button	0
+
+				// highlight this team button
+				setitemcolor	team2_button	backcolor	1 1 1 0.5
+				setitemcolor	team2_count		forecolor	1 1 1 1
+				setitemcolor	team2name		forecolor	1 1 1 1
+
+				// no more input for this guy
+				disable			team2_button	1
+
+				uiscript		mb_updatelimits
+				disable			mb_class_sith 1
+				uiscript		mb_class_sith
+				uiScript		mb_char
+
+				close 			mb_class_jedi
+				open 			mb_class_sith
+				
+				close 			ingame_saber_jedi
+				close 			ingame_saber_sith
+				close			ingame_siegeclass_open_hilt_list
+				close			mb_class_templates
+
+				open			ingame_siegeclass_open_lower
+				open			ingame_siegeclass_open_model
+				open			ingame_siegeclass_open_menuswitch
+				open			mb_stats_common
+				open			ingame_siegeclass_open_model_list
+			}
+		}
+
+		itemDef
+		{
+			name				team2_count
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				423 13.5 22 22
+			cvar				ui_tm2_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		}
+
+/* 		itemDef
+		{
+			name				team3name
+			group				none
+			rect				301 72 40 40
+			text				@MENUS_SPECTATOR
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			font				2
+			textscale			0.4
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+		} */
+		
+		itemDef
+		{
+			name				team3_count
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				231 13.5 22 22
+			cvar				ui_tm3_cnt
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1		
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				blue_lock
+			group				lock_icon
+			rect				291 8 155 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_JOIN_TEAM_DESC
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
+		}
+
+		itemDef
+		{
+			name				spectator_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				203.5 13.5 19 24
+			background			"gfx/2d/mp_spec_symbol"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				spectator_button
+			group				team_button
+			rect				200 8 55 34
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_WATCH_DESC
+			backcolor			1 1 1 0.1
+			visible				0
+			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
+			mouseEnter
+			{ 
+				setitemcolor		spectator_symbol backcolor   1 1 1 1
+				setitemcolor		spectator_button backcolor   1 1 1 0.3
+				setitemcolor		team3name  forecolor 1 1 1 1
+				setitemcolor		team3_count  forecolor 1 1 1 1
+			}
+			mouseExit
+			{ 
+				setitemcolor		spectator_symbol backcolor   0.5 0.5 0.5 1
+				setitemcolor		spectator_button backcolor   1 1 1 0.1
+				setitemcolor		team3name  forecolor 0.5 0.5 0.5 1
+				setitemcolor		team3_count  forecolor 0.5 0.5 0.5 1
+			}
+			action
+			{ 
+				play			"sound/interface/button1.wav"
+				close			ingame_siegeclass_open_classes_r
+				close			ingame_siegeclass_open_classes_i
+				
+				close			ingame_siegeclass_open_model_list
+				close			ingame_siegeclass_open_model
+				close			ingame_siegeclass_open_menuswitch
+				close			ingame_siegeclass_open_hilt_list
+				close			mb_stats_common
+				close			ingame_saber_jedi
+				close			ingame_saber_sith
+				close			mb_class_templates
+				setcvar			ui_holdteam 3
+				exec			"cmd team s" 				
+				uiScript		closeingame
+				//uiscript        mb_updatelimits
+				setitemcolor	spectator_button backcolor   1 1 1 0.5
+			}
+		}
+	}
+}

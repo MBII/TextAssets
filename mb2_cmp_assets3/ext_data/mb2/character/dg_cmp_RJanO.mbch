@@ -4,31 +4,50 @@ ClassInfo
 {
 	name			"dg_cmp_RJanO"
 	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_THERMAL
-	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_THERMALS,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_QUICKTHROW,2|
+	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,1|MB_ATT_THERMALS,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,1
 	maxhealth		100
-	maxarmor		50
+	maxarmor		40
 	model			"jan"
 	skin			"default"
 	uishader		"models/players/doompack/Janors"
 	MBClass			MB_CLASS_HERO
 	classNumberLimit	1
-	speed			0.9
-	classflags		CFL_FASTHACKING
-	holdables		HI_SENTRY_GUN|HI_MEDPAC_BIG
+	speed			0.95
+	classflags		CFL_SHOTGUN|CFL_FASTHACKING|CFL_RUNFASTMELEE
+	holdables		HI_MEDPAC|HI_SENTRY_GUN|HI_MEDPAC_BIG
+	rateOfFire 1.05
+	damageAmplify 0.9
+}
+
+WeaponInfo0
+{
+	WeaponToReplace 	WP_BLASTER
+	WeaponBasedOff 		WP_BOWCASTER
+	NewWorldModel 		"models/weapons2/golancr1/golan_arms_w.glm"
+	NewViewModel 		"models/weapons2/golancr1/golancr1.md3"
+	Icon				"gfx/hud/w_icon_golancr1"
+    FlashSound0			"sound/weapons/flechette/fire.mp3"  			
+	AltFlashSound0		"sound/weapons/flechette/fire.mp3"
+	WeaponName 			"FC-1 Flechette"
+	MuzzleEffect 		"flechette/muzzle_flash"
+	MissileEffect 		"flechette/shot"
 }
 
 description	"Jan Ors
 
-Weaponary:
+Class Summary: 
+A quick-throw, shotgun-wielding Hero class with med packs.
+
+Weaponry:
 Pistol (2)
-E-11 (3)
+FC-1 Flechette Shotgun
 Frag Grenades
 
 Attributes:
-Armour (3)
-Ammo (3)
+Runs faster in melee
 Dodge (2)
-Quick Throw (2)
+Dash (1)
+Quick Throw (2) (Alt Ability 1)
 Sentry Gun
 Bacta (50HP+)
 Fast Hack
