@@ -11,3 +11,12 @@ models/players/bastila/body
 		detail
 	}
 }
+
+models/players/bastila/head
+{
+	cull	twosided
+	{
+		map models/players/bastila/head
+		rgbGen lightingDiffuse
+	}
+}

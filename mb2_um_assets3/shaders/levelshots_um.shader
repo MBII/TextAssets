@@ -94,6 +94,54 @@ levelshots/um_bespin_open2
     }
 }
 
+levelshots/um_bespin_tournament
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_tournament
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_bespin_tournament2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_tournament2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_bespin_xmas
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_xmas
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_bespin_xmas2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_bespin_xmas2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
 levelshots/um_birdmino
 {
     nopicmip
@@ -509,6 +557,30 @@ levelshots/um_dojo2
     notc
     {
         map levelshots/um_dojo2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_dojo_v2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_dojo_v2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/um_dojo_v22
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/um_dojo_v22
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }

@@ -1,0 +1,75 @@
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx/mplevels/mb2_duel_wbw/map"
+missionname "World Between Worlds"
+radartopleft "-5888, 6144"
+radarbottomright "5888, -5632"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_wbw"
+		radargraphicfull "gfx/automap/mb2_duel_wbwfull"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "DuelWbwJedi"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Survive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Survive the Emperor's attack!"
+		objgfx "gfx/mplevels/mb2_duel_wbw/objr"
+	}
+
+	wonround "We made it out!"
+	lostround "Show me the way, Ezra!"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Survive the Emperor's attack!"
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 180
+	UseTeam "DuelWbwSith"
+	TeamIcon "gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Destroy the Jedi"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Destroy the Jedi."
+		objgfx "gfx/mplevels/mb2_duel_wbw/objb"
+	}
+
+	wonround "The Jedi are mine at last."
+	lostround "The Jedi have escaped..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Destroy the Jedi."
+}

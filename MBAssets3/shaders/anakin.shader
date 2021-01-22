@@ -243,3 +243,142 @@ models/players/anakin2/robe
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// TCW anakin
+
+models/players/anakin_tcw/arms
+{
+	{
+		map models/players/anakin_tcw/arms
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/arms-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/arms_cw
+{
+	{
+		map models/players/anakin_tcw/arms_cw
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/arms_cw-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/boots
+{
+	{
+		map models/players/anakin_tcw/boots
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/boots-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/boots_cw
+{
+	{
+		map models/players/anakin_tcw/boots_cw
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/boots-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/hips
+{
+	{
+		map models/players/anakin_tcw/hips
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/hips-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/hips_cw
+{
+	{
+		map models/players/anakin_tcw/hips_cw
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/hips-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/torso
+{
+	{
+		map models/players/anakin_tcw/torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/torso-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/torso_cw
+{
+	{
+		map models/players/anakin_tcw/torso_cw
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/anakin_tcw/torso_cw-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/anakin_tcw/cape
+{
+	cull	twosided
+	{
+		map models/players/anakin_tcw/cape
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/anakin_tcw/belt
+{
+	cull	disable
+    {
+        map models/players/anakin_tcw/belt
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/anakin_tcw/belt_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}

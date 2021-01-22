@@ -287,3 +287,208 @@ models/weapons2/saber_cjr/saber_w
         alphaGen lightingSpecular
     }
 }
+
+// Shader for Darth Bane Hilt
+models/weapons2/saber_dough/saber_bane_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_bane_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_bane_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Kento Nion Hilt
+models/weapons2/saber_dough/saber_kento_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_kento_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_kento_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Maris Brood Hilt
+models/weapons2/saber_dough/saber_maris_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_maris_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_maris_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Rahm Kota Hilt
+models/weapons2/saber_dough/saber_kota_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_kota_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_kota_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Second Sister Hilt
+models/weapons2/saber_dough/saber_trilla_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_trilla_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_trilla_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+    {
+        map models/weapons2/saber_dough/saber_trilla_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+// Shaders for Legacy Hilts
+//Brawn
+models/weapons2/legacy_dough/saber_brawn_diff
+{
+    {
+        map models/weapons2/legacy_dough/saber_brawn_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/legacy_dough/saber_brawn_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+//Draconis
+models/weapons2/legacy_dough/saber_draconis_diff
+{
+    {
+        map models/weapons2/legacy_dough/saber_draconis_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/legacy_dough/saber_draconis_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+//Justice
+models/weapons2/legacy_dough/saber_justice_diff
+{
+    {
+        map models/weapons2/legacy_dough/saber_justice_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/legacy_dough/saber_justice_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+//Nobushi
+models/weapons2/legacy_dough/saber_nobushi_diff
+{
+    {
+        map models/weapons2/legacy_dough/saber_nobushi_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/legacy_dough/saber_nobushi_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+//Pride
+models/weapons2/legacy_dough/saber_pride_diff
+{
+    {
+        map models/weapons2/legacy_dough/saber_pride_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/legacy_dough/saber_pride_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+//Resolution
+models/weapons2/legacy_dough/saber_resolution_diff
+{
+    {
+        map models/weapons2/legacy_dough/saber_resolution_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/legacy_dough/saber_resolution_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+//Shadow
+models/weapons2/legacy_dough/saber_shadow_diff
+{
+    {
+        map models/weapons2/legacy_dough/saber_shadow_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/legacy_dough/saber_shadow_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+//Stellangios
+models/weapons2/saber_dough/saber_stellangios_diff
+{
+    {
+        map models/weapons2/saber_dough/saber_stellangios_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_dough/saber_stellangios_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+
+}

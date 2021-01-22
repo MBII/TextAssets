@@ -310,6 +310,30 @@ levelshots/mb2_duel_boc2
 	}
 }
 
+levelshots/mb2_duel_cargoheist
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_duel_cargoheist
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_duel_cargoheist2
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_duel_cargoheist2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_duel_cc
 {
 	nopicmip
@@ -1006,6 +1030,30 @@ levelshots/mb2_duel_supremacy2
 	}
 }
 
+levelshots/mb2_duel_taris
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_duel_taris
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_duel_taris2
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_duel_taris2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_duel_training
 {
 	nopicmip
@@ -1097,6 +1145,30 @@ levelshots/mb2_duel_votj2
 	notc
 	{
 		map levelshots/mb2_duel_votj2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_duel_wbw
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_duel_wbw
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_duel_wbw2
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_duel_wbw2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
