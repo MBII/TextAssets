@@ -36,20 +36,6 @@
 			setitemcolor	team3_count			forecolor   0.5 0.5 0.5 1
 
 			uiscript		setteamclassicons
-
-			setitembackground	class1_button	"*ui_classportrait0"
-			setitembackground	class2_button	"*ui_classportrait1"
-			setitembackground	class3_button	"*ui_classportrait2"
-			setitembackground	class4_button	"*ui_classportrait3"
-			setitembackground	class5_button	"*ui_classportrait4"
-			setitembackground	class6_button	"*ui_classportrait5"
-			
-			setcvar				class1multiflag	"0"
-			setcvar				class2multiflag	"0"
-			setcvar				class3multiflag	"0"
-			setcvar				class4multiflag	"0"
-			setcvar				class5multiflag	"0"
-			setcvar				class6multiflag	"0"
 			
 			show			spectator_button
 			show			spectator_symbol
@@ -201,14 +187,6 @@
 
 				// no more input for this guy
 				disable			team1_button	1
-				
-				setitemtext		class1_count "*ui_tm1_c0_cnt"
-				setitemtext		class2_count "*ui_tm1_c1_cnt"
-				setitemtext		class3_count "*ui_tm1_c2_cnt"
-				setitemtext		class4_count "*ui_tm1_c3_cnt"
-				setitemtext		class5_count "*ui_tm1_c4_cnt"
-				setitemtext		class6_count "*ui_tm1_c5_cnt"
-				setitemtext		class7_count "*ui_tm1_c6_cnt"
 
 				uiscript		resetsiegelistboxes
 				uiscript		feederselection
@@ -216,24 +194,10 @@
 				hide			stats
 				hide			classdescription
 				show			character_title
+				show			Team1Feeder
+				hide			Team2Feeder
 				
 				uiscript		mb_updatelimits
-
-				setitembackground	class_portrait	"*ui_classportrait"
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class2_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class3_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class4_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class5_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class6_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class_count		forecolor 1 1 1 1
 			}
 		}
 
@@ -336,13 +300,6 @@
 				// no more input for this guy
 				disable			team2_button	1
 
-				setitemtext		class1_count "*ui_tm2_c0_cnt"
-				setitemtext		class2_count "*ui_tm2_c1_cnt"
-				setitemtext		class3_count "*ui_tm2_c2_cnt"
-				setitemtext		class4_count "*ui_tm2_c3_cnt"
-				setitemtext		class5_count "*ui_tm2_c4_cnt"
-				setitemtext		class6_count "*ui_tm2_c5_cnt"
-
 				show			borderclass
 				uiscript		resetsiegelistboxes
 				uiscript		feederselection
@@ -350,24 +307,10 @@
 				hide			stats
 				hide			classdescription
 				show			character_title
+				hide			Team1Feeder
+				show			Team2Feeder
 				
 				uiscript		mb_updatelimits
-
-				setitembackground	class_portrait	"*ui_classportrait"
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class2_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class3_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class4_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class5_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class6_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class_count		forecolor 0.5 0.5 0.5 1
 			}
 		}
 
@@ -520,792 +463,75 @@
 // MB FA MODE
 //--------------------------------------------------
 
-//----------------------------------------------------------------------------------------------
-// CLASS 1
-//----------------------------------------------------------------------------------------------
 		itemDef
 		{
-			name 				classmultiicon1_1
-			group				class_button
-			rect 				10 89 45 4
-			style				WINDOW_STYLE_FILLED
-			backcolor			1 1 1 0.5
+			name 				Team1Feeder
+			group				playermodels
+			rect				6 86 152 335
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		35
+			elementheight 		44
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_SIEGE_TEAM1
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
 			visible				0
-			cvartest			"class1multiflag"
-			hidecvar
-			{
-				"0"
+			textscale 			0.2
+			// cvartest			ui_class
+			// hideCvar			{ "9", "11" }
+			action
+			{  
+				play			"sound/interface/button1"
+				show			feeders
+				show			stats
+				show			classdescription
 			}
-			decoration
-		}
-		
-		itemDef
-		{
-			name				class1_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait0"
-			ownerdraw			UI_FA_00
-			rect				10 95 45 60
-			forecolor			0.5 0.5 0.5 1
-			backcolor			1 1 1 1
-			visible				0
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class1_cnt"
-			hidecvar			{ "0" }
-			
 			mouseEnter
-			{
-				setitemcolor		class1_button		forecolor	1 1 1 1
-				setitemcolor		class1_count		forecolor	1 1 1 1
-				setitemcolor		class1_desc			forecolor	1 1 1 1
-				setitemcolor		class1_count_bk		forecolor	1 1 1 0.6
-				setitemcolor		classmultiicon1_1	backcolor	1 1 1 1
+			{ 
+				setitemcolor 	Team1Feeder bordercolor 1 1 1 1 
 			}
 			mouseExit
 			{ 
-				setitemcolor		class1_button		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class1_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class1_desc			forecolor	0.5 0.5 0.5 1
-				setitemcolor		class1_count_bk		forecolor	1 1 1 0.3
-				setitemcolor		classmultiicon1_1	backcolor	1 1 1 0.5
+				setitemcolor 	Team1Feeder bordercolor 0.1 0.7 1 0.9
 			}
+		}
 
+
+		itemDef
+		{
+			name 				Team2Feeder
+			group				playermodels
+			rect				6 86 152 335
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		35
+			elementheight 		44
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_SIEGE_TEAM2
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.2
+			// cvartest			ui_class
+			// hideCvar			{ "9", "11" }
 			action
-			{ 
-				play				"sound/interface/button1.wav"
-
-				setcvar				ui_siege_class 0
-				// uiscript			updatesiegecvars
-
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable				class_button	0
-				setitemcolor		class_count		forecolor	0.5 0.5 0.5 1
-
-				// High light this button and disable it
-				setitemcolor		class1_button	forecolor	1 1 1 1
-				setitemcolor		class1_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor		class1_desc		forecolor	0.5 0.5 0.5 1
-				//disable			class1_button	1			
-
-//	setitemtext	description 		"*ui_classdesc"
-				show				class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	10 95 45 60
-
-				uiscript			resetsiegelistboxes
-				uiscript			resetitemdescription
-				show				classdescription
-				hide				itemdescription
-				setitemcolor		stats			forecolor	1 1 1 1
-				//show				feeders
-				show				stats
-				show				forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class2_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class3_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class4_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class5_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class6_button	forecolor 0.5 0.5 0.5 1
+			{  
+				play			"sound/interface/button1"
+				show			feeders
+				show			stats
+				show			classdescription
 			}
-		}
-
-		itemDef
-		{
-			name				class1_count_bk
-			group				class_count_bk
-			style				WINDOW_STYLE_SHADER
-			rect				20 160 24 30
-			forecolor			1 1 1 0.3
-			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
-			cvartest			"ui_class1_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				class1_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				20 160 24 30
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			-3
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvartest			"ui_class1_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-		
-//----------------------------------------------------------------------------------------------
-// CLASS 2
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon2_1
-			group				class_button
-			rect 				60 89 45 4
-			style				WINDOW_STYLE_FILLED
-			backcolor			1 1 1 0.5
-			visible				0
-			cvartest			"class2multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		itemDef
-		{
-			name				class2_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait1"
-			ownerdraw			UI_FA_01
-			rect				60 95 45 60
-			forecolor			.5  .5  .5  1
-			visible				0
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class2_cnt"
-			hidecvar			{ "0" }
-			
 			mouseEnter
 			{ 
-				setitemcolor		class2_button		forecolor	1 1 1 1
-				setitemcolor		class2_count		forecolor	1 1 1 1
-				setitemcolor		class2_desc			forecolor	1 1 1 1
-				setitemcolor		class2_count_bk		forecolor	1 1 1 0.6
-				setitemcolor		classmultiicon2_1	backcolor	1 1 1 1
+				setitemcolor 	Team1Feeder bordercolor 1 1 1 1 
 			}
 			mouseExit
 			{ 
-				setitemcolor		class2_button		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class2_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class2_desc			forecolor	0.5 0.5 0.5 1
-				setitemcolor		class2_count_bk		forecolor	1 1 1 0.3
-				setitemcolor		classmultiicon2_1	backcolor	1 1 1 0.5
-			}
-			
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar				ui_siege_class 1
-				// uiscript			updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable				class_button	0
-				setitemcolor		class_count		forecolor	0.5 0.5 0.5 1
-				
-				// High light this button and disable it
-				setitemcolor		class2_button	forecolor	1 1 1 1
-				setitemcolor		class2_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor		class2_desc		forecolor	0.5 0.5 0.5 1
-				//disable			class2_button	1			
-				
-//setitemtext	description			"*ui_classdesc"
-				show				class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	60 95 45 60
-				
-				uiscript			resetsiegelistboxes
-				uiscript			resetitemdescription
-				show				classdescription
-				hide				itemdescription
-				setitemcolor		stats			forecolor	1 1 1 1
-				//show				feeders
-				show				stats
-				show				forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class3_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class4_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class5_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class6_button	forecolor 0.5 0.5 0.5 1
+				setitemcolor 	Team1Feeder bordercolor 0.1 0.7 1 0.9
 			}
 		}
 
-		itemDef
-		{
-			name				class2_count_bk
-			group				class_count_bk
-			style				WINDOW_STYLE_SHADER
-			rect				70 160 24 30
-			forecolor			1 1 1 0.3
-			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
-			cvartest			"ui_class2_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				class2_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				70 160 24 30
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			-3
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvartest			"ui_class2_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-		
-//----------------------------------------------------------------------------------------------
-// CLASS 3
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon3_1
-			group				class_button
-			rect 				110 89 45 4
-			style				WINDOW_STYLE_FILLED
-			backcolor			1 1 1 0.5
-			visible				0
-			cvartest			"class3multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		// The actual button
-		itemDef
-		{
-			name				class3_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait2"
-			ownerdraw			UI_FA_02
-			rect				110 95 45 60
-			forecolor			.5  .5  .5  1
-			visible				0
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class3_cnt"
-			hidecvar			{ "0" }
-			
-			mouseEnter
-			{
-				setitemcolor		class3_button		forecolor	1 1 1 1
-				setitemcolor		class3_count		forecolor	1 1 1 1
-				setitemcolor		class3_desc			forecolor	1 1 1 1
-				setitemcolor		class3_count_bk		forecolor	1 1 1 0.6
-				setitemcolor		classmultiicon3_1	backcolor	1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor		class3_button		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class3_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class3_desc			forecolor	0.5 0.5 0.5 1
-				setitemcolor		class3_count_bk		forecolor	1 1 1 0.3
-				setitemcolor		classmultiicon3_1	backcolor	1 1 1 0.5
-			}
-			
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar				ui_siege_class 2
-				// uiscript			updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable				class_button	0
-				setitemcolor		class_count		forecolor	0.5 0.5 0.5 1
-				
-				// High light this button and disable it
-				setitemcolor		class3_button	forecolor	1 1 1 1
-				setitemcolor		class3_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor		class3_desc		forecolor	0.5 0.5 0.5 1
-				//disable			class3_button	1			
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show				class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	110 95 45 60
-
-				uiscript			resetsiegelistboxes
-				uiscript			resetitemdescription
-				
-				show				classdescription
-				hide				itemdescription
-				setitemcolor		stats			forecolor	1 1 1 1
-				//show				feeders
-				show				stats
-				show				forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class2_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class4_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class5_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class6_button	forecolor 0.5 0.5 0.5 1
-			}
-		}
-
-		itemDef
-		{
-			name				class3_count_bk
-			group				class_count_bk
-			style				WINDOW_STYLE_SHADER
-			rect				120 160 24 30
-			forecolor			1 1 1 0.3
-			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
-			cvartest			"ui_class3_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				class3_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				120 160 24 30
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			-3
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvartest			"ui_class3_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-		
-//----------------------------------------------------------------------------------------------
-// CLASS 4
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon4_1
-			group				class_button
-			rect 				10 224 45 4
-			style				WINDOW_STYLE_FILLED
-			backcolor			1 1 1 0.5
-			visible				0
-			cvartest			"class4multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		// The actual button
-		itemDef
-		{
-			name				class4_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait3"
-			ownerdraw			UI_FA_03
-			rect				10 230 45 60
-			forecolor			.5  .5  .5  1
-			visible				0
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class4_cnt"
-			hidecvar			{ "0" }
-			
-			mouseEnter
-			{ 
-				setitemcolor		class4_button		forecolor	1 1 1 1
-				setitemcolor		class4_count		forecolor	1 1 1 1
-				setitemcolor		class4_desc			forecolor	1 1 1 1
-				setitemcolor		class4_count_bk		forecolor	1 1 1 0.6
-				setitemcolor		classmultiicon4_1	backcolor	1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		class4_button		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class4_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class4_desc			forecolor	0.5 0.5 0.5 1
-				setitemcolor		class4_count_bk		forecolor	1 1 1 0.3
-				setitemcolor		classmultiicon4_1	backcolor	1 1 1 0.5
-			}
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar				ui_siege_class 3
-				// uiscript			updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable				class_button	0
-				setitemcolor		class_count		forecolor	0.5 0.5 0.5 1
-				
-				// High light this button and disable it
-				setitemcolor		class4_button	forecolor	1 1 1 1
-				setitemcolor		class4_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor		class4_desc		forecolor	0.5 0.5 0.5 1
-				//disable			class4_button	1				
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show				class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	10 230 45 60
-
-				uiscript			resetsiegelistboxes
-				uiscript			resetitemdescription
-
-				show				classdescription
-				hide				itemdescription
-				setitemcolor		stats			forecolor	1 1 1 1
-				//show				feeders
-				show				stats
-				show				forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class2_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class3_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class5_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class6_button	forecolor 0.5 0.5 0.5 1
-			}
-		}
-
-		itemDef
-		{
-			name				class4_count_bk
-			group				class_count_bk
-			style				WINDOW_STYLE_SHADER
-			rect				20 295 24 30
-			forecolor			1 1 1 0.3
-			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
-			cvartest			"ui_class4_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				class4_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				20 295 24 30
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			-3
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvartest			"ui_class4_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-
-//----------------------------------------------------------------------------------------------
-// CLASS 5
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon5_1
-			group				class_button
-			rect 				60 224 45 4
-			style				WINDOW_STYLE_FILLED
-			backcolor			1 1 1 0.5
-			visible				0
-			cvartest			"class5multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		// The actual button
-		itemDef
-		{
-			name				class5_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait4"
-			ownerdraw			UI_FA_04
-			rect				60 230 45 60
-			forecolor			.5  .5  .5  1
-			visible				0
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class5_cnt"
-			hidecvar			{ "0" }
-			
-			mouseEnter
-			{ 
-				setitemcolor		class5_button		forecolor	1 1 1 1
-				setitemcolor		class5_count		forecolor	1 1 1 1
-				setitemcolor		class5_desc			forecolor	1 1 1 1
-				setitemcolor		class5_count_bk		forecolor	1 1 1 0.6
-				setitemcolor		classmultiicon5_1	backcolor	1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		class5_button		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class5_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class5_desc			forecolor	0.5 0.5 0.5 1
-				setitemcolor		class5_count_bk		forecolor	1 1 1 0.3
-				setitemcolor		classmultiicon5_1	backcolor	1 1 1 0.5
-			}
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar				ui_siege_class 4
-				// uiscript			updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable				class_button	0
-				setitemcolor		class_count		forecolor	0.5 0.5 0.5 1
-				
-				// High light this button and disable it
-				setitemcolor		class5_button	forecolor	1 1 1 1
-				setitemcolor		class5_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor		class5_desc		forecolor	0.5 0.5 0.5 1
-				//disable			class5_button	1				
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show				class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	60 230 45 60
-
-				uiscript			resetsiegelistboxes
-				uiscript			resetitemdescription
-				
-				show				classdescription
-				hide				itemdescription
-				setitemcolor		stats	forecolor	1 1 1 1
-				//show				feeders
-				show				stats
-				show				forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class2_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class3_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class4_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class6_button	forecolor 0.5 0.5 0.5 1
-			}
-		}
-
-		itemDef
-		{
-			name				class5_count_bk
-			group				class_count_bk
-			style				WINDOW_STYLE_SHADER
-			rect				70 295 24 30
-			forecolor			1 1 1 0.3
-			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
-			cvartest			"ui_class5_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				class5_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				70 295 24 30
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			-3
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvartest			"ui_class5_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-		
-//--------------------------------------------------
-// CLASS 6
-//--------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon6_1
-			group				class_button
-			rect 				110 224 45 4
-			style				WINDOW_STYLE_FILLED
-			backcolor			1 1 1 0.5
-			visible				0
-			cvartest			"class6multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		// The actual button
-		itemDef
-		{
-			name				class6_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait5"
-			ownerdraw			UI_FA_05
-			rect				110 230 45 60
-			forecolor			.5  .5  .5  1
-			visible				0
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class6_cnt"
-			hidecvar			{ "0" }
-			mouseEnter
-			{ 
-				setitemcolor		class6_button		forecolor	1 1 1 1
-				setitemcolor		class6_count		forecolor	1 1 1 1
-				setitemcolor		class6_desc			forecolor	1 1 1 1
-				setitemcolor		class6_count_bk		forecolor	1 1 1 0.6
-				setitemcolor		classmultiicon6_1	backcolor	1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		class6_button		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class6_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		class6_desc			forecolor	0.5 0.5 0.5 1
-				setitemcolor		class6_count_bk		forecolor	1 1 1 0.3
-				setitemcolor		classmultiicon6_1	backcolor	1 1 1 0.5
-			}
-			
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar				ui_siege_class 5
-				// uiscript			updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable				class_button	0
-				setitemcolor		class_count		forecolor	0.5 0.5 0.5 1
-				
-				// High light this button and disable it
-				setitemcolor		class6_button	forecolor	1 1 1 1
-				setitemcolor		class6_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor		class6_desc		forecolor	0.5 0.5 0.5 1
-				//disable			class6_button	1				
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show				class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect			class_portrait	110 230 45 60
-
-				uiscript			resetsiegelistboxes
-				uiscript			resetitemdescription
-				
-				show				classdescription
-				hide				itemdescription
-				setitemcolor		stats			forecolor	1 1 1 1
-				//show				feeders
-				show				stats
-				show				forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class2_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class3_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class4_button	forecolor 0.5 0.5 0.5 1
-				setitemcolor		class5_button	forecolor 0.5 0.5 0.5 1
-			}
-		}
-
-		itemDef
-		{
-			name				class6_count_bk
-			group				class_count_bk
-			style				WINDOW_STYLE_SHADER
-			rect				120 295 24 30
-			forecolor			1 1 1 0.3
-			background			"gfx/menus/alpha/Menu_ClassSelect_FANum"
-			cvartest			"ui_class6_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				class6_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				120 295 24 30
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			12
-			textaligny			-3
-			font				7
-			textscale			0.2
-			forecolor			1 1 1 1
-			cvartest			"ui_class6_cnt"
-			hidecvar			{ "0" }
-			visible				0
-			decoration
-		}
-		
 //--------------------------------------------------
 // CLASS PORTRAIT - this gets its background value from ui_classportrait
 //--------------------------------------------------
