@@ -6,8 +6,56 @@ Teams
 	team2 AssaultForce
 }
 
-mapgraphic "gfx/mplevels/snowfacility/layout"
+mapgraphic "gfx/mplevels/mb2_cmp_snowfacility/map"
 missionname  "Snow Facility"
+radartopleft "-1024, 2560"
+radarbottomright "6656, -5120"
+
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cmp_snowfacility"
+		radargraphicfull "gfx/automap/mb2_cmp_snowfacilityfull"
+	}
+}
+
+HelpIcons
+{
+	HelpIcon0
+	{
+		radius 1500
+		redicon HLP_DEFEND_SUB
+		blueicon HLP_DESTROY
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+		origin "570 -3466 -190"
+		end0 "t2_marker"
+		end1 "t3"
+		needvisible 1
+	}
+
+	HelpIcon1
+	{
+		radius 1500
+		redicon HLP_DEFEND_SUB
+		blueicon HLP_HACK_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+		origin "132 -1342 -276"
+		end0 "t2_marker"
+		end1 "t3"
+	}
+
+	HelpIcon2
+	{
+		redicon HLP_DEFEND
+		blueicon HLP_HACK
+		specicon HLP_DEFEND
+		origin "-572 -3280 -240"
+		end0 "t3"
+	}
+}
 
 roundbegin_target ""
 //this is a global target, it will be fired off if there is one when the round begins (this happens
@@ -57,8 +105,8 @@ AssaultForce
 	{
 		goalname "Open the Secondary doors"
 		final -1
-		message_team1 "We've opened the secondary doors."
-		message_team2 "They've opened the secondary doors!"
+		message_team1 "They've opened the secondary doors!"
+		message_team2 "We've opened the secondary doors."
 		objdesc "Open the Secondary doors by hacking or destroying a panel to clear the path to the generator."
 		objgfx "gfx/mplevels/snowfacility/objective2"
 	}
@@ -67,8 +115,8 @@ AssaultForce
 	{
 		goalname "Shut Down Generator"
 		final 0
-		message_team1 "We have eliminated the Jedi."
-		message_team2 "We've failed.."
+		message_team1 "All is lost!"
+		message_team2 "We have eliminated the Jedi."
 		objdesc "Shut down the generator to neutralise the droids and force surrender."
 		objgfx "gfx/mplevels/snowfacility/objective3"
 	}
