@@ -112,7 +112,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 2 10 22 27
+			rect				4 10 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Blue"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -139,7 +139,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 87 10 22 27
+			rect				90 10 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Blue"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -168,7 +168,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 2 43 22 27
+			rect				4 38 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Green"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -195,7 +195,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 87 43 22 27
+			rect				90 38 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Green"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -224,7 +224,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 2 76 22 27
+			rect				4 66 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Orange"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -251,7 +251,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 87 76 22 27
+			rect				90 66 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Orange"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -280,7 +280,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 2 109 22 27
+			rect				4 94 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Yellow"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -307,7 +307,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 87 109 22 27
+			rect				90 94 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Yellow"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -336,7 +336,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect 2 142 22 27
+			rect				4 122 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Purple"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -363,7 +363,7 @@
 			group				hiltmodelsjedi
 			style				WINDOW_STYLE_SHADER
 			type				ITEM_TYPE_BUTTON
-			rect				87 142 22 27
+			rect				90 122 18 24
 			background			"gfx/menus/alpha/Icon_SaberCrystal_Purple"
 			forecolor			1 1 1 0.5
 			descText			@MENUS_BLADE_COLOR_DESC
@@ -385,6 +385,62 @@
 				setcvar			ui_saber2_hue 0.8138
 			}
 		}
+
+		itemDef
+		{
+			name				whiteicon
+			group				hiltmodelsjedi
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				4 150 18 24
+			background			"gfx/menus/alpha/Icon_SaberCrystal_White"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	whiteicon forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	whiteicon forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	whiteicon forecolor 1 1 1 1
+				setcvar			ui_saber1_hue 0
+			}
+		}
+
+		itemDef
+		{
+			name				whiteicon2
+			group				hiltmodelsjedi
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				90 150 18 24
+			background			"gfx/menus/alpha/Icon_SaberCrystal_White"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			mouseenter
+			{
+				setitemcolor	whiteicon2 forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	whiteicon2 forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	whiteicon2 forecolor 1 1 1 1
+				setcvar			ui_saber2_hue 0
+			}
+		}
 		
 		itemDef
 		{
@@ -393,7 +449,7 @@
 			type				ITEM_TYPE_SLIDER_VERT
 			style				WINDOW_STYLE_TEXT_RGB2
 			cvarFloat			"ui_saber1_hue" 0.6277 0.07 0.85
-			rect				5 178 16 100
+			rect				5 179 16 100
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			70
 			textaligny			0
@@ -443,7 +499,7 @@
 			type				ITEM_TYPE_SLIDER_VERT
 			style				WINDOW_STYLE_TEXT_RGB2
 			cvarFloat			"ui_saber2_hue" 0.6277 0.07 0.85
-			rect				91 178 16 100
+			rect				91 179 16 100
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			70
 			textaligny			0
