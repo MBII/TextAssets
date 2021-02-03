@@ -1121,6 +1121,23 @@ gfx/menus/alpha/Icon_SaberCrystal_Blue
 	}
 }
 
+gfx/menus/alpha/Icon_SaberCrystal_Dark
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_SaberCrystal_Dark
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 1 1 1 )
+	}
+}
+
 gfx/menus/alpha/Icon_SaberCrystal_Green
 {
 	nopicmip
@@ -1220,6 +1237,23 @@ gfx/menus/alpha/Icon_SaberCrystal_Purple
 		map gfx/menus/alpha/Icon_SaberCrystal
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen const ( 0.75 0 1 )
+	}
+}
+
+gfx/menus/alpha/Icon_SaberCrystal_White
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Btn5_Bg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Icon_SaberCrystal
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 1 1 1 )
 	}
 }
 
