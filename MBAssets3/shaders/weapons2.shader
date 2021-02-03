@@ -356,6 +356,31 @@ sfx_sabers/saber_blade_unstable
 	}
 }
 
+//	silver saber blade
+
+gfx/effects/sabers/silver_glow
+{
+	cull	twosided
+	{
+		map gfx/effects/sabers/silver_glow2
+		blendFunc GL_ONE GL_ONE
+		glow
+		rgbGen vertex
+	}
+}
+
+gfx/effects/sabers/silver_line
+{
+	cull	twosided
+	{
+		map gfx/effects/sabers/silver_line
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+// Darksaber
+
 sfx_sabers/saber_glow_darksaber
 {
 	cull	twosided
@@ -388,8 +413,9 @@ sfx_sabers/saber_blade_darksaber
     }
     {
         map sfx_sabers/saber_blade_darksaber_core
-        blendFunc GL_DST_COLOR GL_ZERO
+        alphaFunc GE128
         rgbGen identity
+        depthWrite
     }
 }
 
