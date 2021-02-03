@@ -338,3 +338,75 @@ gfx/mplevels/mb2_yavinassault/map
         rgbGen vertex
     }
 }
+
+//####################
+//##### DUEL EMPEROR
+//####################
+
+gfx/automap/mb2_duel_emperor
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_emperor
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_emperorfull
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_emperor
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_emperor/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_duel_emperor/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL YAVIN IV
+//####################
+
+gfx/automap/mb2_duel_yavin4
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_yavin4
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_yavin4full
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_yavin4full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_yavin4/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_yavin4/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
