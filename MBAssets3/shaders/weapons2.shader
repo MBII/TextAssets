@@ -406,6 +406,7 @@ sfx_sabers/saber_blade_darksaber
 {
     notc
     cull    twosided
+	sort	opaque
     {
         map sfx_sabers/saber_blade_darksaber_glow
         blendFunc GL_ONE GL_ONE
