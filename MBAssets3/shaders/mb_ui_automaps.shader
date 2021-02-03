@@ -302,3 +302,39 @@ gfx/mplevels/mb2_mygeeto/map
         rgbGen vertex
     }
 }
+
+//####################
+//##### YAVIN ASSAULT
+//####################
+
+gfx/automap/mb2_yavinassault
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_yavinassault
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_yavinassaultfull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_yavinassaultfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_yavinassault/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_yavinassault/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
