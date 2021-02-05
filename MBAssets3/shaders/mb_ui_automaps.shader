@@ -304,6 +304,42 @@ gfx/mplevels/mb2_mygeeto/map
 }
 
 //####################
+//##### THEED
+//####################
+
+gfx/automap/mb2_theed
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_theed
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_theedfull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_theedfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_theed/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_theed/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### YAVIN ASSAULT
 //####################
 
@@ -376,7 +412,7 @@ gfx/mplevels/mb2_duel_emperor/map
 }
 
 //####################
-//##### DUEL YAVIN IV
+//##### DUEL YAVIN 4
 //####################
 
 gfx/automap/mb2_duel_yavin4
