@@ -1,0 +1,72 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Jedi
+	team2 Mandolorian
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname  "Calodan"
+
+roundbegin_target ""
+
+//countin_time 0
+
+Jedi
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "calodan_jedi" 							
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "kill the enemy"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defend yourself against The Mando!"
+		objgfx ""
+	}
+	
+	wonround "Time to free these prisoners!"
+	lostround "I've failed..."
+	roundover_sound_wewon "sound/chars/ahsoka/misc/victory3.mp3"
+	roundover_sound_welost "sound/chars/ahsoka/misc/taunt2.mp3"
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "He's in my way."
+}
+
+Mandolorian
+{
+	RequiredObjectives 1
+	Timed 300	
+	UseTeam "calodan_mando"
+	TeamIcon	"gfx/2d/logos/mb_mand"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "kill the enemy"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Time to go to work"
+		objgfx ""
+	}
+	
+	wonround "This is the way."
+	lostround "Looks like I underestimated her..."
+	roundover_sound_wewon "sound/chars/dindjarin/misc/victory1.mp3"
+	roundover_sound_welost "sound/chars/dindjarin/misc/victory3.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "A job's a job."
+}
