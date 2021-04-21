@@ -1,27 +1,27 @@
 ClassInfo
 {
 	name			"_v_c_purgetrooper"
-	weapons			WP_MELEE|WP_SABER|WP_BLASTER
+	weapons			WP_MELEE|WP_SABER|WP_BLASTER|WP_TRIP_MINE
 	saber1			electrostaff
 	sabercolor		5
 	saberstyle		SS_STAFF
 	forcepowers		FP_SABER_DEFENSE,2|FP_SABER_OFFENSE,3|FP_LEVITATION,1
 	forcepool		60
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,2|MB_ATT_BLASTER,2|MB_ATT_STRONGBLOBS,2|MB_ATT_STAMINA,2|MB_ATT_FLIPKICK|MB_ATT_FORCEBLOCK,1|MB_ATT_CORTOSIS,1
+	attributes		MB_ATT_ARMOUR,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,2|MB_ATT_BLASTER,3|MB_ATT_STAMINA,2|MB_ATT_FLIPKICK|MB_ATT_FORCEBLOCK,1|MB_ATT_CORTOSIS,1|MB_ATT_MICRO_GRENADES,2
 	classflags		CFL_BPFREEJUMPS
 	maxhealth		100
-	maxarmor		75
+	maxarmor		80
 	model			"purgetrooper" 					//this is optional, if it's here it forces the model to this.
 	skin			"default"							//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/purgetrooper/mb2_icon_default"
 	MBClass			MB_CLASS_ARCTROOPER	
 	classNumberLimit	2
+	speed               1.1
 	APmultiplier		1
 	BPmultiplier		0.75
 	ASmultiplier		1.2
 	CSmultiplier		1.2
-	rateoffire			1
-	damageGiven 		1
+	WP_ConcussionFlags     HELD_HIGHDAMAGE
 }
 
 WeaponInfo0
@@ -34,6 +34,36 @@ WeaponInfo0
 	WeaponName			"Electrostaff"    					//Required: Weapon change display name
 }
 
+WeaponInfo1
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_REPEATER
+	NewWorldModel		"models/weapons2/dc-15s/dc-15s_w.glm"
+	NewViewModel		"models/weapons2/dc-15s/dc-15s.md3"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
+	MissileEffect		"Blaster/Shot02B"  					//Optional: New effect to be displayed on the projectile
+	AltMissileEffect 	"Blaster/Shot02B"  					//Optional: Ditto for the alt fire
+	FlashSound0			"sound/weapons/repeater/fire.mp3"  			//Optional: Sound played when the weapon fires
+	AltFlashSound0		"sound/weapons/repeater/fire.mp3"
+	Icon				"gfx/hud/w_icon_dc-15s" 				//Required: Weapon change icon
+	WeaponName			"DC-15S Carbine"    					//Required: Weapon change display name
+	CustomAmmo          900
+	clipSize			225
+	ReloadTimeModifier 	0.6
+	firingAnim	DC15_FIRE
+}
+WeaponInfo2
+{
+	WeaponToReplace 	 WP_TRIP_MINE       			
+	WeaponBasedOff 		 WP_TRIP_MINE   
+	NewWorldModel		 "models/weapons2/V-59_Concussion/V-59_conc_w.glm"
+	NewViewModel  		 "models/weapons2/V-59_Concussion/V-59_conc.md3"
+	Icon 				 "gfx/hud/w_icon_V-59_conc"
+	WeaponName 			 "V-59H Heavy Concussion Grenade" 
+	CustomAmmo	2
+}
+
 description	"Electrostaff Purge Trooper
 
 Class Summary:
@@ -41,8 +71,8 @@ Dextrous Anti-Jedi
 
 Weaponry:
 - Electrostaff
-- E-11 (3)
-- Ion Blast (2)
+- DC-15S Carbine (3)
+- Heavy Concussion Grenades (2)
 
 Attributes:
 - Flipkick
