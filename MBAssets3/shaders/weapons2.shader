@@ -356,7 +356,6 @@ sfx_sabers/saber_blade_unstable
 	}
 }
 
-
 //	silver saber blade
 
 gfx/effects/sabers/silver_glow
@@ -380,6 +379,56 @@ gfx/effects/sabers/silver_line
 	}
 }
 
+// Darksaber
+
+sfx_sabers/saber_glow_darksaber
+{
+	cull	twosided
+	{
+		map sfx_sabers/saber_glow_darksaber
+		blendFunc GL_ONE GL_ONE
+		glow
+		rgbGen const ( 0.1 0.1 0.1 )
+	}
+}
+
+sfx_sabers/saber_trail_darksaber
+{
+	cull	twosided
+	{
+		map $whiteimage
+		blendFunc GL_ONE GL_ZERO
+		rgbGen const ( 0 0 0 )
+	}
+}
+
+sfx_sabers/saber_blade_darksaber
+{
+    notc
+    cull    twosided
+	sort	opaque
+    {
+        map sfx_sabers/saber_blade_darksaber_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+    }
+    {
+        map sfx_sabers/saber_blade_darksaber_core
+        alphaFunc GE128
+        rgbGen identity
+        depthWrite
+    }
+}
+
+sfx_sabers/saber_end_darksaber
+{
+	cull	twosided
+    {
+        map sfx_sabers/saber_end_darksaber
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+    }
+}
 
 //	sbd_grapple
 
