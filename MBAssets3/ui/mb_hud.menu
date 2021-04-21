@@ -1,9 +1,16 @@
 // In Game HUD - defines from ui_shared.h
 
+// align parameter sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned. Only works on items with it already specified.
+
 assetGlobalDef
 {
 	bigFont					"fonts/reallybigfont" 12	// font
 	small2Font				"arialnb" 	13
+	lightFont				"mainlight"	48
+	regularFont				"main"		48
+	boldFont				"mainbold"	48
+	blackFont				"mainblack"	48
+	regular2Font			"secondary"	48
 }
 
 {
@@ -1069,56 +1076,606 @@ assetGlobalDef
 		}
 	}
 
+	// Radar
 	menuDef
 	{
-		name					"mp_timer"
-		rect					560 100 40 10
+		name					"radar"
+		rect					640 10 0 0
 		focusColor				1 1 1 1
 
-		// Timer only spectators will see
+		// Radar Background
 		itemDef
 		{
 			name				"frame"
+			rect				-10 0 55 0 // Width is the radius of the radar rather than full width. Height is unused.
+			background			"gfx/hud/alpha/HUD_Radar"
+			align				2 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
+
+	// Large Radar
+	menuDef
+	{
+		name					"bigradar"
+		rect					10 10 0 0
+		focusColor				1 1 1 1
+
+		// Radar Background
+		itemDef
+		{
+			name				"frame"
+			rect				0 0 300 300 // Width is the radius of the radar rather than full width. Height is unused.
+			align				0
+		}
+	}
+
+	// Main Timer
+	menuDef
+	{
+		name					"mp_timer"
+		rect					270 10 100 32
+		focusColor				1 1 1 1
+
+		// Timer Background
+		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+		}
+
+		itemDef
+		{
+			name				"timerframe"
+			forecolor			0 0 0 0.5
+			background			"gfx/hud/alpha/HUD_Timer"
+			rect				28 6 44 20
+		}
+
+		// Blue time win indicator
+		itemDef
+		{
+			name				"WinnerBlue"
 			forecolor			1 1 1 1
-			background			"gfx/mp/mb_count"
-			rect				-23 -58 80 40
+			background			"gfx/hud/alpha/HUD_TimerSideL"
+			rect				29 9.5 5 13
 		}
 
+		// Red time win indicator
 		itemDef
 		{
-			name				"frame2"
+			name				"WinnerRed"
 			forecolor			1 1 1 1
-			background			"gfx/menus/radar/radar_timer"
-			rect				-120 -90 100 100
+			background			"gfx/hud/alpha/HUD_TimerSideR"
+			rect				66 9.5 5 13
+		}
+
+		// Actual Numbers
+		itemDef
+		{
+			name				"timer"
+			forecolor			0.1 0.8 1 0.9
+			rect				30 6 40 20
+			textscale			0.2
+			textalignx			20
+			textaligny			-8
+			font				7
+		}
+	}
+
+	// Blue Team Score
+	menuDef
+	{
+		name					"gm_info_blue"
+		rect					286 10 100 32
+
+/* 		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+		}
+ */
+		itemDef
+		{
+			name				"elem_score"
+			rect				0 -2 20 20
+			forecolor			0 0.77 0.94 1
+			textscale			0.2
+			font				7
+		}
+	}
+
+	// Red Team Score
+	menuDef
+	{
+		name					"gm_info_red"
+		rect					354 10 100 30
+
+/* 		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+		}
+ */
+
+		itemDef
+		{
+			name				"elem_score"
+			rect				00 -2 20 20
+			forecolor			0.86 0.06 0.32 1
+			textscale			0.2
+			font				7
+		}
+	}
+
+	// Map Event Timer 1
+	menuDef
+	{
+		name 					"delay_timer0"
+		rect					260 45 120 20
+		focusColor				1 1 1 1
+
+		// Message background
+		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_EventTimer"
+			rect				0 0 120 20
+		}
+
+		// Timer Background
+		itemDef
+		{
+			name				"timerframe"
+			forecolor			0 0 0 0.5
+			background			"gfx/hud/alpha/HUD_Timer"
+			rect				82 2 36 16
 		}
 
 		itemDef
 		{
-			name				"deathtimer_spec"
-			forecolor			0.1 0.8 1 0.9
-			rect				-3 -52 64 32
-		}
-
-		itemDef
-		{
-			name				"timer_spec"
-			forecolor			0.1 0.8 1 0.9
-			rect				-3 -52 64 32
-		}
-
-		// Timer for players
-		itemDef
-		{
-			name				"deathtimer"
-			forecolor			0.1 0.8 1 0.9
-			rect				-72 -51 64 32
+			name				"message"
+			forecolor			1 1 1 1
+			rect				40 -5 80 20
+			font				6
+			textscale			0.15
 		}
 
 		itemDef
 		{
 			name				"timer"
-			forecolor			0.1 0.8 1 0.9
-			rect				-72 -51 64 32
+			forecolor			1 1 1 1
+			rect				100 2 36 16
+			font				6
+			textscale			0.15
+			textaligny			-5
+		}
+
+		itemDef
+		{
+			name				"timer_nomsg"
+			forecolor			1 1 1 1
+			rect				18 -5 36 16
+			font				6
+			textscale			0.15
+			textaligny			-5
+		}
+	}
+
+	// Map Event Timer 2
+	menuDef
+	{
+		name 					"delay_timer1"
+		rect					260 70 120 20
+		focusColor				1 1 1 1
+
+		// Message background
+		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_EventTimer"
+			rect				0 0 120 20
+		}
+
+		// Timer Background
+		itemDef
+		{
+			name				"timerframe"
+			forecolor			0 0 0 0.5
+			background			"gfx/hud/alpha/HUD_Timer"
+			rect				82 2 36 16
+		}
+
+		itemDef
+		{
+			name				"message"
+			forecolor			1 1 1 1
+			rect				40 -5 80 20
+			font				6
+			textscale			0.15
+		}
+
+		itemDef
+		{
+			name				"timer"
+			forecolor			1 1 1 1
+			rect				100 2 36 16
+			font				6
+			textscale			0.15
+			textaligny			-5
+		}
+
+		itemDef
+		{
+			name				"timer_nomsg"
+			forecolor			1 1 1 1
+			rect				18 -5 36 16
+			font				6
+			textscale			0.15
+			textaligny			-5
+		}
+	}
+
+	// TK Popup menu.
+	menuDef
+	{
+		name					"tk_menu"
+		rect					90 25 142 60
+
+		itemDef
+		{
+			name				"frame"
+			rect				0 0 142 60
+			forecolor			1 1 1 1
+			background			"gfx/hud/alpha/HUD_TK"
+		}
+
+		//Don't worry about text width and height
+		itemDef
+		{
+			name				"text1"
+			rect				7 0 0 0
+			font				6
+			textscale			0.125
+		}
+
+		itemDef
+		{
+			name				"text2"
+			rect				7 11 0 0
+			font				6
+			textscale			0.125
+		}
+
+		itemDef
+		{
+			name				"punishframe"
+			rect				7 29 40 28
+			forecolor			1 1 1 0.5
+			background			"gfx/hud/alpha/HUD_TKBtn"
+			text				"     ^1F1     \n^7PUNISH"
+			font				7
+			textalignx			5
+			textaligny			-4
+			textscale			0.125
+		}
+
+		itemDef
+		{
+			name				"forgiveframe"
+			rect				51 29 40 28
+			forecolor			1 1 1 0.5
+			background			"gfx/hud/alpha/HUD_TKBtn"
+			text				"      ^2F2      \n^7FORGIVE"
+			font				7
+			textalignx			3
+			textaligny			-4
+			textscale			0.125
+		}
+
+		itemDef
+		{
+			name				"cancelframe"
+			rect				95 29 40 28
+			forecolor			1 1 1 0.5
+			background			"gfx/hud/alpha/HUD_TKBtn"
+			text				"    ^3F3    \n^7CLOSE"
+			font				7
+			textalignx			7
+			textaligny			-4
+			textscale			0.125
+		}
+
+/* 		itemDef // Use this itemdef if you want to use the old single line style Punish, Forgive, Cancel and comment out punishframe, forgive frame, cancelframe itemdefs.
+		{
+			name				"text3"
+			rect				10 68 0 0
+			font				6
+			textscale			0.125
+		} */
+	}
+
+	// TK Points overlay
+	menuDef
+	{
+		name					"tk_points"
+		rect					120 25 100 10
+		focusColor				1 1 1 1
+
+/* 		itemDef
+		{
+			name				"frame"
+			rect				0 0 150 85
+			forecolor			1 1 1 1
+			background			"gfx/hud/alpha/HUD_TK"
+		}
+ */
+		itemDef
+		{
+			name				"title"
+			forecolor			1 1 1 1
+			rect				0 0 100 10
+			textscale			0.125
+			textalignx			50
+			textaligny			-8
+			font				7
+		}
+		
+		itemDef
+		{
+			name				"points"
+			forecolor			1 1 1 1
+			rect				0 15 100 10
+			textscale			0.125
+			textalignx			20
+			textaligny			-8
+			font				7
+		}
+		
+		itemDef
+		{
+			name				"warning"
+			forecolor			1 1 1 1
+			rect				0 30 100 10
+			textscale			0.125
+			textalignx			0
+			textaligny			-8
+			font				8
+		}
+	}
+
+
+	// FPS Indicator
+	menuDef
+	{
+		name					"framerate"
+		rect					636 2 0 0
+		focusColor				1 1 1 1
+
+		// Actual Numbers
+		itemDef
+		{
+			name				"fps"
+			forecolor			1 1 1 1
+			rect				0 0 0 3 // Height above 0 will shift radar vertically when cg_drawfps is 1 by this amount. 
+			align				2
+			textscale			0.15
+			textalignx			-3
+			textaligny			-8
+			font				7
+		}
+	}
+
+	// Capture progress indicator
+	menuDef
+	{
+		name 					"captureprogress"
+		rect					320 85 304 16 //220 85 200 16
+		focusColor				1 1 1 1
+
+		// Progress bar background
+		itemDef
+		{
+			name				"frame"
+			rect				0 0 284 16
+			background			"gfx/hud/alpha/HUD_Capture"
+			forecolor			0 0 0 0.75
+			align				1
+		}
+
+		// Progress bar forward
+		itemDef
+		{
+			name				"progressbarfwd"
+			background			"gfx/hud/alpha/HUD_CaptureProgress"
+			rect				2 4 282 8 // Keep rects the same for progress bars
+			forecolor			0.567 0.685 1 1
+			align				1
+		}
+
+		// Progress bar backward
+		itemDef
+		{
+			name				"progressbarback"
+			background			"gfx/hud/alpha/HUD_CaptureRegress"
+			rect				2 4 282 8 // Keep rects the same for progress bars
+			forecolor			0.567 0.685 1 1
+			align				1
+		}
+
+		// Progress bar stopped
+		itemDef
+		{
+			name				"progressbarstall"
+			background			"gfx/hud/alpha/HUD_CaptureStall"
+			rect				2 4 282 8 // Keep rects the same for progress bars
+			forecolor			0.567 0.685 1 1
+			align				1
+		}
+	}
+
+	// Voice Chat
+	menuDef
+	{
+		name					"voicechat"
+		rect					0 160 100 138
+
+		// voice chat background
+		itemDef
+		{
+			name				"frame"
+			rect				0 0 100 138
+			background			"gfx/hud/alpha/HUD_VoiceChat"
+			forecolor			0 0 0 0.75
+		}
+
+		// Items
+		itemDef
+		{
+			name				"text"
+			forecolor			1 1 1 1
+			rect				12 15 0 12 //Width is not used.
+			textscale			0.1
+			textalignx			-3
+			textaligny			-8
+			font				7
+		}
+	}
+
+	// Chat
+	menuDef
+	{
+		name					"chatbox"
+		rect					20 0 550 0
+
+		// Items
+		itemDef
+		{
+			name				"text"
+			forecolor			1 1 1 1
+			rect				0 75 550 13 //Width is used to assist in alignment and width of text box. Y is height of chat when scoreboard is active. Otherwise cg_chatboxheight is used. H is line height.
+			textscale			0.15
+			textaligny			-5
+			font				6
+			align				0
+		}
+	}
+
+	// Subtitles
+	menuDef
+	{
+		name					"subtitles"
+		rect					320 395 0 0
+
+		// Subtitle background
+		itemDef
+		{
+			name				"frame"
+			rect				0 0 4 2 // Width & height is autogenerated, use width/height here for a bit of padding.
+			background			"gfx/menus/subtitle"
+			forecolor			1 1 1 1 // text color
+			backcolor			0 0 0 0.75 // background shader color
+			textaligny			-5
+			textscale			0.125
+			font				7
+		}
+	}
+
+	// Spectator Text
+	menuDef
+	{
+		name					"spectator"
+		rect					0 0 0 0
+		focusColor				1 1 1 1
+
+		//text is automatically centered.
+		itemDef
+		{
+			name				"followingtext"
+			forecolor			1 1 1 1
+			rect				320 440 0 0
+			textscale			0.2
+			font				6
+		}
+
+		itemDef
+		{
+			name				"spectext"
+			forecolor			1 1 1 1
+			rect				320 420 0 10
+			textscale			0.2
+			font				7
+		}
+	}
+
+	// Misc UI Items
+	menuDef
+	{
+		name					"miscui"
+		rect					0 0 0 0
+		focusColor				1 1 1 1
+
+		// Beta testing message.
+		itemDef
+		{
+			name				"testleadmessage"
+			forecolor			1 1 1 1
+			rect				636 2 0 15 // Height above 0 will shift radar vertically when testing messages are active by this amount. 
+			align				2
+			textscale			0.3
+			textalignx			-3
+			textaligny			-8
+			font				8
+		}
+
+		// Large center text, such as CONNECTION INTERRUPTED, and SERVER CHANGING MAPS
+		itemDef
+		{
+			name				"centerlargetext"
+			textscale			0.3
+			font				7
+		}
+		
+		// Disconnect network icon
+		itemDef
+		{
+			name				"disconnecticon"
+			rect				592 432 48 48
+			background			"gfx/2d/net"
+			align				2
+		}
+
+		// Lagometer
+		itemDef
+		{
+			name				"lagometer"
+			rect				635 160 48 48
+			background			"gfx/hud/alpha/HUD_Lagometer"
+			align				2
+		}
+
+		// Use Indicator
+		itemDef
+		{
+			name				"usehint"
+			rect				5 300 48 48
+			background			"gfx/hud/useablehint"
+			align				0
+		}
+
+		// Siege item model.
+		itemDef
+		{
+			name				"siegeitem"
+			rect				8 8 64 64
+			align				0
 		}
 	}
 
