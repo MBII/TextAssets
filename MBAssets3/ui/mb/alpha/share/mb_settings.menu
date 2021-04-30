@@ -5283,7 +5283,16 @@ itemDef
 			type				ITEM_TYPE_MULTI
 			text				" "
 			cvar				"cg_drawTeamOverlay"
-			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			cvarFloatList
+			{
+				@MENUS_Off							0
+				"Icon only 1 column"				1
+				"Icon only 2 column"				2
+				"Icon + Bars"						3
+				"Icon + Numbers"					4
+				"Icon, Bars, Name, & Location"		5
+				"Icon, Numbers, Name, & Location"	6
+			}
 			rect				142 170 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -5701,7 +5710,7 @@ itemDef
 				@MENUS_OFF						0
 				@MENUS_SOUNDS	 				1
 				@MENUS_SOUNDS_AND_EFFECTS		2
-				"Snd, Efx and Gfx"				3
+				"Sound, Effects, and Graphics"	3
 			}
 			rect				142 110 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -7687,7 +7696,7 @@ itemDef
 			}
 		}
 
-		// Layout feeder
+		// HUD Layout feeder
 		itemDef
 		{
 			name				hudlist
@@ -7712,6 +7721,41 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				forcehudreload
+			group				uioptions5
+			text				"FORCE HUD RELOAD"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn2_Bg"
+			rect				142 244 145 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			-2
+			font				6
+			textscale			0.2
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			descText			"Will force a cg_loadui command in order to reload the HUD in case it is needed.\nThough sometimes does not work after a map change."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec			cg_loadui
+				setitemcolor	forcehudreload			backcolor	1 1 1 0.5
+			}
+			mouseenter
+			{
+				setitemcolor	forcehudreload			backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	forcehudreload			backcolor	1 1 1 0.05
 			}
 		}
 
@@ -8590,6 +8634,23 @@ itemDef
 			decoration
 		}
 
+		itemDef
+		{
+			name				forceratiofix
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"OpenJK Force Ratio:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
 // CAMERA SETTINGS MENU
 		itemDef
 		{
@@ -8982,7 +9043,44 @@ itemDef
 			{
 				play			"sound/interface/button1.wav"
 			}
-		}		
+		}
+
+		itemDef
+		{
+			name				forceratiofix
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cg_forceRatioFix"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Forces the correction of the aspect ratio for the HUD in OpenJK based clients."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 276 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}	
 		
 // CONNECTION SETTINGS MENU
 		itemDef
