@@ -258,20 +258,6 @@ models/players/jedi_spanki/hips
 	}
 }
 
-models/players/jedi_spanki/hips_d
-{
-	{
-		map models/players/jedi_spanki/hips_d
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedi_spanki/hips2-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
 models/players/jedi_spanki/hips_f
 {
 	{
@@ -293,21 +279,7 @@ models/players/jedi_spanki/hips1a_e
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/jedi_spanki/hips1a-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/jedi_spanki/hips1b_e
-{
-	{
-		map models/players/jedi_spanki/hips1b_e
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedi_spanki/hips2-spec
+		map models/players/jedi_spanki/hips-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 	detail
@@ -322,20 +294,6 @@ models/players/jedi_spanki/torso
 	}
 	{
 		map models/players/jedi_spanki/torso-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/jedi_spanki/torso_d
-{
-	{
-		map models/players/jedi_spanki/torso_d
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedi_spanki/torso2-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 	detail
@@ -370,14 +328,17 @@ models/players/jedi_spanki/torso1a_e
 	}
 }
 
-models/players/jedi_spanki/torso1b_e
+
+// TOR Jedi
+
+models/players/torjedi1/boots_b
 {
 	{
-		map models/players/jedi_spanki/torso1b_e
+		map models/players/torjedi1/boots_b
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/jedi_spanki/torso2-spec
+		map models/players/torjedi1/boots_b-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 	detail

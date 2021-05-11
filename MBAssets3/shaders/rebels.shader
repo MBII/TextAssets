@@ -51,6 +51,23 @@ models/players/rebel/accessories_tan
 	}
 }
 
+models/players/rebel/accessories_jk2
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel/accessories_jk2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel/accessories_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel/accessories_helmet
 {	  
 	q3map_nolightmap
@@ -101,6 +118,30 @@ models/players/rebel/accessories2_helmet
 	}
 }
 
+models/players/rebel/accessories_jk2_helmet
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel/accessories_jk2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel/accessories_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
 
 // rebel_guerilla
 
@@ -108,6 +149,21 @@ models/players/rebel_guerilla/gloves
 {
 	{
 		map models/players/rebel_guerilla/gloves
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/gloves_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_guerilla/gloves2
+{
+	{
+		map models/players/rebel_guerilla/gloves2
 		depthWrite
 		rgbGen lightingDiffuse
 	}
@@ -146,6 +202,90 @@ models/players/rebel_guerilla/legs_boots
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_guerilla/legs_boots2
+{
+	{
+		map models/players/rebel_guerilla/legs_boots2
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/legs_boots_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_guerilla/twilek_head_rgb
+{
+	cull	twosided
+	{
+		map models/players/rebel_guerilla/twilek_head_rgb
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rebel_guerilla/twilek_head_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/twilek_head-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+models/players/rebel_guerilla/aqualish_hands
+{
+	{
+		map models/players/rebel_guerilla/aqualish_hands
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/aqualish_hands-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_guerilla/aqualish_head
+{
+	{
+		map models/players/rebel_guerilla/aqualish_head
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/aqualish_head-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_guerilla/kama
+{
+	cull	twosided
+	{
+		map models/players/rebel_guerilla/kama
+		rgbGen lightingDiffuse
+	}
+}
+
+
+models/players/rebel_guerilla/kama2
+{
+	cull	twosided
+	{
+		map models/players/rebel_guerilla/kama2
+		rgbGen lightingDiffuse
 	}
 }
 

@@ -75,3 +75,38 @@ models/players/sith_assassin/body_master
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// No Mask
+
+models/players/sith_assassin2/extras2
+{
+	cull	twosided
+	{
+		map models/players/sith_assassin2/extras2
+		alphaFunc GE128
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/kylo_ren/extras_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/sith_assassin2/torso_cape
+{
+	q3map_nolightmap
+	cull twosided
+	{
+		map models/players/sith_assassin2/torso_cape
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Baze/torso_armour_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}

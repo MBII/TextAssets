@@ -239,3 +239,125 @@ models/players/sithtrooper/codpiece_red
 		tcGen environment
 	}
 }
+
+
+// gold
+models/players/sithtrooper/hips_gold
+{
+	{
+		map models/players/sithtrooper/hips_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+models/players/sithtrooper/arm_gold
+{
+	{
+		map models/players/sithtrooper/arm_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+models/players/sithtrooper/boots_gold
+{
+	{
+		map models/players/sithtrooper/boots_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+models/players/sithtrooper/head_gold
+{
+	{
+		map models/players/sithtrooper/head_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+models/players/sithtrooper/pad_gold
+{
+	{
+		map models/players/sithtrooper/pad_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+models/players/sithtrooper/torso_gold
+{
+	{
+		map models/players/sithtrooper/torso_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+models/players/sithtrooper/glove_gold
+{
+	{
+		map models/players/sithtrooper/glove_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+models/players/sithtrooper/codpiece_gold
+{
+	{
+		map models/players/sithtrooper/codpiece_gold
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
