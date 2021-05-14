@@ -79,11 +79,11 @@ models/players/sith_assassin/body_master
 
 // No Mask
 
-models/players/sith_assassin2/extras2
+models/players/sith_assassin/extras2
 {
 	cull	twosided
 	{
-		map models/players/sith_assassin2/extras2
+		map models/players/sith_assassin/extras2
 		alphaFunc GE128
 		rgbGen lightingDiffuse
 	}
@@ -95,18 +95,12 @@ models/players/sith_assassin2/extras2
 	}
 }
 
-models/players/sith_assassin2/torso_cape
+models/players/sith_assassin/body_uthar
 {
+	cull	disable
 	q3map_nolightmap
-	cull twosided
 	{
-		map models/players/sith_assassin2/torso_cape
+		map models/players/sith_assassin/body_uthar
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Baze/torso_armour_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
 	}
 }
