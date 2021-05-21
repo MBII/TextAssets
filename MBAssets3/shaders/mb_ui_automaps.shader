@@ -246,6 +246,89 @@ gfx/mplevels/mb2_dxun/map
 }
 
 //####################
+//##### ERAVANA
+//####################
+
+gfx/automap/mb2_eravana
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_eravana
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_eravana1
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_eravana1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_eravana2
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_eravana2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_eravanafull
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_eravana
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_eravana1full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_eravana1
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_eravana2full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_eravana2
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_eravana/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_eravana/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### MYGEETO
 //####################
 
