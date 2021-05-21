@@ -75,3 +75,32 @@ models/players/sith_assassin/body_master
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// No Mask
+
+models/players/sith_assassin/extras2
+{
+	cull	twosided
+	{
+		map models/players/sith_assassin/extras2
+		alphaFunc GE128
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/kylo_ren/extras_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/sith_assassin/body_uthar
+{
+	cull	disable
+	q3map_nolightmap
+	{
+		map models/players/sith_assassin/body_uthar
+		rgbGen lightingDiffuse
+	}
+}

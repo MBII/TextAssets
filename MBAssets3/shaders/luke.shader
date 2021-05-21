@@ -193,3 +193,31 @@ models/players/luke_anh/belt
 	detail
     }
 }
+
+// tm luke
+models/players/luke_rotj/belt_tm
+{
+	{
+		map models/players/luke_rotj/belt_tm
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map gfx/saber/chrome2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/luke_rotj/belt_tm
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+		detail
+	}
+	{
+		map models/players/luke_rotj/belt_tm_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
