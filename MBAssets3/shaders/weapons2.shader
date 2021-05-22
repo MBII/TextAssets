@@ -972,3 +972,36 @@ models/weapons2/a180/a180_diffuse
         alphaGen lightingSpecular
     }
 }
+
+models/weapons2/e-web_gun/e_web_cannon
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/e-web_gun/e_web_cannon
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/e-web_gun/e_web_cannon_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/e-web_gun/e_web_bmerge
+{
+	surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map models/weapons2/e-web_gun/e_web_bmerge
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/e-web_gun/e_web_bmerge_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}

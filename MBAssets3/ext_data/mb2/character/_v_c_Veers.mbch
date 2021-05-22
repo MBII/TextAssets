@@ -3,17 +3,19 @@
 ClassInfo
 {
 	name				"_v_c_Veers"
-	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_DET_PACK|WP_TRIP_MINE
-	attributes			MB_ATT_DODGE,2|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_RALLY,1|MB_ATT_T21,3|MB_ATT_SPY_DISGUISE,3|MB_ATT_FUEL,2|MB_ATT_FLAMETHROWER|MB_ATT_SONIC_DETONATOR,1
+	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_DET_PACK|WP_BLASTER
+	attributes			MB_ATT_SPY_DISGUISE,3|MB_ATT_DODGE,2|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_RALLY,1|MB_ATT_T21,3|MB_ATT_FUEL,2|MB_ATT_FLAMETHROWER|MB_ATT_BLASTER,1
 	maxhealth			100
 	maxarmor			70
 	model				"imperial_army"
 	skin				"veers"
 	uishader			"models/players/imperial_army/mb2_icon_veers"
-	MBClass				MB_CLASS_MANDALORIAN
-	speed				1.07
-	holdables			HI_CLOAK|HI_BINOCULARS|CFL_SEEING_STEALTH
+	MBClass				MB_CLASS_BOUNTY_HUNTER
+	speed				1.03
+	holdables			HI_CLOAK|HI_BINOCULARS|HI_AMMODISP|HI_ARMORDISP
+	classflags			CFL_SEEING_STEALTH|CFL_SHOTGUN
 	classNumberLimit	1
+	damageGiven         1.15
 
 }
 WeaponInfo0
@@ -25,16 +27,16 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_imp_pistol" 				//Required: Weapon change icon
 	WeaponName			"Commando Blaster Pistol"    					//Required: Weapon change display name
 }
-
 WeaponInfo1
 {
-	WeaponToReplace		WP_TRIP_MINE
-	WeaponBasedOff		WP_TRIP_MINE
-	NewWorldModel		"models/weapons2/sonic_detonator/sonic_det_w.glm"
-	NewViewModel		"models/weapons2/sonic_detonator/sonic_det.md3"
-	missileModel		"models/weapons2/sonic_detonator/sonic_det_proj.md3"
-	Icon			"gfx/hud/w_icon_sonic_det"
-	WeaponName		"Sonic Detonator"
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/CR-1_cannon/rifle_w.glm"
+	NewViewModel		"models/weapons2/CR-1_cannon/rifle.md3"
+	FlashSound0			"sound/weapons/t-21/alt_fire.mp3"
+	Icon				"gfx/hud/w_icon_cr1_blastcannon"
+	WeaponName			"CR-1 Blast Cannon"
+	altFireEnabled		0
 }
 
 description	"General Maximilian Veers
@@ -45,9 +47,12 @@ A versatile Commander with numerous utilities.
 Weaponry:
 - Imperial Commando Blaster Pistol (2)
 - T-21 (3)
+- CR-1 Blast Cannon
 - Sonic Detonator (1)
 
 Attributes:
+- Ammo supply (use key)
+- Regen's ally armor (use key)
 - Immunity to Sight
 - Dodge (2)
 - Disguise (press gun mode in melee)

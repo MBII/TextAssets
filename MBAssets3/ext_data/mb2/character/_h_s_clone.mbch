@@ -3,27 +3,52 @@
 ClassInfo
 {
 	name			"_h_s_clone"
-	weapons			WP_REPEATER|WP_DEMP2|WP_MELEE
-	attributes		MB_ATT_RESPAWNS,1|MB_ATT_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_STRONGBLOBS,1|MB_ATT_CLONEBLOBS,2|MB_ATT_STAMINA,2|MB_ATT_ASSEMBLE
-	maxhealth		100
+	weapons			WP_REPEATER|WP_DEMP2|WP_BLASTER|WP_MELEE
+	attributes		MB_ATT_RESPAWNS,1|MB_ATT_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_STRONGBLOBS,2|MB_ATT_CLONEBLOBS,2|MB_ATT_STAMINA,3|MB_ATT_ASSEMBLE|MB_ATT_GUNBASH
+	maxhealth		80
 	maxarmor		40
 	model			"clonetrooper_p1"
 	skin			"shiny"
 	uishader		"models/players/clonetrooper_p1/mb2_icon_shiny"
 	MBClass			MB_CLASS_CLONETROOPER
+	extralives 		1
+	Speed           1.05
 }
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_REPEATER
+	NewWorldModel		"models/weapons2/dc-15s/dc-15s_w.glm"
+	NewViewModel		"models/weapons2/dc-15s/dc-15s.md3"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
+	MissileEffect		"Blaster/Shot02B"  					//Optional: New effect to be displayed on the projectile
+	AltMissileEffect 	"Blaster/Shot02B"  					//Optional: Ditto for the alt fire
+	FlashSound0			"sound/weapons/repeater/fire.mp3"  			//Optional: Sound played when the weapon fires
+	AltFlashSound0		"sound/weapons/repeater/fire.mp3"
+	Icon				"gfx/hud/w_icon_dc-15s" 				//Required: Weapon change icon
+	WeaponName			"DC-15S Carbine"    					//Required: Weapon change display name
+	CustomAmmo          400
+	clipSize			150
+	ReloadTimeModifier 	0.6
+	firingAnim	DC15_FIRE
+}
+
 
 description	"Clone Trooper
 
 Weaponry:
 - Clone Pistol (2)
-- Clone Rifle (2)
+- DC-15A Blaster Rifle (2)
   - Ion blob rounds (2)
   - Charged blob rounds (2)
+- DC-15S Carbine (2)
 
 Attributes:
 - Stamina (2)
 - Assemble
+- Gunbash
 - Extra life
 
 Cloned and raised in the cities of Kamino, the clone troopers, trained and drilled since birth, came to be regarded as one of the most efficient military forces ever to have existed in galactic history."
