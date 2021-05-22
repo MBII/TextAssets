@@ -23,7 +23,7 @@ models/players/obiwan_ep2/boots
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep2/boots-spec
+		map models/players/obiwan_ep2/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -48,7 +48,7 @@ models/players/obiwan_ep3/boots
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -62,7 +62,7 @@ models/players/obiwan_ep3/boots-bw
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -80,6 +80,20 @@ models/players/obiwan_ep3/hair
 
 
 // OT
+
+models/players/obiwan_ot/belt
+{
+	{
+		map models/players/obiwan_ot/belt
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/obiwan_ot/belt_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
 
 models/players/obiwan_ot/robe
 {
