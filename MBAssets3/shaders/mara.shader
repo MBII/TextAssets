@@ -18,6 +18,28 @@ models/players/mara/mara
 }
 
 
+//   mots_mara
+
+models/players/mara/mots_mara
+{
+	{
+		map models/players/mara/mots_mara
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mara/envmap1
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/mara/mots_mara
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+}
+
+
 //	mara_jumpsuit
 
 models/players/mara_jumpsuit/belt
@@ -62,13 +84,6 @@ models/players/mara_jumpsuit/shins
 		detail
 		alphaGen lightingSpecular
 	}
-	{
-		map models/players/mara_jumpsuit/gloss
-		blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-		detail
-		alphaGen lightingSpecular
-		tcGen environment
-	}
 }
 
 models/players/mara_jumpsuit/torso
@@ -110,5 +125,17 @@ models/players/mara_jumpsuit/cape_goggles
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
+	}
+}
+
+models/players/mara_jumpsuit/hair
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/mara_jumpsuit/hair
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
 	}
 }
