@@ -166,7 +166,7 @@ gfx/hud/alpha/HUD_CaptureProgress
 		map gfx/hud/alpha/HUD_CaptureProgress
 		blendFunc GL_ONE GL_ONE
 		rgbGen const ( 0.5 0.5 0.5 )
-		tcmod scroll -0.55 0
+		tcmod scroll -0.35 0
 	}
 	{
 		map gfx/hud/alpha/HUD_CaptureBar_Mask
@@ -188,7 +188,7 @@ gfx/hud/alpha/HUD_CaptureRegress
 		blendFunc GL_ONE GL_ONE
 		rgbGen const ( 0.5 0.5 0.5 )
 		tcmod scale	-1 1
-		tcmod scroll 0.55 0
+		tcmod scroll 0.35 0
 	}
 	{
 		map gfx/hud/alpha/HUD_CaptureBar_Mask
