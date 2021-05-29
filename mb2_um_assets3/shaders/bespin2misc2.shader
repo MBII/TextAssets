@@ -409,7 +409,6 @@ textures/bounty/sand_bespin
 {
 	qer_editorimage	textures/bounty/sand_b
 	q3map_material	Sand
-	cull	twosided
     {
         map $lightmap
     }
@@ -471,5 +470,298 @@ textures/bespin2/bespin2_trim2
 		blendFunc GL_DST_COLOR GL_ZERO
 		depthFunc equal
 		rgbGen identity
+	}
+}
+
+textures/bespin2/darkwaterPortal
+{
+    qer_editorimage    textures/biggs'_Calodan/dark_water
+    q3map_planar
+    q3map_nolightmap
+    portal
+    deformvertexes wave 170 sin 2.75 6 0 .4
+    {
+        map textures/biggs'_Calodan/dark_water
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
+        alphaFunc LT128
+        depthWrite
+	tcmod scroll -0.10 -0.20 
+	alphaGen const .1
+
+    }
+    {
+        map textures/biggs'_Calodan/dark_water
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        depthFunc equal
+	alphaGen const .1
+	tcMod scroll -0.05 -0.001
+        alphaGen portal 1256
+    }
+    {
+ 	map textures/common/stars
+        blendFunc GL_ONE GL_ONE
+        tcmod scroll 0.05 0.2 
+	tcMod scale 2 2
+	tcMod turb 0 0.08 0.04 0.08
+    }
+    {
+   	map textures/yavin/water_test
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+	depthWrite
+	tcMod scale 0.5 0.5
+	tcmod scroll -0.10 -0.20 
+    }
+}
+//shiny blue marble
+textures/bespin2/a_concrete_shiny
+{
+	qer_editorimage	textures/casa_del_paria/a_concrete
+	q3map_nonplanar
+	q3map_shadeangle 120
+	q3map_material	Marble
+    {
+	map $lightmap
+    }
+    {
+        map textures/casa_del_paria/a_concrete
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/reflection3
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.10
+        tcGen environment
+    }
+}
+//shiny marble
+textures/bespin2/whiteMarble_shiny
+{
+	qer_editorimage	textures/bespin2/whiteMarble
+	q3map_nonplanar
+	q3map_material	Marble
+    {
+	map $lightmap
+    }
+    {
+        map textures/bespin2/whiteMarble
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/common/etest4
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.12
+        tcGen environment
+    }
+}
+//shiny metal detail
+textures/bespin2/nab2_bldg_detail04_shiny
+{
+	qer_editorimage	textures/newtheed/nab2_bldg_detail04
+	q3map_nonplanar
+	q3map_material	Metal
+    {
+	map $lightmap
+    }
+    {
+        map textures/newtheed/nab2_bldg_detail04
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/reflection3
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.15
+        tcGen environment
+    }
+}
+////main white light
+textures/bespin2/whitelight
+{
+	qer_editorimage	textures/jo_flares/light_white
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	q3map_nolightmap
+	q3map_surfacelight 3000
+	q3map_lightRGB 255 147 97
+	q3map_backSplash 1.8 5
+	{
+	map textures/jo_flares/light_white
+	blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+	detail
+	}
+}
+//vines one
+textures/bespin2/vines01
+{
+    //q3map_baseShader textures/yavin/temple_vinesalpha
+    q3map_lightimage textures/yavin/temple_vinesalpha
+    qer_editorimage textures/yavin/temple_vinesalpha
+    surfaceparm	   nonsolid
+    qer_alphaFunc greater 0
+    qer_trans 1
+    surfaceparm alphashadow
+    cull	twosided
+    {
+        map textures/yavin/temple_vinesalpha
+        blendFunc GL_ZERO GL_ONE
+        alphaFunc GE128
+        depthWrite
+    }
+    {
+        map $lightmap
+        depthFunc equal
+    }
+    {
+        map textures/yavin/temple_vinesalpha
+        blendFunc GL_DST_COLOR GL_ZERO
+        alphaFunc GE128
+        depthFunc equal
+    }
+}
+//white fence
+textures/bespin2/whiteFence01
+{
+	qer_editorimage	textures/bespin2/whiteFence01
+	qer_trans 1.0
+	q3map_onlyvertexlighting
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	surfaceparm 	solid
+	cull twosided
+	{
+		map textures/bespin2/whiteFence01
+		alphaFunc GE128
+		depthWrite
+		rgbGen vertex
+	}
+}
+/////////////flowers//////////////
+textures/bespin2/flowergrass2
+{
+	qer_editorimage   gfx/sprites/flower4
+	q3map_material   ShortGrass
+	cull   twosided
+	{
+		map $lightmap
+	}
+	{
+		map textures/newtheed2/flowergrass
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+	{
+		map gfx/sprites/flower4
+			surfaceSprites vertical 32 24 42 500
+			ssFademax 8000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen vertex
+	}
+}
+
+textures/bespin2/flowergrass3
+{
+	qer_editorimage   gfx/sprites/flower5
+	q3map_material   ShortGrass
+	cull   twosided
+	{
+		map $lightmap
+	}
+	{
+		map textures/newtheed2/flowergrass
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+	{
+		map gfx/sprites/flower5
+			surfaceSprites vertical 32 24 42 500
+			ssFademax 8000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen vertex
+	}
+}
+
+textures/bespin2/flowergrass6
+{
+	qer_editorimage   gfx/sprites/flower6
+	q3map_material   ShortGrass
+	cull   twosided
+	{
+		map $lightmap
+	}
+	{
+		map textures/newtheed2/flowergrass
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+	{
+		map gfx/sprites/flower6
+			surfaceSprites vertical 32 24 42 500
+			ssFademax 8000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen vertex
+	}
+}
+
+textures/bespin2/flowergrass9
+{
+	qer_editorimage   gfx/sprites/flower9
+	q3map_material   ShortGrass
+	cull   twosided
+	{
+		map $lightmap
+	}
+	{
+		map textures/newtheed2/flowergrass
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+	{
+		map gfx/sprites/flower9
+			surfaceSprites vertical 32 24 42 500
+			ssFademax 8000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen vertex
+	}
+}
+
+textures/bespin2/flowergrass11
+{
+	qer_editorimage   gfx/sprites/flower11
+	q3map_material   ShortGrass
+	cull   twosided
+	{
+		map $lightmap
+	}
+	{
+		map textures/newtheed2/flowergrass
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+	{
+		map gfx/sprites/flower11
+			surfaceSprites vertical 10 15 42 500
+			ssFademax 8000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen vertex
 	}
 }

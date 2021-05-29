@@ -3,19 +3,22 @@
 ClassInfo
 {
 	name			"_h_u_Jan"
-	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_THERMAL
-	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,1|MB_ATT_THERMALS,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,1
+	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_FRAG_NADE|WP_BOWCASTER
+	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,1|MB_ATT_FRAGS,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,1|MB_ATT_BOWCASTER,1
 	maxhealth		100
-	maxarmor		50
+	maxarmor		60
 	model			"jan"
 	skin			"default"
 	uishader		"models/players/doompack/Janors"
 	MBClass			MB_CLASS_HERO
 	classNumberLimit	1
-	speed			0.95
-	classflags		CFL_SHOTGUN|CFL_FASTHACKING|CFL_RUNFASTMELEE
+	speed			1.05
+	classflags		CFL_SHOTGUN|CFL_FASTHACKING|CFL_RUNFASTMELEE|CFL_NOPICKUPS
 	holdables		HI_MEDPAC|HI_SENTRY_GUN|HI_MEDPAC_BIG
-	rateOfFire .9
+	rateOfFire .70
+	damageTaken .90
+	damageGiven 1.2
+	WP_BowcasterFlags HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_HIGHDAMAGE|HELD_SLOWPROJ|HELD_KNOCKBACK
 }
 
 WeaponInfo0
@@ -32,14 +35,36 @@ WeaponInfo0
 	MissileEffect 		"flechette/shot"
 }
 
+WeaponInfo1
+{
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
+	MissileEffect		 "rockets/missile" 
+	AltMissileEffect     "rockets/missile"
+	FlashSound0          "sound/weapons/rocket/fire.mp3"
+	NewWorldModel		"models/weapons2/merr_sonn/merr_sonn_w.glm"
+	NewViewModel		"models/weapons2/merr_sonn/merr_sonn.md3"
+	Icon			"gfx/hud/w_icon_sbdarm"
+	WeaponName		"PLX-2M"
+	clipSize 2
+	CustomAmmo 14
+	
+}
+
 description	"Jan Ors
 
 Class Summary: 
-A quick-throw, shotgun-wielding Hero class with med packs.
+A quick-throw, shotgun-wielding Hero class with a micro-rocket launcher and med packs.
 
 Weaponary:
 - Pistol (2)
 - FC-1 Flechette Shotgun
+- PLX-2M Rocket Launcher
+  - Massive damage on direct hits
+  - Knockdown and knockback on dirct hits
+  - Minor splash damage
+  - Slow projectile speed
+  - Rockets cannot be pushed
 - Frag Grenades
 
 Attributes:

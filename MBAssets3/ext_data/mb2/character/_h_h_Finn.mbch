@@ -1,12 +1,13 @@
 ClassInfo
 {
 	name 			 "_h_h_Finn"
-	MBClass			MB_CLASS_HERO
-	weapons 		WP_BLASTER|WP_THERMAL|WP_MELEE|WP_SABER
-	attributes  	MB_ATT_BLASTER,2|MB_ATT_THERMALS,1|MB_ATT_HEALING,3|MB_ATT_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_CORTOSIS,1|MB_ATT_DODGE,1
+	MBClass			MB_CLASS_ARCTROOPER
+	weapons 		WP_FRAG_NADE|WP_MELEE|WP_SABER|WP_FLECHETTE
+	attributes  	MB_ATT_FRAGS,1|MB_ATT_HEALING,3|MB_ATT_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_CORTOSIS,1|MB_ATT_DODGE,1|MB_ATT_GUNBASH|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_A280,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1
 	maxhealth 		150
 	maxarmor  		40
-	
+	Speed           1.1
+	APmultiplier		1.35
 	saber1			saber_rey
 	sabercolor		4
 	saberstyle		SS_STRONG
@@ -14,13 +15,14 @@ ClassInfo
 	model				"finn"
 	skin				"default"
 	uishader			"models/players/finn/mb2_icon_default"
-	speed				0.95
 	classNumberLimit	1
+	jetpackFuelCooldown 1000
+	jetpackFuelAmount 	6
 }
 
 WeaponInfo0
 {
-	WeaponToReplace WP_BLASTER
+	WeaponToReplace WP_FLECHETTE
 	WeaponBasedOff  WP_BLASTER
 	NewWorldModel "models/weapons2/EL-16/EL-16_w.glm" 
 	NewViewModel  "models/weapons2/EL-16/EL-16.md3"
@@ -28,10 +30,12 @@ WeaponInfo0
 	AltMuzzleEffect "Blaster/MuzzleFlash01B"
 	MissileEffect "Blaster/Shot02B"
 	AltMissileEffect  "Blaster/Shot02B"
-//	FlashSound0 "sound/weapons/EL-16/fire.wav"
-//	AltFlashSound0  "sound/weapons/EL-16/alt_fire.wav"
+	FlashSound0 "sound/weapons/EL-16/fire.wav"
+	AltFlashSound0  "sound/weapons/EL-16/alt_fire.wav"
 	Icon  "gfx/hud/w_icon_el-16"
 	WeaponName  "EL-16"
+	CustomAmmo 600
+	firingAnim	BOTH_ATTACK4
 }
 
 description	"Finn
@@ -40,13 +44,15 @@ Class Summary:
 A tanky-against-saberists Hero class.
 
 Weaponry:
-- Blaster Rifle (2)
+- Blaster Rifle (3)
 - Frag Grenade (1)
 - Lightsaber
+ - 25% higher AP
 
 Attributes:
 - Resistance to dismemberment (Cortosis 1)
 - Heal (3)
 - Dodge (1)
+- Gunbash
 
 After the raid on Jakku, questions arise regarding FN-2187's competence on the battlefield. He is a scheduled to undergo 'renewal therapy' to ensure his unquestioning loyalty to the First Order, but before that happens, FN-2187 has a profound change of heart, and becomes a fugitive. He adopts the name 'Finn' instead of his numerical designation, the only identity he has ever known. It would seem that Finn's good nature - a gentleness, humour and unerring moral compass - could not be wiped from his mind as it is from others who undergo stormtrooper training."

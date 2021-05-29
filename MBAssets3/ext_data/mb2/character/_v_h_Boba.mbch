@@ -3,44 +3,68 @@
 ClassInfo
 {
 	name				"_v_h_Boba"
-	weapons				WP_BLASTER_PISTOL|WP_FLECHETTE|WP_MELEE|WP_BLASTER
-	attributes			MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_A280,3|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1
+	weapons				WP_FLECHETTE|WP_MELEE|WP_BLASTER|WP_SONIC_NADE|WP_DEMP2
+	attributes			MB_ATT_PISTOL,1|MB_ATT_BLASTER,3|MB_ATT_A280,3|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_BOWCASTER,1|MB_ATT_CORTOSIS,1
 	maxhealth			100
-	maxarmor			100
+	maxarmor			80
 	model				"mbmandy"
 	skin				"mba2"
 	uishader			"models/players/mbmandy/mb2_icon_mba2"
 	MBClass				MB_CLASS_MANDALORIAN
 	classNumberLimit  1
+	WP_DEMP2Flags       HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_HIGHDAMAGE|HELD_KNOCKBACK|HELD_ALTRELOAD
+	damageGiven     1.15
+	rateoffire			0.9
+	damageTaken 	0.85
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_FLECHETTE
-	WeaponBasedOff		WP_FLECHETTE
-	NewWorldModel		"models/weapons2/proj_rifle/proj_rifle_w.glm"
-	NewViewModel		"models/weapons2/proj_rifle/proj_rifle.md3"
-	Icon				"gfx/hud/w_icon_proj_rifle"
-	WeaponName			"Mando Rifle"
-	//primHitscanShot		1
-	//primHitscanTracer	5
-	//altHitscanShot		1
-	//altHitscanTracer	5
-	primGore		1
-	altGore			1
+	WeaponToReplace		WP_DEMP2
+	WeaponBasedOff		WP_DEMP2
+	idleAnim			MAND_FLAME
+	MissileEffect		 "rockets/missile" 
+	FlashSound0          "sound/weapons/rocket/fire.mp3"
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_sbdarm"
+	WeaponName		"Wrist Rocket"
+	clipSize 3
+	CustomAmmo 8
 }
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BLASTER				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_BLASTER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel	"models/weapons2/blaster_r/blaster_w.glm"  	
+	NewViewModel	"models/weapons2/blaster_r/blaster.md3"     	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_E11" 					//Required: Weapon change icon
+	WeaponName		"E-11 Blaster"    				//Required: Weapon change display name
+	customAmmo      700
+	firingAnim	        BOTH_ATTACK4
+}
+
+
 description	"Boba Fett
 
 Class Summary: 
-Sniper Mandalorian with flamethrower and wrist laser.
+Sniper Mandalorian with a variety of equipment.
 
 Weaponry:
 - Pistol (2)
-- Mando Rifle (EE3 lvl 3)
+- EE3 (3)
 - E-11 (3)
+- Wrist Rockets
+  - High damage on direct hits
+  - Knockdown and knockback on direct hits
+  - Minor splash damage
+- Sonic Detonators (2)
 
 Attributes:
 - Jetpack
+  - Cannot overheat
+- Blast Armor
 - Fuel 3
 
 Utilities:

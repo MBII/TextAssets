@@ -3,35 +3,43 @@
 ClassInfo
 {
 	name				"_v_c_hondo"
-	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_FLECHETTE|WP_TRIP_MINE
-	attributes			MB_ATT_FORCEBLOCK,3|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_ANTI_MT|MB_ATT_A280,1|MB_ATT_AMMO,2|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,3|MB_ATT_FP_MIRALUKA
-	classflags			CFL_FASTHACKING|CFL_STATVIEWER|CFL_STRONGAGAINSTPHYSICAL|CFL_SEEING_STEALTH|CFL_RUNFASTMELEE|CFL_NO_FUEL_USE
+	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_FLECHETTE|WP_BLASTER
+	attributes			MB_ATT_FORCEBLOCK,3|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_ANTI_MT|MB_ATT_A280,1|MB_ATT_AMMO,2|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,3|MB_ATT_FP_MIRALUKA
+	classflags			CFL_FASTHACKING|CFL_STATVIEWER|CFL_STRONGAGAINSTPHYSICAL|CFL_SEEING_STEALTH|CFL_RUNFASTMELEE|CFL_NO_FUEL_USE|CFL_SHOTGUN
 	MBClass				MB_CLASS_ARCTROOPER
 	maxhealth			150
 	maxarmor			100
 	model				"hondo"
 	skin				"default"
 	uishader			"models/players/hondo/mb2_icon_default" 
-	classNumberLimit	1	
+	classNumberLimit		1	
 	modelscale			0.95
 	speed				0.95
 	holdables			HI_EWEB
-	rateoffire			1.25
-	forcepowers		FP_SEE,1
+	rateoffire			1.3
+	forcepowers			FP_SEE,1
 	forcepool			25
+	WP_BlasterFlags     		HELD_LOWDAMAGE
 }
 
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_FLECHETTE
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
-	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
-	FlashSound0			"sound/weapons/dc17m/fire.mp3"
-	Icon				"gfx/hud/w_icon_dc-17m"
-	WeaponName			"DC-17M"
-	customAmmo 			400
+	WeaponToReplace		WP_FLECHETTE        					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_FLECHETTE      						//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
+	NewViewModel 		"models/weapons2/e5/e5.md3"
+	Icon			"gfx/hud/w_icon_e5"
+	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
+	MissileEffect		"Blaster/Shot01R"
+	AltMissileEffect 	"Blaster/Shot01R"
+	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound0 		"sound/weapons/ee3/sniperfire.mp3"
+	WeaponName		"Modified E-5 Rifle"
+	customAmmo		400
+	idleAnim		MAND_SPISTOL 
+	firingAnim		MAND_SPISTOL_FIRE
 }
 
 
@@ -46,17 +54,22 @@ WeaponInfo1
 	customAmmo 		600
 }
 
-WeaponInfo3
+
+WeaponInfo2
 {
-	WeaponToReplace			WP_TRIP_MINE
-	WeaponBasedOff			WP_TRIP_MINE
-	NewWorldModel			"models/weapons2/kes_pgren/laser_trap_w.glm"
-	NewViewModel			"models/weapons2/kes_pgren/laser_trap.md3"
-	MissileModel 			"models/weapons2/kes_pgren/laser_trap_proj.md3"
-	MissileModel2 			"models/weapons2/kes_pgren/laser_trap_proj.md3"
-	WeaponName			"Pulse Grenade"
-	Icon				"gfx/hud/w_icon_rpgren"
-	customAmmo		7
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	MissileEffect		"Blaster/Shot01R"
+	FlashSound0			"sound/weapons/acparray/fire.wav"
+	Icon				"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName			"ACP Array Gun"
+	primHitscanShot		1
+	primHitscanTracer	10
+	primGore		1
+	altFireEnabled		0
 }
 
 ForceInfo0
@@ -69,10 +82,12 @@ ForceInfo0
 description			"Hondo Ohnaka
 
 Class Summary: 
-Dexterous Grenadier class with permanent sense.
+Dexterous Grenadier class with devastating shotgun and permanent sense.
 
 Weaponry:
-- Modified DC-17M 
+- Modified E-5 Rifle
+- ACP Array Gun (3)
+  - Hitscan shotgun 
 - SC-10 Pistol (1)
 
 Abilities:

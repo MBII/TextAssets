@@ -2,51 +2,75 @@ ClassInfo
 {
 	name			"_h_t_hk47"
 	MBClass			MB_CLASS_MANDALORIAN
-	weapons			WP_THERMAL|WP_BLASTER|WP_ROCKET_LAUNCHER|WP_MELEE|WP_TRIP_MINE|WP_DISRUPTOR
-	attributes		MB_ATT_THERMALS,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_BLASTER,1|MB_ATT_PLX1,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FLAMETHROWER,1|MB_ATT_FUEL,3|MB_ATT_AMMO,2|MB_ATT_DISRUPTOR,2
-	classflags		CFL_ICETHROWER|CFL_HEAVYMELEE
+	weapons			WP_REAL_TD|WP_MELEE|WP_CONC_NADE|WP_REPEATER|WP_FLECHETTE
+	attributes		MB_ATT_THERMALS,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_CLONERIFLE,3|MB_ATT_A280,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_POISON_DART,2|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1
+	classflags		CFL_ICETHROWER|CFL_WFLAMETHROWER|CFL_HEAVYMELEE
 	model			"hk47"
-	modelscale		1.05				
+	modelscale		1.05	
+    forcepowers     FP_SEE,1	
 	skin			"default"
 	uishader		"models/players/FA_icons/hk47"
+	speed           1.1
 	maxhealth		100
 	maxarmor		125
-	speed			0.95
+	rateOfFire      .8
+	damageGiven     .9
 	classNumberLimit	1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
-	NewWorldModel		"models/weapons2/MiniMag_launcher/launcher_w.glm"
-	NewViewModel		"models/weapons2/MiniMag_launcher/launcher.md3"
-	Icon			"gfx/hud/w_icon_MiniMag"
-	WeaponName		"Missile Launcher"
+	WeaponToReplace		WP_FLECHETTE
+	WeaponBasedOff		WP_DISRUPTOR
+	NewWorldModel		"models/weapons2/proj_rifle/proj_rifle_w.glm"
+	NewViewModel		"models/weapons2/proj_rifle/proj_rifle.md3"
+	Icon				"gfx/hud/w_icon_proj_rifle"
+	WeaponName			"Droid Assassin's Rifle"
+	FlashSound0 "sound/weapons/disruptor/fire.mp3"
+	AltFlashSound0  "sound/weapons/disruptor/alt_fire.mp3"
+    firingAnim	        BOTH_ATTACK4
+	CustomAmmo	900
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_DISRUPTOR       			
-	WeaponBasedOff		WP_DISRUPTOR      			
-	NewWorldModel		"models/weapons2/hk47_disruptor/hk47_disruptor_w.glm"
-	NewViewModel		"models/weapons2/hk47_disruptor/hk47_disruptor.MD3"
-	Icon			"gfx/hud/w_icon_hkruptor"
-	WeaponName		"HK-47's Disruptor"
-
+	WeaponToReplace		WP_REPEATER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_DISRUPTOR					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons/CarboniteRifle/model.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons/CarboniteRifle/model.md3"   	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_carboniterifle" 					//Required: Weapon change icon
+	WeaponName		"Cryoban Rifle"    				//Required: Weapon change display name
 }
+WeaponInfo2
+{
+	WeaponToReplace 	 WP_CONC_NADE       			
+	WeaponBasedOff 		 WP_CONC_NADE  
+	NewWorldModel		 "models/weapons2/V-59_Concussion/V-59_conc_w.glm"
+	NewViewModel  		 "models/weapons2/V-59_Concussion/V-59_conc.md3"
+	Icon 				 "gfx/hud/w_icon_V-59_conc"
+	 MissileModel		 "models/weapons2/V-59_Concussion/V-59_conc_proj.md3"
+ 	AltMissileModel		 "models/weapons2/V-59_Concussion/V-59_conc_proj.md3"
+	WeaponName 			 "V-59 Concussion Grenade" 
+	CustomAmmo	2
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Radar Scanner"
+}
+
 description	"HK-47
 
 Class Summary: 
-A Grenadeer, Rocketeer and Sniper class equipt with freeze ray.
+A Grenadier, Rocketeer and Sniper class equipped with a Cryoban Rifle.
 
 Weaponry:
-- E-11 Rifle (1)
-- Disruptor (2)
-- Rocket Launcher (2)
-- Pulse Grenades 
-- Frag Grenade
-- Freeze Ray (Class Special 2)
+- Droid Assassin's Rifle(2)
+- Heavy Concussion Grenades (2)
+- Frag Grenades (2)
+- Cryoban Rifle (Freeze Ray)
 
 Abilities:
 - Strong Melee
