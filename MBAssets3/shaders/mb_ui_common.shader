@@ -623,9 +623,10 @@ maps/automap_mask
 		map maps/compass_mask.tga
 		alphaFunc GE128
 		rgbGen identity
+		blendFunc GL_ZERO GL_ONE
+		depthWrite
 	}
 }
-
 
 ////CHAT BUBBLES////
 
