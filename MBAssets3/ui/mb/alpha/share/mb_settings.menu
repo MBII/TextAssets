@@ -5054,23 +5054,6 @@ itemDef
 			decoration
 		}
 
-		itemDef
-		{
-			name				teamoverlay
-			group				options
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_TEAM_OVERLAY
-			rect				142 170 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
 		// Weapon Sway. Yes, this is nutty. Two cvars here, one removes weapon sway, the other adds it.
 		itemDef
 		{
@@ -5264,48 +5247,6 @@ itemDef
 			{
 				show			button_glow 
 				setitemrect		button_glow	142 156 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}	
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}
-
-		itemDef
-		{
-			name				teamoverlay
-			group				options
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_MULTI
-			text				" "
-			cvar				"cg_drawTeamOverlay"
-			cvarFloatList
-			{
-				@MENUS_Off							0
-				"Icon only 1 column"				1
-				"Icon only 2 column"				2
-				"Icon + Bars"						3
-				"Icon + Numbers"					4
-				"Icon, Bars, Name, & Location"		5
-				"Icon, Numbers, Name, & Location"	6
-			}
-			rect				142 170 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			@MENUS_DRAW_OVERLAY_SHOWING
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 171 230 15			
 			}
 			mouseExit
 			{
@@ -6757,6 +6698,74 @@ itemDef
 			decoration
 		}
 		
+		itemDef
+		{
+			name				teamoverlay
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_TEAM_OVERLAY
+			rect				142 215 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				ratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Widescreen UI:"
+			rect				142 245 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				forceratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"OpenJK Force Widescreen UI:"
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				forceratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"OpenJK Circle Shader Adjust:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
 // UI OPTIONS 2 FIELDS 2
 
 		itemDef
@@ -6993,6 +7002,159 @@ itemDef
 			{
 				show			button_glow 
 				setitemrect		button_glow	142 186 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				teamoverlay
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cg_drawTeamOverlay"
+			cvarFloatList
+			{
+				@MENUS_Off							0
+				"Icon only 1 column"				1
+				"Icon only 2 column"				2
+				"Icon + Bars"						3
+				"Icon + Numbers"					4
+				"Icon, Bars, Name, & Location"		5
+				"Icon, Numbers, Name, & Location"	6
+			}
+			rect				142 215 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			@MENUS_DRAW_OVERLAY_SHOWING
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 216 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				ratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"mov_ratioFix"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 245 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Corrects the aspect ratio of the HUD for widescreen resolutions."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 246 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				forceratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cg_forceRatioFix"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Forces the correction of the aspect ratio for the HUD in OpenJK based clients."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 261 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				forceratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"r_aspectCorrectRotatePic2"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Forces the correction of the aspect ratio for circular HUD elements in OpenJK based clients."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 276 230 15			
 			}
 			mouseExit
 			{
@@ -7665,6 +7827,23 @@ itemDef
 			decoration
 		}
 
+		itemDef
+		{
+			name				backgroundcolor
+			group				uioptions5
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Background Color"
+			rect				142 250 145 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
 // UI OPTIONS 5 FIELDS 2
 
 		// Layout Selected
@@ -7733,7 +7912,7 @@ itemDef
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				142 244 145 32
+			rect				297 124 145 32
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			72
 			textaligny			-2
@@ -7758,6 +7937,193 @@ itemDef
 				setitemcolor	forcehudreload			backcolor	1 1 1 0.05
 			}
 		}
+
+		// RGB SLIDERS for menu background
+		itemDef
+		{
+			name				menured
+			group				uioptions5
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"cg_hud_r" 1 0 1
+			rect				142 274 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		itemDef
+		{
+			name				menugreen
+			group				uioptions5
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"cg_hud_g" 1 0 1
+			rect				142 294 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		itemDef
+		{
+			name				menublue
+			group				uioptions5
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"cg_hud_b" 1 0 1
+			rect				142 314 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				menualpha
+			group				uioptions5
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarfloat			"cg_hud_a" 1 0 1
+			rect				142 334 100 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			-8
+			textaligny			0
+			font				4
+			textscale 			0
+			forecolor			0.1 0.7 1 0.7
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		//RGB float values
+		itemDef
+		{
+			name				menured_value
+			group				uioptions5
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"R:"
+			cvar				"cg_hud_r"
+			maxchars			4
+			maxPaintChars		4
+			rect				250 274 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Red Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+    
+		itemDef
+		{
+			name				menugreen_value
+			group				uioptions5
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"G:"
+			cvar				"cg_hud_g"
+			maxchars			4
+			maxPaintChars 		4
+			rect				250 294 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Green Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1" 
+			}
+		}
+    
+		itemDef
+		{
+			name				menublue_value
+			group				uioptions5
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"B:"
+			cvar				"cg_hud_b"
+			maxchars			4
+			maxPaintChars		4
+			rect				250 314 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Blue Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+		
+		itemDef
+		{
+			name				menualpha_value
+			group				uioptions5
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"A:"
+			cvar				"cg_hud_a"
+			maxchars			4
+			maxPaintChars		4
+			rect				250 334 46 18
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			descText			"Alpha Channel Value (0-1)"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
 
 // CHAT OPTIONS
 		
@@ -8616,40 +8982,6 @@ itemDef
 			visible				0
 			decoration
 		}
-		
-		itemDef
-		{
-			name				ratiofix
-			group				camera
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Widescreen UI:"
-			rect				142 260 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				forceratiofix
-			group				camera
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"OpenJK Force Ratio:"
-			rect				142 275 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
 
 // CAMERA SETTINGS MENU
 		itemDef
@@ -9007,80 +9339,6 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
-		
-		itemDef
-		{
-			name				ratiofix
-			group				camera
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_MULTI
-			text				" "
-			cvar				"mov_ratioFix"
-			cvarFloatList
-			{
-				@MENUS_OFF		0
-				@MENUS_ON		1
-			}
-			rect				142 260 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			"Corrects the aspect ratio of the HUD for widescreen resolutions."
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 261 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}	
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}
-
-		itemDef
-		{
-			name				forceratiofix
-			group				camera
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_MULTI
-			text				" "
-			cvar				"cg_forceRatioFix"
-			cvarFloatList
-			{
-				@MENUS_OFF		0
-				@MENUS_ON		1
-			}
-			rect				142 275 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			"Forces the correction of the aspect ratio for the HUD in OpenJK based clients."
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 276 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}	
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}	
 		
 // CONNECTION SETTINGS MENU
 		itemDef
