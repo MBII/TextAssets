@@ -1,0 +1,131 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name 			"SOM_V1E_tech"
+	weapons 		WP_SABER|WP_MELEE|WP_BOWCASTER|WP_BLASTER_PISTOL|WP_PULSE_NADE
+	attributes		MB_ATT_PISTOL,2|MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_CCTRAINING,2|MB_ATT_ARMOUR,3|MB_ATT_BOWCASTER,1|MB_ATT_PULSE_GRENADES,2
+	maxhealth		55
+	maxarmor		40
+	holdables         	HI_HEALTHDISP|HI_AMMODISP|HI_SEEKER|HI_SENTRY_GUN|HI_EWEB|HI_ARMORDISP
+	saber1			mwrench
+	saberstyle		SS_MEDIUM
+	model			"shoretrooper"
+	skin			"tank"
+	uishader		"models/players/shoretrooper/mb2_icon_tank"
+	MBClass 		MB_CLASS_SOLDIER
+	extralives 		2
+	classflags		CFL_STATVIEWER|CFL_NOPICKUPS
+	WP_Bowcasterflags	HELD_PULSE|HELD_LOWDAMAGE|HELD_SLOW|HELD_AMMOREGEN
+		
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_mwrench" 	//Required: Weapon change icon
+	WeaponName		"Wrench"    					//Required: Weapon change display name
+}
+
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BOWCASTER				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"  	//Required
+	NewViewModel		"models/weapons2/base_demp2/demp2.glm"   	//Required
+	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2" 				//Required
+	WeaponName			"DEMP 2"    					//Required
+	
+
+	//Efx
+		
+	MissileHitHumanEffect "base_demp2/altdetonate"
+	MissileHitDroid 	"base_demp2/altdetonate"
+
+	WallImpact 			"base_demp2/wall_impact"
+	WallImpactEnhanced 	"base_demp2/wall_impact"
+	WallImpactEnhanced2 	"base_demp2/wall_impact"
+
+	MissileEffect		"base_demp2/projectile"  					
+	AltMissileEffect 	"base_demp2/projectile" 
+
+	MuzzleEffect		"base_demp2/muzzle_flash"   				//Optional: New muzzle effect
+	AltMuzzleEffect		"base_demp2/altmuzzle_flash" 				//Optional: New alt muzzle effect
+
+	FleshImpact 	 "base_demp2/flesh_impact"
+	DroidImpact 	"base_demp2/flesh_impact"
+
+	CustomAmmo 	100
+	ClipSize 		5
+	ReloadTimeModifier 	.85		// default is 1 - 100%
+	ProjSpeedModifier .8
+
+	//IdleAnim	nameofanimation		
+	//FiringAnim	nameofanimation	
+
+	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
+	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
+
+
+	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound1		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound3		"sound/weapons/base_demp2/fire.mp3"
+	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
+
+	AltFireEnabled 0
+
+	}
+
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/imp_pistol/pistol_w.glm"
+	NewViewModel		"models/weapons2/imp_pistol/pistol_fpv.md3"
+	Icon			"gfx/hud/w_icon_imp_pistol"
+	WeaponName		"Imperial Pistol"
+}
+
+description	"The Technician
+
+Details:
+
+Tech support units are tasked with providing allies with much needed health and ammunition when necessary. They can deploy sentry droids and seeker drones to supplement their own lack of firepower, as well as utilize pulse grenades to deal with certain annoying droid classes. On top of all of this, they are excellent hackers. They are, however, very poor fighters. 
+
+Weaponry:
+
+DEMP 2: (1)
+Blaster Pistol: (2)
+Pulse Grenades: (2)
+Wrench: (X)
+
+Equipment: 
+
+Binoculars: (X)
+Seeker Drone: (X)
+Portable Sentry: (X)
+Eweb: (X)
+
+Attributes:
+
+Close-Combat Training: (2)
+Reinforcements: (2)
+Assemble: (X)
+Ammunition Supplies: (X)
+Medical Supplies: (X)
+Armor Regeneration Supplies: (X)
+Can See Health/Shield Status of Allies: (X)
+
+
+Fast Hacking: (X)
+
+Strengths: Excellent support units, with health, ammo, and other supplies.
+
+Weaknesses: Inferior in direct combat role
+"
