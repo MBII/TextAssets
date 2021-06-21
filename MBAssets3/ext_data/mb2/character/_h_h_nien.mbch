@@ -10,40 +10,44 @@ ClassInfo
 	saber1			Wrench_Legends
 	sabercolor		0
 	saberstyle		SS_TAVION|SS_STRONG
-	weapons			WP_MELEE|WP_TRIP_MINE|WP_THERMAL|WP_BLASTER_PISTOL|WP_SABER
-	attributes		MB_ATT_PISTOL,2|MB_ATT_CORTOSIS,1|MB_ATT_THERMALS,3|MB_ATT_DASH,2|MB_ATT_QUICKTHROW,1|MB_ATT_ARMOUR,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_SOLDIER_TDS,3|MB_ATT_AMMO,2|MB_ATT_BLAST_ARMOUR
+	weapons			WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_BLASTER_PISTOL|WP_SABER|WP_PULSE_NADE
+	attributes		MB_ATT_PISTOL,2|MB_ATT_CORTOSIS,1|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_ARMOUR,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_AMMO,2|MB_ATT_BLAST_ARMOUR|MB_ATT_PULSE_GRENADES,1
 	forcepowers		FP_SABER_DEFENSE,1|FP_LEVITATION,3
 	maxhealth				125
-	forcepool				4
+	forcepool				5
 	forceregen				2
 	maxarmor				50
-	damageGiven				.5
 	classNumberLimit		1
+	rateOfFire              1
+	speed                   1.075
+	damagetaken					0.8
+	DamageGiven                  0.65
 	classflags				CFL_STRONGAGAINSTPHYSICAL
 	holdables				HI_CLOAK
-	damagetaken					0.8
-	WP_BlasterPistolFlags	HELD_HIGHDAMAGE
+   	 WP_BlasterPistolFlags       HELD_HIGHDAMAGE
+
 }
 WeaponInfo0
 {
-	WeaponToReplace		WP_TRIP_MINE       			
-	WeaponBasedOff		WP_TRIP_MINE   
+	WeaponToReplace		WP_CONC_NADE       			
+	WeaponBasedOff		WP_CONC_NADE   
 	NewWorldModel		"models/weapons2/V-59_Concussion/V-59_conc_w.glm"
 	NewViewModel		"models/weapons2/V-59_Concussion/V-59_conc.md3"
+	MissileModel		 "models/weapons2/V-59_Concussion/V-59_conc_proj.md3"
+ 	AltMissileModel		 "models/weapons2/V-59_Concussion/V-59_conc_proj.md3"
 	Icon			"gfx/hud/w_icon_V-59_conc"   			
-	customAmmo		4	
-	WeaponName		"Concussion Grenade"   			
+	customAmmo		3	
+	WeaponName		"V-59 Concussion Grenade"   
 }
 WeaponInfo1
 {
-	WeaponToReplace		WP_THERMAL      			
-	WeaponBasedOff		WP_THERMAL   
+	WeaponToReplace		WP_FRAG_NADE      			
+	WeaponBasedOff		WP_FRAG_NADE   
 	NewWorldModel		"models/weapons2/fraggrenade/thermal_w.glm"
 	NewViewModel		"models/weapons2/fraggrenade/thermal.md3"
 	Icon			"gfx/hud/w_icon_fraggrenade"   			
 	customAmmo		5	
-	primFireEnabled	0
-	WeaponName		"Quickthrow Grenade"   			
+	WeaponName		"Frag Grenade"   			
 }
 WeaponInfo2
 {
@@ -58,19 +62,18 @@ WeaponName		"Hydrospanner"
 description	"Nien Nunb
 
 Class Summary: 
-Quick-throwing cloaked grenadier with a Blunt Object
+Quick-throwing cloaked grenadier with an EMP gun and a Blunt Object
 
 Weaponry:
 - Pistol (2)
 - Grenades (do half damage)
   - V-59 Concussion Grenade (4)
-  - Quickthrow Grenades (5)
+  - Frag Grenades (5)
+  - Pulse Grenade (1)
 
 Attributes:
 - Cloak
 - Melee Damage Reduction
-- Quick Throw (1)
-  - Bound with Alt Ability 1
 - Dash (2) (Alt Ability 1)
 - Cortosis Weave
 - Blast Armor

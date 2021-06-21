@@ -3,22 +3,24 @@
 ClassInfo
 {
 	name					"_v_h_IG88"
-	weapons					WP_SABER|WP_BRYAR_OLD|WP_MELEE||WP_THERMAL
-	attributes				MB_ATT_THERMALS,1|MB_ATT_LOGIC,1|MB_ATT_RECHARGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PISTOL,3|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_POISON_DART,2|MB_ATT_BLAST_ARMOUR
-	maxhealth				335
+	weapons					WP_SABER|WP_BRYAR_OLD|WP_MELEE||WP_REAL_TD|WP_REPEATER
+	attributes				MB_ATT_THERMALS,1|MB_ATT_RADAR|MB_ATT_LOGIC,1|MB_ATT_RECHARGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PISTOL,3|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_POISON_DART,2|MB_ATT_BLAST_ARMOUR|MB_ATT_CLONERIFLE,1
+	maxhealth				200
 	model					"IG88"
-	skin					"default"
+	skin					"ig11"
 	uishader				"models/players/IG88/mb2_icon_RaxIG88"
 	MBClass					MB_CLASS_SBD
-	speed					1.06
+	speed					1.1
 	meleeMoves				M_PUNCH
+	ASmultiplier 2
+	CSmultiplier 2
 	classNumberLimit		1
 	modelscale  			1.1
-	classflags				CFL_REALTD
+	classflags				CFL_REALTD|CFL_FASTHACKING
 	saber1 					heavymelee
 	saber2 					heavymelee
 	saberstyle				SS_DUAL
-	
+	WP_RepeaterFlags        HELD_DISRUPTIFY
 }
 
 WeaponInfo0
@@ -51,15 +53,15 @@ WeaponInfo1
 	Icon				"gfx/hud/w_icon_bryar_duals"
 	WeaponName			"Dual DL-44's"
 //	altFireEnabled		0
- 		IdleAnim	DUAL_PISTOLS_READY		
- 	//	FiringAnim	nameofanimation		
+ //	IdleAnim	DUAL_PISTOLS_READY		
+ //	FiringAnim	nameofanimation		
 
 }
 
 WeaponInfo2		
 {
-	WeaponToReplace		WP_THERMAL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_THERMAL					//Required: For future use, should be the same as WeaponToReplace
+	WeaponToReplace		WP_REAL_TD					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_REAL_TD					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/thermal/thermal_w.glm" 	//Required: New 3rd person/dropped weapon model 
 	NewViewModel		"models/weapons2/thermal/thermal.md3"   	//Required: New 1st person weapon model
 	MissileModel		"models/weapons2/thermal/thermal_proj.md3"
@@ -68,22 +70,38 @@ WeaponInfo2
 	Icon				"gfx/hud/w_icon_thermal" 			//Required: Weapon change icon
  	WeaponName			"Self Destruct"    					//Required: Weapon change display name
 }
+WeaponInfo3
+{
+	WeaponToReplace		WP_REPEATER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_CONCUSSION				//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/dlt20a/dlt20a_w.glm"
+	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"
+	MuzzleEffect		"Blaster/MuzzleFlash01R"   				//Optional: New muzzle effect
+	altMuzzleEffect		"Blaster/MuzzleFlash01R"   				//Optional: New muzzle effect
+	MissileEffect		"repeater/projectile"  					//Optional: New effect to be displayed on the projectile
+	FlashSound0			"sound/weapons/assaultcannon/fire.wav"  			//Optional: Sound played when the weapon fires
+	Icon				"gfx/hud/w_icon_DLT20a"
+	WeaponName			"Pulse Cannon"    					//Required: Weapon change display name
+}
 
-
-description			"IG-88
+description			"IG-11
 
 Class Summary: 
 A dual wielding pistol tank class with strong melee knockback.
 
 Weaponry:
 - Dual DL-44's (3)
+- Pulse Cannon (1)
+  - Ignites enemies on hits
 - Thermal Detonator
 - Melee (big knockback)
 
 Attributes:
+- Fast hacking
 - Poison Darts (2)
 - Magnetic Plate Armor
 - Blast Armor
-- Advanced Logic
+- Advanced Logic 
+- Radar (must be in recharge mode to use - Sense 1)
 
-IG-88 was an assassin droid line designed by Holowan Laboratories. The IG-88 line was a derivative of the IG-86 sentinel droids used during the Clone Wars. IG-88 later became one of the galaxy's most infamous bounty hunters. At some point, one of the IG-88s came under the employment of the Zann Consortium criminal organization, apparently owing the second-in-command of the organization a favor."
+IG-11, also known as Eyegee-Eleven or simply as IG or Eyegee, was a masculine-programmed IG-series assassin droid who was a bounty hunter during the New Republic Era. IG-11 was programmed to follow protocols of the Bounty Hunters' Guild, and had a built-in self-destruct mechanism to prevent himself from being captured while working as a hired gun."

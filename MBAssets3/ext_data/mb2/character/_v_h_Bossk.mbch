@@ -3,8 +3,8 @@
 ClassInfo
 {
 	name				"_v_h_Bossk"
-	weapons				WP_FLECHETTE|WP_MELEE|WP_TRIP_MINE
-	attributes			MB_ATT_A280,2|MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,2|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_FP_MIRALUKA|MB_ATT_QUICKTHROW,2|MB_ATT_GUNBASH
+	weapons				WP_FLECHETTE|WP_MELEE|WP_FIRE_NADE
+	attributes			MB_ATT_A280,2|MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,2|MB_ATT_FP_MIRALUKA|MB_ATT_QUICKTHROW,2|MB_ATT_GUNBASH|MB_ATT_WOOKIE_STRENGTH,1
 	forcepowers			FP_SEE,1
 	maxhealth			325
 	forcepool			25
@@ -15,18 +15,20 @@ ClassInfo
 	uishader			"models/players/trandoshan/mb2_icon_default_jab"
 	MBClass				MB_CLASS_MANDALORIAN
 	classNumberLimit	1
-	Classflags			CFL_HEAVYMELEE|CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE|CFL_ACIDBLOOD
+	Classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_HEAVYMELEE
 	modelscale			1.09
 	WP_FlechetteFlags	HELD_POISON|HELD_ALTRELOAD
 	WP_BlasterFlags		HELD_POISON|HELD_ALTRELOAD
-	speed	1.09
-	damageGiven 0.9
+	speed	1
+	damageGiven 0.8
+	damageTaken 		1
+	rateOfFire		0.95
 }
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_FLECHETTE
-	WeaponBasedOff		WP_FLECHETTE
+	WeaponBasedOff		WP_CONCUSSION
 	NewWorldModel		"models/weapons2/dlt20a/dlt20a_w.glm"
 	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"
 	Icon				"gfx/hud/w_icon_DLT20a"
@@ -36,18 +38,6 @@ WeaponInfo0
 	primGore		1
 	altGore			1
 }
-
-WeaponInfo1
- {
- 	WeaponToReplace		WP_TRIP_MINE			
- 	WeaponBasedOff		WP_TRIP_MINE			
- 	NewWorldModel		"models/weapons2/plasma/plasma_w.glm"  
- 	NewViewModel		"models/weapons2/plasma/plasma.md3" 
- 	missilewModel		"models/weapons2/plasma/plasma_proj.md3" 	  
- 	Icon				"gfx/hud/w_icon_plasma"
- 	WeaponName			"Fire Grenade" 
-		CustomAmmo		3
- }
 
 ForceInfo0
 {
@@ -62,8 +52,8 @@ Class Summary:
 Strong bounty hunter that quick-throws fire nades.
 
 Weaponry:
-- Poisonous DLT-20 (2)
-- Fire Grenades (3)
+- Poisonous DLT-20 (alt mode for sniper)
+- Fire Grenades (2)
 
 Abilities:
 - Gunbash (alt ability 3)

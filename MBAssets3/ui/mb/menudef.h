@@ -147,6 +147,11 @@
 #define FEEDER_MBCFG					0x39 // moviebattles class config list
 #define FEEDER_SIEGE_TEAM_ALL			0x3a // All Siege Class Feeder
 
+#define FEEDER_UI_HUD					0x3b //#ifdef GCJ_UI_HUD_FEEDER
+
+#define FEEDER_SMOD_MAPS				0x3c //#ifdef GCJ_SMOD_SIEGETEAMS_UI
+#define FEEDER_SMOD_SIEGETEAM			0x3d //#ifdef GCJ_SMOD_SIEGETEAMS_UI
+
 // Xbox specific, hope no one minds
 #define FEEDER_XBL_ACCOUNTS				0xA0	// list of available XBL accounts
 #define FEEDER_XBL_PLAYERS				0xA1	// players (current and recent)

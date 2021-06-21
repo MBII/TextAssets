@@ -1,17 +1,31 @@
 ClassInfo
 {
 	name 				"_h_h_Lando"
-	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER
-	attributes			MB_ATT_PISTOL,3|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3
+	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER
+	attributes			MB_ATT_PISTOL,1|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_HEALING,2|MB_ATT_DASH,2
 	maxhealth 			100
 	maxarmor 			60
-	speed				1.15
+	speed				1.05
+	saberstyle			SS_MEDIUM
+	saber1				vibroaxe
 	model				"lando" 				
-	skin				"default"					
-	uishader			"models/players/lando/mb2_icon_default"
+	skin				"general"					
+	uishader			"models/players/lando/mb2_icon_general"
 	MBClass 			MB_CLASS_HERO
-	damageGiven			1.20
+	damageGiven			1.10
 	classNumberLimit 	1
+	holdables 			HI_AMMODISP
+	ASmultiplier        0.825
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon				"gfx/hud/w_icon_skiff_pike" 	//Required: Weapon change icon
+	WeaponName			"Vibro Axe"    					//Required: Weapon change display name
 }
 
 description "Lando Calrissian
@@ -23,8 +37,11 @@ Weaponry:
 - Melee
 - Blaster Pistol (2)
 - E-11 Blaster Rifle (3)
+- Vibro Axe
 
 Attributes:
+- Ammo Dispenser
+- Dash
 - Dodge   (3)
 - Heal   (3)
 - Ammo   (3)

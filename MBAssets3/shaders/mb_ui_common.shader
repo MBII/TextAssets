@@ -109,11 +109,10 @@ gfx/menus/greyscale2
 
 gfx/menus/subtitle
 {
-    qer_editorimage    textures/colors/black
     {
-        map textures/colors/black
+        map $whiteimage
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        alphaGen const 0.8
+        rgbgen vertex
     }
 }
 
@@ -624,9 +623,10 @@ maps/automap_mask
 		map maps/compass_mask.tga
 		alphaFunc GE128
 		rgbGen identity
+		blendFunc GL_ZERO GL_ONE
+		depthWrite
 	}
 }
-
 
 ////CHAT BUBBLES////
 

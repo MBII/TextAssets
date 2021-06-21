@@ -44,6 +44,14 @@
 		rect					93 5 454 40
 		focusColor				1 1 1 0.6
 		disableColor			0.5 0.5 0.5 0.5
+		onOpen
+		{
+			setcvar				cg_escapeactive "1"			
+		}
+		onClose
+		{
+			setcvar				cg_escapeactive "0"
+		}
 
 
 // BACKGROUND 
@@ -103,6 +111,7 @@
 				open			ingame_about
 				close			joinserver
 				close			settings
+				close			ingame_moderate
 				close			help_menu
 				close			ingame_leave
 				close			ingame_join
@@ -140,6 +149,7 @@
 				close			ingame_about
 				open			joinserver
 				close			settings
+				close			ingame_moderate
 				close			help_menu
 				close			ingame_leave
 				close			ingame_join
@@ -224,30 +234,31 @@
 				close			ingame_about
 				close			joinserver
 				open			settings
+				close			ingame_moderate
 				close			help_menu
 				close			ingame_leave
 				close			ingame_join
 			}
-		}		
+		}
 
 		itemDef
 		{
-			name				library
-			text				"LIBRARY"
+			name				moderate
+			text				"MODERATE"
 			type				1
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				329 10 52 20
+			rect				315 10 55 20
 			font				6
 			textscale			0.15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			25
+			textalignx			27
 			textaligny			-3
 			forecolor			1 1 1 1
 			visible				1
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	329 10 52 20
+				setitemrect		button_glow	315 10 55 20			
 			}
 			mouseExit
 			{
@@ -259,6 +270,43 @@
 				close			ingame_about
 				close			joinserver
 				close			settings
+				open			ingame_moderate
+				close			help_menu
+				close			ingame_leave
+				close			ingame_join
+			}
+		}
+
+		itemDef
+		{
+			name				library
+			text				"LIBRARY"
+			type				1
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				369 10 52 20
+			font				6
+			textscale			0.15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			25
+			textaligny			-3
+			forecolor			1 1 1 1
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	369 10 52 20
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				close			ingame_about
+				close			joinserver
+				close			settings
+				close			ingame_moderate
 				open			help_menu
 				close			ingame_leave
 				close			ingame_join
@@ -271,18 +319,18 @@
 			text				"EXIT"
 			type				1
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				393 10 52 20
+			rect				420 10 25 20
 			font				6
 			textscale			0.15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			25
+			textalignx			12
 			textaligny			-3
 			forecolor			1 1 1 1
 			visible				1
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	393 10 52 20			
+				setitemrect		button_glow	420 10 25 20			
 			}
 			mouseExit
 			{
@@ -294,6 +342,7 @@
 				close			ingame_about
 				close			joinserver
 				close			settings
+				close			ingame_moderate
 				close			help_menu
 				open			ingame_leave
 				close			ingame_join

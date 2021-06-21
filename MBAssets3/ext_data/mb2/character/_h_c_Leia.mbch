@@ -3,21 +3,21 @@
 ClassInfo
 {
 	name				"_h_c_Leia"
-	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_THERMAL|WP_TRIP_MINE
-	attributes			MB_ATT_ANTI_MT,1|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_THERMALS,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_FORCEBLOCK,3|MB_ATT_FP_MIRALUKA|MB_ATT_DODGE,1
+	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_REAL_TD|WP_PULSE_NADE
+	attributes			MB_ATT_ANTI_MT,1|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_THERMALS,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_FORCEBLOCK,3|MB_ATT_DODGE,1
 	maxhealth			100
 	maxarmor			40
 	forcepowers			FP_SEE,2
 	forcepool			60
-	forceregen			1
+	forceregen			0.7
 	model				"leia_anh" 				//this is optional, if it's here it forces the model to this.
 	skin				"default"					//this is optional, if it's here it forces the skin to this.
 	uishader			"models/players/leia_anh/mb2_icon_default"
 	MBClass				MB_CLASS_JEDI
 	holdables			HI_CLOAK
 	classNumberLimit 	1
-	classflags			CFL_REALTD
-	damageGiven		0.8
+	classflags			CFL_SEEING_STEALTH|CFL_REALTD|CFL_NOPICKUPS
+	damageGiven			0.7
 }
 
 WeaponInfo0
@@ -32,23 +32,9 @@ WeaponInfo0
 	AltFlashSound0 		"sound/weapons/bryar/alt_fire.mp3"
 	CustomAmmo			700
 	CustomClip			100
-	idleAnim MAND_SPISTOL 
-  firingAnim  MAND_SPISTOL_FIRE
+	idleAnim			MAND_SPISTOL 
+	firingAnim			MAND_SPISTOL_FIRE
 }
-
-WeaponInfo1	
-{
-	WeaponToReplace		WP_THERMAL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_THERMAL					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm" 	//Required: New 3rd person/dropped weapon model 
-	NewViewModel		"models/weapons2/thermal/thermal.md3"   	//Required: New 1st person weapon model
-	MissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	FlashSound0 		"sound/weapons/thermal/fire.mp3"
-	AltFlashSound0 		"sound/weapons/thermal/fire.mp3"
-	Icon				"gfx/hud/w_icon_thermal" 			//Required: Weapon change icon
- 	WeaponName			"Thermal Detonator"    					//Required: Weapon change display name
-}
-
 
 description	"Princess Leia Organa
 
@@ -56,18 +42,19 @@ Class Summary:
 A cloaked pistoleer Hero imbued with force abilities.
 
 Weaponry:
-- Pistol (3)
-- Thermal Detonator	(1)
-- Pulse Grenade	(1)
+- Pistol (3 with 20% less damage)
+- Thermal Detonator (1)
+- Pulse Grenade (1)
 
 Inventory:
 - Cloaking Device
-- Invisible to force sight
+- Cannot be Mind-Tricked
 
 Attributes:
+- Invulnerable to Mind Trick
 - Quick Getup
 - Dodge	(1)
-- Miraluka Sense (2)
+- Sense (2)
 - Force Block (3)
 - Rally
 

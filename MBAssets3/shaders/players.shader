@@ -4667,6 +4667,9 @@ models/players/reborn_new/head_hat
 	}
 }
 
+
+// mb2 addon
+
 models/players/human_merc/human_merc_torso_lower
 {
 	cull	twosided
@@ -4690,6 +4693,60 @@ models/players/rax_joris/robe
 	cull	twosided
 	{
 		map models/players/rax_joris/robe
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/noghri/armor
+{
+	cull	twosided
+	{
+		map models/players/noghri/armor
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rosh_penin/flaps
+{
+	cull	twosided
+	{
+		map models/players/rosh_penin/flaps
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rosh_penin/flaps_blue
+{
+	cull	twosided
+	{
+		map models/players/rosh_penin/flaps_blue
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rosh_penin/flaps_red
+{
+	cull	twosided
+	{
+		map models/players/rosh_penin/flaps_red
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/jedi_tf/torso_03_lower
+{
+	cull	twosided
+	{
+		map models/players/jedi_tf/torso_03_lower
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/jedi_tf/torso_04_lower
+{
+	cull	twosided
+	{
+		map models/players/jedi_tf/torso_04_lower
 		rgbGen lightingDiffuse
 	}
 }
