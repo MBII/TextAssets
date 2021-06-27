@@ -10,12 +10,34 @@ gfx/hud/alpha/HUD_Score
 	}
 }
 
+gfx/hud/alpha/HUD_Score2
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Score2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
 gfx/hud/alpha/HUD_Timer
 {
 	nopicmip
 	notc
 	{
 		map gfx/hud/alpha/HUD_Timer
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Timer2
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Timer2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
