@@ -1,0 +1,40 @@
+name: Package Assets
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master, vNext, buildTest-* ]
+
+jobs:
+
+  package:
+    name: Package & Upload
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - uses: actions/checkout@v2
+            
+      - name: Package Files
+        shell: powershell
+        run: |
+          Compress-Archive -Force -Path MBAssets3/* -DestinationPath MBAssets3.zip
+          Compress-Archive -Force -Path 03_MovieGameMappack/* -DestinationPath 03_MovieGameMappack.zip
+          Compress-Archive -Force -Path mb2_cmp_assets3/* -DestinationPath mb2_cmp_assets3.zip
+          Compress-Archive -Force -Path mb2_um_assets3/* -DestinationPath mb2_um_assets3.zip
+          Compress-Archive -Force -Path mb2_pb_assets2/* -DestinationPath mb2_pb_assets2.zip
+          
+      - name: Upload Files
+        shell: powershell
+        run: |
+          $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
+          $MBII = $GAMEDATA + "\MBIITest"
+          svn cleanup --vacuum-pristines $GAMEDATA
+          svn update $MBII
+          Move-Item -Force -Path MBAssets3.zip -Destination $MBII\MBAssets3.pk3
+          Move-Item -Force -Path 03_MovieGameMappack.zip -Destination $MBII\03_MovieGameMappack.pk3
+          Move-Item -Force -Path mb2_cmp_assets3.zip -Destination $MBII\mb2_cmp_assets3.pk3
+          Move-Item -Force -Path mb2_um_assets3.zip -Destination $MBII\mb2_um_assets3.pk3
+          Move-Item -Force -Path mb2_pb_assets2.zip -Destination $MBII\mb2_pb_assets2.pk3
+          $BRANCH = "${{github.ref}}".Split("/")[2]
+          $HASH = "${{github.sha}}".Substring(0, 7)
+          svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
+          svn update $MBII | out-file $MBII/svn_log.txt -encoding ASCII
