@@ -16,12 +16,11 @@ jobs:
       - name: Package Files
         shell: powershell
         run: |
-          Remove-Item -Path *.pk3
-          7z -tzip a MBAssets3.pk3 .\MBAssets3\*
-          7z -tzip a 03_MovieGameMappack.pk3 .\03_MovieGameMappack\*
-          7z -tzip a mb2_cmp_assets3.pk3 .\mb2_cmp_assets3\*
-          7z -tzip a mb2_um_assets3.pk3 .\mb2_um_assets3\*
-          7z -tzip a mb2_pb_assets2.pk3 .\mb2_pb_assets2\*
+          deterministic_zip MBAssets3.pk3 MBAssets3/
+          deterministic_zip 03_MovieGameMappack.pk3 03_MovieGameMappack/
+          deterministic_zip mb2_cmp_assets3.pk3 mb2_cmp_assets3/
+          deterministic_zip mb2_um_assets3.pk3 mb2_um_assets3/
+          deterministic_zip mb2_pb_assets2.pk3 mb2_pb_assets2/
           
       - name: Upload Files
         shell: powershell
