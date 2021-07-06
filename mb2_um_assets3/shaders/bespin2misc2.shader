@@ -765,3 +765,62 @@ textures/bespin2/flowergrass11
 		rgbGen vertex
 	}
 }
+
+textures/bespin2/whitewood3
+{
+	qer_editorimage	textures/bespin2/whitewood3
+	q3map_nonplanar
+	q3map_material	Wood
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespin2/whitewood3
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+}
+///night sky
+textures/skies/NightBespin
+{
+	qer_editorimage	textures/skies/sky
+	surfaceparm	sky
+	surfaceparm	noimpact
+	surfaceparm	nomarks
+	notc
+	q3map_nolightmap
+	skyParms	textures/skies/NightBespin 512 -
+}
+///polaroid
+textures/bespin2/oldfriendspolaroid
+{
+	qer_editorimage	textures/bespin2/oldfriendspolaroid
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	q3map_nolightmap
+        qer_alphaFunc greater 0
+        qer_trans 1
+	{
+		map textures/bespin2/oldfriendspolaroid
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		detail
+	}
+}
+
+///inverted poster
+textures/bespin2/twi_poster
+{
+	qer_editorimage	textures/bespin2/twi_poster
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	q3map_nolightmap
+	cull	twosided
+	{
+		clampmap textures/bespin2/twi_poster
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.9 0.82 0.82 )
+		detail
+	}
+}
