@@ -706,30 +706,6 @@ levelshots/um_gib_coruscant2
     }
 }
 
-levelshots/um_gib_imperial
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_gib_imperial
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_gib_imperial2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_gib_imperial2
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
 levelshots/um_gib_narshaddaa
 {
     nopicmip
@@ -946,7 +922,7 @@ levelshots/um_lavarising2
     }
 }
 
-levelshots/um_medievil
+levelshots/um_ctf_medievil
 {
     nopicmip
     nomipmaps
@@ -958,7 +934,7 @@ levelshots/um_medievil
     }
 }
 
-levelshots/um_medievil2
+levelshots/um_ctf_medievil2
 {
     nopicmip
     nomipmaps
