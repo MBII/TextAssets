@@ -928,7 +928,7 @@ levelshots/um_ctf_medievil
     nomipmaps
     notc
     {
-        map levelshots/um_medievil
+        map levelshots/um_ctf_medievil
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -940,7 +940,7 @@ levelshots/um_ctf_medievil2
     nomipmaps
     notc
     {
-        map levelshots/um_medievil2
+        map levelshots/um_ctf_medievil2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
