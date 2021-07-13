@@ -30,8 +30,7 @@ models/players/merc_zf/hips_03
 {
 	{
 		map models/players/merc_zf/hips_03
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
+		rgbGen lightingDiffuse
 	}
 	{
 		map models/players/jedi_zf/hips_03_spec
@@ -45,8 +44,7 @@ models/players/merc_zf/torso_02_lower
 {
 	{
 		map models/players/merc_zf/torso_02_lower
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
+		rgbGen lightingDiffuse
 	}
 	{
 		map models/players/jedi_zf/torso_02_lower_spec
@@ -61,14 +59,6 @@ models/players/merc_zf/armor
 	{
 		map models/players/merc_zf/armor
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/common/spec1
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
 	}
 	{
 		map models/players/snowtrooper/snowtrooper_armor_spec
