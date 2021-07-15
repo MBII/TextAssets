@@ -8200,7 +8200,7 @@ itemDef
 			name				swearfilterwords
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Filter Words:"
+			text				"Custom Filter Words:"
 			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -8209,7 +8209,7 @@ itemDef
 			textscale			0.15
 			forecolor			1 1 1 0.9
 			cvarTest			"cg_swearWordFilter"
-			hideCvar			{"0" }
+			hideCvar			{ "0", "1" }
 			visible				0
 			decoration
 		}
@@ -8344,14 +8344,16 @@ itemDef
 			cvar				"cg_swearwordfilter"
 			cvarFloatList
 			{
-				@MENUS_OFF		0
-				@MENUS_ON		1
+				"Disabled"				0
+				"Slurs"					1
+				"Slurs & Custom"		2
+				"Custom Only"			3
 			}
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Toggle filtering of foul/profane language in chat."
+			descText			"Toggle filtering of foul or profane language in chat."
 			mouseenter
 			{
 				show			button_glow 
@@ -8374,23 +8376,23 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_EDITFIELD
 			text				" "
-			rect				142 200 280 14
+			rect				97 200 280 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
 			cvar				"cg_swearWords"
-			maxchars			35
+			maxchars			52
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			cvarTest			"cg_swearWordFilter"
-			hideCvar			{"0" }
+			hideCvar			{ "0", "1" }
 			visible				0
-			descText			"Separate words with spaces and use asterisk (*) for wildcard match. Use console (cg_swearWords) to set long lists."
+			descText			"Separate words with spaces and asterisks (*) to denote start and end. Use the console (cg_swearWords) for long lists."
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 200 230 15			
+				setitemrect		button_glow	142 200 310 15			
 			}
 			mouseExit
 			{
