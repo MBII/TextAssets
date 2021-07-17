@@ -70,7 +70,7 @@ def warning(msg, rehash=False):
 
   """Warning function (NON CRITICAL ERROR)."""
 
-  print("Failed!\n")
+  print("Warning!\n")
   print("WARNING: %s" % (msg))
 
   if rehash:
@@ -679,7 +679,7 @@ class Config(object):
           try:
 
             pk3zip = ZipFile(join_path(self.MBII_Folder, pk3), "r")
-            bsps += [basename(bsp)[:-4] for bsp in iter(namelist(pk3zip)) if endswith(lower(bsp), ".bsp")] # Get all BSP files.
+            bsps += [basename(bsp)[:-4] for bsp in iter(namelist(pk3zip)) if endswith(bsp.lower(), ".bsp")] # Get all BSP files.
             pk3close(pk3zip)
 
           except IOError, err:
@@ -1476,9 +1476,13 @@ class Config(object):
 
                 if non_bsps:
 
-                  error("Map%s not found in the server:\n\n%s" %
+                  warning("Map%s not found in the server:\n\n%s" %
                         (("s" if len(non_bsps) > 1 else ""),
                          "\n".join(non_bsps)))
+                  
+                  # Remove missing maps
+                  maps = tuple((mapname for mapname in iter(maps)
+                                  if lower(mapname) in lower_bsps))
 
                 self.maps = maps
 
@@ -1504,9 +1508,13 @@ class Config(object):
 
                     if non_bsps:
 
-                      error("Secondary map%s not found in the server:\n\n%s" %
+                      warning("Secondary map%s not found in the server:\n\n%s" %
                             (("s" if len(non_bsps) > 1 else ""),
                              "\n".join(non_bsps)))
+
+                      # Remove missing maps
+                      self.secondary_maps = tuple((mapname for mapname in iter(self.secondary_maps)
+                            if lower(mapname) in lower_bsps))
 
                     repeated_maps = tuple((lower(mapname) for mapname in iter(self.maps)))
                     repeated_maps = tuple((mapname for mapname in iter(self.secondary_maps)
@@ -2171,7 +2179,7 @@ class Config(object):
           try:
 
             pk3zip = ZipFile(join_path(self._MBII_Folder, pk3), "r")
-            bsps += [basename(bsp)[:-4] for bsp in iter(namelist(pk3zip)) if endswith(lower(bsp), ".bsp")] # Get all BSP files.
+            bsps += [basename(bsp)[:-4] for bsp in iter(namelist(pk3zip)) if endswith(bsp.lower(), ".bsp")] # Get all BSP files.
             pk3close(pk3zip)
 
           except IOError, err:
@@ -3053,8 +3061,11 @@ class Config(object):
                 warning("Map%s not found in the server:\n\n%s\n" %
                         (("s" if len(non_bsps) > 1 else ""),
                          "\n".join(non_bsps)),
-                        rehash=True)
-                return False
+                        rehash=False)
+                
+                # Remove missing maps
+                self._maps = tuple((mapname for mapname in iter(self._maps)
+                        if lower(mapname) in lower_bsps))
 
             except IOError, err:
 
@@ -3107,8 +3118,11 @@ class Config(object):
                   warning("Secondary map%s not found in the server:\n\n%s\n" %
                           (("s" if len(non_bsps) > 1 else ""),
                            "\n".join(non_bsps)),
-                          rehash=True)
-                  return False
+                          rehash=False)
+                  
+                  # Remove missing maps
+                  self._secondary_maps = tuple((mapname for mapname in iter(self._secondary_maps)
+                        if lower(mapname) in lower_bsps))
 
                 repeated_maps = tuple((lower(mapname) for mapname in iter(self._maps)))
                 repeated_maps = tuple((mapname for mapname in iter(self._secondary_maps)
