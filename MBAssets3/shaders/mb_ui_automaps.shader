@@ -1,4 +1,10 @@
 //####################
+//    !!! NOTE !!!
+// nomipmaps also sets nopicmip, so no need to set both simultaneously
+//####################
+
+
+//####################
 //##### Corellia
 //####################
 gfx/automap/mb2_corellia1
@@ -36,7 +42,6 @@ gfx/automap/mb2_corellia3
 
 gfx/automap/mb2_corellia1full
 {
-	nopicmip
 	nomipmaps
     {
         clampmap gfx/automap/mb2_corellia1full
@@ -47,7 +52,6 @@ gfx/automap/mb2_corellia1full
 
 gfx/automap/mb2_corellia2full
 {
-	nopicmip
 	nomipmaps
     {
         clampmap gfx/automap/mb2_corellia2full
@@ -58,7 +62,6 @@ gfx/automap/mb2_corellia2full
 
 gfx/automap/mb2_corellia3full
 {
-	nopicmip
 	nomipmaps
     {
         clampmap gfx/automap/mb2_corellia3full
@@ -69,7 +72,6 @@ gfx/automap/mb2_corellia3full
 
 gfx/automap/mb2_duel_corellia1
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia1
@@ -81,7 +83,6 @@ gfx/automap/mb2_duel_corellia1
 
 gfx/automap/mb2_duel_corellia2
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia2
@@ -93,7 +94,6 @@ gfx/automap/mb2_duel_corellia2
 
 gfx/automap/mb2_duel_corellia1full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia1
@@ -104,7 +104,6 @@ gfx/automap/mb2_duel_corellia1full
 
 gfx/automap/mb2_duel_corellia2full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia2
@@ -139,7 +138,6 @@ gfx/mplevels/mb2_corellia/layout_duel
 //####################
 //##### DEATHSTAR
 //####################
-
 gfx/automap/mb2_deathstar0
 {
 	nopicmip
@@ -153,7 +151,6 @@ gfx/automap/mb2_deathstar0
 
 gfx/automap/mb2_deathstar0full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar0full
@@ -175,7 +172,6 @@ gfx/automap/mb2_deathstar1
 
 gfx/automap/mb2_deathstar1full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar1full
@@ -197,7 +193,6 @@ gfx/automap/mb2_deathstar2
 
 gfx/automap/mb2_deathstar2full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar2full
@@ -219,7 +214,6 @@ gfx/automap/mb2_deathstar3
 
 gfx/automap/mb2_deathstar3full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar3full
@@ -306,7 +300,6 @@ gfx/mp/mplevels/mb2_deathstar/DeathStarLayout3
 //####################
 //##### DXUN
 //####################
-
 gfx/automap/mb2_dxunbot
 {
 	nopicmip
@@ -320,7 +313,6 @@ gfx/automap/mb2_dxunbot
 
 gfx/automap/mb2_dxunbotfull
 {
-	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxunbotfull
@@ -342,7 +334,6 @@ gfx/automap/mb2_dxunmid
 
 gfx/automap/mb2_dxunmidfull
 {
-	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxunmidfull
@@ -364,7 +355,6 @@ gfx/automap/mb2_dxuntop
 
 gfx/automap/mb2_dxuntopfull
 {
-	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxuntopfull
@@ -386,10 +376,8 @@ gfx/mplevels/mb2_dxun/map
 //####################
 //##### ERAVANA
 //####################
-
 gfx/automap/mb2_eravana
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana
@@ -401,7 +389,6 @@ gfx/automap/mb2_eravana
 
 gfx/automap/mb2_eravana1
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana1
@@ -413,7 +400,6 @@ gfx/automap/mb2_eravana1
 
 gfx/automap/mb2_eravana2
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana2
@@ -425,7 +411,6 @@ gfx/automap/mb2_eravana2
 
 gfx/automap/mb2_eravanafull
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana
@@ -436,7 +421,6 @@ gfx/automap/mb2_eravanafull
 
 gfx/automap/mb2_eravana1full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana1
@@ -447,7 +431,6 @@ gfx/automap/mb2_eravana1full
 
 gfx/automap/mb2_eravana2full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana2
@@ -469,7 +452,6 @@ gfx/mplevels/mb2_eravana/map
 //####################
 //##### MYGEETO
 //####################
-
 gfx/automap/mb2_mygeeto1
 {
 	nopicmip
@@ -483,7 +465,6 @@ gfx/automap/mb2_mygeeto1
 
 gfx/automap/mb2_mygeeto1full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_mygeeto1full
@@ -505,7 +486,6 @@ gfx/automap/mb2_mygeeto2
 
 gfx/automap/mb2_mygeeto2full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_mygeeto2full
@@ -527,7 +507,6 @@ gfx/mplevels/mb2_mygeeto/map
 //####################
 //##### THEED
 //####################
-
 gfx/automap/mb2_theed
 {
 	nopicmip
@@ -541,7 +520,6 @@ gfx/automap/mb2_theed
 
 gfx/automap/mb2_theedfull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_theedfull
@@ -563,7 +541,6 @@ gfx/mplevels/mb2_theed/map
 //####################
 //##### YAVIN ASSAULT
 //####################
-
 gfx/automap/mb2_yavinassault
 {
 	nopicmip
@@ -577,7 +554,6 @@ gfx/automap/mb2_yavinassault
 
 gfx/automap/mb2_yavinassaultfull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_yavinassaultfull
@@ -596,10 +572,10 @@ gfx/mplevels/mb2_yavinassault/map
     }
 }
 
+
 //####################
 //##### DUEL EMPEROR
 //####################
-
 gfx/automap/mb2_duel_emperor
 {
 	nopicmip
@@ -613,7 +589,6 @@ gfx/automap/mb2_duel_emperor
 
 gfx/automap/mb2_duel_emperorfull
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_emperor
@@ -635,7 +610,6 @@ gfx/mplevels/mb2_duel_emperor/map
 //####################
 //##### DUEL YAVIN 4
 //####################
-
 gfx/automap/mb2_duel_yavin4
 {
 	nopicmip
@@ -649,7 +623,6 @@ gfx/automap/mb2_duel_yavin4
 
 gfx/automap/mb2_duel_yavin4full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_duel_yavin4full
@@ -663,6 +636,201 @@ gfx/mplevels/mb2_duel_yavin4/map
     nopicmip
     {
         map gfx/mplevels/mb2_duel_yavin4/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+
+//####################
+//##### CTF Scarif
+//####################
+gfx/automap/mb2_ctf_scarif
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_scarif
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_scariffull
+{
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_scariffull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_scarif/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_scarif/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_ctf_scarif/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### CTF Deathstar
+//####################
+gfx/automap/mb2_ctf_deathstar0
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar0full
+{
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1full
+{
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2full
+{
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+//####################
+//##### CTF ERAVANA
+//####################
+gfx/automap/mb2_ctf_eravana
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_eravana2
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_eravanafull
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_eravana2full
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana2
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_eravana/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_ctf_eravana/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### CTF THEED
+//####################
+gfx/automap/mb2_ctf_theed
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_ctf_theed
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_theedfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_ctf_theedfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_theed/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_ctf_theed/map
         blendfunc blend
         rgbGen vertex
     }
