@@ -835,3 +835,113 @@ gfx/mplevels/mb2_ctf_theed/map
         rgbGen vertex
     }
 }
+
+
+//####################
+//##### CTF Scarif
+//####################
+gfx/automap/mb2_ctf_scarif
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_scarif
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_scariffull
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_scariffull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_scarif/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_scarif/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_ctf_scarif/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### CTF Deathstar
+//####################
+gfx/automap/mb2_ctf_deathstar0
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar0full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}

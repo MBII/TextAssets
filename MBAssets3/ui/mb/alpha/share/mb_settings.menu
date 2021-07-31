@@ -8200,7 +8200,7 @@ itemDef
 			name				swearfilterwords
 			group				chat
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Filter Words:"
+			text				"Custom Filter Words:"
 			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -8209,7 +8209,26 @@ itemDef
 			textscale			0.15
 			forecolor			1 1 1 0.9
 			cvarTest			"cg_swearWordFilter"
-			hideCvar			{"0" }
+			showCvar			{ "3", "4", "5" }
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				streamermodetoggle
+			group				chat
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Admin & Server Chat:"
+			rect				142 200 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			cvarTest			"cg_swearWordFilter"
+			showCvar			{ "30", "31" }
 			visible				0
 			decoration
 		}
@@ -8344,14 +8363,20 @@ itemDef
 			cvar				"cg_swearwordfilter"
 			cvarFloatList
 			{
-				@MENUS_OFF		0
-				@MENUS_ON		1
+				"Disabled"						0
+				"Slurs"							1
+				"Slurs & Obscenities"			2
+				"Slurs & Obscenities & Custom"	3
+				"Slurs & Custom"				4
+				"Custom Only"					5
+				"Streamer Mode"					30
+				"Streamer Mode (strict)"		31
 			}
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Toggle filtering of foul/profane language in chat."
+			descText			"Filter out foul and profane language in chat and names using preset or custom word lists.\nStreamer Mode aliases names, hides player chat, and suppresses console prints containing names."
 			mouseenter
 			{
 				show			button_glow 
@@ -8384,13 +8409,52 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			cvarTest			"cg_swearWordFilter"
-			hideCvar			{"0" }
+			showCvar			{ "3", "4", "5" }
 			visible				0
-			descText			"Separate words with spaces and use asterisk (*) for wildcard match. Use console (cg_swearWords) to set long lists."
+			descText			"Separate words with spaces and asterisks (*) to denote start and end. Use the console (cg_swearWords) for long lists."
 			mouseenter
 			{
 				show			button_glow 
 				setitemrect		button_glow	142 200 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				streamermodetoggle
+			group				chat
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 200 280 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			cvar				"cg_swearwordfilter"
+			cvarFloatList
+			{
+				"Show"			30
+				"Hide"			31
+			}
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarTest			"cg_swearWordFilter"
+			showCvar			{ "30", "31" }
+			visible				0
+			descText			"Toggle allowing messages from admins and the server while in streamer mode."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 200 230 15				
 			}
 			mouseExit
 			{
