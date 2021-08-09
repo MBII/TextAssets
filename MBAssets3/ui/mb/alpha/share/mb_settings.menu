@@ -6619,7 +6619,7 @@ itemDef
 			name				drawfriend
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Team Indicators"
+			text				"Team Indicators:"
 			rect				142 110 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6636,7 +6636,7 @@ itemDef
 			name				drawfriendRestrict
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Indicator Visibility"
+			text				"Indicator Visibility:"
 			rect				142 125 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6653,7 +6653,7 @@ itemDef
 			name				drawfriendRedHue
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Team 1 Indicator Hue"
+			text				"Team 1 Indicator Hue:"
 			rect				142 140 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6670,7 +6670,7 @@ itemDef
 			name				drawfriendBlueHue
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Team 2 Indicator Hue"
+			text				"Team 2 Indicator Hue:"
 			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6687,8 +6687,25 @@ itemDef
 			name				siegehelpicons
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Objective Hint Icons"
+			text				"Objective Hint Icons:"
 			rect				142 185 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				siegehelpiconsopacity
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Hint Icon Opacity:"
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -6705,7 +6722,7 @@ itemDef
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_TEAM_OVERLAY
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -6722,23 +6739,6 @@ itemDef
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Widescreen UI:"
-			rect				142 245 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
-		itemDef
-		{
-			name				forceratiofix
-			group				uioptions2
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"OpenJK Force Widescreen UI:"
 			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -6755,8 +6755,25 @@ itemDef
 			name				forceratiofix
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"OpenJK Circle Shader Adjust:"
+			text				"OpenJK Force Widescreen UI:"
 			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				forceratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"OpenJK Circle Shader Adjust:"
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -6976,6 +6993,18 @@ itemDef
 		
 		itemDef
 		{
+			name				drawfriendHueBG
+			group				uioptions2
+			style				WINDOW_STYLE_SHADER
+			rect				250 154 96 3
+			background			"gfx/menus/hslstrip"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
 			name				siegehelpicons
 			group				uioptions2
 			style				WINDOW_STYLE_TEXT_RGB2
@@ -7013,6 +7042,62 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
+		
+		itemDef
+		{
+			name				siegehelpiconsopacity
+			group				uioptions2
+			type				ITEM_TYPE_SLIDER
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarfloat			"cg_helpIconOpacity" 1 0.25 1
+			rect				152 200 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Opacity scale of objective hint icons."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 201 230 14			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				siegehelpiconsopacitynum
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Color of first team's icon (0 for default and -1 for map color)."
+			cvarfloat			"cg_helpIconOpacity" 1 0.25 1
+			rect				380 200 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
 
 		itemDef
 		{
@@ -7032,7 +7117,7 @@ itemDef
 				"Icon, Bars, Name, & Location"		5
 				"Icon, Numbers, Name, & Location"	6
 			}
-			rect				142 215 230 14
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7044,7 +7129,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
+				setitemrect		button_glow	142 231 230 15			
 			}
 			mouseExit
 			{
@@ -7069,7 +7154,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7081,7 +7166,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 246 230 15			
+				setitemrect		button_glow	142 261 230 15			
 			}
 			mouseExit
 			{
@@ -7106,7 +7191,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 260 230 14
+			rect				142 275 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7118,7 +7203,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 261 230 15			
+				setitemrect		button_glow	142 276 230 15			
 			}
 			mouseExit
 			{
@@ -7143,7 +7228,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 275 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -7155,7 +7240,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 276 230 15			
+				setitemrect		button_glow	142 291 230 15			
 			}
 			mouseExit
 			{
