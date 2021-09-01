@@ -110,14 +110,14 @@ models/players/alien_heads/nabrun
     }
 }
 
-models/players/alien_heads/gotax
+models/players/alien_heads/gotal
 {
     {
-        map models/players/alien_heads/gotax
+        map models/players/alien_heads/gotal
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/gotax_spec
+        map models/players/alien_heads/gotal_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -150,6 +150,18 @@ models/players/alien_heads/sniv
         detail
         alphaGen lightingSpecular
     }
+}
+
+models/players/alien_heads/snivhair
+{
+	cull	disable
+	{
+		map models/players/alien_heads/snivhair
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
+	}
 }
 
 models/players/alien_heads/sullustan
