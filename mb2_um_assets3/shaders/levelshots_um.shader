@@ -70,25 +70,13 @@ levelshots/um_bespin_classic2
     }
 }
 
-levelshots/um_bespin_open
+levelshots/um_bespin_night
 {
     nopicmip
     nomipmaps
     notc
     {
-        map levelshots/um_bespin_open
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_bespin_open2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_bespin_open2
+        map levelshots/um_bespin_night
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
@@ -101,18 +89,6 @@ levelshots/um_bespin_tournament
     notc
     {
         map levelshots/um_bespin_tournament
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/um_bespin_tournament2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/um_bespin_tournament2
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
     }
