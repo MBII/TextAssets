@@ -239,3 +239,25 @@ gfx/hud/alpha/HUD_Lagometer
 		rgbGen vertex
 	}
 }
+
+gfx/hud/alpha/HUD_EndGame
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_EndGame
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_EndGame_Border
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_EndGame_Border
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}

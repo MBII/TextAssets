@@ -54,34 +54,6 @@ models/players/hs_imperial/boots_hips-brown
 	}
 }
 
-models/players/hs_imperial/boots_hips-fem
-{
-	{
-		map models/players/hs_imperial/boots_hips-fem
-		rgbGen lightingDiffuse
-	}
-	{	
-		map models/players/hs_imperial/boots_hips_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/hs_imperial/boots_hips-grey
-{
-	{
-		map models/players/hs_imperial/boots_hips-grey
-		rgbGen lightingDiffuse
-	}
-	{	
-		map models/players/hs_imperial/boots_hips_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/hs_imperial/boots_hips-olive
 {
 	{
