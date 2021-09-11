@@ -1,0 +1,177 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Heroes
+	team2 Villains
+}
+
+LevelshotDesc
+{
+    desc1
+    {   
+        text "The pilots have their job to do, we have ours. We need to get to the Throne Room and seal the doors. The entire Palace is locked down, but if someone can slice the controls at the generator our attack will be much easier.
+We'll take the long way."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "The Naboo are attacking the Palace. Security has been raised to its highest level, but there is an access console in the Generator room. If the Naboo manage to slice it, defense will be more difficult.
+
+You have been well trained, they will be no match for you."
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx\mplevels\mb2_dotf_classic\map"
+missionname  "Duel of the Fates Classic"
+radartopleft "-6976, 7040"
+radarbottomright "5888, -7296"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_dotf_classic"
+		radargraphicfull "gfx/automap/mb2_dotf_classicfull"
+	}
+}
+
+HelpIcons
+{
+	//Side Gen Hack
+	HelpIcon0
+	{
+		parent 1
+		end0 "doorformaul"
+		origin "1007 3220 642"
+		redicon HLP_HACK_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+		sideobjective 1
+	}
+
+	//Secondary Gen Hack
+	HelpIcon1
+	{
+		parent 1
+		end0 "t170"
+		origin "727 3220 642"
+		redicon HLP_HACK_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+		sideobjective 1
+	}
+
+	//Pit Hack
+	HelpIcon2
+	{
+		end0 "t138"
+		origin "490 5935 641"
+		redicon HLP_HACK_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+		sideobjective 1
+	}
+
+	//Throne Room Door Panel
+	HelpIcon3
+	{
+		end0 "t138"
+		origin "-3877 -3702 960"
+		redicon HLP_DESTROY_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+
+	//Throne Room Final Hack
+	HelpIcon5
+	{
+		end0 "objectivedone"
+		origin "-4012 -3966 964"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+	}
+}
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Heroes
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	Timed 300
+     	UseTeam "SOM_Heroes" 							//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_naboo"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+		Objective1
+	{
+		goalname "Get to the generator room and deactivate the throne room's lock"
+		final -1
+		message_team1 "We have gained access!"
+		message_team2 "They have unlocked the throne room!"
+		objdesc "SECONDARY GOAL:
+ 		Get to the override console and open the throne room door"
+		objgfx "gfx/mplevels/mb2_dotf_classic/objectivea"
+	}
+            Objective2
+	{
+		goalname "Gain control of the throne room and close the door!"
+		final 0
+		message_team1 "We did it!"
+		message_team2 "They got the Viceroy!"
+		objdesc "PRIMARY GOAL:
+		Gain control of the throne room"
+		objgfx "gfx/mplevels/mb2_dotf_classic/objectiveb"
+	}
+	
+
+	
+	wonround "We did it!" 						//Printed to this team if they won the round.
+	lostround "We got pasted..." 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Get to the Throne Room" //Displayed on the mission briefing menu.
+}
+
+Villains
+{
+	RequiredObjectives 1
+	UseTeam "SOM_Villains"
+	TeamIcon	"gfx/2d/logos/mb_tradefed"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Keep the attackers away from the throne room!"
+		final -1
+		target ""
+		objdesc "PRIMARY GOAL:
+		Keep the attackers away from the throne room!"
+		objgfx "gfx/mplevels/mb2_dotf_classic/objectivea"
+	}
+	
+	
+	wonround "We got the intruders!"
+	lostround "We lost this battle..."
+	roundover_sound_wewon "sound/chars/protocol/misc/40MOM011.mp3"
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Keep the attackers away from the throne room!"
+}

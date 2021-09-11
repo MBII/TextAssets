@@ -1,3 +1,39 @@
+models/players/cin_drallig/head
+{
+	cull	twosided
+	{
+		map models/players/cin_drallig/head
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/cin_drallig/head_hair
+{
+	cull	twosided
+	{
+		map models/players/cin_drallig/head_hair
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/cin_drallig/head_old
+{
+	cull	twosided
+	{
+		map models/players/cin_drallig/head_old
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/cin_drallig/head_hair_old
+{
+	cull	twosided
+	{
+		map models/players/cin_drallig/head_hair_old
+		rgbGen lightingDiffuse
+	}
+}
+
 models/players/cin_drallig/torso
 {
 	{
@@ -22,7 +58,7 @@ models/players/cin_drallig/torso_old
 		map models/players/cin_drallig/torso_old-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
-	detail
+		detail
 	}
 }
 
@@ -64,54 +100,33 @@ models/players/cin_drallig/hips_old
 		map models/players/cin_drallig/hips-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
-	detail
+		detail
 	}
 }
 
-models/players/cin_drallig/bodysuit_clean
+models/players/cin_drallig/robe
 {
 	q3map_nolightmap
 	cull	disable
     {
-        map models/players/cin_drallig/bodysuit_clean
+        map models/players/cin_drallig/robe
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
-    }
-    {
-        map models/players/cin_drallig/bodysuit_clean_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
     }
 }
 
-models/players/cin_drallig/arms_legs_clean
+models/players/cin_drallig/accessories_tcw
 {
-	q3map_nolightmap
 	cull	disable
     {
-        map models/players/cin_drallig/arms_legs_clean
+        map models/players/cin_drallig/accessories_tcw
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/cin_drallig/arms_legs_clean_spec
+        map models/players/MB2_Clones/body_clean_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
-    }
-}
-
-models/players/cin_drallig/belt_clean
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/cin_drallig/belt_clean
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/cin_drallig/belt_clean_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
+		detail
     }
 }

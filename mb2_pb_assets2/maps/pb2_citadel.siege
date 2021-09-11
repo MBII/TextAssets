@@ -1,0 +1,296 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+LevelshotDesc
+{
+    desc1
+    {   
+        text "Memers have hijacked the Meme Vault and are uploading to their fleet. Disable the three layers of security to the vault and then destroy/erase the data by any means.
+
+Deploy the Garrison!"
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "Without the Meme the Alliance is doomed. Protect the Meme Vault doors from being opened and keep the data cores intact until our data upload finishes!
+		
+For Jedha!"
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx/mplevels/mb2_citadel/map"
+missionname  "Scarif Meme Tower"
+radartopleft "-3840, 2464"
+radarbottomright "2912, -4864"
+AutoMap
+{
+   AutoMap0
+   {
+       radargraphic "gfx/automap/mb2_citadel0"
+       radargraphicfull "gfx/automap/mb2_citadel0full"
+       height "-175"
+   }
+
+   AutoMap1
+   {
+       radargraphic "gfx/automap/mb2_citadel1"
+       radargraphicfull "gfx/automap/mb2_citadel1full"
+       height "-20"
+   }
+   AutoMap2
+   {
+       radargraphic "gfx/automap/mb2_citadel2"
+       radargraphicfull "gfx/automap/mb2_citadel2full"
+       height "180"
+   }
+}
+
+HelpIcons
+{
+    HelpIcon0
+    {
+        dynamic 1
+		end0        "powercorecap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_CAPTURE
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+
+    HelpIcon1
+    {
+        dynamic 1
+		end0        "powercorecap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_DEFEND
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+
+    HelpIcon2
+    {
+        dynamic 1
+		end0        "powercorecap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_CAPTURE
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+    HelpIcon10
+    {
+        dynamic 1
+		end0        "sidecap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_CAPTURE
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+
+    HelpIcon11
+    {
+        dynamic 1
+		end0        "sidecap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_DEFEND
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+
+    HelpIcon12
+    {
+        dynamic 1
+		end0        "sidecap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_CAPTURE
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+    HelpIcon20
+    {
+        dynamic 1
+		end0        "cargocap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_CAPTURE
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+
+    HelpIcon21
+    {
+        dynamic 1
+		end0        "cargocap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_DEFEND
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+
+    HelpIcon22
+    {
+        dynamic 1
+		end0        "cargocap_captured"
+		end1		"zonescaptured_2"
+        redicon    HLP_CAPTURE
+		blueicon   HLP_CAPTURE
+		specicon   HLP_CAPTURE
+    }
+    HelpIcon30
+    {
+        start0		"zonescaptured_2"
+		end0        "data_destroyed"
+        origin    "8 1952 64" // Destroy Data Main
+        redicon    HLP_DEFEND
+		blueicon   HLP_DESTROY
+		specicon   HLP_DESTROY
+		childradius	700
+    }
+    HelpIcon31
+    {
+        start0		"zonescaptured_2"
+		end0        "data_destroyed"
+        origin    "58 1720 55" // Hack Data to Destroy
+        redicon    HLP_DEFEND
+		blueicon   HLP_HACK
+		specicon   HLP_HACK
+		parent 30
+    }
+    HelpIcon32
+    {
+        start0		"zonescaptured_2"
+		end0        "core2_helpicon"
+        origin    "-192 1952 88" // Destroy Data Left Side
+        redicon    HLP_DEFEND
+		blueicon   HLP_DESTROY
+		specicon   HLP_DESTROY
+		parent 30
+    }
+    HelpIcon33
+    {
+        start0		"zonescaptured_2"
+		end0        "core3_helpicon"
+        origin    "0 2272 88" // Destroy Data Mid
+        redicon    HLP_DEFEND
+		blueicon   HLP_DESTROY
+		specicon   HLP_DESTROY
+		parent 30
+    }
+    HelpIcon34
+    {
+        start0		"zonescaptured_2"
+		end0        "core1_helpicon"
+        origin    "192 1952 88" // Destroy Data Right Side
+        redicon    HLP_DEFEND
+		blueicon   HLP_DESTROY
+		specicon   HLP_DESTROY
+		parent 30
+    }
+}
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Rebels
+{
+	RequiredObjectives 1
+	UseTeam "pbfa_light"							
+	TeamIcon	"gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "DEFEND: Guard the 3 Meme Zones"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Stop them from capturing 2/3 of the zones!"
+		objgfx "gfx/mplevels/mb2_citadel/obj2"
+	}
+	Objective2
+	{
+		goalname "DEFEND: Guard the Remaining 2 Meme Zones"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Stop them from capturing either of the 2 remaining zones!"
+		objgfx "gfx/mplevels/mb2_citadel/obj3"
+	}
+	Objective3
+	{
+		goalname "DEFEND: Guard Meme Vault"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Prevent Meme Vault intrusion and distruction!"
+		objgfx "gfx/mplevels/mb2_citadel/obj4"
+	}
+	
+	wonround "For the future of the Memes!" 						//Printed to this team if they won the round.
+	lostround "The Rebellion is doomed because of our failure...."					//Printed to this team if they lost the round.
+	roundover_sound_wewon "s/pb/feelingit.mp3"
+	roundover_sound_welost "s/pb/sein.mp3"
+	roundover_target "siegeend"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Guard the Meme vault until the memes can be transmitted." //Displayed on the mission briefing menu.
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "pbfa_dark"
+	TeamIcon	"gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "ACCOMPLISH: Take Control of 2/3 Capture Zones"
+		final -1
+		message_team1 "One of the external meme vault doors has opened!"
+		message_team2 "One of the external meme vault doors has opened!"
+		objdesc "ACCOMPLISH: Capture 2 out of 3 of the zones!"
+		objgfx "gfx/mplevels/mb2_citadel/obj2"
+	}
+	Objective2
+	{
+		goalname "ACCOMPLISH: Take Control of 1/2 Capture Zones"
+		final -1
+		message_team1 "All external meme vault doors have been opened!"
+		message_team2 "All external meme vault doors have been opened!"
+		objdesc "ACCOMPLISH: Capture 1 out of 2 of the remaining zones!"
+		objgfx "gfx/mplevels/mb2_citadel/obj3"
+	}
+	Objective3
+	{
+		goalname "ACCOMPLISH: Enter and Destroy/Delete Data Vault"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "ACCOMPLISH: Gain access to the Data Vault and delete or destroy the data!"
+		objgfx "gfx/mplevels/mb2_citadel/obj4"
+	}	
+	
+	wonround "The memes are safe!"
+	lostround "The memers have won..."
+	roundover_sound_wewon "s/pb/goodjob.mp3"
+	roundover_sound_welost "s/pb/icantbelieve.mp3"
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Stop the Rebels from stealing the Meme data!"
+}

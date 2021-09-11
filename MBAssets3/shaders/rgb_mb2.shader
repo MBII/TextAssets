@@ -874,6 +874,37 @@ models/players/prisoner/legs_jeditrans
 }
 
 
+//  rebel
+
+models/players/rebel/rgb_accessories
+{
+	{
+		map models/players/rebel/rgb_accessories
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rebel/rgb_accessories
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rebel/rgb_torso
+{
+	{
+		map models/players/rebel/rgb_torso
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rebel/rgb_torso
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+
 //	rebelpilot
 
 models/players/rebel_pilot/rgb_helmet
@@ -1051,6 +1082,65 @@ models/players/reborn_twin/rgb_torso
 	}
 	{
 		map models/players/reborn_twin/rgb_torso
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+
+//  rodian
+
+models/players/rodian/rgb_boots_belt_vest
+{
+	{
+		map models/players/rodian/rgb_boots_belt_vest
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rodian/rgb_boots_belt_vest
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rodian/rgb_l_boot
+{
+	{
+		map models/players/rodian/rgb_l_boot
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rodian/rgb_l_boot
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rodian/rgb_l_leg
+{
+	{
+		map models/players/rodian/rgb_l_leg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rodian/rgb_l_leg
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rodian/rgb_torso
+{
+	{
+		map models/players/rodian/rgb_torso
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rodian/rgb_torso
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
