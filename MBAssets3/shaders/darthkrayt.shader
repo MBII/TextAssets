@@ -23,6 +23,20 @@ models/players/darthkrayt/flap
     }
 }
 
+models/players/darthkrayt/flaps
+{
+	cull	twosided
+    {
+        map models/players/darthkrayt/flaps
+        rgbGen lightingDiffuse
+    }
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
 
 models/players/darthkrayt/helmet
 {

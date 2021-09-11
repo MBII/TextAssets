@@ -10,12 +10,34 @@ gfx/hud/alpha/HUD_Score
 	}
 }
 
+gfx/hud/alpha/HUD_Score2
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Score2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
 gfx/hud/alpha/HUD_Timer
 {
 	nopicmip
 	notc
 	{
 		map gfx/hud/alpha/HUD_Timer
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Timer2
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Timer2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
@@ -166,7 +188,7 @@ gfx/hud/alpha/HUD_CaptureProgress
 		map gfx/hud/alpha/HUD_CaptureProgress
 		blendFunc GL_ONE GL_ONE
 		rgbGen const ( 0.5 0.5 0.5 )
-		tcmod scroll -0.55 0
+		tcmod scroll -0.35 0
 	}
 	{
 		map gfx/hud/alpha/HUD_CaptureBar_Mask
@@ -188,7 +210,7 @@ gfx/hud/alpha/HUD_CaptureRegress
 		blendFunc GL_ONE GL_ONE
 		rgbGen const ( 0.5 0.5 0.5 )
 		tcmod scale	-1 1
-		tcmod scroll 0.55 0
+		tcmod scroll 0.35 0
 	}
 	{
 		map gfx/hud/alpha/HUD_CaptureBar_Mask

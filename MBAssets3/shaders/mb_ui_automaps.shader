@@ -1,4 +1,142 @@
 //####################
+//##### Corellia
+//####################
+gfx/automap/mb2_corellia1
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_corellia1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_corellia2
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_corellia2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_corellia3
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_corellia3
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_corellia1full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_corellia1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_corellia2full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_corellia2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_corellia3full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_corellia3full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_duel_corellia1
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_corellia1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_corellia2
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_corellia2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_corellia1full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_corellia1
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_duel_corellia2full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_corellia2
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+
+gfx/mplevels/mb2_corellia/layout
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_corellia/layout
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+gfx/mplevels/mb2_corellia/layout_duel
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_corellia/layout_duel
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+
+
+//####################
 //##### DEATHSTAR
 //####################
 

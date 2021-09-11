@@ -1,0 +1,40 @@
+name: Package Assets
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master, vNext, buildTest-* ]
+
+jobs:
+
+  package:
+    name: Package & Upload
+    runs-on: [self-hosted, windows]
+
+    steps:
+      - uses: actions/checkout@v2
+            
+      - name: Package Files
+        shell: powershell
+        run: |
+          deterministic_zip MBAssets3.pk3 MBAssets3/
+          deterministic_zip 03_MovieGameMappack.pk3 03_MovieGameMappack/
+          deterministic_zip mb2_cmp_assets3.pk3 mb2_cmp_assets3/
+          deterministic_zip mb2_um_assets3.pk3 mb2_um_assets3/
+          deterministic_zip mb2_pb_assets2.pk3 mb2_pb_assets2/
+          
+      - name: Upload Files
+        shell: powershell
+        run: |
+          $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
+          $MBII = $GAMEDATA + "\MBIITest"
+          svn cleanup --vacuum-pristines $GAMEDATA
+          svn update $MBII
+          Move-Item -Force -Path MBAssets3.pk3 -Destination $MBII\MBAssets3.pk3
+          Move-Item -Force -Path 03_MovieGameMappack.pk3 -Destination $MBII\03_MovieGameMappack.pk3
+          Move-Item -Force -Path mb2_cmp_assets3.pk3 -Destination $MBII\mb2_cmp_assets3.pk3
+          Move-Item -Force -Path mb2_um_assets3.pk3 -Destination $MBII\mb2_um_assets3.pk3
+          Move-Item -Force -Path mb2_pb_assets2.pk3 -Destination $MBII\mb2_pb_assets2.pk3
+          $BRANCH = "${{github.ref}}".Split("/")[2]
+          $HASH = "${{github.sha}}".Substring(0, 7)
+          svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
+          svn update $MBII | out-file $MBII/svn_log.txt -encoding ASCII
