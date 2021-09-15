@@ -384,6 +384,64 @@ gfx/mplevels/mb2_dxun/map
 }
 
 //####################
+//##### ECHOBASE
+//####################
+
+gfx/automap/mb2_echobase1
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_echobase1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+gfx/automap/mb2_echobase2
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_echobase2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+gfx/automap/mb2_echobase1full
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/automap/mb2_echobase1full
+		blendfunc blend
+		alphaGen vertex
+	}
+}
+
+gfx/automap/mb2_echobase2full
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/automap/mb2_echobase2full
+		blendfunc blend
+		alphaGen vertex
+	}
+}
+
+gfx/mplevels/mb2_echobase/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_echobase/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### ERAVANA
 //####################
 
@@ -519,6 +577,42 @@ gfx/mplevels/mb2_mygeeto/map
     nopicmip
     {
         map gfx/mplevels/mb2_mygeeto/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### SNOWFACILITY
+//####################
+
+gfx/automap/mb2_snowfacility
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_snowfacility
+        blendfunc blend
+        alphaGen vertex
+        depthfunc equal
+    }
+}
+
+gfx/automap/mb2_snowfacilityfull
+{
+    nopicmip
+    nomipmaps
+    {
+        map gfx/automap/mb2_snowfacilityfull
+        blendfunc blend
+        alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_snowfacility/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_snowfacility/map
         blendfunc blend
         rgbGen vertex
     }
