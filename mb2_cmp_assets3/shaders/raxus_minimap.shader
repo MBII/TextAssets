@@ -1,35 +1,3 @@
-gfx/automap/mb2_cmp_snowfacility
-{
-	nopicmip
-    {
-        clampmap gfx/automap/mb2_cmp_snowfacility
-        blendfunc blend
-        alphaGen vertex
-        depthfunc equal
-    }
-}
-
-gfx/automap/mb2_cmp_snowfacilityfull
-{
-    nopicmip
-    nomipmaps
-    {
-        map gfx/automap/mb2_cmp_snowfacilityfull
-        blendfunc blend
-        alphaGen vertex
-    }
-}
-
-gfx/mplevels/mb2_cmp_snowfacility/map
-{
-    nopicmip
-    {
-        map gfx/mplevels/mb2_cmp_snowfacility/map
-        blendfunc blend
-        rgbGen vertex
-    }
-}
-
 gfx/automap/mb2_cmp_raxus1
 {
 	nopicmip

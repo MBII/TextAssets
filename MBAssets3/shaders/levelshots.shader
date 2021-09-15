@@ -1726,6 +1726,30 @@ levelshots/mb2_smuggler2
 	}
 }
 
+levelshots/mb2_snowfacility
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_snowfacility
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_snowfacility2
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_snowfacility2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_starkiller_base
 {
 	nopicmip

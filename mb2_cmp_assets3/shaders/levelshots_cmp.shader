@@ -646,30 +646,6 @@ levelshots/mb2_cmp_rescue2
     }
 }
 
-levelshots/mb2_cmp_snowfacility
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/mb2_cmp_snowfacility
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
-levelshots/mb2_cmp_snowfacility2
-{
-    nopicmip
-    nomipmaps
-    notc
-    {
-        map levelshots/mb2_cmp_snowfacility2
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen identity
-    }
-}
-
 levelshots/mb2_cmp_theedstreets
 {
     nopicmip
