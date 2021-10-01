@@ -7,6 +7,7 @@ models/players/saesee_tiin/head
 		alphaFunc GE128
 	}
 }
+
 models/players/saesee_tiin/face
 {
 	cull	disable
@@ -16,6 +17,7 @@ models/players/saesee_tiin/face
 		alphaFunc GE128
 	}
 }
+
 models/players/saesee_tiin/horns
 {
 	cull	disable
@@ -25,31 +27,19 @@ models/players/saesee_tiin/horns
 		alphaFunc GE128
 	}
 }
-models/players/saesee_tiin/hips
+
+models/players/saesee_tiin/boots
 {
-	cull	disable
 	{
-		map models/players/saesee_tiin/hips
+		map models/players/saesee_tiin/boots
 		rgbGen lightingDiffuse
-		alphaFunc GE128
+	}
+	{
+		map models/players/saesee_tiin/boots-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
-models/players/saesee_tiin/hips_red
-{
-	cull	disable
-	{
-		map models/players/saesee_tiin/hips_red
-		rgbGen lightingDiffuse
-		alphaFunc GE128
-	}
-}
-models/players/saesee_tiin/hips_blue
-{
-	cull	disable
-	{
-		map models/players/saesee_tiin/hips_blue
-		rgbGen lightingDiffuse
-		alphaFunc GE128
-	}
-}
+
 
