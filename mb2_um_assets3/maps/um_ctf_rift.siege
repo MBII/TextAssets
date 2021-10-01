@@ -1,0 +1,92 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Red
+	team2 Blue
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname  "The Rift"
+
+roundbegin_target ""
+
+//countin_time 0
+
+Red
+{
+	RequiredObjectives 1
+	Timed 720								
+	UseTeam "ctfRift_Red" 							
+	TeamIcon "gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Capture the flag."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture flag GO"
+		objgfx ""
+	}
+	
+	Objective2
+	{
+		goalname "Kill the enemy."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Keep capturing the flag"
+		objgfx ""
+	}
+	
+	wonround "Victory"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Capture the flag"
+}
+
+Blue
+{
+	RequiredObjectives 1
+	Timed 720	
+	UseTeam "ctfRift_Blue"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Capture the flag"
+		final -1
+		message_team1 "The tauntaun is loose!"
+		message_team2 "The tauntaun is loose!"
+		objdesc "Capture flag GO"
+		objgfx "b"
+	}
+	
+	Objective2
+	{
+		goalname "Continue to capture the flag"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the flag"
+		objgfx ""
+	}
+	
+	wonround "Victory"
+	lostround "We have failed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Capture the flag"
+}
