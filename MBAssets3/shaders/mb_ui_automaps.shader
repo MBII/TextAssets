@@ -467,6 +467,84 @@ gfx/mplevels/mb2_eravana/map
 }
 
 //####################
+//##### Lunarbase
+//####################
+
+gfx/automap/mb2_lunarbase
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_lunarbase
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_lunarbasefull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_lunarbasefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_lunarbase2
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_lunarbase2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_lunarbase2full
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_lunarbase2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_lunarbase/map1
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_lunarbase/map1
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_lunarbase/map1_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+gfx/mplevels/mb2_lunarbase/map2
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_lunarbase/map2
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_lunarbase/map2_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
 //##### MYGEETO
 //####################
 
