@@ -133,6 +133,66 @@ models/players/stormie_tfa/vest
 }
 
 
+// pyre
+
+models/players/stormie_tfa/helmet_pyre
+{
+	{
+		map models/players/stormie_tfa/helmet_pyre
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/armor_pyre
+{
+	{
+		map models/players/stormie_tfa/armor_pyre
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}    
+	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+       	 	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/pauldron_pyre
+{
+	{
+
+		map models/players/stormie_tfa/pauldron_pyre
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/pauldron_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // stormpilot
 
 models/players/stormpilot/helmet1
