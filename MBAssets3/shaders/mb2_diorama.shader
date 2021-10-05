@@ -59,13 +59,3 @@ models/map_objects/mb2_diorama/DeathStar3
 		tcGen environment
 	}
 }
-
-gfx/menus/diorama/diorama_ctf
-{
-	nomipmaps
-	notc
-    {
-        map gfx/menus/diorama/diorama_ctf
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-    }
-}
