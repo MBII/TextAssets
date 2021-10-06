@@ -1,3 +1,15 @@
+gfx/2d/hud/hlp_overload
+{
+    nopicmip
+    notc
+    {
+        map gfx/2d/hud/hlp_overload
+        blendFunc blend
+        alphagen vertex
+        rgbgen vertex
+    }
+}
+
 gfx/automap/mb2_cmp_narshaddaa
 {
 	nopicmip
