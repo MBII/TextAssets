@@ -1693,3 +1693,133 @@ gfx/automap/mb2_ps_desert3d
 		alphaGen const 0.85
     }
 }
+
+
+
+//####################
+//##### Scarif
+//####################
+gfx/automap/mb2_scarif
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_scarif
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_scariffull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_scariffull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_scarif/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_scarif/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+
+
+//####################
+//##### Citadel
+//####################
+gfx/automap/mb2_citadel0
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_citadel0
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_citadel1
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_citadel1
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_citadel2
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_citadel2
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_citadel0full
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_citadel0full
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_citadel1full
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_citadel1full
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_citadel2full
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_citadel2full
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_citadel/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_citadel/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
