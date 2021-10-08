@@ -10,14 +10,11 @@ models/players/boc_aseca/arms_boc
    }
 }
 
-
-models/players/boc_aseca/robes_boc
+models/players/boc_aseca/torso_boc_lower
 {
-	cull	disable
+	cull	twosided
    {
-       map models/players/boc_aseca/robes_boc
-        alphaFunc GE192
-        depthWrite
+       map models/players/boc_aseca/torso_boc_lower
         rgbGen lightingDiffuse
    }
 }
