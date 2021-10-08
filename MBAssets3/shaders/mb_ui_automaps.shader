@@ -136,6 +136,76 @@ gfx/mplevels/mb2_corellia/layout_duel
 
 
 //####################
+//##### CTF DEATHSTAR
+//####################
+
+gfx/automap/mb2_ctf_deathstar0
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar0full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+//####################
 //##### DEATHSTAR
 //####################
 gfx/automap/mb2_deathstar0
