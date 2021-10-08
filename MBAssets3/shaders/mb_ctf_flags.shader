@@ -42,6 +42,18 @@ gfx/hud/mpi_flag_x
     {
         map gfx/hud/mpi_flag_x
         blendFunc blend
+        alphaGen vertex
+    }
+}
+
+gfx/hud/mpi_flag_held
+{
+    nopicmip
+    nomipmaps
+    {
+        map gfx/hud/mpi_flag_held
+        blendFunc blend
+        alphaGen vertex
     }
 }
 
