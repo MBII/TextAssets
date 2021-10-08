@@ -1864,6 +1864,8 @@ gfx/mplevels/mb2_sdestroyer/map
     }
 }
 
+
+
 //####################
 //##### Duel Star Destroyer
 //####################
@@ -1899,5 +1901,85 @@ gfx/mplevels/mb2_sdestroyer/map_duel
         map gfx/mplevels/mb2_sdestroyer/map_duel
         blendfunc blend
         rgbGen vertex
+    }
+}
+
+
+
+//####################
+//##### Jedi Temple
+//####################
+gfx/automap/mb2_jeditemple
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_jeditemple
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_jeditemplefull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_jeditemplefull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_jeditemple/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_jeditemple/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+
+
+//####################
+//##### Duel Jedi Temple
+//####################
+gfx/automap/mb2_duel_jeditemple
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_jeditemple
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_duel_jeditemplefull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_jeditemplefull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_duel_jeditemple/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_duel_jeditemple/map
+		blendfunc blend
+		rgbGen vertex
     }
 }
