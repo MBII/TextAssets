@@ -1823,3 +1823,81 @@ gfx/mplevels/mb2_citadel/map
         rgbGen vertex
     }
 }
+
+
+
+//####################
+//##### Star Destroyer
+//####################
+gfx/automap/mb2_SDestroyer
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_SDestroyer
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_SDestroyerfull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_SDestroyerfull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_sdestroyer/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_sdestroyer/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### Duel Star Destroyer
+//####################
+gfx/automap/MB2_Duel_SDestroyer
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/MB2_Duel_SDestroyer
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/MB2_Duel_SDestroyerfull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/MB2_Duel_SDestroyerfull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_sdestroyer/map_duel
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_sdestroyer/map_duel
+        blendfunc blend
+        rgbGen vertex
+    }
+}
