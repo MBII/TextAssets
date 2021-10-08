@@ -96,20 +96,6 @@ models/players/alien_heads/duros2
     }
 }
 
-models/players/alien_heads/nabrun
-{
-    {
-        map models/players/alien_heads/nabrun
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/nabrun_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/alien_heads/gotal
 {
     {
@@ -124,6 +110,34 @@ models/players/alien_heads/gotal
     }
 }
 
+models/players/alien_heads/ithorian
+{
+    {
+        map models/players/alien_heads/ithorian
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/ithorian_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/nabrun
+{
+    {
+        map models/players/alien_heads/nabrun
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/nabrun_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/pondababa
 {
     {
@@ -132,6 +146,20 @@ models/players/alien_heads/pondababa
     }
     {
         map models/players/alien_heads/aqualish_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/quarren
+{
+    {
+        map models/players/alien_heads/quarren
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/quarren_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
