@@ -272,3 +272,14 @@ gfx/hud/alpha/HUD_Symbol_Infinity
 		rgbGen identity
 	}
 }
+
+gfx/hud/alpha/HUD_Symbol_ReadyCheck
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Symbol_ReadyCheck
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
