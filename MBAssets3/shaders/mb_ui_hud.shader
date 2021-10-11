@@ -261,3 +261,25 @@ gfx/hud/alpha/HUD_EndGame_Border
 		rgbGen vertex
 	}
 }
+
+gfx/hud/alpha/HUD_Symbol_Infinity
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Symbol_Infinity
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+gfx/hud/alpha/HUD_Symbol_ReadyCheck
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Symbol_ReadyCheck
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}

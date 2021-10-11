@@ -81,6 +81,60 @@ textures/deathmatch/red_glow
     }
 }
 
+textures/deathmatch/red_forcefield
+{
+	qer_editorimage	textures/deathmatch/wave
+	qer_trans	0.5
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	playerclip
+	surfaceparm	forcefield
+	surfaceparm	trans
+	q3map_nolightmap
+	{
+        map textures/thedeathstar/energything_red
+        blendFunc GL_ONE GL_ONE
+    }
+    {
+        map textures/thedeathstar/energything_red2
+        blendFunc GL_ONE GL_ONE
+        rgbGen wave sin 0.65 0.35 0 0.2
+        tcMod scroll -1 2
+    }
+    {
+        map textures/thedeathstar/energything_red2
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 2 1
+    }
+}
+
+textures/deathmatch/blue_forcefield
+{
+	qer_editorimage	textures/deathmatch/wave
+	qer_trans	0.5
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	playerclip
+	surfaceparm	forcefield
+	surfaceparm	trans
+	q3map_nolightmap
+	{
+        map textures/doomgiver/energything
+        blendFunc GL_ONE GL_ONE
+    }
+    {
+        map textures/doomgiver/energything2
+        blendFunc GL_ONE GL_ONE
+        rgbGen wave sin 0.65 0.35 0 0.2
+        tcMod scroll -1 2
+    }
+    {
+        map textures/doomgiver/energything2
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 2 1
+    }
+}
+
 textures/deathmatch/blue_glow
 {
 	qer_editorimage	textures/common/gradient
