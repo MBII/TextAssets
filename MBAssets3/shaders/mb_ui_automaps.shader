@@ -44,7 +44,7 @@ gfx/automap/mb2_corellia1full
 {
 	nomipmaps
     {
-        clampmap gfx/automap/mb2_corellia1full
+        map gfx/automap/mb2_corellia1full
 		blendfunc blend
 		alphaGen vertex
     }
@@ -54,7 +54,7 @@ gfx/automap/mb2_corellia2full
 {
 	nomipmaps
     {
-        clampmap gfx/automap/mb2_corellia2full
+        map gfx/automap/mb2_corellia2full
 		blendfunc blend
 		alphaGen vertex
     }
@@ -64,7 +64,7 @@ gfx/automap/mb2_corellia3full
 {
 	nomipmaps
     {
-        clampmap gfx/automap/mb2_corellia3full
+        map gfx/automap/mb2_corellia3full
 		blendfunc blend
 		alphaGen vertex
     }
@@ -966,25 +966,21 @@ gfx/mplevels/mb2_ctf_scarif/map
 gfx/automap/mb2_tatooine
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_tatooine
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_tatooinefull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_tatooinefull
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1010,10 +1006,9 @@ gfx/automap/mb2_duel_tusken
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_tusken
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
@@ -1022,10 +1017,9 @@ gfx/automap/mb2_duel_tuskenfull
 	nopicmip
 	nomipmaps
     {
-		map gfx/automap/mb2_duel_tusken
+		clampmap gfx/automap/mb2_duel_tusken
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1048,25 +1042,21 @@ gfx/mplevels/mb2_Tusken/map
 gfx/automap/mb2_duel_dunesea
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_dunesea
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_duel_duneseafull
 {
-	nopicmip
 	nomipmaps
     {
-		map gfx/automap/mb2_duel_dunesea
+		clampmap gfx/automap/mb2_duel_dunesea
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1101,10 +1091,9 @@ gfx/automap/mb2_ps_desert0
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_ps_desert0
-		depthfunc equal
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
@@ -1115,8 +1104,7 @@ gfx/automap/mb2_ps_desert0full
     {
 		clampmap gfx/automap/mb2_ps_desert0
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1126,10 +1114,9 @@ gfx/automap/mb2_ps_desert1
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_ps_desert1
-		depthfunc equal
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
@@ -1140,8 +1127,7 @@ gfx/automap/mb2_ps_desert1full
     {
 		clampmap gfx/automap/mb2_ps_desert1
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1151,10 +1137,9 @@ gfx/automap/mb2_ps_desert2
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_ps_desert2
-		depthfunc equal
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
@@ -1165,8 +1150,7 @@ gfx/automap/mb2_ps_desert2full
     {
 		clampmap gfx/automap/mb2_ps_desert2
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1176,10 +1160,9 @@ gfx/automap/mb2_ps_desert3
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_ps_desert3
-		depthfunc equal
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
@@ -1190,8 +1173,7 @@ gfx/automap/mb2_ps_desert3full
     {
 		clampmap gfx/automap/mb2_ps_desert3
 		blendfunc blend
-		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1204,14 +1186,14 @@ gfx/automap/mb2_ps_desert0dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert0dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1224,21 +1206,21 @@ gfx/automap/mb2_ps_desert1ad
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert1_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert1ad
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1251,21 +1233,21 @@ gfx/automap/mb2_ps_desert1bd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert1_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert1bd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1278,20 +1260,20 @@ gfx/automap/mb2_ps_desert1cd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
 	    {
 		clampmap gfx/automap/mb2_ps_desert1_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }    {
 		clampmap gfx/automap/mb2_ps_desert1cd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1304,21 +1286,21 @@ gfx/automap/mb2_ps_desert1dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert1_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert1dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1331,21 +1313,21 @@ gfx/automap/mb2_ps_desert2ad
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2ad
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1358,21 +1340,21 @@ gfx/automap/mb2_ps_desert2bd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2_doorsb
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2bd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1385,21 +1367,21 @@ gfx/automap/mb2_ps_desert2cd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2cd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1412,21 +1394,21 @@ gfx/automap/mb2_ps_desert2dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert2dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1439,21 +1421,21 @@ gfx/automap/mb2_ps_desert3ad
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3ad
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1466,21 +1448,21 @@ gfx/automap/mb2_ps_desert3bd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3bd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1493,21 +1475,21 @@ gfx/automap/mb2_ps_desert3cd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3cd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1520,21 +1502,21 @@ gfx/automap/mb2_ps_desert3dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen vertex
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3_doors
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
     {
 		clampmap gfx/automap/mb2_ps_desert3dd
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1547,7 +1529,7 @@ gfx/automap/mb2_ps_desert1a
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1560,7 +1542,7 @@ gfx/automap/mb2_ps_desert1b
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1573,7 +1555,7 @@ gfx/automap/mb2_ps_desert1c
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1586,7 +1568,7 @@ gfx/automap/mb2_ps_desert1d
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1599,7 +1581,7 @@ gfx/automap/mb2_ps_desert2a
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1612,7 +1594,7 @@ gfx/automap/mb2_ps_desert2b
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1625,7 +1607,7 @@ gfx/automap/mb2_ps_desert2c
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1638,7 +1620,7 @@ gfx/automap/mb2_ps_desert2d
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1651,7 +1633,7 @@ gfx/automap/mb2_ps_desert3a
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1664,7 +1646,7 @@ gfx/automap/mb2_ps_desert3b
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1677,7 +1659,7 @@ gfx/automap/mb2_ps_desert3c
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1690,7 +1672,7 @@ gfx/automap/mb2_ps_desert3d
 		depthfunc equal
 		blendfunc blend
 		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1702,25 +1684,21 @@ gfx/automap/mb2_ps_desert3d
 gfx/automap/mb2_scarif
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_scarif
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_scariffull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_scariffull
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1742,75 +1720,63 @@ gfx/mplevels/mb2_scarif/map
 gfx/automap/mb2_citadel0
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_citadel0
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_citadel1
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_citadel1
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_citadel2
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_citadel2
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_citadel0full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_citadel0full
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
 gfx/automap/mb2_citadel1full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_citadel1full
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
 gfx/automap/mb2_citadel2full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_citadel2full
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1832,25 +1798,21 @@ gfx/mplevels/mb2_citadel/map
 gfx/automap/mb2_SDestroyer
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_SDestroyer
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_SDestroyerfull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_SDestroyerfull
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1872,25 +1834,21 @@ gfx/mplevels/mb2_sdestroyer/map
 gfx/automap/MB2_Duel_SDestroyer
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/MB2_Duel_SDestroyer
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/MB2_Duel_SDestroyerfull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/MB2_Duel_SDestroyerfull
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1912,25 +1870,21 @@ gfx/mplevels/mb2_sdestroyer/map_duel
 gfx/automap/mb2_jeditemple
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_jeditemple
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_jeditemplefull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_jeditemplefull
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
@@ -1952,25 +1906,21 @@ gfx/mplevels/mb2_jeditemple/map
 gfx/automap/mb2_duel_jeditemple
 {
 	nopicmip
-	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_jeditemple
-		depthfunc equal
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
+		depthfunc equal
     }
 }
 
 gfx/automap/mb2_duel_jeditemplefull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_duel_jeditemplefull
 		blendfunc blend
-		rgbGen identity
-		alphaGen const 0.85
+		alphaGen vertex
     }
 }
 
