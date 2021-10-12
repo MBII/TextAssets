@@ -58,6 +58,64 @@ gfx/hud/mpi_flag_held
 }
 
 //####################
+//##### FLAG BASES
+//####################
+
+models/map_objects/mp/mb2_ctf_pad_white
+{
+    qer_editorimage models/map_objects/mp/mb2_ctf_pad	
+    {
+      map $lightmap
+    }
+    {
+        map models/map_objects/mp/mb2_ctf_pad
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/mp/mb2_ctf_pad_white_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+models/map_objects/mp/mb2_ctf_pad_red
+{
+    qer_editorimage models/map_objects/mp/mb2_ctf_pad	
+    {
+      map $lightmap
+    }
+    {
+        map models/map_objects/mp/mb2_ctf_pad
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/mp/mb2_ctf_pad_red_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+models/map_objects/mp/mb2_ctf_pad_blue
+{
+    qer_editorimage models/map_objects/mp/mb2_ctf_pad	
+    {
+      map $lightmap
+    }
+    {
+        map models/map_objects/mp/mb2_ctf_pad
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/mp/mb2_ctf_pad_blue_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+//####################
 //##### NEUTRAL FLAGS
 //####################
 
@@ -485,6 +543,26 @@ models/map_objects/mp/flag_r_mb_tradefed
 	}
 }
 
+models/map_objects/mp/flag_r_mb_tusk
+{
+	nopicmip
+	nomipmaps
+	cull	twosided
+    {
+        map models/map_objects/mp/flag_red
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+	{
+		clampmap gfx/2d/logos/mb_tusk
+		blendFunc blend
+		alphaFunc GE128
+		tcMod transform 1.5 0 0 3 -0.25 -0.5
+		rgbGen const ( 1.0 0.25 0.25 )
+		glow
+	}
+}
+
 models/map_objects/mp/flag_r_mb_zann
 {
 	nopicmip
@@ -861,6 +939,26 @@ models/map_objects/mp/flag_b_mb_tradefed
     }
 	{
 		clampmap gfx/2d/logos/mb_tradefed
+		blendFunc blend
+		alphaFunc GE128
+		tcMod transform 1.5 0 0 3 -0.25 -0.5
+		rgbGen const ( 0.25 0.5 1.0 )
+		glow
+	}
+}
+
+models/map_objects/mp/flag_b_mb_tusk
+{
+	nopicmip
+	nomipmaps
+	cull	twosided
+    {
+        map models/map_objects/mp/flag_blue
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+	{
+		clampmap gfx/2d/logos/mb_tusk
 		blendFunc blend
 		alphaFunc GE128
 		tcMod transform 1.5 0 0 3 -0.25 -0.5
