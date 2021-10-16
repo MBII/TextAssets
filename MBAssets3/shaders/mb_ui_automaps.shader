@@ -1824,6 +1824,52 @@ gfx/mplevels/mb2_sdestroyer/map
         blendfunc blend
         rgbGen vertex
     }
+	{
+		map gfx/mplevels/mb2_sdestroyer/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+
+
+//####################
+//##### CTF Star Destroyer
+//####################
+gfx/automap/mb2_ptf_SDestroyer
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_ptf_SDestroyer
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ptf_SDestroyerfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_ptf_SDestroyerfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_sdestroyer/map_ctf
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_sdestroyer/map_ctf
+        blendfunc blend
+        rgbGen vertex
+    }
+	{
+		map gfx/mplevels/mb2_sdestroyer/map_ctf_overlay
+		blendfunc blend
+		rgbGen identity
+    }
 }
 
 
