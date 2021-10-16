@@ -1947,6 +1947,42 @@ gfx/mplevels/mb2_jeditemple/map
 
 
 //####################
+//##### CTF Jedi Temple
+//####################
+gfx/automap/mb2_ptf_jeditemple
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_ptf_jeditemple
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ptf_jeditemplefull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_ptf_jeditemplefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ptf_jeditemple/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ptf_jeditemple/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+
+
+//####################
 //##### Duel Jedi Temple
 //####################
 gfx/automap/mb2_duel_jeditemple
