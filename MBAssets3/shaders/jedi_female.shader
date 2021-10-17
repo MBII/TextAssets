@@ -47,7 +47,7 @@ models/players/jedi_female/bootsb
         rgbGen lightingDiffuse
     }
     {
-        map models/players/jedi_female/boots-spec
+        map models/players/jedi_spanki/boots-spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
@@ -59,6 +59,8 @@ models/players/jedi_female/teeth
 	cull	twosided
     {
         map models/players/jedi_female/teeth
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
         rgbGen lightingDiffuse
     }
 }
@@ -104,12 +106,6 @@ models/players/jedi_female/robeb
         depthWrite
         rgbGen lightingDiffuse
     }
-    {
-        map models/players/jedi_female/robe_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-		detail
-    }
 }
 
 models/players/jedi_female/robef
@@ -120,12 +116,6 @@ models/players/jedi_female/robef
         map models/players/jedi_female/robef
         depthWrite
         rgbGen lightingDiffuse
-    }
-    {
-        map models/players/jedi_female/robe_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-		detail
     }
 }
 
@@ -138,12 +128,6 @@ models/players/jedi_female/robe-partsb
         depthWrite
         rgbGen lightingDiffuse
     }
-    {
-        map models/players/jedi_female/robe-parts_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
 }
 
 models/players/jedi_female/robe-partsf
@@ -154,12 +138,6 @@ models/players/jedi_female/robe-partsf
         map models/players/jedi_female/robe-partsf
         depthWrite
         rgbGen lightingDiffuse
-    }
-    {
-        map models/players/jedi_female/robe-parts_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
     }
 }
 
@@ -172,7 +150,7 @@ models/players/iHotfoShiin/bootsb
         rgbGen lightingDiffuse
     }
     {
-        map models/players/iHotfoShiin/boots-specb
+        map models/players/jedi_spanki/boots-spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
@@ -186,10 +164,21 @@ models/players/iHotfoSzerai/boots_red
         rgbGen lightingDiffuse
     }
     {
-        map models/players/iHotfoSzerai/boots-specb
+        map models/players/jedi_spanki/boots-spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
+    }
+}
+
+models/players/iHotfoSzerai/hair_03_alphal
+{
+	cull	twosided
+    {
+        map models/players/iHotfoSzerai/hair_03_alphal
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
     }
 }
 
@@ -228,7 +217,49 @@ models/players/iHotfoTash/bootsi
         rgbGen lightingDiffuse
     }
     {
-        map models/players/iHotfoTash/boots-specb
+        map models/players/jedi_spanki/boots-spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/iHotfoTash/hair_02_alpha
+{
+	cull	twosided
+    {
+        map models/players/iHotfoTash/hair_02_alpha
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+
+// Kotor Addon Female
+
+models/players/jedi_female/boots_exi
+{
+    {
+        map models/players/jedi_female/boots_exi
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/jedi_female/boots-spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/jedi_female/boots_juh
+{
+    {
+        map models/players/jedi_female/boots_juh
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/jedi_female/boots-spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail

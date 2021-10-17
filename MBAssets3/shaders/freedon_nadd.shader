@@ -149,3 +149,21 @@ models/players/freedon_nadd/flaps
 		tcGen environment
 	}
 }
+
+models/players/freedon_nadd/torso_nadd_lower
+{
+	cull	twosided
+   {
+       map models/players/freedon_nadd/torso_nadd_lower
+        rgbGen lightingDiffuse
+   }
+}
+
+models/players/freedon_nadd/hood
+{
+	cull	twosided
+   {
+       map models/players/freedon_nadd/hood
+        rgbGen lightingDiffuse
+   }
+}
