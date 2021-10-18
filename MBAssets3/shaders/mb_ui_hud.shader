@@ -262,23 +262,102 @@ gfx/hud/alpha/HUD_EndGame_Border
 	}
 }
 
-gfx/hud/alpha/HUD_Symbol_Infinity
+//// SCOREBOARD ////
+gfx/hud/alpha/HUD_Scoreboard_Top
 {
 	nopicmip
 	notc
 	{
-		map gfx/hud/alpha/HUD_Symbol_Infinity
+		map gfx/hud/alpha/HUD_Scoreboard_Top
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Scoreboard_L
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Scoreboard_L
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Scoreboard_R
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Scoreboard_L
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		tcmod scale -1 1
+	}
+}
+
+gfx/hud/alpha/HUD_Scoreboard_Lower
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Scoreboard_Lower
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Icon_Infinity
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Icon_Infinity
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Icon_Latency
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Icon_Latency
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Icon_Lives
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Icon_Lives
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Icon_MB2
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Icon_MB2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
 }
 
-gfx/hud/alpha/HUD_Symbol_ReadyCheck
+gfx/hud/alpha/HUD_Icon_ReadyCheck
 {
 	nopicmip
 	notc
 	{
-		map gfx/hud/alpha/HUD_Symbol_ReadyCheck
+		map gfx/hud/alpha/HUD_Icon_ReadyCheck
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
