@@ -4,6 +4,7 @@ textures/calodan_terrain/terrain_0
 	q3map_lightmapaxis z
 	q3map_texturesize 512 512
 	q3map_tcGen ivector ( 158 0 0 ) ( 0 158 0 )
+	q3map_material shortgrass
 	{
 		map textures/biggs'_calodan/moss.jpg
 	}
@@ -20,6 +21,7 @@ textures/calodan_terrain/terrain_1
 	q3map_lightmapaxis z
 	q3map_texturesize 512 512
 	q3map_tcGen ivector ( 158 0 0 ) ( 0 158 0 )
+	q3map_material SolidMetal
 	{
 		map textures/biggs'_calodan/stone_floor2.jpg
 	}
@@ -36,6 +38,7 @@ textures/calodan_terrain/terrain_2
 	q3map_lightmapaxis z
 	q3map_texturesize 512 512
 	q3map_tcGen ivector ( 158 0 0 ) ( 0 158 0 )
+	q3map_material mud
 	{
 		map textures/yavin/dugdirt.jpg
 	}
@@ -52,6 +55,7 @@ textures/calodan_terrain/terrain_0to1
 	q3map_lightmapaxis z
 	q3map_texturesize 512 512
 	q3map_tcGen ivector ( 158 0 0 ) ( 0 158 0 )
+	q3map_material shortgrass
 	
 	{
 		map textures/biggs'_calodan/moss.jpg
@@ -74,6 +78,7 @@ textures/calodan_terrain/terrain_0to2
 	q3map_lightmapaxis z
 	q3map_texturesize 512 512
 	q3map_tcGen ivector ( 158 0 0 ) ( 0 158 0 )
+	q3map_material shortgrass
 	
 	{
 		map textures/biggs'_calodan/moss.jpg
@@ -96,6 +101,7 @@ textures/calodan_terrain/terrain_1to2
 	q3map_lightmapaxis z
 	q3map_texturesize 512 512
 	q3map_tcGen ivector ( 158 0 0 ) ( 0 158 0 )
+	q3map_material dirt
 	
 	{
 		map textures/biggs'_calodan/stone_floor2.jpg
