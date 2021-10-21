@@ -29,11 +29,11 @@ textures/biggs'_Calodan/water_portal_working2
     qer_editorimage    textures/biggs'_Calodan/dark_water
     q3map_planar
     q3map_nolightmap
-    portal
     deformvertexes wave 170 sin 2.75 6 0 .4
+	q3map_noFog
     {
         map textures/biggs'_Calodan/dark_water
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
         alphaFunc LT128
         depthWrite
 	tcmod scroll -0.10 -0.20 
@@ -42,11 +42,10 @@ textures/biggs'_Calodan/water_portal_working2
     }
     {
         map textures/biggs'_Calodan/dark_water
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
         depthFunc equal
 	alphaGen const .1
 	tcMod scroll -0.05 -0.001
-        alphaGen portal 256
     }
     {
  	map textures/common/stars
