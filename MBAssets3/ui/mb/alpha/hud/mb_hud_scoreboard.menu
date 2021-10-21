@@ -6,67 +6,114 @@
 	menuDef
 	{
 		name					"PlayerStats"
-		rect					320 420 300 55
+		rect					320 415 300 60
 		focusColor				1 1 1 1
 
 		// Player Stats Background
 		itemDef
 		{
 			name				"frame"
-			rect				0 0 300 55
-			background			"gfx/menus/bigbox2"
+			rect				0 0 630 60
+			background			"gfx/hud/alpha/HUD_Scoreboard_Lower"
 			align				1
+		}
+		
+		itemDef
+		{
+			name				"ScoreTitle"
+			rect				0 2 0 0
+			forecolor			1 1 1 1
+			font 				6
+			text				"SCORE"
+			textscale			0.15
+			textstyle			4
+			textalignx			-275
+			textaligny			0
+			align				4
+		}
+
+		itemDef
+		{
+			name				"ScoreNum"
+			rect				0 5 0 0
+			forecolor			1 1 1 1
+			font 				7
+			textscale			0.35
+			textstyle			4
+			textalignx			-275
+			textaligny			0
+			align				4
+		}
+		
+		itemDef
+		{
+			name				"PlayerStatsStandard"
+			forecolor			1 1 1 1
+			font 				6
+			textscale			0.15
+			textstyle			4
 		}
 
 		itemDef
 		{
 			name				"ObjText"
 			rect				0 2 0 0
-			forecolor			1 1 1 1
-			font				6
-			textalignx			-140
+			textalignx			-230
 			textaligny			0
-			textscale			0.2
-			textstyle			4
+			align				3
+		}
+		
+		itemDef
+		{
+			name				"RoundsText"
+			rect				0 15 0 0
+			textalignx			-230
+			textaligny			0
 			align				3
 		}
 
 		itemDef
 		{
-			name				"AssistsText"
+			name				"KillsText"
 			rect				0 2 0 0
-			forecolor			1 1 1 1
-			font				6
-			textalignx			15
+			textalignx			-30
 			textaligny			0
-			textscale			0.2
-			textstyle			4
+			align				3
+		}
+		
+		itemDef
+		{
+			name				"TKsText"
+			rect				0 2 0 0
+			textalignx			-130
+			textaligny			0
+			align				3
+		}
+		
+		itemDef
+		{
+			name				"DeathsText"
+			rect				0 15 0 0
+			textalignx			-30
+			textaligny			0
+			align				3
+		}
+		
+		itemDef
+		{
+			name				"AssistsText"
+			rect				0 30 0 0
+			textalignx			-30
+			textaligny			0
 			align				3
 		}
 
 		itemDef
 		{
 			name				"LossesText"
-			rect				0 19 0 0
-			forecolor			1 1 1 1
-			font				6
-			textalignx			15
+			rect				0 30 0 0
+			textalignx			-230
 			textaligny			0
-			textscale			0.2
-			textstyle			4
-			align				3
-		}
-
-		itemDef
-		{
-			name				"TKsText"
-			rect				0 19 0 0
-			forecolor			1 1 1 1
-			font				6
-			textalignx			-140
-			textaligny			0
-			textscale			0.2
-			textstyle			4
 			align				3
 		}
 	}
@@ -80,9 +127,18 @@
 		// Scoreboard Background
 		itemDef
 		{
+			name				"frameScores"
+			rect				320 59 630 50
+			background			"gfx/hud/alpha/HUD_Scoreboard_Top"
+			align 				4
+			textalignx			0
+		}
+		
+		itemDef
+		{
 			name				"frameRed"
-			rect				320 104 310 293
-			background			"gfx/menus/score_r"
+			rect				320 114 310 293
+			background			"gfx/hud/alpha/HUD_Scoreboard_L"
 			align 				5
 			textalignx			-5
 		}
@@ -90,42 +146,212 @@
 		itemDef
 		{
 			name				"frameBlue"
-			rect				320 104 310 293
-			background			"gfx/menus/score_b"
+			rect				320 114 310 293
+			background			"gfx/hud/alpha/HUD_Scoreboard_R"
 			align				3
-			textalignx			5
+			textalignx			6
 		}
 
 		itemDef
 		{
-			name				"TeamPlayers"
+			name				"TeamPlayersR"
+			rect				320 53 0 0
+			forecolor			0.953 0.378 0.25 1
+			font 				6
+			textscale			0.35
+			textstyle			4
+			textalignx			-20
+			textaligny			0
+			align				5
+		}
+		
+		itemDef
+		{
+			name				"TeamVersus"
+			rect				320 62 0 0
+			forecolor			0.8 0.80 0.8 1
+			font 				6
+			text				"VS"
+			textscale			0.25
+			textstyle			4
+			textalignx			0
+			textaligny			0
+			align				1
+		}
+		
+		itemDef
+		{
+			name				"TeamPlayersB"
+			rect				320 53 0 0
+			forecolor			0.25 0.5 0.953 1
+			font 				6
+			textscale			0.35
+			textstyle			4
+			textalignx			20
+			textaligny			0
+			align				3
+		}
+		
+		itemDef
+		{
+			name				"TeamAliveR"
 			rect				320 63 0 0
-			forecolor			1 1 1 1
-			font 				7
-			textscale			0.2
+			forecolor			0.8 0.80 0.8 1
+			font 				6
+			text				"ALIVE"
+			textscale			0.15
 			textstyle			4
-			textalignx			0
+			textalignx			-55
 			textaligny			0
-			align				1
+			align				5
+		}
+		
+		itemDef
+		{
+			name				"TeamAliveNumR"
+			rect				320 63 0 0
+			forecolor			0.953 0.378 0.25 1
+			font 				6
+			text				"0"
+			textscale			0.15
+			textstyle			4
+			textalignx			-90
+			textaligny			0
+			align				5
+		}
+		
+		itemDef
+		{
+			name				"TeamLivesR"
+			rect				320 79 0 0
+			forecolor			0.8 0.80 0.8 1
+			font 				6
+			text				"LIVES"
+			textscale			0.15
+			textstyle			4
+			textalignx			-55
+			textaligny			0
+			align				5
 		}
 
 		itemDef
 		{
-			name				"TeamScore"
-			rect				320 78 0 0
-			forecolor			1 1 1 1
-			font 				7
-			textscale			0.2
+			name				"TeamLivesNumR"
+			rect				320 79 0 0
+			forecolor			0.953 0.378 0.25 1
+			font 				6
+			text				"0"
+			textscale			0.15
 			textstyle			4
-			textalignx			0
+			textalignx			-90
 			textaligny			0
-			align				1
+			align				5
+		}
+
+		itemDef
+		{
+			name				"TeamAliveB"
+			rect				320 63 0 0
+			forecolor			0.8 0.80 0.8 1
+			font 				6
+			text				"ALIVE"
+			textscale			0.15
+			textstyle			4
+			textalignx			55
+			textaligny			0
+			align				3
+		}
+		
+		itemDef
+		{
+			name				"TeamAliveNumB"
+			rect				320 63 0 0
+			forecolor			0.25 0.5 0.953 1
+			font 				6
+			text				"0"
+			textscale			0.15
+			textstyle			4
+			textalignx			90
+			textaligny			0
+			align				3
+		}
+
+		itemDef
+		{
+			name				"TeamLivesB"
+			rect				320 79 0 0
+			forecolor			0.8 0.80 0.8 1
+			font 				6
+			text				"LIVES"
+			textscale			0.15
+			textstyle			4
+			textalignx			55
+			textaligny			0
+			align				3
+		}
+
+		itemDef
+		{
+			name				"TeamLivesNumB"
+			rect				320 79 0 0
+			forecolor			0.25 0.5 0.953 1
+			font 				6
+			text				"0"
+			textscale			0.15
+			textstyle			4
+			textalignx			90
+			textaligny			0
+			align				3
+		}
+
+		itemDef
+		{
+			name				"TeamScoreR"
+			rect				320 78 0 0
+			forecolor			0.953 0.378 0.25 1
+			font 				7
+			textscale			0.45
+			textstyle			4
+			textalignx			-260
+			textaligny			-35
+			align				3
+		}
+		
+		itemDef
+		{
+			name				"TeamScoreB"
+			rect				320 78 0 0
+			forecolor			0.25 0.5 0.953 1
+			font 				7
+			textscale			0.45
+			textstyle			4
+			textalignx			260
+			textaligny			-35
+			align				5
+		}
+
+		itemDef
+		{
+			name				"TeamIconR"
+			rect				320 66 36 36
+			forecolor			0.953 0.378 0.25 1
+			textalignx			-308
+			align				3
+		}
+
+		itemDef
+		{
+			name				"TeamIconB"
+			rect				320 66 36 36
+			forecolor			0.25 0.5 0.953 1
+			textalignx			308
+			align				5
 		}
 
 		itemDef
 		{
 			name				"Header"
-			rect				0 110 0 15 //Height is line height.
+			rect				0 118 0 15 //Height is line height.
 			forecolor			0.953 0.378 0.25 1 //Red team header text color
 			backcolor			0.25 0.5 0.953 1 // blue team header text color
 			font 				7
@@ -138,38 +364,84 @@
 		itemDef
 		{
 			name				"HeaderName"
-			rect				23 0 0 0 // Use X only as offset from the left side of the team frame.
+			rect				25 0 0 0 // Use X only as offset from the left side of the team frame.
 		}
 
 		itemDef
 		{
 			name				"HeaderLives"
-			rect				134 0 0 0 // Use X only as offset from the left side of the team frame.
+			rect				152 6 10 10 // Use X only as offset from the left side of the team frame.
+			background			"gfx/hud/alpha/HUD_Icon_Lives"
 		}
 
 		itemDef
 		{
 			name				"HeaderScore"
-			rect				165 0 0 0 // Use X only as offset from the left side of the team frame.
+			rect				170 0 0 0 // Use X only as offset from the left side of the team frame.
 		}
 
 		itemDef
 		{
-			name				"HeaderKD"
-			rect				245 0 0 0 // Use X only as offset from the left side of the team frame.
+			name				"HeaderRounds"
+			rect				210 0 0 0 // Use X only as offset from the left side of the team frame.
+		}
+
+		itemDef
+		{
+			name				"HeaderKDA"
+			rect				248 0 0 0 // Use X only as offset from the left side of the team frame.
+		}
+
+		itemDef
+		{
+			name				"HeaderKills"
+			rect				235 0 0 0 // Use X only as offset from the left side of the team frame.
+		}
+		
+		itemDef
+		{
+			name				"HeaderSeparator1"
+			rect				245 3 0 0 // Use X & Y only as offset from the left & top side of the team frame.
+			forecolor			0.8 0.8 0.8 0.4
+			font 				7
+			text				"/"
+			textscale			0.09
+			textstyle			4
+		}
+
+		itemDef
+		{
+			name				"HeaderDeaths"
+			rect				255 0 0 0 // Use X only as offset from the left side of the team frame.
+		}
+
+		itemDef
+		{
+			name				"HeaderSeparator2"
+			rect				265 0 0 0 // Use X only as offset from the left side of the team frame.
+		}
+
+		itemDef
+		{
+			name				"HeaderAssists"
+			rect				275 0 0 0 // Use X only as offset from the left side of the team frame.
 		}
 
 		itemDef
 		{
 			name				"HeaderPing"
-			rect				280 0 0 0 // Use X only as offset from the left side of the team frame.
+			rect				290 6 10 10 // Use X only as offset from the left side of the team frame.
+			background			"gfx/hud/alpha/HUD_Icon_Latency"
+			forecolor			0 0.8 0 1 //Low Ping Color
+			backcolor			0.8 0.8 0.8 1 //Medium Ping Color
+			borderColor			0.8 0 0 1 //High Ping Color
 		}
 		
 		itemDef
 		{
 			name				"ReadyCheck"
-			rect				5 7 11 9 // Y (Vertical Offset) Width and Height only.
-			background			"gfx/hud/alpha/HUD_Symbol_ReadyCheck"
+			rect				5 7 11 9
+			background			"gfx/hud/alpha/HUD_Icon_ReadyCheck"
 			forecolor			0 0.8 0 1
 		}
 		
@@ -177,7 +449,7 @@
 		{
 			name				"InfiniteLives"
 			rect				0 7 17 9 // Y (Vertical Offset) Width and Height only.
-			background			"gfx/hud/alpha/HUD_Symbol_Infinity"
+			background			"gfx/hud/alpha/HUD_Icon_Infinity"
 		}
 
 		itemDef
@@ -186,6 +458,7 @@
 			rect				0 110 0 15 //Height is line height.
 			forecolor			1 1 1 1 //Red team text color
 			backcolor			1 1 1 1 // blue team text color
+			borderColor			0.5 0.5 0.5 0.7 // Dead Text Color
 			font 				6
 			textscale			0.125
 			textstyle			4
@@ -196,15 +469,16 @@
 		itemDef
 		{
 			name				"PlayerHighlight"
-			rect				6 0 299 15 // Use X only as offset from the left side of the team frame.
+			rect				7 0 299 15 // Use X only as offset from the left side of the team frame.
 			forecolor			0.953 0.378 0.25 0.5 //Red team highlight color
 			backcolor			0.25 0.5 0.953 0.5 // blue team highlight color
+			borderColor			0 0 0 0.2 // Odd line background.
 		}
 
 		itemDef
 		{
 			name				"PlayerHighlightSpec"
-			rect				320 400 300 15
+			rect				320 40 300 15
 			forecolor			1 1 1 1 // Spec text color
 			backcolor			0.7 0.7 0.7 0.7 // Spec highlight background color
 			align				1
@@ -213,7 +487,7 @@
 		itemDef
 		{
 			name				"PlayerIcon"
-			rect				4 3 16 16 // Use X only as offset from the left side of the team frame.
+			rect				5 3 16 16 // Use X only as offset from the left side of the team frame.
 		}
 	}
 }
