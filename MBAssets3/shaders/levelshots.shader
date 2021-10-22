@@ -207,17 +207,6 @@ levelshots/mb2_ctf_deathstar
 	}
 }
 
-levelshots/mb2_ctf_deathstar2
-{
-	nomipmaps
-	notc
-	{
-		map levelshots/mb2_ctf_deathstar2
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-}
-
 levelshots/mb2_ctf_eravana
 {
 	nomipmaps
@@ -1593,17 +1582,6 @@ levelshots/mb2_ptf_deathstar
 	}
 }
 
-levelshots/mb2_ptf_deathstar2
-{
-	nomipmaps
-	notc
-	{
-		map levelshots/mb2_ptf_deathstar2
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-}
-
 levelshots/mb2_ptf_jeditemple
 {
 	nomipmaps
@@ -1621,6 +1599,17 @@ levelshots/mb2_ptf_jeditemple2
 	notc
 	{
 		map levelshots/mb2_ptf_jeditemple2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ptf_scarif
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ptf_scarif
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
