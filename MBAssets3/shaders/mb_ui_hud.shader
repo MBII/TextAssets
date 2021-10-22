@@ -277,6 +277,7 @@ gfx/hud/alpha/HUD_Scoreboard_Top
 gfx/hud/alpha/HUD_Scoreboard_L
 {
 	nopicmip
+	nomipmap
 	notc
 	{
 		map gfx/hud/alpha/HUD_Scoreboard_L
@@ -288,9 +289,35 @@ gfx/hud/alpha/HUD_Scoreboard_L
 gfx/hud/alpha/HUD_Scoreboard_R
 {
 	nopicmip
+	nomipmap
 	notc
 	{
 		map gfx/hud/alpha/HUD_Scoreboard_L
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		tcmod scale -1 1
+	}
+}
+
+gfx/hud/alpha/HUD_Scoreboard_TotalR
+{
+	nopicmip
+	nomipmap
+	notc
+	{
+		map gfx/hud/alpha/HUD_Scoreboard_Totals
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_Scoreboard_TotalB
+{
+	nopicmip
+	nomipmap
+	notc
+	{
+		map gfx/hud/alpha/HUD_Scoreboard_Totals
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 		tcmod scale -1 1
@@ -333,6 +360,7 @@ gfx/hud/alpha/HUD_Icon_Latency
 gfx/hud/alpha/HUD_Icon_Lives
 {
 	nopicmip
+	nomipmap
 	notc
 	{
 		map gfx/hud/alpha/HUD_Icon_Lives
