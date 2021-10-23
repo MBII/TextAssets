@@ -521,3 +521,35 @@ textures/deathmatch/vines2
         depthFunc equal
     }
 }
+
+textures/deathmatch/mp_r_lstripcap
+{
+    qer_editorimage     textures/decals/mp_r_lstripcap
+    {
+        map $lightmap
+    }
+    {
+        map textures/decals/mp_r_lstripcap
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/decals/mp_r_lstripcapglow
+        blendFunc GL_ONE GL_ONE
+    }
+}
+
+textures/deathmatch/mp_b_lstripcap
+{
+	qer_editorimage     textures/decals/mp_b_lstripcap
+    {
+        map $lightmap
+    }
+    {
+        map textures/decals/mp_b_lstripcap
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/decals/mp_b_lstripcapglow
+        blendFunc GL_ONE GL_ONE
+    }
+}
