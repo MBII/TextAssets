@@ -201,5 +201,6 @@ textures/calodan/fog
 	surfaceparm	trans
 	//q3map_nolightmap
 	//fogparms	( 234 226 208 ) 10000
-	fogparms	( 255 209 174 ) 10000
+	fogparms	( 255 209 174 ) 15000
 }
+

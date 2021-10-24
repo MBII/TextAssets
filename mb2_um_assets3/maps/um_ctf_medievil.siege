@@ -1,0 +1,78 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 RedKingdom
+	team2 BlueKingdom
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname  "Medi-evil Battle"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+countin_time 0
+RedKingdom
+{
+	RequiredObjectives 1
+	UseTeam "medi_redsUM"							
+	Timed 360
+	TeamIcon	"gfx/2d/logos/um_lionherald"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Overthrow the imperious Blue Kingdom!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture their flag!"
+		objgfx "gfx/mplevels/um_ctf_medievil/obj1r"
+	}
+
+	
+	wonround "The Blue Kingdom has been defeated!" 	//Printed to this team if they won the round.
+	lostround "The Red Kingdom has been defeated..." 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Overthrow the imperious Blue Kingdom!" //Displayed on the mission briefing menu.
+}
+
+BlueKingdom
+{
+	RequiredObjectives 1
+	Timed 360
+	UseTeam "medi_bluesUM"
+	TeamIcon	"gfx/2d/logos/um_fleurdelis"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Crush the rebellious Red Kingdom!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture their flag!"
+		objgfx "gfx/mplevels/um_ctf_medievil/obj1b"
+	}
+
+
+
+		
+	wonround "The Red Kingdom has been destroyed"
+	lostround "The Blue throne has been usurped..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Crush the rebellious Red Kingdom!"
+}

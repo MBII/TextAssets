@@ -103,7 +103,7 @@ textures/mb2_duel_training/mp_r_lstrip
 		blendFunc GL_DST_COLOR GL_ZERO
 	}
 	{
-		map textures/mb2_duel_training/mp_r_lstripglow2
+		map textures/decals/mp_r_lstripglow2
 		blendFunc GL_ONE GL_ONE
 		glow
 	}
@@ -121,7 +121,7 @@ textures/mb2_duel_training/mp_b_lstrip
 		blendFunc GL_DST_COLOR GL_ZERO
 	}
 	{
-		map textures/mb2_duel_training/mp_b_lstripglow2
+		map textures/decals/mp_b_lstripglow2
 		blendFunc GL_ONE GL_ONE
 		glow
 	}
