@@ -218,6 +218,29 @@ models/players/stormpilot/helmet1
 	}
 }
 
+models/players/stormpilot/helmet2
+{
+	{
+		map models/players/stormpilot/helmet2
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/stormpilot/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 
 // swamptrooper
 

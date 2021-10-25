@@ -191,6 +191,79 @@ gfx/2d/hud/hlp_payload
 	}
 }
 
+// CAPTURE THE FLAG
+gfx/2d/hud/hlp_ctf_n
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_ctf_n
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
+gfx/2d/hud/hlp_ctf_n2
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_ctf_n2
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
+gfx/2d/hud/hlp_ctf_r
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_ctf_r
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
+gfx/2d/hud/hlp_ctf_r2
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_ctf_r2
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
+gfx/2d/hud/hlp_ctf_b
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_ctf_b
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
+gfx/2d/hud/hlp_ctf_b2
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_ctf_b2
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
 // MAP SPECIFIC ICONS
 gfx/2d/hud/hlp_boc_elevator
 {

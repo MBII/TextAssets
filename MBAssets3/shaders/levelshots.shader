@@ -1,6 +1,5 @@
 levelshots/mb2_alderaan
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -12,7 +11,6 @@ levelshots/mb2_alderaan
 
 levelshots/mb2_alderaan2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -24,7 +22,6 @@ levelshots/mb2_alderaan2
 
 levelshots/mb2_boc
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -36,7 +33,6 @@ levelshots/mb2_boc
 
 levelshots/mb2_boc2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -48,7 +44,6 @@ levelshots/mb2_boc2
 
 levelshots/mb2_citadel
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -60,7 +55,6 @@ levelshots/mb2_citadel
 
 levelshots/mb2_citadel2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -72,7 +66,6 @@ levelshots/mb2_citadel2
 
 levelshots/mb2_cloudcity
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -84,7 +77,6 @@ levelshots/mb2_cloudcity
 
 levelshots/mb2_cloudcity2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -96,7 +88,6 @@ levelshots/mb2_cloudcity2
 
 levelshots/mb2_commtower
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -108,7 +99,6 @@ levelshots/mb2_commtower
 
 levelshots/mb2_commtower2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -120,7 +110,6 @@ levelshots/mb2_commtower2
 
 levelshots/mb2_commtower_classic
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -132,7 +121,6 @@ levelshots/mb2_commtower_classic
 
 levelshots/mb2_commtower_classic2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -144,7 +132,6 @@ levelshots/mb2_commtower_classic2
 
 levelshots/mb2_corellia
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -156,7 +143,6 @@ levelshots/mb2_corellia
 
 levelshots/mb2_corellia2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -168,7 +154,6 @@ levelshots/mb2_corellia2
 
 levelshots/mb2_coruscant_chase
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -180,7 +165,6 @@ levelshots/mb2_coruscant_chase
 
 levelshots/mb2_coruscant_chase2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -190,9 +174,151 @@ levelshots/mb2_coruscant_chase2
 	}
 }
 
+levelshots/mb2_ctf_backstreets
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_backstreets
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_backstreets2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_backstreets2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_deathstar
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_deathstar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_eravana
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_eravana
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_eravana2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_eravana2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_imperial
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_imperial
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_scarif
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_scarif
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_scarif2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_scarif2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_theed
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_theed
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_theed2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_theed2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_tusken
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_tusken
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_tusken2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_tusken2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_yavin
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_yavin
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_deathstar
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -204,7 +330,6 @@ levelshots/mb2_deathstar
 
 levelshots/mb2_deathstar2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -216,7 +341,6 @@ levelshots/mb2_deathstar2
 
 levelshots/mb2_dotf
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -228,7 +352,6 @@ levelshots/mb2_dotf
 
 levelshots/mb2_dotf2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -240,7 +363,6 @@ levelshots/mb2_dotf2
 
 levelshots/mb2_dotf_classic
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -252,7 +374,6 @@ levelshots/mb2_dotf_classic
 
 levelshots/mb2_dotf_classic2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -264,7 +385,6 @@ levelshots/mb2_dotf_classic2
 
 levelshots/mb2_dotf_classicb
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -276,7 +396,6 @@ levelshots/mb2_dotf_classicb
 
 levelshots/mb2_dotf_classicb2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -288,7 +407,6 @@ levelshots/mb2_dotf_classicb2
 
 levelshots/mb2_duel_boc
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -300,7 +418,6 @@ levelshots/mb2_duel_boc
 
 levelshots/mb2_duel_boc2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -312,7 +429,6 @@ levelshots/mb2_duel_boc2
 
 levelshots/mb2_duel_cargoheist
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -324,7 +440,6 @@ levelshots/mb2_duel_cargoheist
 
 levelshots/mb2_duel_cargoheist2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -336,7 +451,6 @@ levelshots/mb2_duel_cargoheist2
 
 levelshots/mb2_duel_cc
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -348,7 +462,6 @@ levelshots/mb2_duel_cc
 
 levelshots/mb2_duel_cc2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -360,7 +473,6 @@ levelshots/mb2_duel_cc2
 
 levelshots/mb2_duel_corellia
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -372,7 +484,6 @@ levelshots/mb2_duel_corellia
 
 levelshots/mb2_duel_corellia2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -384,7 +495,6 @@ levelshots/mb2_duel_corellia2
 
 levelshots/mb2_duel_crait
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -396,7 +506,6 @@ levelshots/mb2_duel_crait
 
 levelshots/mb2_duel_crait2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -408,7 +517,6 @@ levelshots/mb2_duel_crait2
 
 levelshots/mb2_duel_crait_alt
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -420,7 +528,6 @@ levelshots/mb2_duel_crait_alt
 
 levelshots/mb2_duel_crait_alt2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -432,7 +539,6 @@ levelshots/mb2_duel_crait_alt2
 
 levelshots/mb2_duel_dantooine
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -444,7 +550,6 @@ levelshots/mb2_duel_dantooine
 
 levelshots/mb2_duel_dantooine2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -456,7 +561,6 @@ levelshots/mb2_duel_dantooine2
 
 levelshots/mb2_duel_datacore
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -468,7 +572,6 @@ levelshots/mb2_duel_datacore
 
 levelshots/mb2_duel_datacore2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -480,7 +583,6 @@ levelshots/mb2_duel_datacore2
 
 levelshots/mb2_duel_detention
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -492,7 +594,6 @@ levelshots/mb2_duel_detention
 
 levelshots/mb2_duel_detention2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -504,7 +605,6 @@ levelshots/mb2_duel_detention2
 
 levelshots/mb2_duel_dotf
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -516,7 +616,6 @@ levelshots/mb2_duel_dotf
 
 levelshots/mb2_duel_dotf2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -528,7 +627,6 @@ levelshots/mb2_duel_dotf2
 
 levelshots/mb2_duel_dunesea
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -540,7 +638,6 @@ levelshots/mb2_duel_dunesea
 
 levelshots/mb2_duel_dunesea2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -552,7 +649,6 @@ levelshots/mb2_duel_dunesea2
 
 levelshots/mb2_duel_emperor
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -564,7 +660,6 @@ levelshots/mb2_duel_emperor
 
 levelshots/mb2_duel_emperor2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -576,7 +671,6 @@ levelshots/mb2_duel_emperor2
 
 levelshots/mb2_duel_emperor_fancy
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -588,7 +682,6 @@ levelshots/mb2_duel_emperor_fancy
 
 levelshots/mb2_duel_emperor_fancy2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -600,7 +693,6 @@ levelshots/mb2_duel_emperor_fancy2
 
 levelshots/mb2_duel_ihod
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -612,7 +704,6 @@ levelshots/mb2_duel_ihod
 
 levelshots/mb2_duel_ihod2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -624,7 +715,6 @@ levelshots/mb2_duel_ihod2
 
 levelshots/mb2_duel_jabba
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -636,7 +726,6 @@ levelshots/mb2_duel_jabba
 
 levelshots/mb2_duel_jabba2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -648,7 +737,6 @@ levelshots/mb2_duel_jabba2
 
 levelshots/mb2_duel_jeditemple
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -660,7 +748,6 @@ levelshots/mb2_duel_jeditemple
 
 levelshots/mb2_duel_jeditemple2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -672,7 +759,6 @@ levelshots/mb2_duel_jeditemple2
 
 levelshots/mb2_duel_kamino
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -684,7 +770,6 @@ levelshots/mb2_duel_kamino
 
 levelshots/mb2_duel_kamino2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -696,7 +781,6 @@ levelshots/mb2_duel_kamino2
 
 levelshots/mb2_duel_korriban
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -708,7 +792,6 @@ levelshots/mb2_duel_korriban
 
 levelshots/mb2_duel_korriban2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -720,7 +803,6 @@ levelshots/mb2_duel_korriban2
 
 levelshots/mb2_duel_malachor
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -732,7 +814,6 @@ levelshots/mb2_duel_malachor
 
 levelshots/mb2_duel_malachor2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -744,7 +825,6 @@ levelshots/mb2_duel_malachor2
 
 levelshots/mb2_duel_mustafar
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -756,7 +836,6 @@ levelshots/mb2_duel_mustafar
 
 levelshots/mb2_duel_mustafar2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -768,7 +847,6 @@ levelshots/mb2_duel_mustafar2
 
 levelshots/mb2_duel_office
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -780,7 +858,6 @@ levelshots/mb2_duel_office
 
 levelshots/mb2_duel_office2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -792,7 +869,6 @@ levelshots/mb2_duel_office2
 
 levelshots/mb2_duel_profundity
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -804,7 +880,6 @@ levelshots/mb2_duel_profundity
 
 levelshots/mb2_duel_profundity2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -816,7 +891,6 @@ levelshots/mb2_duel_profundity2
 
 levelshots/mb2_duel_ravager
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -828,7 +902,6 @@ levelshots/mb2_duel_ravager
 
 levelshots/mb2_duel_ravager2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -840,7 +913,6 @@ levelshots/mb2_duel_ravager2
 
 levelshots/mb2_duel_rcbridge
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -852,7 +924,6 @@ levelshots/mb2_duel_rcbridge
 
 levelshots/mb2_duel_rcbridge2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -864,7 +935,6 @@ levelshots/mb2_duel_rcbridge2
 
 levelshots/mb2_duel_revan
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -876,7 +946,6 @@ levelshots/mb2_duel_revan
 
 levelshots/mb2_duel_revan2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -888,7 +957,6 @@ levelshots/mb2_duel_revan2
 
 levelshots/mb2_duel_sabh
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -900,7 +968,6 @@ levelshots/mb2_duel_sabh
 
 levelshots/mb2_duel_sabh2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -912,7 +979,6 @@ levelshots/mb2_duel_sabh2
 
 levelshots/mb2_duel_sdestroyer
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -924,7 +990,6 @@ levelshots/mb2_duel_sdestroyer
 
 levelshots/mb2_duel_sdestroyer2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -936,7 +1001,6 @@ levelshots/mb2_duel_sdestroyer2
 
 levelshots/mb2_duel_senate
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -948,7 +1012,6 @@ levelshots/mb2_duel_senate
 
 levelshots/mb2_duel_senate2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -960,7 +1023,6 @@ levelshots/mb2_duel_senate2
 
 levelshots/mb2_duel_starforge
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -972,7 +1034,6 @@ levelshots/mb2_duel_starforge
 
 levelshots/mb2_duel_starforge2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -984,7 +1045,6 @@ levelshots/mb2_duel_starforge2
 
 levelshots/mb2_duel_starkiller_base
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -996,7 +1056,6 @@ levelshots/mb2_duel_starkiller_base
 
 levelshots/mb2_duel_starkiller_base2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1008,7 +1067,6 @@ levelshots/mb2_duel_starkiller_base2
 
 levelshots/mb2_duel_supremacy
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1020,7 +1078,6 @@ levelshots/mb2_duel_supremacy
 
 levelshots/mb2_duel_supremacy2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1032,7 +1089,6 @@ levelshots/mb2_duel_supremacy2
 
 levelshots/mb2_duel_taris
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1044,7 +1100,6 @@ levelshots/mb2_duel_taris
 
 levelshots/mb2_duel_taris2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1056,7 +1111,6 @@ levelshots/mb2_duel_taris2
 
 levelshots/mb2_duel_training
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1068,7 +1122,6 @@ levelshots/mb2_duel_training
 
 levelshots/mb2_duel_training2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1080,7 +1133,6 @@ levelshots/mb2_duel_training2
 
 levelshots/mb2_duel_tusken
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1092,7 +1144,6 @@ levelshots/mb2_duel_tusken
 
 levelshots/mb2_duel_tusken2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1104,7 +1155,6 @@ levelshots/mb2_duel_tusken2
 
 levelshots/mb2_duel_utapau
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1116,7 +1166,6 @@ levelshots/mb2_duel_utapau
 
 levelshots/mb2_duel_utapau2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1128,7 +1177,6 @@ levelshots/mb2_duel_utapau2
 
 levelshots/mb2_duel_votj
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1140,7 +1188,6 @@ levelshots/mb2_duel_votj
 
 levelshots/mb2_duel_votj2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1152,7 +1199,6 @@ levelshots/mb2_duel_votj2
 
 levelshots/mb2_duel_wbw
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1164,7 +1210,6 @@ levelshots/mb2_duel_wbw
 
 levelshots/mb2_duel_wbw2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1176,7 +1221,6 @@ levelshots/mb2_duel_wbw2
 
 levelshots/mb2_duel_yavin4
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1188,7 +1232,6 @@ levelshots/mb2_duel_yavin4
 
 levelshots/mb2_duel_yavin42
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1200,7 +1243,6 @@ levelshots/mb2_duel_yavin42
 
 levelshots/mb2_dxun
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1212,7 +1254,6 @@ levelshots/mb2_dxun
 
 levelshots/mb2_dxun2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1224,7 +1265,6 @@ levelshots/mb2_dxun2
 
 levelshots/mb2_echobase
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1236,7 +1276,6 @@ levelshots/mb2_echobase
 
 levelshots/mb2_echobase2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1248,7 +1287,6 @@ levelshots/mb2_echobase2
 
 levelshots/mb2_enclave
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1260,7 +1298,6 @@ levelshots/mb2_enclave
 
 levelshots/mb2_enclave2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1272,7 +1309,6 @@ levelshots/mb2_enclave2
 
 levelshots/mb2_eravana
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1284,7 +1320,6 @@ levelshots/mb2_eravana
 
 levelshots/mb2_eravana2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1296,7 +1331,6 @@ levelshots/mb2_eravana2
 
 levelshots/mb2_jabba
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1308,7 +1342,6 @@ levelshots/mb2_jabba
 
 levelshots/mb2_jabba2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1320,7 +1353,6 @@ levelshots/mb2_jabba2
 
 levelshots/mb2_jakku
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1332,7 +1364,6 @@ levelshots/mb2_jakku
 
 levelshots/mb2_jakku2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1344,7 +1375,6 @@ levelshots/mb2_jakku2
 
 levelshots/mb2_jeditemple
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1356,7 +1386,6 @@ levelshots/mb2_jeditemple
 
 levelshots/mb2_jeditemple2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1368,7 +1397,6 @@ levelshots/mb2_jeditemple2
 
 levelshots/mb2_jeditemple_classic
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1380,7 +1408,6 @@ levelshots/mb2_jeditemple_classic
 
 levelshots/mb2_jeditemple_classic2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1392,7 +1419,6 @@ levelshots/mb2_jeditemple_classic2
 
 levelshots/mb2_kamino
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1404,7 +1430,6 @@ levelshots/mb2_kamino
 
 levelshots/mb2_kamino2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1416,7 +1441,6 @@ levelshots/mb2_kamino2
 
 levelshots/mb2_korriban
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1428,7 +1452,6 @@ levelshots/mb2_korriban
 
 levelshots/mb2_korriban2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1440,7 +1463,6 @@ levelshots/mb2_korriban2
 
 levelshots/mb2_lunarbase
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1452,7 +1474,6 @@ levelshots/mb2_lunarbase
 
 levelshots/mb2_lunarbase2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1464,7 +1485,6 @@ levelshots/mb2_lunarbase2
 
 levelshots/mb2_mustafar
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1476,7 +1496,6 @@ levelshots/mb2_mustafar
 
 levelshots/mb2_mustafar2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1488,7 +1507,6 @@ levelshots/mb2_mustafar2
 
 levelshots/mb2_mygeeto
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1500,7 +1518,6 @@ levelshots/mb2_mygeeto
 
 levelshots/mb2_mygeeto2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1512,7 +1529,6 @@ levelshots/mb2_mygeeto2
 
 levelshots/mb2_ps_desert
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1524,7 +1540,6 @@ levelshots/mb2_ps_desert
 
 levelshots/mb2_ps_desert2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1536,7 +1551,6 @@ levelshots/mb2_ps_desert2
 
 levelshots/mb2_ps_korriban
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1548,7 +1562,6 @@ levelshots/mb2_ps_korriban
 
 levelshots/mb2_ps_korriban2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1558,9 +1571,74 @@ levelshots/mb2_ps_korriban2
 	}
 }
 
+levelshots/mb2_ptf_deathstar
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ptf_deathstar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ptf_jeditemple
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ptf_jeditemple
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ptf_jeditemple2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ptf_jeditemple2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ptf_scarif
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ptf_scarif
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ptf_sdestroyer
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ptf_sdestroyer
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ptf_sdestroyer2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ptf_sdestroyer2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_rc_hangarc
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1572,7 +1650,6 @@ levelshots/mb2_rc_hangarc
 
 levelshots/mb2_rc_hangarc2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1584,7 +1661,6 @@ levelshots/mb2_rc_hangarc2
 
 levelshots/mb2_republiccruiser
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1596,7 +1672,6 @@ levelshots/mb2_republiccruiser
 
 levelshots/mb2_republiccruiser2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1608,7 +1683,6 @@ levelshots/mb2_republiccruiser2
 
 levelshots/mb2_republiccruiser_fastload
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1620,7 +1694,6 @@ levelshots/mb2_republiccruiser_fastload
 
 levelshots/mb2_republiccruiser_fastload2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1632,7 +1705,6 @@ levelshots/mb2_republiccruiser_fastload2
 
 levelshots/mb2_sailbarge
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1644,7 +1716,6 @@ levelshots/mb2_sailbarge
 
 levelshots/mb2_sailbarge2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1656,7 +1727,6 @@ levelshots/mb2_sailbarge2
 
 levelshots/mb2_scarif
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1668,7 +1738,6 @@ levelshots/mb2_scarif
 
 levelshots/mb2_scarif2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1680,7 +1749,6 @@ levelshots/mb2_scarif2
 
 levelshots/mb2_sdestroyer
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1692,7 +1760,6 @@ levelshots/mb2_sdestroyer
 
 levelshots/mb2_sdestroyer2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1704,7 +1771,6 @@ levelshots/mb2_sdestroyer2
 
 levelshots/mb2_smuggler
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1716,7 +1782,6 @@ levelshots/mb2_smuggler
 
 levelshots/mb2_smuggler2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1726,9 +1791,30 @@ levelshots/mb2_smuggler2
 	}
 }
 
+levelshots/mb2_snowfacility
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_snowfacility
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_snowfacility2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_snowfacility2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_starkiller_base
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1740,7 +1826,6 @@ levelshots/mb2_starkiller_base
 
 levelshots/mb2_starkiller_base2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1752,7 +1837,6 @@ levelshots/mb2_starkiller_base2
 
 levelshots/mb2_tantiveiv
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1764,7 +1848,6 @@ levelshots/mb2_tantiveiv
 
 levelshots/mb2_tantiveiv2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1776,7 +1859,6 @@ levelshots/mb2_tantiveiv2
 
 levelshots/mb2_tantiveiv_classic
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1788,7 +1870,6 @@ levelshots/mb2_tantiveiv_classic
 
 levelshots/mb2_tantiveiv_classic2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1800,7 +1881,6 @@ levelshots/mb2_tantiveiv_classic2
 
 levelshots/mb2_tatooine
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1812,7 +1892,6 @@ levelshots/mb2_tatooine
 
 levelshots/mb2_tatooine2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1824,7 +1903,6 @@ levelshots/mb2_tatooine2
 
 levelshots/mb2_theed
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1836,7 +1914,6 @@ levelshots/mb2_theed
 
 levelshots/mb2_theed2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1848,7 +1925,6 @@ levelshots/mb2_theed2
 
 levelshots/mb2_tradefed
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1860,7 +1936,6 @@ levelshots/mb2_tradefed
 
 levelshots/mb2_tradefed2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1872,7 +1947,6 @@ levelshots/mb2_tradefed2
 
 levelshots/mb2_tutorial00
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1884,7 +1958,6 @@ levelshots/mb2_tutorial00
 
 levelshots/mb2_tutorial002
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1896,7 +1969,6 @@ levelshots/mb2_tutorial002
 
 levelshots/mb2_tutorial01
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1908,7 +1980,6 @@ levelshots/mb2_tutorial01
 
 levelshots/mb2_tutorial012
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1920,7 +1991,6 @@ levelshots/mb2_tutorial012
 
 levelshots/mb2_tutorial02
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1932,7 +2002,6 @@ levelshots/mb2_tutorial02
 
 levelshots/mb2_tutorial022
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1944,7 +2013,6 @@ levelshots/mb2_tutorial022
 
 levelshots/mb2_undeadstar
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1956,7 +2024,6 @@ levelshots/mb2_undeadstar
 
 levelshots/mb2_undeadstar2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1968,7 +2035,6 @@ levelshots/mb2_undeadstar2
 
 levelshots/mb2_xmas_dotf
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1980,7 +2046,6 @@ levelshots/mb2_xmas_dotf
 
 levelshots/mb2_xmas_dotf2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -1992,7 +2057,6 @@ levelshots/mb2_xmas_dotf2
 
 levelshots/mb2_xmas_mustafar
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -2004,7 +2068,6 @@ levelshots/mb2_xmas_mustafar
 
 levelshots/mb2_xmas_mustafar2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -2016,7 +2079,6 @@ levelshots/mb2_xmas_mustafar2
 
 levelshots/mb2_yavinassault
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -2028,7 +2090,6 @@ levelshots/mb2_yavinassault
 
 levelshots/mb2_yavinassault2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -2040,7 +2101,6 @@ levelshots/mb2_yavinassault2
 
 levelshots/mb2_yavinassault_veh
 {
-	nopicmip
 	nomipmaps
 	notc
 	{
@@ -2052,7 +2112,6 @@ levelshots/mb2_yavinassault_veh
 
 levelshots/mb2_yavinassault_veh2
 {
-	nopicmip
 	nomipmaps
 	notc
 	{

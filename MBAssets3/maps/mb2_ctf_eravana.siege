@@ -1,0 +1,83 @@
+Teams
+{
+	team1 Smugglers
+	team2 Gangs
+}
+
+mapgraphic "gfx\mplevels\mb2_ctf_eravana\map"
+missionname "Eravana CTF"
+radartopleft "-4096, 6240"
+radarbottomright "960, -2016"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_ctf_eravana"
+		radargraphicfull "gfx/automap/mb2_ctf_eravanafull"
+		height "-24"
+	}
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_ctf_eravana2"
+		radargraphicfull "gfx/automap/mb2_ctf_eravana2full"
+		height "288"
+	}
+}
+
+roundbegin_target ""
+
+Smugglers
+{
+	RequiredObjectives 1
+	Timed 480
+	UseTeam "Eravana_Smugglers"
+	TeamIcon "gfx/2d/logos/mb_smugglers"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Capture the enemy flag and return it to base"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag and return it to base"
+		objgfx "gfx/mplevels/mb2_ctf_eravana/obj1r"
+	}
+
+	wonround "We Escaped"
+	lostround "Our Luck Ran Out"
+	roundover_sound_wewon "sound/eravana/era_t1_win"
+	roundover_sound_welost "sound/eravana/era_t1_lose"
+	roundover_target ""
+	attackers 1
+	briefing "Capture the flag."
+}
+
+Gangs
+{
+	RequiredObjectives 1
+	Timed 480
+	UseTeam "Eravana_Gangs"
+	TeamIcon "gfx/2d/logos/mb_hutt"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Capture the enemy flag and return it to base"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag and return it to base"
+		objgfx "gfx/mplevels/mb2_ctf_eravana/obj1b"
+	}
+
+	wonround "Han Solo's a Dead Man"
+	lostround "Inform the First Order"
+	roundover_sound_wewon "sound/eravana/era_t2_win"
+	roundover_sound_welost "sound/eravana/era_t2_lose"
+	roundover_target ""
+	attackers 1
+	briefing "Capture the flag."
+}
