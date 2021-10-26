@@ -39,37 +39,3 @@ models/players/alien_merc/kal_skarf
 	rgbGen lightingDiffuse
 	}
 }
-
-
-// Twilek
-
-models/players/human_merc/rgb_arms
-{
-	cull	twosided
-	{
-		map models/players/human_merc/rgb_arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/human_merc/rgb_arms
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/human_merc/rgb_torso
-{
-	cull	twosided
-	{
-		map models/players/human_merc/rgb_torso
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/human_merc/rgb_torso
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-

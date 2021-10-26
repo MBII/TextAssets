@@ -85,6 +85,21 @@ models/players/rebel_gag/boots_hips
     }
 }
 
+models/players/rebel_gag/pads
+{
+	cull	disable
+    {
+        map models/players/rebel_gag/pads
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/scouttrooper/armor_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/rebel_gag/Armor_D
 {
     {

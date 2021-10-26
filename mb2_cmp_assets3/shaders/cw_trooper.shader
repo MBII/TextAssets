@@ -74,6 +74,129 @@ models/players/cw_trooper/extras
 	}
 }
 
+models/players/cw_trooper/head_r
+{
+	q3map_nolightmap
+	{
+		map models/players/cw_trooper/head_r
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+models/players/cw_trooper/hand_r
+{
+	q3map_nolightmap
+	{
+		map models/players/cw_trooper/hand_r
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+models/players/cw_trooper/torso_r
+{
+	q3map_nolightmap
+	{
+		map models/players/cw_trooper/torso_r
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+models/players/cw_trooper/extras_r
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/cw_trooper/extras_r
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+models/players/cw_trooper/head_b
+{
+	q3map_nolightmap
+	{
+		map models/players/cw_trooper/head_b
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+models/players/cw_trooper/hand_b
+{
+	q3map_nolightmap
+	{
+		map models/players/cw_trooper/hand_b
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+models/players/cw_trooper/torso_b
+{
+	q3map_nolightmap
+	{
+		map models/players/cw_trooper/torso_b
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+models/players/cw_trooper/extras_b
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/cw_trooper/extras_b
+		rgbGen identity
+	}
+	{
+		map models/players/cw_trooper/shade
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+		tcGen environment
+	}
+}
+
+
 models/players/cw_arctrooper/head_r
 {
 	q3map_nolightmap
@@ -481,65 +604,3 @@ models/players/cw_arctrooper/arcplate_b
 		tcGen environment
 	}
 }
-
-models/players/cw_trooper/head_b
-{
-	q3map_nolightmap
-	{
-		map models/players/cw_trooper/head_b
-		rgbGen identity
-	}
-	{
-		map models/players/cw_trooper/shade
-		blendFunc GL_DST_COLOR GL_ZERO
-		rgbGen identity
-		tcGen environment
-	}
-}
-
-models/players/cw_trooper/hand_b
-{
-	q3map_nolightmap
-	{
-		map models/players/cw_trooper/hand_b
-		rgbGen identity
-	}
-	{
-		map models/players/cw_trooper/shade
-		blendFunc GL_DST_COLOR GL_ZERO
-		rgbGen identity
-		tcGen environment
-	}
-}
-
-models/players/cw_trooper/torso_b
-{
-	q3map_nolightmap
-	{
-		map models/players/cw_trooper/torso_b
-		rgbGen identity
-	}
-	{
-		map models/players/cw_trooper/shade
-		blendFunc GL_DST_COLOR GL_ZERO
-		rgbGen identity
-		tcGen environment
-	}
-}
-
-models/players/cw_trooper/extras_b
-{
-	q3map_nolightmap
-	cull	disable
-	{
-		map models/players/cw_trooper/extras_b
-		rgbGen identity
-	}
-	{
-		map models/players/cw_trooper/shade
-		blendFunc GL_DST_COLOR GL_ZERO
-		rgbGen identity
-		tcGen environment
-	}
-}
-

@@ -133,12 +133,95 @@ models/players/stormie_tfa/vest
 }
 
 
+// pyre
+
+models/players/stormie_tfa/helmet_pyre
+{
+	{
+		map models/players/stormie_tfa/helmet_pyre
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/armor_pyre
+{
+	{
+		map models/players/stormie_tfa/armor_pyre
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}    
+	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+       	 	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/pauldron_pyre
+{
+	{
+
+		map models/players/stormie_tfa/pauldron_pyre
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/pauldron_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // stormpilot
 
 models/players/stormpilot/helmet1
 {
 	{
 		map models/players/stormpilot/helmet1
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/stormpilot/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/stormpilot/helmet2
+{
+	{
+		map models/players/stormpilot/helmet2
 		depthWrite
 		rgbGen lightingDiffuse
 	}
