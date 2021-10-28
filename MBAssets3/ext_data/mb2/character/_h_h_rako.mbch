@@ -4,11 +4,11 @@ ClassInfo
 {
 	name			"_h_h_rako"
 	weapons			WP_MELEE|WP_DEMP2|WP_FLECHETTE
-	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_A280,1|MB_ATT_DEXTERITY,2|MB_ATT_FUEL,1|MB_ATT_STAMINA,3|MB_ATT_ARC_RIFLE_SCOPE
-	maxhealth		100
-	maxarmor		70
-	Forcepool		7
-	forcepowers		FP_LEVITATION,2
+	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,3|MB_ATT_DEXTERITY,2|MB_ATT_FUEL,3|MB_ATT_STAMINA,3|MB_ATT_DODGE,1|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_A280,2|MB_ATT_BLASTER,2|MB_ATT_HEALING,1|MB_ATT_ANTI_MT,1
+	maxhealth		125
+	maxarmor		125
+	Forcepool		40
+	forcepowers		FP_SEE,3
 	speed          		 1.05
 	model			"Rako_Hardeen"
 	skin			"default"
@@ -17,63 +17,77 @@ ClassInfo
 	customblue		0.6
 	MBClass			MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	uishader 		"models/players/Rako_Hardeen/mb2_icon_default"
+	uishader		"gfx/hud/fa_icons/mb2_icon_rako_legends"
 	headSwapModel "clonetrooper_p2"
 	headSwapSkin "rgb_jetpack_only"
-	classNumberLimit	1
+	jetpackJetTag		*jetpack_jet		
+	jetpackJet2Tag		*jetpack_jet2
+	jetpackJetOffset		"0, 0, 0" 
+	jetpackJet2Offset		"0, 0, 0" 	
+	modelscale            1.04
 	rateoffire			1.15
-	jetpackFuelCooldown 2000
-	jetpackFuelAmount 	5 
-	damageGiven		1.1
-	
-	jetpackThrustSound	"sound/jetpack/thrust"
-	jetpackIdleSound		"sound/jetpack/idle"
-	jetpackStartSound	"sound/jetpack/ignite"
-	jetpackJetOffset  	"8.0 -6.2 20"
-	jetpackJet2Offset  	"8.0 6.2 20"
-	jetpackJetTag	jetpackjettag
-	jetpackJet2Tag	jetpackjettag		
-	//jetpackJetTag	"*holster_launcher"
-	//jetpackJet2Tag	"*holster_launcher2"	
+	damageGiven         1.143
+	classflags          CFL_SEEING_STEALTH
 }
-
 WeaponInfo0
 {
-	WeaponToReplace		WP_FLECHETTE
-	WeaponBasedOff		WP_FLECHETTE	
-	NewWorldModel		"models/weapons2/DC-17m/sniper.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_dc-17mS"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
-	MissileEffect		"blaster/Shot01B"
-	AltMissileEffect 	"blaster/Shot01B"
-	//FlashSound0		"sound/weapons/dc17m/fire.mp3"
-	WeaponName		"DC-17m"
+	WeaponToReplace WP_FLECHETTE
+	WeaponBasedOff  WP_FLECHETTE
+	NewWorldModel		"models/weapons2/dw_sniper/model_w.GLM"
+	NewViewModel		"models/weapons2/dw_sniper/sniper.md3"
+	Icon			"gfx/hud/w_icon_rakorifle"
+	MuzzleEffect  "Blaster/MuzzleFlash01R"
+	MissileEffect "Blaster/Shot02R"
+	FlashSound0			"sound/chars/cadbane/misc/cadblast" 
+	WeaponName		"Marksman Rifle"
 }
 WeaponInfo1
+{
+	WeaponToReplace WP_BLASTER
+	WeaponBasedOff  WP_FLECHETTE
+	NewWorldModel		"models/weapons2/dw_sniper/model_w.GLM"
+	NewViewModel		"models/weapons2/dw_sniper/sniper.md3"
+	Icon			"gfx/hud/w_icon_rakorifle"
+	MuzzleEffect  "Blaster/MuzzleFlash01R"
+	MissileEffect "Blaster/Shot02R"
+	FlashSound0			"sound/chars/cadbane/misc/cadblast" 
+	WeaponName		"Marksman Rifle"
+}
+
+WeaponInfo2
 {
 	WeaponToReplace		WP_DEMP2
 	WeaponBasedOff		WP_DEMP2
 	NewWorldModel		"models/weapons2/DE-10/blaster_pistol_w.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Missile3Effect "Blaster/Shot02R"
+	altMuzzleEffect  "Blaster/MuzzleFlash01R"
 	Icon			"gfx/hud/w_icon_DE-10"
-	WeaponName		"Pistol"
+	WeaponName		"Dual Pistols"
 	customAmmo 		600
+		FlashSound0			"sound/weapons/SE-14c/fire.mp3" 	
+	altFlashSound0			"sound/weapons/SE-14c/fire.mp3" 	
 }
 
 description	"Rako Hardeen
 
 Class Summary: 
-A dexterous jetpack sniper.
+A dexterous jetpack sniper
 
 Weapons:
-- Pistol (2)
-- DC-17m (Sniper)
-  -10% more damage
+- Dual Pistols (Based on Clone Pistols)
+- Marksman Rifle (Based on Westar M5 level 2 with Sniper attachment)
+
+Attributes:
+- Heal (1)
+- Immune to Mind Trick
+
+Force Powers:
+- Sense (3)
 
 Abilities: 
-- Dexterity (2)
 - Jetpack 
+- Stamina (3)
+- Dexterity (2)
 
 While celebrating his high-profile kill at Trueping's cantina, Rako Hardeen was summoned into the back room to meet his employer and receive payment. There, he was met by Jedi Masters Mace Windu and Obi-Wan Kenobi–his supposed victim, now physically altered to look like him. Hardeen was apprehended by the two Jedi, and his identity assumed by Kenobi in order to plant himself in a Republic prison. Hardeen's reputation for having killed a Jedi was essential to the plan, as Kenobi used it to gain the trust of other prisoners and attract the attention of Moralo Eval, from whom Kenobi was to acquire intel that would help the Jedi prevent a kidnapping attempt."

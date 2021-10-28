@@ -3,17 +3,21 @@
 ClassInfo
 {
 	name			"_v_s_FOStormie"
-	weapons			WP_BLASTER|WP_MELEE|WP_FRAG_NADE
-	attributes		MB_ATT_RESPAWNS,2|MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2|MB_ATT_ASSEMBLE,1|MB_ATT_FRAGS,1|MB_ATT_GUNBASH
-	maxhealth		70
-	maxarmor		40
-	model			"stormie_tfa"
-	skin			"default"
+	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_DET_PACK|WP_PULSE_NADE
+	attributes		MB_ATT_RESPAWNS,1|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_GUNBASH|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_T21,3|MB_ATT_PULSE_GRENADES,1|MB_ATT_PISTOL,2
+	maxhealth		    80
+	maxarmor		    80
+	model "stormie_tfa"
+	skin  "vest"
 	uishader		"models/players/stormie_tfa/mb2_icon_default"
-	MBClass			MB_CLASS_COMMANDER
-	speed	1.05
+	MBClass			MB_CLASS_ARCTROOPER
+    holdables       HI_BINOCULARS
+	damageGiven     1.15
+	rateofFire      1.05
+	speed           1.02
+	modelscale      1.01
+	classNumberLimit	2
 }
-
 WeaponInfo0
 {
 	WeaponToReplace WP_BLASTER_PISTOL
@@ -22,30 +26,42 @@ WeaponInfo0
 	NewViewModel  "models/weapons2/SE-44C/se-44c.md3"
 	Icon  "gfx/hud/w_icon_se-44c"
 	WeaponName  "SE-44C"
-  //FlashSound0 "sound/weapons/se-44c/fire.wav"
-  //AltFlashSound0  "sound/weapons/se-44c/alt_fire.wav"
+  FlashSound0 "sound/weapons/se-44c/fire.wav"
+  AltFlashSound0  "sound/weapons/se-44c/alt_fire.wav"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace WP_BLASTER
-	WeaponBasedOff  WP_FLECHETTE
-	NewWorldModel "models/weapons2/f11d_blaster/model.glm"
-	NewViewModel  "models/weapons2/f11d_blaster/blaster.md3"
-	Icon  "gfx/hud/w_icon_f11"
-	WeaponName  "F-11D"
+	WeaponToReplace		WP_DET_PACK      					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff      WP_THERMAL     						//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel 		"models/weapons2/FWMB-10/fwmb-10_w.glm"
+	NewViewModel 		"models/weapons2/FWMB-10/fwmb-10.md3"
+	Icon				"gfx/hud/w_icon_fwmb-10"
+	altFlashSound0 		"sound/weapons/fwmb-10/alt_fire.mp3"
+	FlashSound0	        "sound/weapons/fwmb-10/fire.mp3"
+	WeaponName			"FWMB-10"
+	customAmmo			600
+    firingAnim          DC15_FIRE
+	IdleAnim	        DC15_READY
 }
 
-description	"First Order Stormtrooper
+description	"First Order Heavy Stormtrooper
 
 Weaponry:
-- F-11D (3)
-- Frag Grenade (1)
+- SE-44c Pistol (Based on Pistol 2)
+- FWMB-10 (Based on T-21 level 3)
+- Pulse Grenade (1)
+
+Inventory:
+- Binoculars
 
 Attributes:
-- Gunbash
-- Reinforcements (2)
-- Close Combat Training (1)
+- Extra Life
 - Assemble
+
+Abilities:
+- Dexterity (1)
+- Stamina (3)
+- Gunbash
 
 The foot soldiers of the First Order draw upon the heritage of the armoured infantry units that blazed across the battlefields of the Clone Wars, in the final years of the Old Republic."

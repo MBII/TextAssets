@@ -3,34 +3,71 @@
 ClassInfo
 {
 	name			"_h_h_cody"
-	weapons			WP_MELEE|WP_DEMP2|WP_REPEATER|WP_PULSE_NADE
-	attributes		MB_ATT_RALLY|MB_ATT_PISTOL,1|MB_ATT_CLONERIFLE,2|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_PULSE_GRENADES,2|MB_ATT_QUICKTHROW,2
+	weapons			WP_MELEE|WP_DEMP2|WP_REPEATER|WP_PULSE_NADE|WP_STUN_BATON
+	attributes		MB_ATT_RALLY|MB_ATT_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_QUICKTHROW,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,3
 	maxhealth		125
-	maxarmor		50
-	speed			.90
+	maxarmor		125
+	MBClass			MB_CLASS_ARCTROOPER
+	classNumberLimit  1
+	rateoffire		0.92
+	speed           1.02
+	modelscale      1.02
+	WP_StunBatonFlags HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_PULSE
+	holdables	HI_BINOCULARS
+	
 	model				"clonetrooper_p2"
 	skin				"212_cody"
 	uishader			"models/players/clonetrooper_p2/mb2_icon_212_cody"
-	MBClass			MB_CLASS_HERO
-	classNumberLimit  1
-	rateoffire		0.9
-	damageGiven     0.875
+	
+	model_1				"clonetrooper_p2"
+	skin_1				"fordo"
+	uishader_1			"models/players/clonetrooper_p2/mb2_icon_fordo"
+	
+}
+WeaponInfo0
+{
+	WeaponToReplace		WP_STUN_BATON					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff      WP_CONCUSSION
+	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel  "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+	Icon  "gfx/hud/w_icon_dlt-18"
+	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
+	WeaponName			"Valken-38x Sniper Rifle"    					//Required
+	MuzzleEffect		"Blaster/MuzzleFlash03B"   				//Optional: New muzzle effect
+	MissileEffect		"Blaster/Shot04B" 					
+    MissileMissEffect "effects/blaster/Impact_Wall01B"
+	CustomAmmo 	28
+	Clipsize    5
+	ReloadTimeModifier 	1.1
 }
 
-description	"Commander Cody
+description	"Commander Cody/Captain Fordo
 
 Weapons:
-- Clone Rifle	(2)
- - 10 percent faster rate of fire
-- Pistol (1)
-- Blobs (3)
+- Valken 38x Sniper Rifle *
+- Clone Rifle (2.5)
+- Concussion Blobs (3)
 - Ion blobs (2)
+- Clone Pistol (1)
 - EMP Grenade (2)
 
-Abilities:
-- Blast Armor
+* Special Weapon Descriptions:
+---Valken 38x Sniper Rifle
+- Based on Projectile Rifle
+- Deals half normal damage per shot
+- Has 5 shots per clip
+- Electrifies enemies on successful hits
+- Magazine style reloads
+
+Attributes:
 - Rally
-- Quick Throw
+- Blast Armor
+- Regenerating Shields (1)
+
+Abilities:
+- Stamina (3)
+- Dexterity (2)
+- Quick Throw (1)
 
 The Clone Commanders were always seen leading their troops in the heart of battle, and Cody was no exception. He would never have left General Kenobi in trouble."
 

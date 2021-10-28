@@ -3,30 +3,44 @@
 ClassInfo
 {
 	name			"_v_h_tusken"
-	weapons			WP_SABER|WP_MELEE|WP_BLASTER_PISTOL|WP_BOWCASTER
-	attributes		MB_ATT_AMMO,3|MB_ATT_FUEL,3|MB_ATT_POISON_DART,3|MB_ATT_HEALING,2
-	forcepowers     FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,1
+	weapons			WP_SABER|WP_MELEE|WP_BRYAR_OLD|WP_STUN_BATON
+	attributes		MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_GUNBASH
+	forcepowers     FP_SABER_OFFENSE,1
 	saber1			sarlacc_gaffi_legacy
-	saberstyle		SS_MEDIUM
-	maxhealth		170
-	model				"mc_tusken_jk3"
-	skin				"chief"
-	uishader			"models/players/mc_tusken_jk3/mb2_icon_chief"
-	MBClass					MB_CLASS_MANDALORIAN
-	speed					1.05
-	WP_BowcasterFlags 		HELD_ALTRELOAD|HELD_EXPLOSIVE|HELD_LOWDAMAGE
-	WP_BlasterPistolFlags 	HELD_HIGHAMAGE
-	classflags				CFL_FUEL_REGENERATION
-	APmultiplier		0.5
-	BPmultiplier		0.5
+	saberstyle		SS_MEDIUM|SS_STRONG
+	maxhealth		80
+	maxarmor        30
+	MBClass			MB_CLASS_WOOKIE
+	speed			1.47
+	WP_StunBatonFlags 	HELD_ALTRELOAD
+	WP_BryarOldFlags    HELD_ALTRELOAD
+	rageSoundOverride 	"sound/chars/tusken/misc/rage.mp3"
+	bargeSoundOverride 	"sound/chars/tusken/misc/anger3.mp3"
+	APmultiplier		1.6
+	ASmultiplier        1.05
+	rateOfFire          0.875
 	classNumberLimit	2
-	damageGiven 0.6
-	extralives		1
-	tauntAnim			BOTH_TUSKENTAUNT1    
-	flourishAnim 		BOTH_TUSKENTAUNT1    
-	gloatAnim 			BOTH_TUSKENTAUNT1    
-	meditateAnim 		both_knockdown4
-	bowAnim 			both_headshake
+	damageGiven 0.68
+	extralives		2
+	modelscale      1.03
+	holdables       HI_BINOCULARS
+	
+	tauntAnim	BOTH_VICTORY_MEDIUM
+	flourishAnim BOTH_VICTORY_FAST
+	gloatAnim BOTH_VICTORY_MEDIUM
+	saberStanceAnim	BOTH_TAVION_STANCE
+	
+	model				"mc_tusken_jk3"
+	skin				"default"
+	uishader			"models/players/mc_tusken_jk3/mb2_icon_default"
+	
+	model_1			"mc_tusken_jk3" 					
+	skin_1			"jet"					
+	uishader_1			"models/players/mc_tusken_jk3/mb2_icon_jet"
+
+	model_2				"mc_tusken_jk3"
+	skin_2				"chief"
+	uishader_2			"models/players/mc_tusken_jk3/mb2_icon_chief"	
 
 }
 
@@ -42,7 +56,7 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponToReplace		WP_BRYAR_OLD
 	WeaponBasedOff		WP_BLASTER_PISTOL
 	NewWorldModel		"models/weapons2/blaster_r/projpistol.glm"
 	NewViewModel		"models/weapons2/blaster_r/projpistol.md3"
@@ -53,71 +67,62 @@ WeaponInfo1
 	primGore			1
 	altGore			1
 	customammo 		600
-	Clipsize 6
-	PrimHitscanTracer 	4	
-	}
+	clipsize        30
+	FlashSound0			"sound/weapons/bar/fire.wav"  	
+	PrimHitscanTracer 	10
+}
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_BOWCASTER					//Required: Weapon Slot of weapon you're replacing
+	WeaponToReplace		WP_STUN_BATON					//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_BOWCASTER					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/tusken_rifle_sar/tusken_rifle_w.glm"  	//Required
 	NewViewModel		"models/weapons2/tusken_rifle_sar/tusken_rifle.md3"   	//Required
 	NewHandsModel		"models/weapons2/tusken_rifle_sar/tusken_rifle_hand.md3"
-	//Sounds				
-	FlashSound0			"sound/weapons/tusken_rifle/fire_gun.wav"  			
-	//AltFlashSound0		"sound/weapons/tusken_rifle/fire_gun.wav"
+	FlashSound0			"sound/weapons/tusken_cycler/fire.wav"  			
 	Icon				"models/weapons2/icons/trifle" 				//Required
-	WeaponName			"Tusken Rifle"    					//Required
-	//Efx
-	
-	MissileHitHumanEffect "tusken/hit"
-	MissileHitDroid 	"tusken/hit"
-	
-	WallImpact 			"tusken/hitwall"
-	WallImpactEnhanced 	"tusken/hitwall"
-	WallImpactEnhanced2 	"tusken/hitwall"
-	
-	MuzzleEffect		"tusken/muzzle_flash"   				//Optional: New muzzle effect
-	AltMuzzleEffect		"tusken/muzzle_flash" 				//Optional: New alt muzzle effect
-	
-	MissileEffect		"tusken/shot"  					
-	AltMissileEffect 	"tusken/shot"  	
-	
-	MuzzleEffect		"tusken/muzzle_flash"   				//Optional: New muzzle effect
-	AltMuzzleEffect		"tusken/muzzle_flash" 				//Optional: New alt muzzle effect
-	
-	MissileMissEffect 	"tusken/hit"
-	AltMissleMissEffect "tusken/hit"
-	//FleshImpact 	 "Impacts/ImpactMediumYellow1"
-	//DroidImpact "Impacts/ImpactSmallBlue1"
-
-	CustomAmmo 	250
-	ClipSize 		4
-	ReloadTimeModifier 	.65	// default is 1 - 100%
-	AltFireEnabled 		0
-	PrimFireEnabled 	1
-	ProjSpeedModifier 1.25	// 1 is default, 100%
-	}
+	WeaponName			"Tusken Cycler Rifle"    					//Required
+	ReloadTimeModifier  0.875
+	CustomAmmo 	11
+	clipsize    1
+}
 
 description	"Tusken Raider
 
 Class Summary: 
-The Tusken Rifle has an area of impact which makes it very useful for ignoring saberist defenses.
+A multi-life class with a unique blend of melee and gunning equipment/abilities
 
 Weaponry:
-- Projectile Pistol
-- Tusken Rifle
+- Projectile Pistol *
+- Tusken Cycler Rifle *
+- Gaffi Stick *
 
-Equipment:
-- Poison Darts: (3)
+* Special Weapon Descriptions:
+---Projectile Pistol
+- Based on Mandalorian's Westar Pistol (2)
+- Hitscan projectiles
+- Secondary fire disabled 
+- Magazine style reload
 
-Gaffi Stick:
-- Defense (0)
+---Tusken Cycler Rifle
+- Based on Projectile Rifle
+- Deals similar damage to EE-3 Sniper
+- Fast magazine style reload
+
+---Gaffi Stick
+- Can use Yellow and Red styles
+- Cannot block blaster or lightsaber attacks
+- Bounces off walls on swings
+- Knocks down enemies within a small radius on wall hits
 
 Attributes:
-- Extra life
-- Heal (1)
+- Reinforcements (2)
+- Assemble
+
+Abilities:
+- Strength (0.5)
+- Fury (1)
+- Gunbash
 
 Tusken Warriors, less formally referred to as Sand People or simply as Tuskens, were a culture of nomadic, primitive sapients indigenous to Tatooine, where they were quite hostile to local settlers.
 "

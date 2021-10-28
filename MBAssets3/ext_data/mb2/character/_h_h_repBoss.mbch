@@ -3,63 +3,62 @@
 ClassInfo
 {
 	name				"_h_h_repBoss"
-	weapons				WP_SABER|WP_MELEE|WP_BLASTER|WP_STUN_BATON|WP_BLASTER_PISTOL|WP_FRAG_NADE|WP_PULSE_NADE
-	attributes			MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_SHIELD_RECHARGE1,3|MB_ATT_PULSE_GRENADES,1|MB_ATT_FRAGS,1|MB_ATT_FLIPKICK|MB_ATT_DEXTERITY,2
-	maxhealth			130
-	maxarmor			35
+	weapons				WP_SABER|WP_MELEE|WP_FLECHETTE|WP_STUN_BATON|WP_DEMP2|WP_FRAG_NADE
+	attributes			MB_ATT_PISTOL,1|MB_ATT_A280,3|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FRAGS,1|MB_ATT_FLIPKICK|MB_ATT_DEXTERITY,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_BLAST_ARMOUR|MB_ATT_RALLY
+	maxhealth			125
+	maxarmor			125
 	saber1 				"arc_shiv_legends"
-	saberstyle			SS_TAVION
+	saberstyle			SS_TAVION|SS_DESANN
+	MBClass				MB_CLASS_ARCTROOPER
+	speed				1.08
+	rateoffire			0.825
+	modelscale      1.02
+	classNumberLimit	1
+	WP_FlechetteFlags			HELD_ALTRELOAD
+	
+	saberStanceAnim			BOTH_STAND9
+	tauntAnim			BOTH_VICTORY_FAST
+	gloatAnim			BOTH_MELEE_SPINKICK
+	flourishAnim		both_stand9idle1
+	meditateAnim 		both_knockdown4
+	bowAnim 			both_headshake
+	
 	model				"clonerc2"
 	skin				"boss"
 	uishader			"models/players/clonerc2/mb2_icon_boss"
-	MBClass				MB_CLASS_ARCTROOPER
-	holdables			HI_BINOCULARS
-	speed				1.03
-	rateoffire			0.7
-	classNumberLimit	1
-	damageGiven         0.875
-	WP_BLASTERflags			HELD_ALTRELOAD
+	
+	model_1				"clonerc2"
+	skin_1				"fixer"
+	uishader_1			"models/players/clonerc2/mb2_icon_fixer"
+	
+	model_2				"clonerc2"
+	skin_2				"scorch"
+	uishader_2			"models/players/clonerc2/mb2_icon_scorch"
+	
+	model_3				"clonerc2"
+	skin_3				"sev"
+	uishader_3			"models/players/clonerc2/mb2_icon_sev"
+	
+	model_4				"clonerc2"
+	skin_4				"gregor"
+	uishader_4			"models/players/clonerc2/mb2_icon_gregor"
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER
+	WeaponToReplace		WP_FLECHETTE
 	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
-	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
+	NewWorldModel		"models/weapons2/DC-17m/launcher.glm"
+	NewViewModel		"models/weapons2/DC-17m/launcher.md3"
 	FlashSound0			"sound/weapons/dc17m/fire.wav"
-	AltFlashSound0      "sound/weapons/dc17m/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"blaster/Shot01B"
-	AltMissileEffect 	"blaster/Shot01B"
-	Icon				"gfx/hud/w_icon_dc-17mB"
-	WeaponName			"DC-17M: Blaster Attachment"
-	customAmmo 			600
+	Icon				"gfx/hud/w_icon_dc-17mL"
+	WeaponName			"DC-17M: EMP Grenade Attachment"
+	customAmmo 			800
 	clipSize			200
 	firingAnim	DC15_FIRE
 }
 
 WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
-	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
-	Icon				"gfx/hud/w_icon_clonepistol"
-	WeaponName			"DC-15s"	
-	FlashSound0			"sound/weapons/demp2/fire.mp3"
-	AltFlashSound0 		"sound/weapons/demp2/altfire.mp3"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot01B"
-	Missile3Effect		"Blaster/Shot04B"
-	AltMissileEffect	"Blaster/Shot04B"
-	PowerupShotEffect	"Blaster/Shot04B"
-	ChargeEffect		"gfx/effects/cloneFrontFlash"
-}
-
-WeaponInfo2
 {           
 	WeaponToReplace        WP_SABER
 	WeaponBasedOff         WP_SABER
@@ -68,46 +67,58 @@ WeaponInfo2
 	Icon             	"gfx/hud/w_icon_arc_shiv"
 	WeaponName			"Cortosis Shiv"
 }
-WeaponInfo3
+WeaponInfo2
 {
 	WeaponToReplace		WP_STUN_BATON
 	WeaponBasedOff		WP_BOWCASTER
 	NewWorldModel		"models/weapons2/DC-17m/sniper.glm"
 	NewViewModel		"models/weapons2/DC-17m/sniper.md3"
 	Icon				"gfx/hud/w_icon_dc-17mS"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
-	MissileEffect		"blaster/Shot01B"
-	AltMissileEffect 	"blaster/Shot01B"
-	//FlashSound0			"sound/weapons/dc17m/fire.mp3"
+	FlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
 	WeaponName		"DC-17M: Sniper Attachment"
 	PrimHitscanShot 1
 	PrimHitscanTracer 10
 	clipSize			1
-	customAmmo 			5
+	customAmmo 			4
 	ReloadTimeModifier 	1.2
 }
 
 
-description	"RC-1138 'Boss'
+description	"RC-1138 'Boss'/Clone Commando
 
 Class Summary: 
 An elite Clone Trooper with versatile tools to meet any challenge
 
-Weaponry (1.3x rate of fire, 1.2x reduced damage) :
-- DC-15s (2)
-- DC-17M (3)
-- DC-17M Sniper Attachment (Hitscan)
-  - 2x longer reload than proj
-- EMP Grenade
-- Frag Grenade
-- Cortosis Wrist Shiv
+Weaponry:
+- Clone Pistol (2)
+- DC-17M EMP Grenade Attachment *
+- DC-17M Sniper Attachment *
+- Frag Grenade (1)
+- Cortosis Wrist Shiv *
+
+* Special Weapon Descriptions:
+---DC-17 EMP Grenade Attachment
+- Based on Westar M5 level (1)
+- Has two pulse grenades
+
+---DC-17M Sniper Attachment
+- Based on Projectile Rifle
+- Has hitscan projectiles
+- 5 shots total
+
+---Cortosis Wrist Shiv
+- Can use Tavion and Desann styles
+- Cannot block lightsabers or blasters
+- Reduced damage 
 
 Attributes:
-- Flipkick (double tap spacebar in melee)
+- Rally
+- Regenerating Shields (1)
+- Blast Armor
+
+Abilities:
+- Flipkick 
 - Stamina (3)
-- Dexterity (2)
-- Regenerating Shields
-- Electrobino's
+- Dexterity (3)
 
 Even among clones, there is a heirarchy. Three-Eight is undisputed leader of the Deltas.  Relatively taciturn, when he speaks, it's usually to bark out an order to his squad. Three-Eight has earned the respect and loyalty of his squad, and he repays that dedication in strong leadership. Despite being trained by Walon Vau, Three-Eight somehow inherited Jango's strong Concord Dawn accent and speech patterns."
