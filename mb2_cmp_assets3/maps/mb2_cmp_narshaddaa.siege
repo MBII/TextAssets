@@ -1,0 +1,204 @@
+Teams
+{
+	team1 EbonHawk
+	team2 Exchange
+}
+
+LevelshotDesc
+{
+    desc1
+    {   
+        text ""
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text ""
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_cmp_narshaddaa/map"
+missionname "Nar Shaddaa Landing Pad Assault"
+radartopleft "-6144, 4608"
+radarbottomright "4320, -5856"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cmp_narshaddaa"
+		radargraphicfull "gfx/automap/mb2_cmp_narshaddaafull"
+                height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_cmp_narshaddaa1"
+		radargraphicfull "gfx/automap/mb2_cmp_narshaddaa1full"
+		height "-150"
+	}
+}
+
+}
+
+HelpIcons
+{
+	//Tunnel console overloaded first time
+	HelpIcon0
+	{
+		origin "1856 -2380 92"
+		end0 "tunneloverload"
+		end1 "opener"
+		redicon	HLP_CUSTOM
+		redcustomicon "gfx/2d/hud/hlp_overload"
+		blueicon HLP_DEFEND
+		specicon HLP_HACK_SUB
+	}
+
+	//Tunnel console overloaded second time
+	HelpIcon1
+	{
+		origin "1856 -2380 92"
+                start0 "desatun"
+                start1 "overload2"
+		end0 "tunneloverload2"
+		end1 "opener"
+		redicon	HLP_CUSTOM
+		redcustomicon "gfx/2d/hud/hlp_overload"
+		blueicon HLP_DEFEND
+		specicon HLP_HACK
+	}
+
+	//Tunnel console
+	HelpIcon2
+	{
+		origin "-64 -2048 -200"
+		end0 "opener"
+		redicon	HLP_DEFEND
+		blueicon HLP_HACK
+		specicon HLP_HACK
+	}
+
+	//Main area console
+	 HelpIcon3
+	 {
+		 origin "-1312 -1156 104"
+		 end0 "opener"
+		 redicon HLP_DEFEND
+		 blueicon HLP_HACK
+		 specicon HLP_NONE
+
+        }
+	
+	//Ebon Hawk capture
+	HelpIcon4
+	{
+                start0 "opener"
+		end0 "sideupperdoor_unlock"
+		origin "-4472 424 40"
+		redicon HLP_DEFEND
+		blueicon HLP_HACK
+		specicon HLP_NONE
+
+	}
+}
+
+roundbegin_target ""
+
+EbonHawk
+{
+	RequiredObjectives 1
+	UseTeam "NarExile"
+	TeamIcon "gfx/2d/logos/mb_oldrepublic2"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Overload the tunnel console"
+		final -1
+		message_team1 "OVERLOAD! ^1Stay away from tunnel's console!"
+		message_team2 "Tunnel console overloaded!"
+		objdesc "OPTIONAL: Overload the tunnel console to trap the mercenaries in the main area."
+		objgfx "gfx/mp/mplevels/mb2_cmp_narshaddaa/obj1"
+	}
+
+Objective2
+	{
+		goalname "Keep the mercenaries away from consoles"
+		final -1
+		message_team1 "Pure Pazaak!"
+		message_team2 "It's over. They have secured the landing pad..."
+		objdesc "DEFEND: Keep the mercenaries away from consoles!"
+		objgfx "gfx/mp/mplevels/mb2_cmp_narshaddaa/obj2"
+	}
+
+
+	Objective3
+	{
+		goalname "Stop the mercenaries from reaching the Ebon Hawk"
+		final 1
+		message_team1 "Pure Pazaak!"
+		message_team2 "It's over. They have secured the landing pad..."
+		objdesc "DEFEND: Stop the mercenaries from reaching the Ebon Hawk!"
+		objgfx "gfx/mp/mplevels/mb2_cmp_narshaddaa/obj3"
+	}
+
+wonround "Pure Pazaak!"
+	lostround "Schutta! They have captured the Ebon Hawk!"
+	roundover_sound_wewon "sound/narshaddaa/purepazaak.wav"
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Stop the mercenaries."
+}
+
+Exchange
+{
+	RequiredObjectives 1
+        Timed 300
+	UseTeam "NarExchange"
+	TeamIcon "gfx/2d/logos/mb_exchange"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the warehouse"
+		final -1
+		target "" 
+		objdesc "DEFEND: Stop the Jedi's companions from overloading the tunnel terminal"
+		objgfx "gfx/mp/mplevels/mb2_cmp_narshaddaa/obj1"
+	}	
+
+Objective2
+	{
+		goalname "Get to the main area or tunnels and unlock the doors!"
+		final -1
+		target ""
+		objdesc "ATTACK: Slice a console in the main area or tunnels to unlock the doors!"
+		objgfx "gfx/mp/mplevels/mb2_cmp_narshaddaa/obj2"
+	}
+
+	Objective3
+	{
+		goalname "Get to the Ebon Hawk!"
+		final 1
+		message_team1 "Pure Pazaak!"
+		message_team2 "It's over. They have secured the landing pad..."
+		objdesc "ATTACK: Capture the Ebon Hawk!"
+		objgfx "gfx/mp/mplevels/mb2_cmp_narshaddaa/obj3"
+	}
+
+	wonround "We have captured the Jedi companions!"
+	lostround "It's over. They have secured the landing pad..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Get to their ugly junk ship!"
+}

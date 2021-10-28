@@ -1,0 +1,70 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Red
+	team2 Blue
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname  "Ascension CTF"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Red
+{
+	RequiredObjectives 1
+	Timed 360
+	UseTeam "asc_Red"
+	TeamIcon	"gfx/2d/logos/tf2_red"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Capture the Blue team's flag"
+		final 1
+		objdesc "Capture the Blue team's flag"
+		objgfx "gfx/mplevels/ascension/objr"
+	}
+	
+	wonround ""
+	lostround ""
+	roundover_sound_wewon "sound/asc/your_team_won.mp3"
+	roundover_sound_welost "sound/asc/your_team_lost.mp3"
+	roundover_target "roundoverimp"
+	attackers 1
+
+	briefing "Capture the flag."
+}
+
+Blue
+{
+	RequiredObjectives 1
+	Timed 360
+	UseTeam "asc_Blue" 							
+	TeamIcon	"gfx/2d/logos/tf2_blu"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Capture the Red team's flag"
+		final 1
+		objdesc "Capture the Blue team's flag"
+		objgfx "gfx/mplevels/ascension/objb"
+	}
+	
+	wonround ""
+	lostround ""
+	roundover_sound_wewon "sound/asc/your_team_won.mp3"
+	roundover_sound_welost "sound/asc/your_team_lost.mp3"
+	roundover_target "roundover"
+	attackers 0
+
+	briefing "Capture the flag."
+}
