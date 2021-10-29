@@ -211,6 +211,28 @@ textures/deathmatch/whitelight
     }
 
 }
+
+textures/deathmatch/whitelight2k
+{
+	qer_editorimage textures/colors/white
+	q3map_surfacelight 2000
+	q3map_lightRGB 255 255 255
+	q3map_backSplash 0.8 5
+    {
+	map $lightmap
+    }
+    {
+	map textures/colors/white
+	blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+	map textures/colors/white
+	blendFunc GL_ONE GL_ONE
+	glow
+	rgbGen identity
+    }
+
+}
 //blue light source
 textures/deathmatch/bluelight
 {
