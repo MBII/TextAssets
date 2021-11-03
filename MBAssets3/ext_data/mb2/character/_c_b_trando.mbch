@@ -1,72 +1,64 @@
 ClassInfo
 {
-	name			"_c_b_trando"
-	weapons			WP_BLASTER_PISTOL|WP_BOWCASTER|WP_MELEE|WP_TRIP_MINE
-	attributes		MB_ATT_PISTOL,2|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BOWCASTER,3|MB_ATT_POISON_DART,2|MB_ATT_FIRE_GRENADES,2|MB_ATT_HEALING,1
-	maxhealth		250
-	maxarmor		30
+	name				"_c_b_trando"
+	weapons				WP_BOWCASTER|WP_MELEE|WP_FIRE_NADE
+	attributes			MB_ATT_BOWCASTER,2|MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,2|MB_ATT_DODGE,1|MB_ATT_HEALING,1|MB_ATT_FP_MIRALUKA|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,3
+	forcepowers			FP_SEE,1
+	maxhealth			300
 	model				"trandoshan"
-	skin				"tra3"
-	uishader			"gfx/hud/FA_icons/mb2_icon_tra3"
-	MBClass				MB_CLASS_WOOKIE
-	classNumberLimit	1	
-	classflags			CFL_HEAVYMELEE|CFL_STRONGAGAINSTPHYSICAL|CFL_ACIDBLOOD
-	modelscale			1.15
-	WP_BowcasterFlags	HELD_ALTRELOAD
-	holdables			HI_SENTRY_GUN
+	skin				"default"
+	uishader			"models/players/trandoshan/mb2_icon_default_jab"
+	MBClass			    MB_CLASS_ARCTROOPER
+	classNumberLimit	1
+	Classflags			CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_HEAVYMELEE
+	modelscale          1.06
+	WP_BowcasterFlags	HELD_POISON|HELD_ALTRELOAD
+	damageGiven    		 0.80
+	rateOfFire      	1.1
+	speed           	0.99
+	respawnCustomTime 	40000
+	
 }
-
-
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER        					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BOWCASTER       					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/lc/_c_rifle_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/lc/_c_rifle.md3"   	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_LC" 				//Required: Weapon change icon
-	WeaponName		"Trandoshan Heavy Repeater"    					//Required: Weapon change display name
-	FlashSound0		"sound/weapons/llc/fire.wav"
-		
-	  			
-		
-}
-WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
-	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
-	Icon			"gfx/hud/w_icon_sc-10_holdout"
-	WeaponName		"SC-10 Pistol"
-	customAmmo 		600
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_CONCUSSION
+	NewWorldModel		"models/weapons2/relby_v10/model_w.glm"
+	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"
+	Icon				"gfx/hud/w_icon_relby_v10"
+	WeaponName			"Relby-v10 Targeting Rifle"
+	FlashSound0 		"sound/weapons/cw-w5/fire_scope.mp3"
+	AltFlashSound0 		"sound/weapons/cw-w5/fire_scope.mp3"
+	primGore		1
+	altGore			1
+	CustomAmmo           800
+	idleAnim  DC15_FIRE
 }
 
-WeaponInfo2
-{
-	WeaponToReplace		WP_TRIP_MINE
-	WeaponBasedOff		WP_TRIP_MINE
-	NewWorldModel		"models/weapons2/plasma/plasma_w.glm"
-	NewViewModel		"models/weapons2/plasma/plasma.md3"
-	MissileModel		"models/weapons2/plasma/plasma_proj.md3"
-	FlashSound0 		"sound/weapons/thermal/fire.mp3"
-	AltFlashSound0 		"sound/weapons/thermal/fire.mp3"
-	Icon				"gfx/hud/w_icon_plasma"
-	WeaponName			"Incendiary Grenade"
-}
+description			"Bossk
 
-description	"Trandoshan Bounty Hunter
+Class Summary: 
+A dextrous class with fire grenades, strong melee attacks, and unique poison firing rifle.
 
-Weapons:
+Weaponry:
+- Relby-v10 Targeting Rifle* 
+- Fire Grenades (2)
 
-LC Rifle (Bowcaster 3)
-SC-10 Pistol (2)
-Incendiary Grenades (2)
-Heavy Melee
-Portable Sentry
+* Special Weapon Descriptions:
+---Relby-v10 Targeting Rifle
+- Based on Bowcaster 2
+- Deals poison damage on successful hits
+- Magazine based reloads
 
 Attributes:
-Poison Dart (2)
-Health Regeneration: (1)
-Strength: (2)
-Acid Blood"
+- Healing (1)
+- Strength (1)
+- Acid blood
+
+Abilities:
+- Dodge (1)
+- Dexterity (3)
+- Stamina (3)
+
+40 Second Respawn Timer"
