@@ -315,6 +315,29 @@ gfx/effects/sabers/Flare03
 }
 
 
+// magnetic plating hit
+
+gfx/effects/mag_plating_flare
+{
+	cull	disable
+	{
+		map gfx/misc/flare
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+gfx/effects/mag_plating_elec
+{
+	cull	disable
+	{
+		map gfx/effects/chrome2
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+
 //	thermal sphere of doom
 
 models/weapons2/Thermal/sphereofdoom
