@@ -54,20 +54,6 @@ models/players/alien_heads/bith
     }
 }
 
-models/players/alien_heads/bossk
-{
-    {
-        map models/players/alien_heads/bossk
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/bossk_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/alien_heads/duros
 {
     {
@@ -82,10 +68,24 @@ models/players/alien_heads/duros
     }
 }
 
-models/players/alien_heads/duros2
+models/players/alien_heads/durosb
 {
     {
-        map models/players/alien_heads/duros2
+        map models/players/alien_heads/durosb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/duros_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/durosZ
+{
+    {
+        map models/players/alien_heads/durosZ
         rgbGen lightingDiffuse
     }
     {
@@ -110,14 +110,28 @@ models/players/alien_heads/gotal
     }
 }
 
-models/players/alien_heads/ithorian
+models/players/alien_heads/itho
 {
     {
-        map models/players/alien_heads/ithorian
+        map models/players/alien_heads/itho
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/ithorian_spec
+        map models/players/alien_heads/itho_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/muun
+{
+    {
+        map models/players/alien_heads/muun
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/muun_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -138,14 +152,14 @@ models/players/alien_heads/nabrun
     }
 }
 
-models/players/alien_heads/pondababa
+models/players/alien_heads/plagueis
 {
     {
-        map models/players/alien_heads/pondababa
+        map models/players/alien_heads/plagueis
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/aqualish_spec
+        map models/players/alien_heads/muun_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -216,6 +230,20 @@ models/players/alien_heads/tenebrous
     }
     {
         map models/players/alien_heads/bith_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/trando
+{
+    {
+        map models/players/alien_heads/trando
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/trando_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
