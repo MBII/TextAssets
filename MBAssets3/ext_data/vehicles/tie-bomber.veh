@@ -1,57 +1,66 @@
 tie-bomber
 {
+// General Settings
 name				tie-bomber
 type				VH_FIGHTER
+model				tie_bomber
+riderAnim			BOTH_VS_IDLE
+hoverHeight			80
+hoverStrength		10
+explosionRadius		400
+explosionDamage		1000
+landingHeight		300
+surfDestruction		1
+flammable			1
 numHands			2
 hideRider			1
 killRiderOnDeath	1
-lookYaw				45
+
+
+// Collision & Occlusion
 length				360
 width				400
 height				256
 g2radius			400
 centerOfGravity		"-0.222 0 0"
-speedMax			2000
-turboSpeed			3200
-turboDuration		3000
-turboRecharge		6000
-speedMin			0
-acceleration		20
-decelIdle			5
-accelIdle			10
-speedIdle			500
-//test: speed stays at whatever you last set it to...
-throttleSticks		1
-strafePerc			0.05
-bankingSpeed		0.5
-rollLimit			40
-pitchLimit			60
-braking				15
-mouseYaw			0.0025
-mousePitch			0.0025
-turningSpeed		4.5
-turnWhenStopped		0
-traction			10
-friction			0.4
-speedDependantTurning	1
-maxSlope			0.65
-mass				800
-//armor 			1600
-//malfunctionArmorLevel	600
-//health_front		500
-//health_back		300
-//health_right		400
-//health_left		400
-armor 				1700
+
+// Health, Armor, & Shields
+health_front			400
+health_back				600
+health_right			600
+health_left				600
+armor 					1700
 malfunctionArmorLevel	600
-health_front		400
-health_back			600
-health_right		600
-health_left			600
-shields				0
-toughness 			85.0
-model				tie_bomber
-riderAnim			BOTH_VS_IDLE
+toughness 				85.0
+shields					0
+
+// Vehicle Handling
+mass					800
+speedMin				0
+speedMax				2000
+turboSpeed				3200
+turboDuration			3000
+turboRecharge			6000
+acceleration			20
+decelIdle				5
+accelIdle				10
+speedIdle				500
+throttleSticks			1
+strafePerc				0.05
+bankingSpeed			0.5
+rollLimit				40
+pitchLimit				60
+braking					15
+mouseYaw				0.0025
+mousePitch				0.0025
+turningSpeed			4.5
+turnWhenStopped			0
+traction				10
+friction				0.4
+speedDependantTurning	1
+maxSlope				0.65
+
+// Graphics
 radarIcon			"gfx/menus/radar/tieB"
 dmgIndicFrame		"gfx/menus/radar/circle_base_frame_imp"
 dmgIndicShield		"gfx/menus/radar/circle_base_shield"
@@ -61,6 +70,8 @@ icon_back			"gfx/menus/radar/TB_back"
 icon_right			"gfx/menus/radar/TB_right"
 icon_left			"gfx/menus/radar/TB_left"
 crosshairShader		"gfx/menus/radar/TB_reticle"
+
+// Sounds
 soundOn				"sound/vehicles/tie-bomber/on.wav"
 soundLoop 			"sound/vehicles/tie-bomber/loop.wav"
 soundOff 			"sound/vehicles/tie-bomber/off.wav"
@@ -68,6 +79,8 @@ soundFlyBy 			"sound/vehicles/tie-bomber/flyby.wav"
 soundFlyBy2			"sound/vehicles/tie-bomber/flyby2.wav"
 soundTurbo 			"sound/vehicles/tie-bomber/turbo.wav"
 soundHyper			"sound/vehicles/common/hyperstartimp.wav"
+
+// Effects / FX
 exhaustFX			"ships/tiebomber_exhaust"
 turboFX				"ships/tiebomber_exhaust_turbo"
 impactFX			"ships/scrape_sparks"
@@ -78,35 +91,26 @@ injureFX			"ships/lightdmg"
 noseFX				"ships/TB_nose"
 lwingFX				"ships/TB_lwing"
 rwingFX				"ships/TB_rwing"
-flammable			1
-hoverHeight			80
-hoverStrength		10
-explosionRadius		400
-explosionDamage		1000
 
-surfDestruction		1
-
-landingHeight		300
-
+// Weapons
 weap1				imp_laser
 weap1Delay			150
 weap1Aim			1
 weap1AmmoMax		20
 weap1AmmoRechargeMS	500
+weap1Link			1
 
 weap2				proton_torpedo
 weap2Delay			800
 weap2Aim			1
 weap2AmmoMax		12
 
-
 weapMuzzle1			proton_torpedo
 weapMuzzle2			imp_laser
 weapMuzzle3			imp_laser
 
-//should *all* ships really be able to do this?
-weap1Link			1
-
+// Camera Settings
+lookYaw				45
 cameraOverride		1
 cameraRange			650
 cameraVertOffset	174

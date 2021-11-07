@@ -3,8 +3,8 @@
 ClassInfo
 {
 	name  "_v_s_stormie"
-	weapons WP_FLECHETTE|WP_BLASTER|WP_FRAG_NADE|WP_CONC_NADE|WP_MELEE
-	attributes  MB_ATT_A280,3|MB_ATT_BLASTER,3|MB_ATT_RESPAWNS,2|MB_ATT_MICRO_GRENADES,1|MB_ATT_DODGE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_GUNBASH|MB_ATT_SOLDIER_TDS,1
+	weapons WP_REPEATER|WP_BLASTER|WP_FRAG_NADE|WP_CONC_NADE|WP_MELEE
+	attributes  MB_ATT_BLASTER,3|MB_ATT_RESPAWNS,2|MB_ATT_MICRO_GRENADES,1|MB_ATT_DODGE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_GUNBASH|MB_ATT_SOLDIER_TDS,1
 	maxhealth 60
 	maxarmor  60
 	rateOfFire 0.95
@@ -15,6 +15,8 @@ ClassInfo
 	customred			0.13
 	customgreen			0.13
 	customblue			0.13
+	
+	WP_RepeaterFlags HELD_ALTRELOAD
 	
 	
 	model "stormie"
@@ -45,9 +47,9 @@ ClassInfo
 	skin_6  "default"
 	uishader_6  "models/players/swamptrooper/mb2_icon_default"
 	
-	model_7 "stormie_tfa"
+	model_7 "stormpilot"
 	skin_7  "default"
-	uishader_7		"models/players/stormie_tfa/mb2_icon_default"
+	uishader_7		"models/players/stormpilot/mb2_icon_default"
 	
 	model_8 "imperial_army"
 	skin_8  "default"
@@ -62,12 +64,20 @@ ClassInfo
 }
 WeaponInfo0
 {
-	WeaponToReplace		WP_FLECHETTE
-	WeaponBasedOff		WP_CONCUSSION
-	NewWorldModel		"models/weapons2/dlt20a/dlt20a_w.glm"
-	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"
-	Icon				"gfx/hud/w_icon_DLT20a"
-	WeaponName			"DLT-20a"
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_BLASTER
+	NewWorldModel 		"models/weapons2/blaster_r/blaster_w_stock.GLM"
+	NewViewModel  		"models/weapons2/dlt-blaster_r/blaster_w.glm"
+	Icon  				"gfx/hud/w_icon_e11_extendedstock"	
+	WeaponName			"E11 Rapid-Fire Mode"    	
+	customAmmo			350
+	clipSize			7
+	MuzzleEffect  "Blaster/MuzzleFlash01R"
+	MissileEffect		"Blaster/Shot01R"
+	altMuzzleEffect "Blaster/MuzzleFlash01R"
+	altFireEnabled    0
+	FlashSound0	  "sound/weapons/DLT19/fire.wav"	
+	idleAnim  DC15_FIRE
 }
 
 description	"Archetype: Stormtrooper
@@ -76,10 +86,16 @@ Class Summary:
 A basic soldier class with multiple lives, grenades, and close to mid-range weapons.
 
 Weaponry:
-- DLT-20a (3) (Fires like rebel commander's A280)
 - E-11 (3)
+- E-11 Rapid-Fire Mode *
 - Frag Grenade 
 - Concussion Grenade
+
+* Special Weapon Descriptions:
+---E-11 Rapid-Fire Mode:
+- High rate of fire gun based on Clone Rifle (3)
+- Has 7 shot clip size
+- Has magazine-style reloads
 
 Attributes:
 - Gunbash
