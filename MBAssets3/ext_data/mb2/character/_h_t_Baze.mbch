@@ -3,49 +3,65 @@
 ClassInfo
 {
 	name  "_h_t_Baze"
-	weapons 			WP_MELEE|WP_DET_PACK|WP_SONIC_NADE|WP_FRAG_NADE
-	attributes  		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_GUNBASH|MB_ATT_SONIC_DETONATOR,2|MB_ATT_T21,3|MB_ATT_FRAGS,1
+	weapons 			WP_MELEE|WP_DET_PACK|WP_SONIC_NADE
+	attributes  		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_GUNBASH|MB_ATT_SONIC_DETONATOR,2|MB_ATT_T21,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_QUICKTHROW,2|MB_ATT_FRAGS,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1
 	maxhealth 		100
-	maxarmor  		150
+	maxarmor  		40
 	model 			"Baze"
 	skin  			"default"
 	uishader  		"models/players/baze/mb2_icon_default"
-	MBClass 		MB_CLASS_CLONETROOPER
+	MBClass 		MB_CLASS_HERO
 	classNumberLimit  1
-	damageGiven		0.93
-	rateoffire	0.725
-	speed 0.925
+	rateoffire	1.05
+	speed       0.90
+	damageGiven 1.179
+	modelscale    1.01
+	
+	respawnCustomTime 50000	
 }
 
 WeaponInfo0
 {
 	WeaponToReplace WP_DET_PACK
 	WeaponBasedOff  WP_DET_PACK
-	NewWorldModel "models/weapons2/doomh_repeater/heavy_repeater_w.glm"
-	NewViewModel  "models/weapons2/doomh_repeater/heavy_repeater.md3"
-	NewHandsModel "models/weapons2/doomh_repeater/heavy_repeater_hand.md3"
-	NewBarrelModel  "models/weapons2/doomh_repeater/heavy_repeater_barrel.md3"
-	Icon  "gfx/doom_wpicons/w_icon_repeater"
+	NewWorldModel "models/weapons2/mwc-35c/model_w.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon  "gfx/hud/w_icon_mwc-35c"
 	WeaponName  "MWC-35c"
-	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect "Blaster/Shot02R"
+	FlashSound0 		"sound/weapons/MWC-35c/fire.mp3"
+	AltFlashSound0	    "sound/weapons/MWC-35c/alt_fire.mp3"
 	customammo	900
 	ClipSize    400
-	primFireEnabled			0
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_TRIP_MINE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel		"models/weapons2/sonic_detonator/sonic_det_w.glm"
+	NewViewModel		"models/weapons2/sonic_detonator/sonic_det.md3"
+	missileModel		"models/weapons2/sonic_detonator/sonic_det_proj.md3"
+	Icon			"gfx/hud/w_icon_sonic_det"
+	WeaponName		"Sonic Detonator"
 }
 
 description	"Baze Malbus
 
 Class Summary: 
-Heavy class with suppresive minigun.
+A heavy gunner and stun-grenadier with massively powerful blaster cannon and regenerating shields.
 
 Weaponry:
-- MWC-35c (Modified T21 Level 3)
+- MWC-35c (Based on T-21 Level 3)
 - Sonic Detonator (2)
-- Frag Grenade
+- Quickthrow Grenades (2) (Does not appear in weapon rotation, can only be quickthrown)
 
 Attributes:
+- Quickthrow (2)
+- Magnetic Plating
+- Regenerating Shields (1)
+- Blast Armor 
+
+Abilities:
 - Gunbash
-- Stamina (2)
 
 Baze Malbus was a human male born on the desert moon of Jedha fifty-three years before the Battle of Yavin. Once a devoted member of the Guardians of the Whills, Malbus became a freelance assassin during the age of the Galatic Empire."

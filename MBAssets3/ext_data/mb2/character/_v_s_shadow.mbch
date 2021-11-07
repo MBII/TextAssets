@@ -3,32 +3,41 @@
 ClassInfo
 {
 name			"_v_s_shadow"
-weapons			WP_MELEE|WP_SABER|WP_BRYAR_PISTOL|WP_TRIP_MINE|WP_SONIC_NADE
+weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_SONIC_NADE|WP_TRIP_MINE
 saber1			legends_Knife
 sabercolor		0
-forcepowers     FP_SABER_OFFENSE,3|FP_LEVITATION,1
-saberstyle		SS_TAVION|SS_FAST
-attributes		MB_ATT_TRIP_MINES,1|MB_ATT_SPY_DISGUISE,2|MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_SONIC_DETONATOR,1|MB_ATT_TRACKING_DART,3|MB_ATT_FLIPKICK|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT
+forcepowers     FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1|FP_LEVITATION,0
+saberstyle		SS_MEDIUM|SS_FAST
+attributes		MB_ATT_SPY_DISGUISE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_SONIC_DETONATOR,1|MB_ATT_TRACKING_DART,3|MB_ATT_FLIPKICK|MB_ATT_ANTI_MT|MB_ATT_TRIP_MINES,1
 maxhealth		80
-maxarmor		45
+maxarmor		80
+BPmultiplier    0.7
+forcepool       0
+damageGiven     .85
+MBClass			MB_CLASS_ARCTROOPER
+classNumberLimit	2
+classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_SEEING_STEALTH|CFL_BPFREEJUMPS|CFL_HEAVYMELEE
+holdables		HI_CLOAK
+extralives	1
+speed           1.03
+
+tauntAnim	BOTH_SABERKILLER1
+
 model			"stormie"
 skin			"shadow"
 uishader		"models/players/stormie/mb2_icon_shadow"
-MBClass			MB_CLASS_ARCTROOPER
-classNumberLimit	2
-classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_SEEING_STEALTH|CFL_BPFREEJUMPS
-holdables		HI_CLOAK
-forcepool		25
-forceregen		1
-extralives	1
-modelscale	1.05
-damageGiven 0.75
+
+model_1			"scouttrooper"
+skin_1			"commando"
+uishader_1		"models/players/scouttrooper/mb2_icon_commando"
+
+  respawnCustomTime 30000
 
 }
 
 WeaponInfo0
 {
-WeaponToReplace		WP_BRYAR_PISTOL
+WeaponToReplace		WP_BLASTER_PISTOL
 WeaponBasedOff		WP_BLASTER
 NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"  	//Required: New 3rd person/dropped weapon model
 NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"   	//Required: New 1st person weapon model
@@ -55,31 +64,46 @@ Icon			"gfx/hud/w_icon_prisonknife"
 WeaponName		"Vibro Knife"
 }
 
-description	"Imperial Shadowtrooper
+description	"Shadowtrooper
 
 Class Summary: 
-A sneaky class which focuses more on disguise and his high damage knife.
+A sneaky class which focuses more on disguise and his high damage pistol and knife.
 
-Weaponry:
-- Silenced Pistol (1)
-- Vibro Knife
-- Enhanced Strength (1)
-- Sonic Grenade
-- Trip Mine
+Weapons:
+- Silenced Pistol *
+- Vibro Knife *
+- Enhanced Strength 
+- Sonic Grenade (1)
+- Trip Mine (1)
+- Tracking Darts (3) (9 darts total)
 
-Items:
+* Special Weapon Descriptions:
+---Silenced Pistol:
+- Based on pistol (3)
+- Has hitscan projectiles
+
+---Vibro Knife:
+- Based on lightsaber
+- Deals enhanced damage
+- Can use Blue and Yellow styles
+- Cannot block blaster fire
+- Cannot slap or use special attacks
+- Can block lightsabers (with substantially reduced block power)
+
+Inventory:
+- Cloak 
 - Disguise (saber style/gun mode in melee)
-- Cloak (use inventory)
 
 Attributes:
+- Extra life
+- Defense (1)
 - Strong Against Melee
-- Flipkick
 - Immunity to Mindtrick
-- Force/Saber resistant suit
 - Invisible to Force Sense
-- Tracking Darts (3/9)
+
+Abilities:
 - Stamina (3)
 - Dexterity (3) (Alternate Ability 1)
-- Extra life
+- Flipkick
 
-The shadow stormtroopers acted as the personal stormtrooper unit of the head of Imperial Intelligence, Agent Blackhole, which earned them their moniker of 'blackhole stormtroopers.' They frequently underwent special training in infiltration and ambush tactics, and were often assigned to extremely classified missions."
+Shadow stormtroopers are specially trained in infiltration and ambush tactics, and were often assigned to extremely classified missions."
