@@ -681,33 +681,23 @@ textures/bespin2/whitelight
 	}
 }
 //vines one
-textures/bespin2/vines01
+textures/bespin2/vines
 {
-    //q3map_baseShader textures/yavin/temple_vinesalpha
-    q3map_lightimage textures/yavin/temple_vinesalpha
-    qer_editorimage textures/yavin/temple_vinesalpha
-    surfaceparm	   nonsolid
-    qer_alphaFunc greater 0
-    qer_trans 1
-	q3map_noFog
-    surfaceparm alphashadow
-    cull	twosided
+	qer_alphafunc greater 0.5
+	qer_editorimage textures/bespin2/vines_1
+	surfaceparm alphashadow
+	surfaceparm trans
+	surfaceparm nonsolid
+	surfaceparm nomarks
+	cull	twosided
+	polygonOffset
+	q3map_nolightmap
     {
-        map textures/yavin/temple_vinesalpha
-        blendFunc GL_ZERO GL_ONE
-        alphaFunc GE128
-        depthWrite
-    }
-    {
-        map $lightmap
-        depthFunc equal
-    }
-    {
-        map textures/yavin/temple_vinesalpha
-        blendFunc GL_DST_COLOR GL_ZERO
-        alphaFunc GE128
-        depthFunc equal
-    }
+		map textures/bespin2/vines_1
+		rgbGen vertex
+		depthWrite
+		alphaFunc GE128		
+    }	
 }
 //white fence
 textures/bespin2/whiteFence01
@@ -1715,5 +1705,101 @@ textures/bespin2/holograms
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		detail
 		glow
+	}
+}
+
+textures/skies/theGrove
+{
+	q3map_lightimage	textures/colors/white
+	qer_editorimage	textures/skies/sky.tga
+	q3map_lightmapFilterRadius 0 160
+	q3map_surfacelight	100
+	q3map_lightsubdivide	100
+	q3map_sunExt 1 1 1 100 90 50 2 3
+	surfaceparm	sky
+	surfaceparm	noimpact
+	surfaceparm	nomarks
+	notc
+	q3map_nolightmap
+	q3map_noFog
+	skyParms	textures/skies/yavin 512 -
+}
+///The Grove Terrain
+textures/groveTerrain/terrain_0
+{
+	q3map_lightmapsamplesize 64
+	q3map_lightmapaxis z
+	q3map_texturesize 1024 1024
+	q3map_tcGen ivector ( 839 0 0 ) ( 0 886 0 )
+	q3map_material shortgrass
+	{
+		map textures/newtheed2/flowergrass.jpg
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		tcGen lightmap
+	}
+}
+
+textures/groveTerrain/terrain_1
+{
+	q3map_lightmapsamplesize 64
+	q3map_lightmapaxis z
+	q3map_texturesize 1024 1024
+	q3map_tcGen ivector ( 839 0 0 ) ( 0 886 0 )
+	q3map_material mud
+	{
+		map textures/yavin/s_mud2.jpg
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		tcGen lightmap
+	}
+}
+
+textures/groveTerrain/terrain_0to1
+{
+	q3map_lightmapsamplesize 64
+	q3map_lightmapaxis z
+	q3map_texturesize 1024 1024
+	q3map_tcGen ivector ( 839 0 0 ) ( 0 886 0 )
+	q3map_material mud
+	
+	{
+		map textures/newtheed2/flowergrass.jpg
+	}
+	{
+		map textures/yavin/s_mud2.jpg
+		alphaGen vertex
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		tcGen lightmap
+	}
+}
+
+textures/groveTerrain/terrain.vertex
+{
+	{
+		map textures/newtheed2/flowergrass.jpg
+		rgbGen vertex
+	}
+}
+///onion
+textures/bespin2/onion
+{
+	qer_editorimage	textures/bespin2/onion
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	q3map_nolightmap
+	{
+		clampmap textures/bespin2/onion
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		detail
 	}
 }

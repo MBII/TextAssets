@@ -1,3 +1,53 @@
+models/players/rebel_gag/accessories
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_gag/accessories
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel/accessories_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_gag/accessories_green
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_gag/accessories_green
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel/accessories_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel_gag/visor
 {	  
 	cull	twosided
@@ -15,47 +65,6 @@ models/players/rebel_gag/visor
 		alphaGen lightingSpecular
 	}
 
-}
-
-models/players/rebel_gag/body
-{
-    {
-        map models/players/rebel_gag/body
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/rebel_gag/body_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
-}
-
-models/players/rebel_gag/body_green
-{
-    {
-        map models/players/rebel_gag/body_green
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/rebel_gag/body_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
-}
-
-models/players/rebel_gag/nade
-{
-    {
-        map models/players/rebel_gag/nade
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/rebel_gag/glow
-        blendFunc GL_ONE GL_ONE
-        glow
-    }
 }
 
 models/players/rebel_gag/interface_dark
@@ -82,21 +91,6 @@ models/players/rebel_gag/boots_hips
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 	detail
-    }
-}
-
-models/players/rebel_gag/pads
-{
-	cull	disable
-    {
-        map models/players/rebel_gag/pads
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/scouttrooper/armor_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
     }
 }
 

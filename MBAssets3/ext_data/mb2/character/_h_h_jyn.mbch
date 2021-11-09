@@ -1,62 +1,101 @@
 ClassInfo
 {
 	name  				"_h_h_jyn"
-	weapons 			WP_BLASTER|WP_MELEE
-	attributes  		MB_ATT_BLASTER,3|MB_ATT_HEALING,1|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_ANTI_MT,1|MB_ATT_RALLY|MB_ATT_FLIPKICK
-	maxhealth 			150
-	maxarmor  			85
+	weapons 			WP_BRYAR_OLD|WP_MELEE|WP_SABER|WP_BOWCASTER
+	attributes  		MB_ATT_PISTOL,2|MB_ATT_HEALING,1|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_ANTI_MT,1|MB_ATT_RALLY|MB_ATT_FLIPKICK|MB_ATT_DASH,2|MB_ATT_BOWCASTER,1
+	maxhealth 			125
+	maxarmor  			125
+	saber1				truncheon_legends
+	saber2              a180_saber_legends
+	saberstyle			SS_TAVION|SS_DUAL
+	APmultiplier        1.25
+	CSmultiplier        1.1
+	ASmultiplier        1.125
 	model 				"jynerso"
 	skin  				"default"
 	uishader  			"models/players/jynerso/mb2_icon_default"
-	MBClass 			MB_CLASS_JEDI
+	MBClass 			MB_CLASS_HERO
 	forcepowers			FP_LEVITATION,1
-	forcepool 			3
-	holdables 			HI_AMMODISP|HI_EWEB|HI_BINOCULARS
-	classflags			CFL_HEAVYMELEE|CFL_SEEING_STEALTH
-	WP_BlasterFlags		HELD_ALTRELOAD
+	forcepool 			5
+	holdables 			HI_BINOCULARS|HI_SENTRY_GUN
+	classflags			CFL_SEEING_STEALTH
+	///WP_BryarOldFlags	HELD_ALTRELOAD
+	WP_BowcasterFlags   HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_PULSE|HELD_KNOCKBACK
 	classNumberLimit	1
-	rateOfFire 			1.2
+	DamageGiven         1.179
+	rateOfFire 			0.73
+	modelscale 		0.933
+	speed           1.0675
+	
+	saberStanceAnim		BOTH_MELEEPOSE
+	
+	respawnCustomTime  50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace WP_BLASTER
+	WeaponToReplace WP_BRYAR_OLD
 	WeaponBasedOff  WP_BLASTER_PISTOL
 	NewWorldModel "models/weapons2/a180/a180_w.glm"
 	NewViewModel  "models/weapons2/a180/a180.md3"
 	Icon  "gfx/hud/w_icon_a180"
-	WeaponName  "Pistol"
-	FlashSound0			"sound/weapons/lvl3pistol/fire.mp3" 			
-	AltFlashSound0		"sound/weapons/lvl3pistol/fire.mp3"
-	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
-	ClipSize 		16
+	WeaponName  "A180 Pistol"
+	FlashSound0			"sound/weapons/SE-14c/fire.mp3" 			
+	ClipSize 		22
+	ReloadTimeModifier 	0.9
 	altFireEnabled 	0
-	firingAnim		BOTH_ATTACK3
+	firingAnim		BOTH_ATTACK2
 	idleAnim		TORSO_WEAPONIDLE2
 	CustomAmmo		700
+}
+WeaponInfo1
+{
+	WeaponToReplace WP_BOWCASTER
+	WeaponBasedOff  WP_BLASTER_PISTOL
+	NewWorldModel "models/weapons2/a180/a180_ion.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	MissileEffect		 "rockets/MissilePulse" 
+	AltMissileEffect     "rockets/MissilePulse"
+	MuzzleEffect		"arc_caster/ArcCasterMuzzle"
+	FlashSound0			"sound/weapons/rocket/alt_fire.mp3" 	
+	Icon  "gfx/hud/w_icon_a180_ion"
+	WeaponName  "A180 Ion Attachment"
+	clipSize 4
+	CustomAmmo 24
+	ReloadTimeModifier 	1.2
 }
 
 
 description	"Jyn Erso
 
 Class Summary: 
-This Pistoleer Hero gives ammo and has a portable E-Web
+A speedy pistoleer commander with a two-shot stun gun.
 
 Weaponry:
-- Pistol 
-(8 shots per clip, high damage)
+- Truncheon (Melee weapon, cannot block attacks)
+- A180 (Based on Pistol level 2, higher damage)
+- A180 Ion Attachment *
+
+* Special Weapon Descriptions:
+---A180 Ion Attachment
+- Based on Bowcaster level (1)
+- Electrifies and knocks down enemies on direct hits
+- 2 shots per clip, 14 shots total
+- Magazine style reload
 
 Attributes:
-- Stronger Melee Attacks
-- Quick Get-up
-- Flipkick
+- Rally
+- Immune to force sense
 - Immune to Mind Trick
+- Flipkick
 - Heal (1)
-- Dodge (3)
 
-Equipment:
+Inventory:
 - Binoculars
-- Portable E-Web
-- Ammo Dispenser (use key)
+- Portable Sentry Gun
+
+Abilities:
+- Dodge (3)
+- Dash (2)
 
 Jyn Erso was a human female soldier and former criminal who became a pivotal member of the Alliance to Restore the Republic when she led Rogue One in stealing the Death Star plans during the Battle of Scarif."

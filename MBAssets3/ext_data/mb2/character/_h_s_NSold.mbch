@@ -3,27 +3,37 @@
 ClassInfo
 {
 	name			"_h_s_NSold"
-	weapons			WP_BLASTER|WP_BLASTER_PISTOL|WP_MELEE
-	rateOfFire		0.6
-	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,2|MB_ATT_RESPAWNS,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_CCTRAINING,1|MB_ATT_GUNBASH
-	maxhealth		80
+	weapons			WP_REPEATER|WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_CRYO_NADE
+	rateOfFire		0.9
+	DamageGiven     0.85
+	attributes		MB_ATT_PISTOL,3|MB_ATT_BLASTER,3|MB_ATT_DODGE,2|MB_ATT_RESPAWNS,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_GUNBASH|MB_ATT_STRONGBLOBS,1|MB_ATT_CRYOBAN_GRENADES,1|MB_ATT_SOLDIER_TDS,1
+	maxhealth		60
 	maxarmor		60
-	model			"nabooguard" 				//this is optional, if it's here it forces the model to this.
+	MBClass			MB_CLASS_ELITETROOPER
+	WP_RepeaterFlags HELD_ALTRELOAD
+	classNumberLimit	4
+	
+	model			"naboopalace" 				//this is optional, if it's here it forces the model to this.
 	skin			"default"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/nabooguard/mb2_icon_default"
-	MBClass			MB_CLASS_SOLDIER
-	WP_BlasterFlags	HELD_LOWDAMAGE
-	WP_BlasterPistolFlags   HELD_LOWDAMAGE
+	uishader		"models/players/naboopalace/mb2_icon_default"
+	
+	model_1			"nabooguard" 				//this is optional, if it's here it forces the model to this.
+	skin_1			"default"					//this is optional, if it's here it forces the skin to this.
+	uishader_1		"models/players/nabooguard/mb2_icon_default"
+	
+	respawnCustomTime 15000	
 }
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_BLASTER_PISTOL        						//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_BLASTER_PISTOL       						//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/elg-3a/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/elg-3a/blaster_pistol.md3"   	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_elg-3a" 						//Required: Weapon change icon
-	WeaponName			"ELG-3A Diplomat's Pistol"    					//Required: Weapon change display name
+	NewWorldModel		"models/weapons2/s5_heavy_pistol/model_w.GLM"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon				"gfx/hud/w_icon_s5pistol" 						//Required: Weapon change icon
+	FlashSound0			"sound/weapons/spy_pistol/fire.wav"
+	AltFlashSound0		"sound/weapons/spy_pistol/fire.wav"
+	WeaponName			"S-5 Heavy Pistol"    					//Required: Weapon change display name
 	MuzzleEffect		"Blaster/MuzzleFlash01G"	   					//Optional: New muzzle effect
 	AltMuzzleEffect		"Blaster/MuzzleFlash01G" 						//Optional: New alt muzzle effect
 	MissileEffect		"Blaster/Shot11G"  								//Optional: New effect to be displayed on the projectile
@@ -32,39 +42,66 @@ WeaponInfo0
 	PowerupShotEffect	"Blaster/Shot04G"  								//Optional: Ditto for the alt fire
 	ChargeEffect		"gfx/effects/greenFrontFlash"
 	OverchargeEffect	"Blaster/MuzzleCharge01G"
-		clipSize			20
+	clipSize             20
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER        								//Required: Weapon Slot of weapon you're replacing
+	WeaponToReplace		WP_REPEATER    								//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_BLASTER       								//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"  		//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/se-14c_pistol/blaster_pistol.md3"   		//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_se-14c" 							//Required: Weapon change icon
+	NewWorldModel		"models/weapons2/cr2_pistol/CR2_Pistol.GLM"  		//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon				"gfx/hud/w_icon_cr2pistol" 							//Required: Weapon change icon
 	WeaponName			"CR-2 Repeater"    					//Required: Weapon change display name
 	MuzzleEffect		"Blaster/MuzzleFlash01G"   						//Optional: New muzzle effect
-	AltMuzzleEffect		"Blaster/MuzzleFlash01G" 						//Optional: New alt muzzle effect
 	MissileEffect		"Blaster/Shot02G"  								//Optional: New effect to be displayed on the projectile
-	AltMissileEffect	"Blaster/Shot02G"  								//Optional: Ditto for the alt fire
 	customAmmo			400
-	clipSize			30
-	primFireEnabled		0
+	clipSize			15
+	FlashSound0		"sound/weapons/kotor_carbine/fire.wav"
+	idleAnim  TORSO_WEAPONREADY3
+	firingAnim  BOTH_ATTACK3
+	ReloadTimeModifie  0.75
+}
+WeaponInfo2
+{
+ 	WeaponToReplace			WP_CRYO_NADE
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons2/cryoban_grenade/model_w.glm"
+	NewViewModel			"models/weapons2/cryoban_grenade/viewmodel.md3"
+	MissileModel			"models/weapons2/cryoban_grenade/model_proj.md3"
+    AltMissileModel			"models/weapons2/cryoban_grenade/model_proj.md3"
+	Icon					"gfx/hud/w_icon_cryobangrenade"
+	WeaponName				"Cryoban Grenade"
 }
 
-description	"Naboo Guard
+description	"Archetype: Naboo Security
 
-Class Summary: Multi-Life Sold with Bullpup Blaster. Have a Jedi give you a weapon for total annihilation.
+Class Summary:
+Multi-life soldier with high rate of fire SMG, heavy pistol, and freeze grenade.
 
 Weaponry:
-- ELG-3A Diplomat's Pistol (2)
-- CR-2 Repeater (2)
+- S-5 Heavy Pistol (Based on Pistol level 3, with reduced damage)
+- CR-2 Repeater *
+- Ion Blobs (1)
+- Frag Grenade (1)
+- Cryoban Grenade (1)
+
+* Special Weapon Descriptions:
+---CR-2 Repeater:
+- High rate of fire gun based on Clone Rifle (3)
+- Has 15 shot clip size
+- Has magazine-style reloads
+- Has ion blobs
+
+Attributes:
+- Reinforcements (2)
+- Assemble
 
 Abilities:
 - Gunbash
-- Reinforcements (2)
-- Assemble
-- Close Combat Training (1)
+- Dodge (2)
 
-Naboo Guards policed the city of Theed before it was taken over by the Trade Federation, and now act as an underground resistance group."
+~Theed Palace Guard: Nicknamed the 'Pearl Hats', the Theed Palace Guard were a division of the Royal Naboo Security Forces that protected the Queen's palace.
+----------
+~Naboo Security Force: The police of the city of Theed before it was taken over by the Trade Federation. They now act as an underground resistance group."
 

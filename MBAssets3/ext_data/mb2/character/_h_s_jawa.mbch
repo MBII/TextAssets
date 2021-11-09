@@ -1,20 +1,37 @@
+//Siege class def file.
+
 ClassInfo
 {
 	name			"_h_s_jawa"	
-	weapons			WP_MELEE|WP_SABER|WP_BOWCASTER
-	saber1			ass_jawa_Baton
-	WP_SaberFlags 	HELD_PULSE
+	weapons			WP_MELEE|WP_SABER|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE
+	saber1			JawaBaton_legends
 	sabercolor		0
-	saberstyle		SS_TAVION
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_RESPAWNS,2|MB_ATT_BOWCASTER,1
-	maxhealth		80
+	saberstyle		SS_MEDIUM
+	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_RESPAWNS,2|MB_ATT_BLASTER,1|MB_ATT_DODGE,1|MB_ATT_DASH,1|MB_ATT_TRIP_MINES,1|MB_ATT_PULSE_GRENADES,1
+	maxhealth		60
+	maxarmor		40
+	MBClass			MB_CLASS_HERO
+	holdables       HI_SEEKER
+	modelscale		0.75
+	rateOfFire      1.15
+	speed			0.95
+	forcepool       25
+	WP_BlasterFlags 	HELD_PULSE|HELD_ALTRELOAD
+	classNumberLimit	2
+	
+	gloatAnim	TORSO_SURRENDER_START
+	flourishAnim	BOTH_COWER1
+	tauntAnim	BOTH_SHOWOFF_FAST
+	
 	model			"TFU_jawa"
 	skin			"default"
-	uishader		"models/players/TFU_jawa/icon_regular"
-	MBClass			MB_CLASS_BOUNTY_HUNTER 
-	WP_BowcasterFlags 	HELD_PULSE|HELD_SLOW
-	modelscale		0.7
-	speed			0.9
+	uishader		"gfx/hud/fa_icons/mb2_icon_jawa_legends"
+	
+	model_1			"jawa" 				
+	skin_1			"default"					
+	uishader_1		"gfx/um_icons/jawa"
+	
+	respawnCustomTime 10000
 }
 
 WeaponInfo0
@@ -28,46 +45,56 @@ WeaponName		"Stun Baton"
 }
 WeaponInfo1
 {
-	WeaponToReplace		WP_BOWCASTER				//Required: Weapon Slot of weapon you're replacing
+	WeaponToReplace		WP_BLASTER				//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"  	//Required
-	NewViewModel		"models/weapons2/base_demp2/demp2.glm"   	//Required
-	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
-	Icon				"gfx/hud/w_icon_basedemp2" 				//Required
-	WeaponName			"DEMP 2"    					//Required
-	MissileHitHumanEffect "effects/base_demp2/altdetonate"
-	MissileHitDroid 	"effects/base_demp2/altdetonate"
-	MissileMissEffect 	"effects/base_demp2/wall_impact"
-	MissileEffect		"effects/base_demp2/projectile"  					
-	AltMissileEffect 	"effects/base_demp2/projectile" 
-	MuzzleEffect		"effects/base_demp2/muzzle_flash"   				//Optional: New muzzle effect
-	AltMuzzleEffect		"effects/base_demp2/altmuzzle_flash" 				//Optional: New alt muzzle effect
-	CustomAmmo 	85
-	ClipSize 		5
+	NewWorldModel		"models/weapons2/jawa_blaster/model_w.glm"  	//Required
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon				"gfx/hud/w_icon_jawablaster" 				//Required
+	WeaponName			"Ion Blaster"    					//Required
+	MuzzleEffect		"arc_caster/ArcCasterMuzzle"
+	MissileEffect		"arc_caster/ArcCasterShock"
+    MissileMissEffect "effects/blaster/Impact_Wall01B"
+	CustomAmmo 	200
+	ClipSize 		14
 	ReloadTimeModifier 	.85		// default is 1 - 100%
-	ProjSpeedModifier .8
-	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
-	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
 	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
-	FlashSound1		"sound/weapons/base_demp2/fire.mp3"
-	FlashSound3		"sound/weapons/base_demp2/fire.mp3"
-	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
-
 	AltFireEnabled 0
 }
 
 description	"Jawa
 
+Class Summary:
+A multi-life skirmisher with an ion gun that can temporarily disable enemy weapons and vehicles.
+
 Weapons:
-DEMP 2
-Stun Baton
+- Ion Blaster *
+- Stun Baton *
+- Trip Mine (1)
+- EMP Greande (1)
+
+* Special Weapon Descriptions:
+---Ion Blaster
+- Based on E-11 Level (1)
+- Electrifies enemies on successful hits
+- 7 shots per clip
+- Magazine style reloads
+
+---Stun Baton
+- Based on lightsaber
+- Reduced damage
+- Can use Yellow style
+- Cannot perform cartwheels
+- Special jump-kick DFA
+
+Inventory:
+- Seeker Drone
 
 Abilities:
-Assemble
-Reinforcements
+- Reinforcements (2)
+- Dash (1)
+- Dodge (1)
+- Assemble
+- Hero style quick get-up
 
-Jawas were passionate scavengers, combing the deserts of Tatooine for droids or scraps which they would capture and sell to the local residents, forming a codependent circle of trade. Some would come to Biggs' Emporium to sell rare parts.
+Jawas were passionate scavengers, combing the deserts of Tatooine for droids or scraps which they would capture and sell to the local residents, forming a codependent circle of trade. Some would come to Biggs' Emporium to sell rare parts."
 
-"
-
-//noob

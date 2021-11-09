@@ -42,6 +42,20 @@ models/players/jedi_hf/pants_02_c
 	}
 }
 
+models/players/jedi_hf/pants_04_c
+{
+	{
+		map models/players/jedi_hf/pants_04_c
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/jedi_hf/pants_04_c
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
 models/players/jedi_hf/torso_04_c
 {
 	{

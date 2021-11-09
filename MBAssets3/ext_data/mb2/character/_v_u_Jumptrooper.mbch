@@ -3,28 +3,28 @@
 ClassInfo
 {
 	name				"_v_u_Jumptrooper"
-	weapons				WP_MELEE|WP_REPEATER|WP_BOWCASTER
-	attributes			MB_ATT_CLONERIFLE,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_JETPACK,1|MB_ATT_STAMINA,3|MB_ATT_STRONGBLOBS,2|MB_ATT_FUEL,2|MB_ATT_BOWCASTER,1
-	maxhealth			100
-	maxarmor			120
-    model			"pl_rockettrooper"
+	weapons				WP_MELEE|WP_REPEATER|WP_BOWCASTER|WP_FRAG_NADE
+	attributes			MB_ATT_CLONERIFLE,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ARMOUR,3|MB_ATT_QUICKTHROW,2|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_STRONGBLOBS,3|MB_ATT_FUEL,2|MB_ATT_BOWCASTER,1|MB_ATT_FRAGS,1|MB_ATT_ASSEMBLE,1|MB_ATT_GUNBASH
+	maxhealth			125
+	maxarmor			100
+	MBClass			MB_CLASS_WOOKIE
+    classNumberLimit	2
+	extralives      1
+    modelscale		1.13
+	classNumberLimit	2
+	speed              1.14
+	WP_BowcasterFlags HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_HIGHDAMAGE|HELD_SLOWPROJ|HELD_KNOCKBACK
+	jetpackJetTag		*jetpack_jet		
+	jetpackJet2Tag		*jetpack_jet2		
+	jetpackJetOffset		"0, 0, 0" 
+	jetpackJet2Offset		"0, 0, 0" 
+	
+	model			"pl_rockettrooper"
     skin			"base"
     uishader		"gfx/um_icons/PrisonRaidPack/Rocket"
-	MBClass			MB_CLASS_CLONETROOPER
-	classflags      CFL_FUEL_REGENERATION|CFL_NOPICKUPS
-    classNumberLimit	2
-    speed			0.925
-    modelscale		1.125
-	rateoffire      0.875
-	classNumberLimit	2
-	WP_BlasterFlags     HELD_PULSE
-	WP_BowcasterFlags HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_HIGHDAMAGE|HELD_SLOWPROJ|HELD_KNOCKBACK
-	jetpackJetTag		"*back"
-	jetpackJet2Tag		"*back"		
-	jetpackJetOffset		"0, 0, 5" 
-	jetpackJet2Offset		"0, 0, 5" 
-	jetpackJetAngles	"0, 0, 0"
-	jetpackJet2Angles	"0, 0, 0"
+	
+	respawnCustomTime 30000	
+	
 }
 
 WeaponInfo0
@@ -48,30 +48,49 @@ WeaponInfo1
 	WeaponBasedOff		WP_BOWCASTER
 	MissileEffect		 "rockets/missile" 
 	AltMissileEffect     "rockets/missile"
+	MissileMissEffect        "ships/swoop_explosion"
+    MissileHitHumanEffect    "ships/swoop_explosion"
+    MissileHitDroidEffect    "ships/swoop_explosion"
 	FlashSound0          "sound/weapons/rocket/fire.mp3"
 	NewWorldModel		"models/weapons2/merr_sonn/merr_sonn_w.glm"
 	NewViewModel		"models/weapons2/merr_sonn/merr_sonn.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
+	Icon			"gfx/hud/w_icon_merrsonn"
 	WeaponName		"PLX-2M"
 	clipSize 2
-	CustomAmmo 8
-	MissileMissEffect		"ships/swoop_explosion"
-	MissileHitHumanEffect	"ships/swoop_explosion"
-	MissileHitDroidEffect	"ships/swoop_explosion"
+	CustomAmmo 4
+	
 }
 
 description	"Imperial Jumptrooper
 
 Class Summary: 
-Suppressive fire jet trooper with ion blobs
+A tanky two-life suppressive fire jet trooper with ion blobs and a micro-rocket launcher.
 
 Weaponry:
-Imperial Heavy Repeater
-PLX-2M Rocket Launcher
+- Imperial Heavy Repeater (Based on Clone Rifle 2)
+- Ion Blobs (3)
+- PLX-2M Rocket Launcher *
+- Frag Grenade (1)
+
+* Special Weapon Descriptions:
+---PLX-2M Rocket Launcher
+- Fires slow moving, high damage projectiles
+- Explodes on contact dealing extra splash damage
+- Causes knockdowns on direct hits
+- Cannot be Force Pushed like regular rockets
+- Magazine style reloads
+- 3 shots total, 1 shot per magazine
 
 Attributes:
-- Regenerating Jetpack
-- Stamina (3)
-- Cannot pick up items
+- Extra life
+- Blast Armor
+- Fuel (2)
+- Strength (1)
+- Assemble
+
+Abilities:
+- Quickthrow (2)
+- Jetpack
+- Gunbash
 
 Imperial Jumptroopers, otherwise known as skytroopers, rocket troopers, or air assault troopers, were a variant of stormtrooper trained in airborne environments such as Bespin's Cloud City, or assigned to battlefields with treacherous terrain."

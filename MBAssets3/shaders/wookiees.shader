@@ -389,3 +389,55 @@ models/players/chewbacca/backpack
 		rgbGen lightingDiffuse
 	}
 }
+
+models/players/snoova/chewbacca_2sided
+{
+	cull	twosided
+    {
+        map models/players/snoova/chewbacca_2sided
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/snoova/chewbacca_1sided
+{
+	cull	twosided
+    {
+        map models/players/snoova/chewbacca_1sided
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/snoova/pahristuff
+{
+	cull	twosided
+    {
+        map models/players/snoova/pahristuff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/snoova/pahristuff_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/snoova/glow
+        blendFunc GL_ONE GL_ONE
+        detail
+        rgbGen identity
+    }
+
+}
+
+models/players/snoova/hair
+{
+	cull	twosided
+    {
+        map models/players/snoova/hair
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}

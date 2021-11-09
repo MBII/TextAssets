@@ -1,0 +1,76 @@
+Teams
+{
+	team1 Jedi
+	team2 Tusken
+}
+
+mapgraphic "gfx\mplevels\mb2_tusken\map"
+missionname "Tusken Campsite CTF"
+radartopleft "-3904, 5568"
+radarbottomright "6636, -4672"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_tusken"
+        radargraphicfull "gfx/automap/mb2_duel_tuskenfull"
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	Timed 600
+	UseTeam "DuelTuskenJedi" 							
+	TeamIcon	"gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Capture the enemy flag and return it to base"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag and return it to base"
+		objgfx ""
+	}
+	
+	wonround "I slaughtered them like animals!"
+	lostround "I hate them!"
+    roundover_sound_wewon "sound/Tusken/Ani.mp3"
+	roundover_sound_welost "sound/Tusken/Tusken.mp3"
+	roundover_target ""
+	attackers 1
+	briefing "Kill the intruder!"
+}
+
+Tusken
+{
+	RequiredObjectives 1
+	Timed 600
+	UseTeam "DuelTuskenTusk"
+	TeamIcon "gfx/2d/logos/mb_tusk"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Capture the enemy flag and return it to base"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag and return it to base"
+		objgfx ""
+	}
+
+	wonround "We survived!"
+	lostround "All is lost..."
+	roundover_sound_wewon "sound/Tusken/Tusken.mp3"
+	roundover_sound_welost "sound/Tusken/Ani.mp3"
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Slaughter the tuskens!"
+}

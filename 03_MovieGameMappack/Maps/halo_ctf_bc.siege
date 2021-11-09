@@ -1,0 +1,76 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Red
+	team2 Blue
+}
+
+mapgraphic "gfx/mplevels/halo"
+missionname  "Halo CTF Battle Creek"
+
+roundbegin_target "foight"
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+countin_time 0
+
+Red
+{
+	RequiredObjectives 1
+	Timed 600
+	UseTeam "halo_red"
+	TeamIcon	"gfx/2d/logos/mgm_halo_red"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+
+	Objective1
+	{
+		goalname "Capture the enemy flag"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag"
+		objgfx "gfx/mplevels/halo/obj_ctf_r"
+	}
+	
+	wonround "Victory" 						//Printed to this team if they won the round.
+	lostround "Game Over" 					//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/halo/victory.mp3"
+	roundover_sound_welost "sound/halo/game_over.mp3"
+	roundover_target "roundover"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Capture the enemy flag" //Displayed on the mission briefing menu.
+}
+
+Blue
+{
+	RequiredObjectives 1
+	Timed 600
+	UseTeam "halo_blue"
+	TeamIcon	"gfx/2d/logos/mgm_halo_blue"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Capture the enemy flag"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag"
+		objgfx "gfx/mplevels/halo/obj_ctf_b"
+	}
+	
+	wonround "Victory"
+	lostround "Game Over"
+	roundover_sound_wewon "sound/halo/victory.mp3"
+	roundover_sound_welost "sound/halo/game_over.mp3"
+	roundover_target "roundoverimp"
+	attackers 1
+
+	briefing "Capture the enemy flag"
+}
