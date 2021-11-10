@@ -1,5 +1,6 @@
+//==========
 // wookiee
-
+//==========
 models/players/wookiee/head
 {
 	q3map_nolightmap
@@ -113,9 +114,9 @@ models/players/wookiee/torso_red
 	}
 }
 
-
+//==========
 // wookieev2
-
+//==========
 models/players/wookieev2/body41
 {
 	q3map_nolightmap
@@ -267,9 +268,231 @@ models/players/wookieev2/torsoparts
 	}
 }
 
+//==========
+// Tarfful
+//==========
+models/players/tarfful/fur1
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/tarfful/fur1
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
 
+models/players/tarfful/fur2
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/tarfful/fur2
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/tarfful/fur3
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/tarfful/fur3
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/tarfful/fur4
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/tarfful/fur4
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/tarfful/fur5
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/tarfful/fur5
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/tarfful/fur6
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/tarfful/fur6
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/tarfful/dreadlockz
+{
+	cull	twosided
+	{
+		map models/players/tarfful/dreadlockz
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/tarfful/dreadlockz_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+	detail
+	}
+}
+
+models/players/tarfful/pauldronzor
+{
+	cull	twosided
+	{
+		map models/players/tarfful/pauldronzor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/tarfful/pauldronzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+	detail
+	}
+}
+
+models/players/tarfful/stuffzor
+{
+	cull	twosided
+	{
+		map models/players/tarfful/stuffzor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/tarfful/stuffzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+	detail
+	}
+}
+
+//==========
+// Albino
+//==========
+models/players/wookieev2/albino_body
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/wookieev2/albino_body
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/wookieev2/albino_fur2
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/wookieev2/albino_fur2
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/wookieev2/albino_fur4
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/wookieev2/albino_fur4
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/wookieev2/albino_fur6
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/wookieev2/albino_fur6
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+//==========
+// Krrsantan
+//==========
+models/players/krrsantan/body
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/krrsantan/body
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/krrsantan/fur2
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/krrsantan/fur2
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/krrsantan/fur4
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/krrsantan/fur4
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/krrsantan/fur6
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/krrsantan/fur6
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+//==========
 // Chewbacca C-3PO
-
+//==========
 models/players/chewbacca/c3po_face
 {
 	{
@@ -316,51 +539,18 @@ models/players/chewbacca/c3po_arm_torso
 	}
 }
 
-
-// zaalbar
-
-models/players/zaalbar/zaalbar_body
+models/players/chewbacca/backpack
 {
+	cull	twosided
 	{
-		map models/players/zaalbar/zaalbar_body
-		blendFunc GL_ONE GL_ZERO
+		map models/players/chewbacca/backpack
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/zaalbar/zaalbar_body_Spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
 	}
 }
 
-models/players/zaalbar/zaalbar_head
-{
-	{
-		map models/players/zaalbar/zaalbar_head
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/zaalbar/zaalbar_head_Spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/zaalbar/zaalbar_sprites
-{
-	{
-		map models/players/zaalbar/zaalbar_sprites
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/zaalbar/zaalbar_sprites_Spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	}
-}
-
+//==========
+// Zaalbar
+//==========
 models/players/zaalbar/zaalbar_2sided
 {
 	cull	twosided
@@ -381,11 +571,136 @@ models/players/zaalbar/zaalbar_1sided
 	}
 }
 
-models/players/chewbacca/backpack
+//==========
+// Hanharr
+//==========
+models/players/hanharr/hanharr_body
+{
+    {
+        map models/players/hanharr/hanharr_body
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/hanharr/hanharr_body_Spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/hanharr/hanharr_body_blue
+{
+    {
+        map models/players/hanharr/hanharr_body_blue
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/hanharr/hanharr_body_blue_Spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/hanharr/hanharr_head
+{
+    {
+        map models/players/hanharr/hanharr_head
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/hanharr/hanharr_head_Spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/hanharr/hanharr_sprites
+{
+    {
+        map models/players/hanharr/hanharr_sprites
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/hanharr/hanharr_sprites_Spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/hanharr/hanharr_2sided
 {
 	cull	twosided
-	{
-		map models/players/chewbacca/backpack
-		rgbGen lightingDiffuse
-	}
+    {
+        map models/players/hanharr/hanharr_2sided
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/hanharr/hanharr_1sided
+{
+	cull	twosided
+    {
+        map models/players/hanharr/hanharr_1sided
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+//==========
+// Snoova
+//==========
+models/players/snoova/chewbacca_2sided
+{
+	cull	twosided
+    {
+        map models/players/snoova/chewbacca_2sided
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/snoova/chewbacca_1sided
+{
+	cull	twosided
+    {
+        map models/players/snoova/chewbacca_1sided
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/snoova/pahristuff
+{
+	cull	twosided
+    {
+        map models/players/snoova/pahristuff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/snoova/pahristuff_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/snoova/glow
+        blendFunc GL_ONE GL_ONE
+        detail
+        rgbGen identity
+    }
+
+}
+
+models/players/snoova/hair
+{
+	cull	twosided
+    {
+        map models/players/snoova/hair
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
 }
