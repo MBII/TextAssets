@@ -395,3 +395,17 @@ gfx/effects/yellow_bryarFrontFlash
 		rgbGen vertex
 	}
 }
+
+
+// Grapple Hook Line
+
+gfx/effects/grapplehook
+{
+	notc
+	cull	twosided
+	{
+		map gfx/effects/grapplehook
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
