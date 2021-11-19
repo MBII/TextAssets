@@ -165,6 +165,7 @@ models/players/luke_tfa/mouth_eyes
 	}
 }
 
+
 // anh luke
 
 models/players/luke_anh/hair_alpha
@@ -194,6 +195,7 @@ models/players/luke_anh/belt
     }
 }
 
+
 // tm luke
 models/players/luke_rotj/belt_tm
 {
@@ -220,4 +222,37 @@ models/players/luke_rotj/belt_tm
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+
+// ceremonial - yavin4 luke
+
+models/players/luke_ceremonial/body
+{
+	{
+		map models/players/luke_ceremonial/body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_tfa/body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/luke_ceremonial/jacket_luke
+{
+	cull twosided
+    {
+        map models/players/luke_ceremonial/jacket_luke
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/luke_ceremonial/jacket_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
