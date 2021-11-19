@@ -3,36 +3,90 @@
 ClassInfo
 {
 	name				"_v_t_SBD"
-	weapons				WP_CONCUSSION|//WP_BLASTER_PISTOL
-	attributes			MB_ATT_FP_MIRALUKA,1|MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_RECHARGE,3|MB_ATT_SBD_CANNON,1|MB_ATT_FIREPOWER,2|MB_ATT_LOGIC,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CORTOSIS,1|//MB_ATT_PISTOL,1
-	forcepool			25
-	forceregen			1
+	weapons				WP_CONCUSSION|WP_SABER|WP_MELEE
+	attributes		    MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_RECHARGE,3|MB_ATT_SBD_CANNON,1|MB_ATT_FIREPOWER,2|MB_ATT_LOGIC,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CORTOSIS,1|MB_ATT_RADAR|MB_ATT_ZOOM,1
 	maxhealth			200
+	saberstyle		    SS_DUAL
+	MBClass				MB_CLASS_SBD
+	meleeMoves				M_PUNCH|M_KICK
+	speed				1.05
+	modelscale		    1.12
+	classNumberLimit  	2
+	APmultiplier	1.15
+	ASmultiplier	0.9
+	CSmultiplier	0.65
+	
+	WP_MeleeFlags	HELD_SLOW
+	
+	saber1			    sbd_grapple4
+	saber2 			    sbd_grapple4
+	
+	saber1_1			    sbd_grapple2
+	saber2_1 			    sbd_grapple2
+	
+	saber1_2			    sbd_grapple
+	saber2_2 			    sbd_grapple
+	
+	saber1_3			    sbd_grapple3
+	saber2_3 			    sbd_grapple3
+	
 	model				"SBD"
 	skin				"default"
-	uishader			"models/players/sbd/mb2_icon_default"
-	MBClass				MB_CLASS_SBD
-	speed				1.05
-	rateOfFire          0.9
-	modelscale			1.1
-	classNumberLimit  	8
-	//WP_BlasterPistolFlags HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_HIGHDAMAGE
+	uishader		    "models/players/sbd/mb2_icon_default"
+	
+	model_1				"SBD"
+	skin_1				"grapple2"
+	uishader_1		    "models/players/sbd/mb2_icon_grapple2"
+	
+	model_2				"SBD"
+	skin_2				"grapple"
+	uishader_2		    "models/players/sbd/mb2_icon_grapple"
+	
+	model_3				"SBD"
+	skin_3				"cortosis"
+	uishader_3		    "models/players/sbd/mb2_icon_cortosis"
+	
+	respawnCustomTime  75000	
+	
 }
 
-description	"B2 Super Battle Droid
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/sbd_grapple2/saber_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_sbd_grapple2"
+	WeaponName			"SBD Grapple Arms"
+}
+
+description	"B2 Grappler Super Battle Droid
+
+Class Summary:
+A heavily armored advanced Super Battle Droid that can engage in melee and ranged combat.
 
 Weaponry:
 - Arm Blaster + Arm Cannon 
 (toggle via gun mode / lightsaber style control)
+- Grapple Arms *
+- Heavy Melee
+
+* Special Weapon Descriptions:
+--- Grapple Arms
+- Based on dual lightsabers
+- Cannot be used to block blaster shots or lightsabers
+- Can parry lightsaber swings
 
 Attributes:
-- Hull Strength (3)
-- Recharge (3)
-- Fire Power (2)
-
-Specials:
+- Firepower (2)
 - Advanced Logic
 - Magnetic Plating
-- Cortosis
+- Cortosis Armor
+- Blast Armor
 
-Super Battle Droids are stronger and tougher than your everyday infantry droid. Sporting wrist mounted batteries and reinforced hulls they are a force to be reckoned with. Because of their high costs to produce however, their numbers are fewer."
+Abilities:
+- Recharge (3) [Class Special 1]
+- Radar (Enter recharge mode to reveal enemies on radar screen)
+- Advanced Targeting [Class Special 2]
+
+Larger and more vicious than its predecessors, the B2 grapple droid was equipped with electrically charged industrial pincers, which are used to crush or impale enemies and obstacles. Because of their high costs to produce however, their numbers are fewer."

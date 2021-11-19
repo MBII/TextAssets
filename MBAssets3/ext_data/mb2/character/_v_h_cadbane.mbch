@@ -1,12 +1,12 @@
 ClassInfo
 {
 	name			"_v_h_cadbane"
-	weapons			WP_DEMP2|WP_MELEE|WP_PULSE_NADE|WP_SONIC_NADE
-	attributes		MB_ATT_JETPACK,1|MB_ATT_FUEL,2|MB_ATT_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,2|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_PULSE_GRENADES,1|MB_ATT_QUICKTHROW,2|MB_ATT_SONIC_DETONATOR,1
+	weapons		WP_DEMP2|WP_MELEE|WP_FRAG_NADE
+	attributes		MB_ATT_JETPACK,1|MB_ATT_FUEL,2|MB_ATT_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_FRAGS,3|MB_ATT_QUICKTHROW,2
 	MBClass			MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	maxhealth		100
-	maxarmor		65
+	maxhealth		125
+	maxarmor		125
 	classflags		CFL_FUEL_REGENERATION
 
 	model "cad_bane"
@@ -22,9 +22,11 @@ ClassInfo
 	//jetpackThrustSound 	"sound/vehicles/tie/loop"
 	//jetpackIdleSound		"sound/vehicles/tie/loop"
 	//jetpackStartSound 	"sound/vehicles/x-wing/flyby"
+
 	speed			1.03
-
-
+	modelscale      1.03
+	
+	respawnCustomTime 50000
 }
 
 WeaponInfo0
@@ -49,23 +51,35 @@ WeaponInfo0
 	//clipsize			100
 }
 
+WeaponInfo1
+{	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon							"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		3
+}
 
 description	"Cade Bane
 
 Class Summary: 
-A dexterous flying dual pistoleer.
+A dexterous flying dual pistoleer and stun-grenadier.
 
 Weaponry:
-- Dual Pistols
-- Pulse Grenade
-- Sonic Grenade
-
-Utilities:
-- Jetboots
+- Dual Pistols (Based on Clone Pistols)
+- Stun Grenades (3) (Secondary-Fire only Frag Grenades)
 
 Attributes:
-- Quick Throw
-- Stamina (3)
-- Dexterity (2)
+- Heal (1)
+
+Abilities:
+- Jetboots (Works same as Jetpack)
+- Stamina (3) [Class Special 1]
+- Dodge (3) [Class Special 1]
+- Dexterity (3) [Class Special 2]
+- Quickthrow (2) [Alt Ability 1]
 
 Cad Bane was a Duros male bounty hunter in the galaxy during the Clone Wars. He was considered the leading bounty hunter in the galaxy due to the death of Jango Fett at the First Battle of Geonosis. He specialized in fighting Jedi."

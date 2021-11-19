@@ -1,21 +1,35 @@
 ClassInfo
 {
 	name 				"_h_h_Lando"
-	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER
-	attributes			MB_ATT_PISTOL,1|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_HEALING,2|MB_ATT_DASH,2
-	maxhealth 			100
-	maxarmor 			60
-	speed				1.05
-	saberstyle			SS_MEDIUM
-	saber1				vibroaxe
-	model				"lando" 				
-	skin				"general"					
-	uishader			"models/players/lando/mb2_icon_general"
-	MBClass 			MB_CLASS_HERO
-	damageGiven			1.10
+	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER|WP_DISRUPTOR|WP_FRAG_NADE
+	attributes			MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_HEALING,1|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DISRUPTOR,2|MB_ATT_DASH,2
+	maxhealth 			125
+	maxarmor 			125
+	speed				1.14
+	forcepool           1
+	APmultiplier        1.1
+	CSmultiplier        0.95
+	ASmultiplier        0.95
+	saberstyle			SS_MEDIUM|SS_STRONG
+	forcepowers         FP_SABER_OFFENSE,1|FP_SABER_DEFENSE,1
+	saber1				vibroaxe_lando_legends 
+	MBClass 			MB_CLASS_JEDI
 	classNumberLimit 	1
-	holdables 			HI_AMMODISP
-	ASmultiplier        0.825
+	modelscale      1.02
+	
+	model				"lando" 				
+	skin				"default"					
+	uishader			"models/players/lando/mb2_icon_default"
+	
+	model_1				"lando" 				
+	skin_1				"bespin"					
+	uishader_1			"models/players/lando/mb2_icon_bespin"
+	
+	model_2				"lando" 				
+	skin_2				"general"					
+	uishader_2			"models/players/lando/mb2_icon_general"
+	
+	respawnCustomTime  50000	
 }
 
 WeaponInfo0
@@ -28,22 +42,43 @@ WeaponInfo0
 	WeaponName			"Vibro Axe"    					//Required: Weapon change display name
 }
 
+WeaponInfo1
+{	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon							"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		3
+}
+
 description "Lando Calrissian
 
 Class Summary: 
-A fast, high damage hero, moves in and out of combat with ease.
+A fast hybrid melee/gunner that moves in and out of combat with ease.
 
 Weaponry:
-- Melee
-- Blaster Pistol (2)
-- E-11 Blaster Rifle (3)
-- Vibro Axe
+- E-11 Blaster (3)
+- Disruptor (2)
+- Vibro-Axe *
+- Stun Grenades (3) (Secondary-Fire only Frag Grenades)
+
+* Special Weapon Descriptions:
+--- Vibro-Axe
+- Defense (1)
+- Can block lightsabers
+- Cannot block blaster shots
+- Can use Yellow and Red styles
 
 Attributes:
-- Ammo Dispenser
-- Dash
-- Dodge   (3)
-- Heal   (3)
-- Ammo   (3)
+- Heal (1)
+- Fast Jedi-style getups
+
+Abilities:
+- Dodge (3) [Class Special 1]
+- Dash (2) [Class Special 2]
+- Quickthrow (2) [Alt Ability 1]
 
 Lando Calrissian has a dark past but has recently stumbled into good fortune as a mining colony administrator, that is until the Empire came to Cloud City. Now holding a position of Commander in the Rebellion Lando works to free the galaxy from the tyranny of the Emperor."

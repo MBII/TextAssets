@@ -4,39 +4,63 @@ ClassInfo
 {
 	name				"_h_u_ewok"
 	weapons				WP_MELEE|WP_FRAG_NADE|WP_SABER
-	attributes 			MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FRAGS,3|MB_ATT_ASSEMBLE,1|MB_ATT_DASH,2|MB_ATT_RESPAWNS,2|MB_ATT_FORCEBLOCK,1
-	forcepool			40
-	forcepowers			FP_LEVITATION,1
+	attributes 			MB_ATT_FRAGS,3|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,3|MB_ATT_RESPAWNS,2|MB_ATT_FORCEBLOCK,1|MB_ATT_QUICKTHROW,2|MB_ATT_HEALING,1
 	BPmultiplier		.40
 	maxhealth			60
-	maxarmor			10
-	model				"Jedi_EW"
-	saber1  			ewok_spear
+	forcepool           0
+	saber1  			ewok_spear_legends
 	sabercolor  		0
-	saberstyle  		SS_STRONG|SS_DESANN
-	skin				"Endor"
-	uishader			"models/players/Jedi_EW/mb2_icon_endor"
+	saberstyle  		SS_MEDIUM|SS_STRONG|SS_DESANN
 	modelscale			0.72
-	MBClass				MB_CLASS_JEDI
-	classNumberLimit 	8
-	speed 				1.02
+	MBClass			    MB_CLASS_ARCTROOPER
+	classNumberLimit 	4
+	speed 				1.00
 	WP_FragNadeFlags	HELD_HIGHDAMAGE
 	damageGiven 		0.75
+	
+	gloatanim	 	BOTH_SABERKILLER1
+	tauntAnim	BOTH_ENGAGETAUNT
+	flourishAnim	BOTH_FORCE_RAGE
+	
+	model				"Jedi_EW"
+	skin				"Endor"
+	uishader			"models/players/Jedi_EW/mb2_icon_endor"
+	
+	model_1				"Jedi_EW"
+	skin_1				"Endor_archer"
+	uishader_1			"models/players/Jedi_EW/mb2_icon_endor_archer"
+	
+	model_2				"Jedi_EW"
+	skin_2				"endor_kid"
+	uishader_2			"models/players/Jedi_EW/mb2_icon_kid"
+	
+	model_3				"Jedi_EW"
+	skin_3				"endor_medic"
+	uishader_3			"models/players/Jedi_EW/mb2_icon_endor_medic"
+	
+	model_4				"Jedi_EW"
+	skin_4				"ewok_stone_thrower"
+	uishader_4			"models/players/Jedi_EW/mb2_icon_endor_tosser"	
+	
+	model_5				"Jedi_EW"
+	skin_5				"ewok_fighter"
+	uishader_5			"models/players/Jedi_EW/mb2_icon_endor_fighter"	
+		
+	
+	respawnCustomTime 10000
 }
 WeaponInfo0
-{
-	WeaponToReplace		WP_FRAG_NADE
+{	WeaponToReplace		WP_FRAG_NADE
 	WeaponBasedOff		WP_FRAG_NADE
 	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
 	NewViewModel			"models/weapons2/stone/thermal.md3"
 	Icon							"gfx/hud/w_icon_stone"
 	WeaponName				"Stone"
 	altMissileMissEffect	"stone/explosion"
-//	MuzzleEffect			"stone/muzzle_flash"
-//	AltMuzzleEffect		"stone/muzzle_flash"
 	MissileModel 			"models/weapons2/stone/thermal_proj.md3"
 	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
 	primFireEnabled		0
+	altFireEnabled      0
 	CustomAmmo		3
 }
 
@@ -50,21 +74,35 @@ WeaponInfo1
 	WeaponName			"Spear"
 }
 
-
 description				"Ewok
 
 Class Summary: 
 A small spear wielder with powerful/magical stones which have intense knockback. 
-Powerful together in numbers.
 
 Weaponry: 
-- Spear
-- 3 Stones
+- Spear *
+- Stones *
+
+* Special Weapon Descriptions:
+--- Spear
+- Based on lightsaber
+- Can use Yellow, Red, and Desann styles
+- Deals half damage per hit
+
+--- Stones
+- Based on frag grenades
+- Can only be quickthrown
+- 3 per life
 
 Attributes:
-- Dash (alt ability 1)
 - Assemble
+- Heal (1)
 - Reinforcements (2)
+
+Abilities:
+- Stamina (2) [Class Special 1]
+- Dexterity (3) [Class Special 2]
+- Quickthrow (2) [Alt Ability 1]
 
 Ewoks were a diminutive species of furry bipeds native to the forest moon of Endor.
 They were most notable for helping the Rebel Alliance defeat the forces of the Galactic Empire at the Battle of Endor, allowing the shield generator there to be destroyed, and in turn, the DS-2 Death Star."

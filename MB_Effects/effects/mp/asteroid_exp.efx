@@ -1,0 +1,152 @@
+repeatDelay				5000
+
+Particle
+{
+	name				explosion01
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	life				600
+
+	origin				0 0 20
+
+	rotation			0 360
+
+	rotationDelta		-1 1
+
+	velocity			5 -5 -5 10 5 5
+
+	rgb
+	{
+		start			0.3922 0.1961 0
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1000
+		end				3500
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/burst
+	]
+}
+
+Particle
+{
+	name				dust2
+
+	flags				useAlpha
+
+	spawnFlags			cheapOrgCalc orgOnSphere evenDistribution rgbComponentInterpolation
+
+	count				8
+
+	life				900 1400
+
+	delay				350 500
+
+	radius				1000
+
+	height				2000
+
+	rotation			-180 180
+
+	rotationDelta		-8 8
+
+	velocity			20 -40 -40 40 40 40
+
+	acceleration		-5 -5 -5 5 5 5
+
+	gravity				-50 -30
+
+	rgb
+	{
+		start			0.9451 0.6549 0.4392 0.9882 0.7255 0.1804
+	}
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			800 600
+		end				1200 1000
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+Cylinder
+{
+	spawnFlags			rgbComponentInterpolation
+
+	life				700
+
+	origin				5 0 0
+
+	rgb
+	{
+		start			1 0.8667 0.3333
+	}
+
+	alpha
+	{
+		start			0.2
+		end				0
+		parm			60
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			1000
+		end				3000
+		parm			20
+		flags			linear nonlinear
+	}
+
+	size2
+	{
+		start			40
+		end				280
+		parm			40
+		flags			linear nonlinear
+	}
+
+	length
+	{
+		start			5
+		end				10
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/grayRing
+	]
+}
+
+Sound
+{
+	sounds
+	[
+		sound/effects/stone_break1.mp3
+	]
+}

@@ -3,46 +3,58 @@
 ClassInfo
 {
 name			"_v_s_shadow"
-weapons			WP_MELEE|WP_SABER|WP_BRYAR_PISTOL|WP_TRIP_MINE|WP_SONIC_NADE
+weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_SONIC_NADE|WP_TRIP_MINE|WP_STUN_BATON|WP_FRAG_NADE
 saber1			legends_Knife
 sabercolor		0
-forcepowers     FP_SABER_OFFENSE,3|FP_LEVITATION,1
-saberstyle		SS_TAVION|SS_FAST
-attributes		MB_ATT_TRIP_MINES,1|MB_ATT_SPY_DISGUISE,2|MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_SONIC_DETONATOR,1|MB_ATT_TRACKING_DART,3|MB_ATT_FLIPKICK|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT
+forcepowers     FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1|FP_SEE,1
+saberstyle		SS_MEDIUM|SS_FAST
+attributes		MB_ATT_SPY_DISGUISE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_SONIC_DETONATOR,1|MB_ATT_FLIPKICK|MB_ATT_ANTI_MT|MB_ATT_TRIP_MINES,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_FP_MIRALUKA,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FRAGS,1
 maxhealth		80
-maxarmor		45
+maxarmor		80
+BPmultiplier    0.7
+forcepool       65
+damageGiven     .85
+MBClass			MB_CLASS_ARCTROOPER
+classNumberLimit	2
+classflags		CFL_SEEING_STEALTH|CFL_BPFREEJUMPS|CFL_HEAVYMELEE
+holdables		HI_CLOAK
+extralives	1
+speed           1.03
+
+tauntAnim	BOTH_SABERKILLER1
+
 model			"stormie"
 skin			"shadow"
 uishader		"models/players/stormie/mb2_icon_shadow"
-MBClass			MB_CLASS_ARCTROOPER
-classNumberLimit	2
-classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_SEEING_STEALTH|CFL_BPFREEJUMPS
-holdables		HI_CLOAK
-forcepool		25
-forceregen		1
-extralives	1
-modelscale	1.05
-damageGiven 0.75
+
+model_1			"scouttrooper"
+skin_1			"commando"
+uishader_1		"models/players/scouttrooper/mb2_icon_commando"
+
+  respawnCustomTime 30000
+  
+  WP_StunBatonFlags HELD_POISON	
 
 }
 
 WeaponInfo0
 {
-WeaponToReplace		WP_BRYAR_PISTOL
-WeaponBasedOff		WP_BLASTER
-NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"  	//Required: New 3rd person/dropped weapon model
-NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"   	//Required: New 1st person weapon model
-Icon			"gfx/hud/w_icon_sc-10_holdout" 					//Required: Weapon change icon
-WeaponName		"Holdout Pistol"    					//Required: Weapon change display name
-FlashSound0		"sound/weapons/spy_pistol/fire.wav"
-AltFlashSound0		"sound/weapons/spy_pistol/fire.wav"
-primHitscanShot		1
-primHitscanTracer	5
-altHitscanShot		1
-altHitscanTracer	5
-primGore		1
-altGore			1
-altfireenabled	0
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER_PISTOL
+	NewWorldModel		"models/weapons2/scout_pistol/blaster_pistol_w.glm"
+	NewViewModel		"models/weapons2/scout_pistol/blaster_pistol.md3"
+	Icon			"gfx/kejim_wpicons/w_icon_scout_pistol"
+	WeaponName		"Spy Pistol"
+	FlashSound0		"sound/weapons/silencedpistol/fire.wav"
+ 	primHitscanShot		1
+	primHitscanTracer	5
+	altHitscanShot		1
+	altHitscanTracer	5
+	primGore		1
+	altGore			1
+	altfireenabled	0
+	firingAnim		BOTH_ATTACK2
+	idleAnim		TORSO_WEAPONIDLE2
 }
 
 WeaponInfo1
@@ -55,31 +67,83 @@ Icon			"gfx/hud/w_icon_prisonknife"
 WeaponName		"Vibro Knife"
 }
 
-description	"Imperial Shadowtrooper
+WeaponInfo2
+{
+	WeaponToReplace		WP_STUN_BATON				 
+	WeaponBasedOff      WP_CONCUSSION
+	NewWorldModel "models/weapons2/hk47_disruptor/hk47_disruptor_w.glm"
+	NewViewModel  "models/weapons2/hk47_disruptor/hk47_disruptor.md3"
+	Icon            "gfx/hud/w_icon_hkruptor"
+	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
+	WeaponName			"Sniper Rifle"    					 
+	MuzzleEffect		"Blaster/MuzzleFlash03B"   				 
+	MissileEffect		"Blaster/Shot10B" 					
+    MissileMissEffect "effects/blaster/Impact_Wall01B"		
+	CustomAmmo 	10
+}
+
+WeaponInfo3
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/Stormi_TD/StormiTD_w.glm"
+	NewViewModel			"models/weapons2/Stormi_TD/StormiTD.md3"
+	MissileModel 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	Icon				"gfx/hud/w_icon_StormiTD"
+	WeaponName			"Flashbang Grenade"
+	customammo			1
+	primFireEnabled			0
+}
+
+
+ForceInfo0
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Radar Scanner"
+}
+
+description	"Shadowtrooper
 
 Class Summary: 
-A sneaky class which focuses more on disguise and his high damage knife.
+A stealthy class which focuses on ambush, disguise, high-mobility, and assassination.
 
-Weaponry:
-- Silenced Pistol (1)
-- Vibro Knife
-- Enhanced Strength (1)
-- Sonic Grenade
-- Trip Mine
+Weapons:
+- Spy Pistol (Hitscan pistol 3)
+- Sniper Rifle (Deals poison damage)
+- Vibro Knife *
+- Enhanced Strength 
+- Sonic Grenade (1)
+- Trip Mine (1)
+- Flashbang Grenade (1)
 
-Items:
-- Disguise (saber style/gun mode in melee)
-- Cloak (use inventory)
+* Special Weapon Descriptions:
+--- Vibro Knife:
+- Defense (1)
+- Based on lightsaber
+- Deals enhanced damage
+- Can use Blue and Yellow styles
+- Cannot block blaster fire
+- Can block lightsabers (with substantially reduced block power)
+
+Inventory:
+- Cloak 
+- Disguise [press saber style/gun mode switch while in melee]
 
 Attributes:
-- Strong Against Melee
-- Flipkick
-- Immunity to Mindtrick
-- Force/Saber resistant suit
-- Invisible to Force Sense
-- Tracking Darts (3/9)
-- Stamina (3)
-- Dexterity (3) (Alternate Ability 1)
 - Extra life
+- Radar Scanner (Permanent Sense 1)
+- Immune to Mindtrick
+- Invisible to Force Sense
 
-The shadow stormtroopers acted as the personal stormtrooper unit of the head of Imperial Intelligence, Agent Blackhole, which earned them their moniker of 'blackhole stormtroopers.' They frequently underwent special training in infiltration and ambush tactics, and were often assigned to extremely classified missions."
+Abilities:
+- Stamina (3) [Class Special 1]
+- Dexterity (3) [Alt Ability 1]
+- Flipkick
+--- Grappling Hook (2)
+- Hold Special Ability 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
+
+Specially trained infiltrators."

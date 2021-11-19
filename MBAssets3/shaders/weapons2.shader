@@ -519,6 +519,60 @@ models/weapons2/SBD_Grapple2/grapple2
     }
 }
 
+models/weapons2/SBD_Grapple3/grapple3
+{
+    {
+        map models/weapons2/SBD_Grapple3/grapple3
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/SBD_Grapple3/grapple3_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/weapons2/SBD_Grapple3/grapple3_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/SBD_Grapple4/grapple4
+{
+    {
+        map models/weapons2/SBD_Grapple4/grapple4
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/SBD_Grapple4/grapple4_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/weapons2/SBD_Grapple3/grapple3_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
 
 //	som3 rifle
 
@@ -973,33 +1027,487 @@ models/weapons2/a180/a180_diffuse
     }
 }
 
-models/weapons2/e-web_gun/e_web_cannon
+models/weapons2/a180/parts
 {
-	q3map_nolightmap
     {
-        map models/weapons2/e-web_gun/e_web_cannon
+        map models/weapons2/a180/parts
+        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/e-web_gun/e_web_cannon_spec
+        map models/weapons2/a180/parts_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/weapons2/e-web_gun/e_web_bmerge
+// CR2 - Repeater 
+
+models/weapons2/cr2_pistol/cr2_pistol
 {
-	surfaceparm	trans
-	q3map_nolightmap
 	cull	twosided
     {
-        map models/weapons2/e-web_gun/e_web_bmerge
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        map models/weapons2/cr2_pistol/cr2_pistol
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/e-web_gun/e_web_bmerge_spec
+        map models/weapons2/cr2_pistol/cr2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Cryoban Grenade
+
+models/weapons/Grenade_CryoBan/cryoban
+{
+	{
+		map models/weapons/Grenade_CryoBan/cryoban
+		blendFunc GL_ONE GL_ZERO
+	}
+	{
+		map models/weapons/Grenade_CryoBan/cryoban_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+// Czerka Adventurer Rifle
+
+models/weapons2/czerka_adventurer_rifle/rifle
+{
+	cull	twosided
+    {
+        map models/weapons2/czerka_adventurer_rifle/rifle
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/czerka_adventurer_rifle/rifle_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Droid Assassin Rifle
+
+models/weapons2/droid_assassin_rifle/dl13
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/droid_assassin_rifle/dl13
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/droid_assassin_rifle/dl13_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/droid_assassin_rifle/glow
+		blendFunc GL_ONE GL_ONE
+		glow
+		detail
+    }
+}
+
+// DLT-19 
+
+models/weapons/DLT-19_HeavyBlaster/rifle
+{
+    {
+        map models/weapons/DLT-19_HeavyBlaster/rifle
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons/DLT-19_HeavyBlaster/rifle_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// DX-13 Pistol
+
+models/weapons2/dx13_pistol/dx13_pistol
+{
+	cull	twosided
+    {
+        map models/weapons2/dx13_pistol/dx13_pistol
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dx13_pistol/dx13_pistol_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// EE-4 Carbine Rifle
+
+models/weapons2/ee4_carbine/gun
+{
+    {
+        map models/weapons2/ee4_carbine/gun
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/ee4_carbine/gun_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Gungan Weapons
+
+models/weapons2/gungan_shield/transparency
+{
+	cull	twosided
+	{
+		map models/weapons2/gungan_shield/transparency
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+	{
+            map models/players/t3m4/t3env
+        	blendFunc GL_DST_COLOR GL_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    }
+}
+
+models/weapons2/gungan_cesta/spear
+{
+	cull	twosided
+    {
+        map models/weapons2/gungan_cesta/spear
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/gungan_cesta/spear_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Kotor Carbine
+
+models/weapons2/kotor_carbine/kotor_carbine
+{
+	cull	twosided
+    {
+        map models/weapons2/kotor_carbine/kotor_carbine
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/kotor_carbine/kotor_carbine_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Kotor Repeater
+
+models/weapons2/kotor_repeater/kotor_repeater
+{
+    {
+        map models/weapons2/kotor_repeater/kotor_repeater
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/kotor_repeater/kotor_repeater_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// KYD-21 Pistol
+
+models/weapons/kyd-21_pistol/pistol
+{
+	cull	twosided
+    {
+        map models/weapons/kyd-21_pistol/pistol
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons/kyd-21_pistol/pistol_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Mandalorian Assault Rifle (Mando AR)
+
+models/weapons2/MandoAR/MandoAR_m
+{
+    {
+        map models/weapons2/MandoAR/MandoAssaultRifle
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/MandoAR/MandoAssaultRifle_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// MWC-35c
+
+models/weapons2/MWC-35c/MWC-35c
+{
+    {
+        map models/weapons2/MWC-35c/MWC-35c
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/MWC-35c/MWC-35c_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Rooxon Vibroblades
+
+models/weapons2/vibroblade/base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+models/weapons2/vibroblade/blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/vibroblade/mando_base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/mando_base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+models/weapons2/vibroblade/mando_blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/mando_blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/vibroblade/canderous_base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/canderous_base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+models/weapons2/vibroblade/canderous_blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/canderous_blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+models/weapons/vibroblades/Blade_Shashka/sword
+{
+	q3map_nolightmap
+    {
+        map models/weapons/vibroblades/Blade_Shashka/sword
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons/vibroblades/Blade_Shashka/sword_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Deathwatch Sniper Rifle
+
+models/weapons2/dw_sniper/mando
+{
+    {
+        map models/weapons2/dw_sniper/mando
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/dw_sniper/mando_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Relby V10
+
+models/weapons2/relby_v10/relby_v10
+{
+	cull	twosided
+    {
+        map models/weapons2/relby_v10/relby_v10
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/relby_v10/relby_v10_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// S5 Heavy Pistol
+
+models/weapons2/s5_heavy_pistol/s5_heavy_pistol
+{
+	cull	twosided
+    {
+        map models/weapons2/s5_heavy_pistol/s5_heavy_pistol
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/s5_heavy_pistol/s5_heavy_pistol_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Sith Scepter and Sword (Rooxon)
+
+models/weapons2/sith_scepter/texsc
+{
+	q3map_onlyvertexlighting
+    {
+        map models/weapons2/sith_scepter/texsc
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/texsc_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sith_scepter/texsw
+{
+	q3map_onlyvertexlighting
+    {
+        map models/weapons2/sith_scepter/texsw
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/texsw_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Zam Wessell's Sniper Rifle
+
+models/weapons2/zamrifle_fa/zamrifle_fa
+{
+	cull	twosided
+    {
+        map models/weapons2/zamrifle_fa/zamrifle_fa
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/zamrifle_fa/zamrifle_fa_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
