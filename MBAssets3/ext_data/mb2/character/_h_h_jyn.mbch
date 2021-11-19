@@ -2,7 +2,7 @@ ClassInfo
 {
 	name  				"_h_h_jyn"
 	weapons 			WP_BRYAR_OLD|WP_MELEE|WP_SABER|WP_BOWCASTER
-	attributes  		MB_ATT_PISTOL,2|MB_ATT_HEALING,1|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_ANTI_MT,1|MB_ATT_RALLY|MB_ATT_FLIPKICK|MB_ATT_DASH,2|MB_ATT_BOWCASTER,1
+	attributes  		MB_ATT_PISTOL,2|MB_ATT_HEALING,1|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_ANTI_MT,1|MB_ATT_FLIPKICK|MB_ATT_DASH,2|MB_ATT_BOWCASTER,1
 	maxhealth 			125
 	maxarmor  			125
 	saber1				truncheon_legends
@@ -12,7 +12,7 @@ ClassInfo
 	CSmultiplier        1.1
 	ASmultiplier        1.125
 	model 				"jynerso"
-	skin  				"default"
+	skin  				"legends"
 	uishader  			"models/players/jynerso/mb2_icon_default"
 	MBClass 			MB_CLASS_HERO
 	forcepowers			FP_LEVITATION,1
@@ -25,9 +25,10 @@ ClassInfo
 	DamageGiven         1.179
 	rateOfFire 			0.73
 	modelscale 		0.933
-	speed           1.0675
+	speed           1.03
 	
 	saberStanceAnim		BOTH_MELEEPOSE
+	gloatAnim       BOTH_STAND5TOSTAND8
 	
 	respawnCustomTime  50000
 }
@@ -40,10 +41,10 @@ WeaponInfo0
 	NewViewModel  "models/weapons2/a180/a180.md3"
 	Icon  "gfx/hud/w_icon_a180"
 	WeaponName  "A180 Pistol"
-	FlashSound0			"sound/weapons/SE-14c/fire.mp3" 			
+	FlashSound0			"sound/weapons/SE-14c/fire.mp3" 		
+	altFlashSound0			"sound/weapons/SE-14c/fire.mp3" 		
 	ClipSize 		22
 	ReloadTimeModifier 	0.9
-	altFireEnabled 	0
 	firingAnim		BOTH_ATTACK2
 	idleAnim		TORSO_WEAPONIDLE2
 	CustomAmmo		700
@@ -51,9 +52,9 @@ WeaponInfo0
 WeaponInfo1
 {
 	WeaponToReplace WP_BOWCASTER
-	WeaponBasedOff  WP_BLASTER_PISTOL
+	WeaponBasedOff  WP_CONCUSSION
 	NewWorldModel "models/weapons2/a180/a180_ion.glm"
-	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	NewViewModel		"models/weapons2/a180/model_ion.md3"
 	MissileEffect		 "rockets/MissilePulse" 
 	AltMissileEffect     "rockets/MissilePulse"
 	MuzzleEffect		"arc_caster/ArcCasterMuzzle"
@@ -65,11 +66,21 @@ WeaponInfo1
 	ReloadTimeModifier 	1.2
 }
 
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER			
+	WeaponBasedOff		WP_SABER			
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
+	Icon			"gfx/hud/w_icon_truncheon"
+	WeaponName		"Truncheon" 
+}
+
 
 description	"Jyn Erso
 
 Class Summary: 
-A speedy pistoleer commander with a two-shot stun gun.
+A speedy pistoleer with a stun gun.
 
 Weaponry:
 - Truncheon (Melee weapon, cannot block attacks)
@@ -77,15 +88,14 @@ Weaponry:
 - A180 Ion Attachment *
 
 * Special Weapon Descriptions:
----A180 Ion Attachment
+--- A180 Ion Attachment
 - Based on Bowcaster level (1)
 - Electrifies and knocks down enemies on direct hits
 - 2 shots per clip, 14 shots total
 - Magazine style reload
 
 Attributes:
-- Rally
-- Immune to force sense
+- Invisible to Force Sense
 - Immune to Mind Trick
 - Flipkick
 - Heal (1)
@@ -95,7 +105,7 @@ Inventory:
 - Portable Sentry Gun
 
 Abilities:
-- Dodge (3)
-- Dash (2)
+- Dodge (3) [Class Special 1]
+- Dash (2) [Alt Ability 1]
 
 Jyn Erso was a human female soldier and former criminal who became a pivotal member of the Alliance to Restore the Republic when she led Rogue One in stealing the Death Star plans during the Battle of Scarif."

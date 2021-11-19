@@ -3,17 +3,17 @@
 ClassInfo
 {
 	name  "_h_t_Baze"
-	weapons 			WP_MELEE|WP_DET_PACK|WP_SONIC_NADE
-	attributes  		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_GUNBASH|MB_ATT_SONIC_DETONATOR,2|MB_ATT_T21,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_QUICKTHROW,2|MB_ATT_FRAGS,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1
+	weapons 			WP_MELEE|WP_DET_PACK|WP_SONIC_NADE|WP_FRAG_NADE
+	attributes  		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_GUNBASH|MB_ATT_SONIC_DETONATOR,2|MB_ATT_T21,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_QUICKTHROW,2|MB_ATT_FRAGS,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1
 	maxhealth 		100
-	maxarmor  		40
+	maxarmor  		60
 	model 			"Baze"
 	skin  			"default"
 	uishader  		"models/players/baze/mb2_icon_default"
 	MBClass 		MB_CLASS_HERO
 	classNumberLimit  1
 	rateoffire	1.05
-	speed       0.90
+	speed       0.95
 	damageGiven 1.179
 	modelscale    1.01
 	
@@ -23,9 +23,9 @@ ClassInfo
 WeaponInfo0
 {
 	WeaponToReplace WP_DET_PACK
-	WeaponBasedOff  WP_DET_PACK
+	WeaponBasedOff  WP_CONCUSSION
 	NewWorldModel "models/weapons2/mwc-35c/model_w.glm"
-	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	NewViewModel		"models/weapons2/mwc-35c/model.md3"
 	Icon  "gfx/hud/w_icon_mwc-35c"
 	WeaponName  "MWC-35c"
 	FlashSound0 		"sound/weapons/MWC-35c/fire.mp3"
@@ -35,14 +35,15 @@ WeaponInfo0
 }
 
 WeaponInfo1
-{
-	WeaponToReplace		WP_TRIP_MINE
+{	WeaponToReplace		WP_FRAG_NADE
 	WeaponBasedOff		WP_THERMAL
-	NewWorldModel		"models/weapons2/sonic_detonator/sonic_det_w.glm"
-	NewViewModel		"models/weapons2/sonic_detonator/sonic_det.md3"
-	missileModel		"models/weapons2/sonic_detonator/sonic_det_proj.md3"
-	Icon			"gfx/hud/w_icon_sonic_det"
-	WeaponName		"Sonic Detonator"
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon							"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		3
 }
 
 description	"Baze Malbus
@@ -53,15 +54,15 @@ A heavy gunner and stun-grenadier with massively powerful blaster cannon and reg
 Weaponry:
 - MWC-35c (Based on T-21 Level 3)
 - Sonic Detonator (2)
-- Quickthrow Grenades (2) (Does not appear in weapon rotation, can only be quickthrown)
+- Stun Grenades (3) (Secondary-Fire only Frag Grenades)
 
 Attributes:
-- Quickthrow (2)
 - Magnetic Plating
 - Regenerating Shields (1)
 - Blast Armor 
 
 Abilities:
-- Gunbash
+- Quickthrow (2) [Alt Ability 1]
+- Gunbash [Alt Ability 3]
 
 Baze Malbus was a human male born on the desert moon of Jedha fifty-three years before the Battle of Yavin. Once a devoted member of the Guardians of the Whills, Malbus became a freelance assassin during the age of the Galatic Empire."

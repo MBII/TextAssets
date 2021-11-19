@@ -3,14 +3,19 @@
 ClassInfo 
 {
 	name				"_h_t_rex"
-	weapons				WP_MELEE|WP_DEMP2|WP_REPEATER|WP_ROCKET_LAUNCHER|WP_FRAG_NADE|WP_PULSE_NADE
-	attributes			MB_ATT_PISTOL,3|MB_ATT_CLONERIFLE,2|MB_ATT_CLONEBLOBS,3|MB_ATT_PLX1,2|MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_ANTI_MT,1
+	weapons				WP_SABER|WP_MELEE|WP_DEMP2|WP_REPEATER|WP_ROCKET_LAUNCHER|WP_FRAG_NADE|WP_PULSE_NADE
+	attributes			MB_ATT_PISTOL,3|MB_ATT_CLONERIFLE,2|MB_ATT_CLONEBLOBS,3|MB_ATT_PLX1,2|MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,2|MB_ATT_ANTI_MT,1|MB_ATT_GRAPPLE_HOOK,1
 	maxhealth			125
 	maxarmor			125
+	saber1				arc_shiv_legends
+	saberstyle			SS_TAVION
+	speed               1.01
 	MBClass				MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	classflags			CFL_HEAVYMELEE|CFL_AKIMBOPISTOL3
+	classflags			CFL_AKIMBOPISTOL3
+	forcepool       25
 	modelscale      1.02
+	saberStanceAnim			BOTH_STAND9
 	
 	model			"clonetrooper_p1"
 	skin			"501_rex"
@@ -23,6 +28,10 @@ ClassInfo
 	model_2			"rex_old"
 	skin_2			"default"
 	uishader_2		"models/players/rex_old/mb2_icon_default"
+	
+	model_3			"clonetrooper_p2"
+	skin_3				"fordo"
+	uishader_3			"models/players/clonetrooper_p2/mb2_icon_fordo"
 	
 	respawnCustomTime 50000	
 				   
@@ -50,14 +59,23 @@ WeaponInfo1
 	Icon				"gfx/hud/w_icon_dc-15s"
 	WeaponName			"DC-15S"
 }
+WeaponInfo2
+{           
+	WeaponToReplace        WP_SABER
+	WeaponBasedOff         WP_SABER
+	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon             	"gfx/hud/w_icon_arc_shiv"
+	WeaponName			"Wrist Shiv"
+}
 
-description	"Captain Rex
+description	"Archetype: Clone Captain
 
 Class Summary: 
-A commander with powerful dual pistols, rocket launcher, and regenerating shields.
+A class with powerful dual pistols, repeating rifle, and rocket launcher.
 
 Weaponry:
-- Heavy Melee
+- Wrist Shiv *
 - Dual DC-17 Pistols (Dual Pistol 3)
 - PLX-1 Rocket Launcher (3)
 - DC-15s Blaster Rifle (Based on Clone Rifle 2)
@@ -65,14 +83,23 @@ Weaponry:
 - Frag Grenade
 - Pulse Grenades (2)
 
+* Special Weapon Descriptions:
+--- Wrist Shiv
+- Can use Tavion style
+- Cannot block lightsabers or blasters
+- Reduced damage 
+
 Attributes:
-- Rally
 - Mind Trick Immunity
 - Heal (2)
 - Blast Armor
 
 Abilities:
-- Stamina (2)
-- Dexterity (1)
+- Stamina (3) [Class Special 1]
+- Dexterity (2) [Alt Ability 1]
+--- Grappling Hook (1)
+- Hold Special Ability 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
 
-Rex, designation CT-7567, was a veteran Clone Captain and Advanced Recon Commando who commanded Torrent Company, a company of clone troopers within the Grand Army of the Republic's famed 501st Legion during the Clone Wars. Rex later served as a captain and commander within the Alliance to Restore the Republic during the Galactic Civil War."
+~Rex: A veteran Clone Captain and Advanced Recon Commando during the Clone Wars. Rex later served as a captain and commander within the Rebel Alliance.
+----------
+~Fordo: An Alpha-class Advanced Recon Commando during the Clone Wars who proved instrumental in the Battle of Muunilinst."

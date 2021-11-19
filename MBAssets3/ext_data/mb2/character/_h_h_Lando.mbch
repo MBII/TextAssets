@@ -1,11 +1,11 @@
 ClassInfo
 {
 	name 				"_h_h_Lando"
-	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER|WP_DISRUPTOR
+	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER|WP_DISRUPTOR|WP_FRAG_NADE
 	attributes			MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_HEALING,1|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DISRUPTOR,2|MB_ATT_DASH,2
 	maxhealth 			125
 	maxarmor 			125
-	speed				1.18
+	speed				1.14
 	forcepool           1
 	APmultiplier        1.1
 	CSmultiplier        0.95
@@ -32,6 +32,28 @@ ClassInfo
 	respawnCustomTime  50000	
 }
 
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon				"gfx/hud/w_icon_skiff_pike" 	//Required: Weapon change icon
+	WeaponName			"Vibro Axe"    					//Required: Weapon change display name
+}
+
+WeaponInfo1
+{	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon							"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		3
+}
+
 description "Lando Calrissian
 
 Class Summary: 
@@ -41,10 +63,10 @@ Weaponry:
 - E-11 Blaster (3)
 - Disruptor (2)
 - Vibro-Axe *
-- Quickthrow Grenades (3) (Grenades do not appear in weapon rotation, must be quickthrown)
+- Stun Grenades (3) (Secondary-Fire only Frag Grenades)
 
 * Special Weapon Descriptions:
----Vibro-Axe
+--- Vibro-Axe
 - Defense (1)
 - Can block lightsabers
 - Cannot block blaster shots
@@ -55,8 +77,8 @@ Attributes:
 - Fast Jedi-style getups
 
 Abilities:
-- Dash (2) (Activate using Alt Ability 1)
-- Dodge (3)
-- Quickthrow (2)
+- Dodge (3) [Class Special 1]
+- Dash (2) [Class Special 2]
+- Quickthrow (2) [Alt Ability 1]
 
 Lando Calrissian has a dark past but has recently stumbled into good fortune as a mining colony administrator, that is until the Empire came to Cloud City. Now holding a position of Commander in the Rebellion Lando works to free the galaxy from the tyranny of the Emperor."

@@ -3,14 +3,20 @@
 ClassInfo
 {
 	name  "_v_s_stormie"
-	weapons WP_REPEATER|WP_BLASTER|WP_FRAG_NADE|WP_CONC_NADE|WP_MELEE
-	attributes  MB_ATT_BLASTER,3|MB_ATT_RESPAWNS,2|MB_ATT_MICRO_GRENADES,1|MB_ATT_DODGE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_GUNBASH|MB_ATT_SOLDIER_TDS,1
+	weapons WP_FLECHETTE|WP_BLASTER|WP_FRAG_NADE|WP_CONC_NADE|WP_MELEE|WP_SABER
+	attributes  MB_ATT_BLASTER,3|MB_ATT_RESPAWNS,2|MB_ATT_MICRO_GRENADES,1|MB_ATT_DODGE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_GUNBASH|MB_ATT_SOLDIER_TDS,1|MB_ATT_STAMINA,2|MB_ATT_A280,3
 	maxhealth 60
 	maxarmor  60
 	rateOfFire 0.95
-	MBClass MB_CLASS_ELITETROOPER
-	speed	0.95
+	MBClass MB_CLASS_CLONETROOPER
 	modelscale 1.01
+	
+	saber1			soldierbaton_legends
+	forcepool 5
+	forcepowers FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	saberstyle 	SS_MEDIUM|SS_TAVION
+	BPmultiplier 0.6
+	APmultiplier 0.8
 	
 	customred			0.13
 	customgreen			0.13
@@ -20,43 +26,43 @@ ClassInfo
 	
 	
 	model "stormie"
-	skin  "default"
+	skin  "legends"
 	uishader  "models/players/stormie/mb2_icon_default"
 	
 	model_1 "stormie"
-	skin_1  "mimban"
+	skin_1  "mimban_legends"
 	uishader_1  "models/players/stormie/mb2_icon_mimban"
 	
 	model_2 "stormie"
-	skin_2  "remnant"
+	skin_2  "remnant_legends"
 	uishader_2  "models/players/stormie/mb2_icon_remnant"
 	
 	model_3 "stormie"
-	skin_3 "sandtrooper_rgb_tat"
+	skin_3 "sandtrooper_legends"
 	uishader_3  "models/players/stormie/mb2_icon_sandtrooper_black"
 		
 	model_4 "snowtrooper"
-	skin_4  "default"
+	skin_4  "legends"
 	uishader_4  "models/players/snowtrooper/mb2_icon_default"
 	
 	model_5 "scouttrooper"
-	skin_5  "default"
+	skin_5  "legends"
 	uishader_5  "models/players/scouttrooper/mb2_icon_default"
 	
 	model_6 "swamptrooper"
-	skin_6  "default"
+	skin_6  "legends"
 	uishader_6  "models/players/swamptrooper/mb2_icon_default"
 	
 	model_7 "stormpilot"
-	skin_7  "default"
+	skin_7  "legends"
 	uishader_7		"models/players/stormpilot/mb2_icon_default"
 	
 	model_8 "imperial_army"
-	skin_8  "default"
+	skin_8  "legends"
 	uishader_8  "models/players/imperial_army/mb2_icon_default"
 	
 	model_9 "imperialcommando"
-	skin_9  "default"
+	skin_9  "legends"
 	uishader_9  "models/players/imperialcommando/mb2_icon_default"
 	
 	respawnCustomTime 15000	
@@ -64,20 +70,23 @@ ClassInfo
 }
 WeaponInfo0
 {
-	WeaponToReplace		WP_REPEATER
+	WeaponToReplace		WP_FLECHETTE
 	WeaponBasedOff		WP_BLASTER
 	NewWorldModel 		"models/weapons2/blaster_r/blaster_w_stock.GLM"
-	NewViewModel  		"models/weapons2/dlt-blaster_r/blaster_w.glm"
+	NewViewModel  		"models/weapons2/blaster_r/blaster.md3"
 	Icon  				"gfx/hud/w_icon_e11_extendedstock"	
-	WeaponName			"E11 Rapid-Fire Mode"    	
-	customAmmo			350
-	clipSize			7
-	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
-	altMuzzleEffect "Blaster/MuzzleFlash01R"
-	altFireEnabled    0
-	FlashSound0	  "sound/weapons/DLT19/fire.wav"	
-	idleAnim  DC15_FIRE
+	WeaponName			"E11 Burst-Fire Mode"    		
+	idleAnim  DC15_READY
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_SABER			
+	WeaponBasedOff		WP_SABER			
+	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
+	Icon			"gfx/hud/w_icon_soldierbaton"
+	WeaponName		"Shock Baton" 
 }
 
 description	"Archetype: Stormtrooper
@@ -87,23 +96,28 @@ A basic soldier class with multiple lives, grenades, and close to mid-range weap
 
 Weaponry:
 - E-11 (3)
-- E-11 Rapid-Fire Mode *
+- E-11 Burst-Fire Mode (Based on A280 level 3)
 - Frag Grenade 
 - Concussion Grenade
 
 * Special Weapon Descriptions:
----E-11 Rapid-Fire Mode:
-- High rate of fire gun based on Clone Rifle (3)
-- Has 7 shot clip size
-- Has magazine-style reloads
+--- Shock Baton
+- Melee weapon based on Lightsaber
+- Defense (1)
+- Drastically reduced BP
+- Can slap
+- Deals reduced damage
+- Can block lightsabers
+- Cannot block blaster fire
 
 Attributes:
-- Gunbash
 - Reinforcements (2)
 - Assemble
 - Weapons Proficiency (5% increased rate of fire)
 
 Abilities:
-- Dodge (2)
+- Dodge (2) [Class Special 1]
+- Stamina (2) [Class Special 1]
+- Gunbash [Class Special 2]
 
-The military soldiers unswervingly loyal to the Emperor, stormtroopers represented the most visible extension of Imperial might. They were shock troopers meant to strike with speed and accuracy, putting down insurrections and maintaining order on the farflung worlds of the Empire. Stormtroopers served in both the ground-based armies of Palpatine's forces, and the space-based Imperial starfleet."
+The military soldiers unswervingly loyal to the Emperor, stormtroopers represented the most visible extension of Imperial might. They were shock troopers meant to strike with speed and accuracy, putting down insurrections and maintaining order on the farflung worlds of the Empire."
