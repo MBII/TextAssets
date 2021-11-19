@@ -13,3 +13,12 @@ models/players/darthplagueis/mask
         alphaGen lightingSpecular
     }
 }
+
+models/players/darthplagueis/robe
+{
+	cull	twosided
+	{
+		map models/players/darthplagueis/robe
+		rgbGen lightingDiffuse
+	}
+}

@@ -143,6 +143,78 @@ models/players/rebel/accessories_jk2_helmet
 	}
 }
 
+
+// rebel_r1
+
+models/players/rebel_r1/accessories
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_r1/accessories
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_r1/accessories_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_r1/accessories2
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_r1/accessories2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_r1/accessories_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_r1/helmet
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_r1/helmet
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_r1/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_r1/helmet2
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_r1/helmet2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_r1/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // rebel_guerilla
 
 models/players/rebel_guerilla/gloves
