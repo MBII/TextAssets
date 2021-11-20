@@ -411,7 +411,7 @@ levelshots/um_ctf_gib_bespin
 	nomipmaps
 	notc
 	{
-		map levelshots/um_gib_bespin
+		map levelshots/um_ctf_gib_bespin
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -422,7 +422,7 @@ levelshots/um_ctf_gib_bespin2
 	nomipmaps
 	notc
 	{
-		map levelshots/um_gib_bespin2
+		map levelshots/um_ctf_gib_bespin2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -433,7 +433,7 @@ levelshots/um_ctf_gib_coruscant
 	nomipmaps
 	notc
 	{
-		map levelshots/um_gib_coruscant
+		map levelshots/um_ctf_gib_coruscant
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -444,7 +444,7 @@ levelshots/um_ctf_gib_coruscant2
 	nomipmaps
 	notc
 	{
-		map levelshots/um_gib_coruscant2
+		map levelshots/um_ctf_gib_coruscant2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -456,7 +456,7 @@ levelshots/um_ctf_gib_narshaddaa
 	nomipmaps
 	notc
 	{
-		map levelshots/um_gib_narshaddaa
+		map levelshots/um_ctf_gib_narshaddaa
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -467,7 +467,7 @@ levelshots/um_ctf_gib_narshaddaa2
 	nomipmaps
 	notc
 	{
-		map levelshots/um_gib_narshaddaa2
+		map levelshots/um_ctf_gib_narshaddaa2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
