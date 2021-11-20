@@ -3,7 +3,7 @@
 ClassInfo
 {
 	name			"_v_h_tusken"
-	weapons			WP_SABER|WP_MELEE|WP_BRYAR_OLD|WP_STUN_BATON|WP_CONC_NADE
+	weapons			WP_SABER|WP_MELEE|WP_BRYAR_OLD|WP_STUN_BATON|WP_CONC_NADE|WP_FRAG_NADE
 	attributes		MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_GUNBASH|MB_ATT_MICRO_GRENADES,1
 	forcepowers     FP_SABER_OFFENSE,1
 	saber1			sarlacc_gaffi_legacy
@@ -25,6 +25,8 @@ ClassInfo
 	modelscale      1.03
 	holdables       HI_BINOCULARS
 	
+	WP_FragNadeFlags	HELD_KNOCKDOWN
+	
 	tauntAnim	BOTH_VICTORY_MEDIUM
 	flourishAnim BOTH_VICTORY_FAST
 	gloatAnim BOTH_VICTORY_MEDIUM
@@ -35,7 +37,7 @@ ClassInfo
 	uishader			"models/players/mc_tusken_jk3/mb2_icon_default"
 	
 	model_1			"mc_tusken_jk3" 					
-	skin_1			"jet"					
+	skin_1			"jet_legends"					
 	uishader_1			"gfx/hud/fa_icons/MB2_icon_tuskenjet"
 
 	model_2				"mc_tusken_jk3"
@@ -87,6 +89,17 @@ WeaponInfo2
 	CustomAmmo 	14
 	clipsize    2
 }
+WeaponInfo3
+{	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon							"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		1
+}
 
 description	"Tusken Raider
 
@@ -98,6 +111,7 @@ Weaponry:
 - Tusken Cycler Rifle *
 - Gaffi Stick *
 - Concussion Grenade (1)
+- Stun Grenade (1) (Secondary-Fire only Frag Grenades, detonates on contact with surfaces)
 
 * Special Weapon Descriptions:
 --- Projectile Pistol
