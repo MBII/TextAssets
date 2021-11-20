@@ -152,6 +152,12 @@
 #define FEEDER_SMOD_MAPS				0x3c //#ifdef GCJ_SMOD_SIEGETEAMS_UI
 #define FEEDER_SMOD_SIEGETEAM			0x3d //#ifdef GCJ_SMOD_SIEGETEAMS_UI
 
+// GCJ_FA_SELECT
+#define FEEDER_SIEGE_FA_MODEL			0x3e
+#define FEEDER_SIEGE_FA_SABER			0x3f
+
+#define FEEDER_EXHEADS					0x40 // GCJ_EX_MODELS
+
 // Xbox specific, hope no one minds
 #define FEEDER_XBL_ACCOUNTS				0xA0	// list of available XBL accounts
 #define FEEDER_XBL_PLAYERS				0xA1	// players (current and recent)
