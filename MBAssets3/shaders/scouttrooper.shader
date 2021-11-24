@@ -55,6 +55,21 @@ models/players/scouttrooper/helmet_swamp
     }
 }
 
+models/players/scouttrooper/helmet_desert
+{
+    {
+        map models/players/scouttrooper/helmet_desert
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/scouttrooper/helmet_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+		rgbGen const ( 0.5 0.5 0.5 )
+    }
+}
+
 models/players/scouttrooper/torso_pauldron
 {
 	cull	twosided
@@ -149,6 +164,21 @@ models/players/scouttrooper/body_swamp
     }
 }
 
+models/players/scouttrooper/body_desert
+{
+    {
+        map models/players/scouttrooper/body_desert
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/scouttrooper/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+		rgbGen const ( 0.5 0.5 0.5 )
+    }
+}
+
 models/players/scouttrooper/armor
 {
 	cull	disable
@@ -210,3 +240,18 @@ models/players/scouttrooper/armor_swamp
     }
 }
 
+models/players/scouttrooper/armor_desert
+{
+	cull	disable
+    {
+        map models/players/scouttrooper/armor_desert
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/scouttrooper/armor_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+		rgbGen const ( 0.5 0.5 0.5 )
+    }
+}
