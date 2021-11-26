@@ -494,10 +494,10 @@ textures/olympus_terrain/terrain.vertex
 //--------------------------------------------------
 //-----------------M O D E L S----------------------
 //--------------------------------------------------
-///ZUES STUFF
-models/players/zues/zues_poncho
+///zeus STUFF
+models/players/zeus/zeus_poncho
 {
-	qer_editorimage	models/players/zues/zues_poncho
+	qer_editorimage	models/players/zeus/zeus_poncho
 	q3map_shadeangle	120
 	q3map_nonplanar
     {
@@ -505,20 +505,20 @@ models/players/zues/zues_poncho
         rgbGen identity
     }
     {
-        map models/players/zues/zues_poncho
+        map models/players/zeus/zeus_poncho
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map models/players/zues/zues_poncho_glow
+        map models/players/zeus/zeus_poncho_glow
         blendFunc GL_ONE GL_ONE
         glow
         rgbGen identity
     }
 }
 
-models/players/zues/zues_boots
+models/players/zeus/zeus_boots
 {
-	qer_editorimage	models/players/zues/zues_boots
+	qer_editorimage	models/players/zeus/zeus_boots
 	q3map_shadeangle	120
 	q3map_nonplanar
     {
@@ -526,20 +526,20 @@ models/players/zues/zues_boots
         rgbGen identity
     }
     {
-        map models/players/zues/zues_boots
+        map models/players/zeus/zeus_boots
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map models/players/zues/zues_boots_glow
+        map models/players/zeus/zeus_boots_glow
         blendFunc GL_ONE GL_ONE
         glow
         rgbGen identity
     }
 }
 
-models/players/zues/zues_face
+models/players/zeus/zeus_face
 {
-	qer_editorimage	models/players/zues/zues_face
+	qer_editorimage	models/players/zeus/zeus_face
 	q3map_shadeangle	120
 	q3map_nonplanar
     {
@@ -547,20 +547,20 @@ models/players/zues/zues_face
         rgbGen identity
     }
     {
-        map models/players/zues/zues_face
+        map models/players/zeus/zeus_face
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map models/players/zues/zues_face_glow
+        map models/players/zeus/zeus_face_glow
         blendFunc GL_ONE GL_ONE
         glow
         rgbGen identity
     }
 }
 
-models/players/zues/zues_hair
+models/players/zeus/zeus_hair
 {
-	qer_editorimage	models/players/zues/zues_hair
+	qer_editorimage	models/players/zeus/zeus_hair
 	q3map_shadeangle	120
 	q3map_nonplanar
     {
@@ -568,11 +568,11 @@ models/players/zues/zues_hair
         rgbGen identity
     }
     {
-        map models/players/zues/zues_hair
+        map models/players/zeus/zeus_hair
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map models/players/zues/zues_hair_glow
+        map models/players/zeus/zeus_hair_glow
         blendFunc GL_ONE GL_ONE
         glow
         rgbGen identity
