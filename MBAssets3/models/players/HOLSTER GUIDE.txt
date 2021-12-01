@@ -1,46 +1,39 @@
 //==========================================================================================
 //holster.cfg contains configuration data for attaching holstered weapons on this playermodel.
-//When used in conjuncture with the holster debug system, you can configure the the holster weapons
+//When used in conjuncture with the holster debug system, you can configure the holster weapons
 //to be anywhere on the playermodel's body.
 
-//  Possible HolsterTypes (Use numberical values when using ojp_holsterdebug cvar):
+//  Possible HolsterTypes (use numerical values when using ojp_holsterdebug cvar):
 //  1 = HLR_SINGLESABER_1,      //first single saber
 //  2 = HLR_SINGLESABER_2,      //second single saber
 //  3 = HLR_STAFFSABER,         //staff saber
-//  4 = HLR_PISTOL_L,           //left hip blaster pistol
-//  5 = HLR_PISTOL_R,           //right hip blaster pistol
+//  4 = HLR_PISTOL_L,           //left hip blaster, clone, or westar pistol
+//  5 = HLR_PISTOL_R,           //right hip blaster, clone, or westar pistol
 //  6 = HLR_BLASTER_L,          //left hip blaster rifle
 //  7 = HLR_BLASTER_R,          //right hip blaster rifle
 //  8 = HLR_BOWCASTER,          //bowcaster
 //  9 = HLR_REPEATER,           //clone rifle
-//  10 = HLR_FLECHETTE,         //flechette, A280, DLT, EE3
+//  10 = HLR_FLECHETTE,         //A280, DLT, EE-3, Westar M5
 //  11 = HLR_DISRUPTOR,         //disruptor
 //  12 = HLR_T21,               //t21
-//  13 = HLR_PROJ,              //proj rifle
+//  13 = HLR_PROJ,              //projectile rifle
 //  14 = HLR_ROCKET_LAUNCHER,   //rocket launcher
-//  15 = HLR_PISTOL_CLONE_L,    //left hip clone pistol
-//  16 = HLR_PISTOL_CLONE_R,    //right hip clone pistol
-//  17 = HLR_PISTOL_MANDO_L,    //left hip mando pistol
-//  18 = HLR_PISTOL_MANDO_R,    //right hip mando pistol
 
-//  Possible boneIndexes (Use numberical values when using ojp_holsterdebug_boneindex):
+//  Possible boneIndexes (use numerical values when using ojp_holsterdebug_boneindex):
 //  Note:  Use "disabled" or HOLSTER_NONE to stop rendering of that particular holster weapon.
 //    0 = HOLSTER_NONE,
 //    1 = HOLSTER_UPPERBACK,    //jetpack has priority for this
 //    2 = HOLSTER_LOWERBACK,
 //    3 = HOLSTER_LEFTHIP,
 //    4 = HOLSTER_RIGHTHIP,
+//    5 = HOLSTER_UPPERBACK2,   //upperback but allowed with jetpack
 //==========================================================================================
 //  Debugging notes:
 
-//  The debug options are ONLY available in MBII beta test builds. The commands are:
 //  ojp_holsterdebug [int] - set to number matching above HolsterTypes list for the weapon
 //  ojp_holsterdebug_boneindex [int] - set to the boneIndex for the desired location
-//  ojp_holsterdebug_posoffset [float float float] - adjusts weapon position relative to bone
-//  ojp_holsterdebug_angoffset [float float float] - adjusts weapon angle relative to bone
-
-//  IMPORTANT: For the offset commands, make sure to only use numbers separated by spaces.
-//  Do not use commas or quotes or it will not parse properly (so don't paste from a config).
+//  ojp_holsterdebug_posoffset [float, float, float] - adjusts weapon position relative to bone
+//  ojp_holsterdebug_angoffset [float, float, float] - adjusts weapon angle relative to bone
 
 //==========================================================================================
 //  Holster Weapon Groups and Priorities:
@@ -53,26 +46,26 @@
 
 //  Larger and specialized weapons are placed on the back by default and are last in holster priority.
 
-//  ========== V1.9 dual pistol support ==========
+//  ========== V1.9.1 dual pistol support ==========
 //  The _R and _L HolsterTypes are named somewhat misleadingly under the current system. They do not
 //  specify where the weapon actually goes (this is controlled by the boneIndex) but instead are used
 //  as default and fallback respectively. If the _R holster is already used then the _L will be tried.
-//  For weapons that are being used akimbo (dual clone and mando pistols) both _R and _L need to be 
+//  For weapons that are being used akimbo (dual clone and westar pistols) both _R and _L need to be 
 //  specified and the boneIndex unused for them to appear holstered.
 
 //  Priority for blaster type weapons (default/fallback support):
 //      Blaster
-//      Bryar Pistol    //pistol
-//      Demp2           //clone pistol
-//      Bryar Old       //mando pistol
+//      Bryar Pistol    //Blaster Pistol
+//      Demp2           //Clone Pistol
+//      Bryar Old       //Westar Pistol
 //  Priority for larger weapons (no fallback support):
 //      Rocket Launcher
-//      Repeater        //clone rifle
-//      Flechette       //flechette, a280, DLT
+//      Repeater        //Clone Rifle
+//      Flechette       //A280, DLT, EE-3, Westar M5
 //      Disruptor
 //      Bowcaster
-//      Stun Baton      //proj rifle
-//      Det Pack        //t21
+//      Stun Baton      //Projectile Rifle
+//      Det Pack        //T-21
 
 //==========================================================================================
 //HOLSTER DATA FORMAT TEMPLATE
