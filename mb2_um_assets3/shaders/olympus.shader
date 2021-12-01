@@ -399,6 +399,8 @@ textures/olympus_terrain/terrain_2
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
 	q3map_tcGen ivector ( 1336 0 0 ) ( 0 1336 0 )
+	surfaceparm slick
+	
 	{
         map $lightmap
         rgbGen identity
@@ -446,6 +448,7 @@ textures/olympus_terrain/terrain_0to2
 	q3map_texturesize 2048 2048
 	q3map_tcGen ivector ( 1336 0 0 ) ( 0 1336 0 )
 	q3map_material shortgrass
+	surfaceparm slick
 	
 	{
 		map textures/deathmatch/grass2.jpg
@@ -468,6 +471,7 @@ textures/olympus_terrain/terrain_1to2
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
 	q3map_tcGen ivector ( 1336 0 0 ) ( 0 1336 0 )
+	surfaceparm slick
 	
 	{
 		map textures/deathmatch/grass.jpg
@@ -494,7 +498,7 @@ textures/olympus_terrain/terrain.vertex
 //--------------------------------------------------
 //-----------------M O D E L S----------------------
 //--------------------------------------------------
-///zeus STUFF
+///ZEUS STUFF
 models/players/zeus/zeus_poncho
 {
 	qer_editorimage	models/players/zeus/zeus_poncho
@@ -916,6 +920,41 @@ models/players/nda_mage3/torso
         alphaGen lightingSpecular
     }
 }
+//howlgoyle
+models/players/howlgoyle/howler_red
+{
+	{
+		map models/players/howlgoyle/howler_red
+		rgbGen lightingDiffuse
+	}
+
+	{
+		map gfx/olympus/flames
+		blendFunc GL_DST_COLOR GL_ONE
+		blendFunc add
+		rgbGen wave noise 0.25 0.75 0 1
+		tcMod scroll 0.3 0.2 
+		tcMod turb 0.6 0.3 0 0.2
+	}
+}
+
+models/players/howlgoyle/wings_red
+{
+	{
+		map models/players/howlgoyle/wings_red
+		rgbGen lightingDiffuse
+	}
+
+	{
+		map gfx/olympus/flames
+		blendFunc GL_DST_COLOR GL_ONE
+		blendFunc add
+		rgbGen wave noise 0.25 0.75 0 1
+		tcMod scroll 0.3 0.2 
+		tcMod turb 0.6 0.3 0 0.2
+	}
+}
+
 //--------------------------------------------------
 //---------------H U D  I C O N S-------------------
 //--------------------------------------------------
@@ -935,6 +974,16 @@ gfx/um_icons/olympus_Tartarus
 	notc
 	{
 		map gfx/um_icons/olympus_Tartarus
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+gfx/um_icons/holyFlame
+{
+	nopicmip
+	notc
+	{
+		map gfx/um_icons/holyFlame
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
