@@ -215,6 +215,149 @@ models/players/rebel_r1/helmet2
 }
 
 
+// rebel_gag
+
+models/players/rebel_gag/accessories
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_gag/accessories
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel/accessories_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_gag/accessories_green
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_gag/accessories_green
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel/accessories_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_gag/visor
+{	  
+	cull	twosided
+	{
+		map models/players/rebel_gag/visor
+                                blendFunc GL_DST_COLOR GL_SRC_COLOR
+                                rgbGen lightingDiffuse
+    	}
+    	{
+        	                map models/players/common/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+
+}
+
+models/players/rebel_gag/interface_dark
+{
+    {
+        map models/players/rebel_gag/interface_dark
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_gag/interface_dark_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+    }
+}
+
+models/players/rebel_gag/boots_hips
+{
+    {
+        map models/players/rebel_gag/boots_hips
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_gag/boots_hips_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_gag/Armor_D
+{
+    {
+        map models/players/rebel_gag/Armor_D
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_gag/Armor_D_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+    	{
+        	                map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_gag/Armor_D_green
+{
+    {
+        map models/players/rebel_gag/Armor_D_green
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_gag/Armor_D_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+    	{
+        	                map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // rebel_guerilla
 
 models/players/rebel_guerilla/gloves
@@ -267,6 +410,7 @@ models/players/rebel_guerilla/legs_boots
 
 models/players/rebel_pilot/googles
 {
+	cull	twosided
 	{
 		map models/players/rebel_pilot/googles
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
@@ -383,6 +527,21 @@ models/players/rebel_commando/forest_body_d3
 	}
 }
 
+models/players/rebel_commando/forest_body_d3b
+{
+	{
+		map models/players/rebel_commando/forest_body_d3b
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel_commando/forest_extras_d
 {
 	cull	twosided
@@ -398,6 +557,16 @@ models/players/rebel_commando/forest_extras_d2
 	cull	twosided
 	{
 		map models/players/rebel_commando/forest_extras_d2
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rebel_commando/forest_extras_d3
+{
+	cull	twosided
+	{
+		map models/players/rebel_commando/forest_extras_d3
 		depthWrite
 		rgbGen lightingDiffuse
 	}
@@ -420,6 +589,7 @@ models/players/rebel_commando/forest_extras2_d
 
 models/players/rebel_commando/forest_glass_d
 {
+	cull	twosided
 	{
 		map models/players/rebel_commando/forest_glass_d
 		depthWrite
@@ -565,6 +735,7 @@ models/players/rebel_commando/extras2_d2
 
 models/players/rebel_commando/glass_d
 {
+	cull	twosided
 	{
 		map models/players/rebel_commando/glass_d
 		depthWrite
@@ -641,6 +812,36 @@ models/players/rebel_commando/desert_body_d2
 	}
 }
 
+models/players/rebel_commando/desert_body_d2b
+{
+	{
+		map models/players/rebel_commando/desert_body_d2b
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_commando/desert_body_d3
+{
+	{
+		map models/players/rebel_commando/desert_body_d3
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel_commando/desert_extras_d
 {
 	cull	twosided
@@ -668,6 +869,7 @@ models/players/rebel_commando/desert_extras2_d
 
 models/players/rebel_commando/desert_glass_d
 {
+	cull	twosided
 	{
 		map models/players/rebel_commando/desert_glass_d
 		depthWrite
