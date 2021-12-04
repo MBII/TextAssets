@@ -1,4 +1,4 @@
-//Legends Mode character file - Created by Frenzy & Leos
+//Siege class def file.
 
 ClassInfo
 {
@@ -12,8 +12,9 @@ ClassInfo
 	maxarmor        30
 	MBClass			MB_CLASS_WOOKIE
 	speed			1.42
-	WP_StunBatonFlags 	HELD_ALTRELOAD
+	WP_StunBatonFlags 	HELD_ALTRELOAD|HELD_STUN 
 	WP_BryarOldFlags    HELD_ALTRELOAD
+	WP_FragNadeFlags	HELD_KNOCKDOWN
 	rageSoundOverride 	"sound/chars/tusken/misc/rage.mp3"
 	bargeSoundOverride 	"sound/chars/tusken/misc/anger3.mp3"
 	APmultiplier		1.6
@@ -25,11 +26,9 @@ ClassInfo
 	modelscale      1.03
 	holdables       HI_BINOCULARS
 	
-	WP_FragNadeFlags	HELD_KNOCKDOWN
-	
 	tauntAnim	BOTH_VICTORY_MEDIUM
 	flourishAnim BOTH_VICTORY_FAST
-	gloatAnim BOTH_VICTORY_MEDIUM
+	gloatAnim BOTH_TUSKENTAUNT1
 	saberStanceAnim	BOTH_TAVION_STANCE
 	
 	model				"mc_tusken_jk3"
@@ -45,6 +44,7 @@ ClassInfo
 	uishader_2			"gfx/hud/fa_icons/MB2_icon_tuskenchief"
 	
 	respawnCustomTime 15000
+	
 
 }
 
@@ -71,26 +71,26 @@ WeaponInfo1
 	primHitscanShot		1
 	primGore			1
 	altGore				1
-	PrimHitscanTracer 	7
-	AltHitscanTracer 	7
+	PrimHitscanTracer 	9
+	AltHitscanTracer 	9
 	CustomAmmo 			"600"
 	CustomClip 			"40"
 	FlashSound0			"sound/weapons/bar/fire.wav"  	
+	FPMult     			0.8
+
 }
 
 WeaponInfo2
 {
 	WeaponToReplace		WP_STUN_BATON					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BOWCASTER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/tusken_rifle_sar/tusken_rifle_w.glm"  	//Required
-	NewViewModel		"models/weapons2/tusken_rifle_sar/tusken_rifle.md3"   	//Required
-	NewHandsModel		"models/weapons2/tusken_rifle_sar/tusken_rifle_hand.md3"
+	WeaponBasedOff		WP_CONCUSSION				//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/tusken_sniper/model_w.glm"  	
+	NewViewModel		"models/weapons2/tusken_sniper/model.md3"  	
 	FlashSound0			"sound/weapons/tusken_cycler/fire.wav"  			
-	Icon				"gfx/hud/w_icon_tuskenrifle" 				//Required
+	Icon				"gfx/hud/w_icon_tuskenSniper" 				//Required
 	WeaponName			"Tusken Cycler Rifle"    					//Required
 	CustomAmmo 	12
 	clipsize    1
-	ReloadTimeModifier  1.2
 }
 WeaponInfo3
 {	WeaponToReplace		WP_FRAG_NADE
@@ -125,14 +125,17 @@ Weaponry:
 
 --- Tusken Cycler Rifle
 - Based on Projectile Rifle
-- Deals similar damage to EE-3 Sniper
 - Magazine style reload
+- Staggers enemies on successful hits
 
 --- Gaffi Stick
 - Can use Yellow and Red styles
 - Cannot block blaster or lightsaber attacks
 - Bounces off walls on swings
 - Knocks down enemies within a small radius on wall hits
+
+Inventory:
+- Binoculars
 
 Attributes:
 - Reinforcements (2)
@@ -143,4 +146,4 @@ Abilities:
 - Fury (1) [Class Special 1 and 2 in Melee]
 - Gunbash [Class Special 2]
 
-Tusken Raiders were a warrior race indigenous to Tatooine"
+Tusken Raiders were a culture of primitive sapients indigenous to Tatooine that were hostile to settlers."

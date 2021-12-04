@@ -1,6 +1,6 @@
 models/players/yun/belt_cloth
 {
-	cull	disable
+	cull	twosided
     {
         map models/players/yun/belt_cloth
         rgbGen lightingDiffuse
