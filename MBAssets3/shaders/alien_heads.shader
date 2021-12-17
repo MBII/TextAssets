@@ -1,3 +1,18 @@
+models/players/alien_heads/abyssin
+{
+	cull	disable
+    {
+        map models/players/alien_heads/abyssin
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/abyssin_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/advozse
 {
     {
