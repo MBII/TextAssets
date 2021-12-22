@@ -3,24 +3,34 @@
 ClassInfo
 {
 name			"SOM_H5_Magna"
-weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
+weapons			WP_MELEE|WP_SABER|WP_BOWCASTER
 saber1			electrostaff2_cmp_labs
 sabercolor		2
 saberstyle		SS_STAFF
-attributes		MB_ATT_PISTOL,3|MB_ATT_ARMOUR,2|MB_ATT_FORCEBLOCK,3|MB_ATT_ASSEMBLE,1
-forcepowers		FP_SPEED,2|FP_LEVITATION,2|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,2
+attributes		MB_ATT_ARMOUR,2|MB_ATT_FORCEBLOCK,1|MB_ATT_ASSEMBLE,1|MB_ATT_BOWCASTER,1
+forcepowers		FP_LEVITATION,1|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,2
 maxhealth		80
 maxarmor		80
-model			"mark3" 				//this is optional, if it's here it forces the model to this.
-skin			"default"					//this is optional, if it's here it forces the skin to this.
-uishader		"gfx/hud/FA_icons/mb2_icon_snowdroid1"
+speed			1.05
+
+
 MBClass			MB_CLASS_JEDI
 forcepool		100
 classflags		CFL_BPFREEJUMPS
 extralives		1
 respawnCustomTime  	20000
 
+WP_BowcasterFlags	HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_SLOWPROJ|HELD_SLOW|HELD_LOWDAMAGE
 
+	
+
+	model			"mark3" 				//this is optional, if it's here it forces the model to this.
+	skin			"default"					//this is optional, if it's here it forces the skin to this.
+	uishader		"gfx/hud/FA_icons/mb2_icon_snowdroid1"
+
+	model_1			"mark3" 				//this is optional, if it's here it forces the model to this.
+	skin_1			"dark"					//this is optional, if it's here it forces the skin to this.
+	uishader_1		"gfx/hud/FA_icons/mb2_icon_snowdroid2"
 
 }
 
@@ -38,16 +48,37 @@ WeaponName		"Electrostaff"
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL        					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER_PISTOL      					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/blaster_two/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3"   	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_blaster_pistol_2" 				//Required: Weapon change icon
-	WeaponName		"DL-44 Pistol"
+	WeaponToReplace		WP_BOWCASTER        					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_CONCUSSION      					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel 		"models/weapons2/a180/a180_ion.glm"
+	NewViewModel		"models/weapons2/a180/model_ion.md3"
+	Icon			"gfx/hud/w_icon_a180_ion" 				//Required: Weapon change icon
+	WeaponName		"Modified a180 Pistol"
 	altFireEnabled		0
-	customAmmo		250    					
+	clipsize		6
+	customAmmo		120
+	
+	MuzzleEffect		"Rockets/MuzzleFlashPulse"
+	AltMuzzleEffect		"Rockets/MuzzleFlashPulse"
+	MissileEffect		"sbd/shot_cannon"
+
+	FlashSound0		"sound/weapons/rocket/alt_fire"
+	AltFlashSound0		"sound/weapons/rocket/alt_fire"
+		
+	MissileMissEffect        "sbd/impact_cannon"
+    	MissileHitHumanEffect    "sbd/impact_cannon"
+    	MissileHitDroidEffect    "sbd/impact_cannon"
+	
+	idleAnim 		MAND_SPISTOL 
+	firingAnim  		MAND_SPISTOL_FIRE
+
+	ProjSpeedModifier  	0.3
+	ReloadTimeModifier 	3.8					
 	
 }
+
+
+
 
 
 description	"The Security Droid
@@ -59,20 +90,18 @@ Based on the classic star wars magna guard. A droid weilding an electrostaff wit
 Weaponry:
 
 Electrostaff: (X)
-Blaster Pistol: (3)
+Modified a180 Pistol: (1)
+(Fires 3 slow moving projectiles with a small radius AOE explosive, has a very long reload)
 
 Attributes:
 
-Jump: (2)
-Force Block: (3)
-Force Speed: (2)
+Jump: (1)
+Force Block: (1)
 Reinforcements: (1) (CTF: 20s respawn)
 
 Melee Attributes: 
 
-Melee Defense: (3)
-Attack Multiplier: (1.0)
-Defense Multiplier: (1.0)
+Melee Defense: (2)
 
 Strengths: Mixes use of blaster weaponry with decent armor and the ability to hold one's own in a duel with a jedi. 
 
