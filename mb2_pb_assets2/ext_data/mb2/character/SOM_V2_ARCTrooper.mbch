@@ -1,28 +1,40 @@
 ClassInfo
 {
-	name			"SOM_V4A_arctrooper"		
-	weapons			WP_MELEE|WP_DEMP2|WP_FLECHETTE
-	attributes		MB_ATT_BLASTER,3|MB_ATT_A280,1|MB_ATT_AMMO,3|MB_ATT_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_GRAPPLE_HOOK,1
+	name			"SOM_V2_ARCTrooper"		
+	weapons			WP_MELEE|WP_DEMP2|WP_FLECHETTE|WP_REPEATER
+	attributes		MB_ATT_BLASTER,1|MB_ATT_CLONERIFLE,1|MB_ATT_A280,1|MB_ATT_AMMO,3|MB_ATT_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_GRAPPLE_HOOK,2
 	maxhealth		200
 	maxarmor		150
-	model			"scouttrooper"
-	skin			"captain_rgb"
-	uishader		"models/players/scouttrooper/mb2_icon_captain_rgb"
+
 	MBClass			MB_CLASS_ARCTROOPER
 	classflags        	CFL_AKIMBOPISTOL3
-	customred		1
-	customgreen		1
-	customblue		1
 	respawnCustomTime  	32000
+
+	model			"purgetrooper" 					//this is optional, if it's here it forces the model to this.
+	skin			"default"							//this is optional, if it's here it forces the skin to this.
+	uishader		"models/players/purgetrooper/mb2_icon_default"
+	
+	model_1			"purgetrooper" 					
+	skin_1			"staff"						
+	uishader_1		"models/players/purgetrooper/mb2_icon_purgestaff"
+	
+	model_2			"purgetrooper" 					
+	skin_2			"hammer"							
+	uishader_2		"models/players/purgetrooper/mb2_icon_purgehammer"
+
 	
 }
+
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_DEMP2					//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplaceNewWorldModel		"models/weapons2/scout_pistol/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewWorldModel		"models/weapons2/scout_pistol/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/scout_pistol/blaster_pistol.md3"   	//Required: New 1st person weapon model
+	NewWorldModel		"models/weapons2/kotor_pistol1/pistol_w.GLM"
+	NewViewModel		"models/weapons2/kotor_pistol1/model.md3"
+	Icon			"gfx/hud/w_icon_disruptorpistols_dual"
+	WeaponName		"Dual Blaster Pistols"
+	
 	MuzzleEffect		"Blaster/MuzzleFlash01R"   				//Optional: New muzzle effect
 	AltMuzzleEffect		"Blaster/MuzzleFlash01R" 				//Optional: New alt muzzle effect
 	MissileEffect		"Blaster/Shot01R"  
@@ -35,8 +47,7 @@ WeaponInfo0
 	AltFlashSound0		"sound/weapons/lvl3pistol/alt_fire.wav"
 	ChargeEffect		"gfx/effects/bryarfrontflash"
 	ChargeSound 		"sound/weapons/bryar/altcharge.mp3"
-	Icon			"gfx/hud/w_icon_scout_pistol" 					//Required: Weapon change icon
-	WeaponName		"Dual EC-17s"    					//Required: Weapon change display name
+	
 	clipSize		150
 }
 
@@ -75,7 +86,25 @@ WeaponInfo2
 	Missile3Effect		"Blaster/Shot01R" 
 }
 
-description	"The Arc Trooper - Pistol/Rifleman Variant
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_REPEATER
+	NewWorldModel		"models/weapons2/dc-15_ext/dc-15_ext_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dc-15_ext/dc-15_ext.md3"   	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_clonerifle_blobs" 			//Required: Weapon change icon
+	WeaponName		"DC-15LE Blaster Rifle"  
+	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	MissileEffect		"Blaster/Shot01R" 
+
+	firingAnim		DC15_FIRE
+			
+
+	
+}
+
+description	"The Imperial Arc Trooper 
 
 Details: 
 
@@ -83,13 +112,14 @@ Based on open mode's Arc Trooper class, the standard variant invests into the sc
 
 Weapons:
 
-Dual EC-17s: (4)
-Precision DLT-20a: (X)
+Dual Blaster Pistols: (4)
+Precision DLT-20a (Based on Westar M5 Scoped): (X)
+Clone Rifle: (1)
 Melee: (X)
 
 Attributes:
 
-Grapple Hook: (X)
+Grapple Hook: (2)
 Stamina: (3)
 Dexterity: (3)
 

@@ -4,7 +4,7 @@ ClassInfo
 {
 name			"SOM_H3_Saboteur"
 weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_TRIP_MINE
-attributes		MB_ATT_TRIP_MINES,3|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_QUICKTHROW,2|MB_ATT_FP_MIRALUKA|MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_SPY_DISGUISE,3|MB_ATT_AMMO,3|MB_ATT_FRAGS,3|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_POISON_DART,3
+attributes		MB_ATT_TRACKING_DART,3|MB_ATT_TRIP_MINES,3|MB_ATT_QUICKTHROW,2|MB_ATT_FP_MIRALUKA,1|MB_ATT_PISTOL,1|MB_ATT_ARMOUR,3|MB_ATT_SPY_DISGUISE,3|MB_ATT_AMMO,3|MB_ATT_FRAGS,3|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_POISON_DART,3
 saber1			alpha_knife2
 saberstyle		SS_TAVION
 forcepowers		FP_SEE,1
@@ -12,15 +12,33 @@ forcepool		20
 forceregen		1
 maxhealth		150
 maxarmor		35
-model			"bothan-spy" 				//this is optional, if it's here it forces the model to this.
-skin			"default"					//this is optional, if it's here it forces the skin to this.
-uishader		"models/players/bothan-spy/mb2_icon_default"
+
 MBClass			MB_CLASS_HERO
 speed			1.15
 classflags		CFL_SEEING_STEALTH
 holdables 		HI_CLOAK|HI_BINOCULARS
-//classflags		CFL_MIRALUKA
 respawnCustomTime  	30000
+WP_BlasterPistolFlags   HELD_SONIC|HELD_ALTRELOAD	
+
+
+model			"bothan-spy" 				//this is optional, if it's here it forces the model to this.
+skin			"default"					//this is optional, if it's here it forces the skin to this.
+uishader		"models/players/bothan-spy/mb2_icon_default"
+
+model_1			"gwethenea" 				//this is optional, if it's here it forces the model to this.
+skin_1			"swamp"					//this is optional, if it's here it forces the skin to this.
+uishader_1		"models/players/gwethenea/mb2_icon_swamp"
+
+model_2			"lobot" 			
+skin_2			"default"					
+uishader_2		"models/players/lobot/mb2_icon_default"
+
+model_3			"niennunb"
+skin_3			"default"
+uishader_3		"models/players/niennunb/mb2_icon_default"
+
+
+
 
 }
 
@@ -33,6 +51,7 @@ WeaponInfo0
 	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
 	Icon				"gfx/hud/w_icon_stungrenade"
 	WeaponName			"Flashbang Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
 
 	altMissileMissEffect		"flashbang/realthermal"
 	MissileMissEffect		"flashbang/realthermal"
@@ -61,23 +80,31 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_BLASTER_PISTOL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel 		"models/weapons2/Relby-K23/model_w.GLM"
-	NewViewModel  		"models/weapons2/Relby-K23/pistol.MD3"
-	Icon  			"gfx/hud/w_icon_relby_k23"
-	WeaponName  		"Relby-K23 Concealed Pistol"	
-	customAmmo 		600
-	FlashSound0		"sound/weapons/silencedpistol/fire.wav"
-	AltFlashSound0		"sound/weapons/silencedpistol/fire.wav"
-	primHitscanShot		1
-	primHitscanTracer	5
-	altHitscanShot		1
-	altHitscanTracer	5
-	MissileEffect		"acparray/shot"
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/kotor_pistol2/model_w.glm"
+	NewViewModel		"models/weapons2/kotor_pistol2/model.md3"
+	Icon				"gfx/hud/w_icon_sonic_pistol.tga"
+	WeaponName			"Sonic Pistol"
+	
+	CustomAmmo           	200
 	
 
+	MissileHitHumanEffect "effects/geonosian/altdetonate"
+	MissileHitDroid 	"effects/geonosian/altdetonate"
+	MissileMissEffect 	"effects/geonosian/wall_impact"
+	MissileEffect		"effects/geonosian/projectile"  					
+	AltMissileEffect 	"effects/geonosian/projectile" 
+	MuzzleEffect		"effects/geonosian/muzzle_flash"   			
+	AltMuzzleEffect		"effects/geonosian/altmuzzle_flash"
+	FlashSound0		"sound/weapons/geonosian/fire.mp3"
+
+	ClipSize 		3
+	
+	
 }
+
+
 
 
 
@@ -97,7 +124,7 @@ A master of speed, stealth, and striking from the shadows.
 
 Weaponry:
 
-Relby-K23 Concealed Pistol: (2)
+Sonic Pistol: (1)
 Combat Knife: (X)
 Flashbang Grenades: (4) 
 Trip-mines: (3)
@@ -106,10 +133,10 @@ Melee: (X)
 Equipment:
 
 Poison Darts: (3)
+Tracking Darts: (3)
 Passive Radar Scanner: (1)
 Cloaking Device: (X)
 Binoculars: (X)
-Grapple Hook: (X)
 
 Attributes:
 
