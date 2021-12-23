@@ -1294,6 +1294,37 @@ models/players/stormie_tfa/Pauldron_D_rgb
 }
 
 
+// trandoshan
+
+models/players/trandoshan/rgb_trandoshan_legs
+{
+	{
+		map models/players/trandoshan/rgb_trandoshan_legs
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/trandoshan/rgb_trandoshan_legs
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/trandoshan/rgb_trandoshan_torso
+{
+	{
+		map models/players/trandoshan/rgb_trandoshan_torso
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/trandoshan/rgb_trandoshan_torso
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+
 // tyriasarkin
 
 models/players/tyriasarkin/rgb_arms

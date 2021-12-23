@@ -93,6 +93,19 @@ textures/olympus/olympusPattern
         tcGen environment
     }
 }
+//center marble pattern without shine (for JKA/JK2)
+textures/olympus/olympusCenterPattern2
+{
+	qer_editorimage	textures/olympus/olympusPattern
+	q3map_nonplanar
+    {
+        map $lightmap
+    }
+    {
+        map textures/olympus/olympusPattern
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+}
 ///shiny marble pattern 2
 textures/olympus/olympusPattern2
 {
@@ -354,6 +367,62 @@ textures/olympus/grass2
     {
         map textures/deathmatch/grass
         blendFunc GL_DST_COLOR GL_ZERO
+    }
+}
+textures/olympus/whiteMarble_shiny
+{
+	qer_editorimage	textures/bespin2/whiteMarble
+	q3map_nonplanar
+	q3map_material	Marble
+    {
+	map $lightmap
+    }
+    {
+        map textures/bespin2/whiteMarble
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/common/etest4
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.12
+        tcGen environment
+    }
+}
+//shiny metal detail
+textures/olympus/nab2_bldg_detail04_shiny
+{
+	qer_editorimage	textures/newtheed/nab2_bldg_detail04
+	q3map_nonplanar
+	q3map_material	Metal
+    {
+	map $lightmap
+    }
+    {
+        map textures/newtheed/nab2_bldg_detail04
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/reflection3
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.15
+        tcGen environment
+    }
+}
+//dust from ceiling
+textures/olympus/dark_dust
+{
+	qer_editorimage	textures/olympus/gradient
+	qer_trans	0.5
+	surfaceparm	noimpact
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+    {
+        clampmap textures/olympus/gradient
+        blendFunc GL_ONE GL_ONE
+        rgbGen const ( 0.141176 0.141176 0.141176 )
     }
 }
 //--------------------------------------------------
@@ -968,6 +1037,7 @@ gfx/um_icons/olympus_Elysium
 		rgbGen vertex
 	}
 }
+
 gfx/um_icons/olympus_Tartarus
 {
 	nopicmip
@@ -978,12 +1048,24 @@ gfx/um_icons/olympus_Tartarus
 		rgbGen vertex
 	}
 }
+
 gfx/um_icons/holyFlame
 {
 	nopicmip
 	notc
 	{
-		map gfx/um_icons/holyFlame
+		map textures gfx/um_icons/holyFlame
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/um_icons/thunder
+{
+	nopicmip
+	notc
+	{
+		map textures gfx/um_icons/thunder
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
