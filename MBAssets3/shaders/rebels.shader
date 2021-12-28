@@ -197,17 +197,17 @@ models/players/rebel_r1/helmet
 	}
 }
 
-models/players/rebel_r1/helmet2
+models/players/rebel_r1/helmetb
 {	  
 	q3map_nolightmap
 	q3map_onlyvertexlighting
 	{
-		map models/players/rebel_r1/helmet2
+		map models/players/rebel_r1/helmetb
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_r1/helmet_s
+		map models/players/rebel_guerilla/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
