@@ -3,17 +3,22 @@
 ClassInfo
 {
 	name			"SarlaccBarge_Gran"
-	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_CONC_NADE
-	attributes		MB_ATT_PISTOL,1|MB_ATT_AMMO,2|MB_ATT_MICRO_GRENADES,2|MB_ATT_ASSEMBLE,1|MB_ATT_CCTRAINING,2
+	weapons			WP_BOWCASTER|WP_BLASTER_PISTOL|WP_MELEE|WP_CONC_NADE
+	attributes		MB_ATT_PISTOL,1|MB_ATT_AMMO,2|MB_ATT_MICRO_GRENADES,1|MB_ATT_ASSEMBLE,1|MB_ATT_CCTRAINING,2|MB_ATT_BOWCASTER,1
 	maxhealth		80
 	maxarmor		15
 	model			"Gran" 				//this is optional, if it's here it forces the model to this.
 	skin			"default"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/gran/mb2_icon_default_jab"
+	
+		
+	model_1				"gran"
+	skin_1				"jk"
+	uishader_1			"models/players/gran/mb2_icon_jk"
 	MBClass			MB_CLASS_SOLDIER
+	
 	classNumberLimit	2
 	extralives		1
-	WP_TripMineFlags	HELD_LOWDAMAGE
 }
 
 WeaponInfo0
@@ -26,12 +31,35 @@ WeaponInfo0
 	WeaponName			"Black Market V-59 Concussion Grenade"   			
 }
 
+WeaponInfo1
+{           
+		WeaponToReplace        WP_TRIP_MINE
+		WeaponBasedOff         WP_TRIP_MINE
+		NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
+		NewViewModel	  "models/weapons2/laser_trap/laser_trap.md3"  	
+		Icon             "gfx/hud/w_icon_tripmine"
+		WeaponName		"Trip Mine"
+		altFireEnabled 0
+		customAmmo    1
+}
+WeaponInfo2
+    {
+    	WeaponToReplace		WP_BOWCASTER
+    	WeaponBasedOff		WP_BOWCASTER
+    	NewWorldModel		"models/weapons2/bowcaster/bowcaster_w.glm"
+    	NewViewModel		"models/weapons2/bowcaster/bowcaster.md3"
+        FlashSound0		"sound/weapons/Chewiecaster/fire.mp3"	   	
+    	Icon			"gfx/hud/w_icon_bowcaster" 
+    	WeaponName		"Bowcaster"
+    }
+
 description			"Gran Thug
 
 
 Weapons:
+Bowcaster (1)
 Pistol (1)
-Black Market Concussion Grenades [Half Damage] (2)
+Black Market Concussion Grenade 
 
 Attributes:
 Reinforcements (1)
