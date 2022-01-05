@@ -1,8 +1,20 @@
 models/players/alien_heads/abyssin
 {
 	cull	disable
+	{
+		map models/players/alien_heads/abyssin
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/alien_heads/abyssinb
+{
+	cull	disable
     {
-        map models/players/alien_heads/abyssin
+        map models/players/alien_heads/abyssinb
         rgbGen lightingDiffuse
     }
     {
@@ -105,6 +117,20 @@ models/players/alien_heads/durosZ
     }
     {
         map models/players/alien_heads/duros_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/elles
+{
+    {
+        map models/players/alien_heads/elles
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/arcona_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular

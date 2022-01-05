@@ -39,3 +39,20 @@ models/players/alien_merc/kal_skarf
 	rgbGen lightingDiffuse
 	}
 }
+
+
+// El-Les
+
+models/players/alien_merc/elles_pants
+{
+	{
+		map models/players/alien_merc/elles_pants
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/alien_merc/elles_pants
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
