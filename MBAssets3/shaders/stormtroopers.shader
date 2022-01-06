@@ -752,3 +752,133 @@ models/players/stormie/TFUComm_Body
 		alphaGen lightingSpecular
 	}
 }
+
+// Novatrooper
+
+models/players/novatrooper/Arms
+{
+	cull	twosided
+	{
+		map models/players/novatrooper/Arms
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/novatrooper/Arms_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/novatrooper/Helmet
+{
+	{
+		map models/players/novatrooper/Helmet
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/novatrooper/Helmet_Spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/novatrooper/novatrooper_pauldron
+{
+	q3map_onlyvertexlighting
+	cull	twosided
+	
+    {
+        map models/players/novatrooper/novatrooper_pauldron
+        rgbGen lightingDiffuse
+    }
+	{
+            map models/players/t3m4/t3env
+        	blendFunc GL_DST_COLOR GL_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    }
+	{
+        map models/players/novatrooper/novatrooper_pauldron
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+	{
+        map models/players/novatrooper/novatrooper_pauldron_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+       	detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/novatrooper/Body2
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/novatrooper/Body2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/novatrooper/Body_Spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/novatrooper/Body
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/novatrooper/Body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/novatrooper/body_Spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	
+}
+
+models/players/novatrooper/novatrooper_accessories1
+{
+	{
+		map models/players/novatrooper/novatrooper_accessories1
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/novatrooper/novatrooper_accessories1_Spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}

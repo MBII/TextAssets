@@ -1054,7 +1054,7 @@ gfx/um_icons/holyFlame
 	nopicmip
 	notc
 	{
-		map textures gfx/um_icons/holyFlame
+		map gfx/um_icons/holyFlame
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
@@ -1065,7 +1065,7 @@ gfx/um_icons/thunder
 	nopicmip
 	notc
 	{
-		map textures gfx/um_icons/thunder
+		map gfx/um_icons/thunder
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}

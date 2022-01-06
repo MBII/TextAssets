@@ -56,3 +56,38 @@ models/players/alien_merc/elles_pants
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// Ithorian
+
+models/players/alien_merc/itho_arm
+{
+	q3map_nolightmap
+    {
+        map models/players/alien_merc/itho_arm
+        rgbGen lightingDiffuse
+        // alphaFunc GE128
+    }
+    {
+        map models/players/alien_merc/itho_arm_spec
+       blendFunc GL_SRC_ALPHA GL_ONE
+       detail
+       alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_merc/itho_leg
+{
+	q3map_nolightmap
+    {
+        map models/players/alien_merc/itho_leg
+        rgbGen lightingDiffuse
+        // alphaFunc GE128
+    }
+    {
+        map models/players/alien_merc/itho_leg_spec
+       blendFunc GL_SRC_ALPHA GL_ONE
+       detail
+       alphaGen lightingSpecular
+    }
+}

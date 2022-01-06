@@ -1,55 +1,57 @@
-models/players/purgetrooper_tfu/body
-{
-    {
-        map models/players/purgetrooper_tfu/body
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/purgetrooper_tfu/body_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/purgetrooper_tfu/body-worn
-{
-    {
-        map models/players/purgetrooper_tfu/body-worn
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/purgetrooper_tfu/body-worn_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/purgetrooper_tfu/helmet
 {
+	q3map_onlyvertexlighting
+	cull	twosided
+	
     {
         map models/players/purgetrooper_tfu/helmet
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
-    {
+	{
+            map models/players/t3m4/t3env
+        	blendFunc GL_DST_COLOR GL_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    }
+	{
+        map models/players/purgetrooper_tfu/helmet
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+	{
         map models/players/purgetrooper_tfu/helmet_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
+       	blendFunc GL_SRC_ALPHA GL_ONE
+       	detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/purgetrooper_tfu/helmet-worn
+models/players/purgetrooper_tfu/body
 {
+	q3map_onlyvertexlighting
+	cull	twosided
+	
     {
-        map models/players/purgetrooper_tfu/helmet-worn
-        blendFunc GL_ONE GL_ZERO
+        map models/players/purgetrooper_tfu/body
         rgbGen lightingDiffuse
     }
-    {
-        map models/players/purgetrooper_tfu/helmet-worn_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
+	{
+            map models/players/t3m4/t3env
+        	blendFunc GL_DST_COLOR GL_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    }
+	{
+        map models/players/purgetrooper_tfu/body
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+	{
+        map models/players/purgetrooper_tfu/body_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+       	detail
         alphaGen lightingSpecular
     }
 }

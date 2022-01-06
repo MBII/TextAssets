@@ -6,7 +6,9 @@ Particle
 
 	flags				useAlpha
 
-	count				4 19
+	spawnFlags			affectedByWind
+
+	count				6
 
 	life				7000 1.25e+004
 
@@ -16,7 +18,9 @@ Particle
 
 	origin				10 -35 -35 20 35 35
 
-	rotation			0 360
+	wind				30 0
+
+	rotation			0 40
 
 	rotationDelta		-10 10
 
@@ -33,17 +37,17 @@ Particle
 
 	alpha
 	{
-		start			0.4 0.5
+		start			0.9 0.8
 		end				0
-		parm			40 50
-		flags			linear
+		parm			90 100
+		flags			random nonlinear
 	}
 
 	size
 	{
-		start			170 200
-		end				120
-		flags			linear
+		start			500 400
+		end				500 400
+		flags			random linear
 	}
 
 	shaders
@@ -60,11 +64,11 @@ Particle
 
 	spawnFlags			rgbComponentInterpolation
 
-	count				15 5
+	count				35 21
 
-	life				7000 2e+004
+	life				7000 3e+004
 
-	delay				400 500
+	delay				200 300
 
 	origin				10 -35 -35 20 35 35
 
@@ -72,9 +76,9 @@ Particle
 
 	rotationDelta		-10 10
 
-	velocity			10 -10 -10 20 10 10
+	velocity			10 -10 -10 20 10 5
 
-	gravity				3 25
+	gravity				1 -25
 
 	rgb
 	{
@@ -85,7 +89,6 @@ Particle
 
 	alpha
 	{
-		start			0.4 0.5
 		end				0
 		parm			40 50
 		flags			linear
@@ -93,8 +96,8 @@ Particle
 
 	size
 	{
-		start			175
-		end				250
+		start			400
+		end				306 500
 		flags			linear
 	}
 
@@ -124,7 +127,7 @@ Particle
 
 	rotationDelta		-10 10
 
-	velocity			5 -10 -10 10 10 10
+	velocity			5 -10 -5 10 10 5
 
 	gravity				3 25
 
@@ -153,18 +156,13 @@ Particle
 	shaders
 	[
 		gfx/misc/black_smoke
-		gfx/misc/steam
+		gfx/misc/black_smoke2
 	]
 }
 
 FxRunner
 {
 	count				0
-
-	playfx
-	[
-		volumetric/smoke2
-	]
 }
 
 FxRunner
