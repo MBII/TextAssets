@@ -3,54 +3,65 @@
 ClassInfo
 {
 	name			"SarlaccBarge_Weequay"
-	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_SABER
-	saber1			vibroaxe_noblock
-	saberstyle		SS_MEDIUM
-	forcepowers		FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,2
-	attributes		MB_ATT_PISTOL,2|MB_ATT_AMMO,2|MB_ATT_DODGE,2|MB_ATT_HEALING,2
-	maxhealth		75
-	maxarmor		50
-	forcepool		5
-	model			"weequay" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"					//this is optional, if it's here it forces the skin to this.
+	weapons				WP_MELEE|WP_CONC_NADE|WP_BOWCASTER|WP_TRIP_MINE
+	attributes			MB_ATT_BLASTER,1|MB_ATT_AMMO,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_ASSEMBLE,1|MB_ATT_TRIP_MINES,3|MB_ATT_DODGE,2|MB_ATT_GUNBASH|MB_ATT_HEALING,1
+	maxhealth			60
+	maxarmor				60
+	extralives			1
+	MBClass				MB_CLASS_WOOKIE
+	speed					1.26
+	classNumberLimit		4
+	modelscale          1.045
+	
+	model			"weequay" 				
+	skin			"default"					
 	uishader		"models/players/weequay/mb2_icon_default_jab"
-	MBClass			MB_CLASS_JEDI
-	classNumberLimit	1
-	speed			1.1
 }
+
 
 WeaponInfo0
-{
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_skiff_pike" 	                //Required: Weapon change icon
-	WeaponName		"Skiff Pike"    				//Required: Weapon change display name
+{           
+	WeaponToReplace        WP_TRIP_MINE
+	WeaponBasedOff         WP_TRIP_MINE
+	NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
+	NewViewModel	  "models/weapons2/laser_trap/laser_trap.md3"  	
+	Icon             "gfx/hud/w_icon_tripmine"
+	WeaponName		"Trip Mine"
+	altFireEnabled 		0
+	customAmmo    		4
 }
-
 WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER_PISTOL					
-	WeaponBasedOff		WP_BLASTER_PISTOL					
-	NewWorldModel		"models/weapons2/blaster_two/blaster_pistol_w.glm"  	
-	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3"   	
-	Icon			"gfx/hud/w_icon_blaster_pistol_2"				
-	WeaponName		"Blaster Pistol"    	
-	FPMult	1.5			
-}
+    {
+    	WeaponToReplace		WP_BOWCASTER
+    	WeaponBasedOff		WP_BOWCASTER
+    	NewWorldModel		"models/weapons2/bowcaster/bowcaster_w.glm"
+    	NewViewModel		"models/weapons2/bowcaster/bowcaster.md3"
+    	MuzzleEffect		"Chewiecaster/muzzle_flash"         		 
+    	MissileEffect		"Chewiecaster/shot" 
+    	AltMissileEffect	"Chewiecaster/shot"
+		PowerupShotEffect	"Chewiecaster/muzzle_flash"
+        FlashSound0			"sound/weapons/Chewiecaster/fire.mp3"	   	
+    	Icon				"gfx/hud/w_icon_bowcaster" 
+    	WeaponName			"Wookiee Bowcaster"
+    }
 
-description			"Weequay Thug
 
-Weapons:
-- Skiff Pike (Can't Block Blasters)
-- Pistol (2)
-   - 50 percent more FP damage
+
+description			"Weequay
+
+Weaponry:
+- Bowcaster (1)
+- Concussion Grenades (2)
+- Trip Mine (1)
 
 Attributes:
-- Pike Defense (2)
-- Health Regeneration (2)
-- Dodge (2)
-- Speedy
+- Strength (1)
+- Assemble
+- Healing (1
 
-An Elite guardsman working for Jabba the Hutt."
+Abilities:
+- Dodge (2) [Class Special 1]
+- Gunbash [Class Special 2]
+
+Often quiet and enigmatic, Weequays can be found throughout the galaxy, from the lower levels of Coruscant to the distant desert flats of Tatooine. They are a humanoid species with coarse, leathery skin and bald heads. By tradition, a Weequay wears a braided topknot on one side of his or her head.  Jabba employed a large collection of Weequay to man his barge."
+
