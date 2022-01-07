@@ -3,20 +3,19 @@
 ClassInfo
 {
 	name			"SD_R_C_cmdr"
-	weapons			WP_BLASTER_PISTOL|WP_THERMAL|WP_REPEATER|WP_CONC_NADE|WP_FIRE_NADE
-	attributes		MB_ATT_FIRE_GRENADES,1|MB_ATT_FLIPKICK|MB_ATT_MICRO_GRENADES,1|MB_ATT_DODGE,2|MB_ATT_CLONEBLOBS,6|MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_GUNBASH,1|MB_ATT_RALLY,1
+	weapons			WP_BLASTER_PISTOL|WP_THERMAL|WP_REPEATER|WP_CONC_NADE|WP_FRAG_NADE
+	attributes		MB_ATT_FRAG_GRENADES,1|MB_ATT_FLIPKICK|MB_ATT_MICRO_GRENADES,1|MB_ATT_DODGE,2|MB_ATT_CLONEBLOBS,3|MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_GUNBASH,1|MB_ATT_RALLY,1
 	maxhealth		100
 	maxarmor		80
 	speed				.92
-	forcepowers     FP_TEAM_HEAL,2
-	forcepool		35
 	MBClass			MB_CLASS_BOUNTY_HUNTER
 	classflags	    CFL_STATVIEWER
 	classNumberLimit  1
-	
+	holdables		HI_ARMORDISP
 	model			"rebel_gag"
 	skin			"default"
 	uishader		"models/players/rebel_gag/mb2_icon_default"
+	WP_FragNadeFlags	HELD_KNOCKDOWN
 }
 
 
@@ -25,15 +24,31 @@ WeaponInfo0
 	WeaponToReplace WP_REPEATER
 	WeaponBasedOff  WP_REPEATER
 	customAmmo	        650
-	NewWorldModel "models/weapons2/blaster_r/blaster_w.glm"
-	NewViewModel  "models/weapons2/blaster_r/blaster.md3"
+	NewWorldModel 		"models/weapons2/blaster_r/blaster_w.glm"
+	NewViewModel 		 "models/weapons2/blaster_r/blaster.md3"
 	MuzzleEffect		"Blaster/MuzzleFlash01R"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot01R"
 	AltMissileEffect 	"Blaster/Shot01R"  					
-	Icon  "gfx/hud/w_icon_e11"
-	WeaponName  "E-11 Stun gadget"
-	FlashSound0			"sound/weapons2/TFU_Empire/E-11_alt.mp3"   			
+	Icon  				"gfx/hud/w_icon_e11"
+	WeaponName  		"E-11 Stun gadget"
+//FlashSound0			"sound/weapons2/TFU_Empire/E-11_alt.mp3"   			
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/Stormi_TD/StormiTD_w.glm"
+	NewViewModel			"models/weapons2/Stormi_TD/StormiTD.md3"
+	MissileModel 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	Icon				"gfx/hud/w_icon_StormiTD"
+	WeaponName			"Flashbang Grenade"
+	customammo			2
+	primFireEnabled			0
 }
 
 description	"Rebel Major
@@ -44,14 +59,14 @@ An attack based commander with team heal and anti jedi equipment and Abilities
 Weaponry:
 - E-11 Stun gadget:(based on clone rifle 2 with 6 conc blobs)
 - Pistol:		(2)
-- Fire nades: (2)
-- Concussion nades: (2)
+- Flashbang nades: (2)
+- Concussion nades: (1)
 
 Attributes:
 - Dodge: (2)
 - Comm Link (can see ally health and armor)
-- Team Heal:  (2)
-- Rally:  (x)
+- Can heal ally's armor (via pressing use on ally)
+- Rally
 
 Abilities:
 - Flipkick  (can wall jump on enemies)
