@@ -91,3 +91,30 @@ models/players/alien_merc/itho_leg
        alphaGen lightingSpecular
     }
 }
+
+
+// Kadas Nikto
+
+models/players/alien_merc/nik_bracelet
+{
+	cull	disable
+	{
+		map models/players/alien_merc/nik_bracelet
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/alien_merc/nik_hood
+{
+	cull	disable
+	{
+		map models/players/alien_merc/nik_hood
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
