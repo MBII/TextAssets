@@ -1,5 +1,19 @@
 models/players/bokatan/bokatanbody
 {
+	{
+		map models/players/bokatan/bokatanbody
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/bokatan/bokatanbody_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/bokatan/bokatanbody_ts
+{
 	cull twosided
 	{
 		map models/players/bokatan/bokatanbody
@@ -14,6 +28,26 @@ models/players/bokatan/bokatanbody
 }
 
 models/players/bokatan/bokatanrgb
+{
+    {
+        map models/players/bokatan/bokatanrgb
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/bokatan/bokatanrgb
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/bokatan/bokatanbody_spec2
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/bokatan/bokatanrgb_ts
 {
 	cull	twosided
     {
@@ -35,6 +69,20 @@ models/players/bokatan/bokatanrgb
 }
 
 models/players/bokatan/bokatanhead
+{
+	{
+		map models/players/bokatan/bokatanhead
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bokatan/bokatanhead_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/bokatan/bokatanhead_ts
 {
 	cull twosided
 	{
