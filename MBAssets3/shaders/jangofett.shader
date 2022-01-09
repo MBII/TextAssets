@@ -1,5 +1,30 @@
 models/players/jangofett/jango
 {
+	{
+		map models/players/jangofett/jango
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bobafett/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/jangofett/jango
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/jangofett/jango_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/jangofett/jango_armor
+{
 	cull twosided
 	{
 		map models/players/jangofett/jango

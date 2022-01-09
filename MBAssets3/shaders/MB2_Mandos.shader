@@ -1,5 +1,25 @@
 models/players/MB2_Mandos/bobargb1
 {
+	{
+		map models/players/MB2_Mandos/bobargb1
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/MB2_Mandos/bobargb1
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bobafett/esb_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/MB2_Mandos/bobargb1_armor
+{
 	cull	twosided
 	{
 		map models/players/MB2_Mandos/bobargb1
@@ -20,6 +40,26 @@ models/players/MB2_Mandos/bobargb1
 }
 
 models/players/MB2_Mandos/bobargb2
+{
+	{
+		map models/players/MB2_Mandos/bobargb2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/MB2_Mandos/bobargb2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bobafett/esb_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/MB2_Mandos/bobargb2_armor
 {
 	cull	twosided
 	{
@@ -42,7 +82,6 @@ models/players/MB2_Mandos/bobargb2
 
 models/players/MB2_Mandos/clanwren
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/clanwren
 		rgbGen lightingDiffuse
@@ -68,7 +107,6 @@ models/players/MB2_Mandos/clanwren
 
 models/players/MB2_Mandos/deathwatch
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/deathwatch
 		rgbGen lightingDiffuse
@@ -94,7 +132,6 @@ models/players/MB2_Mandos/deathwatch
 
 models/players/MB2_Mandos/dredpriest
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/dredpriest
 		rgbGen lightingDiffuse
@@ -120,7 +157,32 @@ models/players/MB2_Mandos/dredpriest
 
 models/players/MB2_Mandos/holiday
 {
-	cull twosided
+	{
+		map models/players/MB2_Mandos/holiday
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bobafett/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/MB2_Mandos/holiday
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/bobafett/esb_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/MB2_Mandos/holiday_armor
+{
+	cull	twosided
 	{
 		map models/players/MB2_Mandos/holiday
 		rgbGen lightingDiffuse
@@ -146,7 +208,6 @@ models/players/MB2_Mandos/holiday
 
 models/players/MB2_Mandos/journeyman
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/journeyman
 		rgbGen lightingDiffuse
@@ -172,7 +233,6 @@ models/players/MB2_Mandos/journeyman
 
 models/players/MB2_Mandos/kalskirata
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/kalskirata
 		rgbGen lightingDiffuse
@@ -198,7 +258,6 @@ models/players/MB2_Mandos/kalskirata
 
 models/players/MB2_Mandos/mandowatch
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/mandowatch
 		rgbGen lightingDiffuse
@@ -224,7 +283,6 @@ models/players/MB2_Mandos/mandowatch
 
 models/players/MB2_Mandos/mauldalor
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/mauldalor
 		rgbGen lightingDiffuse
@@ -250,7 +308,6 @@ models/players/MB2_Mandos/mauldalor
 
 models/players/MB2_Mandos/rgb1
 {
-	cull	twosided
 	{
 		map models/players/MB2_Mandos/rgb1
 		blendFunc GL_ONE GL_ZERO
@@ -277,7 +334,6 @@ models/players/MB2_Mandos/rgb1
 
 models/players/MB2_Mandos/rgb2
 {
-	cull	twosided
 	{
 		map models/players/MB2_Mandos/rgb2
 		blendFunc GL_ONE GL_ZERO
@@ -298,7 +354,6 @@ models/players/MB2_Mandos/rgb2
 
 models/players/MB2_Mandos/violet
 {
-	cull twosided
 	{
 		map models/players/MB2_Mandos/violet
 		rgbGen lightingDiffuse
