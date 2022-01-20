@@ -93,6 +93,57 @@ models/players/alien_merc/itho_leg
 }
 
 
+// Duros (hands)
+
+models/players/alien_merc/dur_hands
+{
+	q3map_nolightmap
+    {
+        map models/players/alien_merc/dur_hands
+        rgbGen lightingDiffuse
+        // alphaFunc GE128
+    }
+    {
+        map models/players/alien_merc/itho_arm_spec
+       blendFunc GL_SRC_ALPHA GL_ONE
+       detail
+       alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_merc/dur_hands2
+{
+	q3map_nolightmap
+    {
+        map models/players/alien_merc/dur_hands2
+        rgbGen lightingDiffuse
+        // alphaFunc GE128
+    }
+    {
+        map models/players/alien_merc/itho_arm_spec
+       blendFunc GL_SRC_ALPHA GL_ONE
+       detail
+       alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_merc/dur_hands3
+{
+	q3map_nolightmap
+    {
+        map models/players/alien_merc/dur_hands3
+        rgbGen lightingDiffuse
+        // alphaFunc GE128
+    }
+    {
+        map models/players/alien_merc/itho_arm_spec
+       blendFunc GL_SRC_ALPHA GL_ONE
+       detail
+       alphaGen lightingSpecular
+    }
+}
+
+
 // Kadas Nikto
 
 models/players/alien_merc/nik_bracelet
