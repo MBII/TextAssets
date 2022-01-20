@@ -13,11 +13,11 @@ models/players/alien_heads/abyssin
     }
 }
 
-models/players/alien_heads/abyssinb
+models/players/alien_heads/abyssin_green
 {
 	cull	disable
     {
-        map models/players/alien_heads/abyssinb
+        map models/players/alien_heads/abyssin_green
         rgbGen lightingDiffuse
     }
     {
@@ -162,6 +162,62 @@ models/players/alien_heads/itho
     }
     {
         map models/players/alien_heads/itho_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/kubaz
+{
+    {
+        map models/players/alien_heads/kubaz
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/kubaz_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/kubaz_blue
+{
+    {
+        map models/players/alien_heads/kubaz_blue
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/kubaz_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/kubaz_brown
+{
+    {
+        map models/players/alien_heads/kubaz_brown
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/kubaz_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/kubaz_mono
+{
+    {
+        map models/players/alien_heads/kubaz_mono
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/kubaz_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
