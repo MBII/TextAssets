@@ -1,27 +1,30 @@
-//Siege class def file.
+//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name 				 "_v_c_Phasma"
 	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_FLECHETTE|WP_SABER
-	attributes  		MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ARC_RIFLE_SCOPE,2|MB_ATT_A280|MB_ATT_BLASTER
+	attributes  		MB_ATT_CORTOSIS,1|MB_ATT_PISTOL,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_A280,2|MB_ATT_BLASTER,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_SHIELD_RECHARGE,1
 	saber1  			phasma_staff_legends
 	saberstyle  		SS_STAFF
-	maxhealth 			180
+	maxhealth 			125
+	maxarmor            60
 	classNumberLimit  	1
 	model 				"phasma"
 	skin  				"default"
 	uishader  			"gfx/hud/FA_icons/mb2_icon_phasma"
 	MBClass 			MB_CLASS_ARCTROOPER
 	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	forcepool           25
+    modelscale  1.08
 	speed				0.95
-	rateoffire			1.1
-	damageGiven         1.175
-	damageTaken 		0.75
-	APmultiplier		0.75
-	CSmultiplier 		1.5
-	jetpackFuelCooldown 1000
-	jetpackFuelAmount 	8
+	rateoffire			1.15
+	damageGiven         1.13
+	APmultiplier		0.9
+	
+	gloatAnim       BOTH_STAND5TOSTAND8
+	
+	respawnCustomTime 50000
 }
 
 WeaponInfo0
@@ -32,9 +35,8 @@ WeaponInfo0
 	NewViewModel  "models/weapons2/SE-44C/se-44c_phasma.md3"
 	Icon  "gfx/hud/w_icon_se-44c_p"
 	WeaponName  "Phasma's Blaster Pistol"
-	FlashSound0 "sound/weapons/ee3/fire.mp3"
-	AltFlashSound0  "sound/weapons/ee3/fire.mp3"
-	ProjSpeedModifier 	1.1
+    FlashSound0 "sound/weapons/se-44c/fire.wav"
+    AltFlashSound0  "sound/weapons/se-44c/alt_fire.wav"
 }
 
 WeaponInfo1
@@ -46,30 +48,25 @@ WeaponInfo1
 	Icon  "gfx/hud/w_icon_f11_p"
 	WeaponName  "Phasma's Blaster Rifle"
 	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect "Blaster/Shot02R"
-	AltMissileEffect "Blaster/Shot02R"
-	PowerUpShotEffect	"Blaster/Shot02R"
+	MissileEffect		"Blaster/Shot01R"
+	FlashSound0	    "sound/weapons/f-11d/fire.mp3"
 	CustomAmmo	600
-	ProjSpeedModifier 	1.1
-	firingAnim	BOTH_ATTACK4
+	firingAnim  DC15_FIRE
 }
 WeaponInfo2
 {
 	WeaponToReplace WP_BLASTER
-	WeaponBasedOff  WP_BLASTER
+	WeaponBasedOff  WP_FLECHETTE
 	NewWorldModel "models/weapons2/f11d_blaster/F11D_Phasma_W.glm"
 	NewViewModel  "models/weapons2/f11d_blaster/F11D_Phasma.md3"
 	Icon  "gfx/hud/w_icon_f11_p"
 	WeaponName  "Phasma's Blaster Rifle"
 	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect "Blaster/Shot02R"
-	AltMissileEffect "Blaster/Shot02R"
-	PowerUpShotEffect	"Blaster/Shot02R"
-	altFireEnabled 0
+	MissileEffect		"Blaster/Shot01R"
+	FlashSound0	    "sound/weapons/f-11d/fire.mp3"
 	CustomAmmo	600
-	ProjSpeedModifier 	1.1
+	firingAnim  DC15_FIRE
 }
-
 
 WeaponInfo3
 {
@@ -83,23 +80,31 @@ WeaponInfo3
 
 description	"Captain Phasma
 
+Class: Arc Trooper.
 Class Summary: 
-Tanky commander with saber reductive armor, staff and scoped blaster.
+A tanky hybrid melee/gunner commander with multiple damage resistances, a staff, and high powered mid-to-long-range guns. 
 
 Weaponry:
-- Blaster Pistol (2)
-- Blaster Rifle
-  - scope attachement
+- SE-44c Pistol (Based on Pistol 3)
+- F-11D Blaster Rifle (Based on Westar M5 level 2 w/scope attachment)
+- Staff *
 
-Staff
-- Defense 1
-- Regenerate BP even when running
-- Does not block blaster fire
-
-Plasma's Advanced armor:
-- Blast and Cortosis armor
+* Special Weapon Descriptions:
+--- Staff
+- Defense (1)
+- Can use Staff style
+- Reduced damage compared to Saber
+- Can block lightsabers, cannot block blasters
 
 Attributes:
 - Rally
+- Magnetic Plating
+- Blast Armor
+- Cortosis Armor
+- Regenerating Shields (1)
 
-Charged with commanding the stormtrooper forces of the First Order, Phasma's true rank is higher than the simplistic label "captain" would suggest. Although her position could easily afford her a well-appointed war room far from the battlefield, Phasma insists on seeing combat operations first-hand, and shuns any comfortable trappings of elevated rank."
+Abilities:
+- Stamina (3) [Class Special 1]
+- Dexterity (1) [Alt Ability 1]
+
+Charged with commanding the stormtrooper forces of the First Order, Phasma's true rank is higher than the simplistic label 'captain' would suggest. Although her position could easily afford her a well-appointed war room far from the battlefield, Phasma insists on seeing combat operations first-hand, and shuns any comfortable trappings of elevated rank."

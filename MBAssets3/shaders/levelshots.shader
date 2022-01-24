@@ -2033,6 +2033,17 @@ levelshots/mb2_undeadstar2
 	}
 }
 
+levelshots/mb2_veh_destroyer
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_veh_destroyer
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_xmas_dotf
 {
 	nomipmaps

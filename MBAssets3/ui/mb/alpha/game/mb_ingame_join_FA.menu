@@ -202,6 +202,7 @@
 				show			character_title
 				show			Team1Feeder
 				hide			Team2Feeder
+				uiscript		mb_fa_feeders
 				
 				uiscript		mb_updatelimits
 			}
@@ -315,6 +316,7 @@
 				show			character_title
 				hide			Team1Feeder
 				show			Team2Feeder
+				uiscript		mb_fa_feeders
 				
 				uiscript		mb_updatelimits
 			}
@@ -473,7 +475,7 @@
 		{
 			name 				Team1Feeder
 			group				playermodels
-			rect				6 86 152 335
+			rect				6 86 152 335 // 222 // Hardcoded 4th value : MB_FA_Feeder_Variants
 			type 				ITEM_TYPE_LISTBOX
 			style 				WINDOW_STYLE_FILLED
 			elementwidth 		35
@@ -509,7 +511,7 @@
 		{
 			name 				Team2Feeder
 			group				playermodels
-			rect				6 86 152 335
+			rect				6 86 152 335 // 222 // Hardcoded 4th value : MB_FA_Feeder_Variants
 			type 				ITEM_TYPE_LISTBOX
 			style 				WINDOW_STYLE_FILLED
 			elementwidth 		35
@@ -539,7 +541,7 @@
 				setitemcolor 	Team2Feeder bordercolor 0.1 0.7 1 0.9
 			}
 		}
-		
+
 		itemDef
 		{
 			name				FA_count
@@ -556,7 +558,90 @@
 			visible				1
 			decoration
 		}
-		
+
+//--------------------------------------------------
+// CLASS VARIANT - Model and Saber selection system
+//--------------------------------------------------
+
+		itemDef
+		{
+			name 				titleV
+			rect 				81 309 10 15
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"CUSTOMIZE"
+			font				7
+			textscale			0.2
+			textalign 			ITEM_ALIGN_CENTER
+			textalignx 			0
+			textaligny 			-10
+			forecolor			1 1 1 1
+			visible 			0
+			decoration
+		}
+
+		itemDef
+		{
+			name 				headlistV
+			group				playermodels
+			rect 				6 326 152 46//6 308 152 46
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		35
+			elementheight 		44
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_SIEGE_FA_MODEL
+			//horizontalscroll
+			forecolor 			1 1 1 1
+			descText			"Select Model Variant"
+			visible				0
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlistV bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlistV bordercolor1 0.1 0.7 1 0.9
+			}
+		}
+		itemDef 
+		{
+			name				hiltlistV
+			group				playermodels			
+			rect				6 372 152 36//6 354 152 36//54
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 		120
+			elementheight		16
+			font				4
+			textaligny			16
+			textscale			1
+			forecolor			0.9 0.9 0.9 1
+			backcolor			0 0 .5 .25
+			outlinecolor		.5 .5 .5 .5
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_SIEGE_FA_SABER
+			descText			"Select Saber Variant"
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			visible				0			 
+			action 
+			{
+				play			"sound/interface/choose_hilt.wav"
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	hiltbut bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	hiltbut bordercolor1 0.1 0.7 1 0.9
+			}
+		}
 
 //--------------------------------------------------
 // CLASS PORTRAIT - this gets its background value from ui_classportrait

@@ -1,21 +1,25 @@
-//Siege class def file.
+//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name			"_v_c_galak"
-	weapons			WP_CONCUSSION
-	attributes		MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_LOGIC,1|MB_ATT_FIREPOWER,2|MB_ATT_RECHARGE,3|MB_ATT_SBD_CANNON,1|MB_ATT_ANTI_MT,1|MB_ATT_RADAR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_RALLY,1
-	maxhealth		50
-	maxarmor		80
+	weapons			WP_CONCUSSION|WP_MELEE
+	attributes		MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_FIREPOWER,2|MB_ATT_RECHARGE,3|MB_ATT_ANTI_MT,1|MB_ATT_RADAR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ZOOM,1|MB_ATT_LOGIC,1|MB_ATT_SBD_CANNON,1
+	maxhealth		60
+	maxarmor		140
+	meleeMoves				M_PUNCH|M_KICK
 	model			"doomgalak"
 	skin			"default"
 	uishader		"models/players/doompack/Galak"
 	MBClass			MB_CLASS_SBD
 	classNumberLimit	1
-	speed			0.90
-	rateOfFire      1.15
-	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_BUBBLESHIELD
-	modelscale		1.23
+	speed			0.9
+	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_BUBBLESHIELD|CFL_HEAVYMELEE
+	modelscale		1.33
+	WP_BlasterFlags    HELD_LOWDAMAGE
+	WP_SaberFlags       HELD_SPEED
+
+	respawnCustomTime 75000	
 }
 
 WeaponInfo0
@@ -25,30 +29,51 @@ WeaponInfo0
 	NewWorldModel	"models/weapons2/concussion_old/c_rifle_w.glm"
 	NewViewModel	"models/weapons2/doombgalak/c_rifle.md3"
 	Icon		"gfx/doom_wpicons/w_icon_arm"
-	WeaponName	"Arm Blaster"
-	customAmmo          600
+	WeaponName	"Repeater Arm Blaster"
+	MuzzleEffect	"repeater/muzzle_flash"
+	MissileEffect	"repeater/projectile"
 	idleAnim	        SBD_GUN_OUT_STAND
+	customammo         999
+}
+
+WeaponInfo1
+{
+	WeaponToReplace	WP_BLASTER
+	WeaponBasedOff	WP_BLASTER
+	NewWorldModel	"models/weapons2/concussion/c_rifle_w.glm"
+	NewViewModel	"models/weapons2/concussion/c_rifle.md3"
+	Icon		"gfx/doom_wpicons/w_icon_repeater"
+	WeaponName	"Imperial Heavy Repeater"
+	MuzzleEffect	"repeater/muzzle_flash"
+	MissileEffect	"repeater/projectile"
+	idleAnim	        SBD_GUN_OUT_STAND
+		customammo         999
+	altFireEnabled 0
 }
 
 description	"Galak Fyyar
 
+Class: SBD.
+Class Summary:
+A tanky anti-Jedi SBD type class with an overshield that shocks and pushes away enemies.
+
 Weaponry:
-Arm Mounted Blaster + Stun Cannon
-(toggle via gun mode / lightsaber style control)
+- Arm Mounted Blaster (Deals half damage)
+- Heavy Melee
 
 Attributes:
-- Large personal shield
-- Rally
-- Battery Recharge (3)
 - Fire Power (2)
-- Shield Recharge (1)
-- Radar (enter recharge mode to reveal enemies on radar screen)
-
-Specials:
-- Immunity to Mind Trick
+- Large Personal Shield
 - Magnetic Plating
-- Cortosis
+- Cortosis Armor
 - Blast Armor
-- Strong against melee
+- Melee Damage Resistance
+- Heal (1)
+- Immunity to Mind Trick
+
+Abilities:
+- Recharge (3) [Class Special 1]
+- Radar (Enter recharge mode to reveal enemies on radar screen)
+- Advanced Targeting [Class Special 2]
 
 Galak Fyyar was a skilled commander and scientist of Desann's faction of the Imperial Remnant. He wore into battle a cortosis-based power armor of his own creation - equipped with a shield generator and mounted blaster cannon."

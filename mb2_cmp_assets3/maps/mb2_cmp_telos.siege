@@ -1,0 +1,161 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 TSF
+	team2 Sith
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_cmp_telos/map"
+missionname "Battle of Telos"
+radartopleft "-768, 320"
+radarbottomright "4344, -4920"
+
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cmp_telos"
+		radargraphicfull "gfx/automap/mb2_cmp_telosfull"
+	}
+}
+
+HelpIcons
+{
+
+	//Door across Bridge
+
+	HelpIcon1
+	{
+		end0 "stationdoor"
+		origin "2568 -2356 56"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+		radius 1500
+	}
+	HelpIcon2
+	{
+		end0 "override"
+		origin "1728 -4392 168"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+		radius 1500
+	}
+
+	//Final OBJ Hack
+	HelpIcon3
+	{
+		start0 "shuttleopen"
+		//end0 "?"
+		origin "4104 -3728 112"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+		radius	 1000
+	}
+}
+
+TSF
+{
+	RequiredObjectives 1
+        Timed 300								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	UseTeam "TSF" 						//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_oldrepublic2"
+	Timed 300
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+
+	Objective1
+	{
+		goalname "Unlock secondary doors."
+		final -1
+		target ""
+		objdesc "OPTIONAL: Unlock the station secondary doors."
+		objgfx "gfx/mp/mplevels/mb2_cmp_telos/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Get to the TSF station and slice the main console."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "ATTACK: Slice a console in the station to unlock a shuttle."
+		objgfx "gfx/mp/mplevels/mb2_cmp_telos/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Get to the shuttle and escape Citadel station."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "ATTACK: Get to the shuttle and close the hatch."
+		objgfx "gfx/mp/mplevels/mb2_cmp_telos/obj3"
+	}
+
+	wonround "We have reached the shuttle!" 						//Printed to this team if they won the round.
+	lostround "It's over... Telos is doomed." 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "" //Displayed on the mission briefing menu.
+}
+
+Sith
+{
+	RequiredObjectives 1
+	UseTeam "TelosSith"
+	TeamIcon	"gfx/2d/logos/mb_exchange"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Stop the Jedifrom unlocking the secondary doors."
+		final 0
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "OPTIONAL: Stop the Jedi from unlocking the station secondary doors."
+		objgfx "gfx/mp/mplevels/mb2_cmp_telos/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Stop the Jedi from slicing the station console."
+		final 0
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "DEFEND: Keep the Jedi away from the station console."
+		objgfx "gfx/mp/mplevels/mb2_cmp_telos/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Stop the Jedi from reaching a shuttle !"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "DEFEND: Stop the Jedi from escaping !"
+		objgfx "gfx/mp/mplevels/mb2_cmp_telos/obj3"
+	}
+	
+	wonround "We have won this battle !"
+	lostround "We have lost this battle."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing ""
+}

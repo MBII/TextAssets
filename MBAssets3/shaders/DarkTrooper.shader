@@ -1,24 +1,22 @@
 models/players/darktrooper/darktrooper
 {
-	cull	twosided	  
 	{
 		map models/players/darktrooper/darktrooper
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/darktrooper/spec2
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+            map models/players/t3m4/t3env
+        	blendFunc GL_DST_COLOR GL_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    }
 	{
-		map models/players/darktrooper/darktrooper
+		map models/players/darktrooper/darktrooper_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
 		alphaGen lightingSpecular
+		detail
 	}
 }
 

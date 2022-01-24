@@ -315,6 +315,29 @@ gfx/effects/sabers/Flare03
 }
 
 
+// magnetic plating hit
+
+gfx/effects/mag_plating_flare
+{
+	cull	disable
+	{
+		map gfx/misc/flare
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+gfx/effects/mag_plating_elec
+{
+	cull	disable
+	{
+		map gfx/effects/chrome2
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+
 //	thermal sphere of doom
 
 models/weapons2/Thermal/sphereofdoom
@@ -369,6 +392,20 @@ gfx/effects/yellow_bryarFrontFlash
 	{
 		map gfx/effects/yellow_bryarfrontflash
 		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+
+// Grapple Hook Line
+
+gfx/effects/grapplehook
+{
+	notc
+	cull	twosided
+	{
+		map gfx/effects/grapplehook
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
 	}
 }

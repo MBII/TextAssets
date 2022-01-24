@@ -1,28 +1,38 @@
-//Siege class def file.
+//PowerBattles II - Created by FrenzY
 
 ClassInfo
 {
-name			"pbfa_1_r_jawa"	
-weapons			WP_MELEE|WP_SABER|WP_PULSE_NADE|WP_DEMP2|WP_BLASTER
-saber1			"swissarmyknife"
-sabercolor		0
-saberstyle		SS_TAVION
-attributes		MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,1|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_RESPAWNS,3|MB_ATT_BOWCASTER,1|MB_ATT_BLASTER,1|MB_ATT_FP_MIRALUKA
-forcepowers		FP_SEE,1
-maxhealth		80
-maxarmor		20
- 	model 		"jawa"					
- 	skin		"knuckles"
-uishader		"models/players/jawa/knucklesJawa"
-MBClass			MB_CLASS_BOUNTY_HUNTER 
-classflags		CFL_SHOTGUN|CFL_RUNFASTMELEE|CFL_STATVIEWER|CFL_HEAVYMELEE
-holdables		HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_EWEB|HI_HEALTHDISP
-WP_Demp2Flags 	HELD_PULSE|HELD_SLOW
-WP_SaberFlags 	HELD_PULSE
-modelscale		0.7
-speed			0.85
-forcepool        25
-classNumberLimit	4
+	name			"pbfa_1_r_jawa"	
+	weapons			WP_MELEE|WP_SABER|WP_PULSE_NADE|WP_DEMP2|WP_BLASTER
+	model 			"jawa"					
+	skin			"knuckles"
+	uishader		"models/players/jawa/knucklesJawa"
+	MBClass			MB_CLASS_BOUNTY_HUNTER 
+
+	saber1			"swissarmyknife"
+	sabercolor		0
+	saberstyle		SS_TAVION
+	attributes		MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,1|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_RESPAWNS,3|MB_ATT_BOWCASTER,1|MB_ATT_BLASTER,1|MB_ATT_FP_MIRALUKA
+	forcepowers		FP_SEE,1
+	maxhealth		80
+	maxarmor		20
+
+
+	classflags		CFL_SHOTGUN|CFL_RUNFASTMELEE|CFL_STATVIEWER|CFL_HEAVYMELEE
+	holdables		HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_EWEB|HI_HEALTHDISP
+
+	WP_Demp2Flags 	HELD_PULSE|HELD_SLOW
+	WP_SaberFlags 	HELD_PULSE
+	modelscale		0.7
+	speed			0.85
+	forcepool        25
+	classNumberLimit	4
+	saberStanceAnim	TORSO_SURRENDER_START
+	
+	gloatAnim	TORSO_SURRENDER_START
+	flourishAnim	BOTH_COWER1
+	tauntAnim	BOTH_SHOWOFF_FAST
+
 }
 
 WeaponInfo0
@@ -38,49 +48,21 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_DEMP2
-	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"
-	NewViewModel		"models/weapons2/base_demp2/demp2.md3"
-	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
-	Icon				"gfx/hud/w_icon_basedemp2"
-	WeaponName			"DEMP 2"
-	
-
-	//Efx
-		
-	MissileHitHumanEffect "effects/base_demp2/altdetonate"
-	MissileHitDroid 	"effects/base_demp2/altdetonate"
-
-	WallImpact 			"effects/base_demp2/wall_impact"
-	WallImpactEnhanced 	"effects/base_demp2/wall_impact"
-	WallImpactEnhanced2 	"effects/base_demp2/wall_impact"
-
-	MissileEffect		"effects/base_demp2/projectile"  					
-	//AltMissileEffect 	"effects/base_demp2/projectile" 
-
-	MuzzleEffect		"effects/base_demp2/muzzle_flash"
-	//AltMuzzleEffect		"effects/base_demp2/altmuzzle_flash"
-	FleshImpact 		"effects/base_demp2/flesh_impact"
-	DroidImpact 		"effects/base_demp2/flesh_impact"
-	CustomAmmo 			400
-	ClipSize 			25
-	ReloadTimeModifier 	0.85
-	ProjSpeedModifier	0.8
-
-	firingAnim		BOTH_ATTACK3
-	idleAnim		TORSO_WEAPONREADY3
-
-	PrimHitscanShot 	0
-	PrimHitscanTracer 	9
-
-
+	WeaponToReplace		WP_DEMP2			 
+	WeaponBasedOff		WP_CONCUSSION					 
+	NewWorldModel		"models/weapons2/jawa_blaster/model_w.glm"  	 
+	NewViewModel		"models/weapons2/jawa_blaster/model.md3" 
+	Icon				"gfx/hud/w_icon_jawablaster" 				 
+	WeaponName			"Ion Blaster"    				 
+	MuzzleEffect		"arc_caster/ArcCasterMuzzle"
+	MissileEffect		"arc_caster/ArcCasterShock"
+    MissileMissEffect "effects/blaster/Impact_Wall01B"
+	CustomAmmo 	400
+	ClipSize 		14
+	ReloadTimeModifier 	.85		 
 	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
-	FlashSound1		"sound/weapons/base_demp2/fire.mp3"
-	FlashSound3		"sound/weapons/base_demp2/fire.mp3"
-	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
-
 	AltFireEnabled 0
+	FPMult     			1.3
 }
 	
 WeaponInfo2
@@ -111,6 +93,7 @@ description	"Ugandan Jawa
 
 Weaponry:
 Destructive Electromagnetic Pulse 2 (Demp 2)
+- 30 percent more FP damage
 CR-1 Shotgun Cannon
 Swiss Army Knife
 Pulse Grenade (1)
@@ -121,6 +104,7 @@ Portable Shield
 Sentry Gun
 
 Abilities:
+Double FP damage
 Knows De Wei
 Ugandan Senses
 Can heal others and see their wei / health.

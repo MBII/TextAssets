@@ -8,19 +8,20 @@ Teams
 
 mapgraphic "gfx/mplevels/lasertag/lasertagkids"
 missionname  "Laser Tag"
-countin_time   10
+
+MBModesAllowed "2" //Space separated list of mode numbers the map may be played on. If the server is not using an allowed mode, it will change to the first mode in the list.
+
 roundbegin_target ""
 //this is a global target, it will be fired off if there is one when the round begins (this happens
 //when there is at least 1 player on each team active)
 
 //All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
 
-countin_time 0
-
 Red-Team
 {
-	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
-     	UseTeam "red-team" 							//Specifies the name of team "theme" to use
+	RequiredObjectives 1	//How many objectives must this team complete before winning the round?
+	Timed 300	//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+    UseTeam "red-team" 							//Specifies the name of team "theme" to use
 	TeamIcon	"gfx/2d/logos/mb_naboo"
 	TeamColorOn	"1 0 0 1"
 	TeamColorOff	".7 0 0 1"	
@@ -41,7 +42,7 @@ Red-Team
 	roundover_sound_wewon "sound/chars/protocol/misc/40MOM013.mp3"
 	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
 	roundover_target "siegeend"
-	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
 
 	briefing "Frag up, baby!" //Displayed on the mission briefing menu.
 }
@@ -49,11 +50,11 @@ Red-Team
 Blue-Team
 {
 	RequiredObjectives 1
+	Timed 300
 	UseTeam "blue-team"
 	TeamIcon	"gfx/2d/logos/mb_tradefed"
 	TeamColorOn	"0 0 1 1"
 	TeamColorOff	"0 0 .7 1"
-	Timed 300
 	Objective1
 	{
 		goalname "Kill red team players!"

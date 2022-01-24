@@ -1,0 +1,113 @@
+//CTF FA
+
+ClassInfo
+{
+	name 					"ctf_r_engineer"
+	weapons 				WP_SABER|WP_MELEE|WP_BOWCASTER|WP_BLASTER_PISTOL|WP_TRIP_MINE
+	attributes				MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_BOWCASTER,1|MB_ATT_TRIP_MINES,2
+	maxhealth				80
+	maxarmor				40
+	speed					1.1
+	holdables       		HI_SENTRY_GUN|HI_EWEB|HI_ARMORDISP
+	saber1					mwrench
+	saberstyle				SS_MEDIUM
+	model					"tyriasarkin"
+	skin					"alliance"
+	uishader				"models/players/tyriasarkin/mb2_icon_alliance"
+
+	model_1					"tyriasarkin"
+	skin_1					"resistance"
+	uishader_1				"models/players/tyriasarkin/mb2_icon_resistance"
+
+	model_1					"rebel_pilot"
+	skin_1					"fasound"
+	uishader_1				"models/players/rebel_pilot/mb2_icon_default"
+	
+	MBClass 				MB_CLASS_SOLDIER
+	classflags				CFL_STATVIEWER
+	WP_Bowcasterflags		HELD_PULSE|HELD_LOWDAMAGE|HELD_SLOW|HELD_AMMOREGEN
+	respawnCustomTime 		30000
+	classnumberlimit		2
+}
+
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_DEMP2
+	NewWorldModel		"models/weapons2/base_demp2/demp2_w.glm"
+	NewViewModel		"models/weapons2/base_demp2/demp2.md3"
+	NewHandsModel		"models/weapons2/base_demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2"
+	WeaponName			"DEMP 2"
+
+	//Efx
+	MissileHitHumanEffect "effects/base_demp2/altdetonate"
+	MissileHitDroid 	"effects/base_demp2/altdetonate"
+	MissileMissEffect 			"effects/base_demp2/wall_impact"
+	MissileEffect		"effects/base_demp2/projectile"  					
+	//AltMissileEffect 	"effects/base_demp2/projectile" 
+	MuzzleEffect		"effects/base_demp2/muzzle_flash"
+	//AltMuzzleEffect		"effects/base_demp2/altmuzzle_flash"
+
+	firingAnim		BOTH_ATTACK3
+	idleAnim		TORSO_WEAPONREADY3
+
+	PrimHitscanShot 	0
+	PrimHitscanTracer 	9
+
+
+	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound1		"sound/weapons/base_demp2/fire.mp3"
+	FlashSound3		"sound/weapons/base_demp2/fire.mp3"
+	ChargeSound		"sound/weapons/base_demp2/altcharge.mp3"
+	CustomAmmo 		100
+	ClipSize 		5
+	ReloadTimeModifier 	.85		
+	ProjSpeedModifier .8
+	AltFireEnabled 0
+
+}
+
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BLASTER_PISTOL        					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_BLASTER_PISTOL      					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/blaster_two/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3"   	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_blaster_pistol_2" 				//Required: Weapon change icon
+	WeaponName		"DL-44 Pistol"    					//Required: Weapon change display name
+	
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_mwrench"
+	WeaponName		"Hydrospanner"
+}
+
+description	"Combat Engineer
+
+Weaponry:
+
+DEMP 2 (shocks) (1)
+Blaster Pistol (2)
+Trip Mines (2)
+Hydrospanner Wrench
+
+Equipment: 
+
+Portable Sentry
+E-Web
+
+Attributes:
+
+Armor Regeneration of Allies (Press Use)
+Can See Health/Shield Status of Allies
+
+30 Second Respawn Timer"
