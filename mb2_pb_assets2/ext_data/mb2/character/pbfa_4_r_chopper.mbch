@@ -1,22 +1,26 @@
-	//Siege class def file.
+	//PowerBattles II - Created by FrenzY
 	
 	ClassInfo
 	{
 		name			"pbfa_4_r_chopper"
-		weapons			WP_DEMP2|WP_BLASTER_PISTOL|WP_REPEATER
-		attributes		MB_ATT_CLONEBLOBS,2|MB_ATT_CLONERIFLE,1|MB_ATT_ASSEMBLE|MB_ATT_FUEL,3|MB_ATT_JETPACK|MB_ATT_PISTOL,1|MB_ATT_AMMO,3|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING|MB_ATT_FLAMETHROWER|MB_ATT_FORCEBLOCK,3
-		classflags 		CFL_FASTHACKING|CFL_STRONGAGAINSTPHYSICAL|CFL_FUEL_REGENERATION|CFL_NO_JETPACK_COOLDOWN|CFL_SEEING_STEALTH|CFL_ACIDBLOOD|CFL_AKIMBOPISTOL3
+		model			"chopper"
+		skin			"default"
+		uishader		"models/players/chopper/icon_default"
+		MBClass			MB_CLASS_MANDALORIAN
+		
+		weapons			WP_DEMP2|WP_REPEATER
+		attributes		MB_ATT_FUELREGEN,2|MB_ATT_CLONEBLOBS,2|MB_ATT_CLONERIFLE,1|MB_ATT_ASSEMBLE|MB_ATT_FUEL,3|MB_ATT_JETPACK|MB_ATT_PISTOL,1|MB_ATT_AMMO,3|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING|MB_ATT_FLAMETHROWER|MB_ATT_FORCEBLOCK,3
+		classflags 		CFL_FASTHACKING|CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|CFL_SEEING_STEALTH|CFL_AKIMBOPISTOL3
 		forcepowers		FP_SEE,1|FP_GRIP,3
 		forcepool		100
 		forceregen		2
 		maxhealth		80
 		extralives		2
-		model			"chopper"
 		modelscale		0.8
-		skin			"default"
-		uishader		"models/players/chopper/icon_default"
-		WP_BlasterPistolFlags	HELD_LOWDAMAGE|HELD_POISON|HELD_EXPLOSIVE
-		MBClass			MB_CLASS_MANDALORIAN
+		respawnCustomTime	30000
+		WP_DEMP2Flags	HELD_LOWDAMAGE|HELD_STUN|HELD_EXPLOSIVE|HELD_PULSE
+		meleeMoves				M_JUMPKICK
+		respawnCustomTime	20000
 		holdables		HI_AMMODISP
 		classNumberLimit	2
 	}
@@ -24,66 +28,32 @@
 WeaponInfo0
 {
 	WeaponToReplace		WP_DEMP2
-	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/noweap/noweap.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon                    "gfx/hud/w_icon_lpa_nn-14"
-	
-	
-	MuzzleEffect		"null/null"
-AltMuzzleEffect		"null/null"
-MissileEffect		"blaster/Shot01Y"
-Missile3Effect		"blaster/Shot01Y"  		
-AltMissileEffect	"blaster/Shot01Y" 
-PowerupShotEffect	"blaster/Shot01Y" 
-ChargeEffect		"null/null"
-MuzzleEffect		"null/null" //"blaster/muzzle_flash"   				//Optional: New muzzle effect
-AltMuzzleEffect		"null/null" //"blaster/altmuzzle_flash" 				//Optional: New alt muzzle effect
-OverchargeEffect	"null/null"
-
-	WeaponName		"Dual Emitter"
-	customAmmo		300
-	clipsize		70
+	WeaponBasedOff		WP_BLASTER_PISTOL
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	MuzzleEffect		"arc_caster/ArcCasterMuzzle"
+	MissileEffect		"arc_caster/ArcCasterShock"
+	Icon			"gfx/hud/w_icon_t3m4_ion"
+	WeaponName			"Ion Blaster"
+	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
+	customammo 288
+	clipsize   20
+	AltFireEnabled 0
+	FPMult 2
 }
-
 WeaponInfo1
-{
-WeaponToReplace		WP_BLASTER_PISTOL
-WeaponBasedOff		WP_BLASTER_PISTOL
-NewWorldModel		"models/weapons2/noweap/noweap.glm"
-NewViewModel		"models/weapons2/dummy/dummy.md3"
-Icon			"models/weapons2/leias_pistol/w_icon_leias_pistol"
-WeaponName		"Poison Pistol"
-	
-	MuzzleEffect		"null/null"	   		//Optional: New muzzle effect
-	AltMuzzleEffect		"null/null" 			//Optional: New alt muzzle effect
-	MissileEffect		"Blaster/Shot11G"  				//Optional: New effect to be displayed on the projectile
-	Missile3Effect		"Blaster/Shot03G"  				//Optional: New effect to be displayed on the projectile
-	AltMissileEffect	"Blaster/Shot11G"  				//Optional: Ditto for the alt fire
-	PowerupShotEffect	"null/null"  				//Optional: Ditto for the alt fire
-	ChargeEffect		"null/null"
-	OverchargeEffect	"null/null"
-
-MissileMissEffect	"noghri_stick/gas_cloud"
-altMissileMissEffect	"noghri_stick/gas_cloud"
-
-}
-
-WeaponInfo2
 {
 	WeaponToReplace		WP_REPEATER
 	WeaponBasedOff		WP_BLASTER
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
-	WeaponName		"Stun Blasts"
-	customAmmo		0
-	AltFireEnabled	1
-	clipsize		-1
-	primFireEnabled		0
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon			"gfx/hud/w_icon_t3m4_blaster"
+	WeaponName			"Stun Blasts"
+	customammo 500
+	PrimFireEnabled 0
 }
 
-ForceInfo1
+ForceInfo0
 {
 	ForceToReplace	FP_SEE
 	Icon		"gfx/marvel/radar"
@@ -93,8 +63,9 @@ ForceInfo1
 description	"Chopper
 
 Weapons:
-Sonic Emitter
-Poison Pistol
+Ion Blaster
+- Stuns and shocks enemies 
+- x2 FP Drain
 Stun Blasts (right click)
 
 
@@ -105,7 +76,6 @@ Grip (3)
 Block (3)
 Magnetic Plating
 Cortosis
-Acid Blood
 Melee Damage Reduction
 Sense Immunity
 Assemble

@@ -9,6 +9,15 @@ models/players/exar_kun/cape
     }
 }
 
+models/players/exar_kun/pad
+{
+	cull	twosided
+    {
+        map models/players/exar_kun/pad
+        rgbGen lightingDiffuse
+    }
+}
+
 models/players/exar_kun/exar_extras
 {
     {

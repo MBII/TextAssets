@@ -1,21 +1,24 @@
-//Siege class def file.
+//Power Battles II - Created by FrenzY
 
 ClassInfo
 {
 	name			"pbfa_1_b_meddroid"
+	model			"med_droid" 			
+	skin			"default"				
+	uishader		"models/players/med_droid/icon_default"
+	MBClass		MB_CLASS_BOUNTY_HUNTER
+
 	weapons		WP_SABER|WP_MELEE|WP_CONC_NADE|WP_BLASTER
 	attributes		MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_ASSEMBLE|MB_ATT_TRACKING_DART,3|MB_ATT_POISON_DART,3|MB_ATT_FP_MIRALUKA
 	forcepowers		FP_SEE,3
 	forceregen 		1
 	maxarmor		100
 	modelscale		0.93
-	model			"med_droid" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/med_droid/icon_default"
-	extralives		2
+
+
 	WP_BlasterFlags	HELD_POISON
-	MBClass		MB_CLASS_BOUNTY_HUNTER
-	WP_TripMineFlags	HELD_HIGHDAMAGE
+
+	WP_ConcNadeFlags	HELD_HIGHDAMAGE
 	WP_MeleeFlags	HELD_PULSE
 	classflags		CFL_SHOTGUN|CFL_ACIDBLOOD|CFL_RUNFASTMELEE|CFL_STATVIEWER|CFL_HEAVYMELEE
 	holdables		HI_MEDPAC|HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_EWEB|HI_SHIELD|HI_HEALTHDISP
@@ -23,34 +26,35 @@ ClassInfo
 	saber1			pb_baton
 	sabercolor		0
 	saberstyle		SS_TAVION
+
 	classNumberLimit	3
-
+	extralives		2
 }
-
-//WeaponInfo0
-//{
-//	WeaponToReplace		WP_CONC_NADE
-//	WeaponBasedOff		WP_CONC_NADE
-//	NewWorldModel		"models/weapons2/fraggrenade/thermal_w.glm"  
-  //  	NewViewModel		"models/weapons2/dummy/dummy.md3" 
-//	missileModel		"models/weapons2/fraggrenade/thermal_proj.md3"
-//	Icon			"gfx/hud/w_icon_fraggrenade"
-//	WeaponName		"Potent Frag Grenade"
-//	altFireEnabled		0
-//	customAmmo          7
-//}
 
 WeaponInfo0
 {
-WeaponToReplace		WP_SABER
-WeaponBasedOff		WP_SABER
-NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"
-NewViewModel		"models/weapons2/stun_baton/baton.md3"
-Icon			"gfx/hud/w_icon_stun_baton"
-WeaponName		"Stun Baton"
+	WeaponToReplace		WP_CONC_NADE
+	WeaponBasedOff		WP_CONC_NADE
+	NewWorldModel		"models/weapons2/fraggrenade/thermal_w.glm"  
+    NewViewModel		"models/weapons2/dummy/dummy.md3" 
+	missileModel		"models/weapons2/fraggrenade/thermal_proj.md3"
+	Icon					"gfx/hud/w_icon_fraggrenade"
+	WeaponName		"Potent Frag Grenade"
+	altFireEnabled		0
+	customAmmo          3
 }
 
 WeaponInfo1
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"
+	NewViewModel		"models/weapons2/stun_baton/baton.md3"
+	Icon			"gfx/hud/w_icon_stun_baton"
+	WeaponName		"Stun Baton"
+}
+
+WeaponInfo2
 {
 	WeaponToReplace		WP_BLASTER					//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_BOWCASTER					//Required: For future use, should be the same as WeaponToReplace

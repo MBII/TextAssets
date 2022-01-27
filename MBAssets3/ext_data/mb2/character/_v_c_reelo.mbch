@@ -6,15 +6,19 @@ ClassInfo
 	uishader  "models/players/reelo/mb2_icon_default"
 	MBClass		MB_CLASS_WOOKIE
 	classNumberLimit	1
-	maxhealth		100
-	maxarmor		125
+	maxhealth		200
+	maxarmor		175
 	rateOfFire      .8
-	damageGiven     .9
 	speed           1.03
-	weapons		WP_PULSE_NADE|WP_BLASTER|WP_ROCKET_LAUNCHER|WP_MELEE|WP_TRIP_MINE|WP_DISRUPTOR|WP_REPEATER
-	attributes		MB_ATT_TRIP_MINES,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,1|MB_ATT_PLX1,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_AMMO,2|MB_ATT_DISRUPTOR,2|MB_ATT_CLONERIFLE,3
+	modelscale      1.04
+	holdables       HI_EWEB
+	weapons		WP_FRAG_NADE|WP_BLASTER|WP_ROCKET_LAUNCHER|WP_MELEE|WP_PULSE_NADE|WP_DISRUPTOR|WP_REPEATER|WP_TRIP_MINE
+	attributes		MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,3|MB_ATT_PLX1,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_CLONERIFLE,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,1
 	classflags		CFL_ICETHROWER|CFL_WFLAMETHROWER
 	WP_RocketLauncherFlags HELD_SLOW
+	WP_RepeaterFlags HELD_SPEED
+	
+	respawnCustomTime 50000
 }
 
 WeaponInfo0
@@ -25,14 +29,13 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/MiniMag_launcher/launcher.md3"
 	Icon			"gfx/hud/w_icon_MiniMag"
 	WeaponName		"Missile Launcher"
-	customAmmo       6
-	ReloadTimeModifier 	0.675
+	customAmmo       4
 }
 
 WeaponInfo1
 {
 	WeaponToReplace		WP_REPEATER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BOWCASTER					//Required: For future use, should be the same as WeaponToReplace
+	WeaponBasedOff		WP_CONCUSSION					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons/CarboniteRifle/model.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons/CarboniteRifle/model.md3"   	//Required: New 1st person weapon model
 	Icon			"gfx/hud/w_icon_carboniterifle" 					//Required: Weapon change icon
@@ -46,27 +49,52 @@ WeaponInfo2
 	NewWorldModel	"models/weapons2/blaster_r/blaster_w.glm"  	
 	NewViewModel	"models/weapons2/blaster_r/blaster.md3"     	//Required: New 1st person weapon model
 	Icon			"gfx/hud/w_icon_E11" 					//Required: Weapon change icon
-	WeaponName		"E-11 Blaster"    				//Required: Weapon change display name
-	customAmmo      300
-	altFireEnabled		0	
+	WeaponName		"Overcharged E-11 Blaster"    				//Required: Weapon change display name
+	customAmmo      550
+	clipSize        60
+	altFireEnabled		1
+    primFireEnabled	    0
 	firingAnim	        BOTH_ATTACK4
+}
+
+WeaponInfo3
+{           
+WeaponToReplace        WP_TRIP_MINE
+WeaponBasedOff         WP_TRIP_MINE
+NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
+NewViewModel	  "models/weapons2/laser_trap/laser_trap.md3"  	
+Icon             "gfx/hud/w_icon_tripmine"
+WeaponName		"Trip Mine"
+altFireEnabled 0
+customAmmo    2
 }
 
 description	"Reelo Baruk
 
+Class: Wookiee.
 Class Summary: 
-A Grenadeer, Rocketeer and Sniper class equipt with freeze ray.
+A grenadier, rocketeer and sniper class equipped with freeze ray. 
 
 Weaponry:
-- E-11 Rifle (1)
+- Overcharged E-11 (3) (Can only use secondary fire)
 - Disruptor (2)
-- Rocket Launcher
-- Pulse Grenades 
-- Trip Mine
-- Cryoban Rifle (Freeze Ray)
+- Rocket Launcher (4 rockets)
+- Trip Mines (2)
+- Pulse Grenades (2)
+- Frag Grenade (1)
+- Cryoban Rifle * (Freeze Ray)
 
-Flab:
-- 2x melee damage
-- Blast Armour
+* Special Weapon Descriptions:
+--- Cryoban Rifle
+- Based on the hand-held flamethrower
+- Runs faster with this weapon equipped
 
-He claims to be an honest garbage hauler, but he's really one of the most powerful criminal kingpins in all of Nar Shaddaa—even the Hutts won't touch him."
+Inventory:
+- Portable E-Web Cannon
+
+Attributes:
+- Strength (2)
+- Blast Armor
+- Heal (1)
+
+He claims to be an honest garbage hauler, but he's really one of the most powerful criminal kingpins in all of Nar Shaddaa. Even the Hutts won't touch him."

@@ -1,27 +1,30 @@
-//Siege class def file.
+//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name				"_v_c_hondo"
-	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_FLECHETTE|WP_BLASTER
-	attributes			MB_ATT_FORCEBLOCK,3|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_ANTI_MT|MB_ATT_A280,1|MB_ATT_AMMO,2|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,3|MB_ATT_FP_MIRALUKA
-	classflags			CFL_FASTHACKING|CFL_STATVIEWER|CFL_STRONGAGAINSTPHYSICAL|CFL_SEEING_STEALTH|CFL_RUNFASTMELEE|CFL_NO_FUEL_USE|CFL_SHOTGUN
+	weapons				WP_MELEE|WP_FLECHETTE|WP_PULSE_NADE|WP_BLASTER|WP_SABER
+	attributes			MB_ATT_AMMO,3|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_ANTI_MT|MB_ATT_A280,1|MB_ATT_AMMO,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,3|MB_ATT_ANTI_MT,1|MB_ATT_ARC_RIFLE_SCOPE,1
+	classflags			CFL_SEEING_STEALTH|CFL_SHOTGUN
 	MBClass				MB_CLASS_ARCTROOPER
-	maxhealth			150
-	maxarmor			100
+	saber1              Cutlass_legends
+	saberstyle          SS_MEDIUM|SS_TAVION
+	CSmultiplier        1.1
+	ASmultiplier        1.09
+	maxhealth			125
+	maxarmor			125
 	model				"hondo"
 	skin				"default"
 	uishader			"models/players/hondo/mb2_icon_default" 
-	classNumberLimit		1	
-	modelscale			0.95
-	speed				0.95
-	holdables			HI_EWEB
-	rateoffire			1.3
-	forcepowers			FP_SEE,1
+	classNumberLimit	1	
+	modelscale			1.03
+	speed				1.04
+	forcepowers		    FP_SABER_DEFENSE,1
 	forcepool			25
-	WP_BlasterFlags     		HELD_LOWDAMAGE
+	WP_BlasterFlags     HELD_ALTRELOAD
+	
+	respawnCustomTime 50000
 }
-
 
 WeaponInfo0
 {
@@ -29,33 +32,20 @@ WeaponInfo0
 	WeaponBasedOff		WP_FLECHETTE      						//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
 	NewViewModel 		"models/weapons2/e5/e5.md3"
-	Icon			"gfx/hud/w_icon_e5"
+	Icon				"gfx/hud/w_icon_e5"
 	MuzzleEffect		"Blaster/MuzzleFlash01R"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot01R"
 	AltMissileEffect 	"Blaster/Shot01R"
-	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
-	AltFlashSound0 		"sound/weapons/ee3/sniperfire.mp3"
-	WeaponName		"Modified E-5 Rifle"
-	customAmmo		400
+	FlashSound0         "sound/weapons/blastermb/alt_fire.wav"
+	altFlashSound0 		"sound/weapons/cw-w5/fire_scope.mp3"
+	WeaponName			"Modified E-5 Blaster Rifle"
+	customAmmo			600
+	altFireEnabled		0
 	idleAnim		MAND_SPISTOL 
 	firingAnim		MAND_SPISTOL_FIRE
 }
-
-
 WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
-	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
-	Icon			"gfx/hud/w_icon_sc-10_holdout"
-	WeaponName		"SC-10 Pistol"
-	customAmmo 		600
-}
-
-
-WeaponInfo2
 {
 	WeaponToReplace		WP_BLASTER
 	WeaponBasedOff		WP_BOWCASTER
@@ -66,39 +56,59 @@ WeaponInfo2
 	FlashSound0			"sound/weapons/acparray/fire.wav"
 	Icon				"gfx/hud/w_icon_cp-50_repeater"
 	WeaponName			"ACP Array Gun"
+	clipsize            22
 	primHitscanShot		1
 	primHitscanTracer	10
 	primGore		1
 	altFireEnabled		0
+	ReloadTimeModifier  1.15
 }
 
-ForceInfo0
+WeaponInfo2
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_hondocutlass"
+	WeaponName			"Cutlass"
 }
 
 description			"Hondo Ohnaka
 
+Class: Arc Trooper.
 Class Summary: 
-Dexterous Grenadier class with devastating shotgun and permanent sense.
+A dexterous melee/gunner/pulse grenadier hybrid with a devastating shotgun. 
 
 Weaponry:
-- Modified E-5 Rifle
-- ACP Array Gun (3)
-  - Hitscan shotgun 
-- SC-10 Pistol (1)
+- Modified E-5 Rifle (Based on Westar M5 level 1 w/scope attachment)
+- ACP Array Gun *
+- Cutlass *
+- Pulse Grenades (3)
+
+* Special Weapon Descriptions:
+--- ACP Array Gun
+- Based on Shotgun level 3
+- Hitscan projectiles
+- Pump Action (1 shot per clip)
+- Magazine style reload
+
+--- Cutlass
+- Defense (1)
+- Can use Yellow and Cyan styles
+- Deals reduced damage
+- Cannot block blaster fire
+- Cannot slap or use special attacks
+- Can block lightsabers
+
+Attributes:
+- Invisible to Force Sense
+- Immune to Mindtrick
+- Heal (1)
 
 Abilities:
-- Portable E-Web (use inventory)
-- Invisible to Force Sight
-- Not affected by force powers
-- Hondo senses (enemies show up on radar)
-- Self Heal (1)
-- Dexterity (2)
-- Stamina (3)
-- Drunk (half damage to melee)
-- Faster running in melee
+- Stamina (3) [Class Special 1]
+- Dodge (3) [Class Special 1]
+- Dexterity (2) [Alt Ability 1]
 
-Hondo Ohnaka was a Weequay male pirate and the captain of the Ohnaka Gang, a Weequay pirate group, on the backwater planet Florrum during the waning years of the Galactic Republic. Born to a poor family, Ohnaka was sold as a child into slavery by his parents. Ohnaka eventually managed to escape the life of slavery by stowing away on an offworld ship, after which he formed a group of pirates on Florrum. Ohnaka's pirates flourished during the Clone Wars by dealing spice and receiving ransoms through kidnapping and extortion."
+Hondo Ohnaka was the leader of the Ohnaka Gang of space pirates during the Clone Wars. His gang was involved in trading spice and receiving ransoms through kidnapping."

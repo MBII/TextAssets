@@ -1,0 +1,193 @@
+Teams
+{
+	team1 Heroes
+	team2 Villains
+}
+
+LevelshotDesc
+{
+    desc1
+    {   
+        text "The hangar building is a key location in the recapturing of Naboo. We must make our way to the hangar building control room and provide access for Queen Amidala and her forces.
+
+Find the control room and ensure the Queen's pathway is clear."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "A rebellion has been mounted and they are attempting to gain access to the hangar. Prevent their advance to the control room and cut off their attack.
+
+I thought the battle was going to take place far from here!"
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx/mplevels/mb2_theed/map"
+missionname "Assault on Theed"
+radartopleft "-1536, 5696"
+radarbottomright "9792, -3648"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_theed"
+		radargraphicfull "gfx/automap/mb2_theedfull"
+	}
+}
+
+HelpIcons
+{
+	//Control Room Hack
+	HelpIcon0
+	{
+		start0 "door13msg"
+		end0 "obj1"
+		origin "7994 2069 136"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+	}
+	//Control Room Trigger Hint
+	HelpIcon1
+	{
+		start0 "door12"
+		end0 "door13msg"
+		origin "7124 878 184"
+		redicon HLP_CAPTURE
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+	}
+	
+	//Gen Door Breaker Parent
+	HelpIcon2
+	{
+		childradius 2000
+		end0 "door12"
+		end1 "breaker1"
+		origin "5964 932 -72"
+		redicon HLP_DESTROY_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+	//Gen Door Breaker West
+	HelpIcon3
+	{
+		parent 2
+		end0 "door12"
+		end1 "breaker1"
+		origin "5632 931 -72"
+		redicon HLP_DESTROY_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+	//Gen Door Breaker South
+	HelpIcon4
+	{
+		parent 2
+		end0 "door12"
+		end1 "breaker2"
+		origin "6053 608 -72"
+		redicon HLP_DESTROY_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+	//Gen Door Breaker East
+	HelpIcon5
+	{
+		parent 2
+		end0 "door12"
+		end1 "breaker3"
+		origin "6381 1008 -72"
+		redicon HLP_DESTROY_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+	
+	//Side Route Hack
+	HelpIcon6
+	{
+		end0 "t9"
+		end1 "door13msg"
+		origin "6096 260 392"
+		redicon HLP_HACK_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+	//Side Trigger Hint
+	HelpIcon7
+	{
+		start0 "t9"
+		end0 "door13msg"
+		origin "6712 2156 352"
+		redicon HLP_CAPTURE_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+		sideobjective 1
+	}
+}
+
+roundbegin_target ""
+
+Heroes
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "SOM_Heroes" 	
+	TeamIcon "gfx/2d/logos/mb_naboo"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Objective 1"
+		final 1
+		message_team1 "You Have Advanced."
+		message_team2 "You Have Been Pushed Back."
+		sound_team1 "sound/chars/protocol/misc/siege1.mp3"
+		sound_team2 "sound/chars/protocol/misc/siege5.mp3"
+		objdesc "PRIMARY GOAL: Hack the hangar door controls so we can enter and launch our starfighters!"
+		objgfx "gfx/mplevels/mb2_theed/obj1"
+		mapicon "gfx/mp/siegeicons/cot1/obj1"
+		litmapicon "gfx/mp/siegeicons/cot1/obj1"
+		donemapicon ""
+		mappos "155 223 16 16"
+	}
+
+	wonround "Mission Accomplished! We have gained access!"
+	lostround "Mission Failed!"
+	roundover_target "endsiege"
+	attackers 1
+	briefing "Gain access to the Control Room and Hangar entrance!"
+}
+
+Villains
+{
+	RequiredObjectives 0
+	UseTeam "SOM_Villains"
+	TeamIcon "gfx/2d/logos/mb_tradefed"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Objective 1"
+		final -1
+		objdesc "PRIMARY GOAL: Stop the Naboo from gaining access to the Hangar!"
+		objgfx "gfx/mplevels/mb2_theed/obj1"
+	}
+
+	wonround "Mission Accomplished! We have cut off their attack!"
+	lostround "Mission Failed!"
+	roundover_target "endsiege"
+	attackers 0
+	briefing "Stop the Rebellion attack!"
+}

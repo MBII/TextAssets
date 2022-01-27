@@ -31,6 +31,36 @@ models/players/gwethenea/hair_brown
 	}
 }
 
+models/players/gwethenea/jacket
+{
+    {
+        map models/players/gwethenea/jacket
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/jacket_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/gwethenea/jacket2
+{
+    {
+        map models/players/gwethenea/jacket2
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/jacket2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/gwethenea/jacket_brown
 {
 	cull	twosided
@@ -40,11 +70,56 @@ models/players/gwethenea/jacket_brown
 	}
 }
 
+models/players/gwethenea/jacket_dark
+{
+	cull	twosided
+	{
+		map models/players/gwethenea/jacket_dark
+		rgbGen lightingDiffuse
+	}
+}
+
 models/players/gwethenea/jacket_darkbrown
 {
 	cull	twosided
 	{
 		map models/players/gwethenea/jacket_darkbrown
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/gwethenea/jacket_green
+{
+	cull	twosided
+	{
+		map models/players/gwethenea/jacket_green
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/gwethenea/jacket_yellow
+{
+	cull	twosided
+	{
+		map models/players/gwethenea/jacket_yellow
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/gwethenea/jacket_yellowb
+{
+	cull	twosided
+	{
+		map models/players/gwethenea/jacket_yellowb
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/gwethenea/jacket_yellowc
+{
+	cull	twosided
+	{
+		map models/players/gwethenea/jacket_yellowc
 		rgbGen lightingDiffuse
 	}
 }
@@ -101,66 +176,6 @@ models/players/gwethenea/hairc_s_brown
         alphaFunc GE192
         depthWrite
         rgbGen lightingDiffuse
-    }
-}
-
-models/players/gwethenea/jacket
-{
-    {
-        map models/players/gwethenea/jacket
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/jacket_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/gwethenea/jacket_red
-{
-    {
-        map models/players/gwethenea/jacket_red
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/jacket_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/gwethenea/jacket_blue
-{
-    {
-        map models/players/gwethenea/jacket_blue
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/jacket_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/gwethenea/jacket2
-{
-    {
-        map models/players/gwethenea/jacket2
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/jacket2_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
     }
 }
 
@@ -389,6 +404,42 @@ models/players/gwethenea/hood
     }
 }
 
+models/players/gwethenea/legs_beige
+{
+    {
+        map models/players/gwethenea/legs_beige
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/gwethenea/legs_blue
+{
+    {
+        map models/players/gwethenea/legs_blue
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/gwethenea/legs_brown
+{
+    {
+        map models/players/gwethenea/legs_brown
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/gwethenea/legs_green
+{
+    {
+        map models/players/gwethenea/legs_green
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
 models/players/gwethenea/legs_2
 {
     {
@@ -482,19 +533,4 @@ models/players/gwethenea/scarf
         depthWrite
         rgbGen lightingDiffuse
     }
-}
-
-models/players/gwethenea/helmet
-{
-	{
-		map models/players/gwethenea/helmet
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_guerilla/helmet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
 }
