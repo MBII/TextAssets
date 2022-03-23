@@ -298,3 +298,16 @@ gfx/marvel/spidersense
 		rgbGen identity
 	}
 }
+
+gfx/2d/shield
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/2d/shield
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+

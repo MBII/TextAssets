@@ -918,6 +918,18 @@ gfx/2d/cropcircle
 	}
 }
 
+gfx/2d/cropCircleGlow
+{
+	notc
+	nomipmaps
+	cull	twosided
+	{
+		map gfx/2d/cropcircleglow
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		rgbGen identity
+	}
+}
+
 gfx/2d/arcMask
 {
 	nopicmip

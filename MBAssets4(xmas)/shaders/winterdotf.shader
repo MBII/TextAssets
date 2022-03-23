@@ -1,4 +1,5 @@
 textures/winterdotf/colorlights
+textures/winterdotf/colorlights
 {
 	qer_editorimage	textures/winterdotf/colorlights
 	polygonOffset
@@ -203,19 +204,5 @@ models/map_objects/xmas/wreath
         alphaFunc GE128
         blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
         depthWrite
-    }
-}
-
-textures/winterdotf/candy_cane
-{
-	qer_editorimage	textures/winterdotf/candy_cane
-	q3map_surfacelight	500
-    {
-        map $lightmap
-    }
-    {
-        map textures/winterdotf/candy_cane
-        blendFunc GL_DST_COLOR GL_ZERO
-        tcMod scroll 0.07 0.07
     }
 }

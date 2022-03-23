@@ -87,6 +87,30 @@ models/players/mc_tusken_jk3/poncho
     }
 }
 
+models/players/mc_tusken_jk3/poncho_blue
+{
+	q3map_nolightmap
+    {
+        map models/players/mc_tusken_jk3/poncho_blue
+        alphaFunc GE128
+        blendFunc GL_ONE GL_ZERO
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/mc_tusken_jk3/poncho_red
+{
+	q3map_nolightmap
+    {
+        map models/players/mc_tusken_jk3/poncho_red
+        alphaFunc GE128
+        blendFunc GL_ONE GL_ZERO
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
 models/players/mc_tusken_jk3/poncho2
 {
 	q3map_nolightmap
@@ -113,29 +137,6 @@ models/players/mc_tusken_jk3/robebottom_fem
 
 
 // QUARAK
-
-models/players/tusken_quarak/robebottom
-{
-	q3map_nolightmap
-    {
-        map models/players/tusken_quarak/robebottom
-        alphaFunc GE128
-        blendFunc GL_ONE GL_ZERO
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-}
-
-models/players/tusken_quarak/robeinside
-{
-    {
-        map models/players/tusken_quarak/robeinside
-        alphaFunc GE128
-        blendFunc GL_ONE GL_ZERO
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-}
 
 models/players/tusken_quarak/blacha
 {

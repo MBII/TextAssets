@@ -1,19 +1,33 @@
-//Siege class def file.
+//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name				"_h_h_Han"
 	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE
-	attributes		MB_ATT_BLAST_ARMOUR|MB_ATT_FRAGS,2|MB_ATT_PISTOL,3|MB_ATT_HEALING,1|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_QUICKTHROW,2|MB_ATT_ARMOUR,3|MB_ATT_DODGE,1|MB_ATT_MICRO_GRENADES,2
-	maxhealth		150
-	maxarmor		50
+	attributes		MB_ATT_FRAGS,3|MB_ATT_PISTOL,3|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_QUICKTHROW,2|MB_ATT_ARMOUR,3|MB_ATT_DODGE,3|MB_ATT_MICRO_GRENADES,2
+	maxhealth		125
+	maxarmor		125
 	damageGiven		1.15
+	speed           1.02
+	modelscale      1.027
+	MBClass						MB_CLASS_HERO
+	classNumberLimit			1
+	WP_FragNadeFlags	HELD_KNOCKDOWN
+	
 	model						"han_anh"
 	skin						"default"
 	uishader					"models/players/han_anh/mb2_icon_default"
-	MBClass						MB_CLASS_HERO
-	classNumberLimit			1
-	classflags					CFL_STRONGAGAINSTPHYSICAL
+	
+	model_1						"han_esb"
+	skin_1						"default"
+	uishader_1					"models/players/han_esb/mb2_icon_default"
+	
+	model_2						"han_tfa"
+	skin_2						"default"
+	uishader_2					"models/players/han_tfa/mb2_icon_default"
+	
+	respawnCustomTime  50000	
+	
 }
 
 WeaponInfo0
@@ -24,41 +38,42 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/blaster_three/blaster_pistol.md3"   	//Required: New 1st person weapon model
 	Icon				"gfx/hud/w_icon_blaster_pistol_3" 				//Required: Weapon change icon
 	WeaponName			"DL-44"    					//Required: Weapon change display name
-	CustomAmmo			600
+	CustomAmmo			800
 	idleAnim		MAND_SPISTOL 
 	firingAnim		MAND_SPISTOL_FIRE
+	FlashSound0			"sound/weapons/han_pistol/fire.mp3"  
+	altFlashSound0			"sound/weapons/han_pistol/alt_fire.mp3"  
 }
 
- WeaponInfo1
- {
- 	WeaponToReplace				WP_FRAG_NADE
- 	WeaponBasedOff				WP_FRAG_NADE
- 	NewWorldModel				"models/weapons2/oldfraggrenade/thermal_w.glm"
- 	NewViewModel				"models/weapons2/oldfraggrenade/thermal.md3"
- 	MissileModel 				"models/weapons2/oldfraggrenade/thermal_proj.md3"
- 	AltMissileModel 			"models/weapons2/oldfraggrenade/thermal_proj.md3"
- 	Icon						"gfx/hud/w_icon_oldfraggrenade"
- 	WeaponName					"Frag Grenade"
-	customammo 		2	
-	AltFireEnabled 		1
- 	PrimFireEnabled		0
- }
+WeaponInfo1
+{	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon							"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		3
+}
+
 description	"Han Solo
 
+Class: Hero.
 Class Summary: 
-Quick-throwing grenadier and pistoleer Hero.
+A quick-throwing stun-grenadier and pistoleer. 
 
 Weaponry:
 - DL-44 Blaster Pistol (3)
-- V-59 Concussion Grenade (2)
-- Frag Grenade (2) (can only be quick thrown)
+- Concussion Grenades (2)
+- Stun Grenades (3) (Secondary-Fire only Frag Grenades, detonates on contact with surfaces)
 
 Attributes:
-- Melee Damage Reduction
-- Quick Throw (alt ability 1)
-- Heal (1)
-- Ammo (2)
-- Dodge (1)
-- Dash (2)
+- Heal (2)
+
+Abilities:
+- Dodge (3) [Class Special 1]
+- Dash (2) [Class Special 2]
+- Quick Throw (2) [Alt Ability 1]
 
 If, at the height of his smuggling days, you told Han Solo that he would be a hero of the Rebellion, fall in love with an Alderaanian princess, and become a general in the Alliance, he would have had no shortage of smart remarks for you. But if anything is consistent in Solo's life, it is unpredictability."

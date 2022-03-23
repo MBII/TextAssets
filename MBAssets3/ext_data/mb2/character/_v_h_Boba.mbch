@@ -1,76 +1,86 @@
-//Siege class def file.
+//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name				"_v_h_Boba"
-	weapons				WP_FLECHETTE|WP_MELEE|WP_BLASTER|WP_SONIC_NADE|WP_DEMP2
-	attributes			MB_ATT_PISTOL,1|MB_ATT_BLASTER,3|MB_ATT_A280,3|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_BOWCASTER,1|MB_ATT_CORTOSIS,1
-	maxhealth			100
-	maxarmor			80
-	model				"mbmandy"
-	skin				"mba2"
-	uishader			"models/players/mbmandy/mb2_icon_mba2"
+	weapons				WP_FLECHETTE|WP_MELEE|WP_BLASTER|WP_FRAG_NADE
+	attributes			MB_ATT_BLASTER,3|MB_ATT_QUICKTHROW,1|MB_ATT_A280,3|MB_ATT_FRAGS,1|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1|MB_ATT_HEALING,2
+	maxhealth			125
+	maxarmor			125
 	MBClass				MB_CLASS_MANDALORIAN
-	classNumberLimit  1
-	WP_DEMP2Flags       HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_HIGHDAMAGE|HELD_KNOCKBACK|HELD_ALTRELOAD
-	damageGiven     1.15
+	speed				1.08
+	classNumberLimit    1
 	rateoffire			0.9
-	damageTaken 	0.85
-}
+	modelscale          1.01
+	classflags          CFL_SHOTGUN
+	WP_BlasterFlags     HELD_ALTRELOAD
 
+	model				"bobafett"
+	skin				"default"
+	uishader			"models/players/bobafett/mb2_icon_default"
+
+	model_1				"bobafett"
+	skin_1				"esb"
+	uishader_1			"models/players/bobafett/mb2_icon_esb"
+	
+	model_2				"bobafett"
+	skin_2				"mand1"
+	uishader_2			"models/players/bobafett/mb2_icon_mand1"
+	
+	model_3				"bobafett"
+	skin_3				"mand2"
+	uishader_3			"models/players/bobafett/mb2_icon_mand2"
+
+	model_4			    "bobafett"
+	skin_4				"hs"
+	uishader_4			"models/players/bobafett/mb2_icon_hs"	
+	
+	respawnCustomTime 50000
+}
 WeaponInfo0
 {
-	WeaponToReplace		WP_DEMP2
-	WeaponBasedOff		WP_DEMP2
-	idleAnim			MAND_FLAME
-	MissileEffect		 "rockets/missile" 
-	FlashSound0          "sound/weapons/rocket/fire.mp3"
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
-	WeaponName		"Wrist Rocket"
-	clipSize 3
-	CustomAmmo 8
+	WeaponToReplace 	WP_BLASTER
+	WeaponBasedOff      WP_BOWCASTER
+	NewWorldModel 		"models/weapons/FWG-5_FlechettePistol/model.glm"
+	NewViewModel		"models/weapons/FWG-5_FlechettePistol/model.md3"
+	Icon				"gfx/hud/w_icon_flechettepistol"
+    FlashSound0			"sound/weapons/flechette/fire.mp3"  			
+	WeaponName 			"Flechette Pistol"
+	idleAnim 		    MAND_SPISTOL 
+	clipsize            22
+	customAmmo          176
+	AltFireEnabled 		0
+	ReloadTimeModifier  1.4
 }
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER				//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel	"models/weapons2/blaster_r/blaster_w.glm"  	
-	NewViewModel	"models/weapons2/blaster_r/blaster.md3"     	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_E11" 					//Required: Weapon change icon
-	WeaponName		"E-11 Blaster"    				//Required: Weapon change display name
-	customAmmo      700
-	firingAnim	        BOTH_ATTACK4
-}
-
 
 description	"Boba Fett
 
+Class: Mandalorian.
 Class Summary: 
-Sniper Mandalorian with a variety of equipment.
+A long-range sniper Mandalorian with a high powered shotgun and multiple explosives. 
 
 Weaponry:
-- Pistol (2)
 - EE3 (3)
-- E-11 (3)
-- Wrist Rockets
-  - High damage on direct hits
-  - Knockdown and knockback on direct hits
-  - Minor splash damage
-- Sonic Detonators (2)
+- FWG-5 Flechette Pistol *
+- Frag Grenade (1)
+
+* Special Weapon Descriptions:
+--- FWG-5 Flechette Pistol
+- Based on Shotgun (3)
+- 1 shot per clip 
+- Magazine Style Reloads
+- Can fire focused energy blast instead of spreadshot flechettes if hovering mid-air with jetpack activated
 
 Attributes:
-- Jetpack
-  - Cannot overheat
+- Fuel (3)
+- Heal (2)
 - Blast Armor
-- Fuel 3
 
-Utilities:
-- Rocket
-- Wrist Laser
-- Flamethrower
-
+Abilities:
+- Jetpack
+- Rocket [Class Special 1]
+- Wrist Laser [Class Special 2]
+- Flamethrower [Class Special 2]
+- Quickthrow (1) [Alt Ability 1]
 
 A faceless enforcer, Boba Fett's distinctive armor strikes fear in the hearts of fugitives. He is a legendary bounty hunter, accepting warrants from both the Empire and the criminal underworld."
