@@ -32,11 +32,24 @@ models/players/crixmadine/bootzor
 	}
 }
 
-
 models/players/crixmadine/glovezor
 {
 	{
 		map models/players/crixmadine/glovezor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/crixmadine/glovezor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+	detail
+	}
+}
+
+models/players/crixmadine/glovezor_black
+{
+	{
+		map models/players/crixmadine/glovezor_black
 		rgbGen lightingDiffuse
 	}
 	{
