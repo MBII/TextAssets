@@ -46,13 +46,18 @@ models/players/darthzannah/hairz
     }
 }
 
-models/players/darthzannah/hips_parts
+models/players/darthzannah/hands
 {
-	cull	twosided
-    {
-        map models/players/darthzannah/hips_parts
-        rgbGen lightingDiffuse
-    }
+	{
+		map models/players/darthzannah/hands
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/jedi_zf/hands_02_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
 models/players/darthzannah/torso_01_lower

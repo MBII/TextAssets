@@ -1147,6 +1147,65 @@ models/players/rodian/rgb_torso
 }
 
 
+//            stormpilot (female)
+
+models/players/stormpilot/tint_helmet
+{
+    {
+        map models/players/stormpilot/tint_helmet
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/stormpilot/tint_helmet
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        detail
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/stormpilot/tint_helmet_emp
+{
+    {
+        map models/players/stormpilot/tint_helmet_emp
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/stormpilot/tint_helmet_emp
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        detail
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/stormpilot/tint_pilot_leg
+{
+    {
+        map models/players/stormpilot/tint_pilot_leg
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/stormpilot/tint_pilot_leg
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        detail
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/stormpilot/tint_pilot_torso
+{
+	{
+        map models/players/stormpilot/tint_pilot_torso
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/stormpilot/tint_pilot_torso
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        detail
+        rgbGen lightingDiffuse
+    }
+}
+
+
 //	st_shadowtrooper
 
 models/players/st_shadowtrooper/head_rgb
