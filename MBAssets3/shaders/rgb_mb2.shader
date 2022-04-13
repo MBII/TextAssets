@@ -1149,20 +1149,6 @@ models/players/rodian/rgb_torso
 
 //            stormpilot (female)
 
-models/players/stormpilot/tint_helmet
-{
-    {
-        map models/players/stormpilot/tint_helmet
-        rgbGen lightingDiffuseEntity
-    }
-    {
-        map models/players/stormpilot/tint_helmet
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        detail
-        rgbGen lightingDiffuse
-    }
-}
-
 models/players/stormpilot/tint_helmet_emp
 {
     {
@@ -1175,6 +1161,20 @@ models/players/stormpilot/tint_helmet_emp
         detail
         rgbGen lightingDiffuse
     }
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/stormpilot/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
 models/players/stormpilot/tint_pilot_leg
