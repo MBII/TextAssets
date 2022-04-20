@@ -191,6 +191,18 @@ gfx/2d/hud/hlp_payload
 	}
 }
 
+gfx/2d/hud/hlp_payload2
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_payload2
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
 // CAPTURE THE FLAG
 gfx/2d/hud/hlp_ctf_n
 {
