@@ -855,7 +855,6 @@ gfx/mplevels/mb2_yavinassault/map
     }
 }
 
-
 //####################
 //##### DUEL EMPEROR
 //####################
@@ -887,6 +886,74 @@ gfx/mplevels/mb2_duel_emperor/map
 		map gfx/mplevels/mb2_duel_emperor/map
 		blendfunc blend
 		rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL MALACHOR
+//####################
+gfx/automap/mb2_duel_malachor
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_malachor
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_malachor_full
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_malachor_full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_malachor/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_malachor/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL WBW
+//####################
+gfx/automap/mb2_duel_wbw
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_wbw
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_wbwfull
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_wbw
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_wbw/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_wbw/map
+        blendfunc blend
+        rgbGen vertex
     }
 }
 

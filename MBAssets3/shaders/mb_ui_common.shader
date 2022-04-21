@@ -1076,3 +1076,49 @@ gfx/tutorial/Tut_Completed
 		rgbGen identity
 	}
 }
+
+////SERVER LIST ICONS////
+gfx/menus/mbneedpass
+{
+	nomipmaps
+	notc
+	{
+		map gfx/menus/mbneedpass
+		blendFunc blend
+		rgbGen identity
+	}
+}
+
+gfx/menus/anticheat
+{
+	nomipmaps
+	notc
+	{
+		map gfx/menus/anticheat
+		blendFunc blend
+		rgbGen identity
+	}
+}
+
+gfx/menus/mbevent
+{
+	nomipmaps
+	notc
+	{
+		map gfx/menus/mbevent
+		blendFunc blend
+		rgbGen wave triangle .75 .25 0 0.5
+	}
+}
+
+gfx/menus/mbeventspin
+{
+	nomipmaps
+	notc
+	{
+		map gfx/menus/mbeventspin
+		blendFunc blend
+		rgbGen identity
+		tcMod rotate 90
+	}
+}

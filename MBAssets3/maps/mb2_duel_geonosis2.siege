@@ -1,0 +1,85 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Jedi
+	team2 Sith
+}
+
+mapgraphic "gfx\mplevels\geonosis\map"
+missionname  "Geonosis Hangar: Yoda"
+radartopleft "-1600, 1728"
+radarbottomright "1792, -1664"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_geonosis"
+	}
+}
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+Jedi
+{
+	RequiredObjectives 1	
+     	UseTeam "DuelGeoJedi2"
+	TeamIcon	"gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "Stop the Sith"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Stop Count Dooku."
+		objgfx "gfx/mplevels/geohangar/objective_dooku"
+	}
+	
+	wonround "^4Victory"
+	lostround "^1Defeat"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "Stop the sith." //Displayed on the mission briefing menu.
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "DuelGeoSith2"
+	TeamIcon	"gfx/2d/logos/mb_sith"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Yoda."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill the Jedi"
+		objgfx "gfx/mplevels/geohangar/yoda"
+	}
+	
+	wonround "^4Victory"
+	lostround "^1Defeat"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Kill your former Master."
+}
+
