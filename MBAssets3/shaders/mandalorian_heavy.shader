@@ -103,6 +103,23 @@ models/players/mandalorian_heavy/vizla_helmet
     }
 }
 
+models/players/mandalorian_heavy/jetpack
+{
+	q3map_nolightmap
+	cull	disable
+    {
+        map models/players/mandalorian_heavy/jetpack
+        rgbGen lightingDiffuse
+        //alphaFunc GE128
+    }
+    {
+        map models/players/mandalorian_heavy/jetpack-spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
 models/players/mandalorian_heavy/wren_armor
 {
 	q3map_nolightmap
