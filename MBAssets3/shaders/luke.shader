@@ -26,6 +26,16 @@ models/players/luke_esb/belt
 	}
 }
 
+// dagobah luke
+
+models/players/luke_dagobah/backpack
+{
+	cull	disable
+	{
+		map models/players/luke_dagobah/backpack
+		rgbGen lightingDiffuse
+	}
+}
 
 // rotj luke
 
