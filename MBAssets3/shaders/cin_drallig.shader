@@ -34,20 +34,6 @@ models/players/cin_drallig/head_hair_old
 	}
 }
 
-models/players/cin_drallig/torso
-{
-	{
-		map models/players/cin_drallig/torso
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/cin_drallig/torso-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
 models/players/cin_drallig/torso_old
 {
 	{

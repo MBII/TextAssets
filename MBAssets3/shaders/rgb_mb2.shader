@@ -845,35 +845,6 @@ models/players/OldRepSold/torso_rgb
 }
 
 
-//	prisoner
-
-models/players/prisoner/torso_trans2
-{
-	{
-		map models/players/prisoner/torso_trans2
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/prisoner/torso_trans2
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/prisoner/legs_jeditrans
-{
-	{
-		map models/players/prisoner/legs_jeditrans
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/prisoner/legs_jeditrans
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-
 //  rebel
 
 models/players/rebel/rgb_accessories

@@ -30,22 +30,6 @@ models/players/devaronian/new_arms
 	}
 }
 
-models/players/devaronian/new2_arms
-{
-	cull	twosided
-	{
-		map models/players/devaronian/new2_arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map  models/players/devaronian/new_arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
 models/players/devaronian/new_hands
 {
 	cull	twosided
@@ -78,43 +62,11 @@ models/players/devaronian/new_legs
 	}
 }
 
-models/players/devaronian/new2_legs
-{
-	cull	twosided
-	{
-		map models/players/devaronian/new2_legs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map  models/players/devaronian/new_legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
 models/players/devaronian/new_torso
 {
 	cull	twosided
 	{
 		map models/players/devaronian/new_torso
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map  models/players/devaronian/new_torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/devaronian/new2_torso
-{
-	cull	twosided
-	{
-		map models/players/devaronian/new2_torso
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
