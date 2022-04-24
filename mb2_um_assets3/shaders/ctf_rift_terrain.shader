@@ -3,7 +3,7 @@ textures/ctf_rift/terrain_0
 	q3map_lightmapsamplesize 64
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
-	q3map_tcGen ivector ( 362 0 0 ) ( 0 362 0 )
+	q3map_tcGen ivector ( 271 0 0 ) ( 0 271 0 )
 	q3map_material shortgrass
 	{
 		map textures/deathmatch/grass2.jpg
@@ -20,7 +20,7 @@ textures/ctf_rift/terrain_1
 	q3map_lightmapsamplesize 64
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
-	q3map_tcGen ivector ( 362 0 0 ) ( 0 362 0 )
+	q3map_tcGen ivector ( 271 0 0 ) ( 0 271 0 )
 	q3map_material sand
 
 	{
@@ -38,7 +38,7 @@ textures/ctf_rift/terrain_2
 	q3map_lightmapsamplesize 64
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
-	q3map_tcGen ivector ( 362 0 0 ) ( 0 362 0 )
+	q3map_tcGen ivector ( 271 0 0 ) ( 0 271 0 )
 	q3map_material shortgrass
 
 	{
@@ -56,7 +56,7 @@ textures/ctf_rift/terrain_0to1
 	q3map_lightmapsamplesize 64
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
-	q3map_tcGen ivector ( 362 0 0 ) ( 0 362 0 )
+	q3map_tcGen ivector ( 271 0 0 ) ( 0 271 0 )
 	q3map_material sand
 	
 	{
@@ -79,7 +79,7 @@ textures/ctf_rift/terrain_0to2
 	q3map_lightmapsamplesize 64
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
-	q3map_tcGen ivector ( 362 0 0 ) ( 0 362 0 )
+	q3map_tcGen ivector ( 271 0 0 ) ( 0 271 0 )
 	q3map_material shortgrass
 	
 	{
@@ -102,7 +102,7 @@ textures/ctf_rift/terrain_1to2
 	q3map_lightmapsamplesize 64
 	q3map_lightmapaxis z
 	q3map_texturesize 2048 2048
-	q3map_tcGen ivector ( 362 0 0 ) ( 0 362 0 )
+	q3map_tcGen ivector ( 271 0 0 ) ( 0 271 0 )
 	q3map_material sand
 	
 	{
