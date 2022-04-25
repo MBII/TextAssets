@@ -35,7 +35,8 @@
 			hide				setup_background
 			hide				video1menubutton
 			hide				video2menubutton
-			hide				experimentalmenubutton 
+			hide				experimentalmenubutton
+			hide				vulkanmenubutton
 			hide				soundmenubutton
 			// hide				sound2menubutton
 			hide				gameoptionmenubutton
@@ -58,6 +59,7 @@
 			hide 				video
 			hide				video2
 			hide				experimental
+			hide				rd_vulkan
 			hide				applyChanges
 			hide				applyscheme
 			hide				vidrestart
@@ -276,6 +278,7 @@
 				hide			video2
 				hide			visualopt
 				hide			experimental
+				hide			rd_vulkan
 			}
 		}
 
@@ -357,6 +360,7 @@
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -380,6 +384,7 @@
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -471,6 +476,7 @@ itemDef
 				show				video1menubutton
 				show				video2menubutton
 				show				experimentalmenubutton
+				show				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -494,6 +500,7 @@ itemDef
 				show 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -530,6 +537,7 @@ itemDef
 				setitemcolor	video1menubutton		forecolor 0.5 0.5 0.5 0.9
 				setitemcolor	video2menubutton		forecolor 1 1 1 0.9
 				setitemcolor	experimentalmenubutton		forecolor 1 1 1 0.9
+				setitemcolor	vulkanmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	visualoptmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gamedefaultsmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gammamenubutton		forecolor 1 1 1 0.9
@@ -583,6 +591,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				show				gameoptionmenubutton
@@ -606,6 +615,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -693,6 +703,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				show				soundmenubutton
 				// show				sound2menubutton
 				hide				gameoptionmenubutton
@@ -716,6 +727,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -800,6 +812,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -823,6 +836,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				show				applyscheme
 				hide				vidrestart
@@ -914,6 +928,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -937,6 +952,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -1021,6 +1037,7 @@ itemDef
 				show 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1083,6 +1100,7 @@ itemDef
 				hide 			video
 				show			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1145,6 +1163,7 @@ itemDef
 				hide			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1207,6 +1226,7 @@ itemDef
 				hide			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1271,6 +1291,7 @@ itemDef
 				hide			applyChanges
 				hide			video2
 				show			experimental
+				hide			rd_vulkan
 				hide			vidrestart
 				hide			sound
 				// hide			sound2
@@ -1295,6 +1316,72 @@ itemDef
 				setitemcolor	experimentalmenubutton	forecolor	0.5 0.5 0.5 0.9
 			}
 		}
+		
+		// vulkan options button
+
+		itemDef
+		{
+			name				vulkanmenubutton
+			group				setup_submenu
+			text				"VULKAN OPTIONS"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				10 220 120 17
+			font				6
+			textscale			0.17
+			textalignx			109
+			textaligny			-5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			"Configure renderer specific settings."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vulkan-mbii" }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 222 120 17
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		getvideosetup
+				defer			VideoSetup	videowarningMenu
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			experimental
+				show			rd_vulkan
+				hide			vidrestart
+				hide			sound
+				// hide			sound2
+				hide			options
+				hide			options2
+				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
+				hide			uioptions4
+				hide			uioptions5
+				hide			visualopt
+				hide			camera
+				hide			trueview
+				hide			connection
+				hide			defaults
+				hide			crosshair
+				hide			crosshair2
+				hide			chat
+				hide			richpresence
+				hide			gamma
+				setitemcolor	setup_submenu	forecolor	1 1 1 0.9
+				setitemcolor	vulkanmenubutton	forecolor	0.5 0.5 0.5 0.9
+			}
+		}
 
 		// default button		
 
@@ -1305,7 +1392,7 @@ itemDef
 			text				@MENUS_DEFAULTS
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				10 242 120 17
+			rect				10 264 120 17
 			font				6
 			textscale			0.17
 			textalignx			111
@@ -1318,7 +1405,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	10 244 120 17
+				setitemrect		button_glow	10 266 120 17
 			}
 			mouseExit
 			{
@@ -1332,6 +1419,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1395,6 +1483,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				show			sound
@@ -1455,6 +1544,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1517,6 +1607,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1579,6 +1670,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1642,6 +1734,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1703,6 +1796,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1764,6 +1858,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1825,6 +1920,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1886,6 +1982,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1949,6 +2046,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2013,6 +2111,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2075,6 +2174,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2137,6 +2237,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2199,6 +2300,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2261,6 +2363,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2323,6 +2426,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2687,9 +2791,9 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			text				"1440p"
-			rect				352 125 40 14
+			rect				362 125 40 14
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			15
+			textalignx			6
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -3284,6 +3388,7 @@ itemDef
 				show				video1menubutton
 				show				video2menubutton
 				show				experimentalmenubutton
+				show				vulkanmenubutton
 				hide				soundmenubutton
 				hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -3301,6 +3406,7 @@ itemDef
 				show 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				vidrestart
 				hide				sound
@@ -3333,6 +3439,7 @@ itemDef
 				setitemcolor	video1menubutton		forecolor 0.5 0.5 0.5 0.9
 				setitemcolor	video2menubutton		forecolor 1 1 1 0.9
 				setitemcolor	experimentalmenubutton		forecolor 1 1 1 0.9
+				setitemcolor	vulkanmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	visualoptmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gamedefaultsmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gammamenubutton		forecolor 1 1 1 0.9
@@ -4468,6 +4575,746 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
+		}
+		
+		
+// VULKAN RENDERER
+
+//		Static Surface Caching
+		itemDef //LABEL
+		{
+			name				vbo
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Static Surface Caching:"
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef //BUTTON
+		{
+			name				vbo
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Improve performance by caching static world surfaces (r_vbo)."
+			cvar				"r_vbo"
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 111 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Multisample AA
+		itemDef //LABEL
+		{
+			name				msaa
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"MSAA:"
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef //BUTTON
+		{
+			name				msaa
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 "2x" 2 "4x" 4 "8x" 8}
+			descText			"Multisample anti-aliasing. Reduces the stairstep effect ('jaggies') on the edge of 3D objects."
+			cvar				"r_ext_multisample"
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 126 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Offscreen Rendering
+		itemDef //LABEL
+		{
+			name				fbo
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Offscreen Rendering:"
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef //BUTTON
+		{
+			name				fbo
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Enables offscreen render effects (r_fbo). Required for some options."
+			cvar				"r_fbo"
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 156 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		High Dynamic Range
+		itemDef //LABEL
+		{
+			name				vulkan_hdr
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"HDR:"
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_hdr
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Reduces color banding."
+			cvar				"r_hdr"
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 171 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Bloom
+		itemDef //LABEL
+		{
+			name				vulkan_bloom
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Bloom:"
+			rect				142 200 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_bloom
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 200 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Bloom post processing effect."
+			cvar				"r_bloom"
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 201 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Bloom Threshold
+		itemDef //LABEL
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Bloom Threshold:"
+			rect				142 215 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //SLIDER
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_SLIDER
+			text				""
+			cvarfloat			"r_bloom_threshold" 0.05 0.01 1
+			rect				152 215 200 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			"Minimum texture brightness for bloom to apply."
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 215 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		itemDef //INPUT
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Minimum texture brightness for bloom to apply."
+			cvarfloat			"r_bloom_threshold" 0.05 0.01 1
+			rect				380 215 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+//		Bloom Intensity
+		itemDef //LABEL
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Bloom Intensity:"
+			rect				142 230 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //SLIDER
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_SLIDER
+			text				""
+			cvarfloat			"r_bloom_intensity" 0.15 0.01 2
+			rect				152 230 200 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			"Minimum texture brightness for bloom to apply."
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 230 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		itemDef //INPUT
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Strength of bloom effect."
+			cvarfloat			"r_bloom_intensity" 0.15 0.01 2
+			rect				380 230 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+//		Render Scale
+		itemDef //LABEL
+		{
+			name				vulkan_render_scale
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Render Scaling Mode:"
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_render_scale
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{
+									"Disabled" 0
+									"Nearest Filtering - Stretch" 1
+									"Nearest Filtering - Preserve Aspect" 2
+									"Linear Filtering - Stretch" 3
+									"Linear Filtering - Perserve Aspect" 4
+								}
+			descText			"Enable rendering at an arbitrary resolution, scaled to game window size."
+			cvar				"r_renderScale"
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 261 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Render Scale
+		itemDef //LABEL
+		{
+			name				vulkan_scale_presets
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Render Resolution Presets:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets1
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"768p"
+			rect				282 275 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			10
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 1366 x 768"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	282 276 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"1366"
+				setcvar			r_renderHeight	"768"
+				play			"sound/interface/button1.wav"
+				show			applyChanges
+			}
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets2
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"1080p"
+			rect				322 275 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 1920 x 1080"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	322 276 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"1920"
+				setcvar			r_renderHeight	"1080"
+				play			"sound/interface/button1.wav"
+				show			applyChanges
+			}
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets3
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"1440p"
+			rect				362 275 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 2560 x 1440"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	362 276 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"2560"
+				setcvar			r_renderHeight	"1440"
+				play			"sound/interface/button1.wav"
+				show			applyChanges
+			}
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets4
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"4K"
+			rect				402 275 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			15
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 3840 x 2160"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	402 276 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"3840"
+				setcvar			r_renderHeight	"2160"
+				play			"sound/interface/button1.wav"
+				show			applyChanges
+			}
+		}
+		
+//		Render Scale
+		itemDef //LABEL
+		{
+			name				vulkan_render_size
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Width x Height:"
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_render_width
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Set renderer resolution width."
+			cvar				"r_renderWidth"
+			rect				290 290 30 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			4
+			maxPaintChars		4
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				uiScript		glCustom
+			}
+		
+		}
+		itemDef //LABEL
+		{
+			name				vulkan_x
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"X"
+			rect				323 290 0 0
+			textalign			ITEM_ALIGN_RIGHT
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			""
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_render_height
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Set renderer resolution height."
+			cvar				"r_renderHeight"
+			rect				329 290 30 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			4
+			maxPaintChars		4
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				show			applyChanges
+			}
 		}
 		
 		
