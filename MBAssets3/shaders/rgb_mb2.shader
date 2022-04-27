@@ -1324,6 +1324,54 @@ models/players/stormie_tfa/Pauldron_D_rgb
 }
 
 
+//  talz
+
+models/players/wookieev2/rgb_armshield
+{
+	cull	twosided
+	{
+		map models/players/wookieev2/rgb_armshield
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/wookieev2/rgb_armshield
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/wookieev2/rgb_pauldron
+{
+	cull	twosided
+	{
+		map models/players/wookieev2/rgb_pauldron
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/wookieev2/rgb_pauldron
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/wookieev2/rgb_stuff
+{
+	cull	twosided
+	{
+		map models/players/wookieev2/rgb_stuff
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/wookieev2/rgb_stuff
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+
 // trandoshan
 
 models/players/trandoshan/rgb_trandoshan_legs
