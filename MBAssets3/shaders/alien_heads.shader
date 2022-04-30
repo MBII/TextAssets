@@ -13,21 +13,6 @@ models/players/alien_heads/abyssin
     }
 }
 
-models/players/alien_heads/abyssin_green
-{
-	cull	disable
-    {
-        map models/players/alien_heads/abyssin_green
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/abyssin_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/alien_heads/advozse
 {
     {
@@ -148,20 +133,6 @@ models/players/alien_heads/itho
     }
     {
         map models/players/alien_heads/itho_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/alien_heads/kubaz
-{
-    {
-        map models/players/alien_heads/kubaz
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/kubaz_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
