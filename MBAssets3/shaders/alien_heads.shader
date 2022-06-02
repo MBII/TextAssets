@@ -1,3 +1,18 @@
+models/players/alien_heads/abednedo
+{
+	cull	disable
+    {
+        map models/players/alien_heads/abednedo
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/abednedo_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/abyssin
 {
 	cull	disable
