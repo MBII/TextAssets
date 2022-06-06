@@ -1,3 +1,5 @@
+// dress
+
 models/players/gwethenea/dress_jedi2
 {
 	cull	twosided
@@ -6,6 +8,9 @@ models/players/gwethenea/dress_jedi2
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// hair
 
 models/players/gwethenea/hair_black
 {
@@ -30,6 +35,104 @@ models/players/gwethenea/hair_brown
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// hair extras
+
+models/players/gwethenea/hairc_f_black
+{
+	cull	disable
+    {
+        map models/players/gwethenea/hairc_f_black
+        alphaFunc GE192
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/gwethenea/hairc_f_brown
+{
+	cull	disable
+    {
+        map models/players/gwethenea/hairc_f_brown
+        alphaFunc GE192
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/gwethenea/hairc_s_black
+{
+	cull	disable
+    {
+        map models/players/gwethenea/hairc_s_black
+        alphaFunc GE192
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/gwethenea/hairc_s_brown
+{
+	cull	disable
+    {
+        map models/players/gwethenea/hairc_s_brown
+        alphaFunc GE192
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+
+// head
+
+models/players/gwethenea/headd
+{
+    {
+        map models/players/gwethenea/headd
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/headd_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/gwethenea/headd_red
+{
+    {
+        map models/players/gwethenea/headd_red
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/headd_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/gwethenea/headd_blue
+{
+    {
+        map models/players/gwethenea/headd_blue
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/headd_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+// jacket
 
 models/players/gwethenea/jacket
 {
@@ -97,6 +200,15 @@ models/players/gwethenea/jacket_darkbrown_logo
 	}
 }
 
+models/players/gwethenea/jacket_green
+{
+	cull	twosided
+	{
+		map models/players/gwethenea/jacket_green
+		rgbGen lightingDiffuse
+	}
+}
+
 models/players/gwethenea/jacket_white
 {
 	cull	twosided
@@ -115,6 +227,9 @@ models/players/gwethenea/jacket_yellowb
 	}
 }
 
+
+// lashes
+
 models/players/gwethenea/lashes
 {
 	cull	disable
@@ -126,94 +241,8 @@ models/players/gwethenea/lashes
     }
 }
 
-models/players/gwethenea/hairc_f_black
-{
-	cull	disable
-    {
-        map models/players/gwethenea/hairc_f_black
-        alphaFunc GE192
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-}
 
-models/players/gwethenea/hairc_f_brown
-{
-	cull	disable
-    {
-        map models/players/gwethenea/hairc_f_brown
-        alphaFunc GE192
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-}
-
-models/players/gwethenea/hairc_s_black
-{
-	cull	disable
-    {
-        map models/players/gwethenea/hairc_s_black
-        alphaFunc GE192
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-}
-
-models/players/gwethenea/hairc_s_brown
-{
-	cull	disable
-    {
-        map models/players/gwethenea/hairc_s_brown
-        alphaFunc GE192
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-}
-
-models/players/gwethenea/headd
-{
-    {
-        map models/players/gwethenea/headd
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/headd_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/gwethenea/headd_red
-{
-    {
-        map models/players/gwethenea/headd_red
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/headd_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/gwethenea/headd_blue
-{
-    {
-        map models/players/gwethenea/headd_blue
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/headd_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
+// torso
 
 models/players/gwethenea/torso_d
 {
@@ -275,50 +304,8 @@ models/players/gwethenea/torso_d2
     }
 }
 
-models/players/gwethenea/legs_uw
-{
-    {
-        map models/players/gwethenea/legs_uw
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/legs_uw_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
 
-models/players/gwethenea/legs_uw_red
-{
-    {
-        map models/players/gwethenea/legs_uw_red
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/legs_uw_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/gwethenea/legs_uw_blue
-{
-    {
-        map models/players/gwethenea/legs_uw_blue
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/gwethenea/legs_uw_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
+// gloves
 
 models/players/gwethenea/gloves
 {
@@ -365,6 +352,9 @@ models/players/gwethenea/gloves_blue
     }
 }
 
+
+// jacket hips
+
 models/players/gwethenea/jacket_hips
 {
     {
@@ -380,6 +370,9 @@ models/players/gwethenea/jacket_hips
     }
 }
 
+
+// hood
+
 models/players/gwethenea/hood
 {
     {
@@ -389,6 +382,54 @@ models/players/gwethenea/hood
     }
     {
         map models/players/gwethenea/hood_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+// legs
+
+models/players/gwethenea/legs_uw
+{
+    {
+        map models/players/gwethenea/legs_uw
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/legs_uw_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/gwethenea/legs_uw_red
+{
+    {
+        map models/players/gwethenea/legs_uw_red
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/legs_uw_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/gwethenea/legs_uw_blue
+{
+    {
+        map models/players/gwethenea/legs_uw_blue
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/legs_uw_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -486,6 +527,9 @@ models/players/gwethenea/legs_4a
     }
 }
 
+
+// glasses
+
 models/players/gwethenea/glasses
 {
 	cull	disable
@@ -503,6 +547,9 @@ models/players/gwethenea/glasses
         tcGen environment
     }
 }
+
+
+// lense
 
 models/players/gwethenea/lense_green
 {
@@ -522,6 +569,9 @@ models/players/gwethenea/lense_green
     }
 }
 
+
+// scarf
+
 models/players/gwethenea/scarf
 {
 	cull	disable
@@ -533,6 +583,9 @@ models/players/gwethenea/scarf
         rgbGen lightingDiffuse
     }
 }
+
+
+// helmet
 
 models/players/gwethenea/helmet
 {
