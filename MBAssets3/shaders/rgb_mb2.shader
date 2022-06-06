@@ -108,69 +108,6 @@ models/players/cultist/legs_rgb
 }
 
 
-// cultist female
-
-models/players/cultist/fem_rgb_arms
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_arms
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/cultist/fem_rgb_head
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_head
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_head
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/cultist/fem_rgb_legs
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_legs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_legs
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/cultist/fem_rgb_torso
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_torso
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_torso
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-
 // diapassik
 
 models/players/diapassik/rgb_face
