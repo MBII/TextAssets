@@ -312,6 +312,26 @@ models/players/rebel_guerilla/helmet
 	}
 }
 
+models/players/rebel_guerilla/poncho
+{
+	cull	twosided
+	{
+		map models/players/rebel_guerilla/poncho
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/rebel_guerilla/poncho2
+{
+	cull	twosided
+	{
+		map models/players/rebel_guerilla/poncho2
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
 
 // rebel_pilot
 
