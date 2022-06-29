@@ -20,10 +20,7 @@
 			setitembackground		team1_symbol	"*team1_icon"
 			setitembackground		team2_symbol	"*team2_icon"
 			// Enable team buttons, in case they'd been shut off
-			disable			team_button	0
-			disable			autoteam	0
-			disable			team1_button	0
-			disable			team2_button	0
+			uiscript		mb_updateteambuttons //only enables buttons if unlocked
 			// and reset colors
 			setitemcolor	team1_button 		backcolor   1 1 1 0.1
 			setitemcolor	team2_button		backcolor   1 1 1 0.1
@@ -181,8 +178,10 @@
 				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
 
 				// turn on the other team buttons for input
-				disable			team_button	0
-
+				uiscript		mb_updateteambuttons //only enables buttons if unlocked
+				// no more input for this guy
+				disable			team1_button 1
+				
 				// turn on class buttons
 				disable			class_button	0
 
@@ -190,9 +189,6 @@
 				setitemcolor	team1_button	backcolor 1 1 1 0.5
 				setitemcolor	team1_count		forecolor 1 1 1 1
 				setitemcolor	team1name 		forecolor 1 1 1 1
-
-				// no more input for this guy
-				disable			team1_button	1
 
 				uiscript		resetsiegelistboxes
 				uiscript		feederselection
@@ -293,8 +289,11 @@
 				setitemcolor	team_button		backcolor   1 1 1 0.1
 				setitemcolor	team_count		forecolor	0.5 0.5 0.5 1
 				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
+				
 				// turn on the other team buttons for input
-				disable			team_button		0
+				uiscript		mb_updateteambuttons //only enables buttons if unlocked
+				// no more input for this guy
+				disable			team2_button 1
 
 				// turn on class buttons
 				disable			class_button	0
@@ -303,9 +302,6 @@
 				setitemcolor	team2_button	backcolor	1 1 1 0.5
 				setitemcolor	team2_count		forecolor	1 1 1 1
 				setitemcolor	team2name		forecolor	1 1 1 1
-				
-				// no more input for this guy
-				disable			team2_button	1
 
 				show			borderclass
 				uiscript		resetsiegelistboxes
