@@ -37,10 +37,7 @@
 			setitembackground		team1_button	"*team1_icon"
 			setitembackground		team2_button	"*team2_icon"
 			// Enable team buttons, in case they'd been shut off
-			disable				team_button	0
-			disable				autoteam	0
-			disable				team1_button	0
-			disable				team2_button	0
+			uiscript				mb_updateteambuttons //only enables buttons if unlocked
 			// and reset colors
 			setitemcolor			team1_button backcolor1   0.1 0.7 1 0.7
 			setitemcolor			team2_button backcolor1   0.1 0.7 1 0.7
@@ -211,7 +208,9 @@
 				setitemcolor		team2name  forecolor1 0.1 0.7 1 0.7
 				
 				// turn on the other team buttons for input
-				disable			team_button	0
+				uiscript			mb_updateteambuttons //only enables buttons if unlocked
+				// no more input for this guy
+				disable				team1_button 1
 				
 				// turn on class buttons
 				//disable			class_button	0
@@ -220,9 +219,6 @@
 				setitemcolor		team1_button backcolor2 1 1 1 1
 				setitemcolor		team1_count  forecolor2 1 1 1 1
 				setitemcolor		team1name  forecolor2 1 1 1 1
-
-				// no more input for this guy
-				disable			team1_button	1
 	
 			//	setitemtext		class1_count "*ui_tm1_c0_cnt"
 			//	setitemtext		class2_count "*ui_tm1_c1_cnt"
@@ -334,19 +330,19 @@
 				setitemcolor		team_button backcolor1   0.1 0.7 1 0.7
 				setitemcolor		team_count  forecolor1 0.1 0.7 1 0.7
 				setitemcolor		team1name  forecolor1 0.1 0.7 1 0.7
+
 				// turn on the other team buttons for input
-				disable			team_button	0
+				uiscript			mb_updateteambuttons //only enables buttons if unlocked
+				// no more input for this guy
+				disable				team2_button 1
 				
 				// turn on class buttons
 				//disable			class_button	0
-				
 				
 				// highlight this team button
 				setitemcolor		team2_button backcolor2 1 1 1 1
 				setitemcolor		team2_count  forecolor2 1 1 1 1
 				setitemcolor		team2name  forecolor2 1 1 1 1
-				// no more input for this guy
-				disable			team2_button	1
 				
 			//	setitemtext		class1_count "*ui_tm2_c0_cnt"
 			//	setitemtext		class2_count "*ui_tm2_c1_cnt"
