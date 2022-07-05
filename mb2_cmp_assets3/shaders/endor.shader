@@ -224,7 +224,6 @@ textures/endor/tree1
 textures/endor/sky
 {
 	qer_editorimage textures/skies/sky.tga
-	skyParms textures/endor_sky/endor2 512 -
 	q3map_sunExt 1 0.86 0.67 3000 -102 90 90 80
 	q3map_lightmapFilterRadius 0 160
 	q3map_skyLight 400 3
@@ -236,6 +235,7 @@ textures/endor/sky
 	nopicmip
 	nomipmaps
 	notc
+	skyParms textures/endor_sky/endor2 512 -
 }    
 
 textures/endor/light1
