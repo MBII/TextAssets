@@ -24,6 +24,7 @@ models/players/darthvader/cape
 
 models/players/darthvader/helmet
 {
+	cull	twosided
 	q3map_onlyvertexlighting
 	{
 		map models/players/darthvader/helmet
@@ -55,6 +56,18 @@ models/players/darthvader/mask
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+models/players/darthvader/maskb
+{
+	cull	disable
+	{
+		map models/players/darthvader/maskb
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
 	}
 }
 
@@ -90,4 +103,37 @@ models/players/darthvader/body2
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+
+// Battle Damaged Vader
+
+models/players/darthvader/controls_bw
+{
+	{
+		map models/players/darthvader/controls_bw
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+       	map models/players/darthvader/controls_bw-spec
+      	blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+  	}
+    {
+		map models/players/darthvader/controls_bw-glow
+        blendFunc GL_ONE GL_ONE
+        detail
+    }
+}
+
+models/players/darthvader/cape_bw
+{
+	cull	twosided
+    {
+        map models/players/darthvader/cape_bw
+        alphaFunc GE192
+        rgbGen lightingDiffuse
+    }
 }
