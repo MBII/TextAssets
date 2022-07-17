@@ -56,6 +56,20 @@ models/players/alien_heads/aqualish
     }
 }
 
+models/players/alien_heads/aqualishb
+{
+    {
+        map models/players/alien_heads/aqualishb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/aqualish_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/arcona
 {
     {
@@ -284,6 +298,22 @@ models/players/alien_heads/sullustan
 	cull twosided
 	{
 		map models/players/alien_heads/sullustan
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/NienNunb/head_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/alien_heads/sullustanb
+{
+	q3map_nolightmap
+	cull twosided
+	{
+		map models/players/alien_heads/sullustanb
 		rgbGen lightingDiffuse
 	}
 	{
