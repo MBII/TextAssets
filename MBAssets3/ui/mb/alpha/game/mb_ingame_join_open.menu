@@ -111,6 +111,7 @@
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
 			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Rebel"
+			descText			@MENUS_JOIN_TEAM_DESC
 			backcolor			1 1 1 0.1
 			visible				1
 			//cvartest			"ui_lockRed"
@@ -170,7 +171,6 @@
 				close			mb_class_templates
 
 				open			mb_class_favorites
-				uiscript		mb_updatelimits
 
 				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutTeamSelect
@@ -201,7 +201,7 @@
 			rect				8 8 155 34
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
+			descText			"Team is locked."
 			backcolor			1 1 1 1
 			visible				0
 			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
@@ -301,7 +301,6 @@
 				close			mb_class_templates
 				
 				open			mb_class_favorites
-				uiscript		mb_updatelimits
 			}
 		}
 
@@ -361,7 +360,7 @@
 			rect				291 8 155 34
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
+			descText			"Team is locked."
 			backcolor			1 1 1 1
 			visible				0
 			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
@@ -421,21 +420,9 @@
 				setcvar			ui_holdteam 3
 				exec			"cmd team s" 				
 				uiScript		closeingame
-				//uiscript        mb_updatelimits
 				setitemcolor	spectator_button backcolor   1 1 1 0.5
 			}
 		}
-
-/* 		itemDef
-		{
-			name				spectator_refresh
-			group				none			
-			action
-			{ 
-				hide			reb_class
-				hide			imp_class		
-			}
-		} */
 
 /* 		itemDef
 		{
