@@ -94,7 +94,7 @@
 #define FEEDER_SERVERSTATUS				0x0d	// server status
 #define FEEDER_FINDPLAYER				0x0e	// find player
 #define FEEDER_CINEMATICS				0x0f	// cinematics
-#define FEEDER_FORCECFG					0x10	// force config list
+//#define FEEDER_FORCECFG				0x10	// force config list
 #define FEEDER_SIEGE_TEAM1				0x11	// siege class list for team1
 #define FEEDER_SIEGE_TEAM2				0x12	// siege class list for team2
 #define FEEDER_PLAYER_SPECIES			0x13	// models/player/*

@@ -13,14 +13,19 @@
 		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		stayOpen
-
+		onOpen
+		{ 
+			hide	templatedeleteconfirm
+			hide	templatedeletecancel
+		}
+		
 		// FORCE TEMPLATES
 		// Force Template picker
 		itemDef
 		{
 			name				fcflist
 			group				pointstemplates
-			rect				2 0 110 224
+			rect				2 0 110 194
 			type				ITEM_TYPE_LISTBOX
 			style				WINDOW_STYLE_LISTBOX_RGB1
 			textstyle			WINDOW_STYLE_TEXT_RGB2
@@ -50,7 +55,6 @@
 			action
 			{
 				play			"sound/interface/button1.wav"
-				hide			pointssetup
 				show			templatedelete
 				
 				// TUTORIAL REQUIREMENT
@@ -70,7 +74,7 @@
 			text				@MENUS_FILENAME
 			cvar				"ui_SaveFCF"
 			maxchars			16
-			rect				2 224 110 20
+			rect				2 194 110 20
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny 			-4
@@ -88,12 +92,12 @@
 			name				templatesavetext
 			style				WINDOW_STYLE_TEXT_RGB1
 			textalign			ITEM_ALIGN_CENTER
-			rect				0 239 110 15
+			rect				2 209 140 15//0 209 110 15
 			forecolor			1 1 1 0.5
 			font				6
-			textscale			0.125
+			textscale			0.12//0.125
 			textalignx			55
-			text				@MENUS_MATCHING_NAMES
+			text				"Matching names will be overwritten."//@MENUS_MATCHING_NAMES
 			visible				0
 			decoration
 		}
@@ -102,15 +106,15 @@
 		{
 			name				templatesave
 			group				pointstemplates
-			text				@MENUS_SAVE_FILE
+			text				"SAVE POINTS"//@MENUS_SAVE_FILE
 			type				1
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				3 269 107 28
+			rect				3 229 107 20//3 239 53 28//3 239 107 28
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			53
-			textaligny			-3
+			textaligny			-7.5//-3
 			font				6
 			textscale			0.2
 			backcolor			1 1 1 0.05
@@ -136,6 +140,86 @@
 				setitemcolor	templatesave			backcolor	1 1 1 0.05
 			}
 		}
+
+		itemDef
+		{
+			name				templatesave_all
+			group				pointstemplates
+			text				"SAVE ALL"//@MENUS_SAVE_FILE
+			type				1
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn2_Bg"
+			rect				3 252 107 20//57 239 53 28
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			53
+			textaligny			-7.5//-3
+			font				6
+			textscale			0.2
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			descText			@MENUS_SAVE_CURRENT_FORCE_SETUP
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript 		mb_savetemplate_all
+				setitemcolor	templatesave_all			backcolor	1 1 1 0.5
+			}
+			mouseenter
+			{
+				show			templatesavetext
+				show			templatesavebutton
+				setitemcolor	templatesave_all			backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				hide			templatesavetext
+				hide			templatesavebutton
+				setitemcolor	templatesave_all			backcolor	1 1 1 0.05
+			}
+		}
+
+		// Fav Save
+		itemDef
+		{
+			name				favtemplatetoggle
+			group				pointstemplates
+			text				"TOGGLE FAVORITE"
+			type				1
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn2_Bg"
+			rect				3 275 107 20//3 269 107 28
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			53
+			textaligny			-7.5//-3
+			font				6
+			textscale			0.2
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			descText			@MENUS_SAVE_CURRENT_FORCE_SETUP
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript 		mb_fav_toggle
+				setitemcolor	favtemplatetoggle			backcolor	1 1 1 0.5
+			}
+			mouseenter
+			{
+				show			templatesavetext
+				show			templatesavebutton
+				setitemcolor	favtemplatetoggle			backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				hide			templatesavetext
+				hide			templatesavebutton
+				setitemcolor	favtemplatetoggle			backcolor	1 1 1 0.05
+			}
+		}
+
 
 		itemDef
 		{
@@ -196,7 +280,6 @@
 			{
 				play			"sound/interface/button1.wav"
 				uiScript 		mb_deletetemplate
-				uiScript 		mb_updatetemplates
 				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.5
 				hide			templatedelete
 				hide			pointstemplatesdelete
