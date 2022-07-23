@@ -34,6 +34,20 @@ models/players/impgunner/boots_hips
     }
 }
 
+models/players/impgunner/boots_hips_tie
+{
+    {
+        map models/players/impgunner/boots_hips_tie
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/impgunner/boots_hips_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/impgunner/things
 {
 	cull	twosided
@@ -49,43 +63,24 @@ models/players/impgunner/things
     }
 }
 
-models/players/impgunner/buckle_officer
-{
-    {
-        map models/players/impgunner/buckle_officer
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/impgunner/buckle_officer_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/impgunner/interface
-{
-    {
-        map models/players/impgunner/interface
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/impgunner/interface_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/players/impgunner/interface_glow
-        blendFunc GL_ONE GL_ONE
-        glow
-    }
-}
-
 models/players/impgunner/hand
 {
     {
         map models/players/impgunner/hand
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/impgunner/hand_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/impgunner/hand_tie
+{
+    {
+        map models/players/impgunner/hand_tie
         rgbGen lightingDiffuse
     }
     {
