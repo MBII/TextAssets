@@ -18,6 +18,7 @@ models/players/darthvader/cape
 	cull	twosided
 	{
 		map models/players/darthvader/cape
+		alphaFunc GE192
 		rgbGen lightingDiffuse
 	}
 }
@@ -50,7 +51,6 @@ models/players/darthvader/helmet
 
 models/players/darthvader/mask
 {	  
-	q3map_nolightmap
 	q3map_onlyvertexlighting
     {
         map models/players/darthvader/mask_trans
@@ -105,6 +105,12 @@ models/players/darthvader/body2
 		rgbGen lightingDiffuse
 	}
 	{
+		map models/players/darthvader/body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
         map models/players/darthvader/vader_enviro3
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         tcGen environment
@@ -124,14 +130,8 @@ models/players/darthvader/controls_bw
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
-	{
-       	map models/players/darthvader/controls_bw-spec
-      	blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-		detail
-  	}
     {
-		map models/players/darthvader/controls_bw-glow
+		map models/players/darthvader/controls_bw_glow
         blendFunc GL_ONE GL_ONE
         detail
     }
@@ -147,16 +147,56 @@ models/players/darthvader/cape_bw
     }
 }
 
-models/players/darthvader/maskb
+models/players/darthvader/mask_bw
 {
-	cull	disable
+	cull	twosided
 	{
-		map models/players/darthvader/maskb
-		alphaFunc GE128
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		depthWrite
+		map models/players/darthvader/mask_bw
+		alphaFunc GE192
 		rgbGen lightingDiffuse
 	}
+	{
+        map models/players/darthvader/vader_enviro2
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/darthvader/vader_reflect
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/darthvader/helmet_bw
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/darthvader/helmet_bw
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+        map models/players/darthvader/vader_enviro2
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/darthvader/vader_reflect
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 models/players/darthvader/helmet_damage
@@ -171,4 +211,44 @@ models/players/darthvader/helmet_damage
         detail
         glow
 	}	
+}
+
+models/players/darthvader/body_bw
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/darthvader/body_bw
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthvader/body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/darthvader/body2_bw
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/darthvader/body2_bw
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthvader/body2_bw_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
+        map models/players/darthvader/vader_enviro3
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
