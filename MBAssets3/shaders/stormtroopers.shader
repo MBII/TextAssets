@@ -133,6 +133,47 @@ models/players/stormie_tfa/vest
 }
 
 
+// cardinal
+
+models/players/stormie_tfa/helmet_card
+{
+	{
+		map models/players/stormie_tfa/helmet_card
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie_tfa/armor_card
+{
+	{
+		map models/players/stormie_tfa/armor_card
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie_tfa/cape_card
+{
+	cull twosided
+    {
+        map models/players/stormie_tfa/cape_card
+        rgbGen lightingDiffuse
+    }
+
+}
+
+
 // pyre
 
 models/players/stormie_tfa/helmet_pyre

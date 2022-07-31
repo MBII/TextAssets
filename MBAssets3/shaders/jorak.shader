@@ -1,9 +1,9 @@
 
-models/players/jorak/pad
+models/players/jorakuln/pad
 {
 	cull	twosided
     {
-        map models/players/jorak/pad
+        map models/players/jorakuln/pad
         alphaFunc GE192
         depthWrite
         rgbGen lightingDiffuse

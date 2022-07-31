@@ -104,3 +104,13 @@ models/players/sith_assassin/body_uthar
 		rgbGen lightingDiffuse
 	}
 }
+
+models/players/sith_assassin/body_bandon
+{
+	cull	disable
+	q3map_nolightmap
+	{
+		map models/players/sith_assassin/body_bandon
+		rgbGen lightingDiffuse
+	}
+}
