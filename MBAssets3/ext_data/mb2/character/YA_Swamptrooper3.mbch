@@ -1,8 +1,8 @@
 ClassInfo
 {
 	name			"YA_Swamptrooper3"
-	weapons			WP_BLASTER_PISTOL|WP_ROCKET_LAUNCHER
-	attributes		MB_ATT_ASSEMBLE,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,2|MB_ATT_PLX1,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_GRAPPLE_HOOK,2
+	weapons			WP_BLASTER_PISTOL|WP_ROCKET_LAUNCHER|WP_TRIP_MINE|WP_PULSE_NADE
+	attributes		MB_ATT_ASSEMBLE,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,2|MB_ATT_PLX1,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PULSE_GRENADES,2
 	maxhealth		80
 	maxarmor		80
 	model			"swamptrooper"
@@ -13,7 +13,7 @@ ClassInfo
 	speed			0.93
 	
 	MBClass			MB_CLASS_ARCTROOPER
-	WP_RocketLauncherFlags	HELD_SLOW
+	WP_RocketLauncherFlags	HELD_SLOW|HELD_LOWDMG
 
 }
 
@@ -58,10 +58,22 @@ WeaponInfo2
 	WeaponName		"Rocket Launcher"
 	idleanim		DC15_READY
 	firinganim		DC15_FIRE
-	
+		
 	
 
 }
+
+WeaponInfo3
+{           
+WeaponToReplace        	WP_TRIP_MINE
+WeaponBasedOff         	WP_TRIP_MINE
+NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
+NewViewModel	  	"models/weapons2/laser_trap/laser_trap.md3"  	
+Icon             	"gfx/hud/w_icon_tripmine"
+WeaponName		"Trip Mine"
+customAmmo    		3
+}
+
 
 
 description	"Remnant Swamptrooper - Rocketeer
@@ -70,6 +82,8 @@ Weapons:
 
 SE-14R Light Repeating Blaster (2)
 Merr Sonn Rocket Launcher (2)
+Trip Mine (3)
+Pulse Grenade (2)
 Melee 
 
 Attributes:

@@ -2,13 +2,13 @@ ClassInfo
 {
 	name			"Telos_TSF_Mira"
 	MBClass			MB_CLASS_ARCTROOPER
-	weapons			WP_BOWCASTER|WP_BRYAR_PISTOL|WP_MELEE|WP_SABER|WP_FRAG_NADE|WP_SONIC_NADE|WP_FIRE_NADE|WP_CRYO_NADE|WP_REAL_TD
+	weapons			WP_BLASTER|WP_BRYAR_PISTOL|WP_MELEE|WP_SABER|WP_FRAG_NADE|WP_SONIC_NADE|WP_FIRE_NADE|WP_CRYO_NADE|WP_REAL_TD
 	
 	maxhealth		90
 	maxarmor		45
 	
 	speed			1.05
-	attributes		MB_ATT_DODGE,3|MB_ATT_STAMINA,2|MB_ATT_FORCEBLOCK,2|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_BOWCASTER,1|MB_ATT_POISON_DART,3|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DEFLECT,1|MB_ATT_HEALING,2|FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,1|MB_ATT_FUEL,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_FIRE_GRENADES,2|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_THERMALS,1
+	attributes		MB_ATT_DODGE,3|MB_ATT_BLASTER,1|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,3|MB_ATT_FORCEBLOCK,2|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_BOWCASTER,1|MB_ATT_POISON_DART,3|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DEFLECT,1|MB_ATT_HEALING,2|FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,1|MB_ATT_FUEL,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_FIRE_GRENADES,2|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_THERMALS,1
 	forcepool		90
 		
 	forcepowers		FP_SEE,1|FP_SABER_DEFENSE,1|FP_PULL,2|FP_LEVITATION,1|FP_TELEPATHY,2
@@ -18,8 +18,10 @@ ClassInfo
 
 	APmultiplier		0.9
 	BPmultiplier		1.5
-	ASmultiplier		1.1
+	ASmultiplier		1.15
 	speed			1.1
+
+	rateoffire		1.4
 		
 		
 	model			"mira"
@@ -29,53 +31,51 @@ ClassInfo
 	saber1          	atton_legends
 	saberstyle		SS_MEDIUM
 	sabercolor		1
-
-	WP_BowcasterFlags	HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_SLOWPROJ|HELD_SLOW|HELD_KNOCKDOWN|HELD_IGNOREBLOCK
+	
+	WP_BlasterFlags		HELD_ALTRELOAD|HELD_HIGHDAMAGE		
+	WP_BlasterPistolFlags	HELD_HIGHDAMAGE|HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_SLOWPROJ|HELD_SLOW|HELD_KNOCKDOWN|HELD_IGNOREBLOCK
 	holdables		HI_BINOCULARS
 	
 	
 }
 
 
-
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
+	WeaponToReplace		WP_BRYAR_PISTOL
+	WeaponBasedOff		WP_BRYAR_PISTOL
+	idleAnim		JET_FORWARD
+	firingAnim         	MAND_FLAME
+	MissileMissEffect       "ships/swoop_explosion"
+    	MissileHitHumanEffect   "ships/swoop_explosion"
+    	MissileHitDroidEffect   "ships/swoop_explosion"
+	Missile3Effect		"rockets/missile" 
+	FlashSound0          	"sound/weapons/rocket/fire.mp3"
 	NewWorldModel		"models/weapons2/dummy/dummy.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	//NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
-	//NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
+	Icon			"gfx/hud/w_icon_wristrocket"
 	WeaponName		"Wrist Rocket"
-	
-	idleanim		SBD_GUN_OUT_STAND
-	firinganim		SBD_GUN_OUT_STAND
-
-	MissileEffect		 "rockets/missile" 
-	AltMissileEffect     	"rockets/missile"
-	MissileMissEffect        "ships/swoop_explosion"
-    	MissileHitHumanEffect    "ships/swoop_explosion"
-    	MissileHitDroidEffect    "ships/swoop_explosion"
-	FlashSound0          	"sound/weapons/rocket/fire.mp3"
-
-	altFireEnabled		0
-	clipsize		2
-	customAmmo		12
-	ReloadTimeModifier	2
-
+	clipSize 		4
+	CustomAmmo 		24
+	ALTFIREENABLED		0
 }
-
 
 WeaponInfo1
 {
-    	WeaponToReplace		WP_BRYAR_PISTOL      			
+    	WeaponToReplace		WP_BLASTER      			
     	WeaponBasedOff		WP_BRYAR_PISTOL      			
     	NewWorldModel		"models/weapons2/kotor_bpistol3/kotor_bpistol3_w.glm"  
     	NewViewModel		"models/weapons2/kotor_bpistol3/kotor_bpistol3.md3"
 	Icon			"gfx/hud/w_icon_kotor_bpistol3"
-    	WeaponName		"Blaster Pistol"  
+    	WeaponName		"Mira's Blaster Pistol"  
 
+	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav"
+	FlashSound0		"sound/weapons/kotor/fire_power1.wav"
+
+	idleAnim 		MAND_SPISTOL 
+	firingAnim 		MAND_SPISTOL_FIRE
+
+	clipSize 		12
 
 	
 }
@@ -98,7 +98,7 @@ description	"Mira
 Weaponry:
 
 Lightsaber
-Blaster Pistol (3)
+Modified Blaster Pistol (1)
 Thermal Detonator (1)
 Frag Grenade (2)
 Fire Grenade (2)
