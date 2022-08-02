@@ -147,6 +147,13 @@ models/players/stormie_tfa/helmet_card
 		detail
 		alphaGen lightingSpecular
 	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
 }
 
 models/players/stormie_tfa/armor_card
@@ -161,6 +168,13 @@ models/players/stormie_tfa/armor_card
 		detail
 		alphaGen lightingSpecular
 	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
 }
 
 models/players/stormie_tfa/cape_card
