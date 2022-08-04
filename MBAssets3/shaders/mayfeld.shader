@@ -1,68 +1,68 @@
  
-models/players/mayfield/head
+models/players/mayfeld/head
 	{
 	{
-		map models/players/mayfield/head
+		map models/players/mayfeld/head
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/mayfield/head_spec
+        		map models/players/mayfeld/head_spec
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
 	}
 	}
 
-models/players/mayfield/gear
+models/players/mayfeld/gear
 	{
 	{
-		map models/players/mayfield/gear
+		map models/players/mayfeld/gear
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/mayfield/gear_spec
+        		map models/players/mayfeld/gear_spec
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
 	}
 	}
 
-models/players/mayfield/hands
+models/players/mayfeld/hands
 	{
 	{
-		map models/players/mayfield/hands
+		map models/players/mayfeld/hands
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/mayfield/hands_spec
+        		map models/players/mayfeld/hands_spec
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
 	}
 	}
 	
-models/players/mayfield/legs
+models/players/mayfeld/legs
 	{
 	{
-		map models/players/mayfield/legs
+		map models/players/mayfeld/legs
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/mayfield/legs_spec
+        		map models/players/mayfeld/legs_spec
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
 	}
 	}
 
-models/players/mayfield/torso
+models/players/mayfeld/torso
 	{
 	{
-		map models/players/mayfield/torso
+		map models/players/mayfeld/torso
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/mayfield/torso_spec
+        		map models/players/mayfeld/torso_spec
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
