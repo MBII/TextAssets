@@ -13,27 +13,15 @@
 		descAlignment			ITEM_ALIGN_CENTER
 		focusColor				1 1 1 1
 		backColor				0 0 0 0
-		disablecolor			1 1 1 1
+		disablecolor			1 1 1 1		// color of selected buttons text
+		disablebackcolor		1 1 1 0.5	// color of selected buttons background
 		stayopen
 		onOpen
 		{ 
 			setitembackground		team1_symbol	"*team1_icon"
 			setitembackground		team2_symbol	"*team2_icon"
-			// Enable team buttons, in case they'd been shut off
-			uiscript		mb_updateteambuttons //only enables buttons if unlocked
-			// and reset colors
-			setitemcolor	team1_button		backcolor   1 1 1 0.1
-			setitemcolor	team2_button		backcolor   1 1 1 0.1
-			setitemcolor	spectator_button	backcolor   1 1 1 0.1
-			setitemcolor	team1name	forecolor   0.5 0.5 0.5 1
-			setitemcolor	team2name	forecolor   0.5 0.5 0.5 1
-			setitemcolor	team3name	forecolor   0.5 0.5 0.5 1
-			setitemcolor	team1_count forecolor   0.5 0.5 0.5 1
-			setitemcolor	team2_count forecolor   0.5 0.5 0.5 1
-			setitemcolor	team3_count forecolor   0.5 0.5 0.5 1
 			
 			show			spectator_button
-			show			spectator_symbol
             
             setcvar			cg_escapeactive "1"
 		}
@@ -79,19 +67,23 @@
 	// TEAM SYMBOLS AND COUNTS PER TEAM
 		itemDef
 		{
-			name				team1name
+			name				team1_buttonbg
 			group				none
-			rect				35 8 101 34
+			rect				8 8 155 34
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Rebel"
+			backcolor			1 1 1 0.1
 			cvar				cg_siegeTeam1Name
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			50
+			textalignx			77.5
 			font				6
 			textscale			0.2
-			forecolor			1 1 1 1
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 1 }
 		}
-
 		itemDef
 		{
 			name				team1_symbol
@@ -102,59 +94,55 @@
 			visible				1
 			decoration
 		}
-
+		itemDef
+		{
+			name				team1_count
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				140 13.5 22 22
+			text				"#UI_TEAM_CNT_1"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 1 }
+		}
 		itemDef
 		{
 			name				team1_button
 			group				team_button
 			rect				8 8 155 34
 			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Rebel"
-			backcolor			1 1 1 0.1
+			descText			@MENUS_JOIN_TEAM_DESC
 			visible				1
-			//cvartest			"ui_lockRed"
-			//showcvar			{ "1"}
 
 			mouseEnter
 			{ 
-				setitemcolor		team1_button	backcolor	1 1 1 0.3
-				setitemcolor		team1_count		forecolor	1 1 1 1
-				setitemcolor		team1name		forecolor	1 1 1 1
+				setitemcolor	team1_buttonbg	backcolor	1 1 1 0.3
+				setitemcolor	team1_buttonbg	forecolor	1 1 1 1
+				setitemcolor	team1_count		forecolor	1 1 1 1
 			}
 			mouseExit
 			{ 
-				setitemcolor		team1_button	backcolor   1 1 1 0.1
-				setitemcolor		team1_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		team1name		forecolor	0.5 0.5 0.5 1
+				setitemcolor	team1_buttonbg	backcolor   1 1 1 0.1
+				setitemcolor	team1_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team1_count		forecolor	0.5 0.5 0.5 1
 			}
-
-			// If you change this script, be sure to change	onteam1		
 			action
 			{
+				setitemcolor	team1_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	team1_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team1_count		forecolor	0.5 0.5 0.5 1
 				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 1
-				uiscript		updatesiegeclasscnt      1
+				setcvar			ui_holdteam			1
+				uiscript		updatesiegeclasscnt	1
 				uiscript		updatesiegecvars
-				//uiscript		printmsg	team1buttonunlockred
-
-				// Darken the other team buttons				
-				setitemcolor	team_button	backcolor   1 1 1 0.1
-				setitemcolor	team_count	forecolor	0.5 0.5 0.5 1
-				setitemcolor	team2name	forecolor	0.5 0.5 0.5 1
 				
-				// turn on the other team buttons for input
-				uiscript		mb_updateteambuttons //only enables buttons if unlocked
-				// no more input for this guy
-				disable			team1_button 1
-
-				// highlight this team button
-				setitemcolor	team1_button	backcolor 1 1 1 0.5
-				setitemcolor	team1_count		forecolor 1 1 1 1
-				setitemcolor	team1name 		forecolor 1 1 1 1
-
-				uiscript		mb_updatelimits
-				disable			mb_class_jedi 1
 				uiscript		mb_class_jedi
 				uiScript		mb_char
 
@@ -173,52 +161,38 @@
 				open			ingame_siegeclass_open_model_list
 			}
 		}
-
-		itemDef
-		{
-			name				team1_count
-			group				team_count
-			type 				ITEM_TYPE_TEXT
-			rect				140 13.5 22 22
-			cvar				ui_tm1_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-6
-			font				7
-			textscale			0.2
-			forecolor			0.5 0.5 0.5 1		
-			visible				1
-			decoration
-		}
-		
 		itemDef
 		{
 			name				red_lock
 			group				lock_icon			
 			rect				8 8 155 34
-			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
+			descText			"Team is locked."
 			backcolor			1 1 1 1
 			visible				0
 			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
+			decoration
 		}	
 
 		itemDef
 		{
-			name				team2name
+			name				team2_buttonbg
 			group				none
-			rect				318 8 101 34
+			rect				291 8 155 34
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
+			backcolor			1 1 1 0.1
 			cvar				cg_siegeTeam2Name
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			50
+			textalignx			77.5
 			font				6
 			textscale			0.2
 			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 2 }
 		}
-
 		itemDef
 		{
 			name				team2_symbol
@@ -229,59 +203,55 @@
 			visible				1
 			decoration
 		}
-
+		itemDef
+		{
+			name				team2_count
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				423 13.5 22 22
+			text				"#UI_TEAM_CNT_2"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 2 }
+		}
 		itemDef
 		{
 			name				team2_button
 			group				team_button
 			rect				291 8 155 34
 			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
 			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			1 1 1 0.1
 			visible				1
-			//cvartest			"ui_lockBlue"
-			//showcvar			{ "1"}
 
 			mouseEnter
 			{ 
-				setitemcolor		team2_button	backcolor	1 1 1 0.3
-				setitemcolor		team2_count		forecolor	1 1 1 1
-				setitemcolor		team2name		forecolor	1 1 1 1
+				setitemcolor	team2_buttonbg	backcolor	1 1 1 0.3
+				setitemcolor	team2_buttonbg	forecolor	1 1 1 1
+				setitemcolor	team2_count		forecolor	1 1 1 1
 			}
 			mouseExit
 			{ 
-				setitemcolor		team2_button	backcolor	1 1 1 0.1
-				setitemcolor		team2_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor		team2name		forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	team2_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2_count		forecolor	0.5 0.5 0.5 1
 			}
-
-			// If you change this script, be sure to change	onteam2
 			action
 			{
+				setitemcolor	team2_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	team2_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2_count		forecolor	0.5 0.5 0.5 1
 				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 2
-				uiscript		updatesiegeclasscnt      2
+				setcvar			ui_holdteam			2
+				uiscript		updatesiegeclasscnt	2
 				uiscript		updatesiegecvars
-
-				// Darken the other team buttons				
-				setitemcolor	team_button		backcolor   1 1 1 0.1
-				setitemcolor	team_count		forecolor	0.5 0.5 0.5 1
-				setitemcolor	team2name		forecolor	0.5 0.5 0.5 1
-
-				// turn on the other team buttons for input
-				uiscript		mb_updateteambuttons //only enables buttons if unlocked
-				// no more input for this guy
-				disable			team2_button 1
-
-				// highlight this team button
-				setitemcolor	team2_button	backcolor	1 1 1 0.5
-				setitemcolor	team2_count		forecolor	1 1 1 1
-				setitemcolor	team2name		forecolor	1 1 1 1
-
-				uiscript		mb_updatelimits
-				disable			mb_class_sith 1
+				
 				uiscript		mb_class_sith
 				uiScript		mb_char
 
@@ -300,69 +270,40 @@
 				open			ingame_siegeclass_open_model_list
 			}
 		}
-
-		itemDef
-		{
-			name				team2_count
-			group				team_count
-			type 				ITEM_TYPE_TEXT
-			rect				423 13.5 22 22
-			cvar				ui_tm2_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-6
-			font				7
-			textscale			0.2
-			forecolor			0.5 0.5 0.5 1
-			visible				1
-			decoration
-		}
-
-/* 		itemDef
-		{
-			name				team3name
-			group				none
-			rect				301 72 40 40
-			text				@MENUS_SPECTATOR
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			16
-			font				2
-			textscale			0.4
-			forecolor			0.5 0.5 0.5 1
-			visible				1
-			decoration
-		} */
-		
-		itemDef
-		{
-			name				team3_count
-			group				team_count
-			type 				ITEM_TYPE_TEXT
-			rect				231 13.5 22 22
-			cvar				ui_tm3_cnt
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-6
-			font				7
-			textscale			0.2
-			forecolor			0.5 0.5 0.5 1		
-			visible				1
-			decoration
-		}
-
 		itemDef
 		{
 			name				blue_lock
 			group				lock_icon
 			rect				291 8 155 34
-			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_JOIN_TEAM_DESC
+			descText			"Team is locked."
 			backcolor			1 1 1 1
 			visible				0
 			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
+			decoration
 		}
-
+		
+		itemDef
+		{
+			name				spectator_buttonbg
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				200 8 55 34
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
+			backcolor			1 1 1 0.1
+			text				"#UI_TEAM_CNT_3"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			41.5
+			textaligny			0
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1		
+			visible				1
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 3 }
+		}
 		itemDef
 		{
 			name				spectator_symbol
@@ -371,37 +312,31 @@
 			rect				203.5 13.5 19 24
 			background			"gfx/2d/mp_spec_symbol"
 			forecolor			1 1 1 1
-			visible				0
+			visible				1
 			decoration
 		}
-		
 		itemDef
 		{
 			name				spectator_button
 			group				team_button
 			rect				200 8 55 34
 			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_WATCH_DESC
-			backcolor			1 1 1 0.1
 			visible				0
-			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
 			mouseEnter
-			{ 
-				setitemcolor		spectator_symbol backcolor   1 1 1 1
-				setitemcolor		spectator_button backcolor   1 1 1 0.3
-				setitemcolor		team3name  forecolor 1 1 1 1
-				setitemcolor		team3_count  forecolor 1 1 1 1
+			{
+				setitemcolor	spectator_buttonbg	backcolor	1 1 1 0.3
+				setitemcolor	spectator_buttonbg	forecolor	1 1 1 1
 			}
 			mouseExit
-			{ 
-				setitemcolor		spectator_symbol backcolor   0.5 0.5 0.5 1
-				setitemcolor		spectator_button backcolor   1 1 1 0.1
-				setitemcolor		team3name  forecolor 0.5 0.5 0.5 1
-				setitemcolor		team3_count  forecolor 0.5 0.5 0.5 1
+			{
+				setitemcolor	spectator_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	spectator_buttonbg	forecolor	0.5 0.5 0.5 1
 			}
 			action
-			{ 
+			{
+				setitemcolor	spectator_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	spectator_buttonbg	forecolor	0.5 0.5 0.5 1
 				play			"sound/interface/button1.wav"
 				close			ingame_siegeclass_open_classes_r
 				close			ingame_siegeclass_open_classes_i
@@ -415,10 +350,9 @@
 				close			ingame_saber_sith
 				close			mb_class_templates
 				setcvar			ui_holdteam 3
+				setcvar			ui_class	0
 				exec			"cmd team s" 				
 				uiScript		closeingame
-				//uiscript        mb_updatelimits
-				setitemcolor	spectator_button backcolor   1 1 1 0.5
 			}
 		}
 	}

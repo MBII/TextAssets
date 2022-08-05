@@ -1,0 +1,1019 @@
+{
+	menuDef
+	{
+		name					"ingame_siegeclass_open_classes_i"
+		fullScreen				0
+		visible					0
+		rect					317 140 323 288
+		style					1
+		descX					476
+		descY					456
+		descScale				0.7
+		descColor				0.1 0.7 1 0.7
+		descAlignment			ITEM_ALIGN_CENTER
+		backColor				0 0 0 0
+		disablecolor			1 1 1 1		// color of selected buttons text
+		disablebackcolor		1 1 1 1		// color of selected buttons background
+		stayopen
+		onOpen
+		{
+			hide				headlist
+			hide				custlist
+			hide				modellisttype
+			uiscript			resetsiegelistboxes
+			uiscript			feederselection
+		}
+		
+		//imp soldier
+		itemDef
+		{
+			name				mb_class_soldier_bg
+			rect				23 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/imp"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Soldier"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 1 }
+		}
+		itemDef 
+		{
+			name				mb_class_soldier
+			rect				23 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_soldier_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_soldier_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_soldier_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_soldier
+				show 				headlist
+				hide				custlist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_soldier_lock
+			rect				23 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_soldier_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				23 76 0 0
+			text				"#UI_CLASS_CNT_1"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				23 76 0 0
+			text				"#UI_CLASS_CNT_1"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				23 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_soldier_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				23 76 0 0
+			text				"#UI_CLASS_LMT_1"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//imp commander
+		itemDef
+		{
+			name				mb_class_commander_bg
+			rect				105 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/com"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Commander"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 3 }
+		}
+		itemDef 
+		{
+			name				mb_class_commander
+			rect				105 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_commander_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_commander_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_commander_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_commander
+				show 				headlist
+				hide				custlist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_commander_lock
+			rect				105 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_commander_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				105 76 0 0
+			text				"#UI_CLASS_CNT_3"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_commander_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				105 76 0 0
+			text				"#UI_CLASS_CNT_3"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_commander_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				105 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_commander_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				105 76 0 0
+			text				"#UI_CLASS_LMT_3"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+
+		//Sith
+		itemDef
+		{
+			name				mb_class_sith_bg
+			rect				177 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/jedi"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Sith"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 5 }
+		}
+		itemDef 
+		{
+			name				mb_class_sith
+			rect				177 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_sith_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_sith_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_sith_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_sith
+				show 				headlist
+				hide				custlist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_sith_lock
+			rect				177 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_sith_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				177 76 0 0
+			text				"#UI_CLASS_CNT_5"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_sith_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				177 76 0 0
+			text				"#UI_CLASS_CNT_5"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_sith_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				177 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_sith_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				177 76 0 0
+			text				"#UI_CLASS_LMT_5"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				mb_class_droideka_bg
+			rect				239 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/deka"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Droideka"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 11 }
+		}
+		itemDef 
+		{
+			name				mb_class_droideka
+			rect				239 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_droideka_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_droideka_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_droideka_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_droideka
+				show 				headlist
+				hide				custlist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_droideka_lock
+			rect				239 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_droideka_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				239 76 0 0
+			text				"#UI_CLASS_CNT_11"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				239 76 0 0
+			text				"#UI_CLASS_CNT_11"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				239 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_droideka_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				239 76 0 0
+			text				"#UI_CLASS_LMT_11"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//bh
+		itemDef
+		{
+			name				mb_class_bounty_hunter_bg
+			rect				30 80 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/bh"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Bounty Hunter"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 7 }
+		}
+		itemDef 
+		{
+			name				mb_class_bounty_hunter
+			rect				30 80 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_bounty_hunter_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_bounty_hunter_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_bounty_hunter_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_bounty_hunter
+				show 				headlist
+				hide				custlist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_bounty_hunter_lock
+			rect				30 80 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_bounty_hunter_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				30 146 0 0
+			text				"#UI_CLASS_CNT_7"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				30 146 0 0
+			text				"#UI_CLASS_CNT_7"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				30 146 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_bounty_hunter_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				30 146 0 0
+			text				"#UI_CLASS_LMT_7"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//manda
+		itemDef
+		{
+			name				mb_class_mandalorian_bg
+			rect				125 80 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/manda"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Mandalorian"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 13 }
+		}
+		itemDef 
+		{
+			name				mb_class_mandalorian
+			rect				125 80 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_mandalorian_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_mandalorian_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_mandalorian_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_mandalorian
+				show 				headlist
+				hide				custlist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_mandalorian_lock
+			rect				125 80 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_mandalorian_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				125 146 0 0
+			text				"#UI_CLASS_CNT_13"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				125 146 0 0
+			text				"#UI_CLASS_CNT_13"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				125 146 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_mandalorian_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				125 146 0 0
+			text				"#UI_CLASS_LMT_13"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+
+		//SBD
+		itemDef
+		{
+			name				mb_class_sbd_bg
+			rect				231 80 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/sbd"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Super Battle Droid"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 9 }
+		}
+		itemDef 
+		{
+			name				mb_class_sbd
+			rect				231 80 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_sbd_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_sbd_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_sbd_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_sbd
+				show 				headlist
+				hide				custlist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_sbd_lock
+			rect				231 80 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_sbd_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				231 146 0 0
+			text				"#UI_CLASS_CNT_9"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				231 146 0 0
+			text				"#UI_CLASS_CNT_9"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				231 146 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_sbd_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				231 146 0 0
+			text				"#UI_CLASS_LMT_9"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+//--------------------------------------------------	
+// MB OPEN/SA MODE
+//--------------------------------------------------
+		// Scroll box with portraits.
+		itemDef
+		{
+			name 				headlist
+			group				class_button
+			rect 				13 150 295 112 //340 190 280 197
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 			35//34//55
+			elementheight 			36//34//55
+			elementtype 			LISTBOX_IMAGE
+			feeder 				FEEDER_MBHEADS
+			//horizontalscroll
+			border 				0
+			bordercolor 		0.1 0.7 1 0.9
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+				
+				// TUTORIAL REQUIREMENT
+				uiScript		tutCheckpoint TutModelSelect
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
+			}
+		}
+
+		itemDef
+		{
+			name 				custlist
+			group				class_button
+			rect 				13 150 295 112 //340 190 280 197
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 			35//34//55
+			elementheight 			36//34//55
+			elementtype 			LISTBOX_IMAGE
+			feeder 				FEEDER_CMHEADS
+			//horizontalscroll
+			border 				0
+			bordercolor 		0.1 0.7 1 0.9
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
+			}
+		}
+
+		itemDef
+		{
+			name				normalmodels
+			group				modellisttype
+			text				"DEFAULT"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				13 262 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				show 			headlist
+				hide 			custlist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	330 406 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"/"
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				39 262 5 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"CUSTOM"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				44 262 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				show 			custlist
+				hide 			headlist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	361 406 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+ 		// Class Chooser
+		/*
+		itemDef
+		{
+			name				MBsetclass
+			group				class_button
+			style				WINDOW_STYLE_TEXT_RGB1	
+			text				"Class:"
+			ownerdraw			UI_CLASS
+			rect				23 33 165 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			backcolor			0 0 0 0
+			font				2
+			textscale			.9
+			forecolor			0.1 0.7 1 0.7
+			descText			"Choose which class you wish to play as"
+			visible				1 
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
+		}
+		*/
+	}
+}
