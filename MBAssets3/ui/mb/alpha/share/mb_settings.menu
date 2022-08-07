@@ -4577,6 +4577,23 @@ itemDef
 			visible				0
 			decoration
 		}
+		
+		itemDef
+		{
+			name				fxvfps
+			group				visualopt
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Effects Frame Rate:"
+			rect				142 230 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 //	VISUAL OPTIONS BUTTONS
 
@@ -4843,6 +4860,47 @@ itemDef
 				play			"sound/interface/button1.wav"
 				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
 				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
+			name				fxvfps
+			group				visualopt
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 230 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList
+			{
+				"100% (default)" 1000
+				"50%" 500
+				"25%" 250
+				"10%" 100
+				"5%" 50
+			}
+			descText			"Whether or not to render many visual effects every frame (fx_vfps).\nLowering this value may increase performance at the cost of choppiness."
+			cvar				"fx_vfps"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 231 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				
 			}
 		}
 
@@ -10387,11 +10445,28 @@ itemDef
 		
 		itemDef
 		{
+			name				followcam
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Spectator Follow Camera:"
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
 			name				tpcamdamp
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"3rd Per. Cam Damp:"
-			rect				142 185 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -10408,7 +10483,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"3rd Per. Target Damp:"
-			rect				142 200 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -10425,7 +10500,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"FoV:"
-			rect				142 230 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -10442,7 +10517,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Widescreen FoV:"
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -10607,13 +10682,50 @@ itemDef
 		
 		itemDef
 		{
+			name				followcam
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cg_freeSpecAndFollow"
+			cvarFloatList
+			{
+				"Locked"		0
+				"Free"			1
+			}
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Toggle allowing camera adjustment while spectating a player"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 171 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
 			name				cgtpcamdamp
 			group				camera
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
-			rect				152 185 230 14
+			rect				152 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -10625,7 +10737,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 185 230 19			
+				setitemrect		button_glow	142 200 230 19			
 			}
 			mouseExit
 			{
@@ -10646,7 +10758,7 @@ itemDef
 			text				""
 			descText			"How fast the camera tracks player movement. 1 = no dampening"
 			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
-			rect				380 185 230 14
+			rect				380 200 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -10669,7 +10781,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
-			rect				152 200 230 14
+			rect				152 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -10681,7 +10793,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 200 230 19			
+				setitemrect		button_glow	142 215 230 19			
 			}
 			mouseExit
 			{
@@ -10702,7 +10814,7 @@ itemDef
 			text				""
 			descText			"How fast the camera tracks crosshair movement. 1 = no dampening"
 			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
-			rect				380 200 230 14
+			rect				380 215 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -10725,7 +10837,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvarfloat			"cg_fov" 80 80 97
-			rect				152 230 230 14
+			rect				152 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -10737,7 +10849,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 230 230 19			
+				setitemrect		button_glow	142 245 230 19			
 			}
 			mouseExit
 			{
@@ -10758,7 +10870,7 @@ itemDef
 			text				""
 			descText			"Field of View"
 			cvarfloat			"cg_fov" 80 80 97
-			rect				380 230 230 14
+			rect				380 245 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -10786,7 +10898,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -10798,7 +10910,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 246 230 15			
+				setitemrect		button_glow	142 261 230 15			
 			}
 			mouseExit
 			{
