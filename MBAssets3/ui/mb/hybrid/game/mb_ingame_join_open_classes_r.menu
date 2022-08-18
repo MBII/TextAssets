@@ -19,6 +19,7 @@
 		{
 			hide				headlist
 			hide				custlist
+			hide				extralist
 			hide				modellisttype
 			uiscript			resetsiegelistboxes
 			uiscript			feederselection
@@ -65,6 +66,7 @@
 				uiscript			mb_class_trooper
 				show 				headlist
 				hide				custlist
+				hide				extralist
 				show				modellisttype
 			}
 		}
@@ -181,6 +183,7 @@
 				uiscript			mb_class_elitetrooper
 				show 				headlist
 				hide				custlist
+				hide				extralist
 				show				modellisttype
 			}
 		}
@@ -297,6 +300,7 @@
 				uiscript			mb_class_jedi
 				show 				headlist
 				hide				custlist
+				hide				extralist
 				show				modellisttype
 			}
 		}
@@ -413,6 +417,7 @@
 				uiscript			mb_class_hero
 				show 				headlist
 				hide				custlist
+				hide				extralist
 				show				modellisttype
 			}
 		}
@@ -529,6 +534,7 @@
 				uiscript			mb_class_wookie
 				show 				headlist
 				hide				custlist
+				hide				extralist
 				show				modellisttype
 			}
 		}
@@ -645,6 +651,7 @@
 				uiscript			mb_class_clonetrooper
 				show 				headlist
 				hide				custlist
+				hide				extralist
 				show				modellisttype
 			}
 		}
@@ -761,6 +768,7 @@
 				uiscript			mb_class_arctrooper
 				show 				headlist
 				hide				custlist
+				hide				extralist
 				show				modellisttype
 			}
 		}
@@ -882,11 +890,41 @@
 			rect 				13 150 295 112 //340 190 280 197
 			type 				ITEM_TYPE_LISTBOX
 			style 				WINDOW_STYLE_LISTBOX_RGB1
-			elementwidth 			35//34//55
-			elementheight 			36//34//55
-			elementtype 			LISTBOX_IMAGE
+			elementwidth 		35//34//55
+			elementheight 		36//34//55
+			elementtype 		LISTBOX_IMAGE
 			feeder 				FEEDER_CMHEADS
-			//horizontalscroll
+			border 				0
+			bordercolor 		0.1 0.7 1 0.9
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
+			}
+		}
+		
+		itemDef
+		{
+			name 				extralist
+			group				class_button
+			rect 				13 150 295 112 //340 190 280 197
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 		35//34//55
+			elementheight 		36//34//55
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_EXHEADS
 			border 				0
 			bordercolor 		0.1 0.7 1 0.9
 			forecolor 			1 1 1 1
@@ -928,6 +966,7 @@
 				play			"sound/interface/button1"
 				show 			headlist
 				hide 			custlist
+				hide 			extralist
 			}
 			mouseenter
 			{
@@ -977,13 +1016,66 @@
 			action
 			{
 				play			"sound/interface/button1"
-				show 			custlist
 				hide 			headlist
+				show 			custlist
+				hide 			extralist
 			}
 			mouseenter
 			{
 				show			button_glow 
 				setitemrect		button_glow	361 406 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+		
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"/"
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				72 262 5 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+		}
+		
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"EXTRA"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				77 262 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				hide 			headlist
+				hide 			custlist
+				show 			extralist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	394 406 27 10
 			}
 			mouseExit
 			{
