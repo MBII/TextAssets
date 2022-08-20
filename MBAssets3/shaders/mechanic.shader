@@ -22,3 +22,15 @@ models/players/mechanic/hair_brown
 		rgbGen lightingDiffuse
 	}
 }
+
+models/players/mechanic/headb_hair
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/mechanic/headb_hair
+		alphaFunc GE192
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
