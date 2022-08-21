@@ -259,3 +259,25 @@ models/map_objects/onderon/kentia
         depthFunc equal 
     }
 }
+
+textures/onderon/ondglass
+{
+	qer_editorimage	textures/onderon/ondglass
+	qer_trans	0.5
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_material	Glass
+	q3map_nolightmap
+	q3map_nonplanar
+	q3map_shadeangle 120
+    {
+        map textures/onderon/ondglass
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+    }
+    {
+        map textures/onderon/ondglass_env
+        blendFunc GL_DST_COLOR GL_ONE
+        tcGen environment
+        tcmod scale 4 4
+    }
+}

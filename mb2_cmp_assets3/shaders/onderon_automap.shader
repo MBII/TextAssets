@@ -33,3 +33,28 @@ gfx/mp/mplevels/mb2_cmp_onderon/map
         rgbGen vertex
     }
 }
+
+gfx/automap/mb2_cmp_onderon1
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_cmp_onderon1
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_cmp_onderon1full
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_cmp_onderon1full
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
