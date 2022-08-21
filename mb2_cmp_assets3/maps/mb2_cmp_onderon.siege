@@ -1,0 +1,183 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Royalists
+	team2 VakluForces
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_cmp_onderon/map"
+missionname  "Onderon Sky Ramp Assault"
+radartopleft "-2304, 2120"
+radarbottomright "5424, -6264"
+
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cmp_onderon"
+		radargraphicfull "gfx/automap/mb2_cmp_onderonfull"
+                height "-512"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_cmp_onderon1"
+		radargraphicfull "gfx/automap/mb2_cmp_onderon1full"
+		height "-192"
+	}
+
+}
+
+
+HelpIcons
+{
+    HelpIcon0
+    {
+        end0        "towerdoor"
+        origin    "1840 -5072 -424"
+        redicon  HLP_HACK
+        blueicon HLP_DEFEND
+        specicon HLP_DEFEND
+        radius 3000
+    }
+
+    HelpIcon1
+    {
+        end0        "towerdoor"
+        origin    "1144 -5472 -112"
+        redicon  HLP_HACK
+        blueicon HLP_DEFEND
+        specicon HLP_DEFEND
+        radius 3000
+    }
+
+    HelpIcon2
+    {
+        start0        "towerdoor"
+        end0        "activodelay"
+        origin    "1944 -2936 -424"
+        redicon  HLP_HACK
+        blueicon HLP_DEFEND
+	specicon HLP_DEFEND
+        radius 3000
+    }
+
+    HelpIcon3
+    {
+        start0        "skyforcefield"
+        end0        "?"
+        origin    "56 -1624 -128"
+        redicon  HLP_CAPTURE
+        blueicon HLP_DEFEND 
+	specicon HLP_DEFEND
+        radius 3000
+    }
+
+}
+Royalists
+{
+	RequiredObjectives 1
+        Timed 300								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	UseTeam "OndRoyal" 						//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_oldrepublic2"
+	Timed 300
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+
+	Objective1
+	{
+		goalname "Unlock the Turret tower"
+		final -1
+		target ""
+		message_team1 "We have unlocked the Turret Doors!"
+		message_team2 "The royalists have unlocked the Turret Doors!"
+		objdesc "ATTACK: Slice a console to unlock the Turret tower."
+		objgfx ""
+	}
+
+	Objective2
+	{
+		goalname "Disable the forcefield"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "ATTACK: Slice the console in the Turret tower to disable to forcefield."
+		objgfx ""
+	}
+	
+	Objective3
+	{
+		goalname "Get to the Palace"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "ATTACK: Get to the Palace"
+		objgfx ""
+	}
+
+	wonround "We have reached the palace!" 						//Printed to this team if they won the round.
+	lostround "We failed. Queen Talia's reign is over..." 					//Printed to this team if they lost the round.
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "" //Displayed on the mission briefing menu.
+}
+
+VakluForces
+{
+	RequiredObjectives 1
+	UseTeam "OndVaklu"
+	TeamIcon	"gfx/2d/logos/mb_sithempire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Stop the Royalists from unlocking the Turret tower."
+		final -1
+		target ""
+		message_team1 "We have unlocked the Turret Doors!"
+		message_team2 "The royalists have unlocked the Turret Doors!"
+		objdesc "DEFEND: Stop the Royalists from unlocking the Turret tower."
+		objgfx ""
+	}
+
+	Objective2
+	{
+		goalname "Stop the Royalists from slicing the Turret console."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "DEFEND: Keep the Royalists away from the Turret console"
+		objgfx ""
+	}
+	
+	Objective3
+	{
+		goalname "Stop the Royalists from reaching the Palace !"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "DEFEND: Stop the Royalists from reaching the Palace !"
+		objgfx ""
+	}
+
+	
+	
+	wonround "Long live General Vaklu!"
+	lostround "The Royalists have reached the palace."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing ""
+}
