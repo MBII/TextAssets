@@ -3884,13 +3884,13 @@ models/players/tavion_new/torso_blue_glow
 	{
 		map models/players/tavion_new/torso_blue
 		blendFunc GL_ONE GL_ZERO
-		glow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/tavion_new/torso_blue_glow2
-		blendFunc GL_ONE GL_ONE
+		map models/players/tavion_new/torso_blue
+		blendFunc blend
 		glow
+		alphaGen const 0.5
 	}
 }
 
@@ -3899,13 +3899,13 @@ models/players/tavion_new/head_glow
 	{
 		map models/players/tavion_new/head
 		blendFunc GL_ONE GL_ZERO
-		glow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/tavion_new/head_glow2
-		blendFunc GL_ONE GL_ONE
+		map models/players/tavion_new/head
+		blendFunc blend
 		glow
+		alphaGen const 0.5
 	}
 }
 
@@ -3914,29 +3914,31 @@ models/players/tavion_new/feathers_glow
 	cull	twosided
 	{
 		map models/players/tavion_new/feathers
-		blendFunc GL_ONE GL_ZERO
-		glow
+		alphaFunc GE128
+		depthWrite
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/tavion_new/feathers_glow2
-		blendFunc GL_ONE GL_ONE
+		map models/players/tavion_new/feathers
+		alphaFunc GE128
+		blendFunc blend
 		glow
+		alphaGen const 0.5
 	}
 }
 
 models/players/tavion_new/face_glow
 {
 	{
-		map models/players/tavion_new/face
+		map models/players/tavion_new/face_tav_poss
 		blendFunc GL_ONE GL_ZERO
-		glow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/tavion_new/face_glow2
-		blendFunc GL_ONE GL_ONE
+		map models/players/tavion_new/face_tav_poss
+		blendFunc blend
 		glow
+		alphaGen const 0.5
 	}
 }
 
@@ -3945,13 +3947,13 @@ models/players/tavion_new/arm_blue_glow
 	{
 		map models/players/tavion_new/arm_blue
 		blendFunc GL_ONE GL_ZERO
-		glow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/tavion_new/arm_blue_glow2
-		blendFunc GL_ONE GL_ONE
+		map models/players/tavion_new/arm_blue
+		blendFunc blend
 		glow
+		alphaGen const 0.5
 	}
 }
 
@@ -3960,13 +3962,13 @@ models/players/tavion_new/hands_glow
 	{
 		map models/players/tavion_new/hands
 		blendFunc GL_ONE GL_ZERO
-		glow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/tavion_new/hands_glow2
-		blendFunc GL_ONE GL_ONE
+		map models/players/tavion_new/hands
+		blendFunc blend
 		glow
+		alphaGen const 0.5
 	}
 }
 
@@ -3975,13 +3977,13 @@ models/players/tavion_new/legs_blue_glow
 	{
 		map models/players/tavion_new/legs_blue
 		blendFunc GL_ONE GL_ZERO
-		glow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/tavion_new/legs_blue_glow2
-		blendFunc GL_ONE GL_ONE
+		map models/players/tavion_new/legs_blue
+		blendFunc blend
 		glow
+		alphaGen const 0.5
 	}
 }
 
