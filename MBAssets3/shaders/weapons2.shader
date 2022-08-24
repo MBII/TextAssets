@@ -1061,18 +1061,23 @@ models/weapons2/cr2_pistol/cr2_pistol
 
 // Cryoban Grenade
 
-models/weapons/Grenade_CryoBan/cryoban
+models/weapons2/cryoban_grenade/cryoban
 {
 	{
-		map models/weapons/Grenade_CryoBan/cryoban
-		blendFunc GL_ONE GL_ZERO
+		map models/weapons2/cryoban_grenade/cryoban
+		rgbGen lightingDiffuse
 	}
 	{
-		map models/weapons/Grenade_CryoBan/cryoban_spec
+		map models/weapons2/cryoban_grenade/cryoban_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
+    {
+        map models/weapons2/cryoban_grenade/cryoban_glow
+		blendFunc GL_ONE GL_ONE
+		glow
+    }
 }
 
 // Czerka Adventurer Rifle
