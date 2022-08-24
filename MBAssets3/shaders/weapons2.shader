@@ -350,7 +350,7 @@ sfx_sabers/saber_blade_unstable
 	notc
 	cull	twosided
 	{
-		map sfx_sabers/saber_blade_unstable
+		animMap 18 sfx_sabers/saber_blade_unstable0 sfx_sabers/saber_blade_unstable1 sfx_sabers/saber_blade_unstable2 sfx_sabers/saber_blade_unstable4 sfx_sabers/saber_blade_unstable3 sfx_sabers/saber_blade_unstable5 sfx_sabers/saber_blade_unstable6 sfx_sabers/saber_blade_unstable7 sfx_sabers/saber_blade_unstable8
 		blendFunc GL_ONE GL_ONE
 		rgbGen vertex
 	}
