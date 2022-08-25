@@ -133,8 +133,6 @@ gfx/mplevels/mb2_corellia/layout_duel
     }
 }
 
-
-
 //####################
 //##### CTF BACKSTREETS
 //####################
@@ -752,9 +750,63 @@ gfx/mplevels/mb2_mygeeto/map
 }
 
 //####################
+//##### SMUGGLER
+//####################
+gfx/automap/mb2_smuggler
+    {
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_smuggler
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_smuggler2
+    {
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_smuggler2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_smugglerfull
+    {
+	nomipmaps
+    {
+		map gfx/automap/mb2_smugglerfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_smuggler2full
+    {
+	nomipmaps
+    {
+		map gfx/automap/mb2_smuggler2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_smuggler/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_smuggler/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### SNOWFACILITY
 //####################
-
 gfx/automap/mb2_snowfacility
 {
 	nopicmip
@@ -1080,7 +1132,6 @@ gfx/mplevels/mb2_ctf_theed/map
     }
 }
 
-
 //####################
 //##### CTF Scarif
 //####################
@@ -1155,12 +1206,9 @@ gfx/mplevels/mb2_tatooine/map
     }
 }
 
-
-
 //####################
 //##### Duel Tusken
 //####################
-
 gfx/automap/mb2_duel_tusken
 {
 	nopicmip
@@ -1194,12 +1242,9 @@ gfx/mplevels/mb2_Tusken/map
     }
 }
 
-
-
 //####################
 //##### Duel DuneSea
 //####################
-
 gfx/automap/mb2_duel_dunesea
 {
 	nopicmip
@@ -1230,8 +1275,6 @@ gfx/mplevels/mb2_DuneSea/map
         rgbGen vertex
     }
 }
-
-
 
 //####################
 //##### Siege Desert
@@ -1837,8 +1880,6 @@ gfx/automap/mb2_ps_desert3d
     }
 }
 
-
-
 //####################
 //##### Scarif
 //####################
@@ -1872,8 +1913,6 @@ gfx/mplevels/mb2_scarif/map
         rgbGen vertex
     }
 }
-
-
 
 //####################
 //##### Citadel
@@ -1951,8 +1990,6 @@ gfx/mplevels/mb2_citadel/map
     }
 }
 
-
-
 //####################
 //##### Star Destroyer
 //####################
@@ -1991,8 +2028,6 @@ gfx/mplevels/mb2_sdestroyer/map
 		rgbGen identity
     }
 }
-
-
 
 //####################
 //##### CTF Star Destroyer
@@ -2033,8 +2068,6 @@ gfx/mplevels/mb2_sdestroyer/map_ctf
     }
 }
 
-
-
 //####################
 //##### Duel Star Destroyer
 //####################
@@ -2068,8 +2101,6 @@ gfx/mplevels/mb2_sdestroyer/map_duel
         rgbGen vertex
     }
 }
-
-
 
 //####################
 //##### Jedi Temple
@@ -2105,8 +2136,6 @@ gfx/mplevels/mb2_jeditemple/map
     }
 }
 
-
-
 //####################
 //##### CTF Jedi Temple
 //####################
@@ -2141,8 +2170,6 @@ gfx/mplevels/mb2_ptf_jeditemple/map
     }
 }
 
-
-
 //####################
 //##### Duel Jedi Temple
 //####################
@@ -2172,6 +2199,40 @@ gfx/mplevels/mb2_duel_jeditemple/map
 	nopicmip
     {
 		map gfx/mplevels/mb2_duel_jeditemple/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### Duel Cargo Heist
+//####################
+gfx/automap/mb2_duel_cargoheist
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_cargoheist
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_cargoheistfull
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_cargoheist
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_cargoheist/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_duel_cargoheist/map
 		blendfunc blend
 		rgbGen vertex
     }

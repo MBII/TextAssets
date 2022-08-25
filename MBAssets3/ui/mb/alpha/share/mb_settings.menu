@@ -35,7 +35,8 @@
 			hide				setup_background
 			hide				video1menubutton
 			hide				video2menubutton
-			hide				experimentalmenubutton 
+			hide				experimentalmenubutton
+			hide				vulkanmenubutton
 			hide				soundmenubutton
 			// hide				sound2menubutton
 			hide				gameoptionmenubutton
@@ -58,6 +59,7 @@
 			hide 				video
 			hide				video2
 			hide				experimental
+			hide				rd_vulkan
 			hide				applyChanges
 			hide				applyscheme
 			hide				vidrestart
@@ -276,6 +278,7 @@
 				hide			video2
 				hide			visualopt
 				hide			experimental
+				hide			rd_vulkan
 			}
 		}
 
@@ -357,6 +360,7 @@
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -380,6 +384,7 @@
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -471,6 +476,7 @@ itemDef
 				show				video1menubutton
 				show				video2menubutton
 				show				experimentalmenubutton
+				show				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -494,6 +500,7 @@ itemDef
 				show 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -530,6 +537,7 @@ itemDef
 				setitemcolor	video1menubutton		forecolor 0.5 0.5 0.5 0.9
 				setitemcolor	video2menubutton		forecolor 1 1 1 0.9
 				setitemcolor	experimentalmenubutton		forecolor 1 1 1 0.9
+				setitemcolor	vulkanmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	visualoptmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gamedefaultsmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gammamenubutton		forecolor 1 1 1 0.9
@@ -583,6 +591,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				show				gameoptionmenubutton
@@ -606,6 +615,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -693,6 +703,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				show				soundmenubutton
 				// show				sound2menubutton
 				hide				gameoptionmenubutton
@@ -716,6 +727,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -800,6 +812,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -823,6 +836,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				show				applyscheme
 				hide				vidrestart
@@ -914,6 +928,7 @@ itemDef
 				hide				video1menubutton
 				hide				video2menubutton
 				hide				experimentalmenubutton
+				hide				vulkanmenubutton
 				hide				soundmenubutton
 				// hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -937,6 +952,7 @@ itemDef
 				hide 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				applyscheme
 				hide				vidrestart
@@ -1021,6 +1037,7 @@ itemDef
 				show 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1083,6 +1100,7 @@ itemDef
 				hide 			video
 				show			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1145,6 +1163,7 @@ itemDef
 				hide			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1207,6 +1226,7 @@ itemDef
 				hide			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1264,13 +1284,13 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
-				uiScript		getvideosetup
 				defer			VideoSetup	videowarningMenu
 				show			setup_background
 				hide 			video
 				hide			applyChanges
 				hide			video2
 				show			experimental
+				hide			rd_vulkan
 				hide			vidrestart
 				hide			sound
 				// hide			sound2
@@ -1295,6 +1315,71 @@ itemDef
 				setitemcolor	experimentalmenubutton	forecolor	0.5 0.5 0.5 0.9
 			}
 		}
+		
+		// vulkan options button
+
+		itemDef
+		{
+			name				vulkanmenubutton
+			group				setup_submenu
+			text				"VULKAN OPTIONS"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				10 220 120 17
+			font				6
+			textscale			0.17
+			textalignx			109
+			textaligny			-5
+			textalign			ITEM_ALIGN_RIGHT
+			textstyle			0
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			"Configure renderer specific settings."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vulkan-mbii" }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 222 120 17
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				defer			VideoSetup	videowarningMenu
+				show			setup_background
+				hide 			video
+				hide			applyChanges
+				hide			video2
+				hide			experimental
+				show			rd_vulkan
+				hide			vidrestart
+				hide			sound
+				// hide			sound2
+				hide			options
+				hide			options2
+				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
+				hide			uioptions4
+				hide			uioptions5
+				hide			visualopt
+				hide			camera
+				hide			trueview
+				hide			connection
+				hide			defaults
+				hide			crosshair
+				hide			crosshair2
+				hide			chat
+				hide			richpresence
+				hide			gamma
+				setitemcolor	setup_submenu	forecolor	1 1 1 0.9
+				setitemcolor	vulkanmenubutton	forecolor	0.5 0.5 0.5 0.9
+			}
+		}
 
 		// default button		
 
@@ -1305,7 +1390,7 @@ itemDef
 			text				@MENUS_DEFAULTS
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				10 242 120 17
+			rect				10 264 120 17
 			font				6
 			textscale			0.17
 			textalignx			111
@@ -1318,7 +1403,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	10 244 120 17
+				setitemrect		button_glow	10 266 120 17
 			}
 			mouseExit
 			{
@@ -1332,6 +1417,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1395,6 +1481,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				show			sound
@@ -1455,6 +1542,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1517,6 +1605,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1579,6 +1668,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1642,6 +1732,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1703,6 +1794,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1764,6 +1856,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1825,6 +1918,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1886,6 +1980,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -1949,6 +2044,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2013,6 +2109,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2075,6 +2172,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2137,6 +2235,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2199,6 +2298,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2261,6 +2361,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2323,6 +2424,7 @@ itemDef
 				hide 			video
 				hide			video2
 				hide			experimental
+				hide			rd_vulkan
 				hide			applyChanges
 				hide			vidrestart
 				hide			sound
@@ -2558,6 +2660,27 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
+			cvarTest			cl_renderer
+			hidecvar			{ "rd-vulkan-mbii" }
+		}
+		
+		itemDef
+		{
+			name				fullscreen_toggle
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Full Screen Quick Toggle:"
+			rect				142 305 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii" } //only implemented in vanilla
 		}
 
 
@@ -2687,9 +2810,9 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			text				"1440p"
-			rect				352 125 40 14
+			rect				362 125 40 14
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			15
+			textalignx			6
 			textaligny			-5
 			font				5
 			textscale			0.15
@@ -3144,10 +3267,51 @@ itemDef
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			descText			@MENUS_VIDEO_SYNC_DESC
+			cvarTest			cl_renderer
+			hidecvar			{ "rd-vulkan-mbii" }
 			mouseenter
 			{
 				show			button_glow 
 				setitemrect		button_glow	142 291 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				fullscreen_toggle
+			group				video
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cl_allowAltEnter"
+			cvarFloatList
+			{
+				@MENUS_OFF	0
+				@MENUS_ON	1 
+			}
+			rect				142 305 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Allows toggling full screen mode via ALT + ENTER shortcut (OpenJK default renderer specific)."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii" } //only implemented in vanilla
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 306 230 15			
 			}
 			mouseExit
 			{
@@ -3284,6 +3448,7 @@ itemDef
 				show				video1menubutton
 				show				video2menubutton
 				show				experimentalmenubutton
+				show				vulkanmenubutton
 				hide				soundmenubutton
 				hide				sound2menubutton
 				hide				gameoptionmenubutton
@@ -3301,6 +3466,7 @@ itemDef
 				show 				video
 				hide				video2
 				hide				experimental
+				hide				rd_vulkan
 				hide				applyChanges
 				hide				vidrestart
 				hide				sound
@@ -3333,6 +3499,7 @@ itemDef
 				setitemcolor	video1menubutton		forecolor 0.5 0.5 0.5 0.9
 				setitemcolor	video2menubutton		forecolor 1 1 1 0.9
 				setitemcolor	experimentalmenubutton		forecolor 1 1 1 0.9
+				setitemcolor	vulkanmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	visualoptmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gamedefaultsmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	gammamenubutton		forecolor 1 1 1 0.9
@@ -3349,19 +3516,18 @@ itemDef
 // GAMMA
 		itemDef
 		{
-			name				gamma_text
+			name				gamma_image
 			group				gamma
 			style				WINDOW_STYLE_SHADER
-			rect				192 130 120 30
+			rect				237 110 120 30
 			background			"gfx/menus/greyscale2"
 			forecolor			1 1 1 1
 			visible				0
 			decoration
 		}
-
 		itemDef
 		{
-			name				bright_text
+			name				gamma_text
 			group				gamma
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_ADJUST_BRIGHTNESS_SLIDER
@@ -3371,22 +3537,38 @@ itemDef
 			textaligny			-5
 			font				5
 			textscale			0.15
-			rect				142 165 230 14
+			rect				187 145 230 14
 			textalign			ITEM_ALIGN_CENTER
 			forecolor			0.5 0.5 0.5 0.7
 			visible				0
 			decoration
 		}
-
+		
+		itemDef
+		{
+			name				brightness_text
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_VIDEO_BRIGHTNESS
+			rect				142 190 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+		}
 		itemDef
 		{
 			name				brightness
 			group				gamma
 			style				WINDOW_STYLE_TEXT_RGB1
 			type				ITEM_TYPE_SLIDER
-			text				@MENUS_VIDEO_BRIGHTNESS
+			text				" "
 			cvarfloat			"r_gamma" 1 .5 3
-			rect				127 210 230 18
+			rect				152 190 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -3398,7 +3580,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 210 230 19			
+				setitemrect		button_glow	142 190 230 19			
 			}
 			mouseExit
 			{
@@ -3409,7 +3591,6 @@ itemDef
 				play			"sound/interface/button1.wav"
 			}
 		}
-		
 		itemDef
 		{
 			name				brightnessNum
@@ -3419,7 +3600,7 @@ itemDef
 			text				""
 			descText			@MENUS_ADJUST_THE_BRIGHTNESS
 			cvarfloat			"r_gamma" 1 .5 3
-			rect				380 210 230 14
+			rect				380 190 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -3436,12 +3617,130 @@ itemDef
 		
 		itemDef
 		{
+			name				ignorehwgamma_text
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Ignore HW Gamma:"
+			rect				142 205 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+		}
+		itemDef
+		{
+			name				ignorehwgamma
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				r_ignorehwgamma
+			cvarFloatList
+			{
+				@MENUS_OFF	0
+				@MENUS_ON	1
+			}
+			rect				142 205 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Override hardware / driver gamma configuration."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 206 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
+			name				gammashaders_text
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Gamma Shaders:"
+			rect				142 220 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii" } //only implemented in vanilla
+		}
+		itemDef
+		{
+			name				gammashaders
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				r_gammaShaders
+			cvarFloatList
+			{
+				@MENUS_OFF	0
+				@MENUS_ON	1
+			}
+			rect				142 220 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Set gamma using pixel shaders inside the game window only (OpenJK default renderer specific)."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii" } //only implemented in vanilla
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 221 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
 			name				advancedvideo
 			group				gamma
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BUTTON
 			text				@MENUS_SHOW_DRIVER_INFO
-			rect				142 270 230 14
+			rect				142 250 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3453,7 +3752,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 271 230 15			
+				setitemrect		button_glow	142 251 230 15
 			}
 			mouseExit
 			{
@@ -3466,43 +3765,49 @@ itemDef
 				open 			videodriverMenu
 			}
 		}
+		
+		itemDef
+		{
+			name				renderer_text
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"OpenJK Renderer:"
+			rect				142 280 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }	
+		}
+		itemDef
+		{
+			name				renderer
+			group				gamma
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				" "
+			cvar				cl_renderer
+			rect				142 280 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Currently configured renderer. To change, exit game and select different option in Launcher settings."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+			decoration
+		}
 
 		
 // VIDEO 2		
-
-		itemDef
-		{
-			name				maxfps
-			group				video2
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Max FPS:"
-			rect				142 110 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				drawfps
-			group				video2
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Draw FPS:"
-			rect				142 125 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				1
-			decoration
-		}
 
 		itemDef
 		{
@@ -3510,7 +3815,7 @@ itemDef
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_SHADOWS
-			rect				142 155 230 14
+			rect				142 110 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3527,7 +3832,7 @@ itemDef
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_DYNAMIC_LIGHTS
-			rect				142 170 230 14
+			rect				142 125 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3544,7 +3849,7 @@ itemDef
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_DYNAMIC_GLOW
-			rect				142 185 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3561,7 +3866,7 @@ itemDef
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Disable Sky:"
-			rect				142 200 230 14
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3579,7 +3884,7 @@ itemDef
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_LIGHT_FLARES
-			rect				142 215 230 14
+			rect				142 170 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3596,7 +3901,7 @@ itemDef
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_WALL_MARKS
-			rect				142 230 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3613,7 +3918,7 @@ itemDef
 			group				video2
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Anisotropic Filter:"
-			rect				142 260 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -3623,89 +3928,81 @@ itemDef
 			visible				0
 			decoration
 		}
-
-
-// VIDEO 2 2	
-
-		itemDef
-		{
-			name				maxfps
-			group				video2
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_MULTI
-			text				" "
-			rect				142 110 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			cvarFloatList
-			{
-				"30" 30
-				"60" 60
-				"85 (Default)" 85
-				"120" 120
-				"125" 125
-				"230" 230
-				"0 (uncapped, may cause connection issues)" 0
-			}
-			descText			"Max FPS rate, recommended to be set slightly below the highest FPS you can normally attain."
-			cvar				"com_maxfps"
-			visible				1
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 111 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}			
-			action
-			{
-				play			"sound/interface/button1.wav"
-				
-			}
-		}
-
+		
 		itemDef
 		{
 			name				drawfps
 			group				video2
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_MULTI
-			text				" "
-			rect				142 125 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Draw FPS:"
+			rect				142 245 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
 			textaligny			-5
 			font				5
 			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			cvarFloatList
-			{
-				"No" 0 
-				"Yes" 1
-			}
-			descText			"Draws FPS rate in upper-right corner of screen in-game"
-			cvar				"cg_drawfps"
+			forecolor			1 1 1 0.9
 			visible				1
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 126 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}				
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
+			decoration
 		}
+		
+		itemDef
+		{
+			name				maxfps
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Max FPS:"
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				maxfps_min
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Max Minimized FPS:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+		}
+		
+		itemDef
+		{
+			name				maxfps_unfocus
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Max Unfocused FPS:"
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				1
+			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+		}
+
+
+// VIDEO 2 2	
 
 		itemDef
 		{
@@ -3721,7 +4018,7 @@ itemDef
 				@MENUS_NONE				0
 				@MENUS_SHADOWS_SIMPLE	1
 			}
-			rect				142 155 230 14
+			rect				142 110 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3732,7 +4029,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 156 230 15			
+				setitemrect		button_glow	142 111 230 15			
 			}
 			mouseExit
 			{
@@ -3757,7 +4054,7 @@ itemDef
 				@MENUS_OFF	0 
 				@MENUS_ON	1 
 			}
-			rect				142 170 230 14
+			rect				142 125 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3769,7 +4066,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 171 230 15			
+				setitemrect		button_glow	142 126 230 15			
 			}
 			mouseExit
 			{
@@ -3794,7 +4091,7 @@ itemDef
 				@MENUS_OFF	0
 				@MENUS_ON	1
 			}
-			rect				142 185 230 14
+			rect				142 140 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3806,7 +4103,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 186 230 15			
+				setitemrect		button_glow	142 141 230 15			
 			}
 			mouseExit
 			{
@@ -3831,7 +4128,7 @@ itemDef
 				@MENUS_OFF	0 
 				@MENUS_ON	1 
 			}
-			rect				142 200 230 14
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3843,7 +4140,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 201 230 15			
+				setitemrect		button_glow	142 156 230 15			
 			}
 			mouseExit
 			{
@@ -3869,7 +4166,7 @@ itemDef
 				@MENUS_OFF	0 
 				@MENUS_ON	1 
 			}
-			rect				142 215 230 14
+			rect				142 170 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3885,7 +4182,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15				
+				setitemrect		button_glow	142 171 230 15				
 				show			highlight11
 			}
 			mouseExit
@@ -3908,7 +4205,7 @@ itemDef
 				@MENUS_OFF	0 
 				@MENUS_ON	1 
 			}
-			rect				142 230 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -3920,7 +4217,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 231 230 15			
+				setitemrect		button_glow	142 186 230 15			
 			}
 			mouseExit
 			{
@@ -3942,7 +4239,7 @@ itemDef
 			cvarTest			r_ext_texture_filter_anisotropic_avail
 			disableCvar			{0 }
 			cvarfloat			r_ext_texture_filter_anisotropic 1 .5 16
-			rect				152 260 200 19
+			rect				152 215 200 19
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -3954,7 +4251,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 260 230 19			
+				setitemrect		button_glow	142 215 230 19			
 			}
 			mouseExit
 			{
@@ -3977,7 +4274,7 @@ itemDef
 			cvarTest			r_ext_texture_filter_anisotropic_avail
 			disableCvar			{0 }
 			cvarfloat			r_ext_texture_filter_anisotropic 1 .5 16
-			rect				380 260 230 14
+			rect				380 215 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -3989,6 +4286,173 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav" 
+			}
+		}
+		
+		itemDef
+		{
+			name				drawfps
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 245 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList
+			{
+				"No" 0 
+				"Yes" 1
+			}
+			descText			"Draws FPS rate in upper-right corner of screen in-game"
+			cvar				"cg_drawfps"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 246 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				maxfps
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 260 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList
+			{
+				"0 (uncapped, may cause connection issues)" 0
+				"30" 30
+				"60" 60
+				"85" 85
+				"100" 100
+				"125 (default)" 125
+				"200" 200
+				"250" 250
+			}
+			descText			"Max FPS rate, recommended to be set slightly below the highest FPS you can normally attain."
+			cvar				"com_maxfps"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 261 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				
+			}
+		}
+		
+		itemDef
+		{
+			name				maxfps_min
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList
+			{
+				"0 (uncapped)" 0
+				"25" 30
+				"50 (default)" 50
+				"75" 75
+				"100" 100
+			}
+			descText			"Max FPS rate while program window is minimized."
+			cvar				"com_maxfpsMinimized"
+			visible				0
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 276 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				
+			}
+		}
+		
+		itemDef
+		{
+			name				maxfps_unfocus
+			group				video2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList
+			{
+				"0 (uncapped, default)" 0
+				"25" 30
+				"50" 50
+				"75" 75
+				"100" 100
+			}
+			descText			"Max FPS rate while program window is unfocused."
+			cvar				"com_maxfpsUnfocused"
+			visible				0
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 291 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				
 			}
 		}
 
@@ -4104,6 +4568,23 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Grenade Glows:"
 			rect				142 215 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				fxvfps
+			group				visualopt
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Effects Frame Rate:"
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -4337,7 +4818,7 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
-				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
 				show			applyChanges
 			}
 		}
@@ -4377,8 +4858,49 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
-				//setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
 				show			applyChanges
+			}
+		}
+		
+		itemDef
+		{
+			name				fxvfps
+			group				visualopt
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			rect				142 230 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList
+			{
+				"100% (default)" 1000
+				"50%" 500
+				"25%" 250
+				"10%" 100
+				"5%" 50
+			}
+			descText			"Whether or not to render many visual effects every frame (fx_vfps).\nLowering this value may increase performance at the cost of choppiness."
+			cvar				"fx_vfps"
+			visible				1
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 231 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				
 			}
 		}
 
@@ -4432,8 +4954,8 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
-				uiScript		glCustom
 				setcvar			ui_r_modified 1
+				uiScript		glCustom
 				show			applyChanges
 			}
 		}
@@ -4468,6 +4990,818 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
+		}
+		
+		
+// VULKAN RENDERER
+
+//		Static Surface Caching
+		itemDef //LABEL
+		{
+			name				vbo
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Static Surface Caching:"
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef //BUTTON
+		{
+			name				vbo
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Improve performance by caching static world surfaces (r_vbo)."
+			cvar				"r_vbo"
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 111 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Multisample AA
+		itemDef //LABEL
+		{
+			name				msaa
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"MSAA:"
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef //BUTTON
+		{
+			name				msaa
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 "2x" 2 "4x" 4 "8x" 8}
+			descText			"Multisample anti-aliasing. Reduces the stairstep effect ('jaggies') on the edge of 3D objects."
+			cvar				"r_ext_multisample"
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 126 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+
+//		Vulkan Video Sync
+		itemDef //LABEL
+		{
+			name				vulkan_vsync
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_VIDEO_SYNC
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				vulkan_vsync
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"r_swapInterval"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				"FIFO"			1
+				"FIFO Relaxed"	2
+				"Mailbox"		3
+			}
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Reduces screen tearing if FPS exceeds display refresh. FIFO: Prevents tearing but may increase visual latency.\nFIFO Relaxed: May tear but never adds latency. Mailbox: Never tears or adds latency, but not always supported."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 141 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Offscreen Rendering
+		itemDef //LABEL
+		{
+			name				fbo
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Offscreen Rendering:"
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef //BUTTON
+		{
+			name				fbo
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Enables offscreen render effects (r_fbo). Required for some options."
+			cvar				"r_fbo"
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 171 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		High Dynamic Range
+		itemDef //LABEL
+		{
+			name				vulkan_hdr
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Color Banding Reduction:"
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_hdr
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Use HDR render target to reduce color banding (r_hdr)."
+			cvar				"r_hdr"
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 186 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Bloom
+		itemDef //LABEL
+		{
+			name				vulkan_bloom
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Bloom:"
+			rect				142 215 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_bloom
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 215 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			descText			"Bloom post processing effect."
+			cvar				"r_bloom"
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 216 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Bloom Threshold
+		itemDef //LABEL
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Bloom Threshold:"
+			rect				142 230 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //SLIDER
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_SLIDER
+			text				""
+			cvarfloat			"r_bloom_threshold" 0.05 0.01 1
+			rect				152 230 200 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			"Minimum texture brightness for bloom to apply."
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 230 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		itemDef //INPUT
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Minimum texture brightness for bloom to apply."
+			cvarfloat			"r_bloom_threshold" 0.05 0.01 1
+			rect				380 230 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Bloom Intensity
+		itemDef //LABEL
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Bloom Intensity:"
+			rect				142 245 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //SLIDER
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_SLIDER
+			text				""
+			cvarfloat			"r_bloom_intensity" 0.15 0.01 2
+			rect				152 245 200 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			"Minimum texture brightness for bloom to apply."
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 245 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		itemDef //INPUT
+		{
+			name				vulkan_bloom_thresh
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Strength of bloom effect."
+			cvarfloat			"r_bloom_intensity" 0.15 0.01 2
+			rect				380 245 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Render Scale
+		itemDef //LABEL
+		{
+			name				vulkan_render_scale
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Render Scaling Mode:"
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_render_scale
+			group				rd_vulkan
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			rect				142 275 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			cvarFloatList		{
+									"Disabled" 0
+									"Nearest Filtering - Stretch" 1
+									"Nearest Filtering - Preserve Aspect" 2
+									"Linear Filtering - Stretch" 3
+									"Linear Filtering - Perserve Aspect" 4
+								}
+			descText			"Enable rendering at an arbitrary resolution, scaled to game window size."
+			cvar				"r_renderScale"
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 276 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Render Scale
+		itemDef //LABEL
+		{
+			name				vulkan_scale_presets
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Render Resolution Presets:"
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets1
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"768p"
+			rect				282 290 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			10
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 1366 x 768"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	282 291 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"1366"
+				setcvar			r_renderHeight	"768"
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets2
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"1080p"
+			rect				322 290 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 1920 x 1080"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	322 291 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"1920"
+				setcvar			r_renderHeight	"1080"
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets3
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"1440p"
+			rect				362 290 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			6
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 2560 x 1440"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	362 291 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"2560"
+				setcvar			r_renderHeight	"1440"
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_scale_presets4
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BUTTON
+			text				"4K"
+			rect				402 290 40 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			15
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			"Set a renderer resolution of 3840 x 2160"
+			visible				1
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	402 291 40 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				setcvar			r_renderWidth	"3840"
+				setcvar			r_renderHeight	"2160"
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
+		}
+		
+//		Render Scale
+		itemDef //LABEL
+		{
+			name				vulkan_render_size
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Width x Height:"
+			rect				142 305 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_render_width
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Set renderer resolution width."
+			cvar				"r_renderWidth"
+			rect				290 305 30 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			4
+			maxPaintChars		4
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav" 
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				uiScript		glCustom
+			}
+		
+		}
+		itemDef //LABEL
+		{
+			name				vulkan_x
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"X"
+			rect				323 305 0 0
+			textalign			ITEM_ALIGN_RIGHT
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			descText			""
+			visible				0
+			decoration
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+		}
+		itemDef //BUTTON
+		{
+			name				vulkan_render_height
+			group				rd_vulkan
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Set renderer resolution height."
+			cvar				"r_renderHeight"
+			rect				329 305 30 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			4
+			maxPaintChars		4
+			visible				0
+			cvarTest			r_fbo
+			showcvar			{ 1 }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setcvar			ui_r_modified	1 //does not have UI cvar so cannot be reverted if change discarded
+				show			applyChanges
+			}
 		}
 		
 		
@@ -6801,6 +8135,8 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
 		}
 
 		itemDef
@@ -6818,6 +8154,8 @@ itemDef
 			forecolor			1 1 1 0.9
 			visible				0
 			decoration
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
 		}
 		
 // UI OPTIONS 2 FIELDS 2
@@ -7236,6 +8574,8 @@ itemDef
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			descText			"Forces the correction of the aspect ratio for the HUD in OpenJK based clients."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
 			mouseenter
 			{
 				show			button_glow 
@@ -7273,6 +8613,8 @@ itemDef
 			forecolor			0.5 0.5 0.5 1
 			visible				0
 			descText			"Forces the correction of the aspect ratio for circular HUD elements in OpenJK based clients."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
 			mouseenter
 			{
 				show			button_glow 
@@ -9103,11 +10445,28 @@ itemDef
 		
 		itemDef
 		{
+			name				followcam
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Spectator Follow Camera:"
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
 			name				tpcamdamp
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"3rd Per. Cam Damp:"
-			rect				142 185 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -9124,7 +10483,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"3rd Per. Target Damp:"
-			rect				142 200 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -9141,7 +10500,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"FoV:"
-			rect				142 230 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -9158,7 +10517,7 @@ itemDef
 			group				camera
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Widescreen FoV:"
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -9323,13 +10682,50 @@ itemDef
 		
 		itemDef
 		{
+			name				followcam
+			group				camera
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cg_freeSpecAndFollow"
+			cvarFloatList
+			{
+				"Locked"		0
+				"Free"			1
+			}
+			rect				142 170 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Toggle allowing camera adjustment while spectating a player"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 171 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
 			name				cgtpcamdamp
 			group				camera
 			type				ITEM_TYPE_SLIDER
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
-			rect				152 185 230 14
+			rect				152 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -9341,7 +10737,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 185 230 19			
+				setitemrect		button_glow	142 200 230 19			
 			}
 			mouseExit
 			{
@@ -9362,7 +10758,7 @@ itemDef
 			text				""
 			descText			"How fast the camera tracks player movement. 1 = no dampening"
 			cvarfloat			"cg_thirdpersoncameradamp" 1 0 1
-			rect				380 185 230 14
+			rect				380 200 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -9385,7 +10781,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
-			rect				152 200 230 14
+			rect				152 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -9397,7 +10793,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 200 230 19			
+				setitemrect		button_glow	142 215 230 19			
 			}
 			mouseExit
 			{
@@ -9418,7 +10814,7 @@ itemDef
 			text				""
 			descText			"How fast the camera tracks crosshair movement. 1 = no dampening"
 			cvarfloat			"cg_thirdpersontargetdamp" 0.6 0 1
-			rect				380 200 230 14
+			rect				380 215 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -9441,7 +10837,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			text				" "
 			cvarfloat			"cg_fov" 80 80 97
-			rect				152 230 230 14
+			rect				152 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			90
 			textaligny			-5
@@ -9453,7 +10849,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 230 230 19			
+				setitemrect		button_glow	142 245 230 19			
 			}
 			mouseExit
 			{
@@ -9474,7 +10870,7 @@ itemDef
 			text				""
 			descText			"Field of View"
 			cvarfloat			"cg_fov" 80 80 97
-			rect				380 230 230 14
+			rect				380 245 230 14
 			textalignx			0
 			textaligny			-5
 			font				6
@@ -9502,7 +10898,7 @@ itemDef
 				@MENUS_OFF		0
 				@MENUS_ON		1
 			}
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -9514,7 +10910,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 246 230 15			
+				setitemrect		button_glow	142 261 230 15			
 			}
 			mouseExit
 			{

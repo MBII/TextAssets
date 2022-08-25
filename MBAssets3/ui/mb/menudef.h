@@ -94,7 +94,7 @@
 #define FEEDER_SERVERSTATUS				0x0d	// server status
 #define FEEDER_FINDPLAYER				0x0e	// find player
 #define FEEDER_CINEMATICS				0x0f	// cinematics
-#define FEEDER_FORCECFG					0x10	// force config list
+//#define FEEDER_FORCECFG				0x10	// force config list
 #define FEEDER_SIEGE_TEAM1				0x11	// siege class list for team1
 #define FEEDER_SIEGE_TEAM2				0x12	// siege class list for team2
 #define FEEDER_PLAYER_SPECIES			0x13	// models/player/*
@@ -157,6 +157,23 @@
 #define FEEDER_SIEGE_FA_SABER			0x3f
 
 #define FEEDER_EXHEADS					0x40 // GCJ_EX_MODELS
+
+// GCJ_OPEN_CLASS_FEEDER
+#define FEEDER_MB_CLASS_R				0x41
+#define FEEDER_MB_CLASS_B				0x42
+
+#define FEEDER_MB_CLASS_R_SM			0x43
+#define FEEDER_MB_CLASS_B_SM			0x44
+
+#define FEEDER_MB_CLASS_R_LG			0x45
+#define FEEDER_MB_CLASS_B_LG			0x46
+
+// GCJ_FAV_FEEDER
+#define FEEDER_FAVCFG					0x47
+
+// GCJ_OPEN_SUB_DIV
+#define FEEDER_MBHEADS_MAIN				0x48
+#define FEEDER_MBHEADS_SUBS				0x49
 
 // Xbox specific, hope no one minds
 #define FEEDER_XBL_ACCOUNTS				0xA0	// list of available XBL accounts

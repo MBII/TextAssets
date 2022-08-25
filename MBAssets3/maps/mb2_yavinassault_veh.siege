@@ -39,15 +39,61 @@ AutoMap
 	}
 }
 
-roundbegin_target ""
+HelpIcons
+{
+	//Bomb Plant - defend
+	HelpIcon1
+	{
+		dynamic 1
+		redicon HLP_DEFEND
+		blueicon HLP_NONE
+		specicon HLP_DEFEND
+	}
+	//Bomb Plant - hack dropoff
+	HelpIcon2
+	{
+		dynamic 1
+		redicon HLP_DEFEND
+		blueicon HLP_ITEM_DROPOFF
+		specicon HLP_DEFEND
+	}
+	//Bomb Plant - counter hack
+	HelpIcon3
+	{
+		end0 "xplode"
+		dynamic 1
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_HACK
+	}
+	
+	//Bomb - dropped icon
+	HelpIcon6
+	{
+		dynamic 1
+		redicon HLP_NONE
+		blueicon HLP_ITEM_PICKUP
+		specicon HLP_NONE
+	}
+	//Bomb - carried icon
+	HelpIcon7
+	{
+		dynamic 1
+		redicon HLP_NONE
+		blueicon HLP_ITEM
+		specicon HLP_NONE
+	}
+}
+
+roundbegin_target "foight"
 
 Rebels
 {
 	RequiredObjectives 1
 	UseTeam "yavinassC_Republic"
-	TeamIcon "gfx/2d/logos/mb_newrepublic"
+	TeamIcon	"gfx/2d/logos/mb_newrepublic"
 	TeamColorOn	"1 0 0 1"
-	TeamColorOff ".7 0 0 1"	
+	TeamColorOff	".7 0 0 1"
 
 	Objective1
 	{
@@ -61,9 +107,9 @@ Rebels
 	}
 
 	wonround "The Remnant forces were held off."
-	lostround "The turret was destroyed."
+	lostround "The turret was destroyed"
 	roundover_sound_wewon ""
-	roundover_sound_welost ""
+	roundover_sound_welost "sound/chars/protocol/misc/40MOM012.mp3"
 	roundover_target "roundover"
 	attackers 0
 	briefing "Defend the turret."
@@ -74,9 +120,9 @@ Imperials
 	RequiredObjectives 1
 	Timed 300
 	UseTeam "yavinassC_Imp"
-	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamIcon	"gfx/2d/logos/mb_empire"
 	TeamColorOn	"0 0 1 1"
-	TeamColorOff "0 0 .7 1"
+	TeamColorOff	"0 0 .7 1"
 
 	Objective1
 	{
@@ -88,12 +134,12 @@ Imperials
 		Destroy the anti-air turret to allow aerial bombardment."
 		objgfx "gfx/mplevels/mb2_yavinassault/obj"
 	}
-
+	
 	wonround "The turret was destroyed."
 	lostround "The assault was unsuccessful."
 	roundover_sound_wewon ""
 	roundover_sound_welost ""
 	roundover_target "roundoverimp"
 	attackers 1
-	briefing "Destroy the turret."
+	briefing "Destroy the turret"
 }
