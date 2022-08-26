@@ -1,15 +1,16 @@
 textures/ONDERON/onderon_sky
 {
 	qer_editorimage textures/skies/sky
-	q3map_lightRGB  0.923568 0.959106 1.000000
-        q3map_skylight 350 5
+	q3map_lightRGB 0.923568 0.959106 1.000000
+        q3map_skylight 200 5
         surfaceparm nomarks
         surfaceparm sky
-	surfaceparm noimpact
-	surfaceparm nodlight
+		surfaceparm noimpact
+		surfaceparm nodlight
         q3map_nolightmap
+		// not sure if this is needed -> q3map_lightmapFilterRadius 0 8
         // Red, green, blue, intensity, degrees, elevation, deviance, samples
-        q3map_sunExt 1 0.958755 0.680507 1200 140 10 3 8
+        q3map_sunExt 1 0.807843 0.55294 1000 140 10 3 8
 	skyparms textures/ONDERON/onderon_sky 2048 -
 }
 
@@ -246,6 +247,7 @@ models/map_objects/onderon/kentia
     surfaceparm    trans
     q3map_alphashadow
     deformVertexes wave 10 sin 0 2 0 0.2
+	cull    twosided
      {
         map models/map_objects/onderon/kentia
         alphaFunc GE128
