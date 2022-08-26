@@ -1,16 +1,13 @@
 textures/skies/dojo_v3 
 {
     qer_editorimage textures/skies/sky
+    notc // really important or you will get banding - MUST GO BEFORE SKYPARMS OR IT WON'T DO ANYTHING ~Spaghetti
 	skyParms textures/skies/dojo_v2 512 -
 	q3map_lightmapFilterRadius 0 3
 	// http://q3map2.robotrenegade.com/docs/shader_manual/q3map-global-directives.html#q3map_sunExt
 	// Red, green, blue, intensity, degrees, elevation, deviance, samples
 	q3map_sunExt 0.86 0.97 1 140 120 50 3 8
 	q3map_skyLight 150 5
-
-    // really important or you will get banding
-    notc
-
 	surfaceparm sky
 	surfaceparm noimpact
 	surfaceparm nolightmap
