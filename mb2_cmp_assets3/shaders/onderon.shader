@@ -283,3 +283,13 @@ textures/onderon/ondglass
         tcmod scale 4 4
     }
 }
+
+gfx/mp/siegeicons/onderon/forcefield_access
+{
+	nopicmip
+	nomipmaps
+	{
+		gfx/mp/siegeicons/onderon/forcefield_access
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+	}
+}
