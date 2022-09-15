@@ -1,10 +1,7 @@
 models/players/sith_assassin/head
 {
-	cull	disable
-	q3map_nolightmap
 	{
 		map models/players/sith_assassin/head
-		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
 	{
@@ -13,6 +10,7 @@ models/players/sith_assassin/head
 		rgbGen lightingDiffuse
 		alphaGen const 1
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/sith_assassin/head
@@ -21,7 +19,7 @@ models/players/sith_assassin/head
 	}
 }
 
-models/players/sith_assassin/body
+models/players/sith_assassin/body_cull
 {
 	cull	twosided
 	{
@@ -32,11 +30,8 @@ models/players/sith_assassin/body
 
 models/players/sith_assassin/head_master
 {
-	cull	disable
-	q3map_nolightmap
 	{
 		map models/players/sith_assassin/head_master
-		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
 	{
@@ -45,6 +40,7 @@ models/players/sith_assassin/head_master
 		rgbGen lightingDiffuse
 		alphaGen const 1
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/sith_assassin/head_master
@@ -55,8 +51,6 @@ models/players/sith_assassin/head_master
 
 models/players/sith_assassin/body_master
 {
-	cull	disable
-	q3map_nolightmap
 	{
 		map models/players/sith_assassin/body_master
 		blendFunc GL_ONE GL_ZERO
@@ -68,6 +62,7 @@ models/players/sith_assassin/body_master
 		rgbGen lightingDiffuse
 		alphaGen const 1
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/sith_assassin/body_master
@@ -92,25 +87,5 @@ models/players/sith_assassin/extras2
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
-	}
-}
-
-models/players/sith_assassin/body_uthar
-{
-	cull	disable
-	q3map_nolightmap
-	{
-		map models/players/sith_assassin/body_uthar
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/sith_assassin/body_bandon
-{
-	cull	disable
-	q3map_nolightmap
-	{
-		map models/players/sith_assassin/body_bandon
-		rgbGen lightingDiffuse
 	}
 }

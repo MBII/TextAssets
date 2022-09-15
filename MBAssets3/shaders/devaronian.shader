@@ -1,6 +1,5 @@
 models/players/devaronian/head
 {
-	cull	twosided
 	{
 		map models/players/devaronian/head
 		blendFunc GL_ONE GL_ZERO
@@ -16,7 +15,6 @@ models/players/devaronian/head
 
 models/players/devaronian/new_arms
 {
-	cull	twosided
 	{
 		map models/players/devaronian/new_arms
 		blendFunc GL_ONE GL_ZERO
@@ -32,7 +30,6 @@ models/players/devaronian/new_arms
 
 models/players/devaronian/new_hands
 {
-	cull	twosided
 	{
 		map models/players/devaronian/new_hands
 		blendFunc GL_ONE GL_ZERO
@@ -48,7 +45,6 @@ models/players/devaronian/new_hands
 
 models/players/devaronian/new_legs
 {
-	cull	twosided
 	{
 		map models/players/devaronian/new_legs
 		blendFunc GL_ONE GL_ZERO
@@ -64,7 +60,6 @@ models/players/devaronian/new_legs
 
 models/players/devaronian/new_torso
 {
-	cull	twosided
 	{
 		map models/players/devaronian/new_torso
 		blendFunc GL_ONE GL_ZERO
