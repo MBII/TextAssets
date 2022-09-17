@@ -1,7 +1,6 @@
 models/players/Tarkin/torso
 {
 	q3map_nolightmap
-	cull twosided
 	{
 		map models/players/Tarkin/torso
 		rgbGen lightingDiffuse
@@ -17,7 +16,6 @@ models/players/Tarkin/torso
 models/players/Tarkin/hips_legs
 {
 	q3map_nolightmap
-	cull twosided
 	{
 		map models/players/Tarkin/hips_legs
 		rgbGen lightingDiffuse

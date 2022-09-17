@@ -41,7 +41,6 @@ models/players/luke_dagobah/backpack
 
 models/players/luke_rotj/body
 {
-	cull	twosided
 	{
 		map models/players/luke_rotj/body
 		rgbGen lightingDiffuse
