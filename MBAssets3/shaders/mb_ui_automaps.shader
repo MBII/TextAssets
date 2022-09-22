@@ -840,6 +840,74 @@ gfx/mplevels/mb2_snowfacility/map
 }
 
 //####################
+//##### STARKILLER BASE
+//####################
+gfx/automap/mb2_starkiller_base
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_starkiller_basefull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_starkiller_basefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_starkiller_base/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_starkiller_base/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL STARKILLER BASE
+//####################
+gfx/automap/mb2_duel_starkiller_base
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_starkiller_basefull
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_starkiller_base/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_starkiller_base/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### THEED
 //####################
 gfx/automap/mb2_theed
