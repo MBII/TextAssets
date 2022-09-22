@@ -3,23 +3,29 @@
 ClassInfo
 {
 	name				"_v_h_Gamo"
-	weapons				WP_BLASTER|WP_SABER|WP_MELEE|WP_FRAG_NADE|WP_CONC_NADE
-	saber1				gamo_axe_legends
+	weapons				WP_SABER|WP_MELEE|WP_CONC_NADE|WP_FLECHETTE
+
 	saberstyle			SS_MEDIUM|SS_STRONG
-	attributes			MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_GUNBASH|MB_ATT_ASSEMBLE|MB_ATT_MICRO_GRENADES,1
-	maxhealth		    320
+	attributes			MB_ATT_A280,3|MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_GUNBASH|MB_ATT_ASSEMBLE|MB_ATT_MICRO_GRENADES,1|MB_ATT_WOOKIEE_FURY,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1
+	maxhealth		    300
 	extralives			1
 	model				"gamorrean"
 	skin				"default"
 	uishader			"models/players/gamorrean/mb2_icon_default_jab"
 	MBClass				MB_CLASS_WOOKIE
-	speed				1.1
-	classNumberLimit	4
+	speed				1.06
+	classNumberLimit	2
 	modelscale			1.08
-	speed				1.08
+	speed				1.09
 	APmultiplier		1.4
+	sabercolor 1
+	saber1				gamo_axe_legends
+	saber1_1			bardiche_legends
+
+	damageTaken 0.85
 	
-	WP_FragNadeFlags	HELD_KNOCKDOWN
+	rageSoundOverride "sound/chars/gamorrean/misc/anger1.mp3"
+	bargeSoundOverride "sound/chars/gamorrean/misc/combat1.mp3"
 	
 	respawnCustomTime 30000
 }
@@ -30,19 +36,18 @@ WeaponInfo0
 	WeaponBasedOff		WP_SABER					
 	NewWorldModel		"models/weapons2/exec_axe/exec_axe.glm"  	
 	NewViewModel		"models/weapons2/dummy/dummy.md3"   	
-	Icon				"models/weapons2/exec_axe/w_icon_exec_axe" 				
+	Icon				"gfx/hud/w_icon_gamoweapons" 				
 	WeaponName			"Gamorrean Axe"    				
 }
+
 WeaponInfo1
-{	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_THERMAL
-	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
-	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
-	Icon							"gfx/hud/w_icon_stungrenade"
-	WeaponName				"Stun Grenade"
-	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
-	primFireEnabled		0
-	CustomAmmo		1
+{
+	WeaponToReplace		WP_FLECHETTE				
+	WeaponBasedOff		WP_BLASTER					
+	NewWorldModel		"models/weapons2/blaster_r/blaster_w.glm"  	
+	NewViewModel		"models/weapons2/blaster_r/blaster.md3"     	
+	Icon				"gfx/hud/w_icon_E11" 					
+	WeaponName			"Modified E-11"    				
 }
 
 description			"Gamorrean
@@ -52,17 +57,25 @@ Class Summary:
 A versatile brawler/melee/gunner class with strength and an extra life. 
 
 Weaponry:
-- E-11 (3)
-- Stun Grenade (1) (Secondary-Fire only Frag Grenades, detonates on contact with surfaces)
+- Modified E-11 (Based on A280 level 3)
 - Concussion Grenade (1)
-- Gamorrean Axe (Can use Medium and Red styles, cannot block any attacks)
+- Gamorrean Axe * 
+
+* Special Weapon Descriptions:
+--- Gamorrean Axe
+- Cannot block blasters or lightsabers
+- Reduced damage compared to lightsabers
+- The traditional Gamorrean Axe has faster swings but shorter reach; the Gamorrean Bardiche has longer reach but slower swings
 
 Attributes:
-- Strength (2)
-- Assemble
 - Extra life
+- Strength (2)
+- Heal (1)
+- Blast Armor
+- Assemble
 
 Abilities:
+- Fury (1) [Class Special 1 and 2 in Melee]
 - Gunbash [Class Special 2]
 
 From the planet Gamorr, the Gamorrean species consists of brutish, porcine humanoids who maintain a feudal level of technology, and tolerate a remarkable amount of violence in their everyday activities."
