@@ -56,20 +56,6 @@ models/players/alien_heads/aqualish
     }
 }
 
-models/players/alien_heads/aqualishb
-{
-    {
-        map models/players/alien_heads/aqualishb
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/aqualish_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/alien_heads/arcona
 {
     {
@@ -218,6 +204,20 @@ models/players/alien_heads/muun
     }
     {
         map models/players/alien_heads/muun_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/nabrun
+{
+    {
+        map models/players/alien_heads/nabrun
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/nabrun_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular

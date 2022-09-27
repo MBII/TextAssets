@@ -71,53 +71,6 @@ models/players/stormie/body-armor
 }
 
 
-// Sand Trooper
-
-models/players/sandtrooper/arms-sand
-{
-	cull	twosided
-	{
-		map models/players/sandtrooper/arms-sand
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/arms-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sandtrooper/helmet-sand
-{
-	{
-		map models/players/sandtrooper/helmet-sand
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/helmet-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sandtrooper/body-armor-sand
-{
-	{
-		map models/players/sandtrooper/body-armor-sand
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/body-armor-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
 // stormie tfa
 
 models/players/stormie_tfa/helmet
