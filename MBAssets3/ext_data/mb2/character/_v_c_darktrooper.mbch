@@ -4,35 +4,51 @@ ClassInfo
 {
 	name 				 "_v_c_darktrooper"
 	weapons 			WP_MELEE|WP_BOWCASTER|WP_ROCKET_LAUNCHER
-	attributes  		MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_PLX1,1|MB_ATT_BOWCASTER,3|MB_ATT_GUNBASH|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_SHIELD_RECHARGE,1
-	speed				.95
-	maxhealth 			180
-	maxarmor			100
-	classNumberLimit  	1
+	
+	attributes MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_PLX1,1|MB_ATT_BOWCASTER,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA
+	
+	maxhealth 			200
+	maxarmor		    400
+
+	forcepowers			FP_SEE,1
+	forcepool			25
+	
+	modelscale		    1.17
+	rateOfFire          1.06
+	damageTaken         0.9
+	speed               1.06
+	
+	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE|CFL_NOLOCATIONALDAMAGE
+	WP_RocketLauncherFlags HELD_LOWDAMAGE
+
+
 	model 				"darktrooper"
 	skin  				"default"
 	uishader  			"models/players/DarkTrooper/mb2_icon_default"
-	MBClass 			MB_CLASS_WOOKIE
-	modelscale		    1.27
-	rateOfFire          1.06
+
 	jetpackJetTag		*jet1
 	jetpackJet2Tag		*jet2
 	jetpackJetOffset	"0, 0, 1"
 	jetpackJet2Offset	"0, 0, 1"
+	
+	respawnCustomTime 75000
+	classNumberLimit  	1
+	MBClass 			MB_CLASS_WOOKIE
+
 }
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_REPEATER
+	WeaponBasedOff		WP_CONCUSSION
 	NewWorldModel		"models/weapons2/assault_cannon/model_w.glm"
-	NewViewModel		"models/weapons2/Junglerifle/jungeRifle.md3"
-	Icon				"gfx/hud/w_icon_junglerifle"
+	NewViewModel		"models/weapons2/assault_cannon/model.md3"
+	Icon				"gfx/hud/w_icon_DTAC"
 	WeaponName			"Assault Cannon"
-	FlashSound0 		"sound/weapons/assault_cannon/alt_fire.mp3"
+	FlashSound0 		"sound/weapons/assault_cannon/fire.mp3"
 	idleanim			DC15_FIRE
 	CustomAmmo 800
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	MuzzleEffect		"assault_cannon/muzzle_flash"
 	MissileEffect		"base_demp2/projectile"  
     MissileMissEffect "effects/blaster/Impact_Wall01B"	
 }
@@ -40,18 +56,30 @@ WeaponInfo0
 WeaponInfo1
 {
 	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_REPEATER
+	WeaponBasedOff		WP_CONCUSSION
 	NewWorldModel		"models/weapons2/assault_cannon/model_w.glm"
-	NewViewModel		"models/weapons2/Junglerifle/jungeRifle.md3"
-	Icon				"gfx/hud/w_icon_junglerifle"
+	NewViewModel		"models/weapons2/assault_cannon/model.md3"
+	Icon				"gfx/hud/w_icon_DTAC_rocket"
 	WeaponName			"Assault Cannon - Rocket Mode"
 	idleanim	DC15_FIRE
 	firinganim	DC15_FIRE
-	CustomAmmo 1
+	CustomAmmo 3
 }
 
+ForceInfo0
+{
+	ForceToReplace	FP_RAGE
+	Icon		"gfx/forcepowers/snoke"
+	ForcePowerName	"Null Ability Slot"
+}
+ForceInfo1
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Radar Scanner"
+}
 
-description	"Phase III Dark Trooper
+description	"Phase III/Third Generation Dark Trooper
 
 Class: Wookiee
 Class Summary: 
@@ -59,16 +87,16 @@ Flying tank with high-powered rifle and single-use rocket launcher.
 
 Weaponry:
 - Assault Cannon (Based on Bowcaster level 3)
-- Assault Cannon - Rocket Attachment (Based on PLX-1 level 1)
+- Assault Cannon - Rocket Attachment (Based on PLX-1 level 1, deals half damage)
 
 Attributes:
 - Jetpack
 - Fuel (3)
-- Magnetic Plating
-- Blast Armor
+- Stength (2)
 - Shield Recharge (1)
-
-Abilities:
-- Gunbash [Alt Ability 3]
+- Melee Damage Resistance
+- Damage applied to the Dark Trooper has no locational differences
+- Next Generation Armor *
+--- Blast Armor combined with a large base armor pool
 
 The Phase III dark trooper was the last and most powerful dark trooper exoskeleton/droid. It dwarfed even the Phase II dark trooper, and was intended to be the armor of the next generation of stormtroopers."
