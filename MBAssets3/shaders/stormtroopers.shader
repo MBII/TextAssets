@@ -901,14 +901,14 @@ models/players/novatrooper/Body2
 	}
 }
 
-models/players/novatrooper/novatrooper_accessories1
+models/players/novatrooper/accessories1
 {
 	{
-		map models/players/novatrooper/novatrooper_accessories1
+		map models/players/novatrooper/accessories1
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/novatrooper/novatrooper_accessories1_Spec
+		map models/players/novatrooper/accessories1_Spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
