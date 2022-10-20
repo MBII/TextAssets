@@ -154,6 +154,34 @@ models/players/alien_heads/itho
     }
 }
 
+models/players/alien_heads/klato_head
+{
+    {
+        map models/players/alien_heads/klato_head
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/klato_head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/klato_head2
+{
+    {
+        map models/players/alien_heads/klato_head2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/klato_head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/kubaz_blue
 {
     {
