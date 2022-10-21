@@ -63,7 +63,6 @@ models/players/mudtrooper/cloth_clean
 models/players/mudtrooper/head_jug
 {
 	q3map_nolightmap
-	cull	twosided
 	{
 		map models/players/mudtrooper/head_jug
 		rgbGen lightingDiffuse

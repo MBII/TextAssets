@@ -4681,6 +4681,62 @@ models/players/human_merc/human_merc_torso_lower
 	}
 }
 
+models/players/human_merc/racto_hands
+{
+	{
+		map models/players/human_merc/racto_hands
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/devaronian/new_hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/human_merc/racto_arms
+{
+	{
+		map models/players/human_merc/racto_arms
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/devaronian/new_arms_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/human_merc/racto_legs
+{
+	{
+		map models/players/human_merc/racto_legs
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/devaronian/new_legs_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/human_merc/racto_torso
+{
+	{
+		map models/players/human_merc/racto_torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/devaronian/new_torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
 models/players/human_merc/racto_torso_lower
 {
 	cull	twosided
