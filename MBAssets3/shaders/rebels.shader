@@ -728,21 +728,6 @@ models/players/rebel_commando/desert_body_d3
 	}
 }
 
-models/players/rebel_commando/desert_body_d5
-{
-	{
-		map models/players/rebel_commando/desert_body_d5
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_commando/body_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/rebel_commando/desert_extras_d
 {
 	cull	twosided
@@ -821,6 +806,21 @@ models/players/rebel_commando/urban_body_d2
 {
 	{
 		map models/players/rebel_commando/urban_body_d2
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_commando/urban_body_d3
+{
+	{
+		map models/players/rebel_commando/urban_body_d3
 		depthWrite
 		rgbGen lightingDiffuse
 	}
