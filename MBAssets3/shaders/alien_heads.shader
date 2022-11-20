@@ -56,6 +56,20 @@ models/players/alien_heads/aqualish
     }
 }
 
+models/players/alien_heads/aqualish_cmp
+{
+    {
+        map models/players/alien_heads/aqualish_cmp
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/aqualish_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/arcona
 {
     {
@@ -274,6 +288,20 @@ models/players/alien_heads/plagueis
     }
     {
         map models/players/alien_heads/muun_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/ponda
+{
+    {
+        map models/players/alien_heads/ponda
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/aqualish_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
