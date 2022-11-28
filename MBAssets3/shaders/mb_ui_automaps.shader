@@ -409,6 +409,31 @@ gfx/mp/mplevels/mb2_deathstar/DeathStarLayout3
 }
 
 //####################
+//##### DUEL RAVAGER
+//####################
+gfx/automap/mb2_duel_ravager
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_duel_ravager
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+gfx/automap/mb2_duel_ravagerfull
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_duel_ravagerfull
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+//####################
 //##### DXUN
 //####################
 gfx/automap/mb2_dxunbot
