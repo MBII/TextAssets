@@ -355,13 +355,13 @@
 			decoration
 			mouseEnter
 			{
-				// setcvar			ui_help_performance "1"
-				// open			mb_weapon_ee3
+				setcvar			ui_help_performance "1"
+				open			mb_weapon_amban
 			}
 			mouseExit
 			{
-				// setcvar			ui_help_performance "0"
-				// close			mb_weapon_ee3
+				setcvar			ui_help_performance "0"
+				close			mb_weapon_amban
 			}
 		}
 
@@ -377,35 +377,13 @@
 			decoration
 			mouseEnter
 			{
-				// setcvar			ui_help_performance "2"
-				// open			mb_weapon_ee3
+				setcvar			ui_help_performance "2"
+				open			mb_weapon_amban
 			}
 			mouseExit
 			{
-				// setcvar			ui_help_performance "0"
-				// close			mb_weapon_ee3
-			}
-		}
-
-		itemDef
-		{
-			name				Info_Amban_3
-			group				pointssetup
-			rect				141 85 13 18
-			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
-			forecolor			1 1 1 0
-			visible				1
-			decoration
-			mouseEnter
-			{
-				// setcvar			ui_help_performance "3"
-				// open			mb_weapon_ee3
-			}
-			mouseExit
-			{
-				// setcvar			ui_help_performance "0"
-				// close			mb_weapon_ee3
+				setcvar			ui_help_performance "0"
+				close			mb_weapon_amban
 			}
 		}
 		
@@ -441,13 +419,13 @@
 			}
 		}
 
-		// Fuel title
+		// Beskar Armor title
 		itemDef
 		{
 			name				setfp_grip
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Fuel"
+			text				"Beskar Armor"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
 			rect				8 115 147 18
 			textalign			ITEM_ALIGN_LEFT
@@ -462,9 +440,80 @@
 
 		itemDef
 		{
-			name				Info_Fuel
+			name				Info_Beskar
 			group				pointssetup
 			rect 				113 115 41 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				//open			mb_ability_beskar
+			}
+			mouseExit
+			{
+				//close			mb_ability_beskar
+			}
+		}
+
+		// Beskar Armor assign
+		itemDef
+		{
+			name				setfp_grip
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			//ownerdraw			UI_FORCE_RANK_GRIP
+			rect				8 115 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"TBD"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 114 147 20
+				setitemcolor	setfp_grip forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_grip forecolor 1 1 1 0.8
+			}
+		}
+
+		// Fuel title
+		itemDef
+		{
+			name				setfp_grip
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Fuel"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				8 135 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Info_Fuel
+			group				pointssetup
+			rect 				113 135 41 18
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -487,7 +536,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_GRIP
-			rect				8 115 147 18
+			rect				8 135 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -502,7 +551,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 114 147 20
+				setitemrect		button_glow	8 134 147 20
 				setitemcolor	setfp_grip forecolor 1 1 1 1
 			}
 			mouseExit
@@ -520,7 +569,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Flamethrower"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 135 147 18
+			rect				8 155 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -535,7 +584,7 @@
 		{
 			name				Info_Flamethrower
 			group				pointssetup
-			rect				113 135 13 18
+			rect				113 155 13 18
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -558,7 +607,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_DRAIN
-			rect				8 135 147 18
+			rect				8 155 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -572,83 +621,13 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 134 147 20
+				setitemrect		button_glow	8 154 147 20
 				setitemcolor	setfp_drain forecolor 1 1 1 1
 			}
 			mouseExit
 			{
 				hide			button_glow
 				setitemcolor	setfp_drain forecolor 1 1 1 0.8
-			}
-		}
-
-		// Wrist Laser title
-		itemDef
-		{
-			name				setfp_see
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Wrist Laser"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 155 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Info_WristBlaster
-			group				pointssetup
-			rect				113 155 13 18
-			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
-			forecolor			1 1 1 0
-			visible				1
-			decoration
-			mouseEnter
-			{
-				open			mb_ability_wristblaster
-			}
-			mouseExit
-			{
-				close			mb_ability_wristblaster
-			}
-		}
-
-		// Wrist Laser assign
-		itemDef
-		{
-			name				setfp_see
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_SEE
-			rect				8 155 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
-			textaligny			-5
-			forecolor			1 1 1 0.8
-			descText			"Blast your enemies with high-power, heavy Force drain laser!"		
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				show			button_glow
-				setitemrect		button_glow	8 154 147 20
-				setitemcolor	setfp_see forecolor 1 1 1 1
-			}
-			mouseExit
-			{
-				hide			button_glow
-				setitemcolor	setfp_see forecolor 1 1 1 0.8
 			}
 		}
 
@@ -698,7 +677,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LIGHTNING
-			rect 8 175 147 18
+			rect				8 175 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -723,6 +702,146 @@
 			}
 		}
 
+		// Whistling Birds title
+		itemDef
+		{
+			name				setfp_see
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Whistling Bird"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				8 195 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+/* 		itemDef
+		{
+			name				Info_WhistlingBird
+			group				pointssetup
+			rect				113 175 13 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_whistlingbird
+			}
+			mouseExit
+			{
+				close			mb_ability_whistlingbird
+			}
+		} */
+
+		// Whistling Birds assign
+		itemDef
+		{
+			name				setfp_see
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			//ownerdraw			UI_FORCE_RANK_SEE
+			rect				8 195 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			forecolor			1 1 1 0.8
+			descText			"TBD"		
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 194 147 20
+				setitemcolor	setfp_see forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_see forecolor 1 1 1 0.8
+			}
+		}
+
+		// Wrist Laser title
+		itemDef
+		{
+			name				setfp_see
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Wrist Laser"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				8 215 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Info_WristBlaster
+			group				pointssetup
+			rect				113 215 13 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_wristblaster
+			}
+			mouseExit
+			{
+				close			mb_ability_wristblaster
+			}
+		}
+
+		// Wrist Laser assign
+		itemDef
+		{
+			name				setfp_see
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_SEE
+			rect				8 215 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			forecolor			1 1 1 0.8
+			descText			"Blast your enemies with high-power, heavy Force drain laser!"		
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 214 147 20
+				setitemcolor	setfp_see forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_see forecolor 1 1 1 0.8
+			}
+		}
+
 		// Armour title
 		itemDef
 		{
@@ -731,7 +850,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Armour"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 205 147 18
+			rect				8 245 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -749,7 +868,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect				8 205 147 18
+			rect				8 245 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -764,7 +883,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 204 147 20
+				setitemrect		button_glow	8 244 147 20
 				setitemcolor	setfp_saberattack forecolor 1 1 1 1
 			}
 			mouseExit
@@ -782,7 +901,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Ammo"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 225 147 18
+			rect				8 265 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -800,7 +919,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect 				8 225 147 18
+			rect 				8 265 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -815,7 +934,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 224 147 20
+				setitemrect		button_glow	8 264 147 20
 				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
 			}
 			mouseExit
