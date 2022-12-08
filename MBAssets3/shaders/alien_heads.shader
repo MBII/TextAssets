@@ -154,6 +154,20 @@ models/players/alien_heads/gotal
     }
 }
 
+models/players/alien_heads/ishi_tib
+{
+    {
+        map models/players/alien_heads/ishi_tib
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/ishi_tib_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/itho
 {
     {
@@ -168,28 +182,28 @@ models/players/alien_heads/itho
     }
 }
 
-models/players/alien_heads/klato_head
+models/players/alien_heads/klato
 {
     {
-        map models/players/alien_heads/klato_head
+        map models/players/alien_heads/klato
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/klato_head_spec
+        map models/players/alien_heads/klato_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/alien_heads/klato_head2
+models/players/alien_heads/klatob
 {
     {
-        map models/players/alien_heads/klato_head2
+        map models/players/alien_heads/klatob
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/klato_head_spec
+        map models/players/alien_heads/klato_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -266,14 +280,42 @@ models/players/alien_heads/nabrun
     }
 }
 
-models/players/alien_heads/nik
+models/players/alien_heads/nikto
 {
     {
-        map models/players/alien_heads/nik
+        map models/players/alien_heads/nikto
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/nik_spec
+        map models/players/alien_heads/nikto_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/niktohat
+{
+    {
+        map models/players/alien_heads/niktohat
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/niktohat_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/nikto2
+{
+    {
+        map models/players/alien_heads/nikto2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/nikto2_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular

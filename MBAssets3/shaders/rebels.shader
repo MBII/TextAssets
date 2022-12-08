@@ -297,19 +297,158 @@ models/players/rebel_gag/body_grey
 
 // rebel_guerilla
 
+models/players/rebel_guerilla/backpack
+{
+    {
+        map models/players/rebel_guerilla/backpack
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/backpack_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/backpackb
+{
+    {
+        map models/players/rebel_guerilla/backpackb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/backpack_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/head
+{
+    {
+        map models/players/rebel_guerilla/head
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/head2
+{
+    {
+        map models/players/rebel_guerilla/head2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/mouth_eyes
+{
+    {
+        map models/players/rebel_guerilla/mouth_eyes
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/mouth_eyes_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/legs_boots
+{
+    {
+        map models/players/rebel_guerilla/legs_boots
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/legs_boots_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/legs_bootsb
+{
+    {
+        map models/players/rebel_guerilla/legs_bootsb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/legs_boots_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/torso
+{
+    {
+        map models/players/rebel_guerilla/torso
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/torso_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/torsob
+{
+    {
+        map models/players/rebel_guerilla/torsob
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/torso_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
 models/players/rebel_guerilla/helmet
 {
-	{
-		map models/players/rebel_guerilla/helmet
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_guerilla/helmet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/rebel_guerilla/helmet
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/helmet_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_guerilla/helmetb
+{
+    {
+        map models/players/rebel_guerilla/helmetb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/helmet_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
 }
 
 models/players/rebel_guerilla/poncho
@@ -317,16 +456,6 @@ models/players/rebel_guerilla/poncho
 	cull	twosided
 	{
 		map models/players/rebel_guerilla/poncho
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/rebel_guerilla/poncho2
-{
-	cull	twosided
-	{
-		map models/players/rebel_guerilla/poncho2
 		depthWrite
 		rgbGen lightingDiffuse
 	}
