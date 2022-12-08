@@ -43,8 +43,12 @@ models/players/han_solo/hair
 
 models/players/han_solo/hairstrand
 {
+	cull	disable
 	{
 		map models/players/han_solo/hairstrand
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
 		rgbGen lightingDiffuse
 	}
 	{
