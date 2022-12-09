@@ -1,8 +1,8 @@
-models/players/resist_trooper/lense
+models/players/resistance/lense
 {
 	cull	twosided
 	{
-		map models/players/resist_trooper/lense
+		map models/players/resistance/lense
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		rgbGen lightingDiffuse
 	}
@@ -16,26 +16,26 @@ models/players/resist_trooper/lense
 	}
 }
 
-models/players/resist_trooper/helm
+models/players/resistance/helm
 {
 	{
 
-		map models/players/resist_trooper/helm
+		map models/players/resistance/helm
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/resist_trooper/helm_spec
+		map models/players/resistance/helm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/resist_trooper/vest
+models/players/resistance/vest
 {
 	{
 
-		map models/players/resist_trooper/vest
+		map models/players/resistance/vest
 		rgbGen lightingDiffuse
 	}
 	{
