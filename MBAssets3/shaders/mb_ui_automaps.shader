@@ -2305,3 +2305,48 @@ gfx/mplevels/mb2_duel_cargoheist/map
 		rgbGen vertex
     }
 }
+
+//####################
+//##### Mustafar
+//####################
+
+gfx/automap/mb2_mustafar
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_mustafar
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_mustafarfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_mustafarfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_mustafar/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_mustafar/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+gfx/mplevels/mb2_mustafar/map_duel
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_mustafar/map_duel
+        blendfunc blend
+        rgbGen vertex
+    }
+}
