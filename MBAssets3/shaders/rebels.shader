@@ -423,6 +423,20 @@ models/players/rebel_guerilla/torsob
     }
 }
 
+models/players/rebel_guerilla/torsoc
+{
+    {
+        map models/players/rebel_guerilla/torsoc
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/torso_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
 models/players/rebel_guerilla/helmet
 {
     {
