@@ -336,6 +336,20 @@ models/players/alien_heads/plagueis
     }
 }
 
+models/players/alien_heads/plagueisb
+{
+    {
+        map models/players/alien_heads/plagueisb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/muun_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/ponda
 {
     {
