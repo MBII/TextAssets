@@ -1558,7 +1558,7 @@ models/weapons/W-90_Concussion/numbers3
 models/weapons2/assault_cannon/gun
 {
 	{
-		map models/players/assault_cannon/gun
+		map models/weapons2/assault_cannon/gun
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1570,7 +1570,7 @@ models/weapons2/assault_cannon/gun
         	tcGen environment
     }
 	{
-		map models/players/assault_cannon/gun_spec
+		map models/weapons2/assault_cannon/gun_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
