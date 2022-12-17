@@ -680,6 +680,50 @@ levelshots/mb2_cmp_theedstreets2
 	}
 }
 
+levelshots/mb2_cmp_xmas_narshaddaa
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_xmas_narshaddaa
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_cmp_xmas_narshaddaa2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_xmas_narshaddaa2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_cmp_xmas_telos
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_xmas_telos
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_cmp_xmas_telos2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_xmas_telos2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_cmp_zombiehorror
 {
 	nomipmaps
