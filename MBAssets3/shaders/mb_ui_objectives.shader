@@ -203,6 +203,30 @@ gfx/2d/hud/hlp_payload2
 	}
 }
 
+gfx/2d/hud/hlp_resupply_ammo
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_resupply_ammo
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
+gfx/2d/hud/hlp_resupply_health
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_resupply_health
+		blendFunc blend
+		alphagen vertex
+		rgbgen vertex
+	}
+}
+
 // CAPTURE THE FLAG
 gfx/2d/hud/hlp_ctf_n
 {

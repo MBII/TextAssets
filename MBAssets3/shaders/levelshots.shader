@@ -2088,6 +2088,28 @@ levelshots/mb2_xmas_mustafar2
 	}
 }
 
+levelshots/mb2_xmas_smuggler
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_xmas_smuggler
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_xmas_smuggler2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_xmas_smuggler2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_yavinassault
 {
 	nomipmaps

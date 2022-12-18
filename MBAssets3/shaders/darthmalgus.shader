@@ -30,6 +30,27 @@ models/players/darthmalgus/diffuse
 	}
 }
 
+models/players/darthmalgus/head01
+{
+	q3map_nolightmap
+	{
+		map models/players/darthmalgus/head01
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthmalgus/head_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthmalgus/head_glow4
+		blendFunc GL_ONE GL_ONE
+		detail
+		rgbGen lightingDiffuse
+	}
+}
+
 models/players/darthmalgus/head05
 {
 	q3map_nolightmap

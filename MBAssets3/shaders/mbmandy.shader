@@ -2,11 +2,10 @@ models/players/mbmandy/boba_head
 {
 	{
 		map models/players/mbmandy/boba_head
-			blendFunc GL_ONE GL_ZERO
-			rgbGen lightingDiffuse
+		rgbGen lightingDiffuse
 	}
-		{
-			map models/players/mbmandy/boba_head_spec
+	{
+		map models/players/mbmandy/boba_head_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -17,11 +16,10 @@ models/players/mbmandy/boba_body
 {
 	{
 		map models/players/mbmandy/boba_body
-			blendFunc GL_ONE GL_ZERO
-			rgbGen lightingDiffuse
+		rgbGen lightingDiffuse
 	}
-		{
-			map models/players/mbmandy/boba_body_spec
+	{
+		map models/players/mbmandy/boba_body_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -32,11 +30,10 @@ models/players/mbmandy/boba_jetpack
 {
 	{
 		map models/players/mbmandy/boba_jetpack
-			blendFunc GL_ONE GL_ZERO
-			rgbGen lightingDiffuse
+		rgbGen lightingDiffuse
 	}
-		{
-			map models/players/mbmandy/boba_jetpack_spec
+	{
+		map models/players/mbmandy/boba_jetpack_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -44,7 +41,8 @@ models/players/mbmandy/boba_jetpack
 	{
 		map models/players/mbmandy/boba_jetpack_glow
 		blendFunc GL_ONE GL_ONE
-				glow
+		detail
+		glow
 	}
 	{
 		map models/players/mbmandy/boba_jetpack
@@ -55,16 +53,17 @@ models/players/mbmandy/boba_jetpack
 
 models/players/mbmandy/boba_alpha
 {
-cull	disable	
-{
-				map models/players/mbmandy/boba_alpha
-				rgbGen lightingDiffuse
-				alphaFunc GE128
+	cull	disable	
+	{
+		map models/players/mbmandy/boba_alpha
+		rgbGen lightingDiffuse
+		alphaFunc GE128
 	}
 	{
 		map models/players/mbmandy/boba_alpha_glow
 		blendFunc GL_ONE GL_ONE
-				glow
+		detail
+		glow
 	}
 }
 models/players/mbmandy/boba_larmalpha

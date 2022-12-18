@@ -1,7 +1,6 @@
 models/players/e_22/e_22
 {
 	q3map_nolightmap
-	cull disable
 	{
 		map models/players/e_22/e_22
 		rgbGen lightingDiffuse
