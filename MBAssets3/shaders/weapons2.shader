@@ -1559,26 +1559,24 @@ models/weapons2/assault_cannon/gun
 {
 	{
 		map models/weapons2/assault_cannon/gun
-		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
-	{
-            map models/players/t3m4/t3env
-        	blendFunc GL_DST_COLOR GL_SRC_COLOR
-        	detail
-        	alphaGen lightingSpecular
-        	tcGen environment
-    }
 	{
 		map models/weapons2/assault_cannon/gun_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
-		detail
 	}
 	{
-        map models/weapons/W-90_Concussion/numbers3_glow
-		blendFunc GL_ONE GL_ONE
-		glow
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
 		detail
-    }
+		alphaGen LightingSpecular
+		tcGen environment
+	}
+	{
+		map models/weapons2/assault_cannon/glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen entity
+		glow
+	}
 }
