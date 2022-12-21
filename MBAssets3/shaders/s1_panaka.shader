@@ -40,7 +40,7 @@ models/players/s1_panaka/hat_parts
 	}
 }
 
-models/players/s1_panaka/hat_parts
+models/players/s1_panaka/hat_parts_cull
 {
 	cull	disable
 	{
