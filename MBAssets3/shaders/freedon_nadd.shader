@@ -62,6 +62,22 @@ models/players/freedon_nadd/chest
 	}
 }
 
+models/players/freedon_nadd/torso
+{
+	cull	twosided
+    {
+        map models/players/freedon_nadd/torso
+        rgbGen lightingDiffuse
+        //alphaFunc GE128
+    }
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
 models/players/freedon_nadd/crown
 {
 	cull	twosided
