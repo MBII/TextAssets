@@ -3,20 +3,20 @@
 ClassInfo
 {
 	name				"_h_u_ewok"
-	weapons				WP_MELEE|WP_FRAG_NADE|WP_SABER
-	attributes 			MB_ATT_FRAGS,3|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,3|MB_ATT_RESPAWNS,2|MB_ATT_FORCEBLOCK,1|MB_ATT_HEALING,1
-	BPmultiplier		.40
-	maxhealth			60
-	forcepool           35
+	weapons				WP_MELEE|WP_FRAG_NADE|WP_SABER|WP_DET_PACK
+	attributes 			MB_ATT_FRAGS,2|MB_ATT_ASSEMBLE,1|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_T21,1
+	maxhealth			100
+	forcepool           0
 	saber1  			ewok_spear_legends
 	sabercolor  		0
-	saberstyle  		SS_MEDIUM|SS_STRONG|SS_DESANN
-	modelscale			0.72
-	MBClass			    MB_CLASS_ARCTROOPER
+	saberstyle  		SS_MEDIUM
+	modelscale			0.68
+	MBClass			MB_CLASS_HERO
 	classNumberLimit 	4
-	speed 				1.00
 	WP_FragNadeFlags	HELD_KNOCKDOWN
-	damageGiven 		0.75
+	WP_DetPackFlags		HELD_KNOCKBACK|HELD_ALTRELOAD
+	rateOfFire 			0.85
+	APmultiplier		0.8
 	
 	gloatanim	 	BOTH_SABERKILLER1
 	tauntAnim	BOTH_ENGAGETAUNT
@@ -44,11 +44,12 @@ ClassInfo
 	
 	model_5				"Jedi_EW"
 	skin_5				"ewok_fighter"
-	uishader_5			"models/players/Jedi_EW/mb2_icon_endor_fighter"	
+	uishader_5			"models/players/Jedi_EW/mb2_icon_endor_fighter"		
 		
 	
 	respawnCustomTime 10000
 }
+
 WeaponInfo0
 {	WeaponToReplace		WP_FRAG_NADE
 	WeaponBasedOff		WP_FRAG_NADE
@@ -60,7 +61,7 @@ WeaponInfo0
 	MissileModel 			"models/weapons2/stone/thermal_proj.md3"
 	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
 	primFireEnabled		0
-	CustomAmmo		3
+	CustomAmmo		2
 }
 
 WeaponInfo1
@@ -73,15 +74,44 @@ WeaponInfo1
 	WeaponName			"Spear"
 }
 
+WeaponInfo2
+{
+	WeaponToReplace 		WP_DET_PACK
+	WeaponBasedOff 			WP_DET_PACK
+	NewWorldModel 			"models/weapons2/bow/bowcaster_w.glm"
+	NewViewModel 			"models/weapons2/bow/bowcaster.md3"
+	Icon 					"gfx/hud/w_icon_bow"
+	WeaponName 				"Bow"
+	FlashSound0 		"sound/300/wpn_bow_fire_01.wav"
+	clipSize			32	
+	customAmmo			184
+	idleAnim  			DC15_FIRE
+}
+
+WeaponInfo3
+{
+    WeaponToReplace       	 WP_BLASTER
+    WeaponBasedOff       	 WP_BLASTER
+    NewWorldModel       	 "models/weapons2/dc-15s/dc-15s_w.glm"
+    NewViewModel        	"models/weapons2/dc-15s/dc-15s.md3"
+	MuzzleEffect  			"halo_smg/rings"
+	MissileModel  			"models/weapons2/dc_gabow/greenarrow_arrow.md3"
+	MissileEffect 			"halo_smg/rings"
+	altMissileMissEffect	 "dc/explosion"
+    WeaponName            	"UsedForEffectsOnly"
+	Icon 					"gfx/hud/w_icon_bow"
+}
+
 description				"Ewok
 
-Class: Arc Trooper.
+Class: Hero.
 Class Summary: 
-A small spear wielder with powerful/magical stones which have intense knockback. 
+A small bowman and spear wielder with powerful/magical stones which have intense knockback. 
 
 Weaponry: 
 - Spear *
 - Stones *
+- Bow *
 
 * Special Weapon Descriptions:
 --- Spear
@@ -93,7 +123,11 @@ Weaponry:
 - Based on frag grenades
 - Secondary mode only
 - Detonates on contact with surfaces
-- 3 per life
+- 2 per life
+
+--- Bow 
+- Based on T-21 (1)
+- Low maximum ammo
 
 Attributes:
 - Assemble
@@ -101,8 +135,9 @@ Attributes:
 - Reinforcements (2)
 
 Abilities:
-- Stamina (2) [Class Special 1]
-- Dexterity (3) [Alt Ability 1]
+- Dodge (3) [Class Special 1]
+- Dash (2) [Class Special 2]
+- Quickthrow (2) [Alt Ability 1]
 
 Ewoks were a diminutive species of furry bipeds native to the forest moon of Endor.
 They were most notable for helping the Rebel Alliance defeat the forces of the Galactic Empire at the Battle of Endor, allowing the shield generator there to be destroyed, and in turn, the DS-2 Death Star."
