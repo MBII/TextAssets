@@ -286,6 +286,42 @@ gfx/mplevels/mb2_ctf_dotf/map
 }
 
 //####################
+//##### CTF STARKILLER BASE
+//####################
+
+gfx/automap/mb2_ctf_starkiller_base
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_starkiller_basefull
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_starkiller_basefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_starkiller_base/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_starkiller_base/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
 //##### DEATHSTAR
 //####################
 gfx/automap/mb2_deathstar0
