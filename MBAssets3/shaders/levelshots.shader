@@ -207,6 +207,17 @@ levelshots/mb2_ctf_deathstar
 	}
 }
 
+levelshots/mb2_ctf_dotf
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_dotf
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_ctf_eravana
 {
 	nomipmaps
