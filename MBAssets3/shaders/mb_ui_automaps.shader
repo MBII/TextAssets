@@ -245,6 +245,47 @@ gfx/automap/mb2_ctf_deathstar2full
 }
 
 //####################
+//##### CTF DOTF
+//####################
+
+gfx/automap/mb2_ctf_dotf
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_dotf
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_dotffull
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_dotffull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_dotf/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_dotf/map
+		blendfunc blend
+		rgbGen vertex
+    }
+//    {
+//		map gfx/mplevels/mb2_ctf_dotf/map_overlay
+//		blendfunc blend
+//		rgbGen identity
+//    }
+}
+
+//####################
 //##### DEATHSTAR
 //####################
 gfx/automap/mb2_deathstar0
