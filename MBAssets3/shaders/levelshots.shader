@@ -273,6 +273,28 @@ levelshots/mb2_ctf_scarif2
 	}
 }
 
+levelshots/mb2_ctf_starkiller_base
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_starkiller_base
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_starkiller_base2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_starkiller_base2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_ctf_theed
 {
 	nomipmaps
