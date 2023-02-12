@@ -75,6 +75,22 @@ models/players/mudtrooper/head_jug
 	}
 }
 
+models/players/mudtrooper/head_jug_cull
+{
+	q3map_nolightmap
+	cull twosided
+	{
+		map models/players/mudtrooper/head_jug
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mudtrooper/head_jug_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/mudtrooper/newparts
 {
 	q3map_nolightmap

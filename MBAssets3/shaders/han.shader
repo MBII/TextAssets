@@ -1,20 +1,6 @@
 
 // ANH
 
-models/players/han_solo/arm_jacket
-{
-	{
-		map models/players/han_solo/arm_jacket
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/han_solo/arm_jacket_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/han_solo/cloth
 {
 	{
@@ -88,7 +74,7 @@ models/players/han_solo/headcap
 }
 
 
-// ESB
+// ESB & RotJ
 
 models/players/han_solo/clothesb
 {
@@ -104,13 +90,26 @@ models/players/han_solo/clothesb
 	}
 }
 
-
-// RotJ
-
 models/players/han_solo/jackets
 {
+	cull	disable
 	{
 		map models/players/han_solo/jackets
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_solo/jackets_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/han_solo/jackets2
+{
+	cull	disable
+	{
+		map models/players/han_solo/jackets2
 		rgbGen lightingDiffuse
 	}
 	{
