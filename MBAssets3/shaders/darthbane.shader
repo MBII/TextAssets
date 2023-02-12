@@ -1,50 +1,36 @@
-
-models/players/darthbane/torso
+models/players/darthbane2/armor
 {
+	cull	twosided
   {
-      map models/players/darthbane/torso
+      map models/players/darthbane2/armor
       rgbGen lightingDiffuse
   }
   {
-      map models/players/darthbane/torso-spec
+      map models/players/maul_cyber/armor_spec
       blendFunc GL_SRC_ALPHA GL_ONE
       detail
       rgbGen lightingDiffuse
       alphaGen lightingSpecular
   }
-  {
-      map models/players/darthbane/torso_glow
-      blendFunc GL_ONE GL_ONE
-      glow
-  }
 }
 
-models/players/darthbane/boots
+models/players/darthbane2/kneepad
 {
+	cull	twosided
     {
-        map models/players/darthbane/boots
+        map models/players/darthbane2/kneepad
+        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
-        //alphaFunc GE128
     }
     {
-        map models/players/darthbane/boots-spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
+      map models/players/kanan/xtraparts-rec_spec
+      blendFunc GL_SRC_ALPHA GL_ONE
+      detail
+      rgbGen lightingDiffuse
+      alphaGen lightingSpecular
     }
 }
 
-models/players/darthbane/mouth_eyes
-{
-    {
-        map models/players/darthbane/mouth_eyes
-        rgbGen lightingDiffuse
-        //alphaFunc GE128
-    }
-    {
-        map models/players/darthbane/mouth_eyes-spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
-}
+
+
+

@@ -196,20 +196,6 @@ models/players/alien_heads/klato
     }
 }
 
-models/players/alien_heads/klatob
-{
-    {
-        map models/players/alien_heads/klatob
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/klato_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/alien_heads/kubaz_blue
 {
     {
