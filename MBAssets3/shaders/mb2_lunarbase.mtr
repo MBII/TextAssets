@@ -1,0 +1,207 @@
+textures/mb2_lunarbase/glass_security_tris
+{
+	qer_editorimage	textures/common/sglass1
+	qer_trans	0.2
+	surfaceparm	nonopaque
+	surfaceparm	forcefield
+	surfaceparm	trans
+	q3map_material	Glass
+	q3map_nolightmap
+    {
+        map $whiteimage
+		specMap $whiteimage
+		rgbGen const ( 0.0 0.0 0.0 )
+		roughness 0.2
+        blendFunc GL_ONE GL_ONE
+    }
+    {
+        map textures/common/sglass1
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+}
+
+textures/mb2_lunarbase/glass_weak
+{
+	qer_editorimage	textures/impdetention/interference2
+	qer_trans	0.3
+	surfaceparm	nonopaque
+	surfaceparm	forcefield
+	surfaceparm	trans
+	q3map_material	Glass
+	q3map_nolightmap
+    {
+        map textures/common/etest4
+        blendFunc GL_ONE GL_ONE
+	rgbGen const ( 0.3 0.3 0.3 )
+        tcGen environment
+    }
+    {
+        map textures/impdetention/interference2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+}
+
+textures/mb2_lunarbase/glass_invis
+{
+	qer_editorimage	textures/system/clip
+	qer_trans	50
+	surfaceparm	nonopaque
+	surfaceparm	forcefield
+	surfaceparm	trans
+	q3map_material	Glass
+	surfaceparm	nomarks
+	surfaceparm	nodraw
+}
+
+textures/mb2_lunarbase/forcefield
+{
+	qer_editorimage	textures/byss/static_field
+	surfaceparm	nonsolid
+	surfaceparm	nomarks
+	surfaceparm	nonopaque
+	surfaceparm	forcefield
+	surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map textures/byss/static_field
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 0 -5
+    }
+    {
+        map textures/byss/static_field2
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 0 2
+	detail
+    }
+    {
+        map textures/byss/static_field3
+        blendFunc GL_ONE GL_ONE
+        rgbGen wave sawtooth 0 4 0 2
+        tcMod scroll 0 2
+	detail
+    }
+}
+
+textures/mb2_lunarbase/forcefield2
+{
+	qer_editorimage	textures/doomgiver/energything.tga
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	playerclip
+	surfaceparm	shotclip
+	surfaceparm	trans
+	q3map_nolightmap
+    {
+        map textures/doomgiver/energything2
+        blendFunc GL_ONE GL_ONE
+        rgbGen wave sin 0.65 0.35 0 0.2
+        tcMod scroll -1 2
+    }
+    {
+        map textures/doomgiver/energything2
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 2 1
+    }
+}
+
+textures/mb2_lunarbase/gatedoor_off
+{
+    {
+        map $lightmap
+    }
+    {
+        map textures/byss/byss_gate_onoff
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/byss/byss_gate_onoffr
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/mb2_lunarbase/door_off
+{
+	qer_editorimage	textures/byss/byss_gatedoor_onoff
+    {
+        map $lightmap
+    }
+    {
+        map textures/byss/byss_gatedoor_onoff
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/byss/byss_gatedoor_onoffr
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/skies/lun
+{
+	q3map_lightimage	textures/colors/white
+	qer_editorimage	textures/skies/yavinassault
+	sun 0.5 0.5 0.5 280 290 50
+	surfaceparm	sky
+	surfaceparm	nomarks
+	surfaceparm	noimpact
+	notc
+	q3map_nolightmap
+	skyParms	textures/skies/lun 128 -
+}
+
+textures/byss/byss_light_red
+{
+    {
+        map $lightmap
+    }
+    {
+        map textures/byss/byss_light_red
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/byss/byss_light_glw_red
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/mb2_lunarbase/grate02
+{
+	qer_editorimage textures/imperial/grate02
+	qer_trans	0.75
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_material	HollowMetal
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map textures/imperial/grate02
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+    }
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		depthFunc equal
+	}
+}
+
+textures/mb2_lunarbase/shiny_floor_dark
+{
+	qer_editorimage textures/imperial/shiny_floor
+	q3map_material	SolidMetal
+    {
+        map $lightmap
+    }
+    {
+        map textures/imperial/shiny_floor
+		roughness 0.15
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+}
