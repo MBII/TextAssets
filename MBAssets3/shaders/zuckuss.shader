@@ -1,83 +1,45 @@
-models/players/zuckuss/caps
+models/players/zuckuss/headnew
 {
-	cull	twosided
-	{
-		map $whiteimage
-		rgbGen const ( 0.078 0.059 0.047 )
-	}   
+    {
+        map models/players/zuckuss/headnew
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/zuckuss/headnew_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/players/zuckuss/head_eyes
+models/players/zuckuss/newparts
 {
-	{
-		map models/players/zuckuss/head_eyes
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/zuckuss/head_eyes_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/zuckuss/newparts
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/zuckuss/newparts_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/players/zuckuss/parts
+models/players/zuckuss/robes
 {
+	surfaceparm detail
 	notc
 	cull	twosided
-	{
-		map models/players/zuckuss/parts
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/zuckuss/parts_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/players/zuckuss/robes
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/zuckuss/robes_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/players/zuckuss/head_parts
-{
-	nopicmip
-	nomipmaps
-	cull	twosided
-	{
-		map models/players/zuckuss/head_parts
-		blendFunc GL_ONE GL_ZERO
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/zuckuss/head_parts_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/zuckuss/head_parts_glow
-		blendFunc GL_ONE GL_ONE
-		glow
-	}
-}
-
-models/players/zuckuss/robe
-{
-	nomipmaps
-	cull	twosided
-	{
-		map models/players/zuckuss/robe
-		depthWrite
-		rgbGen lightingDiffuse
-	}   
-}
-
-models/players/zuckuss/torso
-{
-	cull	twosided
-	{
-		map models/players/zuckuss/torso
-		depthWrite
-		rgbGen lightingDiffuse
-	}   
-}
