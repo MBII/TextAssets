@@ -251,6 +251,7 @@ textures/yavinValley2/terrain_1
 	q3map_lightmapaxis z
 	q3map_texturesize 1024 1024
 	q3map_tcGen ivector ( 188 0 0 ) ( 0 188 0 )
+	q3map_material rock
 	{
 		map textures/yavinvalley/stone1.jpg
 	}
@@ -301,7 +302,7 @@ textures/yavinValley2/terrain_0to1
 	q3map_lightmapaxis z
 	q3map_texturesize 1024 1024
 	q3map_tcGen ivector ( 188 0 0 ) ( 0 188 0 )
-	q3map_material	shortgrass
+	q3map_material rock
 	
 	{
 		map textures/yavinvalley/ter__forestmoss.jpg
@@ -370,6 +371,7 @@ textures/yavinValley2/terrain_1to2
 	q3map_lightmapaxis z
 	q3map_texturesize 1024 1024
 	q3map_tcGen ivector ( 188 0 0 ) ( 0 188 0 )
+	q3map_material rock
 	
 	{
 		map textures/yavinvalley/stone1.jpg
@@ -392,6 +394,7 @@ textures/yavinValley2/terrain_1to3
 	q3map_lightmapaxis z
 	q3map_texturesize 1024 1024
 	q3map_tcGen ivector ( 188 0 0 ) ( 0 188 0 )
+	q3map_material rock
 	
 	{
 		map textures/yavinvalley/stone1.jpg
