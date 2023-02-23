@@ -986,3 +986,125 @@ models/map_objects/mp/flag_b_mb_zann
 		glow
 	}
 }
+
+//####################
+//##### RESUPPLY NODES
+//####################
+
+models/map_objects/mp/MB2_Resupply_Ammo
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/mp/MB2_Resupply_Ammo
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        animMap 2 models/map_objects/mp/MB2_Resupply_Ammo_E gfx/colors/black
+        blendFunc GL_ONE GL_ONE
+        rgbGen wave sawtooth 0.25 2 0 2
+    }
+}
+
+models/map_objects/plasma_tfa/skb_container_hexagon_resupply
+{
+    qer_editorimage models/map_objects/plasma_tfa/skb_container_hexagon
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_tfa/skb_container_hexagon
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+       animMap 2 models/map_objects/plasma_tfa/skb_container_hexagon_glow gfx/colors/black
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+models/map_objects/plasma_rone/sc_ammocrate_orange
+{
+    qer_editorimage models/map_objects/plasma_rone/sc_cargo_container_orange
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_rone/sc_cargo_container_orange
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+}
+
+models/map_objects/plasma_rone/sc_ammocrate_black
+{
+    qer_editorimage models/map_objects/plasma_rone/sc_cargo_container_black
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_rone/sc_cargo_container_black
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+}
+
+textures/mb2_ctf/Resupply_Health
+{
+	qer_editorimage	textures/mb2_ctf/Resupply_Health
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	polygonOffset
+	qer_trans       1.0
+	q3map_nolightmap
+	{
+		map textures/mb2_ctf/Resupply_Health
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+textures/mb2_ctf/Resupply_Health2
+{
+	qer_editorimage	textures/mb2_ctf/Resupply_Health2
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	polygonOffset
+	qer_trans       1.0
+	q3map_nolightmap
+	{
+		map textures/mb2_ctf/Resupply_Health2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+textures/mb2_ctf/Resupply_Ammo
+{
+	qer_editorimage	textures/mb2_ctf/Resupply_Ammo
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	polygonOffset
+	qer_trans       1.0
+	q3map_nolightmap
+	{
+		map textures/mb2_ctf/Resupply_Ammo
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+textures/mb2_ctf/Resupply_Ammo2
+{
+	qer_editorimage	textures/mb2_ctf/Resupply_Ammo2
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	polygonOffset
+	qer_trans       1.0
+	q3map_nolightmap
+	{
+		map textures/mb2_ctf/Resupply_Ammo2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
