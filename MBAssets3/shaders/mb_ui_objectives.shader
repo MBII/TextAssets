@@ -215,6 +215,18 @@ gfx/2d/hud/hlp_resupply_ammo
 	}
 }
 
+gfx/2d/hud/hlp_resupply_ammo_radar
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_resupply_ammo
+		blendFunc blend
+		alphagen vertex
+		rgbgen const ( 1 0.66 0.08 )
+	}
+}
+
 gfx/2d/hud/hlp_resupply_health
 {
 	nopicmip
@@ -224,6 +236,18 @@ gfx/2d/hud/hlp_resupply_health
 		blendFunc blend
 		alphagen vertex
 		rgbgen vertex
+	}
+}
+
+gfx/2d/hud/hlp_resupply_health_radar
+{
+	nopicmip
+	notc
+	{
+		map gfx/2d/hud/hlp_resupply_health
+		blendFunc blend
+		alphagen vertex
+		rgbgen const ( 0.76 0.09 0.14 )
 	}
 }
 
