@@ -5,13 +5,12 @@ models/players/darthbane2/armor
       map models/players/darthbane2/armor
       rgbGen lightingDiffuse
   }
-  {
-      map models/players/maul_cyber/armor_spec
-      blendFunc GL_SRC_ALPHA GL_ONE
-      detail
-      rgbGen lightingDiffuse
-      alphaGen lightingSpecular
-  }
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
 }
 
 models/players/darthbane2/kneepad
@@ -22,13 +21,12 @@ models/players/darthbane2/kneepad
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
-    {
-      map models/players/kanan/xtraparts-rec_spec
-      blendFunc GL_SRC_ALPHA GL_ONE
-      detail
-      rgbGen lightingDiffuse
-      alphaGen lightingSpecular
-    }
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
 }
 
 
