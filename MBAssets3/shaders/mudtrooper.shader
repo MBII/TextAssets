@@ -14,6 +14,30 @@ models/players/mudtrooper/armor
 	}
 }
 
+models/players/mudtrooper/armor_andor
+{
+	q3map_nolightmap
+	cull	twosided
+	{
+		map models/players/mudtrooper/armor_andor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/mudtrooper/armor_clean_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/mudtrooper/armor_clean
 {
 	q3map_nolightmap
@@ -39,6 +63,21 @@ models/players/mudtrooper/cloth
 	}
 	{
 		map models/players/mudtrooper/cloth_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/mudtrooper/cloth_andor
+{
+	q3map_nolightmap
+	{
+		map models/players/mudtrooper/cloth_andor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mudtrooper/cloth_clean_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
