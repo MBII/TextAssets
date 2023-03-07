@@ -15,10 +15,12 @@ models/players/revan/revan_body
 
 models/players/revan/revan_cull
 {
-	cull twosided
+	cull	disable
 	{
 		map models/players/revan/revan_diffuse
-		blendFunc GL_ONE GL_ZERO
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
 		rgbGen lightingDiffuse
 	}
 	{

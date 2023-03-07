@@ -31,7 +31,7 @@ models/players/mudtrooper/armor_andor
 		alphaGen lightingSpecular
 	}
 	{
-		map models/players/mudtrooper/armor_clean_spec
+		map models/players/mudtrooper/armor_andor_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
