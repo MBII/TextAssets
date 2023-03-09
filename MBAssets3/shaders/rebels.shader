@@ -582,21 +582,6 @@ models/players/rebel_commando/forest_body_d2
 	}
 }
 
-models/players/rebel_commando/forest_body_d3b
-{
-	{
-		map models/players/rebel_commando/forest_body_d3b
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_commando/body_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/rebel_commando/forest_extras_d
 {
 	cull	twosided
@@ -736,21 +721,6 @@ models/players/rebel_commando/body_d2
 	}
 }
 
-models/players/rebel_commando/body_d3
-{
-	{
-		map models/players/rebel_commando/body_d3
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_commando/body_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/rebel_commando/extras_d
 {
 	cull	twosided
@@ -811,21 +781,6 @@ models/players/rebel_commando/desert_backpack_d
 	}
 }
 
-models/players/rebel_commando/desert_backpack_d2
-{
-	{
-		map models/players/rebel_commando/desert_backpack_d2
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_commando/backpack_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/rebel_commando/desert_body_d
 {
 	{
@@ -845,21 +800,6 @@ models/players/rebel_commando/desert_body_d2
 {
 	{
 		map models/players/rebel_commando/desert_body_d2
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_commando/body_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/rebel_commando/desert_body_d3
-{
-	{
-		map models/players/rebel_commando/desert_body_d3
 		depthWrite
 		rgbGen lightingDiffuse
 	}
