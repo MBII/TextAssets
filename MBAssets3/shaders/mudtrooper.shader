@@ -38,6 +38,22 @@ models/players/mudtrooper/armor_andor
 	}
 }
 
+models/players/mudtrooper/armor_sergeant
+{
+	q3map_nolightmap
+	cull	twosided
+	{
+		map models/players/mudtrooper/armor_sergeant
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mudtrooper/armor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/mudtrooper/armor_clean
 {
 	q3map_nolightmap
