@@ -1,49 +1,11 @@
+// Solo - Mud Trooper
+
 models/players/mudtrooper/armor
 {
 	q3map_nolightmap
 	cull	twosided
 	{
 		map models/players/mudtrooper/armor
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/mudtrooper/armor_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/mudtrooper/armor_andor
-{
-	q3map_nolightmap
-	cull	twosided
-	{
-		map models/players/mudtrooper/armor_andor
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/deathtrooper/env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/mudtrooper/armor_andor_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/mudtrooper/armor_sergeant
-{
-	q3map_nolightmap
-	cull	twosided
-	{
-		map models/players/mudtrooper/armor_sergeant
 		rgbGen lightingDiffuse
 	}
 	{
@@ -85,21 +47,6 @@ models/players/mudtrooper/cloth
 	}
 }
 
-models/players/mudtrooper/cloth_andor
-{
-	q3map_nolightmap
-	{
-		map models/players/mudtrooper/cloth_andor
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/mudtrooper/cloth_clean_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/mudtrooper/cloth_clean
 {
 	q3map_nolightmap
@@ -114,6 +61,39 @@ models/players/mudtrooper/cloth_clean
 		alphaGen lightingSpecular
 	}
 }
+
+models/players/mudtrooper/newparts
+{
+	q3map_nolightmap
+	{
+		map models/players/mudtrooper/newparts
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mudtrooper/newparts_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/mudtrooper/newparts_clean
+{
+	q3map_nolightmap
+	{
+		map models/players/mudtrooper/newparts_clean
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mudtrooper/newparts_clean_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// TM - Juggernaut Driver
 
 models/players/mudtrooper/head_jug
 {
@@ -146,30 +126,61 @@ models/players/mudtrooper/head_jug_cull
 	}
 }
 
-models/players/mudtrooper/newparts
+
+// Andor - Navy
+
+models/players/mudtrooper/armor_andor
 {
 	q3map_nolightmap
+	cull	twosided
 	{
-		map models/players/mudtrooper/newparts
+		map models/players/mudtrooper/armor_andor
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/mudtrooper/newparts_spec
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/mudtrooper/armor_andor_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/mudtrooper/newparts_clean
+models/players/mudtrooper/cloth_andor
 {
 	q3map_nolightmap
 	{
-		map models/players/mudtrooper/newparts_clean
+		map models/players/mudtrooper/cloth_andor
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/mudtrooper/newparts_clean_spec
+		map models/players/mudtrooper/cloth_clean_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// Andor - Garrison
+
+models/players/imperial_garrison/armor_sergeant
+{
+	q3map_nolightmap
+	cull	twosided
+	{
+		map models/players/imperial_garrison/armor_sergeant
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mudtrooper/armor_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
