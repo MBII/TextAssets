@@ -247,6 +247,74 @@ models/players/stormie_tfa/pauldron_pyre
 	}
 }
 
+//Executioner
+models/players/stormie_tfa/helmet_exe
+{
+	{
+		map models/players/stormie_tfa/helmet_exe
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/stormie_tfa/armor_exe
+{
+	{
+		map models/players/stormie_tfa/armor_exe
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+//Finn
+models/players/stormie_tfa/helmet_finn_l
+{
+	{
+		map models/players/stormie_tfa/helmet_finn_l
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_finnl_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/stormie_tfa/helmet_finn_r
+{
+	{
+		map models/players/stormie_tfa/helmet_finn_r
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_finnr_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/stormie_tfa/armor_finn
+{
+	{
+		map models/players/stormie_tfa/armor_finn
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
 
 // stormpilot
 
