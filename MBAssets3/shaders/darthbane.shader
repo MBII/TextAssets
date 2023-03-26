@@ -15,26 +15,6 @@ models/players/darthbane/glove
         map models/players/darthbane/glove
         rgbGen lightingDiffuse
     }
-    {
-        map models/players/darthbane/glove_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/darthbane/head
-{
-    {
-        map models/players/darthbane/head
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/darthbane/head_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
 }
 
 models/players/darthbane/torso
@@ -42,12 +22,6 @@ models/players/darthbane/torso
     {
         map models/players/darthbane/torso
         rgbGen lightingDiffuse
-    }
-    {
-        map models/players/darthbane/torso_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
     }
 }
 

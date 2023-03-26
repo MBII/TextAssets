@@ -160,3 +160,13 @@ models/players/darthkrayt2/hips_plate
 		detail
 	}
 }
+
+models/players/darthkrayt2/pad
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt2/pad
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+}

@@ -62,7 +62,7 @@ models/players/sithtechnician/helmet2
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/sithtechnician/helmet2_spec
+		map models/players/sithtechnician/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
