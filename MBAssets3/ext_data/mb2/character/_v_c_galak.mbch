@@ -4,9 +4,11 @@ ClassInfo
 {
 	name			"_v_c_galak"
 	weapons			WP_CONCUSSION|WP_MELEE
-	attributes		MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_FIREPOWER,2|MB_ATT_RECHARGE,3|MB_ATT_ANTI_MT,1|MB_ATT_RADAR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ZOOM,1|MB_ATT_ANTI_MT,1|MB_ATT_SBD_CANNON,1
-	maxhealth		60
-	maxarmor		140
+	attributes		MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_FIREPOWER,2|MB_ATT_RECHARGE,3|MB_ATT_RADAR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ZOOM,1|MB_ATT_SBD_CANNON,1|MB_ATT_WOOKIE_STRENGTH,2
+	maxhealth		100
+	maxarmor		100
+	forcepool       40
+	forcepowers			FP_PUSH,2
 	meleeMoves				M_PUNCH|M_KICK
 	model			"doomgalak"
 	skin			"default"
@@ -16,8 +18,11 @@ ClassInfo
 	speed			0.9
 	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_BUBBLESHIELD|CFL_HEAVYMELEE
 	modelscale		1.33
-	WP_BlasterFlags    HELD_LOWDAMAGE
+	//WP_BlasterFlags    HELD_LOWDAMAGE
 	WP_SaberFlags       HELD_SPEED
+	
+	damageGiven 	0.8
+	damageTaken 		0.9
 
 	respawnCustomTime 75000	
 }
@@ -34,6 +39,7 @@ WeaponInfo0
 	MissileEffect	"repeater/projectile"
 	idleAnim	        SBD_GUN_OUT_STAND
 	customammo         999
+	FPmult 0.8
 }
 
 WeaponInfo1
@@ -49,6 +55,14 @@ WeaponInfo1
 	idleAnim	        SBD_GUN_OUT_STAND
 		customammo         999
 	altFireEnabled 0
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_PUSH
+	Icon			"gfx/forcepowers/push"
+	ForcePowerName	"Repulsor Wave"
+	ConeEffect		"effects/forcepowers/inv_wave"
 }
 
 description	"Galak Fyyar
@@ -75,5 +89,9 @@ Abilities:
 - Recharge (3) [Class Special 1]
 - Radar (Enter recharge mode to reveal enemies on radar screen)
 - Advanced Targeting [Class Special 2]
+- Runs faster with melee (fists) equipped
+
+Force Powers:
+- Repulsor Wave (Force Push level 2)
 
 Galak Fyyar was a skilled commander and scientist of Desann's faction of the Imperial Remnant. He wore into battle a cortosis-based power armor of his own creation - equipped with a shield generator and mounted blaster cannon."

@@ -2,23 +2,34 @@ ClassInfo
 {
 	name			"_v_c_purgetrooper"
 	weapons			WP_MELEE|WP_SABER|WP_REPEATER|WP_CONC_NADE
-	saber1			electrostaff_legends
-	sabercolor		5
-	saberstyle		SS_STAFF
+
 	forcepowers		FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
 	forcepool		40
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,2|MB_ATT_STAMINA,3|MB_ATT_FLIPKICK||MB_ATT_CORTOSIS,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_CLONERIFLE,2|MB_ATT_CLONEBLOBS,3|MB_ATT_DODGE,2|MB_ATT_HEALING,1
+	attributes		MB_ATT_ARMOUR,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,2|MB_ATT_STAMINA,3|MB_ATT_FLIPKICK,1|MB_ATT_CORTOSIS,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_CLONERIFLE,2|MB_ATT_STRONGBLOBS,2|MB_ATT_HEALING,1|MB_ATT_CLONEBLOBS,1
 	classflags		CFL_BPFREEJUMPS
 	maxhealth		125
 	maxarmor		125
 	MBClass			MB_CLASS_ARCTROOPER	
 	classNumberLimit	2
 	speed               1.1
-	APmultiplier		1
-	BPmultiplier        1.1
-	ASmultiplier		1.2
-	CSmultiplier		1.2
+	CSmultiplier        1.10
+	APmultiplier        1.15
+	BPmultiplier        1.15
 	modelscale		    1.01
+	
+	rateOfFire          0.95
+	
+	tauntAnim BOTH_VICTORY_FAST
+	gloatAnim       BOTH_VICTORY_FAST
+	flourishAnim  BOTH_VICTORY_FAST
+	
+	sabercolor		5
+	saberstyle		
+	saber1			electro_purp_legends
+	saber2			droidmelee_legends
+	
+	saber1_1			electro1h_purp_legends
+	saber2_1			electro1h_purp_legends
 	
 	model			"purgetrooper" 					//this is optional, if it's here it forces the model to this.
 	skin			"default"							//this is optional, if it's here it forces the skin to this.
@@ -32,6 +43,10 @@ ClassInfo
 	skin_2			"hammer"							
 	uishader_2		"models/players/purgetrooper/mb2_icon_purgehammer"
 	
+	model_3			"purgetrooper" 					
+	skin_3			"baton"							
+	uishader_3		"models/players/purgetrooper/MB2_Icon_purgebaton"
+		
 	respawnCustomTime 50000
 }
 
@@ -41,8 +56,8 @@ WeaponInfo0
 	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/electrostaff/electrostaff.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_electrostaff" 	//Required: Weapon change icon
-	WeaponName			"Electrostaff"    					//Required: Weapon change display name
+	Icon				"gfx/hud/w_icon_purgesticks" 	//Required: Weapon change icon
+	WeaponName			"Electro-Weapon"    					//Required: Weapon change display name
 }
 
 WeaponInfo1
@@ -55,25 +70,25 @@ WeaponInfo1
 	Icon				"gfx/hud/w_icon_dc-15s"
 	WeaponName			"DC-15S"
 }
-description	"Electrostaff Purge Trooper
+description	"Purge Trooper
 
 Class: Arc Trooper.
 Class Summary:
 A dextrous hybrid melee/gunner and anti-Jedi class with an evasive roll. 
 
 Weaponry:
-- Electrostaff * (Staff style only, reduced damage)
+- Electro-Weapon * 
 - DC-15S Carbine (Based on Clone Rifle level 2)
-- Concussion Blobs (3) (6 blobs total)
+- Concussion Blobs (1)
+- Ion Blobs (2)
 - Concussion Grenades (2)
 
 * Special Weapon Descriptions:
---- Electrostaff
+--- Electro-Weapon
 - Defense (1)
-- Can use Staff style
+- Electrostaff can use Staff style, Dual Electro-Batons can use Dual style
 - Can block lightsabers
-- Can block blaster shots
-- Cannot slap or use special attacks
+- Cannot block blaster shots
 - Reduced damage compared to lightsaber
 
 Attributes:
@@ -81,9 +96,8 @@ Attributes:
 - Heal (1)
 
 Abilities:
-- Dodge (2) [Class Special 1]
 - Stamina (3) [Class Special 1]
 - Dexterity (3) [Alt Ability 1]
-- Flipkick
+- Flipkick (2)
 
 Hunters of the Imperial Inquisitorius, the Purge Troopers track survivors of the treasonous Jedi Order. Operating in the shadows, they scour the galaxy to assist Inquisitors in their sinister mission."

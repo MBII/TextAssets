@@ -4,21 +4,22 @@ ClassInfo
 {
 	name				"_h_u_T3-M4"
 	weapons				WP_BLASTER|WP_DEMP2
-	attributes			MB_ATT_SHIELD_RECHARGE,1|MB_ATT_RECHARGE,3||MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FP_MIRALUKA|MB_ATT_BLASTER,3|MB_ATT_PISTOL,1|MB_ATT_FLAMETHROWER|MB_ATT_FUEL,3|MB_ATT_CORTOSIS,1
-	maxhealth			100
+	attributes			MB_ATT_SHIELD_RECHARGE,1|MB_ATT_RECHARGE,3|MB_ATT_FP_MIRALUKA|MB_ATT_BLASTER,3|MB_ATT_PISTOL,1|MB_ATT_FLAMETHROWER|MB_ATT_FUEL,3
+	maxhealth			150
 	maxarmor			20
 	model				"t3m4" 				//this is optional, if it's here it forces the model to this.
-	modelscale			0.7
+	modelscale			0.72
 	skin				"default"					//this is optional, if it's here it forces the skin to this.
 	uishader			"gfx/hud/fa_icons/mb2_icon_t3m4"
 	MBClass				MB_CLASS_SBD
-	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_ICETHROWER|CFL_FASTHACKING|CFL_NOLOCATIONALDAMAGE
+	classflags			CFL_ICETHROWER|CFL_FASTHACKING|CFL_NOLOCATIONALDAMAGE
 	forcepowers			FP_SEE,1
 	forcepool			25
-	speed				1.34
+	speed				1.35
 	classNumberLimit 		1
 	meleeMoves				M_JUMPKICK
-	WP_DEMP2Flags       HELD_PULSE 
+	WP_DEMP2Flags       HELD_PULSE|HELD_ALTRELOAD
+	damageTaken 0.9
 	
 	respawnCustomTime 50000
 }
@@ -30,11 +31,14 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/noweap/noweap.md3"
 	MuzzleEffect		"arc_caster/ArcCasterMuzzle"
 	MissileEffect		"arc_caster/ArcCasterShock"
+	MissileHitHumanEffect	"SBD/Cortosis_blue"
+	MissileHitDroidEffect	"SBD/Cortosis_blue"
+	MissileMissEffect	"SBD/Cortosis_blue"
 	Icon			"gfx/hud/w_icon_t3m4_ion"
 	WeaponName			"Ion Blaster"
 	FlashSound0		"sound/weapons/base_demp2/fire.mp3"
 	customammo 288
-	clipsize   20
+	clipsize   10
 	AltFireEnabled 0
 }
 WeaponInfo1
@@ -45,6 +49,8 @@ WeaponInfo1
 	NewViewModel		"models/weapons2/noweap/noweap.md3"
 	Icon			"gfx/hud/w_icon_t3m4_blaster"
 	WeaponName			"Mounted Blaster"
+	FlashSound0			"sound/weapons/kotor/fire_light.wav" 
+	AltFlashSound0		"sound/weapons/kotor/fire_med.wav"
 	customammo 500
 }
 ForceInfo0
@@ -70,10 +76,6 @@ Weaponry:
 - Shocks enemies on successful hits
 
 Attributes:
-- Magnetic Plating
-- Blast Armor
-- Cortosis Armor
-- Melee Damage Resistance
 - Self Repair (Armor Regeneration 1)
 - Radar Scanner (Permanent Sense 1)
 - Damage applied to T3-M4 is non-locationally calculated

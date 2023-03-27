@@ -1,26 +1,128 @@
-models/players/han_anh/mouth
+
+// ANH
+
+models/players/han_solo/arm_jacket
 {
-	q3map_nolightmap
 	{
-		map models/players/han_anh/mouth
+		map models/players/han_solo/arm_jacket
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_solo/arm_jacket_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/han_solo/cloth
+{
+	{
+		map models/players/han_solo/cloth
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_solo/cloth_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/han_solo/hair
+{
+	cull	disable
+	{
+		map models/players/han_solo/hair
 		alphaFunc GE128
-		blendFunc GL_ONE GL_ZERO
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		depthWrite
 		rgbGen lightingDiffuse
 	}
 }
 
-models/players/han_anh/hair
+models/players/han_solo/hairstrand
 {
-	q3map_nolightmap
+	cull	disable
 	{
-		map models/players/han_anh/hair
-		alphaFunc GE192
-		blendFunc GL_ONE GL_ZERO
+		map models/players/han_solo/hairstrand
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		depthWrite
 		rgbGen lightingDiffuse
 	}
+	{
+		map models/players/han_solo/hairstrand_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
+
+models/players/han_solo/hanhead
+{
+	{
+		map models/players/han_solo/hanhead
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_solo/hanhead_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/han_solo/headcap
+{
+	{
+		map models/players/han_solo/headcap
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_solo/headcap_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// ESB
+
+models/players/han_solo/clothesb
+{
+	{
+		map models/players/han_solo/clothesb
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_solo/cloth_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// RotJ
+
+models/players/han_solo/jackets
+{
+	{
+		map models/players/han_solo/jackets
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/han_solo/jackets_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// TFA
 
 models/players/han_tfa/body
 {
