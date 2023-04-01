@@ -1,24 +1,18 @@
-// Shader for Exar Kun saber //
-models/weapons2/saber_rooxon/saber_exar
+// Shader for TOR Acolyte Saber //
+models/weapons2/saber_rooxon/saber_acolyte
 {
     {
-        map models/weapons2/saber_rooxon/saber_exar
+        map models/weapons2/saber_rooxon/saber_acolyte
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/saber_rooxon/saber_exar_spec
+        map models/weapons2/saber_rooxon/saber_acolyte_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
-		map models/weapons2/saber_rooxon/env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-    }
-    {
-        map models/weapons2/saber_rooxon/saber_exar_g
+        map models/weapons2/saber_rooxon/saber_acolyte_g
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
         detail
         glow
@@ -40,6 +34,33 @@ models/weapons2/saber_rooxon/saber_orgus3
     }
 	{
         map models/weapons2/saber_rooxon/saber_orgus3_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for Exar Kun saber //
+models/weapons2/saber_rooxon/saber_exar
+{
+    {
+        map models/weapons2/saber_rooxon/saber_exar
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_exar_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_exar_g
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
         detail
         glow
@@ -73,6 +94,60 @@ models/weapons2/saber_rooxon/saber_kotor
     }
 }
 
+// Shader for KOTOR Staff Saber //
+models/weapons2/saber_rooxon/saber_kdbl
+{
+    {
+        map models/weapons2/saber_rooxon/saber_kdbl
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kdbl_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env2b
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kdbl_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for KOTOR Short Saber //
+models/weapons2/saber_rooxon/saber_kshrt
+{
+    {
+        map models/weapons2/saber_rooxon/saber_kshrt
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kshrt_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kshrt_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
 // Shader for McQuarrie Luke Saber //
 models/weapons2/saber_rooxon/saber_qluke
 {
@@ -100,6 +175,27 @@ models/weapons2/saber_rooxon/saber_qvader
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
+    }
+}
+
+// Shader for Starkiller Clone Saber //
+models/weapons2/saber_rooxon/saber_skc
+{
+    {
+        map models/weapons2/saber_rooxon/saber_skc
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_skc_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_skc_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
     }
 }
 
