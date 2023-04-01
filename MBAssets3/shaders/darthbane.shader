@@ -1,3 +1,33 @@
+// novel depiction
+
+models/players/darthbane/cape
+{
+	cull	twosided
+    {
+        map models/players/darthbane/cape
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/darthbane/glove
+{
+    {
+        map models/players/darthbane/glove
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/darthbane/torso
+{
+    {
+        map models/players/darthbane/torso
+        rgbGen lightingDiffuse
+    }
+}
+
+
+// exhibition depiction
+
 models/players/darthbane2/armor
 {
 	cull	twosided
@@ -86,7 +116,3 @@ models/players/darthbane2/helmet
         alphaGen lightingSpecular
     }
 }
-
-
-
-

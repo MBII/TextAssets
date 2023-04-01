@@ -1,3 +1,5 @@
+// yuuzhan armored
+
 models/players/darthkrayt/mask
 {
                 cull twosided	  
@@ -139,5 +141,32 @@ models/players/darthkrayt/krayt4
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+
+// the one sith
+
+models/players/darthkrayt2/hips_plate
+{
+	{
+		map models/players/darthkrayt2/hips_plate
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthkrayt2/hips_plate_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/darthkrayt2/pad
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt2/pad
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
 	}
 }
