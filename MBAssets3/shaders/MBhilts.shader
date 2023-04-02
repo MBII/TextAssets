@@ -1093,18 +1093,3 @@ models/weapons2/saber_depabillaba/depabillabaUVW
         tcGen environment
     }
 }
-
-// Shader for Sith Stalker Saber //
-models/weapons2/saber_stalker/saber
-{
-	{
-		map models/weapons2/saber_stalker/saber
-		rgbGen lightingDiffuse
-	}
-	{
-        	map models/weapons2/saber_stalker/saber_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-    }
-}
