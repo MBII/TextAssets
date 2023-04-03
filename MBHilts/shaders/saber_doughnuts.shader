@@ -274,14 +274,14 @@ models/weapons2/saber_dough/asharad_detail
 	}
 }
 
-models/weapons2/saber_cjr/saber_w
+models/weapons2/saber_dough/saber_galen4
 {
     {
-        map models/weapons2/saber_cjr/saber_w
+        map models/weapons2/saber_dough/saber_galen4
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/saber_cjr/saber_s
+        map models/weapons2/saber_dough/saber_galen4_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
