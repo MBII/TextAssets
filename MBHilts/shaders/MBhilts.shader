@@ -979,34 +979,6 @@ models/weapons2/droid_shiv/arminfantry
 	}
 }
 
-models/weapons2/droid_shiv/blade_bones
-{
-	{
-		map models/weapons2/droid_shiv/blade_bones
-		rgbGen lightingDiffuse
-	}
-    {
-        map models/players/battledroid/env_chrome
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        detail
-        tcGen environment
-    }
-}
-
-models/weapons2/droid_shiv/arm_bones
-{
-	{
-		map models/weapons2/droid_shiv/arm_bones
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/droid_shiv/arm_bones_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 // Shader for double-vibroblade saber //
 models/weapons2/NWN_2_Bladed_sword/handle
 {
@@ -1107,34 +1079,6 @@ models/weapons2/reys_quarterstaff/reys_quarterstaff
     }
 }
 
-// Shader for KOTOR Saber //
-models/weapons2/kotorsab/tex
-{
-	cull	twosided
-    {
-        map models/weapons2/kotorsab/tex
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/kotorsab/tex_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-	map models/weapons2/kotorsab/env
-	blendFunc GL_DST_COLOR GL_SRC_COLOR
-	detail
-	tcGen environment
-    }
-    {
-        map models/weapons2/kotorsab/tex_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
-        glow
-    }
-}
-
 // Shader for Depa Billaba saber //
 models/weapons2/saber_depabillaba/depabillabaUVW
 {
@@ -1147,20 +1091,5 @@ models/weapons2/saber_depabillaba/depabillabaUVW
         map gfx/effects/chr_inv
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         tcGen environment
-    }
-}
-
-// Shader for Sith Stalker Saber //
-models/weapons2/saber_stalker/saber
-{
-	{
-		map models/weapons2/saber_stalker/saber
-		rgbGen lightingDiffuse
-	}
-	{
-        	map models/weapons2/saber_stalker/saber_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
     }
 }

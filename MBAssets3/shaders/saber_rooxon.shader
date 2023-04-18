@@ -178,6 +178,27 @@ models/weapons2/saber_rooxon/saber_qvader
     }
 }
 
+// Shader for Orgus Din saber //
+models/weapons2/saber_rooxon/saber_orgus
+{
+    {
+        map models/weapons2/saber_rooxon/saber_orgus
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_orgus_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/saber_rooxon/saber_orgus_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
 // Shader for Starkiller Clone Saber //
 models/weapons2/saber_rooxon/saber_skc
 {
