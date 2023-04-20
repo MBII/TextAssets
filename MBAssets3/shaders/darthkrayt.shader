@@ -170,3 +170,12 @@ models/players/darthkrayt2/pad
 		rgbGen lightingDiffuse
 	}
 }
+
+models/players/darthkrayt2/robe
+{
+	cull twosided
+	{
+		map models/players/darthkrayt2/robe
+		rgbGen lightingDiffuse
+	}
+}

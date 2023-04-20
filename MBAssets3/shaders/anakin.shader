@@ -382,3 +382,24 @@ models/players/anakin_tcw/belt
         alphaGen lightingSpecular
     }
 }
+
+models/players/anakin_swolo/droidhand
+{
+	{
+		map models/players/anakin_swolo/droidhand
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}

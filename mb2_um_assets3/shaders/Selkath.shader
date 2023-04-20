@@ -1,79 +1,291 @@
-models/players/Selkath/N_Selkath01
+//bodies
+
+models/players/Selkath/body_white
 {
-	cull	twosided
+	q3map_nolightmap
     {
-        map models/players/Selkath/N_Selkath01
+        map models/players/Selkath/body_white
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Selkath/N_Selkath0S
+        map textures/common/env_chrome
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        alphaGen const 0.8
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/body_white
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/body_spec
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/Selkath/N_Selkath02
+models/players/Selkath/body_blue
 {
-	cull	twosided
+	q3map_nolightmap
     {
-        map models/players/Selkath/N_Selkath02
+        map models/players/Selkath/body_blue
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Selkath/N_Selkath0S
+        map textures/common/env_chrome
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        alphaGen const 0.8
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/body_blue
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/body_spec
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/Selkath/N_Selkath03
+models/players/Selkath/body_red
 {
-	cull	twosided
+	q3map_nolightmap
     {
-        map models/players/Selkath/N_Selkath03
+        map models/players/Selkath/body_red
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Selkath/N_Selkath0S
+        map textures/common/env_chrome
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        alphaGen const 0.8
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/body_red
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/body_spec
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/Selkath/N_Selkath04
+models/players/Selkath/body
 {
-	cull	twosided
+	q3map_nolightmap
     {
-        map models/players/Selkath/N_Selkath04
+        map models/players/Selkath/body
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Selkath/N_Selkath0S
+        map textures/common/env_chrome
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        alphaGen const 0.8
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/body
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/body_spec
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/Selkath/N_Selkath05
+//heads
+
+models/players/Selkath/Head_green
 {
-	cull	twosided
+	q3map_nolightmap
     {
-        map models/players/Selkath/N_Selkath05
+        map models/players/Selkath/Head_green
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/Selkath/N_Selkath0S
+        map models/players/Selkath/gloss
+        blendFunc GL_ONE GL_ONE
+        alphaGen const 1
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/Head_green
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
         blendFunc GL_SRC_ALPHA GL_ONE
-        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Selkath/Head_red
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head_red
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Selkath/gloss
+        blendFunc GL_ONE GL_ONE
+        alphaGen const 1
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/Head_red
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Selkath/Head
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Selkath/gloss
+        blendFunc GL_ONE GL_ONE
+        alphaGen const 1
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/Head
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Selkath/Head_purple
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head_purple
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Selkath/gloss
+        blendFunc GL_ONE GL_ONE
+        alphaGen const 1
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/Head_purple
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+
+//Teeth
+
+models/players/Selkath/Head_teeth
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Selkath/Head_teeth_red
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head_red
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Selkath/Head_teeth_green
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head_green
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Selkath/Head_teeth_purple
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head_purple
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+//weapon
+
+models/weapons2/vibrosword/vibro
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibrosword/vibro
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/weapons2/vibrosword/vibro_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
     }
 }
