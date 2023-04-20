@@ -1,3 +1,45 @@
+models/weapons2/saber_plasma/saber_avar_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_avar_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_avar_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_mara2_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_mara2_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_mara2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_depa_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_depa_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_depa_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/weapons2/saber_plasma/saber_obi_wan_diff
 {
     {
@@ -1745,5 +1787,257 @@ models/weapons2/saber_plasma/saber_kouru_diff
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_dan_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_dan_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_dan_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_bane_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_bane_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_bane_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_sharad_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_sharad_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_sharad_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_tajin_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_tajin_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_tajin_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_temple_guard2_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_temple_guard2_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_temple_guard2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_ady_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_ady_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_ady_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_brood_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_brood_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_brood_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_starcruiser_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_starcruiser_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_starcruiser_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_luke5_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_luke5_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_luke5_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_luke6_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_luke6_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_luke6_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_nari_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_nari_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_nari_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_obi_wan5_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_obi_wan5_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_obi_wan5_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_inquisitor7_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor7_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor7_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_inquisitor8_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor8_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor8_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_inquisitor9_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor9_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor9_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_inquisitor5_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor5_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor5_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor5_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+models/weapons2/saber_plasma/saber_inquisitor6_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor6_diff
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor6_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+    {
+        map models/weapons2/saber_plasma/saber_inquisitor6_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
     }
 }
