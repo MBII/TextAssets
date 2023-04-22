@@ -240,17 +240,6 @@ levelshots/mb2_ctf_eravana2
 	}
 }
 
-levelshots/mb2_ctf_imperial
-{
-	nomipmaps
-	notc
-	{
-		map levelshots/mb2_ctf_imperial
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-}
-
 levelshots/mb2_ctf_scarif
 {
 	nomipmaps
