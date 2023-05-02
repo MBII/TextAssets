@@ -28,7 +28,7 @@
 			cvarTest			"ui_class"
 			hideCvar			{ 11 }
 			type				ITEM_TYPE_MODEL
-			rect 0 -3 113 203
+			rect				0 -3 113 203
 			model_g2anim		"BOTH_WALK1"
 			asset_model			"ui_char_model"
 			model_angle			80
@@ -51,7 +51,7 @@
 			cvarTest			"ui_class"
 			showCvar			{ 11 }
 			type				ITEM_TYPE_MODEL
-			rect 0 -3 113 203
+			rect				0 -3 113 203
 			model_g2anim		"BOTH_WALK1"
 			model_g2scale		0.65 0.65 0.65
 			asset_model			"ui_char_model"
@@ -74,10 +74,41 @@
             descText			"Click and drag to rotate."
             group				models
             type				ITEM_TYPE_SLIDER_ROTATE
-            rect				0 0 113 192
+            rect				0 0 113 196
             cvarRotateScale		ui_char_model_angle 360
             visible				1
         }
+		
+// MODEL VARIANT SELECT
+		itemDef
+		{
+			name 				headlistSubs
+			group				models
+			rect				0 163 113 33 //Y position and height are dynamic based on number of rows
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		25
+			elementheight 		31
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_MBHEADS_SUBS
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.2
+			action
+			{  
+				play			"sound/interface/button1"
+				uiScript		mb_char
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlistSubs bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlistSubs bordercolor 0.1 0.7 1 0.9
+			}
+		}
 
 // RGB PRESETS
 		itemDef
@@ -86,7 +117,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				3 194 16 5
+			rect				3 198 16 7
 			backcolor			0.13 0.13 0.13 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -105,7 +136,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				3 202 16 5
+			rect				3 208 16 7
 			backcolor			1 1 1 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -125,7 +156,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				21 194 16 5
+			rect				21 198 16 7
 			backcolor			0.71 0.12 0.12 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -144,7 +175,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				21 202 16 5
+			rect				21 208 16 7
 			backcolor			0.78 0.63 0.31 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -164,7 +195,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				39 194 16 5
+			rect				39 198 16 7
 			backcolor			0.16 0.49 0.16 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -183,7 +214,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				39 202 16 5
+			rect				39 208 16 7
 			backcolor			0.2 0.71 0.39 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -203,7 +234,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				57 194 16 5
+			rect				57 198 16 7
 			backcolor			0.18 0.35 0.55 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -222,7 +253,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				57 202 16 5
+			rect				57 208 16 7
 			backcolor			0 0.59 0.69 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -242,7 +273,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				75 194 16 5
+			rect				75 198 16 7
 			backcolor			0.94 0.78 0 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -261,7 +292,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				75 202 16 5
+			rect				75 208 16 7
 			backcolor			0.94 0.51 0.1 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -281,7 +312,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				93 194 16 5
+			rect				93 198 16 7
 			backcolor			0.47 0.24 0.35 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -300,7 +331,7 @@
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
 			type				ITEM_TYPE_BUTTON
-			rect				93 202 16 5
+			rect				93 208 16 7
 			backcolor			0.88 0.35 0.78 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item3"
 			visible				1
@@ -321,7 +352,7 @@
 			name 				charred_icon
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
-			rect 4 212 3 10
+			rect				4 220 3 10
 			backcolor			0.75 0 0 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			visible				1
@@ -332,7 +363,7 @@
 			name 				chargreen_icon
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
-			rect 4 229 3 10
+			rect				4 233 3 10
 			backcolor			0 0.75 0 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			visible				1
@@ -343,7 +374,7 @@
 			name 				charblue_icon
 			group				model_rgb
 			style				WINDOW_STYLE_FILLED
-			rect 4 246 3 10
+			rect				4 246 3 10
 			backcolor			0 0 0.75 1
 			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
 			visible				1
@@ -355,7 +386,7 @@
 			group				model_rgb
 			type				ITEM_TYPE_INTSLIDER
 			cvarInt				"ui_char_color_red" 50 0 255
-			rect 8 209 100 17
+			rect				8 217 100 17
 			forecolor			1.0 1.0 1.0 0.8
 			visible				1
 			mouseenter
@@ -378,7 +409,7 @@
 			group				model_rgb
 			type				ITEM_TYPE_INTSLIDER
 			cvarInt				"ui_char_color_green" 50 0 255
-			rect 8 226 100 17
+			rect				8 230 100 17
 			forecolor			1.0 1.0 1.0 0.8
 			visible				1
 			mouseenter
@@ -401,7 +432,7 @@
 			group				model_rgb
 			type				ITEM_TYPE_INTSLIDER
 			cvarInt				"ui_char_color_blue" 50 0 255
-			rect 8 243 100 17
+			rect				8 243 100 17
 			forecolor			1.0 1.0 1.0 0.8
 			visible				1
 			mouseenter
@@ -429,7 +460,7 @@
 			cvarInt				"ui_char_color_red" 50 0 255
 			maxchars			3
 			maxPaintChars		3
-			rect 48 213 20 10
+			rect				48 221 20 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-9
@@ -463,7 +494,7 @@
 			cvarInt				"ui_char_color_green" 50 0 255
 			maxchars			3
 			maxPaintChars 		3
-			rect 48 230 20 10
+			rect				48 234 20 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-9
@@ -497,7 +528,7 @@
 			cvarInt				"ui_char_color_blue" 50 0 255
 			maxchars			3
 			maxPaintChars		3
-			rect 48 247 20 10
+			rect				48 247 20 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-9

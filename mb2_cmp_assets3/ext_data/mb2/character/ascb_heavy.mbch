@@ -3,17 +3,18 @@
 ClassInfo
 {
 	name			"ascb_heavy"
-	weapons			WP_DEMP2|WP_REPEATER|WP_MELEE
-	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2|MB_ATT_WOOKIE_STRENGTH,3
+	weapons			WP_DEMP2|WP_REPEATER|WP_MELEE|WP_BLASTER
+	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_WOOKIEE_FURY,2
 	maxhealth		300
 	model			"heavy"
 	skin			"blue"
 	uishader		"models/players/cw_durge/mb2_icon_blue"
 	MBClass			MB_CLASS_WOOKIE
-	extralives		    6
-    respawnCustomTime   20000
+	extralives		6
+    	respawnCustomTime   	20000
 	classnumberlimit	2
 	modelscale		    1.25
+	classflags		CFL_SHOTGUN
 }
 
 WeaponInfo0
@@ -28,8 +29,31 @@ WeaponInfo0
 	customAmmo 		    999
 }
 
+WeaponInfo1
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+    FlashSound0			"sound/weapons/reshotgun/fire.wav"
+    MuzzleEffect		"halo_shotgun/Muzzle_Flash"
+	MissileEffect 		"flechette/shot"
+    MissileMissEffect   "blaster/Impact_Wall01Y"
+	primGore		    1
+    altFireEnabled	    0
+    clipSize            36 //3 shots - no clue why clip size needs to be different to pyro
+    Icon				"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName			"Shotgun"
+    firingAnim          DC15_FIRE
+}
+
 description	"Heavy
+Class: Wookiee
 
 Weapons:
-Pistol
-Minigun"
+- Minigun (3)
+- Shotgun (3)
+
+Attributes:
+- Strength (3)
+- Fury (2)"

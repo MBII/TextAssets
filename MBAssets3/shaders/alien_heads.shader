@@ -1,23 +1,23 @@
-models/players/alien_heads/abyssin
+models/players/alien_heads/abednedo
 {
 	cull	disable
     {
-        map models/players/alien_heads/abyssin
+        map models/players/alien_heads/abednedo
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/abyssin_spec
+        map models/players/alien_heads/abednedo_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/alien_heads/abyssin_green
+models/players/alien_heads/abyssin
 {
 	cull	disable
     {
-        map models/players/alien_heads/abyssin_green
+        map models/players/alien_heads/abyssin
         rgbGen lightingDiffuse
     }
     {
@@ -46,6 +46,20 @@ models/players/alien_heads/aqualish
 {
     {
         map models/players/alien_heads/aqualish
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/aqualish_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/aqualish_cmp
+{
+    {
+        map models/players/alien_heads/aqualish_cmp
         rgbGen lightingDiffuse
     }
     {
@@ -126,20 +140,6 @@ models/players/alien_heads/durosZ
     }
 }
 
-models/players/alien_heads/elles
-{
-    {
-        map models/players/alien_heads/elles
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/arcona_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/alien_heads/gotal
 {
     {
@@ -148,6 +148,20 @@ models/players/alien_heads/gotal
     }
     {
         map models/players/alien_heads/gotal_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/ishi_tib
+{
+    {
+        map models/players/alien_heads/ishi_tib
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/ishi_tib_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -168,14 +182,28 @@ models/players/alien_heads/itho
     }
 }
 
-models/players/alien_heads/kubaz
+models/players/alien_heads/klato
 {
     {
-        map models/players/alien_heads/kubaz
+        map models/players/alien_heads/klato
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_heads/kubaz_spec
+        map models/players/alien_heads/klato_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/klatob
+{
+    {
+        map models/players/alien_heads/klatob
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/klato_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -252,6 +280,48 @@ models/players/alien_heads/nabrun
     }
 }
 
+models/players/alien_heads/nikto
+{
+    {
+        map models/players/alien_heads/nikto
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/nikto_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/niktohat
+{
+    {
+        map models/players/alien_heads/niktohat
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/niktohat_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/nikto2
+{
+    {
+        map models/players/alien_heads/nikto2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/nikto2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/plagueis
 {
     {
@@ -260,6 +330,34 @@ models/players/alien_heads/plagueis
     }
     {
         map models/players/alien_heads/muun_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/plagueisb
+{
+    {
+        map models/players/alien_heads/plagueisb
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/muun_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/alien_heads/ponda
+{
+    {
+        map models/players/alien_heads/ponda
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/aqualish_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -322,6 +420,22 @@ models/players/alien_heads/sullustan
 	}
 }
 
+models/players/alien_heads/sullustanb
+{
+	q3map_nolightmap
+	cull twosided
+	{
+		map models/players/alien_heads/sullustanb
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/NienNunb/head_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/alien_heads/tenebrous
 {
     {
@@ -330,20 +444,6 @@ models/players/alien_heads/tenebrous
     }
     {
         map models/players/alien_heads/bith_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/alien_heads/trando
-{
-    {
-        map models/players/alien_heads/trando
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/alien_heads/trando_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular

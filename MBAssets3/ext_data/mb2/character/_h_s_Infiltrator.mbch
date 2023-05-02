@@ -7,27 +7,30 @@ weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_SONIC_NADE|WP_TRIP_MINE|WP_STUN
 saber1			legends_Knife
 sabercolor		0
 forcepowers     FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1|FP_SEE,1
-saberstyle		SS_MEDIUM|SS_FAST
-attributes		MB_ATT_SPY_DISGUISE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_SONIC_DETONATOR,1|MB_ATT_FLIPKICK|MB_ATT_ANTI_MT|MB_ATT_TRIP_MINES,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_FP_MIRALUKA,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FRAGS,1
+saberstyle		SS_MEDIUM|SS_TAVION
+attributes		MB_ATT_SPY_DISGUISE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,2|MB_ATT_SONIC_DETONATOR,1|MB_ATT_FLIPKICK,1|MB_ATT_TRIP_MINES,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_FP_MIRALUKA,1|MB_ATT_PROJECTILE_RIFLE,1
 maxhealth		80
 maxarmor		80
 BPmultiplier    0.7
 forcepool       65
-damageGiven     .85
 MBClass			MB_CLASS_ARCTROOPER
 classNumberLimit	2
-classflags		CFL_SEEING_STEALTH|CFL_BPFREEJUMPS|CFL_HEAVYMELEE
+classflags		CFL_BPFREEJUMPS|CFL_HEAVYMELEE
 holdables		HI_CLOAK
 extralives	1
 speed           1.03
 
-WP_StunBatonFlags HELD_POISON	
+WP_FragNadeFlags	HELD_KNOCKDOWN
 
 tauntAnim	BOTH_SABERKILLER1
 
 model			"bothan-spy"
 skin			"default"
 uishader		"models/players/bothan-spy/mb2_icon_default"
+
+//model_1			"alien_merc"
+//skin_1			"gotal"
+//uishader_1		"models/players/alien_merc/mb2_icon_gotal"
 
    
    respawnCustomTime 30000
@@ -37,20 +40,15 @@ uishader		"models/players/bothan-spy/mb2_icon_default"
 
 WeaponInfo0
 {
-WeaponToReplace		WP_BLASTER_PISTOL
-WeaponBasedOff		WP_BLASTER
-NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"  	//Required: New 3rd person/dropped weapon model
-NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"   	//Required: New 1st person weapon model
-Icon			"gfx/hud/w_icon_sc-10_holdout" 					//Required: Weapon change icon
-WeaponName		"Holdout Pistol"    					//Required: Weapon change display name
-FlashSound0		"sound/weapons/silencedpistol/fire.wav"
-primHitscanShot		1
-primHitscanTracer	5
-altHitscanShot		1
-altHitscanTracer	5
-primGore		1
-altGore			1
-altfireenabled	0
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER
+	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"   	//Required: New 1st person weapon model
+	Icon					"gfx/hud/w_icon_sc-10_holdout" 					//Required: Weapon change icon
+	WeaponName			"Holdout Pistol"    					//Required: Weapon change display name
+	FlashSound0			"sound/weapons/spy_pistol/fire.wav"
+	AltFlashSound0		"sound/weapons/spy_pistol/alt_fire.wav"
+	altfireenabled	1
 	firingAnim		BOTH_ATTACK2
 	idleAnim		TORSO_WEAPONIDLE2
 }
@@ -58,12 +56,12 @@ altfireenabled	0
 
 WeaponInfo1
 {
-WeaponToReplace		WP_SABER
-WeaponBasedOff		WP_SABER
-NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
-NewViewModel		"models/weapons2/dummy/dummy.md3"
-Icon			"gfx/hud/w_icon_prisonknife"
-WeaponName		"Vibro Knife"
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_prisonknife"
+	WeaponName		"Vibro Knife"
 }
 
 WeaponInfo2
@@ -81,31 +79,29 @@ WeaponInfo2
 }
 
 WeaponInfo3
-{
-	WeaponToReplace			WP_FRAG_NADE
-	WeaponBasedOff			WP_FRAG_NADE
-	NewWorldModel			"models/weapons2/Stormi_TD/StormiTD_w.glm"
-	NewViewModel			"models/weapons2/Stormi_TD/StormiTD.md3"
-	MissileModel 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
-	altMissileMissEffect		"Grenades/EXP_Flash"
-	altMissileHitHumanEffect	"Grenades/EXP_Flash"
-	altMissileHitDroidEffect	"Grenades/EXP_Flash"
-	Icon				"gfx/hud/w_icon_StormiTD"
-	WeaponName			"Flashbang Grenade"
-	customammo			1
-	primFireEnabled			0
+{	
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon						"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		1
 }
+
 
 WeaponInfo4
 {           
-WeaponToReplace        WP_TRIP_MINE
-WeaponBasedOff         WP_TRIP_MINE
-NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
-NewViewModel	  "models/weapons2/laser_trap/laser_trap.md3"  	
-Icon             "gfx/hud/w_icon_tripmine"
-WeaponName		"Trip Mine"
-altFireEnabled 0
-customAmmo    1
+	WeaponToReplace        WP_TRIP_MINE
+	WeaponBasedOff         WP_TRIP_MINE
+	NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
+	NewViewModel	  "models/weapons2/laser_trap/laser_trap.md3"  	
+	Icon             "gfx/hud/w_icon_tripmine"
+	WeaponName		"Trip Mine"
+	altFireEnabled 0
+	customAmmo    1
 }
 
 
@@ -123,12 +119,12 @@ Class: Arc Trooper.
 Class Summary: 
 A stealthy class which focuses on ambush, disguise, high-mobility, and assassination. 
 
-Weapons:
-- Holdout Pistol (Hitscan Pistol 3)
-- Valken-38x (Based on Projectile Rifle, deals poison damage)
+Weaponry:
+- Holdout Pistol (3)
+- Valken-38x (Based on Projectile Rifle)
 - Vibro Knife *
 - Enhanced Strength 
-- Flashbang Grenade (1)
+- Stun Grenade (1)
 - Sonic Grenade (1)
 - Trip Mine (1)
 
@@ -136,25 +132,21 @@ Weapons:
 --- Vibro Knife:
 - Defense (1)
 - Deals enhanced damage
-- Can use Blue and Yellow styles
+- Can use Cyan and Yellow styles
 - Cannot block blaster fire
 - Can block lightsabers (with substantially reduced block power)
 
 Inventory:
-- Cloak 
+- Cloak [Inventory Use]
 - Disguise [press saber style/gun mode switch while in melee]
 
 Attributes:
 - Extra life
 - Radar Scanner (Permanent Sense 1)
-- Immune to Mindtrick
-- Invisible to Force Sense
 
 Abilities:
 - Stamina (3) [Class Special 1]
-- Dexterity (3) [Alt Ability 1]
-- Flipkick
+- Dexterity (2) [Alt Ability 1]
+- Flipkick (1)
 --- Grappling Hook (2)
-- Hold Special Ability 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
-
-Infamous rebel spies."
+- Hold Special Ability 2 while melee is equipped, then hold spacebar to ascend or crouch to descend"

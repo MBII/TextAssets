@@ -3,15 +3,27 @@
 ClassInfo
 {
 	name				"_v_s_thug"
-	weapons				WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_BOWCASTER|WP_TRIP_MINE
-	attributes			MB_ATT_BLASTER,3|MB_ATT_BOWCASTER,1|MB_ATT_AMMO,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_ASSEMBLE,1|MB_ATT_TRIP_MINES,1|MB_ATT_DODGE,3|MB_ATT_GUNBASH
+	weapons				WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_BOWCASTER|WP_TRIP_MINE|WP_SABER
+	attributes			MB_ATT_BLASTER,3|MB_ATT_BOWCASTER,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,1|MB_ATT_ASSEMBLE,1|MB_ATT_TRIP_MINES,1|MB_ATT_DODGE,2|MB_ATT_GUNBASH
 	maxhealth			60
 	maxarmor			60
 	extralives			2
-	MBClass				MB_CLASS_WOOKIE
-	speed				1.26
+	
+	forcepool       5
+	classflags			CFL_BPFREEJUMPS
+	MBClass			MB_CLASS_CLONETROOPER
 	classNumberLimit	4
 	modelscale          1.045
+	speed              1.02
+	
+	APmultiplier		.9	
+	BPmultiplier		.8
+	saberstyle  		SS_MEDIUM|SS_STRONG
+	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	saber1				vibroaxe_new_legends 
+	saber1_1				short_vibroaxe_legends
+	
+	gloatAnim       BOTH_VICTORY_FAST
 	
 	model			"weequay" 				
 	skin			"default"					
@@ -24,10 +36,25 @@ ClassInfo
 	model_2				"gran"
 	skin_2				"jk"
 	uishader_2			"models/players/gran/mb2_icon_jk"
+		
+//	model_3		    "human_merc" 				
+//	skin_3			"default"			
+//	uishader_3		"gfx/um_icons/mb2_icon_sailhuman"
 	
-	model_3		    "human_merc" 				
-	skin_3			"default"			
-	uishader_3		"gfx/um_icons/mb2_icon_sailhuman"
+	model_3			"human_merc"				
+	skin_3			"abyssin"					
+	uishader_3		"models/players/human_merc/mb2_icon_abyssin"
+	
+	model_4			"Klatoonian" 				
+	skin_4			"default"					
+	uishader_4		"models/players/Klatoonian/mb2_icon_default"
+	
+	model_5			"weequay" 				
+	skin_5			"nikto"					
+	uishader_5		"models/players/weequay/mb2_icon_nikto"
+	
+
+
 	
 
 		
@@ -56,19 +83,40 @@ WeaponInfo1
     	Icon			"gfx/hud/w_icon_bowcaster" 
     	WeaponName		"Bowcaster"
     }
+	
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon				"gfx/hud/w_icon_thugblades" 	//Required: Weapon change icon
+	WeaponName			"Vibro Axe"    					//Required: Weapon change display name
+}
+
 
 
 description			"Archetype: Mercenary Thug
 
-Class: Commander/ET.
+Class: Clone Trooper.
 Class Summary:
-A multi-life light brawler with mid-range blaster, bowcaster, trip mines and concussion grenades. 
+A multi-life hybrid melee class with mid-range blaster, bowcaster, trip mines and a concussion grenade. 
 
 Weaponry:
 - E-11 (3)
 - Bowcaster (1)
-- Concussion Grenades (2)
+- Concussion Grenades (1)
 - Trip Mine (1)
+- Vibro-Axe *
+
+* Special Weapon Descriptions:
+--- Vibro-Axe
+- Defense (1)
+- Can block lightsabers
+- Cannot block blaster shots
+- Can use Yellow and Red styles
+- Can slap 
+- Comes in short and long-handled variations. The long-handled version has greater reach, but the short handled variant has faster swing speed.
 
 Attributes:
 - Reinforcements (2)
@@ -76,7 +124,8 @@ Attributes:
 - Assemble
 
 Abilities:
-- Dodge (3) [Class Special 1]
+- Dodge (2) [Class Special 1]
+- Stamina (2) [Class Special 1]
 - Gunbash [Class Special 2]
 
 Mercenaries served mostly as troopers or pilots for hire, but also as bodyguards and enforcers."

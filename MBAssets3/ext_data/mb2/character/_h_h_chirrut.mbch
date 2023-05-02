@@ -1,12 +1,12 @@
 ClassInfo
 {
 	name  			"_h_h_chirrut"
-	weapons 		WP_SABER|WP_MELEE|WP_BOWCASTER
-	attributes  	MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_BOWCASTER,1|MB_ATT_ANTI_MT|MB_ATT_FP_MIRALUKA|MB_ATT_ANTI_MT|MB_ATT_FLIPKICK|MB_ATT_FORCEBLOCK,1|MB_ATT_DEFLECT,1|MB_ATT_STAMINA,3
+	weapons 		WP_SABER|WP_MELEE|WP_DET_PACK
+	attributes  	MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_ANTI_MT|MB_ATT_FP_MIRALUKA|MB_ATT_ANTI_MT|MB_ATT_FLIPKICK,2|MB_ATT_DEFLECT,1|MB_ATT_STAMINA,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FORCEBLOCK,1
 	saber1  		chirrut_stick_legends
 	saberstyle  	SS_STAFF 
-	forcepowers		FP_SEE,1|FP_SABER_DEFENSE,2|FP_SABER_OFFENSE,3
-	classflags 		CFL_BPFREEJUMPS|CFL_HASQ3
+	forcepowers		FP_SEE,1|FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	classflags 		CFL_BPFREEJUMPS
 	maxhealth 		125
 	maxarmor  		125
 	forcepool		100
@@ -17,14 +17,17 @@ ClassInfo
 	MBClass 		MB_CLASS_ARCTROOPER
 	speed 			1.08
 	modelscale      0.98
-	rateoffire			1.2
+	rateOfFire          0.75
 	classNumberLimit	1
 	APmultiplier		1
 	BPmultiplier        1.1
 	ASmultiplier        1.125
 	CSmultiplier        1.125
-	DamageGiven         1.2
+	DamageGiven         1.0
 	
+	WP_DetPackFlags   HELD_KNOCKBACK
+	WP_BlasterFlags   HELD_KNOCKBACK
+		
 	respawnCustomTime  50000	
 }
 
@@ -39,12 +42,17 @@ WeaponInfo0
 }
 WeaponInfo1
 {
-	WeaponToReplace WP_BOWCASTER
+	WeaponToReplace WP_DET_PACK
 	WeaponBasedOff  WP_BOWCASTER
 	NewWorldModel "models/weapons2/bowcaster/bowcaster_w.glm"
 	NewViewModel  "models/weapons2/bowcaster/bowcaster.md3"
 	Icon  "gfx/hud/w_icon_bowcaster"
 	WeaponName  "Lightbow"
+		customAmmo          288
+	clipsize            96
+	idleAnim  DC15_FIRE
+	firingAnim	        DC15_FIRE
+	FPmult              1.4
 }
 
 
@@ -55,7 +63,7 @@ Class Summary:
 A speedy dexterous gunner/melee hybrid with force abilities and permanent radar sense. 
 
 Weaponry:
-- Lightbow (Bowcaster level 1)
+- Lightbow (Based on T21 Level 1 with enhanced knockback and rate of fire)
 - Staff *
 
 * Special Weapon Descriptions:
@@ -65,20 +73,19 @@ Weaponry:
 - Reduced damage compared to Saber
 - Can block lightsabers
 - Can block blaster shots
-- Can block blaster attacks while swinging (Q3)
 
 Attributes:
 - Heal (2)
+- Shield Recharge (1)
 
 Abilities:
 - Stamina (3) [Class Special 1]
 - Dodge (3) [Class Special 1]
 - Dexterity (3) [Alt Ability 1]
-- Flipkick
+- Flipkick (2)
 
 Force abilities:
 - Mind Trick Immunity (the force is with him)
 - Permanent Sense (1)
-- Force Block (1)
 
 Chirrut Imwe was a blind human male born on the moon Jedha in 52 BBY. One of the Guardians of the Whills, an order of spiritual warrior-monks, he was active during the days of the Galactic Empire and worked as an itinerant preacher in Jedha City."

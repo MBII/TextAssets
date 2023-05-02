@@ -95,3 +95,17 @@ models/players/hs_imperial/galak_boots_hips
 		alphaGen lightingSpecular
 	}
 }
+
+models/players/imperial_fml/boots_hips
+{
+	{
+		map models/players/imperial_fml/boots_hips
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/hs_imperial/boots_hips_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}

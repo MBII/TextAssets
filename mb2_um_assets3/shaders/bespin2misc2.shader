@@ -159,7 +159,7 @@ textures/bespinnew/bespinnewfloor
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.125
         tcGen environment
@@ -597,7 +597,7 @@ textures/bespin2/a_concrete_shiny
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.10
         tcGen environment
@@ -637,7 +637,7 @@ textures/bespin2/blackMarble
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.05
         tcGen environment
@@ -657,7 +657,7 @@ textures/bespin2/nab2_bldg_detail04_shiny
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.15
         tcGen environment
@@ -780,7 +780,7 @@ textures/bespin2/ShinyWhiteMetal
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -801,7 +801,7 @@ textures/bespin2/bespinwallplain
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -822,7 +822,7 @@ textures/bespin2/bespinwall
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -842,7 +842,7 @@ textures/bespin2/bespinwall_orn2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -862,7 +862,7 @@ textures/bespin2/bespinwall8
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -882,7 +882,7 @@ textures/bespin2/bespinfloor
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -902,7 +902,7 @@ textures/bespin2/railtrim2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.09
         tcGen environment
@@ -922,7 +922,7 @@ textures/bespin2/wall66
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -942,7 +942,7 @@ textures/bespin2/bespinceiling2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -962,7 +962,7 @@ textures/bespin2/bespinpillar_plating
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -982,7 +982,7 @@ textures/bespin2/kam_door1_lockable
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1002,7 +1002,7 @@ textures/bespin2/sidepanel4
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1022,7 +1022,7 @@ textures/bespin2/sidepanel_square
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1042,7 +1042,7 @@ textures/bespin2/sidepanel2_1
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1062,7 +1062,7 @@ textures/bespin2/sidepanel2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1082,7 +1082,7 @@ textures/bespin2/bespinwall_holes_b
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1109,7 +1109,7 @@ textures/bespin2/bespintoplights
         rgbGen identity
     }
 	{
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1190,7 +1190,7 @@ textures/bespin2/sidepanel1
         glow
     }
 	{
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1210,7 +1210,7 @@ textures/bespin2/sidetrim1
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -1219,6 +1219,25 @@ textures/bespin2/sidetrim1
 //-----------------------------------------------
 //---------------FADING BRUSHES------------------
 //-----------------------------------------------
+textures/bespin2/transparentStone2
+{
+	qer_editorimage	textures/bespin2/stone2
+	{
+		map $lightmap
+		rgbGen identity
+	}
+	{
+		map textures/bespin2/stone2
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+	{
+		map textures/bespin2/spaceywacey_dn
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identityLighting
+		alphaGen oneMinusVertex
+	}
+}
 textures/bespin2/u_metalorange02
 {
 	{
@@ -1491,7 +1510,7 @@ textures/skies/b2night
 	surfaceparm	nomarks
 	notc
 	q3map_nolightmap
-	skyParms	textures/skies/stars 512 -
+	skyParms	textures/bespin2/spaceywacey 512 -
 }
 ///BLACK FOG
 textures/fogs/bespin2Night
@@ -1665,6 +1684,42 @@ textures/bespin2/flowergrass11
 		rgbGen vertex
 	}
 }
+//fading stone2 (working)
+textures/bespin2/stone2_fading
+{
+    q3map_noVertexLight
+    q3map_colorGen const ( 1 1 1 )
+    qer_editorimage     textures/bespin2/stone2
+    sort 3
+    {
+        map $lightmap
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen vertex
+        rgbGen vertex
+		depthWrite
+    }
+    {
+        map  textures/bespin2/stone2_CI
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        rgbGen vertex
+    }
+}
+//-----------------------------------------------
+//-N E W  F A D I NG   C R E A T E D  B Y  M J T-
+//-----------------------------------------------
+// new alpha brush created by MJT
+textures/bespin2/alpha_color_0 
+{ 
+	qer_editorimage textures/thermae/alpha_0_colour
+    qer_trans 0.5 
+    q3map_alphaMod volume 
+    q3map_alphaMod set 0 
+    q3map_colorMod volume 
+    q3map_colorMod set  ( 0 0 0 ) 
+    surfaceparm nodraw 
+    surfaceparm nonsolid 
+    surfaceparm trans 
+}
 
 textures/bespin2/flowergrass2
 {
@@ -1707,7 +1762,7 @@ textures/bespin2/holograms
 		glow
 	}
 }
-
+///grove Skybox
 textures/skies/theGrove
 {
 	q3map_lightimage	textures/colors/white
@@ -1723,6 +1778,23 @@ textures/skies/theGrove
 	q3map_nolightmap
 	q3map_noFog
 	skyParms	textures/skies/yavin 512 -
+}
+///portal Skybox
+textures/bespin2/portalSky
+{
+	q3map_lightimage	textures/colors/white
+	qer_editorimage	textures/skies/sky.tga
+	q3map_lightmapFilterRadius 0 160
+	q3map_surfacelight	42
+	q3map_lightsubdivide	42
+	q3map_sunExt 0.742504 0.853559 0.933211 42 270 50 2 3
+	surfaceparm	sky
+	surfaceparm	noimpact
+	surfaceparm	nomarks
+	notc
+	q3map_nolightmap
+	q3map_noFog
+	skyParms	textures/bespin2/spaceywacey 512 -
 }
 ///The Grove Terrain
 textures/groveTerrain/terrain_0

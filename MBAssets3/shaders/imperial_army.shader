@@ -119,6 +119,29 @@ models/players/imperial_army/helmet_cockade_red
 	}
 }
 
+models/players/imperial_army/helmet_comm
+{	  
+	{
+		map models/players/imperial_army/helmet_comm
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/imperial_army/helmet_comm_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/imperial_army/helmet_forehead
 {
 	cull	twosided

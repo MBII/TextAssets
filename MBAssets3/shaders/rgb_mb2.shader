@@ -108,69 +108,6 @@ models/players/cultist/legs_rgb
 }
 
 
-// cultist female
-
-models/players/cultist/fem_rgb_arms
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_arms
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/cultist/fem_rgb_head
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_head
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_head
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/cultist/fem_rgb_legs
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_legs
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_legs
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/cultist/fem_rgb_torso
-{
-	cull	twosided
-	{
-		map models/players/cultist/fem_rgb_torso
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/cultist/fem_rgb_torso
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-
 // diapassik
 
 models/players/diapassik/rgb_face
@@ -845,35 +782,6 @@ models/players/OldRepSold/torso_rgb
 }
 
 
-//	prisoner
-
-models/players/prisoner/torso_trans2
-{
-	{
-		map models/players/prisoner/torso_trans2
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/prisoner/torso_trans2
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/prisoner/legs_jeditrans
-{
-	{
-		map models/players/prisoner/legs_jeditrans
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/prisoner/legs_jeditrans
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-
 //  rebel
 
 models/players/rebel/rgb_accessories
@@ -1147,6 +1055,65 @@ models/players/rodian/rgb_torso
 }
 
 
+//            stormpilot (female)
+
+models/players/stormpilot/tint_helmet_emp
+{
+    {
+        map models/players/stormpilot/tint_helmet_emp
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/stormpilot/tint_helmet_emp
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        detail
+        rgbGen lightingDiffuse
+    }
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/stormpilot/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/stormpilot/tint_pilot_leg
+{
+    {
+        map models/players/stormpilot/tint_pilot_leg
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/stormpilot/tint_pilot_leg
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        detail
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/stormpilot/tint_pilot_torso
+{
+	{
+        map models/players/stormpilot/tint_pilot_torso
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/stormpilot/tint_pilot_torso
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        detail
+        rgbGen lightingDiffuse
+    }
+}
+
+
 //	st_shadowtrooper
 
 models/players/st_shadowtrooper/head_rgb
@@ -1290,6 +1257,54 @@ models/players/stormie_tfa/Pauldron_D_rgb
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+
+//  talz
+
+models/players/wookieev2/rgb_armshield
+{
+	cull	twosided
+	{
+		map models/players/wookieev2/rgb_armshield
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/wookieev2/rgb_armshield
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/wookieev2/rgb_pauldron
+{
+	cull	twosided
+	{
+		map models/players/wookieev2/rgb_pauldron
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/wookieev2/rgb_pauldron
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/wookieev2/rgb_stuff
+{
+	cull	twosided
+	{
+		map models/players/wookieev2/rgb_stuff
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/wookieev2/rgb_stuff
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
 	}
 }
 

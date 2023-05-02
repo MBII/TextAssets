@@ -21,7 +21,6 @@ models/players/sithstalker/cpu
 
 models/players/sithstalker/extras
 {
-	cull	disable
 	{
 		map models/players/sithstalker/extras
 		rgbGen lightingDiffuse
@@ -31,6 +30,7 @@ models/players/sithstalker/extras
 		blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/sithstalker/extras
@@ -50,6 +50,7 @@ models/players/sithstalker/head
 		blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/sithstalker/head
@@ -60,7 +61,6 @@ models/players/sithstalker/head
 
 models/players/sithstalker/hips
 {
-	cull	disable
 	{
 		map models/players/sithstalker/hips
 		rgbGen lightingDiffuse
@@ -70,6 +70,7 @@ models/players/sithstalker/hips
 		blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/sithstalker/hips
@@ -77,9 +78,9 @@ models/players/sithstalker/hips
 		rgbGen lightingDiffuse
 	}
 }
+
 models/players/sithstalker/torso
 {
-	cull	disable
 	{
 		map models/players/sithstalker/torso
 		rgbGen lightingDiffuse
@@ -89,6 +90,7 @@ models/players/sithstalker/torso
 		blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/sithstalker/torso

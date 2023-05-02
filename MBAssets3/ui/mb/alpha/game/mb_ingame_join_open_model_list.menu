@@ -46,14 +46,15 @@
 			rect				0 7 132 344
 			type 				ITEM_TYPE_LISTBOX
 			style 				WINDOW_STYLE_FILLED
+			textstyle			ITEM_TEXTSTYLE_SHADOWED
 			elementwidth 		30
 			elementheight 		38
 			elementtype 		LISTBOX_IMAGE
-			feeder 				FEEDER_MBHEADS
+			feeder 				FEEDER_MBHEADS_MAIN
 			forecolor 			1 1 1 1
 			descText			@MENUS_CHOOSE_THE_MODEL_FOR
 			visible				1
-			textscale 			0.2
+			textscale 			0.6
 			// cvartest			ui_class
 			// hideCvar			{ "9", "11" }
 			action
@@ -73,41 +74,6 @@
 				setitemcolor 	headlist bordercolor 0.1 0.7 1 0.9
 			}
 		}
-
-/* 		itemDef
-		{
-			name 				headlist_tall
-			group				playermodels
-			rect				0 7 132 344
-			type 				ITEM_TYPE_LISTBOX
-			style 				WINDOW_STYLE_FILLED
-			elementwidth 		30
-			elementheight 		76
-			elementtype 		LISTBOX_IMAGE
-			feeder 				FEEDER_MBHEADS
-			forecolor 			1 1 1 1
-			descText			@MENUS_CHOOSE_THE_MODEL_FOR
-			visible				1
-			textscale 			0.2
-			cvartest			ui_class
-			showCvar			{ "9", "11" }
-			action
-			{  
-				play			"sound/interface/button1"
-				uiScript		mb_char
-				
-				// TUTORIAL REQUIREMENT
-				uiScript		tutCheckpoint TutModelSelect
-			}
-			mouseEnter
-			{ 
-				setitemcolor 	headlist_tall bordercolor 1 1 1 1 
-			}
-			mouseExit
-			{ 
-				setitemcolor 	headlist_tall bordercolor 0.1 0.7 1 0.9
-			}
-		} */
 		
 		itemDef
 		{
@@ -141,12 +107,43 @@
 
 		itemDef
 		{
+			name 				extralist
+			group				playermodels
+			rect				0 7 132 344
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		30
+			elementheight 		38
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_EXHEADS
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.2
+			action
+			{ 
+				play			"sound/interface/button1"
+				uiScript		mb_char
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	extralist bordercolor 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	extralist bordercolor 0.1 0.7 1 0.9
+			}
+		}
+
+
+		itemDef
+		{
 			name				normalmodels
 			group				modellisttype
 			text				"DEFAULT"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				74 349 27 15
+			rect				34 349 27 15
 			font				6
 			textscale			0.1
 			textstyle			0
@@ -160,13 +157,15 @@
 			action
 			{
 				play			"sound/interface/button1"
+				uiScript		mb_sub_div_on
 				show 			headlist
 				hide 			custlist
+				hide 			extralist
 			}
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow 74 353 27 10
+				setitemrect		button_glow 32 353 27 10
 			}
 			mouseExit
 			{
@@ -216,7 +215,7 @@
 			text				"/"
 			type				ITEM_TYPE_TEXT
 			style				WINDOW_STYLE_TEXT_RGB1
-			rect				100 349 5 15
+			rect				62 349 5 15
 			font				6
 			textscale			0.1
 			textstyle			0
@@ -234,7 +233,7 @@
 			text				"CUSTOM"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				105 349 27 15
+			rect				70 349 27 15
 			font				6
 			textscale			0.1
 			textstyle			0
@@ -246,8 +245,64 @@
 			action
 			{
 				play			"sound/interface/button1"
+				uiScript		mb_sub_div_off
 				show 			custlist
 				hide 			headlist
+				hide 			extralist
+				// hide 			headlist_tall
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow 70 353 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+		
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"/"
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				100 349 5 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				1
+		}
+		
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"EXTRA"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				105 349 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			5
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				1
+			action
+			{
+				play			"sound/interface/button1"
+				uiScript		mb_sub_div_off
+				hide 			custlist
+				hide 			headlist
+				show 			extralist
 				// hide 			headlist_tall
 			}
 			mouseenter
@@ -260,5 +315,6 @@
 				hide			button_glow
 			}
 		}
+		
 	}
 }
