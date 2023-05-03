@@ -45,7 +45,6 @@ models/players/Purgetrooper/visor_purge
 // Armor
 models/players/Purgetrooper/body
 {
-	cull	disable
     {
         map models/players/Purgetrooper/body
         blendFunc GL_ONE GL_ZERO
@@ -61,7 +60,6 @@ models/players/Purgetrooper/body
 
 models/players/Purgetrooper/body_electro
 {
-	cull	disable
     {
         map models/players/Purgetrooper/body_electro
         blendFunc GL_ONE GL_ZERO
@@ -77,7 +75,6 @@ models/players/Purgetrooper/body_electro
 
 models/players/Purgetrooper/body_red
 {
-	cull	disable
     {
         map models/players/Purgetrooper/body_red
         blendFunc GL_ONE GL_ZERO
@@ -93,6 +90,21 @@ models/players/Purgetrooper/body_red
 
 // Accessories
 models/players/Purgetrooper/purge_parts
+{
+    {
+        map models/players/Purgetrooper/purge_parts
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Purgetrooper/purge_parts_specular
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/Purgetrooper/purge_parts_cull
 {
 	cull	twosided
     {
@@ -110,6 +122,21 @@ models/players/Purgetrooper/purge_parts
 
 models/players/Purgetrooper/purge_parts_black
 {
+    {
+        map models/players/Purgetrooper/purge_parts_black
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Purgetrooper/purge_parts_specular
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/Purgetrooper/purge_parts_black_cull
+{
 	cull	twosided
     {
         map models/players/Purgetrooper/purge_parts_black
@@ -125,6 +152,21 @@ models/players/Purgetrooper/purge_parts_black
 }
 
 models/players/Purgetrooper/purge_parts_white
+{
+    {
+        map models/players/Purgetrooper/purge_parts_white
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Purgetrooper/purge_parts_specular
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/Purgetrooper/purge_parts_white_cull
 {
 	cull	twosided
     {

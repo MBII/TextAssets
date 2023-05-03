@@ -653,26 +653,6 @@ models/players/hanharr/hanharr_1sided
 //==========
 // Snoova
 //==========
-models/players/snoova/chewbacca_2sided
-{
-	cull	twosided
-    {
-        map models/players/snoova/chewbacca_2sided
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuse
-    }
-}
-
-models/players/snoova/chewbacca_1sided
-{
-	cull	twosided
-    {
-        map models/players/snoova/chewbacca_1sided
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen lightingDiffuse
-    }
-}
-
 models/players/snoova/pahristuff
 {
 	cull	twosided

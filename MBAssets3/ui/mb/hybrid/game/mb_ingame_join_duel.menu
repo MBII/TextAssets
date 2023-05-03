@@ -1,4 +1,3 @@
-// uberScreen
 // cvars used (at least some of them
 //	siege_mapgraphic - the name of the graphic of the map of the level.
 //	currentObjButton - the menu item name of currently active objective button
@@ -19,7 +18,8 @@
 		descColor				0.1 0.7 1 0.7
 		descAlignment			ITEM_ALIGN_CENTER
 		backColor				0 0 0 0
-		disablecolor			.7 .7 .7 .7
+		disablecolor			1 1 1 1		// color of selected buttons text
+		disablebackcolor		1 1 1 1		// color of selected buttons background
 		onClose
 		{
 			hide				minidesc
@@ -32,27 +32,20 @@
 			exec				"siegeCompleteCvarUpdate"
 			setitembackground	team1_symbol	"*team1_icon"
 			setitembackground	team2_symbol	"*team2_icon"
-			setitembackground	team1_button	"*team1_icon"
-			setitembackground	team2_button	"*team2_icon"
-			hide				headlist
-			hide				borderclass
-			// Enable team buttons, in case they'd been shut off
-			disable				team_button		0
-			disable				autoteam		0
-			disable				team1_button	0
-			disable				team2_button	0
-			//reset colors
-			setitemcolor		team1_button	backcolor1		0.1 0.7 1 0.7
-			setitemcolor		team2_button	backcolor1		0.1 0.7 1 0.7
-			setitemcolor		team1name		forecolor1			0.1 0.7 1 0.7
-			setitemcolor		team2name		forecolor1			0.1 0.7 1 0.7
-			setitemcolor		team1_count		forecolor1		0.1 0.7 1 0.7
-			setitemcolor		team2_count		forecolor1		0.1 0.7 1 0.7
+			
+			hide				modellisttype
 			hide				grey_button
 			hide				itemdescription
 			uiscript			setteamclassicons
 			
-			//uiscript			mb_modelfeeder
+			hide				modellisttype
+			hide 				headlist
+			hide				custlist
+			hide				okay
+			hide				bg_clean3
+			hide				borderclass
+			hide				classselect_button
+			hide				classselect2_button
 		}
 
 		// Window backdrop
@@ -230,395 +223,313 @@
 		{
 			name				team1name
 			group				none
-			rect				355 47 45 45
-			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				355 47 45 18
+			type 				ITEM_TYPE_TEXT
 			cvar				cg_siegeTeam1Name
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			23
 			font				4
 			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			forecolor			0.6 0.6 0.6 1
 			visible				1
 			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 1 }
 		}
-
 		itemDef
 		{
-			name				team1_button
-			group				team_button
+			name				team1_symbol
+			group				none
+			style				WINDOW_STYLE_FILLED
 			rect				355 66 45 45
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3	
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			0.1 0.7 1 0.7
+			backcolor			0.6 0.6 0.6 1
 			visible				1
-			mouseenter
-			{
-				setitemcolor	team1_button	backcolor2	1 1 1 1
-				setitemcolor	team1_count		forecolor2	1 1 1 1
-				setitemcolor	team1name		forecolor2	1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	team1_button	backcolor1	0.1 0.7 1 0.7
-				setitemcolor	team1_count		forecolor1	0.1 0.7 1 0.7
-				setitemcolor	team1name		forecolor1	0.1 0.7 1 0.7
-			}
-			// If you change this script, be sure to change	onteam1
-			action
-			{
-				// show the class stuff, cause this uses class
-				//show			class_button
-				//show			class_count
-				show			classdescription
-				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 1
-				uiscript		updatesiegeclasscnt 1
-				uiscript		updatesiegecvars
-				// Darken the other team buttons
-				setitemcolor	team_button	backcolor1 0.1 0.7 1 0.7
-				setitemcolor	team_count	forecolor1 0.1 0.7 1 0.7
-				setitemcolor	team2name	forecolor1 0.1 0.7 1 0.7
-				// turn on the other team buttons for input
-				disable			team_button	0
-				// turn on class buttons
-				//disable		class_button	0
-				disable			classselect_button 0
-				// highlight this team button
-				setitemcolor	team1_button	backcolor2 1 1 1 1
-				setitemcolor	team1_count		forecolor2 1 1 1 1
-				setitemcolor	team1name		forecolor2 1 1 1 1
-				// no more input for this guy
-				disable			team1_button	1
-				//show			grey_button
-				setitemtext		class1_count "*ui_tm1_c0_cnt"
-				setitemtext		class2_count "*ui_tm1_c1_cnt"
-				setitemtext		class3_count "*ui_tm1_c2_cnt"
-				setitemtext		class4_count "*ui_tm1_c3_cnt"
-				setitemtext		class5_count "*ui_tm1_c4_cnt"
-				setitemtext		class6_count "*ui_tm1_c5_cnt"
-				show			borderclass
-				hide			classselect2_button
-				show			siegeclassconfigtitle
-				show			classselect_button
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				uiscript		feederselection
-				hide			feeders
-				hide			stats
-				hide			classdescription
-				setitemcolor	class_count	forecolor1 0.1 0.7 1 0.7
-				hide			itemdescription
-				hide			modellisttype
-				hide 			headlist
-				hide			custlist
-			}
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 1 }
 		}
-
 		itemDef
 		{
 			name				team1_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				355 111 60 18
-			cvar				ui_tm1_cnt
+			rect				355 111 45 18
+			text				"#UI_TEAM_CNT_1"
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
+			textalignx			23.5
 			font				4
 			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			forecolor			0.6 0.6 0.6 1
 			visible				1
 			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 1 }
 		}
-
-		// This item is here just to have a script for C to run if the menu is opened by 
-		// a player who is already on a team
 		itemDef
 		{
-			name				onteam1
-			group				none
-			rect				455 47 45 45
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
+			name				team1_button
+			group				team_button			
+			rect				355 48 45 81
+			type				ITEM_TYPE_BUTTON
+			descText			@MENUS_JOIN_TEAM_DESC
+			visible				1
+
+			mouseEnter
+			{
+				setitemcolor	team1_symbol	backcolor		1 1 1 1
+				setitemcolor	team1_count		forecolor		1 1 1 1
+				setitemcolor	team1name		forecolor		1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	team1_symbol	backcolor		0.6 0.6 0.6 1
+				setitemcolor	team1_count		forecolor		0.6 0.6 0.6 1
+				setitemcolor	team1name		forecolor		0.6 0.6 0.6 1
+			}
 			action
 			{
-				// show the class stuff, cause this uses class
-				//show			class_button
-				//show			class_count
-				show			classdescription
-//				setitemcolorcvar	feeders bordercolor "team1_coloron"
-//				setitemcolorcvar	siegeclassconfigtitle forecolor "team1_coloron"
+				setitemcolor	team1_symbol	backcolor		0.6 0.6 0.6 1
+				setitemcolor	team1_count		forecolor		0.6 0.6 0.6 1
+				setitemcolor	team1name		forecolor		0.6 0.6 0.6 1
 				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 1
-				uiscript		updatesiegeclasscnt 1
+				setcvar			ui_holdteam			1
+				setcvar			ui_class			0
 				uiscript		updatesiegecvars
-				// Darken the other team buttons
-				setitemcolor	team_button	backcolor1	0.1 0.7 1 0.7
-				setitemcolor	team_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor	team2name	forecolor1	0.1 0.7 1 0.7
-				// turn on the other team buttons for input
-				disable			team_button	0
-				// turn on class buttons
-				//disable		class_button		0
-				disable			classselect_button	0
-				// highlight this team button
-				setitemcolor	team1_button	backcolor2	1 1 1 1
-				setitemcolor	team1_count		forecolor2	1 1 1 1
-				setitemcolor	team1name		forecolor2	1 1 1 1
-				// no more input for this guy
-				disable			team1_button	1
-				//show			grey_button
-				setitemtext		class1_count "*ui_tm1_c0_cnt"
-				setitemtext		class2_count "*ui_tm1_c1_cnt"
-				setitemtext		class3_count "*ui_tm1_c2_cnt"
-				setitemtext		class4_count "*ui_tm1_c3_cnt"
-				setitemtext		class5_count "*ui_tm1_c4_cnt"
-				setitemtext		class6_count "*ui_tm1_c5_cnt"
+				show			classdescription
+				
 				show			borderclass
-				hide			classselect2_button
 				show			siegeclassconfigtitle
 				show			classselect_button
+				hide			classselect2_button
 				uiscript		resetsiegelistboxes
 				uiscript		resetitemdescription
 				uiscript		feederselection
 				hide			feeders
 				hide			stats
 				hide			classdescription
-				setitemcolor	class_count	forecolor 0.1 0.7 1 0.7
 				hide			itemdescription
-				hide			modellisttype
-				hide 			headlist
+				
+				uiscript		mb_class_jedi
+				show			modellisttype
+				show 			headlist
 				hide			custlist
+				show			okay
+				show			bg_clean3
+				
+				setcvar			ui_saber1_hue 0.6
+				setcvar			ui_saber2_hue 0.6
 			}
+		}
+		itemDef
+		{
+			name				red_lock
+			group				lock_icon			
+			rect				355 66 45 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Team is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+			decoration
 		}
 
 		itemDef
 		{
 			name				team2name
 			group				none
-			rect				455 47 45 45
+			rect				455 47 45 18
+			type 				ITEM_TYPE_TEXT
 			cvar				cg_siegeTeam2Name
-			style				WINDOW_STYLE_TEXT_RGB1	
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			23
 			font				4
 			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			forecolor			0.6 0.6 0.6 1
 			visible				1
 			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 2 }
 		}
 		itemDef
 		{
-			name				team2_button
-			group				team_button
-			rect				455 67 45 45
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
-			descText			@MENUS_JOIN_TEAM_DESC
-			backcolor			0.1 0.7 1 0.7
+			name				team2_symbol
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				455 66 45 45
+			backcolor			0.6 0.6 0.6 1
 			visible				1
-			mouseenter
-			{
-				setitemcolor		team2_button	backcolor2	1 1 1 1
-				setitemcolor		team2_count		forecolor2	1 1 1 1
-				setitemcolor		team2name		forecolor2	1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor		team2_button	backcolor1	0.1 0.7 1 0.7
-				setitemcolor		team2_count		forecolor1	0.1 0.7 1 0.7
-				setitemcolor		team2name		forecolor1	0.1 0.7 1 0.7
-			}
-			// If you change this script, be sure to change	onteam2
-			action
-			{
-				// show the class stuff, cause this uses class
-				//show			class_button
-				//show			class_count
-				show			classdescription
-				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 2
-				uiscript		updatesiegeclasscnt 2
-				uiscript		updatesiegecvars
-				// Darken the other team buttons
-				setitemcolor	team_button	backcolor1	0.1 0.7 1 0.7
-				setitemcolor	team_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor	team1name	forecolor1	0.1 0.7 1 0.7
-				// turn on the other team buttons for input
-				disable			team_button	0
-				// turn on class buttons
-				//disable		class_button		0
-				disable			classselect2_button	0
-				// highlight this team button
-				setitemcolor	team2_button	backcolor2	1 1 1 1
-				setitemcolor	team2_count		forecolor2	1 1 1 1
-				setitemcolor	team2name		forecolor2	1 1 1 1
-				// no more input for this guy
-				disable			team2_button	1
-				//show			grey_button
-				setitemtext		class1_count	"*ui_tm2_c0_cnt"
-				setitemtext		class2_count	"*ui_tm2_c1_cnt"
-				setitemtext		class3_count	"*ui_tm2_c2_cnt"
-				setitemtext		class4_count	"*ui_tm2_c3_cnt"
-				setitemtext		class5_count	"*ui_tm2_c4_cnt"
-				setitemtext		class6_count	"*ui_tm2_c5_cnt"
-				show			borderclass
-				hide			classselect_button
-				show			siegeclassconfigtitle
-				show			classselect2_button
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				uiscript		feederselection
-				hide			feeders
-				hide			stats
-				hide			classdescription
-				setitemcolor	class_count	forecolor1 0.1 0.7 1 0.7
-				hide			itemdescription
-				hide			modellisttype
-				hide 			headlist
-				hide			custlist
-			}
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 2 }
 		}
-
 		itemDef
 		{
 			name				team2_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				455 111 60 18
-			cvar				ui_tm2_cnt
+			rect				455 111 45 18
+			text				"#UI_TEAM_CNT_2"
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
+			textalignx			23.5
 			font				4
 			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			forecolor			0.6 0.6 0.6 1
 			visible				1
 			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 2 }
 		}
-
-// This item is here just to have a script for C to run if the menu is opened by a player who is already on a team
 		itemDef
 		{
-			name				onteam2
-			group				none
-			rect				455 47 45 45
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
+			name				team2_button
+			group				team_button			
+			rect				455 48 45 81
+			type				ITEM_TYPE_BUTTON
+			descText			@MENUS_JOIN_TEAM_DESC
+			visible				1
+
+			mouseEnter
+			{ 
+				setitemcolor	team2_symbol	backcolor		1 1 1 1
+				setitemcolor	team2_count		forecolor		1 1 1 1
+				setitemcolor	team2name		forecolor		1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	team2_symbol	backcolor		0.6 0.6 0.6 1
+				setitemcolor	team2_count		forecolor		0.6 0.6 0.6 1
+				setitemcolor	team2name		forecolor		0.6 0.6 0.6 1
+			}
 			action
 			{
-				// show the class stuff, cause this uses class
-				//show			class_button
-				//show			class_count
-				show			classdescription
+				setitemcolor	team2_symbol	backcolor		0.6 0.6 0.6 1
+				setitemcolor	team2_count		forecolor		0.6 0.6 0.6 1
+				setitemcolor	team2name		forecolor		0.6 0.6 0.6 1
 				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 2
-				uiscript		updatesiegeclasscnt 2
+				setcvar			ui_holdteam			2
+				setcvar			ui_class			0
 				uiscript		updatesiegecvars
-				// Darken the other team buttons
-				setitemcolor	team_button	backcolor1	0.1 0.7 1 0.7
-				setitemcolor	team_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor	team1name	forecolor1	0.1 0.7 1 0.7
-				// turn on the other team buttons for input
-				disable			team_button	0
-				// turn on class buttons
-				//disable		class_button		0
-				disable			classselect2_button	0
-				// highlight this team button
-				setitemcolor	team2_button	backcolor2	1 1 1 1
-				setitemcolor	team2_count		forecolor2	1 1 1 1
-				setitemcolor	team2name		forecolor2	1 1 1 1
-				// no more input for this guy
-				disable			team2_button	1
-				//show			grey_button
-				setitemtext		class1_count "*ui_tm2_c0_cnt"
-				setitemtext		class2_count "*ui_tm2_c1_cnt"
-				setitemtext		class3_count "*ui_tm2_c2_cnt"
-				setitemtext		class4_count "*ui_tm2_c3_cnt"
-				setitemtext		class5_count "*ui_tm2_c4_cnt"
-				setitemtext		class6_count "*ui_tm2_c5_cnt"
+				show			classdescription
+				
 				show			borderclass
-				hide			classselect_button
 				show			siegeclassconfigtitle
 				show			classselect2_button
+				hide			classselect_button
 				uiscript		resetsiegelistboxes
 				uiscript		resetitemdescription
 				uiscript		feederselection
 				hide			feeders
 				hide			stats
 				hide			classdescription
-				setitemcolor	class_count	forecolor 0.1 0.7 1 0.7
 				hide			itemdescription
-				hide			modellisttype
-				hide 			headlist
+				
+				uiscript		mb_class_sith
+				show			modellisttype
+				show 			headlist
 				hide			custlist
+				show			okay
+				show			bg_clean3
+			
+				setcvar			ui_saber1_hue 1.0
+				setcvar			ui_saber2_hue 1.0
 			}
 		}
-
 		itemDef
 		{
-			name				team3name
-			group				none
-			style				WINDOW_STYLE_TEXT_RGB1	
-			rect				556 69 32 20
-			text				@MENUS_SPECTATOR
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			16
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
+			name				blue_lock
+			group				lock_icon			
+			rect				455 66 45 45
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Team is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
 			decoration
 		}
 
 		itemDef
 		{
 			name				spectator_symbol
-			group				none
+			group				none			
 			rect				556 45 32 32
-			type 				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED_RGB3
+			style				WINDOW_STYLE_FILLED
 			descText			@MENUS_WATCH_DESC
-			backcolor			0.1 0.7 1 0.7
+			backcolor			0.6 0.6 0.6 1
 			visible				1
 			background			"gfx/2d/mp_spec_symbol"
-			mouseenter
-			{
-				setitemcolor	spectator_symbol backcolor2 1 1 1 1
-				setitemcolor	team3name forecolor2 1 1 1 1
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 3 }
+		}
+		itemDef
+		{
+			name				team3name
+			group				none
+			type 				ITEM_TYPE_TEXT
+			rect				542 70 60 18
+			text				@MENUS_SPECTATOR
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			30
+			font				4
+			textscale			1
+			forecolor			0.6 0.6 0.6 1
+			visible				1
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 3 }
+		}
+		itemDef
+		{
+			name				spectator_count
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				556 88 32 18
+			text				"#UI_TEAM_CNT_3"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16.5
+			font				4
+			textscale			1
+			forecolor			0.6 0.6 0.6 1
+			visible				1
+			decoration
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 3 }
+		}
+		itemDef
+		{
+			name				spectator_button
+			group				team_button
+			rect				550 45 45 61
+			type				ITEM_TYPE_BUTTON
+			descText			@MENUS_WATCH_DESC
+			visible				1
+			mouseEnter
+			{ 
+				setitemcolor	spectator_symbol	backcolor	1 1 1 1
+				setitemcolor	spectator_count		forecolor	1 1 1 1
+				setitemcolor	team3name			forecolor	1 1 1 1
 			}
 			mouseExit
-			{
-				setitemcolor	spectator_symbol backcolor1 0.1 0.7 1 0.7
-				setitemcolor	team3name forecolor1 0.1 0.7 1 0.7
+			{ 
+				setitemcolor	spectator_symbol	backcolor	0.6 0.6 0.6 1
+				setitemcolor	spectator_count		forecolor	0.6 0.6 0.6 1
+				setitemcolor	team3name			forecolor	0.6 0.6 0.6 1
 			}
 			action
 			{
-				setitemcolor		team_button 	backcolor1   	0.1 0.7 1 0.7
-				setitemcolor		team_count  	forecolor1 		0.1 0.7 1 0.7
-				
-				setitemcolor		team1_button 	backcolor1   	0.1 0.7 1 0.7
-				setitemcolor		team1_count  	forecolor1 		0.1 0.7 1 0.7
-				setitemcolor		team1name  		forecolor1 		0.1 0.7 1 0.7
-
-				setitemcolor		team2_button 	backcolor1   	0.1 0.7 1 0.7
-				setitemcolor		team2_count  	forecolor1 		0.1 0.7 1 0.7
-				setitemcolor		team2name  		forecolor1 		0.1 0.7 1 0.7
-				
+				setitemcolor	spectator_symbol	backcolor	0.6 0.6 0.6 1
+				setitemcolor	spectator_count		forecolor	0.6 0.6 0.6 1
+				setitemcolor	team3name			forecolor	0.6 0.6 0.6 1
 				play			"sound/interface/button1.wav"
 				hide			borderclass
 				hide			classselect_button
 				hide			classselect2_button
 				setcvar			ui_holdteam 3
-				exec			"cmd team s"
-				uiScript		closeingame
+				setcvar			ui_class	0
+				exec			"cmd team s" 				
+				uiScript		closeingame 						
 			}
 		}
 
@@ -642,37 +553,12 @@
 			name				team1_class3button
 			group				classselect_button
 			rect				295 155 50 50
-			type 				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB3
 			//descText			@MENUS_WATCH_DESC
 			backcolor			0.1 0.7 1 0.7
 			visible 			0
 			background			"gfx/menus/classes/jedi"
-			mouseenter
-			{
-				setitemcolor	team1_class3button backcolor2 1 1 1 1
-				setitemcolor	team1_class3text forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	team1_class3button backcolor1 0.1 0.7 1 0.7
-				setitemcolor	team1_class3text forecolor1 0.1 0.7 1 0.7
-			}
-			action
-			{
-				disable			classselect_button 0
-				setitemcolor	classselect_button backcolor1 0.1 0.7 1 0.7
-				setitemcolor	classselect_button forecolor1 0.1 0.7 1 0.7
-				setitemcolor	team1_class3button backcolor2 1 1 1 1
-				setitemcolor	team1_class3text forecolor2 1 1 1 1
-				play			"sound/interface/button1.wav"
-				uiscript		mb_class_jedi
-				//uiscript		uiclass 2
-				show			modellisttype
-				show 			headlist
-				hide			custlist
-				disable			team1_class3button 1
-			}
+			decoration
 		}
 
 		itemDef
@@ -690,6 +576,7 @@
 			textscale			.8
 			forecolor			0.1 0.7 1 0.7
 			visible				0
+			decoration
 		}
 
 		//Sith
@@ -698,37 +585,12 @@
 			name				team2_class3button
 			group				classselect2_button
 			rect				295 155 50 50
-			type 				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB3
 			//descText			@MENUS_WATCH_DESC
 			backcolor			0.1 0.7 1 0.7
 			visible 			0
 			background			"gfx/menus/classes/jedi"
-			mouseenter
-			{
-				setitemcolor	team2_class3button	backcolor2	1 1 1 1
-				setitemcolor	team2_class3text	forecolor2	1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	team2_class3button	backcolor1	0.1 0.7 1 0.7
-				setitemcolor	team2_class3text	forecolor1	0.1 0.7 1 0.7
-			}
-			action
-			{
-				disable			classselect2_button	0
-				setitemcolor	classselect2_button	backcolor1	0.1 0.7 1 0.7
-				setitemcolor	classselect2_button	forecolor1	0.1 0.7 1 0.7
-				setitemcolor	team2_class3button	backcolor2	1 1 1 1
-				setitemcolor	team2_class3text	forecolor2	1 1 1 1
-				play			"sound/interface/button1.wav"
-				uiscript		mb_class_sith
-				//uiscript		uiclass 2
-				show			modellisttype
-				show 			headlist
-				hide			custlist
-				disable			team2_class3button 1
-			}
+			decoration
 		}
 
 		itemDef
@@ -746,6 +608,7 @@
 			textscale			.8
 			forecolor			0.1 0.7 1 0.7
 			visible				0
+			decoration
 		}
 
 		// MB OPEN/SA MODE

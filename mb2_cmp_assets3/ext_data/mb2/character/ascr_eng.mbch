@@ -3,19 +3,26 @@
 ClassInfo
 {
 	name			"ascr_eng"
-	weapons			WP_DEMP2|WP_BLASTER|WP_MELEE
-	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3
+	weapons			WP_BLASTER_PISTOL|WP_BLASTER|WP_MELEE|WP_SABER
+	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_STAMINA,2
 	maxhealth		125
 	model			"eng"
 	skin			"red"
-	uishader		"models/players/cw_sbdroid/mb2_icon_red"
+	uishader		"models/players/cw_sbdroid/mb2_icon_blue"
 	MBClass			MB_CLASS_CLONETROOPER
 	extralives		    3
     respawnCustomTime   20000
 	classnumberlimit	3
 	classflags		CFL_SHOTGUN
-	holdables		HI_SENTRY_GUN|HI_EWEB
+	holdables		HI_SENTRY_GUN|HI_EWEB|HI_AMMODISP
     WP_BlasterFlags HELD_ALTRELOAD
+
+    forcepool 25
+    forceregen 1.1
+
+	saber1			Wrench_Legends
+	sabercolor		0
+	saberstyle		SS_STRONG
 }
 
 WeaponInfo0
@@ -36,8 +43,29 @@ WeaponInfo0
     firingAnim          DC15_FIRE
 }
 
+WeaponInfo1
+{	
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_mwrench"
+	WeaponName		"Wrench"
+}
+
 description	"Engineer
+Class: Clone Trooper
 
 Weapon:
-Pistol
-Shotgun"
+- Wrench *
+--- Based on Lightsaber, can perform special spin RDFA move
+- Pistol (2)
+- Shotgun (3)
+
+Utility:
+- E-Web
+- Sentry Gun
+- Can drop Ammo dispensers to team
+
+Abilities:
+- Dash (2) [Alt Ability 1]"

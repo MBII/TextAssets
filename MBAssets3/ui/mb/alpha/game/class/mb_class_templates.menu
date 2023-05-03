@@ -13,14 +13,20 @@
 		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		stayOpen
-
+		onOpen
+		{ 
+			hide				templatedelete
+			hide				pointstemplatesdelete
+			hide				templatesavetext
+		}
+		
 		// FORCE TEMPLATES
 		// Force Template picker
 		itemDef
 		{
 			name				fcflist
 			group				pointstemplates
-			rect				2 0 110 224
+			rect				-1 0 113 233
 			type				ITEM_TYPE_LISTBOX
 			style				WINDOW_STYLE_LISTBOX_RGB1
 			textstyle			WINDOW_STYLE_TEXT_RGB2
@@ -50,9 +56,8 @@
 			action
 			{
 				play			"sound/interface/button1.wav"
-				hide			pointssetup
 				show			templatedelete
-				
+				hide			pointstemplatesdelete
 				// TUTORIAL REQUIREMENT
 				uiScript		tutCheckpoint TutBuildSelect
 			}
@@ -62,81 +67,145 @@
 		//Save template title entry field
 		itemDef
 		{
+			name				namefield_label
+			group				pointstemplates
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_FILENAME
+			rect				2 236 110 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny 			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+		itemDef
+		{
 			name 				namefield
 			group				pointstemplates
 			type				ITEM_TYPE_EDITFIELD
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
-			text				@MENUS_FILENAME
+			text				""
 			cvar				"ui_SaveFCF"
 			maxchars			16
-			rect				2 224 110 20
+			rect				40 236 71 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
+			textalignx			1
 			textaligny 			-4
 			font				6
 			textscale			0.15
 			backcolor			1 1 1 0.1
-			forecolor			1 1 1 1
+			forecolor			1 1 1 0.9
 			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
 			visible				1
 		}
-
-		//Save template button
+		
+		//Overwrite warning
 		itemDef
 		{
 			name				templatesavetext
 			style				WINDOW_STYLE_TEXT_RGB1
 			textalign			ITEM_ALIGN_CENTER
-			rect				0 239 110 15
+			rect				2 254 110 15
 			forecolor			1 1 1 0.5
 			font				6
 			textscale			0.125
 			textalignx			55
-			text				@MENUS_MATCHING_NAMES
-			visible				0
+			textaligny			-4
+			text				"Matching names are overwritten." //@MENUS_MATCHING_NAMES
+			visible				1
 			decoration
 		}
-
+		
+		//Save template button
 		itemDef
 		{
-			name				templatesave
+			name				btn_save
 			group				pointstemplates
-			text				@MENUS_SAVE_FILE
-			type				1
-			style				WINDOW_STYLE_FILLED
-			textstyle			WINDOW_STYLE_TEXT_RGB2
-			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				3 269 107 28
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			53
-			textaligny			-3
-			font				6
-			textscale			0.2
-			backcolor			1 1 1 0.05
-			forecolor			1 1 1 1
-			descText			@MENUS_SAVE_CURRENT_FORCE_SETUP
+			descText			"Save current points into a build template."
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				4 269 24 24
+			background			"gfx/menus/Alpha/Btn_SaveTemplate"
+			forecolor			1 1 1 0.5
 			visible				1
+			mouseenter
+			{
+				setitemcolor	btn_save forecolor	1 1 1 1
+				show			templatesavetext
+			}
+			mouseExit
+			{
+				setitemcolor	btn_save forecolor	1 1 1 0.5
+				hide			templatesavetext
+			}			
 			action
 			{
 				play			"sound/interface/button1.wav"
 				uiScript 		mb_savetemplate
-				setitemcolor	templatesave			backcolor	1 1 1 0.5
 			}
+		}
+		
+		//Save cosmetic template button
+		itemDef
+		{
+			name				btn_save_all
+			group				pointstemplates
+			descText			"Save cosmetic settings and current points into a build template."
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				32 269 48 24
+			background			"gfx/menus/Alpha/Btn_SaveCosmetic"
+			forecolor			1 1 1 0.5
+			visible				1
 			mouseenter
 			{
+				setitemcolor	btn_save_all forecolor	1 1 1 1
 				show			templatesavetext
-				show			templatesavebutton
-				setitemcolor	templatesave			backcolor	1 1 1 0.3
 			}
 			mouseExit
 			{
+				setitemcolor	btn_save_all forecolor	1 1 1 0.5
 				hide			templatesavetext
-				hide			templatesavebutton
-				setitemcolor	templatesave			backcolor	1 1 1 0.05
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript 		mb_savetemplate_all
 			}
 		}
-
+		
+		//Toggle favorite button
+		itemDef
+		{
+			name				btn_favorite
+			group				pointstemplates
+			descText			"Toggle selected build as a favorite."
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				84 269 24 24
+			background			"gfx/menus/Alpha/Btn_ToggleFavorite"
+			forecolor			1 1 1 0.5
+			visible				1
+			mouseenter
+			{
+				setitemcolor	btn_favorite forecolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	btn_favorite forecolor	1 1 1 0.5
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript 		mb_fav_toggle
+			}
+		}
+		
+		//Delete template button
 		itemDef
 		{
 			name				templatedelete
@@ -146,33 +215,39 @@
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				3 299 107 14
+			rect				3 299 104 14
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			53
-			textaligny			-3
+			textalignx			51
+			textaligny			-4
 			font				6
 			textscale			0.125
-			backcolor			1 0 0 0.05
-			forecolor			1 1 1 1
+			backcolor			1 0 0 0.1
+			forecolor			1 1 1 0.5
 			descText			@MENUS_DELETE_CURRENT_FORCE_SETUP
 			visible				0
+			cvarTest 			"ui_SaveFCF"
+			hideCvar	 		{ "Default", "Custom" }	
 			action
 			{
 				play			"sound/interface/button1.wav"
-				setitemcolor	templatedelete			backcolor	1 0 0 0.5
 				hide			templatedelete
 				show			pointstemplatesdelete
+				setitemcolor	templatedelete			forecolor	1 1 1 0.5
+				setitemcolor	templatedelete			backcolor	1 0 0 0.075
 			}
 			mouseenter
 			{
+				setitemcolor	templatedelete			forecolor	1 1 1 1
 				setitemcolor	templatedelete			backcolor	1 0 0 0.3
 			}
 			mouseExit
 			{
-				setitemcolor	templatedelete			backcolor	1 0 0 0.05
+				setitemcolor	templatedelete			forecolor	1 1 1 0.5
+				setitemcolor	templatedelete			backcolor	1 0 0 0.075
 			}
 		}
-
+		
+		//Delete template confirmation buttons
 		itemDef
 		{
 			name				templatedeleteconfirm
@@ -182,10 +257,10 @@
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				3 299 53 14
+			rect				3 299 51 14
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			27
-			textaligny			-3
+			textalignx			25
+			textaligny			-4
 			font				6
 			textscale			0.125
 			backcolor			1 0 0 0.05
@@ -196,10 +271,8 @@
 			{
 				play			"sound/interface/button1.wav"
 				uiScript 		mb_deletetemplate
-				uiScript 		mb_updatetemplates
-				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.5
-				hide			templatedelete
 				hide			pointstemplatesdelete
+				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.075
 			}
 			mouseenter
 			{
@@ -207,10 +280,9 @@
 			}
 			mouseExit
 			{
-				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.05
+				setitemcolor	templatedeleteconfirm	backcolor	1 0 0 0.075
 			}
 		}
-
 		itemDef
 		{
 			name				templatedeletecancel
@@ -220,10 +292,10 @@
 			style				WINDOW_STYLE_FILLED
 			textstyle			WINDOW_STYLE_TEXT_RGB2
 			background			"gfx/menus/alpha/Btn2_Bg"
-			rect				58 299 53 14
+			rect				56 299 51 14
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			27
-			textaligny			-3
+			textalignx			25
+			textaligny			-4
 			font				6
 			textscale			0.125
 			backcolor			1 1 1 0.05
@@ -233,9 +305,11 @@
 			action
 			{
 				play			"sound/interface/button1.wav"
-				setitemcolor	templatedeletecancel	backcolor	1 1 1 0.5
-				show			templatedelete
 				hide			pointstemplatesdelete
+				show			templatedelete
+				setitemcolor	templatedeletecancel	backcolor	1 1 1 0.05
+				setitemcolor	templatedelete			forecolor	1 1 1 1
+				setitemcolor	templatedelete			backcolor	1 0 0 0.3
 			}
 			mouseenter
 			{

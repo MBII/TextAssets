@@ -133,6 +133,61 @@ models/players/stormie_tfa/vest
 }
 
 
+// cardinal
+
+models/players/stormie_tfa/helmet_card
+{
+	{
+		map models/players/stormie_tfa/helmet_card
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/armor_card
+{
+	{
+		map models/players/stormie_tfa/armor_card
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/cape_card
+{
+	cull twosided
+    {
+        map models/players/stormie_tfa/cape_card
+        rgbGen lightingDiffuse
+    }
+
+}
+
+
 // pyre
 
 models/players/stormie_tfa/helmet_pyre
@@ -199,29 +254,6 @@ models/players/stormpilot/helmet1
 {
 	{
 		map models/players/stormpilot/helmet1
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/common/spec1
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/stormpilot/helmet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormpilot/helmet2
-{
-	{
-		map models/players/stormpilot/helmet2
 		depthWrite
 		rgbGen lightingDiffuse
 	}
@@ -659,6 +691,12 @@ models/players/stormie/Shadow_Body2
 		detail
 		alphaGen lightingSpecular
 	}
+	{
+		map models/players/stormie/Shadow_Body_S
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
 // Shock Stormie
@@ -801,33 +839,20 @@ models/players/novatrooper/Helmet
 	}
 }
 
-models/players/novatrooper/novatrooper_pauldron
+models/players/novatrooper/Body
 {
 	q3map_onlyvertexlighting
-	cull	twosided
+	{
+		map models/players/novatrooper/Body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/novatrooper/body_Spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 	
-    {
-        map models/players/novatrooper/novatrooper_pauldron
-        rgbGen lightingDiffuse
-    }
-	{
-            map models/players/t3m4/t3env
-        	blendFunc GL_DST_COLOR GL_SRC_COLOR
-        	detail
-        	alphaGen lightingSpecular
-        	tcGen environment
-    }
-	{
-        map models/players/novatrooper/novatrooper_pauldron
-        rgbGen lightingDiffuse
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-    }
-	{
-        map models/players/novatrooper/novatrooper_pauldron_spec
-       	blendFunc GL_SRC_ALPHA GL_ONE
-       	detail
-        alphaGen lightingSpecular
-    }
 }
 
 models/players/novatrooper/Body2
@@ -835,21 +860,6 @@ models/players/novatrooper/Body2
 	q3map_onlyvertexlighting
 	{
 		map models/players/novatrooper/Body2
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/novatrooper/Body_Spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/novatrooper/Body
-{
-	q3map_onlyvertexlighting
-	{
-		map models/players/novatrooper/Body
 		rgbGen lightingDiffuse
 	}
 	{
@@ -866,17 +876,16 @@ models/players/novatrooper/Body
 		detail
 		alphaGen lightingSpecular
 	}
-	
 }
 
-models/players/novatrooper/novatrooper_accessories1
+models/players/novatrooper/accessories1
 {
 	{
-		map models/players/novatrooper/novatrooper_accessories1
+		map models/players/novatrooper/accessories1
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/novatrooper/novatrooper_accessories1_Spec
+		map models/players/novatrooper/accessories1_Spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular

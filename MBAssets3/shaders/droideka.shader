@@ -78,11 +78,13 @@ models/players/droideka/parts_a
 		map models/players/droideka/env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/parts_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -98,11 +100,13 @@ models/players/droideka/shell_a
 		map models/players/droideka/env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/shell_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -117,11 +121,13 @@ models/players/droideka/body_a
 		map models/players/droideka/env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/body_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -136,11 +142,13 @@ models/players/droideka/parts_a2
 		map models/players/droideka/env2
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/parts_a2_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -156,11 +164,13 @@ models/players/droideka/shell_a2
 		map models/players/droideka/env2
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/shell_a2_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -175,11 +185,13 @@ models/players/droideka/body_a2
 		map models/players/droideka/env2
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/body_a2_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -194,16 +206,19 @@ models/players/droideka/body
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/body_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -218,16 +233,19 @@ models/players/droideka/shell
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/shell_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 	{
 		map models/players/droideka/shell_g
@@ -248,16 +266,19 @@ models/players/droideka/parts
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/parts_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -274,6 +295,7 @@ models/players/droideka/shield
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
 		detail
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -291,11 +313,13 @@ models/players/droideka/black_parts_a
 		map models/players/droideka/env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/black_parts_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -311,11 +335,13 @@ models/players/droideka/black_shell_a
 		map models/players/droideka/env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/black_shell_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -330,11 +356,13 @@ models/players/droideka/black_body_a
 		map models/players/droideka/env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/black_body_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -349,16 +377,19 @@ models/players/droideka/black_body
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/black_body_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 	{
 		map models/players/droideka/black_body_g
@@ -378,16 +409,19 @@ models/players/droideka/black_shell
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/black_shell_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 	{
 		map models/players/droideka/black_shell_g
@@ -408,16 +442,19 @@ models/players/droideka/black_parts
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/black_parts_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -435,16 +472,19 @@ models/players/droideka/body_elite
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/body_elite_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -460,16 +500,19 @@ models/players/droideka/shell_elite
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/shell_elite_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 	{
 		map models/players/droideka/shell_g
@@ -489,16 +532,19 @@ models/players/droideka/parts_elite
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/parts_elite_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -516,11 +562,13 @@ models/players/droideka/silver_parts_a
 		map models/players/droideka/env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/silver_parts_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -544,6 +592,7 @@ models/players/droideka/silver_shell_a
 		map models/players/droideka/silver_shell_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -566,6 +615,7 @@ models/players/droideka/silver_body_a
 		map models/players/droideka/silver_body_a_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -580,16 +630,19 @@ models/players/droideka/silver_body
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/silver_body_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -612,6 +665,7 @@ models/players/droideka/silver_shell
 		map models/players/droideka/silver_shell_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
 	}
 	{
 		map models/players/droideka/shell_g
@@ -632,15 +686,175 @@ models/players/droideka/silver_parts
 		map models/players/droideka/metal_env
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/metal_env2
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
+		detail
 	}
 	{
 		map models/players/droideka/silver_parts_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
+		detail
+	}
+}
+
+//white skin
+models/players/droideka/parts_white_a
+{
+	{
+		map models/players/droideka/parts_white_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sbd/chrome
+		blendFunc GL_DST_COLOR GL_ZERO
+		detail
+		tcGen environment
+	}
+	{
+		map models/players/droideka/parts_white_a_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/droideka/shell_white_a
+{
+	{
+		map models/players/droideka/shell_white_a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+		depthWrite
+	}
+	{
+		map models/players/sbd/chrome
+		blendFunc GL_DST_COLOR GL_ZERO
+		detail
+		tcGen environment
+	}
+	{
+		map models/players/droideka/shell_white_a_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/droideka/body_white_a
+{
+	{
+		map models/players/droideka/body_white_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sbd/chrome
+		blendFunc GL_DST_COLOR GL_ZERO
+		detail
+		tcGen environment
+	}
+	{
+		map models/players/droideka/body_white_a_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/droideka/body_white
+{
+	{
+		map models/players/droideka/body_white
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/droideka/shell_white
+{
+	{
+		map models/players/droideka/shell_white
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/shell_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
+		map models/players/droideka/shell_white_g
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+
+}
+
+models/players/droideka/parts_white
+{
+	{
+		map models/players/droideka/parts_white
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/parts_white_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
+		map models/players/droideka/parts_white_g
+		blendFunc GL_ONE GL_ONE
+		glow
 	}
 }

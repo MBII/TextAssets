@@ -11,7 +11,7 @@ textures/olympus/olympusMarble
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -30,7 +30,7 @@ textures/olympus/olympusMarble2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -49,7 +49,7 @@ textures/olympus/olympusTrim
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -68,7 +68,7 @@ textures/olympus/olympusTrim2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -87,7 +87,7 @@ textures/olympus/olympusPattern
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.12
         tcGen environment
@@ -119,7 +119,26 @@ textures/olympus/olympusPattern2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.08
+        tcGen environment
+    }
+}
+///shiny marble pattern 2 (but whiter)
+textures/olympus/olympusPattern2
+{
+	qer_editorimage	textures/olympus/olympusPattern2White
+	q3map_nonplanar
+    {
+        map $lightmap
+    }
+    {
+        map textures/olympus/olympusPattern2White
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -138,7 +157,7 @@ textures/olympus/olympusPattern3
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -157,7 +176,7 @@ textures/olympus/olympusPattern4
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -176,7 +195,7 @@ textures/olympus/olympusStone
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.08
         tcGen environment
@@ -195,7 +214,7 @@ textures/olympus/olympusColumn
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.05
         tcGen environment
@@ -402,7 +421,7 @@ textures/olympus/nab2_bldg_detail04_shiny
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/bespinnew/reflection3
+        map textures/olympus/reflection
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen const 0.15
         tcGen environment

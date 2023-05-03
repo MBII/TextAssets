@@ -26,12 +26,21 @@ models/players/luke_esb/belt
 	}
 }
 
+// dagobah luke
+
+models/players/luke_dagobah/backpack
+{
+	cull	disable
+	{
+		map models/players/luke_dagobah/backpack
+		rgbGen lightingDiffuse
+	}
+}
 
 // rotj luke
 
 models/players/luke_rotj/body
 {
-	cull	twosided
 	{
 		map models/players/luke_rotj/body
 		rgbGen lightingDiffuse
@@ -224,35 +233,3 @@ models/players/luke_rotj/belt_tm
 	}
 }
 
-
-// ceremonial - yavin4 luke
-
-models/players/luke_ceremonial/body
-{
-	{
-		map models/players/luke_ceremonial/body
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/han_tfa/body_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/luke_ceremonial/jacket_luke
-{
-	cull twosided
-    {
-        map models/players/luke_ceremonial/jacket_luke
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/luke_ceremonial/jacket_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}

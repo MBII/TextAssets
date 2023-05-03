@@ -214,6 +214,17 @@ gfx/effects/saberFlare
 	}
 }
 
+gfx/effects/lensflare
+{
+	nomipmaps
+	notc
+	{
+		map gfx/effects/lensflare
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
 gfx/effects/blasterSideFlash
 {
 	cull	twosided

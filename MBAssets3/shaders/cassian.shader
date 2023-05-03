@@ -30,6 +30,22 @@ models/players/cassian/torso_vest
     }
 }
 
+models/players/cassian/torso_vestb
+{
+	q3map_nolightmap
+    {
+        map models/players/cassian/torso_vestb
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/cassian/torso_vest_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/cassian/torso_scarif
 {
 	q3map_nolightmap

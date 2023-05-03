@@ -350,7 +350,7 @@ sfx_sabers/saber_blade_unstable
 	notc
 	cull	twosided
 	{
-		map sfx_sabers/saber_blade_unstable
+		animMap 18 sfx_sabers/saber_blade_unstable0 sfx_sabers/saber_blade_unstable1 sfx_sabers/saber_blade_unstable2 sfx_sabers/saber_blade_unstable4 sfx_sabers/saber_blade_unstable3 sfx_sabers/saber_blade_unstable5 sfx_sabers/saber_blade_unstable6 sfx_sabers/saber_blade_unstable7 sfx_sabers/saber_blade_unstable8
 		blendFunc GL_ONE GL_ONE
 		rgbGen vertex
 	}
@@ -1061,18 +1061,23 @@ models/weapons2/cr2_pistol/cr2_pistol
 
 // Cryoban Grenade
 
-models/weapons/Grenade_CryoBan/cryoban
+models/weapons2/cryoban_grenade/cryoban
 {
 	{
-		map models/weapons/Grenade_CryoBan/cryoban
-		blendFunc GL_ONE GL_ZERO
+		map models/weapons2/cryoban_grenade/cryoban
+		rgbGen lightingDiffuse
 	}
 	{
-		map models/weapons/Grenade_CryoBan/cryoban_spec
+		map models/weapons2/cryoban_grenade/cryoban_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
+    {
+        map models/weapons2/cryoban_grenade/cryoban_glow
+		blendFunc GL_ONE GL_ONE
+		glow
+    }
 }
 
 // Czerka Adventurer Rifle
@@ -1512,4 +1517,66 @@ models/weapons2/zamrifle_fa/zamrifle_fa
         detail
         alphaGen lightingSpecular
     }
+}
+
+///W-90 Concussion Rifle
+
+models/weapons/W-90_Concussion/w-90
+{
+	q3map_nolightmap
+    {
+        map models/weapons/W-90_Concussion/w-90
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons/W-90_Concussion/w-90_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+    }
+}
+
+models/weapons/W-90_Concussion/numbers3
+{
+	q3map_nolightmap
+    {
+        map models/weapons/W-90_Concussion/w-90
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons/W-90_Concussion/numbers3_glow
+		blendFunc GL_ONE GL_ONE
+		glow
+		detail
+    }
+}
+
+///Dark Trooper Assault Cannon
+
+models/weapons2/assault_cannon/gun
+{
+	{
+		map models/weapons2/assault_cannon/gun
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/assault_cannon/gun_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+		detail
+		alphaGen LightingSpecular
+		tcGen environment
+	}
+	{
+		map models/weapons2/assault_cannon/glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen entity
+		glow
+	}
 }

@@ -1,0 +1,1112 @@
+{
+	menuDef
+	{
+		name					"ingame_siegeclass_open_classes_r"
+		fullScreen				0
+		visible					0
+		rect					317 140 323 288
+		style					1
+		descX					476
+		descY					456
+		descScale				0.7
+		descColor				0.1 0.7 1 0.7
+		descAlignment			ITEM_ALIGN_CENTER
+		backColor				0 0 0 0
+		disablecolor			1 1 1 1		// color of selected buttons text
+		disablebackcolor		1 1 1 1		// color of selected buttons background
+		stayopen
+		onOpen
+		{
+			hide				headlist
+			hide				custlist
+			hide				extralist
+			hide				modellisttype
+			uiscript			resetsiegelistboxes
+			uiscript			feederselection
+		}
+		
+		//rebel soldier
+		itemDef
+		{
+			name				mb_class_trooper_bg
+			rect				23 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/reb"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Soldier"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 2 }
+		}
+		itemDef 
+		{
+			name				mb_class_trooper
+			rect				23 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_trooper_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_trooper_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_trooper_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_trooper
+				show 				headlist
+				hide				custlist
+				hide				extralist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_trooper_lock
+			rect				23 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_trooper_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				23 76 0 0
+			text				"#UI_CLASS_CNT_2"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_trooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				23 76 0 0
+			text				"#UI_CLASS_CNT_2"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_trooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				23 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_trooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				23 76 0 0
+			text				"#UI_CLASS_LMT_2"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//rebel commander
+		itemDef
+		{
+			name				mb_class_elitetrooper_bg
+			rect				105 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/com"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Elite Trooper"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 4 }
+		}
+		itemDef 
+		{
+			name				mb_class_elitetrooper
+			rect				105 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_elitetrooper_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_elitetrooper_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_elitetrooper_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_elitetrooper
+				show 				headlist
+				hide				custlist
+				hide				extralist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_elitetrooper_lock
+			rect				105 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_elitetrooper_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				105 76 0 0
+			text				"#UI_CLASS_CNT_4"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_elitetrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				105 76 0 0
+			text				"#UI_CLASS_CNT_4"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_elitetrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				105 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_elitetrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				105 76 0 0
+			text				"#UI_CLASS_LMT_4"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//Jedi
+		itemDef
+		{
+			name				mb_class_jedi_bg
+			rect				177 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/jedi"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Jedi"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 6 }
+		}
+		itemDef 
+		{
+			name				mb_class_jedi
+			rect				177 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_jedi_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_jedi_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_jedi_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_jedi
+				show 				headlist
+				hide				custlist
+				hide				extralist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_jedi_lock
+			rect				177 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_jedi_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				177 76 0 0
+			text				"#UI_CLASS_CNT_6"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_jedi_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				177 76 0 0
+			text				"#UI_CLASS_CNT_6"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_jedi_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				177 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_jedi_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				177 76 0 0
+			text				"#UI_CLASS_LMT_6"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//Hero
+		itemDef
+		{
+			name				mb_class_hero_bg
+			rect				239 10 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/hero"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Hero"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 8 }
+		}
+		itemDef 
+		{
+			name				mb_class_hero
+			rect				239 10 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_hero_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_hero_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_hero_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_hero
+				show 				headlist
+				hide				custlist
+				hide				extralist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_hero_lock
+			rect				239 10 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_hero_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				239 76 0 0
+			text				"#UI_CLASS_CNT_8"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_hero_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				239 76 0 0
+			text				"#UI_CLASS_CNT_8"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_hero_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				239 76 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_hero_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				239 76 0 0
+			text				"#UI_CLASS_LMT_8"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//Wookiee
+		itemDef
+		{
+			name				mb_class_wookie_bg
+			rect				30 80 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/wook"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Wookiee"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 10 }
+		}
+		itemDef 
+		{
+			name				mb_class_wookie
+			rect				30 80 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_wookie_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_wookie_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_wookie_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_wookie
+				show 				headlist
+				hide				custlist
+				hide				extralist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_wookie_lock
+			rect				30 80 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_wookie_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				30 146 0 0
+			text				"#UI_CLASS_CNT_10"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_wookie_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				30 146 0 0
+			text				"#UI_CLASS_CNT_10"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_wookie_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				30 146 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_wookie_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				30 146 0 0
+			text				"#UI_CLASS_LMT_10"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+		//CloneTrooper
+		itemDef
+		{
+			name				mb_class_clonetrooper_bg
+			rect				125 80 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/clone"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"Clone Trooper"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 12 }
+		}
+		itemDef 
+		{
+			name				mb_class_clonetrooper
+			rect				125 80 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_clonetrooper_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_clonetrooper_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_clonetrooper_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_clonetrooper
+				show 				headlist
+				hide				custlist
+				hide				extralist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_clonetrooper_lock
+			rect				125 80 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_clonetrooper_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				125 146 0 0
+			text				"#UI_CLASS_CNT_12"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_clonetrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				125 146 0 0
+			text				"#UI_CLASS_CNT_12"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_clonetrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				125 146 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_clonetrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				125 146 0 0
+			text				"#UI_CLASS_LMT_12"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+
+		//ARC Trooper
+		itemDef
+		{
+			name				mb_class_arctrooper_bg
+			rect				231 80 50 50
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/classes/arc"
+			backcolor			0.7 0.7 0.7 1
+			textalign			ITEM_ALIGN_CENTER
+			text				"ARC Trooper"
+			textalignx			25
+			textaligny			40
+			forecolor			1 1 1 1
+			font				2
+			textscale			.8
+			visible				1
+			decoration
+			cvarTest			"ui_class"
+			disableCvar 		{ 14 }
+		}
+		itemDef 
+		{
+			name				mb_class_arctrooper
+			rect				231 80 50 60
+			type 				ITEM_TYPE_BUTTON
+			visible				1			
+			mouseEnter 
+			{
+				setitemcolor		mb_class_arctrooper_bg		backcolor	1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor		mb_class_arctrooper_bg		backcolor	0.7 0.7 0.7 1
+			}
+			action
+			{
+				setitemcolor		mb_class_arctrooper_bg		backcolor	0.7 0.7 0.7 1
+				play				"sound/interface/button1.wav"
+				uiscript			mb_class_arctrooper
+				show 				headlist
+				hide				custlist
+				hide				extralist
+				show				modellisttype
+			}
+		}
+		itemDef
+		{
+			name				mb_class_arctrooper_lock
+			rect				231 80 50 50
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			"Class is locked."
+			backcolor			1 1 1 1
+			visible				0
+			background			"gfx/2d/logos/forbidden.tga"
+		}
+		itemDef
+		{
+			name				mb_class_arctrooper_cnt
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				231 146 0 0
+			text				"#UI_CLASS_CNT_14"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			26
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_arctrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				231 146 0 0
+			text				"#UI_CLASS_CNT_14"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			16
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_arctrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				231 146 0 0
+			text				"/"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			24
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				mb_class_arctrooper_limit
+			type 				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1	
+			rect				231 146 0 0
+			text				"#UI_CLASS_LMT_14"
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			34
+			textaligny			-10
+			font				4
+			textscale			1
+			visible				0
+			decoration
+		}
+		
+//--------------------------------------------------	
+// MB OPEN/SA MODE
+//--------------------------------------------------
+		// Scroll box with portraits.
+		itemDef
+		{
+			name 				headlist
+			group				class_button
+			rect 				13 150 295 112 //340 190 280 197
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 			35//34//55
+			elementheight 			36//34//55
+			elementtype 			LISTBOX_IMAGE
+			feeder 				FEEDER_MBHEADS
+			//horizontalscroll
+			border 				0
+			bordercolor 		0.1 0.7 1 0.9
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+				
+				// TUTORIAL REQUIREMENT
+				uiScript		tutCheckpoint TutModelSelect
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
+			}
+		}
+
+		itemDef
+		{
+			name 				custlist
+			group				class_button
+			rect 				13 150 295 112 //340 190 280 197
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 		35//34//55
+			elementheight 		36//34//55
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_CMHEADS
+			border 				0
+			bordercolor 		0.1 0.7 1 0.9
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
+			}
+		}
+		
+		itemDef
+		{
+			name 				extralist
+			group				class_button
+			rect 				13 150 295 112 //340 190 280 197
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 		35//34//55
+			elementheight 		36//34//55
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_EXHEADS
+			border 				0
+			bordercolor 		0.1 0.7 1 0.9
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				1
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	headlist bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	headlist bordercolor1 0.1 0.7 1 0.9
+			}
+		}
+
+		itemDef
+		{
+			name				normalmodels
+			group				modellisttype
+			text				"DEFAULT"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				13 262 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				show 			headlist
+				hide 			custlist
+				hide 			extralist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	330 406 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"/"
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				39 262 5 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+		}
+
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"CUSTOM"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				44 262 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				hide 			headlist
+				show 			custlist
+				hide 			extralist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	361 406 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+		
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"/"
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				72 262 5 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+		}
+		
+		itemDef
+		{
+			name				custommodels
+			group				modellisttype
+			text				"EXTRA"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				77 262 27 15
+			font				6
+			textscale			0.1
+			textstyle			0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			0
+			forecolor			1 1 1 1
+			visible				0
+			action
+			{
+				play			"sound/interface/button1"
+				hide 			headlist
+				hide 			custlist
+				show 			extralist
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	394 406 27 10
+			}
+			mouseExit
+			{
+				hide			button_glow
+			}
+		}
+
+ 		// Class Chooser
+		/*
+		itemDef
+		{
+			name				MBsetclass
+			group				class_button
+			style				WINDOW_STYLE_TEXT_RGB1	
+			text				"Class:"
+			ownerdraw			UI_CLASS
+			rect				23 33 165 20
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			backcolor			0 0 0 0
+			font				2
+			textscale			.9
+			forecolor			0.1 0.7 1 0.7
+			descText			"Choose which class you wish to play as"
+			visible				1 
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
+		}
+		*/
+	}
+}

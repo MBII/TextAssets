@@ -1,9 +1,13 @@
-
-models/players/oldrepsold/helmet
+models/players/oldrepsold/helmet_copy
 {
+    cull twosided
     {
         map models/players/oldrepsold/helmet
-        depthWrite
+        rgbGen lightingDiffuseEntity
+    }
+    {
+        map models/players/oldrepsold/helmet_copy
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen lightingDiffuse
     }
     {
@@ -18,7 +22,6 @@ models/players/oldrepsold/boots_hips
 {
     {
         map models/players/oldrepsold/boots_hips
-        depthWrite
         rgbGen lightingDiffuse
     }
     {
@@ -28,3 +31,4 @@ models/players/oldrepsold/boots_hips
         alphaGen lightingSpecular
     }
 }
+

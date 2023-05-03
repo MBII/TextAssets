@@ -2,7 +2,6 @@
 
 models/players/nabooguard/Head
 {
-	cull	twosided
 	{
 		map models/players/nabooguard/Head
 		rgbGen lightingDiffuse
@@ -17,7 +16,6 @@ models/players/nabooguard/Head
 
 models/players/nabooguard/Hips
 {
-	cull	twosided
 	{
 		map models/players/nabooguard/Hips
 		rgbGen lightingDiffuse
@@ -32,7 +30,6 @@ models/players/nabooguard/Hips
 
 models/players/nabooguard/Torso
 {
-	cull	twosided
 	{
 		map models/players/nabooguard/Torso
 		rgbGen lightingDiffuse
@@ -45,12 +42,25 @@ models/players/nabooguard/Torso
 	}
 }
 
+models/players/nabooguard/Torso_cull
+{
+	cull	disable
+	{
+		map models/players/nabooguard/Torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/nabooguard/Torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
 
 // palace guard
 
 models/players/naboopalace/naboo_head
 {
-	cull	twosided
 	{
 		map models/players/naboopalace/naboo_head
 		rgbGen lightingDiffuse
@@ -65,7 +75,7 @@ models/players/naboopalace/naboo_head
 
 models/players/naboopalace/naboo_lower
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/naboopalace/naboo_lower
 		rgbGen lightingDiffuse

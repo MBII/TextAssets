@@ -32,6 +32,26 @@ models/players/poe/helmet_lense
 
 models/players/poe/pilot_gear
 {
+	{
+		map models/players/poe/pilot_gear
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/poe/pilot_gear_parts_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/poe/pilot_gear_glow
+		blendFunc GL_ONE GL_ONE
+		detail
+	}
+}
+
+models/players/poe/pilot_gear_cull
+{
 	cull twosided
 	{
 		map models/players/poe/pilot_gear
@@ -68,6 +88,22 @@ models/players/poe/head
 
 models/players/poe/torso_pilot
 {
+	{
+		map models/players/poe/torso_pilot
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/poe/torso_pilot_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/poe/torso_pilot_cull
+{
+	cull	twosided
 	{
 		map models/players/poe/torso_pilot
 		blendFunc GL_ONE GL_ZERO

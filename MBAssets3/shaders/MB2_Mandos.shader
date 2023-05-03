@@ -105,31 +105,6 @@ models/players/MB2_Mandos/clanwren
 	}
 }
 
-models/players/MB2_Mandos/deathwatch
-{
-	{
-		map models/players/MB2_Mandos/deathwatch
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/bobafett/envmap
-		blendfunc add
-		rgbGen lightingDiffuse
-		tcGen environment 
-	}
-	{
-		map models/players/MB2_Mandos/deathwatch
-		blendfunc blend
-		rgbGen lightingDiffuse
-	}
- 	{
-        map models/players/jangofett/jango_spec
-       	blendFunc GL_SRC_ALPHA GL_ONE
-      	detail
-       	alphaGen lightingSpecular
-	}
-}
-
 models/players/MB2_Mandos/dredpriest
 {
 	{
@@ -270,31 +245,6 @@ models/players/MB2_Mandos/mandowatch
 	}
 	{
 		map models/players/MB2_Mandos/mandowatch
-		blendfunc blend
-		rgbGen lightingDiffuse
-	}
- 	{
-        map models/players/jangofett/jango_spec
-       	blendFunc GL_SRC_ALPHA GL_ONE
-      	detail
-       	alphaGen lightingSpecular
-	}
-}
-
-models/players/MB2_Mandos/mauldalor
-{
-	{
-		map models/players/MB2_Mandos/mauldalor
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/bobafett/envmap
-		blendfunc add
-		rgbGen lightingDiffuse
-		tcGen environment 
-	}
-	{
-		map models/players/MB2_Mandos/mauldalor
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}

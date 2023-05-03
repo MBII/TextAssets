@@ -3,20 +3,26 @@
 ClassInfo 
 {
 	name				"_h_t_clonecap"
-	weapons				WP_SABER|WP_MELEE|WP_DEMP2|WP_REPEATER|WP_ROCKET_LAUNCHER|WP_FRAG_NADE|WP_PULSE_NADE
-	attributes			MB_ATT_PISTOL,3|MB_ATT_CLONERIFLE,2|MB_ATT_CLONEBLOBS,3|MB_ATT_PLX1,2|MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,2|MB_ATT_ANTI_MT,1|MB_ATT_GRAPPLE_HOOK,1
+	weapons				WP_SABER|WP_MELEE|WP_DEMP2|WP_FRAG_NADE|WP_PULSE_NADE|WP_STUN_BATON
+	attributes			MB_ATT_PISTOL,3|MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FLIPKICK,1
 	maxhealth			125
 	maxarmor			125
 	saber1				arc_shiv_legends
-	saberstyle			SS_TAVION
-	speed               1.01
+	saberstyle			SS_TAVION|SS_DESANN
+	speed               1.055
 	MBClass				MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	classflags			CFL_AKIMBOPISTOL3
-	forcepool       25
+	//classflags			CFL_AKIMBOPISTOL3
+	forcepool       35
 	modelscale      1.02
-	rateOfFire      1.05
+	rateOfFire      1
+	damageTaken			0.9
+	damageGiven         1.1
+	
+	holdables	HI_BINOCULARS
 	saberStanceAnim			BOTH_STAND9
+	WP_StunBatonFlags HELD_PULSE
+	WP_DEMP2Flags     HELD_ALTRELOAD
 	
 	model			"clonetrooper_p1"
 	skin			"501_rex"
@@ -26,13 +32,13 @@ ClassInfo
 	skin_1			"501_rex"
 	uishader_1		"models/players/clonetrooper_p2/mb2_icon_501_rex"
 	
-	model_2			"rex_old"
-	skin_2			"default"
-	uishader_2		"models/players/rex_old/mb2_icon_default"
+//	model_2			"rex_old"
+//	skin_2			"default"
+//	uishader_2		"models/players/rex_old/mb2_icon_default"
 	
-	model_3			"clonetrooper_p2"
-	skin_3				"fordo"
-	uishader_3			"models/players/clonetrooper_p2/mb2_icon_fordo"
+	model_2			"clonetrooper_p2"
+	skin_2				"fordo"
+	uishader_2			"models/players/clonetrooper_p2/mb2_icon_fordo"
 	
 	respawnCustomTime 50000	
 				   
@@ -48,19 +54,11 @@ WeaponInfo0
 	NewHandsModel		"models/weapons2/dc-17/dc-17_hand.md3"
 	Icon				"gfx/hud/w_icon_dc-17_dual"
 	WeaponName			"DC-17 Pistols"	
-	customAmmo			900
+	customAmmo			700
+	//clipsize 			80
+	//FPMult              1
 }
 WeaponInfo1
-{
-	WeaponToReplace		WP_REPEATER
-	WeaponBasedOff		WP_BLASTER
-	NewWorldModel		"models/weapons2/dc-15s/dc-15s_w.glm"
-	NewViewModel		"models/weapons2/dc-15s/dc-15s.md3"
-	FlashSound0			"sound/weapons/repeater/fire.mp3"
-	Icon				"gfx/hud/w_icon_dc-15s"
-	WeaponName			"DC-15S"
-}
-WeaponInfo2
 {           
 	WeaponToReplace        WP_SABER
 	WeaponBasedOff         WP_SABER
@@ -70,38 +68,55 @@ WeaponInfo2
 	WeaponName			"Wrist Shiv"
 }
 
+WeaponInfo2
+{
+	WeaponToReplace		WP_STUN_BATON					 
+	WeaponBasedOff      WP_CONCUSSION
+	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel  "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+	Icon  "gfx/hud/w_icon_dlt-18"
+	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
+	WeaponName			"Valken-38x Sniper Rifle"    				 
+	CustomAmmo 	24
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"Blaster/Shot10B"
+}
+
 description	"Archetype: Clone Captain
 
 Class: Arc Trooper.
 Class Summary: 
-A class with powerful dual pistols, repeating rifle, and rocket launcher. 
+A dextrous class with powerful dual pistols, electrifying sniper rifle, and grappling hook. 
 
 Weaponry:
 - Wrist Shiv *
-- Dual DC-17 Pistols (Dual Pistol 3)
-- PLX-1 Rocket Launcher (3)
-- DC-15s Blaster Rifle (Based on Clone Rifle 2)
-- Clone Blobs (3)
-- Frag Grenade
+- Dual DC-17 Pistols (Dual Pistol 3, extended clip, magazine style reload)
+- Valken-38x (Based on Projectile Rifle, stuns on direct hits)
+- Frag Grenade (1)
 - Pulse Grenades (2)
 
 * Special Weapon Descriptions:
 --- Wrist Shiv
-- Can use Cyan style
+- Can use Cyan and Purple style
 - Cannot block lightsabers or blasters
 - Reduced damage 
 
+Inventory:
+- Binoculars
+
 Attributes:
-- Mind Trick Immunity
 - Heal (2)
+- Shield Regeneration (1)
 - Blast Armor
 
 Abilities:
 - Stamina (3) [Class Special 1]
-- Dexterity (2) [Alt Ability 1]
---- Grappling Hook (1)
+- Dexterity (3) [Alt Ability 1]
+--- Flipkick (1)  
+- Double press jump on target for frontal kick, single press for side-kick
+--- Grappling Hook (2)
 - Hold Special Ability 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
 
-~Rex: A veteran Advanced Recon Commando of the Clone Wars. Rex later served as a captain and commander within the Rebel Alliance.
+~Rex: A veteran Advanced Recon Commando of the Clone Wars.
 ----------
-~Fordo: An Alpha-class Advanced Recon Commando during the Clone Wars who proved instrumental in the Battle of Muunilinst."
+~Fordo: An Alpha-class Advanced Recon Commando during the Clone Wars."

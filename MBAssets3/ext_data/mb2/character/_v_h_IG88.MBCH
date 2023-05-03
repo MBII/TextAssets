@@ -3,23 +3,27 @@
 ClassInfo
 {
 	name					"_v_h_IG88"
-	weapons					WP_SABER|WP_BRYAR_OLD|WP_MELEE|WP_THERMAL|WP_STUN_BATON
-	attributes				MB_ATT_THERMALS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_CORTOSIS,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_SHIELD_RECHARGE,1
-	maxhealth				125
-	maxarmor			    80
+	weapons					WP_SABER|WP_BRYAR_OLD|WP_THERMAL|WP_STUN_BATON|WP_SONIC_NADE|WP_FRAG_NADE
+	attributes				MB_ATT_THERMALS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_CORTOSIS,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_SONIC_DETONATOR,1|MB_ATT_ANTI_MT,2
+	maxhealth		125
+	maxarmor		60
 	MBClass					MB_CLASS_WOOKIE
-	speed					0.96
-	meleeMoves				M_PUNCH|M_KICK
-	rateOfFire              0.95
+	rateOfFire              0.94
 	classNumberLimit		1
 	modelscale  			1.09
-	classflags				CFL_REALTD|CFL_FASTHACKING
-	saber1 					droidmelee_legacy
-	saber2 					droidmelee_legacy
-	saberstyle				SS_STRONG|SS_DUAL
+	classflags				CFL_REALTD|CFL_FASTHACKING|CFL_HEAVYMELEE|CFL_SEEING_STEALTH
+	saber1 					droidmelee_legends
+	saberstyle				SS_STRONG
 	WP_StunBatonFlags	HELD_DISRUPTIFY|HELD_FLAME
-	forcepool			20
+	forcepool			25
 	forcepowers			FP_SEE,1
+
+	speed 1.16
+	
+	damageTaken 		0.90
+		
+
+	WP_FragNadeFlags	HELD_KNOCKDOWN
 	
 	saberStanceAnim	BOTH_RAGESTAND
 	WalkForward 		SBD_WALK_NOGUN
@@ -52,25 +56,13 @@ WeaponInfo1
 	CorrectedWorldModel 	"models/weapons2/dlt20a/dlt20a_w.glm"
 	NewViewModel		"models/weapons2/noweap/noweap.md3"
 	FlashSound0			"sound/weapons/blasterMB/fire.mp3"
-	altFireEnabled 		0
+	altFlashSound0	"sound/weapons/blasterMB/alt_fire.mp3"
+	altFireEnabled 		1
 	Icon				"gfx/hud/w_icon_ig88blasters"
 	WeaponName			"Dual Blasters"	
 	customAmmo          900
 }
-
-WeaponInfo2		
-{
-	WeaponToReplace		WP_THERMAL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_THERMAL					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm" 	//Required: New 3rd person/dropped weapon model 
-	NewViewModel		"models/weapons2/thermal/thermal.md3"   	//Required: New 1st person weapon model
-	MissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	FlashSound0 		"sound/weapons/thermal/fire.mp3"
-	AltFlashSound0 		"sound/weapons/thermal/fire.mp3"
-	Icon				"gfx/hud/w_icon_thermal" 			//Required: Weapon change icon
- 	WeaponName			"Self Destruct"    					//Required: Weapon change display name
-}
-WeaponInfo3
+WeaponInfo2
 {
 	WeaponToReplace		WP_STUN_BATON				//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_CONCUSSION				//Required: For future use, should be the same as WeaponToReplace
@@ -83,8 +75,20 @@ WeaponInfo3
 	WeaponName			"Pulse Cannon"    					//Required: Weapon change display name
 	CustomAmmo	8
 	clipSize 1
-	ReloadTimeModifier  1.3
+	//ReloadTimeModifier  1.3
 	FPMult     			1.3
+}
+
+WeaponInfo3
+{	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon							"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled		0
+	CustomAmmo		1
 }
 
 ForceInfo0
@@ -98,14 +102,15 @@ description			"IG-88
 
 Class: Wookiee.
 Class Summary: 
-A dual wielding tank class with powerful sniper and strong melee attacks. 
+A heavily armored dual wielder with a powerful sniper. 
 
 Weaponry:
-- Pulse Cannon *
 - Droid Melee *
-- Dual Blaster Rifles (Based on Westar level 3)
-- Thermal Detonator/Self Destruct
-- Melee (Fists)
+- Pulse Cannon *
+- Dual Blaster Rifles (Based on Dual Westars level 3)
+- Thermal Detonator (1)
+- Sonic Grenade (1)
+- Stun Grenade (1)
 
 * Special Weapon Descriptions:
 --- Pulse Cannon
@@ -114,18 +119,18 @@ Weaponry:
 
 --- Droid Melee *
 - Based on lightsaber
-- Can use Red and Dual styles
+- Can use Red style
 - Cannot block blaster or lightsaber attacks
-- Bounces off walls on swings
-- Knocks down enemies within a small radius on wall hits
 
 Attributes:
+- Strength (1)
 - Magnetic Plating
 - Cortosis Armor
 - Blast Armor
 - Shield Regeneration (1)
-- Strength (2)
 - Radar (Perma-sense 1)
+- Invisible to force sense
+- Mind Trick Immunity (2)
 
 Abilities:
 - Fast hacking
