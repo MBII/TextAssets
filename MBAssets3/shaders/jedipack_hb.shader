@@ -84,20 +84,6 @@ models/players/jedipack_hb/boots_pada
 	}
 }
 
-models/players/jedipack_hb/boots_quarren
-{
-	{
-		map models/players/jedipack_hb/boots_quarren
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/obiwan_ep3/boots-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
 models/players/jedipack_hb/boots_sith4
 {
     {
@@ -111,20 +97,6 @@ models/players/jedipack_hb/boots_sith4
         alphaGen lightingSpecular
 	detail
     }
-}
-
-models/players/jedipack_hb/boots_twilek
-{
-	{
-		map models/players/jedipack_hb/boots_twilek
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/anakin/boots-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
 }
 
 models/players/jedipack_hb/boots_vrook
@@ -155,99 +127,6 @@ models/players/jedipack_hb/boots_zabrak
 	}
 }
 
-models/players/jedipack_hb/boots_zhar
-{
-	{
-		map models/players/jedipack_hb/boots_zhar
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/obiwan_ep3/boots-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-
-// Hands
-
-models/players/jedipack_hb/hands_quarren
-{
-	{
-		map models/players/jedipack_hb/hands_quarren
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedipack_hb/hands_quarren-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-
-// Heads
-
-models/players/jedipack_hb/headq
-{
-	{
-		map models/players/jedipack_hb/headq
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedipack_hb/headq-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/jedipack_hb/headt
-{
-	{
-		map models/players/jedipack_hb/headt
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedipack_hb/headt-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/jedipack_hb/headt2
-{
-	{
-		map models/players/jedipack_hb/headt2
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedipack_hb/headt_zhar-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/jedipack_hb/headt_zhar
-{
-	{
-		map models/players/jedipack_hb/headt_zhar
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/jedipack_hb/headt_zhar-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-
-// Hips
-
 models/players/jedipack_hb/hips_jedi2_rgb
 {
 	cull	twosided
@@ -263,24 +142,6 @@ models/players/jedipack_hb/hips_jedi2_rgb
 	}
 }
 
-models/players/jedipack_hb/hipsb_quarren_rgb
-{
-	cull	twosided
-	{
-		map models/players/jedipack_hb/hipsb_quarren_rgb
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/jedipack_hb/hipsb_quarren_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-
-// Torso
-
 models/players/jedipack_hb/torso_jedi2_rgb
 {
 	cull	twosided
@@ -291,21 +152,6 @@ models/players/jedipack_hb/torso_jedi2_rgb
 	}
 	{
 		map models/players/jedipack_hb/torso_jedi2_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/jedipack_hb/torso_quarren_rgb
-{
-	cull	twosided
-	{
-		map models/players/jedipack_hb/torso_quarren_rgb
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/jedipack_hb/torso_quarren_rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
