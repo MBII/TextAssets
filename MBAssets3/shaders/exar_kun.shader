@@ -49,12 +49,6 @@ models/players/exar_kun/arms
         alphaGen lightingSpecular
 	detail
     }
-    {
-        map models/players/exar_kun/arms_glow
-        blendFunc GL_ONE GL_ONE
-        detail
-        rgbGen lightingDiffuse
-     }
 }
 
 models/players/exar_kun/head_face
