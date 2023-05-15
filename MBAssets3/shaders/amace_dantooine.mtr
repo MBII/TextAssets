@@ -277,75 +277,145 @@ textures/amace_dantooine/Trim06
     }
 }
 
+textures/amace_dantooine/Rock01
+{
+	q3map_material	Rock
+	q3map_shadeangle 120
+	q3map_nonplanar
+    {
+        map $lightmap
+    }
+    {
+        map textures/amace_dantooine/Rock01_A
+		normalMap textures/amace_dantooine/Rock01_N
+		rmoMap textures/amace_dantooine/Rock01_RMO
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+}
+
+textures/amace_dantooine/Grass01_Rock01_Blend
+{
+	qer_editorimage	textures/amace_dantooine/Rock01
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+// Primary
+        map textures/amace_dantooine/Rock01_A
+		normalMap textures/amace_dantooine/Rock01_N
+		rmoMap textures/amace_dantooine/Rock01_RMO
+        rgbGen identity
+    }
+    {
+// Secondary
+        map textures/amace_dantooine/Grass01_A
+		normalHeightMap textures/amace_dantooine/Grass01_NH
+		rmoMap textures/amace_dantooine/Grass01_RMO
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+        alphaGen vertex
+		tcMod scale	3 3
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+        rgbGen identity
+	}
+}
+
+textures/amace_dantooine/Grass01_RiverFloor_Blend
+{
+	qer_editorimage	textures/amace_dantooine/Rock01
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+// Primary
+        map textures/amace_dantooine/Rock01_A
+		normalMap textures/amace_dantooine/Rock01_N
+		rmoMap textures/amace_dantooine/Rock01_RMO
+        rgbGen identity
+    }
+    {
+// Secondary
+        map textures/boran/river_floor
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+        alphaGen vertex
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+        rgbGen identity
+	}
+}
+
 textures/amace_dantooine/Grass01
 {
-	q3map_nonplanar
  	q3map_shadeangle 120
 	q3map_material ShortGrass
 	{
 		map $lightmap
-	}
+	}	
 	{
 		map textures/amace_dantooine/Grass01_A
 		normalHeightMap textures/amace_dantooine/Grass01_NH
 		rmoMap textures/amace_dantooine/Grass01_RMO
 		blendFunc GL_DST_COLOR GL_ZERO
 	}
-//    {
-//		map textures/amace_dantooine/GrassBlades01
-//		surfaceSprites vertical 40 15 60 400
-//		ssFademax 1500
-//		ssFadescale 1
-//		ssVariance 1 2
-//		ssWind 0.5
-//		alphaFunc GE192
-//		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-//		depthWrite
-//    }
+    {
+		map textures/amace_dantooine/GrassBlades01
+			surfaceSprites vertical 40 15 60 400
+			ssFademax 2000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+    }
     {
 		map textures/amace_dantooine/GrassBlades02
-		surfaceSprites vertical 50 15 30 500
-		ssFademax 1500
-		ssFadescale 1
-		ssVariance 1 2
-		ssWind 0.5
+			surfaceSprites vertical 50 15 30 500
+			ssFademax 2000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
 		alphaFunc GE192
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		depthWrite
     }
     {
 		map textures/amace_dantooine/GrassBlades03
-		surfaceSprites vertical 50 30 120 500
-		ssFademax 1500
-		ssFadescale 1
-		ssVariance 1 2
-		ssWind 0.5
+			surfaceSprites vertical 50 30 120 500
+			ssFademax 2000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
 		alphaFunc GE192
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		depthWrite
     }
-//    {
-//		map textures/amace_dantooine/GrassBlades04
-//		surfaceSprites vertical 45 27 90 400
-//		ssFademax 1500
-//		ssFadescale 1
-//		ssVariance 1 2
-//		ssWind 0.5
-//		alphaFunc GE192
-//		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-//		depthWrite
-//    }
-//    {
-//		map textures/amace_dantooine/GrassBlades05
-//		surfaceSprites vertical 35 20 55 500
-//		ssFademax 1500
-//		ssFadescale 1
-//		ssVariance 1 2
-//		ssWind 0.5
-//		alphaFunc GE192
-//		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-//		depthWrite
-//    }
+    {
+		map textures/amace_dantooine/GrassBlades04
+			surfaceSprites vertical 45 27 90 400
+			ssFademax 2000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+    }
+    {
+		map textures/amace_dantooine/GrassBlades05
+			surfaceSprites vertical 35 20 55 500
+			ssFademax 2000
+			ssFadescale 1
+			ssVariance 1 2
+			ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+    }
 }
 
 textures/amace_dantooine/Grass01_Inside
@@ -354,24 +424,26 @@ textures/amace_dantooine/Grass01_Inside
 	q3map_material	ShortGrass
 	q3map_shadeangle 120
 	q3map_nonplanar
+	{
+		map $lightmap
+	}	
     {
-        map $lightmap
-    }
-    {
-        map textures/amace_dantooine/grass01
+        map textures/amace_dantooine/Grass01_A
+		normalHeightMap textures/amace_dantooine/Grass01_NH
+		rmoMap textures/amace_dantooine/Grass01_RMO
         blendFunc GL_DST_COLOR GL_ZERO
     }
-//    {
-//		map textures/amace_dantooine/GrassBlades01
-//		surfaceSprites vertical 20 7 60 400
-//		ssFademax 1500
-//		ssFadescale 1
-//		ssVariance 1 2
-//		ssWind 0.5
-//		alphaFunc GE192
-//		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-//		depthWrite
- //   }
+    {
+		map textures/amace_dantooine/GrassBlades01
+		surfaceSprites vertical 20 7 60 400
+		ssFademax 1500
+		ssFadescale 1
+		ssVariance 1 2
+		ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+    }
     {
 		map textures/amace_dantooine/GrassBlades02
 		surfaceSprites vertical 25 7 30 500
@@ -394,35 +466,23 @@ textures/amace_dantooine/Grass01_Inside
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		depthWrite
     }
-//    {
-//		map textures/amace_dantooine/GrassBlades04
-//		surfaceSprites vertical 22 13 90 400
-//		ssFademax 1500
-//		ssFadescale 1
-//		ssVariance 1 2
-//		ssWind 0.5
-//		alphaFunc GE192
-//		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-//		depthWrite
-//    }
-//    {
-//		map textures/amace_dantooine/GrassBlades05
-//		surfaceSprites vertical 17 10 55 500
-//		ssFademax 1500
-//		ssFadescale 1
-//		ssVariance 1 2
-//		ssWind 0.5
-//		alphaFunc GE192
-//		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-//		depthWrite
-//    }
+    {
+		map textures/amace_dantooine/GrassBlades04
+		surfaceSprites vertical 22 13 90 400
+		ssFademax 1500
+		ssFadescale 1
+		ssVariance 1 2
+		ssWind 0.5
+		alphaFunc GE192
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+    }
 }
 
 textures/amace_dantooine/GardenPlants1
 {
 	qer_trans	1
 	surfaceparm	nonsolid
-	surfaceparm	nonopaque
 	surfaceparm	trans
 	q3map_nolightmap
 	q3map_alphashadow
@@ -441,13 +501,9 @@ textures/amace_dantooine/GardenWater
 	qer_editorimage	textures/amace_dantooine/water
 	qer_trans	0.8
 	surfaceparm	nonsolid
-	surfaceparm	nonopaque
 	surfaceparm	water
 	surfaceparm	trans
 	q3map_material	Water
-//	tessSize	128
-//	deformvertexes normal 0.1 1.85
-//	deformvertexes wave 128 sin 0 1 0.3 2
 	{
 		map textures/amace_dantooine/water
 		blendFunc GL_ONE GL_SRC_ALPHA
@@ -455,17 +511,6 @@ textures/amace_dantooine/GardenWater
 		alphaFunc GE128
 		alphaGen const 1.0
 	}
-//    {
-//	map textures/arevass/cubemap
-//	tcGen environment
-//	rgbGen const ( 0.4 0.3 0.3 )
-//	blendFunc GL_ONE GL_ONE
-//    }
-//   {
-//	map textures/arevass/cubemap
-//	tcGen environment
-//	blendFunc GL_DST_COLOR GL_ZERO
-//    }
 	{
 		map $lightmap
 		blendFunc GL_DST_COLOR GL_ZERO
@@ -477,13 +522,9 @@ textures/amace_dantooine/RiverWater
 	qer_editorimage	textures/amace_dantooine/water
 	qer_trans	0.8
 	surfaceparm	nonsolid
-	surfaceparm	nonopaque
 	surfaceparm	water
 	surfaceparm	trans
 	q3map_material	Water
-//	tessSize	128
-	deformvertexes normal 0.1 1.85
-	deformvertexes wave 128 sin 0 1 0.3 2
 	{
 		map textures/amace_dantooine/water
 		blendFunc GL_ONE GL_SRC_ALPHA
@@ -492,19 +533,88 @@ textures/amace_dantooine/RiverWater
 		alphaGen const 1.0
 		tcmod scroll 0.25 0.25
 	}
-//    {
-//	map textures/arevass/cubemap
-//	tcGen environment
-//	rgbGen const ( 0.4 0.3 0.3 )
-//	blendFunc GL_ONE GL_ONE
-//    }
-//   {
-//	map textures/arevass/cubemap
-//	tcGen environment
-//	blendFunc GL_DST_COLOR GL_ZERO
-//    }
 	{
 		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/amace_dantooine/gardenglass
+{
+	qer_editorimage	textures/amace_leviathan/glass1
+	qer_trans	0.5
+	surfaceparm	trans
+	q3map_material	Glass
+    {
+        map textures/amace_leviathan/glass1
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+    }
+    {
+        map textures/common/etest4
+        blendFunc GL_ONE GL_ONE
+        rgbGen const ( 0.3 0.3 0.3 )
+        tcGen environment
+        tcMod scale 2 2
+		detail
+    }
+}
+
+textures/amace_dantooine/Vine01
+{
+	qer_editorimage textures/amace_dantooine/Vine01
+	qer_trans 1.0
+	surfaceparm nonsolid
+	surfaceparm	trans
+	polygonOffset
+	{
+		map textures/amace_dantooine/Vine01
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		alphaFunc GE128
+		depthWrite
+		rgbGen identity
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		depthFunc equal
+		rgbGen identity
+	}
+}
+
+textures/amace_dantooine/Wall01
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/kotor_dantooine/wall_4
+		normalMap textures/amace_dantooine/Wall01_N
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/amace_dantooine/Wall02
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/amace_dantooine/Wall02_A
+		normalMap textures/amace_dantooine/Wall02_N
+		rmoMap textures/amace_dantooine/Wall02_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/amace_dantooine/Wall03
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/amace_dantooine/Wall03_A
+		normalMap textures/amace_dantooine/Wall03_N
+		rmoMap textures/amace_dantooine/Wall03_RMO
 		blendFunc GL_DST_COLOR GL_ZERO
 	}
 }
