@@ -1,40 +1,42 @@
-models/players/ubese_kotor/N_SIthAssn01
+models/players/ubese_kotor/body
 {
-	cull	twosided
     {
-        map models/players/ubese_kotor/N_SIthAssn01
-        blendFunc GL_ONE GL_ZERO
+        map models/players/ubese_kotor/body
+		blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/ubese_kotor/N_SIthAssn01
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
+        map models/players/ubese_kotor/reflect
+        blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		tcGen environment
+		detail
     }
-    {
-        map models/players/ubese_kotor/env_chrome
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-    }
+	{
+		map models/players/ubese_kotor/body
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
 }
 
-models/players/ubese_kotor/N_SIthAssnH01
+models/players/ubese_kotor/head
 {
-	cull	twosided
     {
-        map models/players/ubese_kotor/N_SIthAssnH01
-        blendFunc GL_ONE GL_ZERO
+        map models/players/ubese_kotor/head
+		blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/ubese_kotor/N_SIthAssnH01
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
+        map models/players/ubese_kotor/reflect
+        blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		tcGen environment
+		detail
     }
-    {
-        map models/players/ubese_kotor/env_chrome
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
-    }
+	{
+		map models/players/ubese_kotor/head
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
 }
 

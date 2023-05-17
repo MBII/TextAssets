@@ -3,7 +3,7 @@ models/players/palpatine_g/zombie_bodybg
 	surfaceparm	metalsteps
 	q3map_nolightmap
     {
-        map models/players/palpatine_g/zombie_bodybg
+        map models/players/palpatine/zombie_bodyb
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
@@ -22,7 +22,7 @@ models/players/palpatine_g/zombie_headbg
 	q3map_nolightmap
 	sort	seeThrough
     {
-        map models/players/palpatine_g/zombie_headbg
+        map models/players/palpatine/zombie_headb
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
@@ -40,7 +40,7 @@ models/players/palpatine_g/zombie_robeb-hoodg
 	surfaceparm	metalsteps
 	q3map_nolightmap
     {
-        map models/players/palpatine_g/zombie_robeb-hoodg
+        map models/players/palpatine/zombie_robeb-hood
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
@@ -57,7 +57,7 @@ models/players/palpatine_g/zombie_robeb-partsg
 {
 	q3map_nolightmap
     {
-        map models/players/palpatine_g/zombie_robeb-partsg
+        map models/players/palpatine/zombie_robeb-parts
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
