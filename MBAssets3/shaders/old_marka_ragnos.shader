@@ -2,18 +2,17 @@
 
 models/players/old_marka_ragnos/marka_head
 {
-	cull	twosided
     {
         map models/players/old_marka_ragnos/marka_head
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        	map models/players/phasma/gloss
-        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        	detail
-        	alphaGen lightingSpecular
-        	tcGen environment
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
     }
     {
         map models/players/old_marka_ragnos/marka_head2
@@ -31,18 +30,17 @@ models/players/old_marka_ragnos/marka_head
 
 models/players/old_marka_ragnos/marka_head_blue
 {
-	cull	twosided
     {
         map models/players/old_marka_ragnos/marka_head_blue
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        	map models/players/phasma/gloss
-        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        	detail
-        	alphaGen lightingSpecular
-        	tcGen environment
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
     }
     {
         map models/players/old_marka_ragnos/marka_head2_blue
@@ -60,19 +58,17 @@ models/players/old_marka_ragnos/marka_head_blue
 
 models/players/old_marka_ragnos/marka_arms
 {
-	qer_editorimage	models/players/old_marka_ragnos/marka_head
-	cull	twosided
     {
         map models/players/old_marka_ragnos/marka_arms
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        	map models/players/phasma/gloss
-        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        	detail
-        	alphaGen lightingSpecular
-        	tcGen environment
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
     }
     {
         map models/players/old_marka_ragnos/marka_arms2
@@ -90,19 +86,17 @@ models/players/old_marka_ragnos/marka_arms
 
 models/players/old_marka_ragnos/marka_arms_blue
 {
-	qer_editorimage	models/players/old_marka_ragnos/marka_head
-	cull	twosided
     {
         map models/players/old_marka_ragnos/marka_arms_blue
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        	map models/players/phasma/gloss
-        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        	detail
-        	alphaGen lightingSpecular
-        	tcGen environment
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
     }
     {
         map models/players/old_marka_ragnos/marka_arms2_blue
@@ -111,7 +105,7 @@ models/players/old_marka_ragnos/marka_arms_blue
         rgbGen lightingDiffuse
     }
     {
-        map models/players/old_marka_ragnos/marka_arms_spec
+        map models/players/old_marka_ragnos/marka_arms_blue_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -120,22 +114,42 @@ models/players/old_marka_ragnos/marka_arms_blue
 
 models/players/old_marka_ragnos/marka_torso
 {
-	qer_editorimage	models/players/old_marka_ragnos/marka_head
-	cull	twosided
     {
         map models/players/old_marka_ragnos/marka_torso
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        	map models/players/phasma/gloss
-        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
-        	detail
-        	alphaGen lightingSpecular
-        	tcGen environment
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
     }
     {
-        map models/players/old_marka_ragnos/marka_torso2
+        map models/players/old_marka_ragnos/marka_torso_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/old_marka_ragnos/marka_torso_blue
+{
+    {
+        map models/players/old_marka_ragnos/marka_torso_blue
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+    {
+        map models/players/old_marka_ragnos/marka_torso2_blue
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
@@ -148,31 +162,12 @@ models/players/old_marka_ragnos/marka_torso
     }
 }
 
-models/players/old_marka_ragnos/marka_legs
-{
-	qer_editorimage	models/players/old_marka_ragnos/marka_head
-	cull	twosided
-    {
-        map models/players/old_marka_ragnos/marka_legs
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/old_marka_ragnos/marka_legs_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/old_marka_ragnos/marka_robe
-
 {
 	cull twosided
 	{
 		map models/players/old_marka_ragnos/marka_robe
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		depthWrite
 		rgbGen lightingDiffuse
 	}
 	{
@@ -185,9 +180,7 @@ models/players/old_marka_ragnos/marka_robe
 		blendFunc GL_ONE GL_ONE
 		tcGen environment
 	}
-	
 }
-
 
 // ghost
 
