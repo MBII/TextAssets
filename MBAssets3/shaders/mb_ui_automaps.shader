@@ -694,6 +694,76 @@ gfx/mplevels/mb2_eravana/map
 }
 
 //####################
+//##### KAMINO
+//####################
+
+gfx/automap/mb2_kamino
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_kamino
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_kaminofull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_kaminofull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_kamino/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_kamino/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL KAMINO
+//####################
+
+gfx/automap/mb2_duel_kamino
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_kamino
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_kaminofull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_kamino
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_kamino/map_duel
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_kamino/map_duel
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### Lunarbase
 //####################
 
@@ -710,7 +780,6 @@ gfx/automap/mb2_lunarbase
 
 gfx/automap/mb2_lunarbasefull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_lunarbasefull
@@ -732,7 +801,6 @@ gfx/automap/mb2_lunarbase2
 
 gfx/automap/mb2_lunarbase2full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_lunarbase2full
@@ -1117,6 +1185,75 @@ gfx/mplevels/mb2_duel_malachor/map
         map gfx/mplevels/mb2_duel_malachor/map
         blendfunc blend
         rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL RAVAGER
+//####################
+gfx/automap/mb2_duel_ravager
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_ravager
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_ravagerfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_ravagerfull
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/mplevels/mb2_ravager/ravagermap
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ravager/ravagermap
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL REVAN
+//####################
+gfx/automap/mb2_duel_revan
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_revan
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_revanfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_revanfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_leviathan/duel_leviathan
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_leviathan/duel_leviathan
+		blendfunc blend
+		rgbGen vertex
     }
 }
 
