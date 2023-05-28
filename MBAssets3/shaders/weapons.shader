@@ -29,6 +29,42 @@ models/weapons2/disruptor/disruptor
 }
 
 
+///////////// DEMP-2 ///////////// 
+
+models/weapons2/demp2/demp2
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/demp2/demp2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/demp2/demp2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+///////////// Imperial Heavy Repeater ///////////// 
+
+models/weapons2/heavy_repeater/heavy_repeater
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/heavy_repeater/heavy_repeater
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/heavy_repeater/heavy_repeater_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
 ///////////// V-59_Concussion ///////////// 
 
 
