@@ -125,6 +125,24 @@ models/weapons2/e60r_launcher/scope
 }
 
 
+// Clone Disruptor
+
+models/weapons2/clone_disruptor/clone_disruptor_w
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/clone_disruptor/clone_disruptor_w
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/disruptor/disruptor_w_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 //	cr-24 flamerifle
 
 models/weapons2/CR-24_flamerifle/fuse_S1

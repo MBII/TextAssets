@@ -1,7 +1,9 @@
+///////////// Vanilla JKA Weapons ///////////// 
 ///////////// Disruptor ///////////// 
 
 models/weapons2/disruptor/disruptor_w
 {
+	q3map_nolightmap
 	{
 		map models/weapons2/disruptor/disruptor_w
 		rgbGen lightingDiffuse
@@ -16,6 +18,7 @@ models/weapons2/disruptor/disruptor_w
 
 models/weapons2/disruptor/disruptor
 {
+	q3map_nolightmap
 	{
 		map models/weapons2/disruptor/disruptor
 		rgbGen lightingDiffuse
@@ -29,7 +32,74 @@ models/weapons2/disruptor/disruptor
 }
 
 
-///////////// DEMP-2 ///////////// 
+models/weapons2/disruptor/hand
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/disruptor/hand
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/disruptor/hand
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+///////////// Bowcaster ///////////// 
+
+models/weapons2/bowcaster/bowcaster
+{
+	{
+		map models/weapons2/bowcaster/bowcaster
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/bowcaster/bowcaster_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/weapons2/bowcaster/bowcaster_w
+{
+	{
+		map models/weapons2/bowcaster/bowcaster_w
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/bowcaster/bowcaster_w_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+///////////// Imperial Heavy Repeater ///////////// 
+
+models/weapons2/heavy_repeater/heavy_repeater
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/heavy_repeater/heavy_repeater
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/heavy_repeater/heavy_repeater_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+///////////// DEMP-2 /////////////
 
 models/weapons2/demp2/demp2
 {
@@ -47,17 +117,226 @@ models/weapons2/demp2/demp2
 }
 
 
-///////////// Imperial Heavy Repeater ///////////// 
+///////////// Golan Arms Flechette /////////////
 
-models/weapons2/heavy_repeater/heavy_repeater
+models/weapons2/golan_arms/golan_arms
 {
 	q3map_nolightmap
     {
-        map models/weapons2/heavy_repeater/heavy_repeater
+        map models/weapons2/golan_arms/golan_arms
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/heavy_repeater/heavy_repeater_spec
+        map models/weapons2/golan_arms/golan_arms_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/golan_arms/canister2
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/golan_arms/canister2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/golan_arms/canister2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+///////////// Merr-Sonn Rocket Launcher /////////////
+
+models/weapons2/merr_sonn/merr_sonn_inview
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/merr_sonn/merr_sonn_inview
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/merr_sonn/merr_sonn_inview_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+///////////// Stouker Concussion Rifle ///////////// 
+
+models/weapons2/concussion/rifle_energy
+{
+    {
+        map models/weapons2/concussion/power32
+        tcMod scroll 0 6
+    }
+    {
+        map models/weapons2/concussion/power38
+        blendFunc GL_DST_COLOR GL_SRC_ALPHA
+        tcMod scroll 8 1
+    }
+}
+
+models/weapons2/concussion/rifle_inview
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/concussion/rifle_inview
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/concussion/concussion_rifle_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/concussion/rifle_energy_old
+{
+	qer_editorimage	models/weapons2/concussion/rifle_energy3
+    {
+        map models/weapons2/concussion/rifle_energy3
+        tcMod scroll 5 0
+        tcMod scale 5 1
+    }
+    {
+        map models/weapons2/concussion/rifle_energy1
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 0 4
+        tcMod transform 0.5 0 0 1 0 0
+        tcMod turb 0 1 0 1
+    }
+    {
+        map models/weapons2/concussion/rifle_energy2
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 0 -5
+        tcMod stretch square 0.5 1 0 6
+        tcMod turb 0 4 0 1
+    }
+}
+
+
+///////////// Thermal Detonator /////////////
+
+models/weapons2/realthermal/thermal
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/weapons2/realthermal/thermal
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/realthermal/thermal_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/weapons2/realthermal/thermal_lines
+		rgbGen lightingDiffuse
+		alphaFunc  GE128
+	}
+}
+
+models/weapons2/thermal/thermal
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/thermal/thermal
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/thermal/thermal_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/weapons2/thermal/thermal_w_1
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/thermal/thermal_w_1
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/thermal/thermal_w_1_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+///////////// Laser Trip Mines ///////////// 
+
+models/weapons2/laser_trap/laser_trap
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/laser_trap/laser_trap
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/laser_trap/trip_mine_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/laser_trap/hand
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/laser_trap/hand
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/laser_trap/hand_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+
+///////////// Detonation Packs ///////////// 
+
+models/weapons2/detpack/pack
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/detpack/pack
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/detpack/detpack_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/detpack/lights
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/detpack/lights
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/detpack/detpak_light_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -293,7 +572,6 @@ models/weapons2/blaster_r/blaster_w
 
 models/weapons2/e5/e5
 {
-	cull	disable
     {
         map models/weapons2/e5/e5_base
         rgbGen lightingDiffuse
@@ -847,59 +1125,6 @@ models/weapons2/plx-1/plx_cw
     }
 }
 
-///////////// Thermal Detonator ///////////// 
-
-models/weapons2/realthermal/thermal
-{
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/weapons2/realthermal/thermal.tga
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/realthermal/thermal_spec.tga
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/realthermal/thermal_lines.tga
-		rgbGen lightingDiffuse
-		alphaFunc  GE128
-	}
-}
-
-models/weapons2/thermal/thermal
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/thermal/thermal
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/thermal/thermal_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/thermal/thermal_w_1
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/thermal/thermal_w_1
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/thermal/thermal_w_1_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 
 ///////////// Frag Grenade ///////////// 
 
@@ -978,99 +1203,118 @@ models/weapons2/kes_pgren/empnade
 	}
 }
 
-models/weapons2/kes_pgren/base
+models/weapons2/b17polaritypulse/laser_trap
 {
 	{
 		map textures/system/etest4
 		tcGen environment
 	}
 	{
-		map models/weapons2/kes_pgren/base
+		map models/weapons2/b17polaritypulse/laser_trap
 		alphaGen const 0.7
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 	}
-		{
-		map models/weapons2/kes_pgren/base
-			blendFunc GL_SRC_ALPHA GL_ONE
-			detail
-			alphaGen lightingSpecular
-		}
+	{
+		map models/weapons2/b17polaritypulse/laser_trap
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
-models/weapons2/kes_pgren/button
+models/weapons2/b17polaritypulse/base
 {
 	{
 		map textures/system/etest4
 		tcGen environment
 	}
 	{
-		map models/weapons2/kes_pgren/button
+		map models/weapons2/b17polaritypulse/base
 		alphaGen const 0.7
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 	}
-		{
-			map models/weapons2/kes_pgren/button
-			blendFunc GL_SRC_ALPHA GL_ONE
-			detail
-			alphaGen lightingSpecular
-		}
+	{
+		map models/weapons2/b17polaritypulse/base
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
-models/weapons2/kes_pgren/casing
+models/weapons2/b17polaritypulse/button
 {
 	{
 		map textures/system/etest4
 		tcGen environment
 	}
 	{
-		map models/weapons2/kes_pgren/casing
+		map models/weapons2/b17polaritypulse/button
 		alphaGen const 0.7
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 	}
-		{
-			map models/weapons2/kes_pgren/casing
-			blendFunc GL_SRC_ALPHA GL_ONE
-			detail
-			alphaGen lightingSpecular
-		}
+	{
+		map models/weapons2/b17polaritypulse/button
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
-models/weapons2/kes_pgren/middle
+models/weapons2/b17polaritypulse/casing
 {
 	{
 		map textures/system/etest4
 		tcGen environment
 	}
 	{
-		map models/weapons2/kes_pgren/middle
+		map models/weapons2/b17polaritypulse/casing
 		alphaGen const 0.7
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 	}
-		{
-			map models/weapons2/kes_pgren/middle
-			blendFunc GL_SRC_ALPHA GL_ONE
-			detail
-			alphaGen lightingSpecular
-		}
+	{
+		map models/weapons2/b17polaritypulse/casing
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
-models/weapons2/kes_pgren/switch
+models/weapons2/b17polaritypulse/middle
 {
 	{
 		map textures/system/etest4
 		tcGen environment
 	}
 	{
-		map models/weapons2/kes_pgren/switch
+		map models/weapons2/b17polaritypulse/middle
 		alphaGen const 0.7
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 	}
-		{
-			map models/weapons2/kes_pgren/switch
-			blendFunc GL_SRC_ALPHA GL_ONE
-			detail
-			alphaGen lightingSpecular
-		}
+	{
+		map models/weapons2/b17polaritypulse/middle
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/weapons2/b17polaritypulse/switch
+{
+	{
+		map textures/system/etest4
+		tcGen environment
+	}
+	{
+		map models/weapons2/b17polaritypulse/switch
+		alphaGen const 0.7
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+	}
+	{
+		map models/weapons2/b17polaritypulse/switch
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
 ///////////// DC17-M (Dee) /////////////
@@ -1214,36 +1458,6 @@ models/weapons2/bowcaster/wook_bowcaster
 		glow
 		detail
 		rgbGen wave sin 1 0.25 1 0.1
-	}
-}
-
-models/weapons2/bowcaster/bowcaster
-{
-	{
-		map models/weapons2/bowcaster/bowcaster
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/bowcaster/bowcaster_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/bowcaster/bowcaster_w
-{
-	{
-		map models/weapons2/bowcaster/bowcaster_w
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/bowcaster/bowcaster_w_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
 	}
 }
 
