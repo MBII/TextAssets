@@ -857,6 +857,29 @@ models/weapons2/westarm5/biggadge
 }
 
 
+//  Scout Trooper Pistol
+
+models/weapons2/scout_pistol/tex
+{
+    {
+        map models/weapons2/scout_pistol/tex
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/scout_pistol/tex_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/scout_pistol/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+}
+
+
 //	SE14C pistol
 
 models/weapons2/se14c_pistol/scope
