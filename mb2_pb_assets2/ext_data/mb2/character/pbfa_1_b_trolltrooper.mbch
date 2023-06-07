@@ -3,30 +3,128 @@
 ClassInfo
 {
 	name			"pbfa_1_b_trolltrooper"
-	weapons			WP_MELEE|WP_BRYAR_PISTOL|WP_BLASTER|WP_DET_PACK|WP_CONC_NADE
-	attributes		MB_ATT_RESPAWNS,3|MB_ATT_ASSEMBLE|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_T21,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3
+	weapons			WP_MELEE|WP_SABER|WP_BRYAR_PISTOL|WP_BLASTER|WP_CONC_NADE|WP_TRIP_MINE
+	attributes		MB_ATT_RESPAWNS,1|MB_ATT_ASSEMBLE|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_TRIP_MINES,3|MB_ATT_AMMO,1|MB_ATT_DODGE,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,2
+	forcepowers		FP_LEVITATION,3
+	forceregen		1
+	forcepool		40
 	maxhealth		100
-	maxarmor		70
-	model			"shadow_stormtrooper" //"gran2" 				//this is optional, if it's here it forces the model to this.
-	skin			"alt_g" //"blue"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/shadow_stormtrooper/icon_alt_g"
-	MBClass				MB_CLASS_BOUNTY_HUNTER
-	WP_TripMineFlags	HELD_HIGHDAMAGE
-	speed        1.1
+	maxarmor		60
+	model			"trollface_gta"  				//this is optional, if it's here it forces the model to this.
+	skin			"umad"					//this is optional, if it's here it forces the skin to this.
+	uishader		"models/players/trollface_gta/mb2_icon_umad"
+	MBClass			MB_CLASS_BOUNTY_HUNTER
+	speed        	1.1
+	saber1			bat_troll
+	sabercolor		6
+	saberstyle		SS_MEDIUM|SS_FAST
+	WP_BlasterPistolFlags   HELD_SONIC|HELD_ALTRELOAD
+	WP_BlasterFlags   		HELD_POISON|HELD_ALTRELOAD
+	WP_ConcNadeFlags		HELD_HIGHDAMAGE
+	rateOfFire		.9
+	
+	model_1			"trollface_gta"
+	skin_1			"default"
+	uishader_1		"models/players/trollface_gta/mb2_icon_default"
+	
+	jetpackThrustEffect "dc/null"
+	jetpackIdleEffect "dc/null"
+	jetpackJetTag "*torso_cap_hips"
+	jetpackJet2Tag  "*torso_cap_hips"
+	jetpackIdleSound  "sound/ambience/artus/artus_shaft"
+	jetpackThrustSound  "sound/ambience/artus/artus_shaft"
+	jetpackStartSound "sound/weapons/force/absorb"
 }
 
-description	"Trolltroopah
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/saber_plasma_sword/sword_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/bat"
+	WeaponName		"Knockbat"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER_PISTOL
+	NewWorldModel		"models/weapons2/blaster_two/blaster_pistol_w.glm"
+	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3"
+	Icon			"gfx/hud/w_icon_blaster_pistol_2.tga"
+	WeaponName		"Tinnitus Pistol"
+	ClipSize 		10
+	idleAnim 		MAND_SPISTOL 
+	firingAnim  	MAND_SPISTOL_FIRE
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_FLECHETTE
+	NewWorldModel		"models/weapons2/M4/disruptor_w.glm"
+	NewViewModel		"models/weapons2/M4/disruptor.md3"
+	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon				"models/weapons2/M4/icon.tga"
+	WeaponName			"Poisonous M4"
+	MuzzleEffect		"halo_smg/Muzzle_Flash"
+	MissileEffect		"halo_smg/projectile"
+	MissileMissEffect 	"halo_smg/wall_impact"
+	altMuzzleEffect		"halo_smg/Muzzle_Flash"
+	altMissileEffect	"halo_smg/projectile"
+	altMissileMissEffect "halo_smg/wall_impact"
+	FlashSound0			"Sound/weapons/M4/fire.wav"
+	FlashSound1			"Sound/weapons/M4/fire.wav"
+	AltFlashSound0		"Sound/weapons/M4/fire.wav"
+	AltFlashSound1		"Sound/weapons/M4/fire.wav"
+	primHitscanShot		1
+	primHitscanTracer	5
+	altHitscanShot		1
+	altHitscanTracer	5
+	primGore		1
+	altGore			1
+	clipSize  		50
+}
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_CONC_NADE
+	WeaponBasedOff		WP_CONC_NADE
+	NewWorldModel		"models/weapons2/V-59_Concussion/V-59_conc_w.glm"
+	NewViewModel		"models/weapons2/V-59_Concussion/V-59_conc.md3"
+	Icon			"gfx/hud/w_icon_V-59_conc.tga"
+	customAmmo		6
+	WeaponName		"Concussion Grenades"
+}
+
+WeaponInfo4
+{
+	WeaponToReplace		WP_TRIP_MINE  			
+	WeaponBasedOff		WP_TRIP_MINE   
+	NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"
+	NewViewModel		"models/weapons2/laser_trap/laser_trap.md3"
+	Icon			"gfx/hud/w_icon_tripmine.tga"
+	customAmmo		9
+	WeaponName		"Trip Mines"
+}
+
+description	"Trollface
+
+u mad bro? u mad??
 
 Weapons:
-Pistol (2)
-E-11 (3)
-T-21 (3)
-Conc Nades (2)
+Bat (Knockback XL)
+Tinnitus Pistol (2)
+Poisonous M4 (3)
+Concussion Nades (6)
+Trip Mines (9)
 
 Abilities:
+Covered in Oil & Water (Flight)
 Dodge (3)
 Assemble
 Gun Kick
 
-3 Respawns
+1 Extra Life
 "
