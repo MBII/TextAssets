@@ -1,0 +1,369 @@
+// automap
+
+gfx/automap/mb2_dotf
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_dotf
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_dotffull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_dotffull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_dotf/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_dotf/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_dotf/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+gfx/automap/mb2_duel_dotf
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_dotf
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_duel_dotffull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_dotffull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_duel_dotf/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_duel_dotf/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+gfx/automap/mb2_dotf_classic
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_dotf_classic
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_dotf_classicfull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_dotf_classicfull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_dotf_classic/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_dotf_classic/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+gfx/automap/mb2_dotf_classicB
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_dotf_classicB
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/automap/mb2_dotf_classicBfull
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/automap/mb2_dotf_classicBfull
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+gfx/mplevels/mb2_dotf_classicB/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_dotf_classicB/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+gfx/mplevels/mb2_dotf/poi
+{
+	nopicmip
+	nomipmaps
+    {
+		map gfx/mplevels/mb2_dotf/poi
+		blendfunc blend
+		rgbGen identity
+		alphaGen const 0.85
+    }
+}
+
+
+// naboo
+
+textures/naboo/glass_slats
+{
+	qer_editorimage	textures/naboo/glass_slats
+	qer_trans	0.75
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	surfaceparm	alphashadow
+    {
+        map textures/naboo/glass_slats
+        alphaFunc GE128
+        depthWrite
+    }
+    {
+        map $whiteimage
+        specularMap $whiteimage
+        normalMap textures/common/glass_n
+        normalScale 0.015 0.015
+        alphaGen const 0.06
+        rgbGen vertex
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+	{
+		map textures/naboo/glass_slats
+        blendFunc GL_ONE_MINUS_SRC_ALPHA GL_SRC_ALPHA
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+}
+
+textures/naboo/glass_slats_opaque
+{
+	qer_editorimage	textures/naboo/glass_slats_opaque_editor
+	{
+		map textures/naboo/glass_new
+		blendFunc GL_ONE GL_ZERO
+	}
+	{
+		map textures/common/etest4
+		blendFunc GL_ONE GL_ONE
+		rgbGen const ( 0.2 0.2 0.2 )
+		tcMod scale 2 2
+		tcGen environment
+		detail
+	}
+	{
+		map textures/naboo/glass_slats
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+    }
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		depthFunc equal
+	}
+}
+
+textures/naboo/glass_slats_opaque_light
+{
+	qer_editorimage	textures/naboo/glass_slats
+	{
+		map $whiteimage
+		blendFunc GL_ONE GL_ZERO
+		rgbGen const ( 1 0.98 0.95 )
+		glow
+	}
+	{
+		map textures/naboo/glass_slats
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+    }
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		depthFunc equal
+	}
+}
+
+textures/naboo/glass_noslats
+{
+	qer_editorimage	textures/naboo/glass_new
+	qer_trans	0.75
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+	{
+		map textures/naboo/glass_new
+		blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+	}
+	{
+		map textures/common/etest4
+		blendFunc GL_ONE GL_ONE
+		rgbGen const ( 0.4 0.4 0.4 )
+		tcMod scale 2 2
+		tcGen environment
+		detail
+	}
+}
+
+textures/naboo/glass_noslats_opaque
+{
+	qer_editorimage	textures/naboo/glass_new
+	q3map_nolightmap
+	{
+		map textures/naboo/glass_new
+		blendFunc GL_ONE GL_ZERO
+	}
+	{
+		map textures/common/etest4
+		blendFunc GL_ONE GL_ONE
+		rgbGen const ( 0.4 0.4 0.4 )
+		tcMod scale 2 2
+		tcGen environment
+		detail
+	}
+}
+
+textures/naboo/light_beige
+{
+	qer_editorimage textures/whitelights/whiteglow
+	surfaceparm	nomarks
+	surfaceparm nolightmap
+	{
+		map $whiteimage
+		rgbGen const ( 1 0.78 0.55 )
+		glow
+	}
+}
+
+textures/naboo/waterfallpond
+{
+	qer_editorimage	textures/naboo/plasma_water
+	qer_trans	0.8
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	water
+	surfaceparm	trans
+	q3map_material	Water
+	q3map_nolightmap
+	{
+		map textures/naboo/plasma_water
+		blendFunc GL_ONE GL_SRC_ALPHA
+		rgbGen const ( 0.4 0.4 0.4 )
+		alphaFunc GE128
+		alphaGen const 1.0
+		tcmod scroll 0.05 0
+	}
+}
+
+
+// plasma_theed
+
+textures/plasma_theed/hangvine2
+{
+	polygonOffset
+	q3map_nolightmap
+	cull   twosided
+	surfaceparm trans
+	surfaceparm nonsolid
+	surfaceparm nomarks
+	{
+		map textures/plasma_theed/hangvine2
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+	}
+}
+
+
+// cot1
+
+textures/cot1/vines2_novertex
+{
+	qer_editorimage textures/cot1/vines2.tga
+	cull twosided
+	surfaceparm trans
+	surfaceparm nonsolid
+	surfaceparm nomarks
+    {
+		map textures/cot1/vines2
+		depthWrite
+		alphaFunc GE128
+    }
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		depthFunc equal
+	}
+}
+
+textures/cot1/vines2_static
+{
+	qer_editorimage textures/cot1/vines2.tga
+	q3map_nolightmap
+	cull twosided
+	surfaceparm trans
+	surfaceparm nonsolid
+	surfaceparm nomarks
+    {
+		map textures/cot1/vines2
+		depthWrite
+		alphaFunc GE128
+		rgbGen const ( 0.35 0.35 0.31 )
+    }
+}
