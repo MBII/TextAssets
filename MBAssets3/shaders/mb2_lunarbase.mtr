@@ -32,7 +32,7 @@ textures/mb2_lunarbase/glass_weak
     {
         map textures/common/etest4
         blendFunc GL_ONE GL_ONE
-	rgbGen const ( 0.3 0.3 0.3 )
+		rgbGen const ( 0.3 0.3 0.3 )
         tcGen environment
     }
     {
@@ -72,14 +72,14 @@ textures/mb2_lunarbase/forcefield
         map textures/byss/static_field2
         blendFunc GL_ONE GL_ONE
         tcMod scroll 0 2
-	detail
+		detail
     }
     {
         map textures/byss/static_field3
         blendFunc GL_ONE GL_ONE
         rgbGen wave sawtooth 0 4 0 2
         tcMod scroll 0 2
-	detail
+		detail
     }
 }
 
@@ -197,11 +197,18 @@ textures/mb2_lunarbase/shiny_floor_dark
 	qer_editorimage textures/imperial/shiny_floor
 	q3map_material	SolidMetal
     {
-        map $lightmap
-    }
-    {
         map textures/imperial/shiny_floor
-		roughness 0.15
-        blendFunc GL_DST_COLOR GL_ZERO
+		rmoMap $whiteimage
+		specularScale 0 0 0 0
+    }
+	{
+		map textures/colors/black
+		rmoMap textures/amace_lunarbase/Floor_RMO
+		blendfunc GL_ONE GL_ONE
+		tcMod scale 0.15 0.15
+	}
+	{
+        map $lightmap
+		blendfunc filter
     }
 }

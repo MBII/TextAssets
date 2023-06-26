@@ -8,10 +8,17 @@ textures/common/glass
 	q3map_material	Glass
 	q3map_nolightmap
     {
-        map textures/common/glass2
+		map textures/colors/black
+		blendFunc GL_DST_COLOR GL_ZERO
 		roughness 0.1
-        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		//alphaGen const 0.0
+		//alphaFunc GT0
     }
+//    {
+//		map textures/colors/black
+//		roughness 0.1
+//		blendFunc GL_ONE GL_ONE
+//    }
 }
 
 textures/common/glass_no_tess
@@ -142,9 +149,19 @@ textures/common/env_glass
 	q3map_material	Glass
 	q3map_nolightmap
     {
-        map textures/common/etest4
-        blendFunc GL_ONE GL_ONE
-        tcGen environment
+        map $whiteimage
+        alphaGen const 0.0
+        alphaFunc GE128
+        depthWrite
+    }
+    {
+        map $whiteimage
+        specularMap $whiteimage
+        normalMap textures/common/glass_n
+        normalScale 0.015 0.015
+        alphaGen const 0.12
+        rgbGen vertex
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
 }
 
