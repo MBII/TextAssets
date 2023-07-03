@@ -81,7 +81,7 @@ models/players/darthvader/body2_infinities
 {
 	q3map_onlyvertexlighting
 	{
-		map models/players/darthvader/body2_infinities
+		map models/players/darthvader/body_infinities
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
