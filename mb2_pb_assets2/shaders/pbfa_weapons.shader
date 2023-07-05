@@ -568,3 +568,31 @@ models\weapons2\claw\silver
         tcGen environment
     }
 }
+
+models/weapons2/sith_scepter/tex1
+{
+    {
+        map models/weapons2/sith_scepter/tex1
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/tex1_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sith_scepter/tex1_red
+{
+    {
+        map models/weapons2/sith_scepter/tex1_red
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/tex1_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
