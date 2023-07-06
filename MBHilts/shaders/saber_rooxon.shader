@@ -40,6 +40,21 @@ models/weapons2/saber_rooxon/saber_orgus3
     }
 }
 
+// Shader for Desann Saber //
+models/weapons2/saber_rooxon/saber_desann
+{
+    {
+        map models/weapons2/saber_rooxon/saber_desann
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_desann_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 // Shader for Exar Kun saber //
 models/weapons2/saber_rooxon/saber_exar
 {
@@ -199,6 +214,27 @@ models/weapons2/saber_rooxon/saber_orgus
     }
 }
 
+// Shader for Rosh Penin Saber //
+models/weapons2/saber_rooxon/saber_rosh
+{
+    {
+        map models/weapons2/saber_rooxon/saber_rosh
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_rosh_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/saber_rooxon/saber_rosh_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
 // Shader for Starkiller Clone Saber //
 models/weapons2/saber_rooxon/saber_skc
 {
@@ -214,6 +250,27 @@ models/weapons2/saber_rooxon/saber_skc
     }
     {
         map models/weapons2/saber_rooxon/saber_skc_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for Tavion Axmis Saber //
+models/weapons2/saber_rooxon/saber_tavion
+{
+    {
+        map models/weapons2/saber_rooxon/saber_tavion
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_tavion_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/saber_rooxon/saber_tavion_g
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
         detail
         glow
