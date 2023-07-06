@@ -510,14 +510,14 @@ models/weapons2/SBD_Grapple/grapple
     }
 }
 
-models/weapons2/SBD_Grapple2/grapple2
+models/weapons2/SBD_Grapple/grapple2
 {
     {
-        map models/weapons2/SBD_Grapple2/grapple2
+        map models/weapons2/SBD_Grapple/grapple2
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/SBD_Grapple2/grapple2_s
+        map models/weapons2/SBD_Grapple/grapple2_s
         blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -529,7 +529,7 @@ models/weapons2/SBD_Grapple2/grapple2
         tcGen environment
     }
     {
-        map models/weapons2/SBD_Grapple2/grapple2_e
+        map models/weapons2/SBD_Grapple/grapple2_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -537,14 +537,14 @@ models/weapons2/SBD_Grapple2/grapple2
     }
 }
 
-models/weapons2/SBD_Grapple3/grapple3
+models/weapons2/SBD_Grapple2/grapple3
 {
     {
-        map models/weapons2/SBD_Grapple3/grapple3
+        map models/weapons2/SBD_Grapple2/grapple3
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/SBD_Grapple3/grapple3_s
+        map models/weapons2/SBD_Grapple2/grapple3_s
         blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -556,7 +556,7 @@ models/weapons2/SBD_Grapple3/grapple3
         tcGen environment
     }
     {
-        map models/weapons2/SBD_Grapple3/grapple3_e
+        map models/weapons2/SBD_Grapple2/grapple3_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -564,14 +564,14 @@ models/weapons2/SBD_Grapple3/grapple3
     }
 }
 
-models/weapons2/SBD_Grapple4/grapple4
+models/weapons2/SBD_Grapple2/grapple4
 {
     {
-        map models/weapons2/SBD_Grapple4/grapple4
+        map models/weapons2/SBD_Grapple2/grapple4
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/SBD_Grapple4/grapple4_s
+        map models/weapons2/SBD_Grapple2/grapple4_s
         blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -583,7 +583,7 @@ models/weapons2/SBD_Grapple4/grapple4
         tcGen environment
     }
     {
-        map models/weapons2/SBD_Grapple3/grapple3_e
+        map models/weapons2/SBD_Grapple2/grapple3_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
