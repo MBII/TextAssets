@@ -583,6 +583,20 @@ models/weapons2/sith_scepter/tex1
     }
 }
 
+models/weapons2/saber_desann/tex
+{
+    {
+        map models/weapons2/saber_desann/tex
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_desann/tex_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/weapons2/sith_scepter/tex1_red
 {
     {
