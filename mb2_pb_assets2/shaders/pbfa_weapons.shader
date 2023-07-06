@@ -596,3 +596,17 @@ models/weapons2/sith_scepter/tex1_red
         alphaGen lightingSpecular
     }
 }
+
+models/weapons2/w_crusader/diff
+{
+    {
+        map models/weapons2/w_crusader/diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/w_crusader/diff
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
