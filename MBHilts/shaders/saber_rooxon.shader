@@ -209,7 +209,6 @@ models/weapons2/saber_rooxon/saber_kyrios
     {
         map models/weapons2/saber_rooxon/saber_kyrios_spec
         blendFunc GL_SRC_ALPHA GL_ONE
-		glow
         detail
         alphaGen lightingSpecular
     }
