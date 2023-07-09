@@ -19,6 +19,21 @@ models/weapons2/saber_rooxon/saber_acolyte
     }
 }
 
+// Shader for Baal Saber //
+models/weapons2/saber_rooxon/saber_black
+{
+    {
+        map models/weapons2/saber_rooxon/saber_black
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_black_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 // Shader for Cross Elegance Saber //
 models/weapons2/saber_rooxon/saber_crosse
 {
@@ -58,21 +73,6 @@ models/weapons2/saber_rooxon/saber_orgus3
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
         detail
         glow
-    }
-}
-
-// Shader for Darth Bane Saber //
-models/weapons2/saber_rooxon/saber_bane
-{
-    {
-        map models/weapons2/saber_rooxon/saber_bane
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/saber_rooxon/saber_bane_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
     }
 }
 
@@ -199,6 +199,28 @@ models/weapons2/saber_rooxon/saber_kshrt
     }
 }
 
+// Shader for Kyrios Saber //
+models/weapons2/saber_rooxon/saber_kyrios
+{
+    {
+        map models/weapons2/saber_rooxon/saber_kyrios
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kyrios_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+		glow
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kyrios_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
 // Shader for McQuarrie Luke Saber //
 models/weapons2/saber_rooxon/saber_qluke
 {
@@ -223,6 +245,21 @@ models/weapons2/saber_rooxon/saber_qvader
     }
     {
         map models/weapons2/saber_rooxon/saber_qvader_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Oppo Rancisis Saber //
+models/weapons2/saber_rooxon/saber_oppo
+{
+    {
+        map models/weapons2/saber_rooxon/saber_oppo
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_oppo_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -343,6 +380,107 @@ models/weapons2/saber_rooxon/saber_x1
     }
     {
         map models/weapons2/saber_rooxon/saber_x1_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for Rebels Ahsoka Sabers //
+models/weapons2/saber_rooxon/saber_ahsoka3
+{
+    {
+        map models/weapons2/saber_rooxon/saber_ahsoka3
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_ahsoka3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_rooxon/saber_ahsoka4
+{
+    {
+        map models/weapons2/saber_rooxon/saber_ahsoka4
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_ahsoka4_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Darth Bane Saber //
+models/weapons2/saber_rooxon/saber_bane
+{
+    {
+        map models/weapons2/saber_rooxon/saber_bane
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_bane_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Ezra Saber Blaster //
+models/weapons2/saber_rooxon/saber_ezra
+{
+    {
+        map models/weapons2/saber_rooxon/saber_ezra
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_ezra_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Shader for Second Ezra Saber //
+models/weapons2/saber_rooxon/saber_ezra2
+{
+    {
+        map models/weapons2/saber_rooxon/saber_ezra2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_ezra2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_ezra2_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for Grand Inquisitor Saber //
+models/weapons2/saber_rooxon/saber_inquisitor
+{
+    {
+        map models/weapons2/saber_rooxon/saber_inquisitor
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_inquisitor_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_inquisitor_g
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
         detail
         glow
