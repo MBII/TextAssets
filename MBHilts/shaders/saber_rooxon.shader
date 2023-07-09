@@ -19,6 +19,27 @@ models/weapons2/saber_rooxon/saber_acolyte
     }
 }
 
+// Shader for Cross Elegance Saber //
+models/weapons2/saber_rooxon/saber_crosse
+{
+    {
+        map models/weapons2/saber_rooxon/saber_crosse
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_crosse_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/saber_rooxon/saber_crosse_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
 // Shader for Dark Staff Saber //
 models/weapons2/saber_rooxon/saber_orgus3
 {
