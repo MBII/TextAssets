@@ -40,6 +40,21 @@ models/weapons2/saber_rooxon/saber_orgus3
     }
 }
 
+// Shader for Darth Bane Saber //
+models/weapons2/saber_rooxon/saber_bane
+{
+    {
+        map models/weapons2/saber_rooxon/saber_bane
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_bane_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 // Shader for Desann Saber //
 models/weapons2/saber_rooxon/saber_desann
 {
