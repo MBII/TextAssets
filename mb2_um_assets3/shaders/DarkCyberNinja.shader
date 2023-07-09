@@ -19,7 +19,7 @@ models/weapons2/saber_cyberninjared/Saber
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/saber_cyberninjared/saber_enviro
+        map models/weapons2/saber_cyberninja/saber_enviro
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         detail
         tcGen environment
@@ -45,7 +45,7 @@ models/weapons2/saber_cyberninjared/Saber1
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/saber_cyberninjared/saber_enviro1
+        map models/weapons2/saber_cyberninja/saber_enviro1
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         detail
         tcGen environment
