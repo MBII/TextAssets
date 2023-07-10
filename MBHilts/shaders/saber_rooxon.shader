@@ -118,7 +118,7 @@ models/weapons2/saber_rooxon/saber_exar
     }
 }
 
-// Shader for KOTOR Veteran Saber //
+// Shader for KOTOR Old Republic Knight Saber //
 models/weapons2/saber_rooxon/saber_kotor
 {
     {
@@ -286,6 +286,26 @@ models/weapons2/saber_rooxon/saber_orgus
     }
 }
 
+models/weapons2/saber_rooxon/saber_orgus2
+{
+    {
+        map models/weapons2/saber_rooxon/saber_orgus2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_orgus2_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/saber_rooxon/saber_orgus2_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
 // Shader for Rosh Penin Saber //
 models/weapons2/saber_rooxon/saber_rosh
 {
@@ -364,7 +384,28 @@ models/weapons2/saber_rooxon/saber_tulak
     }
 }
 
-// Shader for X1 Saber //
+// Shader for Veteran Saber //
+models/weapons2/saber_rooxon/saber_veteran
+{
+    {
+        map models/weapons2/saber_rooxon/saber_veteran
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_veteran_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_veteran_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for X1/X2 Saber //
 models/weapons2/saber_rooxon/saber_x1
 {
     {
@@ -385,6 +426,7 @@ models/weapons2/saber_rooxon/saber_x1
     }
 }
 
+// Unused in MB2
 // Shader for Rebels Ahsoka Sabers //
 models/weapons2/saber_rooxon/saber_ahsoka3
 {
@@ -480,6 +522,102 @@ models/weapons2/saber_rooxon/saber_inquisitor
     }
     {
         map models/weapons2/saber_rooxon/saber_inquisitor_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for Jocasta Nu Saber //
+models/weapons2/saber_rooxon/saber_jocasta
+{
+    {
+        map models/weapons2/saber_rooxon/saber_jocasta
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_jocasta_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env2c
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_jocasta_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for Kanan Jarrus Saber //
+models/weapons2/saber_rooxon/saber_kanan
+{
+    {
+        map models/weapons2/saber_rooxon/saber_kanan
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kanan_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+}
+
+// Shader for Reborn Stinger Saber //
+models/weapons2/saber_rooxon/saber_reborn
+{
+    {
+        map models/weapons2/saber_rooxon/saber_reborn
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_reborn_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+	{
+        map models/weapons2/saber_rooxon/saber_reborn_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+// Shader for Temple Guard Saber //
+models/weapons2/saber_rooxon/saber_temple_guard
+{
+    {
+        map models/weapons2/saber_rooxon/saber_temple_guard
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_temple_guard_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_temple_guard_g
         blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
         detail
         glow
