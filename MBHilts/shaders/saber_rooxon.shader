@@ -576,6 +576,28 @@ models/weapons2/saber_rooxon/saber_kanan
     }
 }
 
+
+models/weapons2/saber_rooxon/saber_kyle
+{
+    {
+        map models/weapons2/saber_rooxon/saber_kyle
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kyle_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_kyle_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
 // Shader for Reborn Stinger Saber //
 models/weapons2/saber_rooxon/saber_reborn
 {
