@@ -576,7 +576,7 @@ models/weapons2/saber_rooxon/saber_kanan
     }
 }
 
-
+// Shader for Kyle Katarn Saber //
 models/weapons2/saber_rooxon/saber_kyle
 {
     {
@@ -590,7 +590,29 @@ models/weapons2/saber_rooxon/saber_kyle
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/saber_rooxon/saber_kyle_glow
+        map models/weapons2/saber_rooxon/saber_kyle_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+// Shader for Luke Skywalker Saber //
+models/weapons2/saber_rooxon/saber_luke
+{
+    {
+        map models/weapons2/saber_rooxon/saber_luke
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_luke_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_luke_g
         blendFunc GL_ONE GL_ONE
         glow
         detail
