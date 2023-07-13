@@ -71,53 +71,6 @@ models/players/stormie/body-armor
 }
 
 
-// Sand Trooper
-
-models/players/sandtrooper/arms-sand
-{
-	cull	twosided
-	{
-		map models/players/sandtrooper/arms-sand
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/arms-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sandtrooper/helmet-sand
-{
-	{
-		map models/players/sandtrooper/helmet-sand
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/helmet-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sandtrooper/body-armor-sand
-{
-	{
-		map models/players/sandtrooper/body-armor-sand
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/body-armor-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
 // stormie tfa
 
 models/players/stormie_tfa/helmet
@@ -301,29 +254,6 @@ models/players/stormpilot/helmet1
 {
 	{
 		map models/players/stormpilot/helmet1
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/common/spec1
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/stormpilot/helmet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormpilot/helmet2
-{
-	{
-		map models/players/stormpilot/helmet2
 		depthWrite
 		rgbGen lightingDiffuse
 	}
@@ -948,14 +878,14 @@ models/players/novatrooper/Body2
 	}
 }
 
-models/players/novatrooper/novatrooper_accessories1
+models/players/novatrooper/accessories1
 {
 	{
-		map models/players/novatrooper/novatrooper_accessories1
+		map models/players/novatrooper/accessories1
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/novatrooper/novatrooper_accessories1_Spec
+		map models/players/novatrooper/accessories1_Spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular

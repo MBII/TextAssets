@@ -1,6 +1,5 @@
 models/players/impgunner/helmet
 {
-	cull	twosided
     {
         map models/players/impgunner/helmet
         rgbGen lightingDiffuse
