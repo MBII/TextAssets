@@ -42,6 +42,40 @@ gfx/effects/acpbulletmark
 	}
 }
 
+// Amban
+gfx/energy/AmbanEnergy
+{
+	cull	twosided
+    {
+        map gfx/energy/ambanenergy
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+        alphaGen vertex
+        tcMod scroll -1.25 0.3
+    }
+}
+
+gfx/energy/AmbanLine
+{
+	cull	twosided
+    {
+        map gfx/effects/blueline
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen const ( 1.000000 0.400000 0.300000 )
+    }
+}
+
+gfx/effects/AmbanMuzzle
+{
+	cull	twosided
+    {
+        map gfx/effects/ambanmuzzle
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
 
 //	assaultcannon
 
