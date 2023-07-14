@@ -775,7 +775,7 @@ models/players/joint/tex
     }
 }
 
-// Ben's Ghost Lightsabers (thank you TFU)
+// Ben's Ghost Lightsaber (thank you TFU)
 models/weapons2/saber_ghost/saber_obi_wan3_diff
 {
     {
@@ -792,7 +792,7 @@ models/weapons2/saber_ghost/saber_obi_wan3_diff
     }
 }
 
-// Sheev's Ghost Lightsabers (somehow)
+// Sheev's Ghost Lightsaber (somehow)
 models/weapons2/saber_ghost/saber_sidious2_diff
 {
     {
