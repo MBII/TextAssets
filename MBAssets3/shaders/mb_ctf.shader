@@ -1108,3 +1108,25 @@ textures/mb2_ctf/Resupply_Ammo2
 		rgbGen vertex
 	}
 }
+
+models/items/mb2_fx7
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/items/mb2_fx7
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+	{
+		map models/items/mb2_fx7_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    {
+        animMap 2 models/items/mb2_fx7_E gfx/colors/black
+        blendFunc GL_ONE GL_ONE
+        rgbGen wave inversesawtooth 0 2 0.5 1.5
+    }
+}
