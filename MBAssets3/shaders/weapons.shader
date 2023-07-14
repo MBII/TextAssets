@@ -1079,6 +1079,45 @@ models/weapons2/dc-17_cw/dc17_cw_diff
     }
 }
 
+///////////// E-22 /////////////
+models/players/e_22/e_22
+{
+	q3map_nolightmap
+	{
+		map models/players/e_22/e_22
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/e_22/e_22_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+
+	{
+		map models/players/e_22/e_22_glow
+		blendFunc GL_ONE GL_ONE
+		detail
+		rgbGen lightingDiffuse
+	}
+}
+
+///////////// Westar 35 /////////////
+models/weapons2/westar35/westar35
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/westar35/westar35
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/westar35/westar35_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 ///////////// PLX-1 Rocket Launcher ///////////// 
 
 //PLX-1 Portable Missile Launcher
