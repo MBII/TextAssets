@@ -409,3 +409,138 @@ gfx/effects/grapplehook
 		rgbGen vertex
 	}
 }
+
+// Electro staffs
+gfx/effects/sabers_more/electro
+{
+	cull	twosided
+    {
+        videomap video/LightningEdgeRGB
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+	  glow
+    }
+}
+
+gfx/effects/sabers_more/glow/blue
+{
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	q3map_nolightmap
+    {
+        map gfx/effects/sabers_more/glow/blue
+        blendFunc GL_ONE_MINUS_DST_COLOR GL_ONE
+        glow
+        rgbGen wave triangle 1 0.2 0 8
+    }
+}
+
+gfx/effects/sabers_more/glow/orange
+{
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	q3map_nolightmap
+    {
+        map gfx/effects/sabers_more/glow/orange
+        blendFunc GL_ONE_MINUS_DST_COLOR GL_ONE
+        glow
+        rgbGen wave triangle 1 0.2 0 8
+    }
+}
+
+gfx/effects/sabers_more/glow/purple
+{
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	q3map_nolightmap
+    {
+        map gfx/effects/sabers_more/glow/purple
+        blendFunc GL_ONE_MINUS_DST_COLOR GL_ONE
+        glow
+        rgbGen wave triangle 1 0.2 0 8
+    }
+}
+
+gfx/misc/PurpleLine_new
+{
+	cull	twosided
+    {
+        map gfx/misc/PurpleLine_new
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/lightningFlash_purple
+{
+	cull	twosided
+    {
+        map gfx/misc/lightningflash_purple
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/orangeLine_new
+{
+	cull	twosided
+    {
+        map gfx/misc/orangeLine_new
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/lightningFlash_orange
+{
+	cull	twosided
+    {
+        map gfx/misc/lightningflash_orange
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+// Blue Effects
+gfx/effects/bryarfrontflash_h
+{
+	cull	twosided
+    {
+        map gfx/effects/bryarfrontflash_h
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/effects/bryarsideflash_h
+{
+	cull	twosided
+    {
+        map gfx/effects/bryarsideflash_h
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/spark_h
+{
+	cull	twosided
+    {
+        map gfx/misc/spark_h
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+    }
+}
+
+gfx/misc/shockwave_h
+{
+	cull	twosided
+    {
+        map gfx/misc/shockwave_h
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+        tcMod scale 2 1
+    }
+}
