@@ -146,6 +146,31 @@ gfx/hud/w_icon_laz0r
 	}
 }
 
+// Force Bat
+gfx/misc/bat_body
+{
+    {
+        map gfx/misc/bat_body
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+}
+
+gfx/misc/bat_wing
+{
+	cull	twosided
+    {
+        map gfx/misc/bat_wing
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+}
+
+
+// --------------------
+// ---------- EFFECTS
+// --------------------
+
 // Max Rebo Effects
 gfx/effects/note
 {
@@ -186,26 +211,6 @@ gfx/damage/noteburnmark
     {
         map gfx/damage/noteburnmark
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-    }
-}
-
-// Force Bat
-gfx/misc/bat_body
-{
-    {
-        map gfx/misc/bat_body
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-}
-
-gfx/misc/bat_wing
-{
-	cull	twosided
-    {
-        map gfx/misc/bat_wing
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
     }
 }
 
@@ -579,11 +584,8 @@ models/weapons2/flagpole/flagpole_usa
 models/weapons2/saber_jesus/jesus_hilt
 {
 	q3map_nolightmap
-        cull twosided
     {
         map models/weapons2/saber_jesus/jesus_hilt
-        alphaFunc GE128
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
