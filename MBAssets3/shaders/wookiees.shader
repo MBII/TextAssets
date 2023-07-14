@@ -581,25 +581,6 @@ models/players/hanharr/hanharr_body
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
-    {
-        map models/players/hanharr/hanharr_body_Spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/hanharr/hanharr_body_blue
-{
-    {
-        map models/players/hanharr/hanharr_body_blue
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/hanharr/hanharr_body_blue_Spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
 }
 
 models/players/hanharr/hanharr_head
@@ -609,11 +590,6 @@ models/players/hanharr/hanharr_head
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
-    {
-        map models/players/hanharr/hanharr_head_Spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
 }
 
 models/players/hanharr/hanharr_sprites
@@ -622,11 +598,6 @@ models/players/hanharr/hanharr_sprites
         map models/players/hanharr/hanharr_sprites
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
-    }
-    {
-        map models/players/hanharr/hanharr_sprites_Spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
     }
 }
 

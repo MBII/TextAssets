@@ -125,6 +125,24 @@ models/weapons2/e60r_launcher/scope
 }
 
 
+// Clone Disruptor
+
+models/weapons2/clone_disruptor/clone_disruptor_w
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/clone_disruptor/clone_disruptor_w
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/disruptor/disruptor_w_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 //	cr-24 flamerifle
 
 models/weapons2/CR-24_flamerifle/fuse_S1
@@ -492,14 +510,14 @@ models/weapons2/SBD_Grapple/grapple
     }
 }
 
-models/weapons2/SBD_Grapple2/grapple2
+models/weapons2/SBD_Grapple/grapple2
 {
     {
-        map models/weapons2/SBD_Grapple2/grapple2
+        map models/weapons2/SBD_Grapple/grapple2
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/SBD_Grapple2/grapple2_s
+        map models/weapons2/SBD_Grapple/grapple2_s
         blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -511,7 +529,7 @@ models/weapons2/SBD_Grapple2/grapple2
         tcGen environment
     }
     {
-        map models/weapons2/SBD_Grapple2/grapple2_e
+        map models/weapons2/SBD_Grapple/grapple2_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -519,14 +537,14 @@ models/weapons2/SBD_Grapple2/grapple2
     }
 }
 
-models/weapons2/SBD_Grapple3/grapple3
+models/weapons2/SBD_Grapple2/grapple3
 {
     {
-        map models/weapons2/SBD_Grapple3/grapple3
+        map models/weapons2/SBD_Grapple2/grapple3
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/SBD_Grapple3/grapple3_s
+        map models/weapons2/SBD_Grapple2/grapple3_s
         blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -538,7 +556,7 @@ models/weapons2/SBD_Grapple3/grapple3
         tcGen environment
     }
     {
-        map models/weapons2/SBD_Grapple3/grapple3_e
+        map models/weapons2/SBD_Grapple2/grapple3_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -546,14 +564,14 @@ models/weapons2/SBD_Grapple3/grapple3
     }
 }
 
-models/weapons2/SBD_Grapple4/grapple4
+models/weapons2/SBD_Grapple2/grapple4
 {
     {
-        map models/weapons2/SBD_Grapple4/grapple4
+        map models/weapons2/SBD_Grapple2/grapple4
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/SBD_Grapple4/grapple4_s
+        map models/weapons2/SBD_Grapple2/grapple4_s
         blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -565,7 +583,7 @@ models/weapons2/SBD_Grapple4/grapple4
         tcGen environment
     }
     {
-        map models/weapons2/SBD_Grapple3/grapple3_e
+        map models/weapons2/SBD_Grapple2/grapple3_e
         blendFunc GL_ONE GL_ONE
         glow
         detail
@@ -836,6 +854,29 @@ models/weapons2/westarm5/biggadge
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+
+//  Scout Trooper Pistol
+
+models/weapons2/scout_pistol/tex
+{
+    {
+        map models/weapons2/scout_pistol/tex
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/scout_pistol/tex_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/scout_pistol/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
 }
 
 
@@ -1288,6 +1329,112 @@ models/weapons2/MWC-35c/MWC-35c
     }
 }
 
+// Rooxon Stun Baton
+
+models/weapons2/stunbaton/stunbaton_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/stunbaton/stunbaton_diffo
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+	{
+        map models/weapons2/stunbaton/stunbaton_elec
+        blendFunc GL_ONE GL_ONE
+		rgbGen identity
+		tcMod scroll 0.9 0.9
+    }
+		{
+        map models/weapons2/stunbaton/stunbaton_elec
+        blendFunc GL_ONE GL_ONE
+		rgbGen identity
+		tcMod scroll 1.0 0.0
+    }
+	{
+        map models/weapons2/stunbaton/stunbaton_diffo
+        alphaFunc GE128
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/stunbaton/stunbaton_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/stunbaton/stunbaton_glow
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        glow
+    }
+}
+
+// Rooxon Swords
+
+models/weapons2/sword/short_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/short_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/short_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sword/long_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/long_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/long_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sword/double_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/double_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/double_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sword/wookie_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/wookie_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/wookie_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 // Rooxon Vibroblades
 
 models/weapons2/vibroblade/base_diff
@@ -1328,6 +1475,44 @@ models/weapons2/vibroblade/blade_diff
     }
 }
 
+models/weapons2/vibroblade/echani_base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/echani_base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/echani_base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}
+
+models/weapons2/vibroblade/echani_blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/echani_blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/echani_blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/weapons2/vibroblade/mando_base_diff
 {
 	q3map_nolightmap
@@ -1337,7 +1522,7 @@ models/weapons2/vibroblade/mando_base_diff
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/vibroblade/base_spec
+        map models/weapons2/vibroblade/echani_base_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -1359,7 +1544,7 @@ models/weapons2/vibroblade/mando_blade_diff
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/vibroblade/blade_spec
+        map models/weapons2/vibroblade/mando_blade_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular

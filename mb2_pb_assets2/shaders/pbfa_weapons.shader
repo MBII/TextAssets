@@ -470,6 +470,26 @@ models/weapons2/berserk_golden_age/hilt_end
     }
 }
 
+models/weapons2/flagpole/flagpole_usa
+{
+    {
+        map models/weapons2/flagpole/flagpole_usa
+        rgbGen lightingDiffuse
+    }
+    {
+        map gfx/saber/saber_enviro
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/flagpole/flagpole_usa
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		detail
+        rgbGen lightingDiffuse
+    }
+}
+
 models/weapons2/saber_jesus/jesus_hilt
 {
 	q3map_nolightmap
@@ -555,41 +575,13 @@ models\weapons2\sign\sign
     }
 }
 
-models/weapons2/stunbaton/stunbaton_diff
+models/weapons2/waluigi_racket/racket_alpha
 {
-	q3map_nolightmap
+	cull	disable
     {
-        map models/weapons2/stunbaton/stunbaton_diffo
-        blendFunc GL_ONE GL_ZERO
+        map models/weapons2/waluigi_racket/racket
+        alphaFunc GE192
         rgbGen lightingDiffuse
-    }
-	{
-        map models/weapons2/stunbaton/stunbaton_elec
-        blendFunc GL_ONE GL_ONE
-		rgbGen identity
-		tcMod scroll 0.9 0.9
-    }
-		{
-        map models/weapons2/stunbaton/stunbaton_elec
-        blendFunc GL_ONE GL_ONE
-		rgbGen identity
-		tcMod scroll 1.0 0.0
-    }
-	{
-        map models/weapons2/stunbaton/stunbaton_diffo
-        alphaFunc GE128
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/stunbaton/stunbaton_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-    }
-    {
-        map models/weapons2/stunbaton/stunbaton_glow
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        glow
     }
 }
 
@@ -604,5 +596,67 @@ models\weapons2\claw\silver
         map gfx\effects\chrome
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         tcGen environment
+    }
+}
+
+models/weapons2/sith_scepter/tex1
+{
+    {
+        map models/weapons2/sith_scepter/tex1
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/tex1_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sith_scepter/tex1_red
+{
+    {
+        map models/weapons2/sith_scepter/tex1_red
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/tex1_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/w_crusader/diff
+{
+    {
+        map models/weapons2/w_crusader/diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/w_crusader/spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/joint/tex
+{
+    {
+        map models/players/joint/tex
+        rgbGen lightingDiffuse
+    }
+	{
+        map models/weapons2/joint/tex_g
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+	{
+        map models/players/joint/tex_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
     }
 }

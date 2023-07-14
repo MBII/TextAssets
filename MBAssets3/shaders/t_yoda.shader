@@ -65,7 +65,7 @@ models/players/t_yoda/body_cw
 models/players/T_Yoda/head_ghost
 {
 	{
-		map models/players/T_Yoda/head_ghost
+		map models/players/T_Yoda/head
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
@@ -81,7 +81,7 @@ models/players/T_Yoda/head_ghost
 models/players/T_Yoda/mouth_eyes_ghost
 {
 	{
-		map models/players/T_Yoda/mouth_eyes_ghost
+		map models/players/T_Yoda/mouth_eyes
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
@@ -97,7 +97,7 @@ models/players/T_Yoda/mouth_eyes_ghost
 models/players/T_Yoda/body_ghost
 {
 	{
-		map models/players/T_Yoda/body_ghost
+		map models/players/T_Yoda/body
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
@@ -115,7 +115,7 @@ models/players/T_yoda/hair_ghost
 {
 	cull	twosided
 	{
-		map models/players/T_yoda/hair_ghost
+		map models/players/T_yoda/hair
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse

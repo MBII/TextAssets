@@ -13,8 +13,6 @@ models/players/smith/smithshoe
     }
 }
 
-
-
 models/players/smith/glasses
 {
 	cull	disable
@@ -53,6 +51,21 @@ models/players/smith/glasses2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		alphaGen const 0.85
 	}
+}
+
+models/players/smith/caps
+{
+    {
+        map models/players/smith/grey
+        rgbGen lightingDiffuse
+    }
+    {
+        map gfx/saber/chrome2
+        blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
+		tcGen environment
+    }
 }
 
 models/players/smith/icon_default
