@@ -662,21 +662,7 @@ models\weapons2\sign\post
         map models/weapons2/sign/post
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
-     }
-    {
-        map models/weapons2/sign/shader
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        tcGen environment
     }
-}
-
-models\weapons2\sign\sign
-{
-    {
-        map models/weapons2/sign/sign
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-     }
     {
         map models/weapons2/sign/shader
         blendFunc GL_DST_COLOR GL_SRC_COLOR
@@ -707,35 +693,6 @@ models\weapons2\claw\silver
         map gfx/effects/chrome
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         tcGen environment
-    }
-}
-
-// Sith Scepter HD
-models/weapons2/sith_scepter/tex1
-{
-    {
-        map models/weapons2/sith_scepter/tex1
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/sith_scepter/tex1_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/weapons2/sith_scepter/tex1_red
-{
-    {
-        map models/weapons2/sith_scepter/tex1_red
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/sith_scepter/tex1_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
     }
 }
 
