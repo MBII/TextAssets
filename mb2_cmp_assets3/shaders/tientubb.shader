@@ -1,32 +1,19 @@
 models/players/tientubb/N_Sullustan
 {
-	qer_editorimage	models/players/tientubb/N_Sullustan
-	cull	twosided
     {
         map models/players/tientubb/N_Sullustan
         rgbGen lightingDiffuse
-        //alphaFunc GE128
     }
-}
-
-models/players/tientubb/N_SullustanB
-{
-	qer_editorimage	models/players/tientubb/N_SullustanB
-	cull	twosided
-    {
-        map models/players/tientubb/N_SullustanB
-        rgbGen lightingDiffuse
-        //alphaFunc GE128
+	{
+        map models/players/t3m4/t3env
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
     }
-}
-
-models/players/tientubb/N_SullustanR
-{
-	qer_editorimage	models/players/tientubb/N_SullustanR
-	cull	twosided
-    {
-        map models/players/tientubb/N_SullustanR
+	{
+        map models/players/tientubb/N_Sullustan
         rgbGen lightingDiffuse
-        //alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
 }
