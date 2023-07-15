@@ -2,13 +2,19 @@ models/players/derrik/derrik_body
 {
     {
         map models/players/derrik/derrik_body
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
         map models/players/derrik/cm_baremetal
         blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
         tcGen environment
+    }
+	{
+        map models/players/derrik/derrik_body
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
     {
         map models/players/derrik/derrik_body_spec
@@ -22,8 +28,19 @@ models/players/derrik/derrik_body2
 {
     {
         map models/players/derrik/derrik_body2
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/derrik/cm_baremetal
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+	{
+        map models/players/derrik/derrik_body2
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
     {
         map models/players/derrik/derrik_body2_spec
@@ -37,8 +54,19 @@ models/players/derrik/derrik_body3
 {
     {
         map models/players/derrik/derrik_body3
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/derrik/cm_baremetal
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+	{
+        map models/players/derrik/derrik_body3
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
     {
         map models/players/derrik/derrik_body3_spec
@@ -52,8 +80,19 @@ models/players/derrik/derrik_body4
 {
     {
         map models/players/derrik/derrik_body4
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/derrik/cm_baremetal
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+	{
+        map models/players/derrik/derrik_body4
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
     {
         map models/players/derrik/derrik_body4_spec
@@ -67,8 +106,19 @@ models/players/derrik/derrik_body5
 {
     {
         map models/players/derrik/derrik_body5
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/derrik/cm_baremetal
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+	{
+        map models/players/derrik/derrik_body5
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
     {
         map models/players/derrik/derrik_body5_spec
@@ -82,8 +132,19 @@ models/players/derrik/derrik_body6
 {
     {
         map models/players/derrik/derrik_body6
-        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/derrik/cm_baremetal
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+	{
+        map models/players/derrik/derrik_body6
+        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
     {
         map models/players/derrik/derrik_body6_spec

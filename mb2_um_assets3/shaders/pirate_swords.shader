@@ -80,12 +80,12 @@ models\weapons2\saber_rapier\edge
 {
 	cull	twosided
     {
-        map models\weapons2\saber_rapier\edge
+        map models/weapons2/saber_rapier/edge
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models\weapons2\saber_rapier\edge
+        map models/weapons2/saber_rapier/edge
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -96,12 +96,12 @@ models\weapons2\saber_rapier\guard
 {
 	cull	twosided
     {
-        map models\weapons2\saber_rapier\guard
+        map models/weapons2/saber_rapier/guard
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models\weapons2\saber_rapier\guard
+        map models/weapons2/saber_rapier/guard
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -112,12 +112,12 @@ models\weapons2\saber_rapier\handle
 {
 	cull	twosided
     {
-        map models\weapons2\saber_rapier\handle
+        map models/weapons2/saber_rapier/handle
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models\weapons2\saber_rapier\handle
+        map models/weapons2/saber_rapier/handle
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -128,17 +128,17 @@ models\weapons2\rapier_skull\skull
 {
 	cull	twosided
     {
-        map models\weapons2\rapier_skull\skull
+        map models/weapons2/rapier_skull/skull
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map gfx\effects\chr_inv
+        map gfx/effects/chr_inv
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         tcGen environment
     }
     {
-        map models\weapons2\rapier_skull\skull
+        map models/weapons2/rapier_skull/skull
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
