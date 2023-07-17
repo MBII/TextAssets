@@ -31,11 +31,6 @@ models/players/darthwyyrlok/head
 models/players/darthwyyrlok/horns
 {
     {
-	map models/players/phasma/gloss
-	alphaGen lightingSpecular
-	tcGen environment
-    }
-    {
 	map models/players/darthwyyrlok/horns
 	blendFunc GL_ONE GL_SRC_ALPHA
 	rgbGen lightingDiffuse
@@ -50,11 +45,6 @@ models/players/darthwyyrlok/horns
 models/players/darthwyyrlok/lekku
 {
     {
-	map models/players/phasma/gloss
-	alphaGen lightingSpecular
-	tcGen environment
-    }
-    {
 	map models/players/darthwyyrlok/lekku
 	blendFunc GL_ONE GL_SRC_ALPHA
 	rgbGen lightingDiffuse
@@ -64,5 +54,4 @@ models/players/darthwyyrlok/lekku
 	blendFunc GL_SRC_ALPHA GL_ONE
 	alphaGen lightingSpecular
     }
-
 }
