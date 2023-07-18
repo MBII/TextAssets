@@ -30,28 +30,30 @@ models/players/darthwyyrlok/head
 
 models/players/darthwyyrlok/horns
 {
-    {
-	map models/players/darthwyyrlok/horns
-	blendFunc GL_ONE GL_SRC_ALPHA
-	rgbGen lightingDiffuse
-    }
-    {
-	map models/players/darthwyyrlok/horns_s
-	blendFunc GL_SRC_ALPHA GL_ONE
-	alphaGen lightingSpecular
-    }
+	q3map_nolightmap
+   	{
+		map models/players/darthwyyrlok/horns
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthwyyrlok/horns_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
 models/players/darthwyyrlok/lekku
 {
-    {
-	map models/players/darthwyyrlok/lekku
-	blendFunc GL_ONE GL_SRC_ALPHA
-	rgbGen lightingDiffuse
-    }
-    {
-	map models/players/darthwyyrlok/lekku_s
-	blendFunc GL_SRC_ALPHA GL_ONE
-	alphaGen lightingSpecular
-    }
+	q3map_nolightmap
+   	{
+		map models/players/darthwyyrlok/lekku
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthwyyrlok/lekku_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
