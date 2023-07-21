@@ -1,4 +1,4 @@
-models/players/sith_officer/torsoJ
+models/players/sith_officer/torsoJ_cull
 {
 	q3map_nolightmap
 	cull twosided
@@ -8,7 +8,7 @@ models/players/sith_officer/torsoJ
 	}
 }
 
-models/players/sith_officer/torsoU
+models/players/sith_officer/torsoU_cull
 {
 	q3map_nolightmap
 	cull twosided
@@ -18,7 +18,7 @@ models/players/sith_officer/torsoU
 	}
 }
 
-models/players/sith_officer/torsoS
+models/players/sith_officer/torsoS_cull
 {
 	q3map_nolightmap
 	cull twosided
