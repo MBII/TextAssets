@@ -228,6 +228,56 @@ models/weapons2/saber_rooxon/saber_kyrios
     }
 }
 
+// Shader for Liberator Saber //
+models/weapons2/saber_rooxon/saber_tutorial
+{
+    {
+        map models/weapons2/saber_rooxon/saber_tutorial
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_tutorial_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env2d
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_tutorial_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+// Shader for Luke Skywalker Saber //
+models/weapons2/saber_rooxon/saber_luke
+{
+    {
+        map models/weapons2/saber_rooxon/saber_luke
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_luke_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_luke_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
 // Shader for McQuarrie Luke Saber //
 models/weapons2/saber_rooxon/saber_qluke
 {
@@ -441,7 +491,7 @@ models/weapons2/saber_rooxon/saber_x1
     }
 }
 
-// Unused in MB2
+// Unused in Base MB2
 // Shader for Rebels Ahsoka Sabers //
 models/weapons2/saber_rooxon/saber_ahsoka3
 {
@@ -468,6 +518,38 @@ models/weapons2/saber_rooxon/saber_ahsoka4
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
+    }
+}
+
+// Shader for Darkness Saber //
+models/weapons2/saber_rooxon/saber_darkness
+{
+    {
+        map models/weapons2/saber_rooxon/saber_darkness
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_darkness_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/saber_darkness_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/saber_rooxon/env_darkness
+{
+    {
+		map models/weapons2/saber_rooxon/env3c
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
     }
 }
 
@@ -609,28 +691,6 @@ models/weapons2/saber_rooxon/saber_kyle
     }
     {
         map models/weapons2/saber_rooxon/saber_kyle_g
-        blendFunc GL_ONE GL_ONE
-        glow
-        detail
-        rgbGen identity
-    }
-}
-
-// Shader for Luke Skywalker Saber //
-models/weapons2/saber_rooxon/saber_luke
-{
-    {
-        map models/weapons2/saber_rooxon/saber_luke
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/saber_rooxon/saber_luke_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/weapons2/saber_rooxon/saber_luke_g
         blendFunc GL_ONE GL_ONE
         glow
         detail
