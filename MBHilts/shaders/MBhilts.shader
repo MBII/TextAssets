@@ -695,6 +695,67 @@ models/weapons2/saber_depabillaba/depabillabaUVW
     }
 }
 
+// Shaders for KOTOR Vibroswords //
+models/weapons2/kotor_vibroswords/vibroshort_5
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/kotor_vibroswords/vibroshort_5
+		rgbGen lightingDiffuse
+	}
+	{
+        map gfx/saber/saber_enviro
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+	{
+        map models/weapons2/kotor_vibroswords/vibroshort_5
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/weapons2/kotor_vibroswords/vibrosword
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/kotor_vibroswords/vibrosword
+		rgbGen lightingDiffuse
+	}
+	{
+        map gfx/saber/saber_enviro
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+	{
+        map models/weapons2/kotor_vibroswords/vibrosword
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/weapons2/kotor_vibroswords/vibrosword_dbl
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/kotor_vibroswords/vibrosword_dbl
+		rgbGen lightingDiffuse
+	}
+	{
+        map gfx/saber/saber_enviro
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+	{
+        map models/weapons2/kotor_vibroswords/vibrosword_dbl
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
 // Sith Scepter and Sword (Rooxon)
 models/weapons2/sith_scepter/tex1
 {
@@ -740,7 +801,7 @@ models/weapons2/stunbaton/stunbaton_diff
 		rgbGen identity
 		tcMod scroll 0.9 0.9
     }
-		{
+	{
         map models/weapons2/stunbaton/stunbaton_elec
         blendFunc GL_ONE GL_ONE
 		rgbGen identity
@@ -748,19 +809,21 @@ models/weapons2/stunbaton/stunbaton_diff
     }
 	{
         map models/weapons2/stunbaton/stunbaton_diffo
-        alphaFunc GE128
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
     }
     {
         map models/weapons2/stunbaton/stunbaton_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
+		detail
     }
     {
         map models/weapons2/stunbaton/stunbaton_glow
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -848,9 +911,10 @@ models/weapons2/vibroblade/base_diff
     }
     {
         map models/weapons2/vibroblade/base_glow
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+        blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -886,9 +950,10 @@ models/weapons2/vibroblade/echani_base_diff
     }
     {
         map models/weapons2/vibroblade/base_glow
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+        blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -924,9 +989,10 @@ models/weapons2/vibroblade/mando_base_diff
     }
     {
         map models/weapons2/vibroblade/base_glow
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+        blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -962,9 +1028,10 @@ models/weapons2/vibroblade/canderous_base_diff
     }
     {
         map models/weapons2/vibroblade/base_glow
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+        blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
