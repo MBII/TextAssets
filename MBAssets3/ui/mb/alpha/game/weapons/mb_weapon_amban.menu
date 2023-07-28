@@ -1,4 +1,4 @@
-// DISRUPTOR WEAPON TOOLTIP MENU 
+// AMBAN PHASE-PULSE BLASTER WEAPON TOOLTIP MENU 
 {
 	menuDef
 	{
@@ -19,7 +19,7 @@
 			group				none
 			style				WINDOW_STYLE_CINEMATIC
 			rect				0 0 109 127
-			cinematic			"ClassWeapon_Disruptor.roq"
+			cinematic			"ClassWeapon_Amban.roq"
 			forecolor			1 1 1 1
 			visible				1
 			decoration
@@ -30,7 +30,7 @@
 			name				menu_background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect				0 127 109 189
+			rect				0 127 109 231
 			forecolor			1 1 1 1
 			backcolor			0 0 0 1
 			visible				1
@@ -60,7 +60,7 @@
 			group				none
 			style				WINDOW_STYLE_SHADER
 			rect				20 130 8 10
-			forecolor			1 0.6 0 1
+			forecolor			0.44 0.92 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Point"
 			visible				1
 			decoration
@@ -124,7 +124,7 @@
 			name				Damage
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_PRIMARY_DAMAGE"
+			text				"#UI_AMBAN_RIFLE_PRIMARY_DAMAGE"
 			rect 				30 140 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -132,6 +132,8 @@
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
 			visible				1
 			decoration
 		}
@@ -141,7 +143,7 @@
 			name				Damage
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_C_DISRUPTOR_SECONDARY_DAMAGE"
+			text				"#UI_C_AMBAN_RIFLE_SECONDARY_DAMANGE"
 			rect 				75 140 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -182,7 +184,7 @@
 			name				FireRate
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_PRIMARY_FIRERATE"
+			text				"#UI_AMBAN_RIFLE_SHOCK_COOLDOWN"
 			rect 				30 154 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -190,6 +192,8 @@
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
 			visible				1
 			decoration
 		}
@@ -199,7 +203,7 @@
 			name				FireRate
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_SECONDARY_FIRERATE"
+			text				"#UI_AMBAN_RIFLE_FIRERATE"
 			rect 				75 154 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -248,6 +252,8 @@
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
 			visible				1
 			decoration
 		}
@@ -257,7 +263,7 @@
 			name				setfp_push
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"HITSCAN"
+			text				"#UI_AMBAN_RIFLE_VELOCITY"
 			rect 				75 168 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -298,7 +304,7 @@
 			name				ChargeTime
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_SECONDARY_CHARGETIME"
+			text				"#UI_AMBAN_RIFLE_CHARGE_TIME"
 			rect				75 182 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -310,9 +316,10 @@
 			decoration
 		}
 
+// Shock Stun Time
 		itemDef
 		{
-			name				Accuracy_Background
+			name				ShockTime_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
 			rect				3 196 103 14
@@ -324,10 +331,142 @@
 
 		itemDef
 		{
+			name				ShockTimeIcon
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				5 197 12 12
+			forecolor			1 1 1 1
+			background			"gfx/menus/Alpha/Icon_Weap_Shock"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				setfp_push
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"#UI_AMBAN_RIFLE_SHOCK_TIME"
+			rect 				30 196 20 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
+			visible				1
+			decoration
+		}
+
+// Shock Knockback
+		itemDef
+		{
+			name				ShockKnock_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				3 210 103 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				ShockKnockIcon
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				5 211 12 12
+			forecolor			1 1 1 1
+			background			"gfx/menus/Alpha/Icon_Weap_Cone"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				setfp_push
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"#UI_AMBAN_RIFLE_PRIMARY_KNOCKBACK"
+			rect 				30 210 20 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
+			visible				1
+			decoration
+		}
+
+// Shock Range
+		itemDef
+		{
+			name				ShockRange_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect				3 224 103 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.15
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				ShockRangeIcon
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				5 225 12 12
+			forecolor			1 1 1 1
+			background			"gfx/menus/Alpha/Icon_Weap_Range"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				setfp_push
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"#UI_AMBAN_RIFLE_PRIMARY_RANGE"
+			rect 				30 224 20 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
+			visible				1
+			decoration
+		}
+
+// Accuracy
+		itemDef
+		{
+			name				Accuracy_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 3 238 103 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
 			name				AccuracyIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect				6 197 10 12
+			rect 6 239 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Accuracy"
 			visible				1
@@ -339,8 +478,8 @@
 			name				Accuracy
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"1"
-			rect				30 196 95 14
+			text				"#UI_AMBAN_RIFLE_ACCURACY_STANDING"
+			rect 30 238 95 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			30
 			textaligny			-2
@@ -356,7 +495,7 @@
 			name				Drain_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 2 215 105 10
+			rect 2 257 105 10
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.45
 			visible				1
@@ -368,7 +507,7 @@
 			name				Drain_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 2 225 8 28
+			rect 2 267 8 28
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.35
 			visible				1
@@ -380,7 +519,7 @@
 			name				DrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 2 230 8 18
+			rect 2 272 8 18
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Saber"
 			visible				1
@@ -392,9 +531,9 @@
 			name				Drain_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 10 225 97 14
+			rect 10 267 97 14
 			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
+			backcolor			1 1 1 0.15
 			visible				1
 			decoration
 		}
@@ -404,12 +543,29 @@
 			name				Drain_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 10 239 97 14
+			rect 10 281 97 14
 			forecolor			1 1 1 1
-			backcolor			1 1 1 0.15
+			backcolor			1 1 1 0.05
 			visible				1
 			decoration
 		}
+		
+/* 		itemDef
+		{
+			name				Drain
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"BLOCK"
+			rect 32 257 5 10
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			0.7 0.7 0.7 1
+			visible				1
+			decoration
+		} */
 		
 		itemDef
 		{
@@ -417,7 +573,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"BLOCK"
-			rect 32 215 5 10
+			rect 77 257 5 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -428,30 +584,13 @@
 			decoration
 		}
 		
-		itemDef
-		{
-			name				Drain
-			group				Stats
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"BLOCK"
-			rect 77 215 5 10
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			0
-			textaligny			-2
-			font				6
-			textscale			0.08
-			forecolor			0.7 0.7 0.7 1
-			visible				1
-			decoration
-		}
-		
-		itemDef
+/* 		itemDef
 		{
 			name				Drain
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"RUN"
-			rect 50 215 5 10
+			rect 50 257 5 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -460,7 +599,7 @@
 			forecolor			0.7 0.7 0.7 1
 			visible				1
 			decoration
-		}
+		} */
 
 		itemDef
 		{
@@ -468,7 +607,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"RUN"
-			rect 95 215 5 10
+			rect 95 257 5 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -484,7 +623,7 @@
 			name				DrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 226 10 12
+			rect 11 268 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Close"
 			visible				1
@@ -496,7 +635,7 @@
 			name				DrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 240 10 12
+			rect 11 282 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Far"
 			visible				1
@@ -509,7 +648,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"NEAR"
-			rect 11 225 20 14
+			rect 11 267 20 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			0
@@ -526,7 +665,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"FAR"
-			rect 11 239 20 14
+			rect 11 281 20 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			0
@@ -537,13 +676,13 @@
 			decoration
 		}
 
-		itemDef // Primary Drain Blocking Close
+/* 		itemDef // Primary Drain Blocking Close
 		{
 			name				Drain
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_DISRUPTOR_PRIMARY_FPDRAIN_BLOCKING_CLOSE"
-			rect 32 225 20 14
+			rect 32 267 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -560,7 +699,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_DISRUPTOR_PRIMARY_FPDRAIN_BLOCKING_FAR"
-			rect 32 239 20 14
+			rect 32 281 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -577,7 +716,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_DISRUPTOR_PRIMARY_FPDRAIN_CLOSE"
-			rect 50 225 20 14
+			rect 50 267 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -594,7 +733,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_DISRUPTOR_PRIMARY_FPDRAIN_FAR"
-			rect 50 239 20 14
+			rect 50 281 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -603,15 +742,15 @@
 			forecolor			1 1 1 1
 			visible				1
 			decoration
-		}
+		} */
 
 		itemDef // Secondary Drain Blocking Close
 		{
 			name				Drain
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			//text				"#UI_C_DISRUPTOR_SECONDARY_FPDRAIN_BLOCKING_CLOSE"
-			rect 77 225 20 14
+			text				"#UI_C_AMBAN_RIFLE_BLOCKING_CLOSE"
+			rect 77 267 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -627,8 +766,8 @@
 			name				Drain
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			//text				"#UI_C_DISRUPTOR_SECONDARY_FPDRAIN_BLOCKING_FAR"
-			rect 77 239 20 14
+			text				"#UI_C_AMBAN_RIFLE_BLOCKING_FAR"
+			rect 77 281 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -644,8 +783,8 @@
 			name				Drain
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			//text				"#UI_C_DISRUPTOR_SECONDARY_FPDRAIN_CLOSE"
-			rect 95 225 20 14
+			text				"#UI_C_AMBAN_RIFLE_FPDRAIN_CLOSE"
+			rect 95 267 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -661,8 +800,8 @@
 			name				Drain
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			//text				"#UI_C_DISRUPTOR_SECONDARY_FPDRAIN_FAR"
-			rect 95 239 20 14
+			text				"#UI_C_AMBAN_RIFLE_FPDRAIN_FAR"
+			rect 95 281 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -678,7 +817,7 @@
 			name				Ammo_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 2 258 8 56
+			rect 2 300 8 56
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.35
 			visible				1
@@ -690,45 +829,9 @@
 			name				AmmoIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 2 281 8 10
+			rect 2 323 8 10
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Ammo"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Ammo_Background
-			group				none
-			style				WINDOW_STYLE_FILLED
-			rect 10 258 97 14
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.15
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Ammo_Background
-			group				none
-			style				WINDOW_STYLE_FILLED
-			rect 10 272 97 14
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Ammo_Background
-			group				none
-			style				WINDOW_STYLE_FILLED
-			rect 10 286 97 14
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.15
 			visible				1
 			decoration
 		}
@@ -745,13 +848,49 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				Ammo_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 10 314 97 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.15
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Ammo_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 10 328 97 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Ammo_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 10 342 97 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.15
+			visible				1
+			decoration
+		}
+
 
 		itemDef
 		{
 			name				ReloadIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 259 10 12
+			rect 11 301 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Reload"
 			visible				1
@@ -763,7 +902,7 @@
 			name				AmmoDrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 273 10 12
+			rect 11 315 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_AmmoDrain"
 			visible				1
@@ -775,14 +914,16 @@
 			name				setfp_push
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_RELOADTIME"
-			rect 30 258 20 14
+			text				"#UI_AMBAN_RIFLE_RELOADTIME"
+			rect 30 300 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
 			visible				1
 			decoration
 		}
@@ -792,8 +933,8 @@
 			name				setfp_push
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_RELOADTIME"
-			rect 75 258 20 14
+			text				"#UI_AMBAN_RIFLE_RELOADTIME"
+			rect 75 300 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -804,30 +945,32 @@
 			decoration
 		}
 
-		itemDef // Ammo Drain Primary
+ 		itemDef // Ammo Drain Primary
 		{
 			name				setfp_push
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_PRIMARY_AMMODRAIN"
-			rect 30 272 20 14
+			text				"#UI_AMBAN_RIFLE_AMMODRAIN_SHOCK"
+			rect 30 314 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
 			visible				1
 			decoration
-		}
+		} 
 
 		itemDef // Ammo Drain Secondary
 		{
 			name				setfp_push
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_DISRUPTOR_SECONDARY_AMMODRAIN"
-			rect 75 272 20 14
+			text				"#UI_AMBAN_RIFLE_AMMODRAIN"
+			rect 75 314 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -843,7 +986,7 @@
 			name				AmmoMagIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 287 10 12
+			rect 11 329 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Magazine"
 			visible				1
@@ -855,8 +998,8 @@
 			name				setfp_push
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_C_DISRUPTOR_MAGCAPACITY"
-			rect 30 286 65 14
+			text				"#UI_AMBAN_RIFLE_MAGCAPACITY"
+			rect 30 328 65 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			30
 			textaligny			-2
@@ -872,7 +1015,7 @@
 			name				AmmoCapIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 301 10 12
+			rect 11 343 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_AmmoCap"
 			visible				1
@@ -884,8 +1027,8 @@
 			name				setfp_push
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_C_DISRUPTOR_AMMOCAPACITY"
-			rect 30 300 65 14
+			text				"#UI_C_AMBAN_RIFLE_AMMOCAPACITY"
+			rect 30 342 65 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			30
 			textaligny			-2
