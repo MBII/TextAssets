@@ -337,6 +337,21 @@ models/weapons2/qstaff/qstaff_diff
     }
 }
 
+// Shader for 180 saber //
+models/weapons2/saber_180/saber_azlon
+{
+	{
+		map models/weapons2/saber_180/saber_azlon
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/saber_180/saber_azlon_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 // Sniper Hilt
 models/weapons2/sniper_single/saber_w
 {

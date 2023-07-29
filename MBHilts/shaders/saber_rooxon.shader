@@ -13,9 +13,10 @@ models/weapons2/saber_rooxon/saber_acolyte
     }
     {
         map models/weapons2/saber_rooxon/saber_acolyte_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -49,9 +50,10 @@ models/weapons2/saber_rooxon/saber_crosse
     }
 	{
         map models/weapons2/saber_rooxon/saber_crosse_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -70,9 +72,10 @@ models/weapons2/saber_rooxon/saber_orgus3
     }
 	{
         map models/weapons2/saber_rooxon/saber_orgus3_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -112,9 +115,10 @@ models/weapons2/saber_rooxon/saber_exar
     }
     {
         map models/weapons2/saber_rooxon/saber_exar_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -139,9 +143,10 @@ models/weapons2/saber_rooxon/saber_kotor
     }
     {
         map models/weapons2/saber_rooxon/saber_kotor_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -166,9 +171,10 @@ models/weapons2/saber_rooxon/saber_kdbl
     }
     {
         map models/weapons2/saber_rooxon/saber_kdbl_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -193,9 +199,10 @@ models/weapons2/saber_rooxon/saber_kshrt
     }
     {
         map models/weapons2/saber_rooxon/saber_kshrt_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -214,9 +221,60 @@ models/weapons2/saber_rooxon/saber_kyrios
     }
     {
         map models/weapons2/saber_rooxon/saber_kyrios_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
+    }
+}
+
+// Shader for Liberator Saber //
+models/weapons2/saber_rooxon/saber_tutorial
+{
+    {
+        map models/weapons2/saber_rooxon/saber_tutorial
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_tutorial_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/env2d
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_tutorial_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+// Shader for Luke Skywalker Saber //
+models/weapons2/saber_rooxon/saber_luke
+{
+    {
+        map models/weapons2/saber_rooxon/saber_luke
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_luke_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_luke_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -280,9 +338,10 @@ models/weapons2/saber_rooxon/saber_orgus
     }
 	{
         map models/weapons2/saber_rooxon/saber_orgus_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -300,9 +359,10 @@ models/weapons2/saber_rooxon/saber_orgus2
     }
 	{
         map models/weapons2/saber_rooxon/saber_orgus2_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -321,9 +381,10 @@ models/weapons2/saber_rooxon/saber_rosh
     }
 	{
         map models/weapons2/saber_rooxon/saber_rosh_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -342,9 +403,10 @@ models/weapons2/saber_rooxon/saber_skc
     }
     {
         map models/weapons2/saber_rooxon/saber_skc_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -363,9 +425,10 @@ models/weapons2/saber_rooxon/saber_tavion
     }
 	{
         map models/weapons2/saber_rooxon/saber_tavion_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -399,9 +462,10 @@ models/weapons2/saber_rooxon/saber_veteran
     }
     {
         map models/weapons2/saber_rooxon/saber_veteran_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -420,13 +484,14 @@ models/weapons2/saber_rooxon/saber_x1
     }
     {
         map models/weapons2/saber_rooxon/saber_x1_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
-// Unused in MB2
+// Unused in Base MB2
 // Shader for Rebels Ahsoka Sabers //
 models/weapons2/saber_rooxon/saber_ahsoka3
 {
@@ -453,6 +518,38 @@ models/weapons2/saber_rooxon/saber_ahsoka4
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
+    }
+}
+
+// Shader for Darkness Saber //
+models/weapons2/saber_rooxon/saber_darkness
+{
+    {
+        map models/weapons2/saber_rooxon/saber_darkness
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_darkness_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+		map models/weapons2/saber_rooxon/saber_darkness_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/saber_rooxon/env_darkness
+{
+    {
+		map models/weapons2/saber_rooxon/env3c
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
     }
 }
 
@@ -501,9 +598,10 @@ models/weapons2/saber_rooxon/saber_ezra2
     }
     {
         map models/weapons2/saber_rooxon/saber_ezra2_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -522,9 +620,10 @@ models/weapons2/saber_rooxon/saber_inquisitor
     }
     {
         map models/weapons2/saber_rooxon/saber_inquisitor_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -549,9 +648,10 @@ models/weapons2/saber_rooxon/saber_jocasta
     }
     {
         map models/weapons2/saber_rooxon/saber_jocasta_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -598,22 +698,28 @@ models/weapons2/saber_rooxon/saber_kyle
     }
 }
 
-// Shader for Luke Skywalker Saber //
-models/weapons2/saber_rooxon/saber_luke
+// Shader for Quinlan Vos Saber //
+models/weapons2/saber_rooxon/saber_quinlan
 {
     {
-        map models/weapons2/saber_rooxon/saber_luke
+        map models/weapons2/saber_rooxon/saber_quinlan
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/saber_rooxon/saber_luke_spec
+        map models/weapons2/saber_rooxon/saber_quinlan_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
     {
-        map models/weapons2/saber_rooxon/saber_luke_g
-        blendFunc GL_ONE GL_ONE
+		map models/weapons2/saber_rooxon/env3b
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+    }
+    {
+        map models/weapons2/saber_rooxon/saber_quinlan_g
+		blendFunc GL_ONE GL_ONE
         glow
         detail
         rgbGen identity
@@ -635,9 +741,10 @@ models/weapons2/saber_rooxon/saber_reborn
     }
 	{
         map models/weapons2/saber_rooxon/saber_reborn_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }
 
@@ -662,8 +769,9 @@ models/weapons2/saber_rooxon/saber_temple_guard
     }
     {
         map models/weapons2/saber_rooxon/saber_temple_guard_g
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-        detail
+		blendFunc GL_ONE GL_ONE
         glow
+        detail
+        rgbGen identity
     }
 }

@@ -1,159 +1,3 @@
-// Shader for Saber 14 saber //
-models/weapons2/saber_14/chrome
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_14/chrome
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_14/chrome
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/saber_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_14/blade
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_14/blade
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_14/blade
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/saber_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_14/blade1
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_14/blade1
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_14/blade1
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/saber_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-
-models/weapons2/saber_14/blade1a
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_14/blade1a
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_14/blade1a
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/saber_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_14/grip
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_14/grip
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_14/grip
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/saber_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_14/gold
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_14/gold
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_14/gold
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/saber_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_14/bottom
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_14/bottom
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_14/bottom
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/saber_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
 // Shader for Alien Design Saber //
 models/weapons2/saber_aliendesign/Saber
 {
@@ -306,45 +150,6 @@ models/weapons/vibroblades/Axe_Vibroaxe/vibroaxe
         detail
         alphaGen lightingSpecular
     }
-}
-
-
-// Shader for Dual Vibro Saber //
-models/weapons2/2_Bladed_sword/handle
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/2_Bladed_sword/handle
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/2_Bladed_sword/handle_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/2_Bladed_sword/blade
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/2_Bladed_sword/blade
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/2_Bladed_sword/blade_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/sword_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-	}
 }
 
 // Shader for electrostaff Saber //
@@ -504,22 +309,6 @@ models/weapons2/ryyk/bladeB
 	{
 		map models/weapons2/ryyk/bladeB_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	}
-}
-
-// Shader for 180 saber //
-models/weapons2/saber_180/saber_azlon
-{
-	qer_editorimage	models/weapons2/saber_180/saber_azlon
-	{
-		map models/weapons2/saber_180/saber_azlon
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_180/saber_azlon_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
 		alphaGen lightingSpecular
 	}
 }
@@ -800,154 +589,6 @@ models/weapons2/vibrosword_BX/vibrosword_BX
 	}
 }
 
-// Shader for cyberninja saber //
-models/weapons2/saber_cyberninja/hilt
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/hilt
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/hilt_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/saber_cyberninja/hilt2
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/hilt2
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/hilt2_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/saber_cyberninja/blade
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/blade
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/blade_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/sword_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_cyberninja/blade2
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/blade2
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/blade2_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/sword_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_cyberninja/hilt_mando
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/hilt_mando
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/hilt_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/saber_cyberninja/hilt2_mando
-{	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/hilt2_mando
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/hilt2_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/saber_cyberninja/blade_mando
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/blade_mando
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/blade_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/sword_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-	}
-}
-
-models/weapons2/saber_cyberninja/blade2
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/saber_cyberninja/blade2
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/saber_cyberninja/blade2_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/sword_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-	}
-}
-
 // Shader for droid shiv saber //
 models/weapons2/droid_shiv/blade
 {
@@ -978,46 +619,6 @@ models/weapons2/droid_shiv/arminfantry
 		alphaGen lightingSpecular
 	}
 }
-
-// Shader for double-vibroblade saber //
-models/weapons2/NWN_2_Bladed_sword/handle
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/NWN_2_Bladed_sword/handle
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/NWN_2_Bladed_sword/handle_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/weapons2/NWN_2_Bladed_sword/blade
-{
-	q3map_nolightmap
-	{
-		map models/weapons2/NWN_2_Bladed_sword/blade
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/weapons2/NWN_2_Bladed_sword/blade_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map gfx/saber/sword_enviro
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-	}
-}
-
-// Shaders for double-vibroblade sabers //
 
 // Shader for sword asp saber //
 models/weapons2/sword_asp/asp
@@ -1091,5 +692,361 @@ models/weapons2/saber_depabillaba/depabillabaUVW
         map gfx/effects/chr_inv
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         tcGen environment
+    }
+}
+
+// Shaders for KOTOR Vibroswords //
+models/weapons2/kotor_vibroswords/vibroshort_5
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/kotor_vibroswords/vibroshort_5
+		rgbGen lightingDiffuse
+	}
+	{
+        map gfx/saber/saber_enviro
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+	{
+        map models/weapons2/kotor_vibroswords/vibroshort_5
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/weapons2/kotor_vibroswords/vibrosword
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/kotor_vibroswords/vibrosword
+		rgbGen lightingDiffuse
+	}
+	{
+        map gfx/saber/saber_enviro
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+	{
+        map models/weapons2/kotor_vibroswords/vibrosword
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+models/weapons2/kotor_vibroswords/vibrosword_dbl
+{
+	q3map_nolightmap
+	{
+		map models/weapons2/kotor_vibroswords/vibrosword_dbl
+		rgbGen lightingDiffuse
+	}
+	{
+        map gfx/saber/saber_enviro
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+	{
+        map models/weapons2/kotor_vibroswords/vibrosword_dbl
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+}
+
+// Sith Scepter and Sword (Rooxon)
+models/weapons2/sith_scepter/tex1
+{
+    {
+        map models/weapons2/sith_scepter/tex1
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/tex1_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sith_scepter/tex1_red
+{
+    {
+        map models/weapons2/sith_scepter/tex1_red
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sith_scepter/tex1_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Rooxon Stun Baton
+
+models/weapons2/stunbaton/stunbaton_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/stunbaton/stunbaton_diffo
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+	{
+        map models/weapons2/stunbaton/stunbaton_elec
+        blendFunc GL_ONE GL_ONE
+		rgbGen identity
+		tcMod scroll 0.9 0.9
+    }
+	{
+        map models/weapons2/stunbaton/stunbaton_elec
+        blendFunc GL_ONE GL_ONE
+		rgbGen identity
+		tcMod scroll 1.0 0.0
+    }
+	{
+        map models/weapons2/stunbaton/stunbaton_diffo
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/stunbaton/stunbaton_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+    {
+        map models/weapons2/stunbaton/stunbaton_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+// Rooxon Swords
+
+models/weapons2/sword/short_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/short_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/short_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sword/long_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/long_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/long_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sword/double_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/double_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/double_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sword/wookie_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sword/wookie_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sword/wookie_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Rooxon Vibroblades
+
+models/weapons2/vibroblade/base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/vibroblade/blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/vibroblade/echani_base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/echani_base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/echani_base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/vibroblade/echani_blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/echani_blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/echani_blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/vibroblade/mando_base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/mando_base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/echani_base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/vibroblade/mando_blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/mando_blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/mando_blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/vibroblade/canderous_base_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/canderous_base_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroblade/base_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/vibroblade/canderous_blade_diff
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/vibroblade/canderous_blade_diff
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroblade/blade_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
     }
 }
