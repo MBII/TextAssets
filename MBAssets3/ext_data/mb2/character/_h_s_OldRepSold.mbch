@@ -3,9 +3,9 @@
 ClassInfo
 {
 	name			"_h_s_OldRepSold"
-	weapons			WP_FLECHETTE|WP_SABER|WP_CONC_NADE|WP_FRAG_NADE|WP_MELEE|WP_BLASTER_PISTOL
+	weapons			WP_FLECHETTE|WP_SABER|WP_FIRE_NADE|WP_FRAG_NADE|WP_MELEE|WP_BLASTER_PISTOL
 	saberstyle  		
-	attributes		MB_ATT_FUELREGEN,3|MB_ATT_A280,1|MB_ATT_FRAGS,1|MB_ATT_MICRO_GRENADES,1|MB_ATT_AMMO,3|MB_ATT_GUNBASH|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,2|MB_ATT_DODGE,2|MB_ATT_DEXTERITY,1|MB_ATT_PISTOL,3
+	attributes		MB_ATT_FUELREGEN,3|MB_ATT_A280,1|MB_ATT_FRAGS,1|MB_ATT_FIRE_GRENADES,1|MB_ATT_AMMO,3|MB_ATT_GUNBASH|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,2|MB_ATT_DODGE,2|MB_ATT_DEXTERITY,1|MB_ATT_PISTOL,3|MB_ATT_GRAPPLE_HOOK,1
 	APmultiplier		.8	
 	BPmultiplier		.9
 	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
@@ -17,7 +17,7 @@ ClassInfo
 	customgreen			0.27
 	customblue			0.27
 	MBClass			MB_CLASS_ARCTROOPER
-	damageGiven 1.084
+	damageGiven 1.1
 	rateOfFire  1.06
 	extralives	2
 	classNumberLimit	4
@@ -38,9 +38,9 @@ ClassInfo
 	skin_1			"oldrepsold"
 	uishader_1		"gfx/hud/fa_icons/mb2_icon_oldrepsold_norgb"
 		
-//	model_2			"ithorian" 					 
-//	skin_2			"default"					 
-//	uishader_2		"gfx/hud/fa_icons/mb2_icon_oldrepithorian"
+	//model_2			"ithorian" 					 
+	//skin_2			"default"					 
+	//uishader_2		"gfx/hud/fa_icons/mb2_icon_oldrepithorian"
 	
  	//model_2 			"royalist"
  	//skin_2 			"royal3"
@@ -61,22 +61,10 @@ WeaponInfo0
 	MissileEffect		"Blaster/Shot01R"
 	FlashSound0		"sound/weapons/cp-50_repeater/fire.wav"
 	customAmmo			500
-}
-WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER			
-	WeaponBasedOff		WP_BLASTER    			
-	NewWorldModel		"models/weapons2/MandoAR/MandoAR.glm"
-	NewViewModel		"models/weapons2/MandoAR/MandoAR.md3"
-	Icon			"gfx/hud/w_icon_MandoAr"
-	WeaponName		"Heavy Blaster Rifle"
-	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
-	FlashSound0		"sound/weapons/cp-50_repeater/fire.wav"
-	customAmmo			500
+	FPMult				1.1
 }
 
-WeaponInfo2
+WeaponInfo1
 {
 	WeaponToReplace		WP_SABER			
 	WeaponBasedOff		WP_SABER			
@@ -86,7 +74,7 @@ WeaponInfo2
 	WeaponName		"Vibro-Weapon"    	 			
 }
 
-WeaponInfo3
+WeaponInfo2
 {
 	WeaponToReplace		WP_BLASTER_PISTOL     					//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_BLASTER_PISTOL	   					//Required: For future use, should be the same as WeaponToReplace
@@ -96,8 +84,8 @@ WeaponInfo3
 	WeaponName			"Heavy Pistol"    					//Required: Weapon change display name
 	idleAnim		MAND_SPISTOL 
 	firingAnim		MAND_SPISTOL_FIRE
-	clipSize       12
-	ReloadTimeModifier 	1.15
+	clipSize       16
+	FPMult				1.1
 }
 
 description	"Archetype: Old Republic Defender
@@ -110,7 +98,7 @@ Weaponry:
 - Heavy Blaster Rifle (Based on Westar M5 level 1)
 - Heavy Pistol (Based on Pistol 3, reduced clipsize)
 - Vibro-Weapon *
-- Concussion Grenade (1)
+- Fire Grenade (1)
 - Frag Grenade (1)
 
 * Special Weapon Descriptions:
@@ -133,5 +121,7 @@ Abilities:
 - Stamina (2) [Class Special 1]
 - Dexterity (1) [Alt Ability 1]
 - Gunbash [Alt Ability 3]
+--- Grappling Hook (1)
+- Hold Class Special 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
 
 Infantry units working for or with the armed forces of the old Galactic Republic during the Jedi Civil War."

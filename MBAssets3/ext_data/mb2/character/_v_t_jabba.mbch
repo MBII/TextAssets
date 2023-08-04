@@ -4,27 +4,30 @@ ClassInfo
 {
 	name				"_hv_t_jabba"
 	weapons 			WP_MELEE|WP_SABER
-	attributes			MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_WOOKIEE_FURY,1|MB_ATT_ANTI_MT,1|MB_ATT_HEALING,1|MB_ATT_RALLY
-	classflags			CFL_ACIDBLOOD|CFL_BLOODYMELEE
+	attributes			MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_WOOKIEE_FURY,1|MB_ATT_HEALING,1|MB_ATT_RALLY|MB_ATT_ANTI_MT,1|MB_ATT_ROSHTAUNT
+	classflags			CFL_ACIDBLOOD|CFL_BLOODYMELEE|CFL_STRONGAGAINSTPHYSICAL
 	maxhealth			300
 	maxarmor			300
 	model				"player_hutt"
 	skin				"default"				//this is optional, if it's here it forces the skin to this.
 	uishader			"models/players/jabba/mb2_icon_jabba"
 	MBClass				MB_CLASS_WOOKIE
-	forcepool           60
+	forcepool           25
+	forceregen			1.3
 	humanoidSkeleton		1
 	classNumberLimit		1
 	damageGiven 			1.2
 	damageTaken 			0.85
 	speed 				1
 	rateoffire          1.125
-	modelscale			1.5
+	modelscale			1.35
 	bargeSoundOverride 	"sound/chars/hutt/misc/barge.mp3"
 	rageSoundOverride 	"sound/chars/hutt/misc/rage.mp3"
-	
-	
-		saber1 bardiche_jabba_legends
+	APmultiplier      1.5
+	ASmultiplier      0.95
+	CSmultiplier      0.9
+
+	saber1 bardiche_jabba_legends
 	saberstyle SS_STRONG
 	sabercolor 1
 	
@@ -32,6 +35,16 @@ ClassInfo
 	gloatAnim       BOTH_VICTORY_FAST
 
     respawnCustomTime 75000		
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER					
+	WeaponBasedOff		WP_SABER					
+	NewWorldModel		"models/weapons2/exec_axe/exec_axe.glm"  	
+	NewViewModel		"models/weapons2/dummy/dummy.md3"   	
+	Icon				"gfx/hud/w_icon_gamoweapons" 				
+	WeaponName			"Jabba's Bardiche"    				
 }
 
 description	"Jabba
@@ -43,20 +56,27 @@ A tanky brawler class with lots of health and armor.
 Weaponry:
 - Wookiee Melee
 - Bardiche *
---- Based on Lightsaber
-- No defense
+
+Special Weapon Descrption: *
+-- Bardiche
+- Based on Lightsaber
+- No defense, Cannot block blasters
 - Cannot be disarmed
-- Cannot block blasters
+- Has a longer reach
+- Causes an AoE knockback and knockdown effect
 
 Attributes:
 - Strength (3)
 - Heal (1)
-- Fury (1)
 - Mind Trick Immunity (1)
 - Hutt Fortitude (15% Damage Resistance)
 - Hutt Brawn * 
 --- 20% increased damage output, stacks with Wookiee strength
-- Rally 
+--- Takes 50% less melee damage
+- Rally (Allow reinforcements to respawn next to you)
 
+Abilities:
+- Fury (1) [Class Special 1 and 2 in Melee]
+- Toxic Laughter (Taunt Damage)
 
 Jabba Desilijic Tiure, more commonly referred to as Jabba the Hutt or simply Jabba, and formally styled as His Excellency Jabba Desilijic Tiure of Nal Hutta, Eminence of Tatooine, was a Hutt gangster and crime lord, as well as a member of the Grand Hutt Council, who operated and led a criminal empire from his palace on the Outer Rim world of Tatooine."

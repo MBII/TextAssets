@@ -10,16 +10,19 @@ Classinfo
  	speed 		1.15				
  	maxhealth	125
 	maxarmor	125
-	APmultiplier 0.90
+	APmultiplier 1.15
 	BPmultiplier 1.15
 	ASmultiplier 1
-	CSmultiplier 0.90
- 	weapons		WP_MELEE|WP_BLASTER|WP_PULSE_NADE|WP_SABER
-	attributes		MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_BLASTER,2|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_FP_MIRALUKA|MB_ATT_RALLY,1|MB_ATT_FORCEBLOCK,1
+	CSmultiplier 1
+ 	weapons		WP_MELEE|WP_FLECHETTE|WP_PULSE_NADE|WP_SABER
+	attributes		MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,1|MB_ATT_BLASTER,2|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_FP_MIRALUKA|MB_ATT_RALLY,1|MB_ATT_A280,2|MB_ATT_ARC_RIFLE_GRENADELAUNCHER|MB_ATT_ROSHTAUNT|MB_ATT_GRAPPLE_HOOK,2
 	classflags		CFL_RUNFASTMELEE						
  	forcepowers			FP_SEE,1|FP_SABER_DEFENSE,1
 	forcepool			90
-  	classNumberLimit	1		
+  	classNumberLimit	1	
+	rateOfFire		0.95
+  	forceBlocking 		1
+
 
  	model 		"jarjar"					
  	skin		"default"	
@@ -34,13 +37,18 @@ Classinfo
 }
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER     					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER     						//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
-	NewViewModel 		"models/weapons2/e5/e5.md3"
-	Icon				"gfx/hud/w_icon_e5"
-	WeaponName			"Borrowed E-5 Blaster Rifle"
-	customAmmo			500
+	WeaponToReplace		WP_FLECHETTE
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/DC-17m/launcher.glm"
+	NewViewModel		"models/weapons2/DC-17m/launcher.md3"
+	FlashSound0			"sound/weapons/dc17m/fire.wav"
+	Icon				"gfx/hud/w_icon_dc-17mL"
+	MuzzleEffect  		"Blaster/MuzzleFlash01B"
+	altMuzzleEffect  	"Blaster/MuzzleFlash01B"
+	WeaponName			"DC-17M: EMP Grenade Attachment"
+	customAmmo 			800
+	clipSize			200
+	firingAnim			DC15_FIRE
 }
 
 WeaponInfo1
@@ -67,9 +75,8 @@ Class Summary:
 A dexterous hybrid gunner/melee commander that can block blaster fire and has evasive rolls. 
 
 Weaponry:
-- Borrowed E-5 Blaster (2)
+- DC-17M: EMP Grenade Attachment (3) *
 - Gungan Spear and Shield *
-- Pulse Grenades (3)
 
 * Special Weapon Descriptions:
 --- Gungan Spear and Shield
@@ -79,8 +86,13 @@ Weaponry:
 - Can use Dual and Purple Styles
 - Reduced damage
 
+---	DC-17M: EMP Grenade Attachment
+- Based on Westar M5 (2)
+- Clip-styled reload
+- Can fire sticky Pulse Grenades (4)
+
 Attributes:
-- Heal (2)
+- Heal (3)
 - Rally
 - Jar Jar senses (Permanent Sense 1)
 - Runs faster in melee
@@ -88,5 +100,7 @@ Attributes:
 Abilities:
 - Stamina (3) [Class Special 1]
 - Dexterity (3) [Alt Ability 1]
+- Grapple Hook (2) [Class Special 2]
+- Toxic Taunt
 
 Jar Jar Binks was a Gungan male military commander and politician who played a key role in the Invasion of Naboo and the Clone Wars that culminated in the fall of the Galactic Republic and the rise of the Galactic Empire."
