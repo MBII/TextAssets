@@ -84,3 +84,32 @@ models/players/DarthMaul/caps
         rgbGen wave noise 1 0.5 0 2
     }
 }
+
+// Shirtless (by Noob)
+models/players/darthmaul/body_shirtless
+{
+    {
+        map models/players/darthmaul/body_shirtless
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmaul/body_shirtless_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/darthmaul/hands_shirtless
+{
+    {
+        map models/players/darthmaul/hands_shirtless
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmaul/hands_shirtless_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
