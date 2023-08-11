@@ -113,3 +113,252 @@ models/players/darthmaul/hands_shirtless
 		detail
     }
 }
+
+// TCW Cybernetic (by Leaversa & Noob)
+
+models/players/maul_cyber/armor
+{
+	cull	twosided
+    {
+        map models/players/maul_cyber/armor
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_cyber/armor_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_cyber/legs
+{
+    {
+        map models/players/maul_cyber/legs
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_cyber/legs_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+// TCW (Season 5-Season 7)
+
+models/players/maul_cw/body
+{
+    {
+        map models/players/maul_cw/body
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_cw/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_cw/body_solo
+{
+    {
+        map models/players/maul_cw/body_solo
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_cw/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+// Rebels (by swegmaster)
+
+models/players/maul_rebels/legs
+{
+    {
+        map models/players/maul_rebels/legs
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_rebels/legs_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/torso_armor
+{
+    {
+        map models/players/maul_rebels/torso_armor
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_rebels/torso_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/torso_armor_desert
+{
+    {
+        map models/players/maul_rebels/torso_armor_desert
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_rebels/torso_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/belt
+{
+    {
+        map models/players/maul_rebels/belt
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_rebels/belt_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/body
+{
+    {
+        map models/players/maul_rebels/body
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_rebels/body_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/body_shirtless
+{
+	{
+		map models/players/maul_rebels/body_shirtless
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthmaul/body_shirtless_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/maul_rebels/hands_shirtless
+{
+	{
+		map models/players/maul_rebels/hands_shirtless
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthmaul/hands_shirtless_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/maul_rebels/body_shirtless_desert
+{
+	{
+		map models/players/maul_rebels/body_shirtless_desert
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthmaul/body_shirtless_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/maul_rebels/hands_shirtless_desert
+{
+	{
+		map models/players/maul_rebels/hands_shirtless_desert
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthmaul/hands_shirtless_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/maul_rebels/head
+{
+    {
+        map models/players/maul_rebels/head
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmaul/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/head_hood
+{
+    {
+        map models/players/maul_rebels/head_hood
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmaul/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/head_twinsuns
+{
+    {
+        map models/players/maul_rebels/head_twinsuns
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmaul/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_rebels/hood
+{
+	cull	twosided
+	{
+		map models/players/maul_rebels/hood
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/maul_rebels/hood_desert
+{
+	cull	twosided
+	{
+		map models/players/maul_rebels/hood
+		rgbGen lightingDiffuse
+	}
+}
