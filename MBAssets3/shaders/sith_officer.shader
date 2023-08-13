@@ -28,6 +28,21 @@ models/players/sith_officer/hipsUthar
 	}
 }
 
+models/players/yuthura/hips
+{
+	q3map_nolightmap
+    {
+		map models/players/yuthura/hips
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hux/hips_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/sith_officer/torsoJorak
 {
 	q3map_nolightmap
@@ -142,6 +157,37 @@ models/players/sith_officer/torsoUthar_cull
 	cull twosided
     {
 		map models/players/sith_officer/torsoUthar
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/yuthura/torso
+{
+	q3map_nolightmap
+    {
+		map models/players/yuthura/torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/yuthura/torso_cull
+{
+	q3map_nolightmap
+	cull twosided
+    {
+		map models/players/yuthura/torso
 		rgbGen lightingDiffuse
 	}
 	{
