@@ -268,7 +268,7 @@ models/players/maul_rebels/hands_shirtless
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/darthmaul/hands_shirtless_spec
+		map models/players/darthmaul/hands_shirtless_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -296,7 +296,7 @@ models/players/maul_rebels/hands_shirtless_desert
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/darthmaul/hands_shirtless_spec
+		map models/players/darthmaul/hands_shirtless_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
