@@ -170,6 +170,21 @@ models/players/rebelfooty/accessories10
 }
 
 //Football Stormies
+models/players/footballstorm/arms
+{
+    {
+        map models/players/footballstorm/arms
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/footballstorm/arms-spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/footballstorm/helmet
 {
     {
@@ -178,7 +193,7 @@ models/players/footballstorm/helmet
         rgbGen lightingDiffuse
     }
     {
-        map models/players/stormie/helmet-spec
+        map models/players/footballstorm/helmet-spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -192,21 +207,7 @@ models/players/footballstorm/body-armor
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/footballstorm/body-armorl
-{
-	{
-		map models/players/footballstorm/body-armorl
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -220,7 +221,7 @@ models/players/footballstorm/body-armor2
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -234,7 +235,7 @@ models/players/footballstorm/body-armor3
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -248,7 +249,7 @@ models/players/footballstorm/body-armor4
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -262,7 +263,7 @@ models/players/footballstorm/body-armor5
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -276,7 +277,7 @@ models/players/footballstorm/body-armor6
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -290,7 +291,7 @@ models/players/footballstorm/body-armor7
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -304,7 +305,7 @@ models/players/footballstorm/body-armor8
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -318,7 +319,7 @@ models/players/footballstorm/body-armor9
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -332,7 +333,7 @@ models/players/footballstorm/body-armor10
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -346,7 +347,7 @@ models/players/footballstorm/body-armor11
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/footballstorm/body-armor-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
