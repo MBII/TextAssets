@@ -4,11 +4,17 @@ ClassInfo
 {
 	name				"_v_h_MandoGun"
 	weapons				WP_BRYAR_OLD|WP_STUN_BATON|WP_FRAG_NADE
-	attributes			MB_ATT_POISON_DART,3|MB_ATT_QUICKTHROW,1|MB_ATT_HEALING,2|MB_ATT_FRAGS,1|MB_ATT_WRISTLASER|MB_ATT_PISTOL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_FUEL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_PROJECTILE_RIFLE,1
+	attributes			MB_ATT_POISON_DART,3|MB_ATT_QUICKTHROW,2|MB_ATT_HEALING,2|MB_ATT_FRAGS,2|MB_ATT_WRISTLASER|MB_ATT_PISTOL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_FUEL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_SHIELD_RECHARGE,1
 	maxhealth			125
 	maxarmor			125
-	forcepowers			FP_LEVITATION,1
-	forcepool 			10
+
+
+	// used for flips, but they drain fuel -- CFL_BPFREEJUMPS does not work
+	//
+	//forcepowers			FP_LEVITATION,1
+	//forcepool 			10
+	//classflags     CFL_BPFREEJUMPS
+
 	model				"jangofett"
 	skin				"default"
 	uishader			"models/players/jangofett/mb2_icon_default"
@@ -17,6 +23,13 @@ ClassInfo
 	rateoffire		1
 	speed           1.10
 	modelscale      1.01
+	holdables		HI_BINOCULARS
+	WP_StunBatonFlags HELD_HIGHDAMAGE
+
+	customred			1
+	customgreen			0
+	customblue			0
+
 	
 	damageTaken		0.9
 	damageGiven		1.1
@@ -24,13 +37,13 @@ ClassInfo
 	respawnCustomTime 50000
 
 	
-	model_1				"deathwatch"
-	skin_1				"mauldalorian"
-	uishader_1			"models/players/deathwatch/mb2_icon_mauldalorian"
+	model_1				"jangofett"
+	skin_1				"rgb1"
+	uishader_1			"models/players/jangofett/mb2_icon_rgb1"
 	
 	model_2				"deathwatch"
-	skin_2				"red"
-	uishader_2			"models/players/deathwatch/mb2_icon_red"
+	skin_2				"mauldalorian"
+	uishader_2			"models/players/deathwatch/mb2_icon_mauldalorian"
 	
 	model_3				"deathwatch"
 	skin_3				"vizsla2"
@@ -50,7 +63,7 @@ WeaponInfo0
 	PrimHitscanTracer	10
 	clipSize			1
 	customAmmo 			5
-	ReloadTimeModifier 	1.2
+	ReloadTimeModifier 	1.5
 }
 
 WeaponInfo1
@@ -66,27 +79,34 @@ description	"Archetype: Mandalorian Gunslinger
 
 Class: Mandalorian.
 Class Summary: 
-A dual pistol jetpack Mandalorian with powerful hitscan sniper, blast armour, flamethrower and wrist laser. 
+A dual pistol jetpack Mandalorian with powerful double-damage hitscan sniper, blast armour, flamethrower and wrist laser. 
 
 Weaponry:
 - Dual Westar Pistols
-- Sniper Rifle (Hitscan)
-- Frag Grenade (1)
+- Mandalorian Marksman Rifle *
+- Frag Grenade (2)
+
+* Special Weapons Description
+--- Mandalorian Marksman Rifle
+- Based on Projectile Rifle
+- Hitscan shots
+- Deals double damage, but takes longer to reload
 
 Attributes:
 - Heal (2)
 - Fuel (3)
 - Blast Armor
+- Shield Recharge (1)
 
-Forcepowers:
-- Jump (1)
+Inventory:
+- Binoculars
 
 Abilities:
 - Jetpack
 - Rocket [Class Special 1]
 - Wrist Laser [Class Special 2]
 - Flamethrower [Class Special 2]
-- Quickthrow (1) [Alt Ability 1]
+- Quickthrow (2) [Alt Ability 1]
 - Poison Darts (2) [Alt Ability 3 while in melee]
 
 The Mandalorians were a clan-based cultural group that was composed of members from multiple species all bound by a common creed, language and code."
