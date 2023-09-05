@@ -299,6 +299,29 @@ models/players/stormpilot/helmet1
 	}
 }
 
+models/players/tie_pilot/Shadow_Body2
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/tie_pilot/Shadow_Body2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/tie_pilot/Shadow_Body_S
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 
 // Swamp Trooper
 
