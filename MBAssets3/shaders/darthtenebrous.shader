@@ -57,7 +57,7 @@ models/players/darthtenebrous/mask
         rgbGen lightingDiffuse
     }
   {
-      map models/players/darthtenebrous/mask
+      map models/players/darthtenebrous/mask-spec
       blendFunc GL_SRC_ALPHA GL_ONE
       detail
       alphaGen lightingSpecular
