@@ -2,22 +2,24 @@
 
 models/players/darthtenebrous/arms
 {
-  {
-      map models/players/darthtenebrous/arms
-      rgbGen lightingDiffuse
-  }
-  {
-      map models/players/darthtenebrous/arms-spec
-      blendFunc GL_SRC_ALPHA GL_ONE
-      detail
-      alphaGen lightingSpecular
-  }
-    {
-        map models/players/praetorian_guard/reflect
-        blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
+	{
+		map models/players/darthtenebrous/arms
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_assassin/reflect
+		blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
 		tcGen environment
-    }
+		detail
+	}
+	{
+		map models/players/darthtenebrous/arms
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
 }
 
 models/players/darthtenebrous/arms2
@@ -66,30 +68,45 @@ models/players/darthtenebrous/mask
 
 models/players/darthtenebrous/pad
 {
-  {
-      map models/players/darthtenebrous/pad
-      rgbGen lightingDiffuse
-  }
-    {
-        map models/players/praetorian_guard/reflect
-        blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
+	cull	twosided
+	{
+		map models/players/darthtenebrous/pad
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_assassin/reflect
+		blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
 		tcGen environment
-    }
+		detail
+	}
+	{
+		map models/players/darthtenebrous/pad
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
 }
 
 models/players/darthtenebrous/torso
 {
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/darthtenebrous/torso
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/praetorian_guard/reflect
-        blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
+	{
+		map models/players/darthtenebrous/torso
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_assassin/reflect
+		blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
 		tcGen environment
-    }
+		detail
+	}
+	{
+		map models/players/darthtenebrous/torso
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
 }
