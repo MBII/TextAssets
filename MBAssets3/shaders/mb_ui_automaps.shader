@@ -840,6 +840,63 @@ gfx/mplevels/mb2_lunarbase/map2
 }
 
 //####################
+//##### Manaan
+//####################
+//=====Automap=====
+gfx/automap/mb2_manaan
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_manaan
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_manaan1
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_manaan1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_manaanfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_manaanfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_manaan1full
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_manaan1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mp/mplevels/mb2_manaan/map
+{
+    nopicmip
+    {
+        map gfx/mp/mplevels/mb2_manaan/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+
+//####################
 //##### MYGEETO
 //####################
 gfx/automap/mb2_mygeeto1
