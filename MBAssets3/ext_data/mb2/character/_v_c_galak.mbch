@@ -4,10 +4,11 @@ ClassInfo
 {
 	name			"_v_c_galak"
 	weapons			WP_CONCUSSION|WP_MELEE
-	attributes		MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_FIREPOWER,2|MB_ATT_RECHARGE,3|MB_ATT_RADAR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ZOOM,1|MB_ATT_SBD_CANNON,1|MB_ATT_WOOKIE_STRENGTH,2
+	attributes		MB_ATT_AMMO,3|MB_ATT_HULL_STRENGTH,3|MB_ATT_FIREPOWER,2|MB_ATT_RECHARGE,3|MB_ATT_RADAR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ZOOM,1|MB_ATT_SBD_CANNON,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_FORCEBLOCK,3
 	maxhealth		100
 	maxarmor		100
-	forcepool       40
+	forcepool       60
+	forceregen		0.4
 	forcepowers			FP_PUSH,2
 	meleeMoves				M_PUNCH|M_KICK
 	model			"doomgalak"
@@ -20,8 +21,9 @@ ClassInfo
 	modelscale		1.33
 	//WP_BlasterFlags    HELD_LOWDAMAGE
 	WP_SaberFlags       HELD_SPEED
+	WP_CONCUSSIONflags HELD_FLAME|HELD_DISRUPTIFY
 	
-	damageGiven 	0.8
+	damageGiven 	0.75
 	damageTaken 		0.9
 
 	respawnCustomTime 75000	
@@ -40,7 +42,8 @@ WeaponInfo0
 	MissileEffect	"repeater/projectile"
 	idleAnim	        SBD_GUN_OUT_STAND
 	customammo         999
-	FPmult 0.8
+	FPmult 0.9
+	rateoffire	1.1
 }
 
 WeaponInfo1
@@ -73,16 +76,27 @@ Class Summary:
 A tanky anti-Jedi SBD type class with an overshield that shocks and pushes away enemies.
 
 Weaponry:
-- Arm Mounted Blaster (Deals half damage)
+- Arm Mounted Blaster *
 - Heavy Melee
+
+* Special Weapons Description
+--- Arm Mounted Blaster
+- Based on SBD Arm Blaster (2)
+
+--- Alt. Fire Mode
+- Fires a blob that knocks down and ignites targets on hit
+
+--- Prototype Cortosis Battle Armour
+- Magnetic Plating
+- Cortosis (1)
+- Blast Armor
+- Melee Damage Resistance
+- Shielded from Force Powers (Force Block 3)
+- Wookiee Strength (2)
 
 Attributes:
 - Fire Power (2)
 - Large Personal Shield
-- Magnetic Plating
-- Cortosis Armor
-- Blast Armor
-- Melee Damage Resistance
 - Heal (1)
 - Immunity to Mind Trick
 
@@ -93,6 +107,6 @@ Abilities:
 - Runs faster with melee (fists) equipped
 
 Force Powers:
-- Repulsor Wave (Force Push level 2)
+- Repulsor Wave (Force Push level 3)
 
 Galak Fyyar was a skilled commander and scientist of Desann's faction of the Imperial Remnant. He wore into battle a cortosis-based power armor of his own creation - equipped with a shield generator and mounted blaster cannon."

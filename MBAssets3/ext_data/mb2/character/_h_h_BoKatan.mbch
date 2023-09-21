@@ -3,13 +3,11 @@
 ClassInfo
 {
 	name			"_h_h_BoKatan"
-	weapons			WP_MELEE|WP_BRYAR_OLD|WP_FRAG_NADE|WP_SONIC_NADE
-	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,3|MB_ATT_FUEL,3|MB_ATT_HEALING,2|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1|MB_ATT_ROCKET,1|MB_ATT_FRAGS,1|MB_ATT_QUICKTHROW,1|MB_ATT_SONIC_DETONATOR,2
-	maxhealth		125
-	maxarmor		125
+	weapons			WP_MELEE|WP_BRYAR_OLD|WP_FRAG_NADE|WP_SABER|WP_SONIC_NADE
+	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,3|MB_ATT_FUEL,2|MB_ATT_HEALING,1|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1|MB_ATT_ROCKET,1|MB_ATT_FRAGS,1|MB_ATT_SONIC_DETONATOR,1|MB_ATT_DASH,1|MB_ATT_POISON_DART,3|MB_ATT_FUELREGEN,1
+	maxhealth		100
+	maxarmor		100
 	speed          		 1.16
-	forcepowers			FP_LEVITATION,1
-	forcepool 			10
 	model			"BoKatan"
 	skin			"default"
 	uishader  	"models/players/BoKatan/mb2_icon_default"
@@ -18,8 +16,25 @@ ClassInfo
 	modelscale            1.01
 	rateoffire			1.15
 	damageGiven         1.143
+	damageTaken			0.9
+
+	saber1				legends_darksaber
+	saberstyle  		SS_MEDIUM|SS_DESANN|SS_STRONG
+	forcepowers			FP_SABER_DEFENSE,2|FP_SABER_OFFENSE,1
+	forcepool 			35
+	APmultiplier		1.20
 	
 	respawnCustomTime  50000	
+}
+
+WeaponInfo0
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel  "models/weapons2/saber_plasma/saber_darksaber3.glm"
+	NewViewModel  "models/weapons2/dummy/dummy.md3"
+	Icon  "gfx/hud/w_icon_darksaber"
+	WeaponName  "Darksaber"
 }
 
 description	"Bo-Katan Kryze
@@ -29,12 +44,20 @@ Class Summary:
 A speedy jetpack user with powerful dual pistols. 
 
 Weaponry:
+- The Darksaber * 
 - Dual Westars (3)
 - Frag Grenade (1)
-- Sonic Detonators (2)
+- Sonic Detonator
+
+* Special Weapon Descriptions:
+--- The Darksaber
+- Defense (1)
+- Can use yellow, red and purple styles
+- Cannot block blasters
+- Can block sabers
 
 Attributes:
-- Fuel (3)
+- Regenerating Fuel (2)
 - Heal (2)
 - Blast Armor
 
@@ -43,6 +66,7 @@ Abilities:
 - Rocket [Class Special 1]
 - Wrist Laser [Class Special 2]
 - Flamethrower [Class Special 2]
-- Quickthrow (1) [Alt Ability 1]
+- Dash (1) [Alt Ability 1]
+- Poison Darts (2) [Alt Ability 3 while in melee]
 
 Bo-Katan Kryze was a Mandalorian human female who was the leader of the Nite Owls and a lieutenant in Death Watch, a terrorist group, and later during the Imperial Era, became Mand'alor."

@@ -1,3 +1,17 @@
+// anh luke
+
+models/players/luke_anh/poncho
+{
+	cull	disable
+	{
+		map models/players/luke_anh/poncho
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
 // esb luke
 
 models/players/luke_esb/hair_alpha
