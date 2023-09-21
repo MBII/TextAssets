@@ -1,3 +1,692 @@
+textures/ffawedge/light_vert
+{
+	qer_editorimage	textures/ffawedge/light_vert
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/light_vert
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/light_vert_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_light_inside
+{
+	qer_editorimage	textures/ffawedge/rail_light_inside
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_light_inside
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_light_inside_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/runner1
+{
+	qer_editorimage	textures/ffawedge/runner1
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/runner1
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/runner1_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/railtrim4
+{
+	qer_editorimage	textures/ffawedge/railtrim4
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/railtrim4
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/railtrim4_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_tracklight
+{
+	qer_editorimage	textures/ffawedge/rail_tracklight
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_tracklight
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_tracklight_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/largescreen2
+{
+	qer_editorimage	textures/ffawedge/largescreen2
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/largescreen2
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/largescreen2_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_console
+{
+	qer_editorimage	textures/ffawedge/rail_console
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_console
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_console_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_console_large
+{
+	qer_editorimage	textures/ffawedge/rail_console_large
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_console_large
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_console_large_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+//bespin2lights shader
+textures/bespinnew/bespintoplights
+{
+	qer_editorimage	textures/bespinnew/bespintoplights
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/bespintoplights
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/bespintoplights_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespinnew/lightcarb2
+{
+	qer_editorimage	textures/bespinnew/lightcarb2
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/lightcarb2
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/lightcarb2_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespinnew/gantrycor3
+{
+	qer_editorimage	textures/bespinnew/gantrycor3
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/gantrycor3
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/gantrycor3_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespinnew/gantrycor4
+{
+	qer_editorimage	textures/bespinnew/gantrycor4
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/gantrycor4
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/gantrycor4_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespinnew/gantrytube
+{
+	qer_editorimage	textures/bespinnew/gantrytube
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/gantrytube
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/gantrytube_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespinnew/win_rm_floorlight2
+{
+	qer_editorimage	textures/bespinnew/win_rm_floorlight2
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/win_rm_floorlight2
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/win_rm_floorlight_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespinnew/bespindoor4
+{
+	qer_editorimage textures/bespinnew/bespindoor4
+	q3map_surfacelight 2000
+	q3map_lightRGB 255 147 97
+	q3map_backSplash 0.8 5
+    {
+	map $lightmap
+    }
+    {
+	map textures/bespinnew/bespindoor4
+	blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+	map textures/bespinnew/bespindoor4_glow
+	blendFunc GL_ONE GL_ONE
+	glow
+	rgbGen identity
+    }
+
+}
+
+textures/eldritch_rata/sign02
+{
+	qer_editorimage textures/eldritch_rata/sign02.jpg
+	//q3map_nolightmap
+	surfaceparm trans
+	cull none
+	{
+		map textures/eldritch_rata/sign02.jpg
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave sin 0.4 0.1 0 0.6
+		tcMod scroll 0 -0.1
+	}
+	{
+		map textures/eldritch_rata/sign02_glow2.jpg
+		blendFunc GL_ONE GL_ONE
+		glow
+		rgbGen wave triangle 0.5 0.25 0.25 0.3
+	}
+	{
+		clampMap textures/eldritch_rata/sign02_glow1.tga
+		blendFunc blend
+		depthWrite
+		//rgbGen wave inversesawtooth -1 2 0 0.3
+		rgbGen wave sin 0.9 0.1 0 0.5
+		tcMod stretch sin 1 .05 0 .1
+	}
+	{
+		clampMap textures/eldritch_rata/sign02_glow3.jpg
+		blendFunc GL_ONE GL_ONE
+		glow
+		//rgbGen wave inversesawtooth 1 2 0 0.5
+		rgbGen wave triangle 0.5 0.5 0 0.75
+		tcMod stretch sin 1 .1 0 .75
+	}
+	{
+		map textures/eldritch_rata/sign03_scan.jpg
+		rgbGen wave sin 0.25 0.1 0 0.5
+		blendFunc GL_ONE GL_ONE
+		tcMod scroll 0 -0.25
+	}
+}
+
+textures/eldritch_rata/sign06
+{
+	qer_editorimage textures/eldritch_rata/sign06.jpg
+	q3map_surfacelight 300
+	//q3map_nolightmap
+	surfaceparm trans
+	cull none
+	
+	{
+		map textures/eldritch_rata/sign06.jpg
+		blendFunc GL_ONE GL_ONE
+		//tcMod turb 5 5 0 0.5
+	}
+	{
+		clampMap textures/eldritch_rata/sign06_glow1.jpg
+		blendFunc GL_ONE GL_ONE
+		tcMod rotate 5
+		rgbGen wave sin 0.5 0.5 0.5 0.25
+		glow
+	}
+	{
+		clampMap textures/eldritch_rata/sign06_glow2.jpg
+		blendFunc GL_ONE GL_ONE
+		tcMod rotate -5
+		tcMod stretch sin 1 0.01 0.25 1
+		rgbGen wave sin 0.5 0.5 0 0.5
+		glow
+	}
+	{
+		map textures/eldritch_rata/sign06_glow3.jpg
+		blendFunc GL_ONE GL_ONE
+		//rgbGen wave triangle 0.75 0.25 0 0.75
+	}
+	{
+		map textures/eldritch_rata/sign06_glow4.jpg
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave sin 0.5 0.5 0 1
+		glow
+	}
+	{
+		map textures/eldritch_rata/sign06_glow5.jpg
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave sin 0.9 0.1 0 0.1
+		glow
+	}
+	{
+		map textures/eldritch_rata/sign03_scan.jpg
+		rgbGen wave sin 0.2 0 0 0
+		blendFunc GL_ONE GL_ONE
+		tcMod scroll 0 0.05
+	}
+}
+
+textures/bespinnew/besy
+{
+	qer_editorimage textures/bespinnew/besy
+	q3map_surfacelight 2000
+	q3map_lightRGB 255 147 97
+	q3map_backSplash 0.8 5
+    {
+	map $lightmap
+    }
+    {
+	map textures/bespinnew/besy
+	blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+	map textures/bespinnew/besy_glow
+	blendFunc GL_ONE GL_ONE
+	glow
+	rgbGen identity
+    }
+
+}
+
+textures/bespinnew/DARKbuilding4
+{
+	qer_editorimage	textures/bespinnew/DARKbuilding4
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespinnew/DARKbuilding4
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/DARKbuilding4_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+//bespin2lights2 shader
+textures/bespin/n_win01
+{
+	qer_editorimage	textures/bespin/n_win01
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespin/n_win01
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespin/n_win01glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespin/n_win02
+{
+	qer_editorimage	textures/bespin/n_win02
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespin/n_win02
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespin/n_win02glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/bespin/n_win03
+{
+	qer_editorimage	textures/bespin/n_win03
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/bespin/n_win03
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespin/n_win03glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+//bespin2misc shader
+textures/ffawedge/light_vert
+{
+	qer_editorimage	textures/ffawedge/light_vert
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/light_vert
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/light_vert_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_light_inside
+{
+	qer_editorimage	textures/ffawedge/rail_light_inside
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_light_inside
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_light_inside_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/runner1
+{
+	qer_editorimage	textures/ffawedge/runner1
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/runner1
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/runner1_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/railtrim4
+{
+	qer_editorimage	textures/ffawedge/railtrim4
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/railtrim4
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/railtrim4_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_tracklight
+{
+	qer_editorimage	textures/ffawedge/rail_tracklight
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_tracklight
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_tracklight_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/largescreen2
+{
+	qer_editorimage	textures/ffawedge/largescreen2
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/largescreen2
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/largescreen2_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_console
+{
+	qer_editorimage	textures/ffawedge/rail_console
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_console
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_console_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/ffawedge/rail_console_large
+{
+	qer_editorimage	textures/ffawedge/rail_console_large
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/ffawedge/rail_console_large
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ffawedge/rail_console_large_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+//bespin2misc shader
 
 textures/bespin2/creamlight_null
 {
@@ -1875,3 +2564,106 @@ textures/bespin2/onion
 		detail
 	}
 }
+
+//biggTournament shader
+//cream light 10k
+textures/bespin2/creamlight_10k
+{
+	qer_editorimage textures/bespin2/creamlight
+	q3map_surfacelight 10000
+	q3map_shadeangle	120
+	q3map_lightRGB 255 147 97
+	q3map_backSplash 1.8 8
+	q3map_nonplanar
+    {
+	map $lightmap
+    }
+    {
+	map textures/bespin2/creamlight
+	blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+	map textures/bespin2/creamlight
+	blendFunc GL_ONE GL_ONE
+	glow
+	rgbGen identity
+    }
+
+}
+//obsidian_walkway with portal
+textures/biggTournament/Obsidian_W_Portal
+{
+    qer_editorimage    textures/yavin/obsidian_walkway
+    surfaceparm    forcefield
+    portal
+    q3map_nolightmap
+    sort    portal
+    {
+        map textures/yavin/obsidian_walkway
+        blendFunc GL_ONE GL_ONE
+    }
+    {
+        map textures/tests/qer_mirror2b
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        alphaGen portal 20
+    }
+}
+//shiny obsidian_walkway
+textures/yavin/obsidian_w_shiny
+{
+	qer_editorimage	textures/yavin/obsidian_walkway
+	q3map_nonplanar
+	q3map_material	SolidMetal
+    {
+        map $lightmap
+        rgbGen identity
+    }
+    {
+        map textures/yavin/obsidian_walkway
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/bespinnew/reflection3
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.05
+        tcGen environment
+	}
+}
+//shiny metal
+textures/yavin/metalrandom1worn_shiny
+{
+	qer_editorimage	textures/yavin/metalrandom1worn
+	q3map_nolightmap
+	q3map_nonplanar
+	q3map_material	SolidMetal
+    {
+        map textures/yavin/metalrandom1worn
+        rgbGen vertex
+    }
+    {
+        map textures/byss/env_large_floor2
+        blendFunc GL_SRC_ALPHA GL_ONE
+        rgbGen identity
+        alphaGen const 0.25
+        tcGen environment
+    }
+}
+//shiny metal version two
+textures/yavin/metalrandom1worn_shiny2
+{
+	qer_editorimage	textures/yavin/metalrandom1worn
+	q3map_nolightmap
+    {
+        map textures/yavin/metalrandom1worn
+        rgbGen vertex
+    }
+    {
+        map textures/byss/env_large_floor2
+        blendFunc GL_SRC_ALPHA GL_ONE
+        rgbGen identity
+        alphaGen const 0.05
+        tcGen environment
+    }
+}
+		
