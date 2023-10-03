@@ -1028,3 +1028,32 @@ models/players/wardroid/wardroid
         alphaGen lightingSpecular
     }
 }
+
+//// M4 Droid ////
+models/players/M4Droid/M4Droid
+{
+	{
+		map models/players/M4Droid/M4Droid
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/M4Droid/M4DroidMetal
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/M4Droid/M4DroidEyes
+{
+	q3map_nolightmap
+	cull	twosided
+    {
+        map models/players/M4Droid/M4DroidEyes
+        blendFunc GL_ONE GL_ONE
+        glow
+    }
+}
