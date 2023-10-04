@@ -1,0 +1,111 @@
+// Directed spark explosion effect
+
+// Mini-explosion made out of a couple of lines
+Line
+{
+	count 	4	8
+	life	100	200
+
+	origin2	12 -10 -10		18 10 10
+
+	width
+	{
+		start 	0.2 	0.5
+	}
+
+	alpha
+	{
+		start 	0.25 	1.0
+		end	0.0
+		flags	linear
+	}
+	
+	shader
+	[
+		gfx/misc/spark
+		gfx/misc/spark2
+	]
+}
+
+// Bits that fly up and bounce off of architecture
+Tail
+{
+	count	8 	20
+	life	700	1100
+
+	bounce	0.25	0.4
+
+	vel	120 -80 -80	250 80 80
+	gravity	-350	-450
+
+	size
+	{
+		start	0.3	0.4
+	}
+
+	length
+	{
+		start	4.0	10.0
+		end	0.1	1.0
+		flags 	linear
+	}
+
+	shader
+	[
+		gfx/misc/spark
+	]
+}
+
+Particle
+{
+	count	4	6
+	life	900	1000
+
+	vel	8 -12 -12		16 12 12
+	gravity	12	24
+
+	size
+	{
+		start 	4.0	12.0
+		end	12.0	24.0
+		flags	linear
+	}
+
+	alpha
+	{
+		start	0.2	0.4
+		end 	0.0
+		flags	linear
+	}
+
+	shader
+	[
+		gfx/misc/steam
+	]
+}
+
+// Let's call another existing effect to get some smoke!
+FxRunner
+{
+	count	1	2
+	delay	0	100
+
+	playfx
+	[
+		black_smoke
+		smoke
+	]
+}
+
+// Let's play a temp sound
+Sound
+{
+	sounds
+	[
+		sound/weapons/Beskar/LSHit1.mp3
+		sound/weapons/Beskar/LSHit2.mp3
+		sound/weapons/Beskar/LSHit3.mp3
+		sound/weapons/Beskar/LSHit4.mp3
+		sound/weapons/Beskar/LSHit5.mp3
+	]
+}
