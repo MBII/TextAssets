@@ -174,6 +174,27 @@ levelshots/um_bouncybash2
 	}
 }
 
+levelshots/um_breakfloor
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/um_breakfloor
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/um_breakfloor2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/um_breakfloor2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
 levelshots/um_cantina
 {
 	nomipmaps
