@@ -158,6 +158,68 @@ gfx/automap/deltaprime_6_full
 }
 
 //####################
+//##### Endor
+//####################
+//=====Automap=====
+
+gfx/automap/mb2_cmp_endor_18
+	{
+	nopicmip
+	nomipmaps
+	{
+	clampmap gfx/automap/mb2_cmp_endor_18
+	depthfunc equal
+	blendfunc blend
+	rgbGen identity
+	alphaGen const 0.85
+	}
+}
+
+
+gfx/automap/mb2_cmp_endor
+	{
+	nopicmip
+	nomipmaps
+	{
+	map gfx/automap/mb2_cmp_endor
+	blendfunc blend
+	rgbGen identity
+	alphaGen const 0.85
+	}
+}
+
+
+//####################
+//##### Hetzal Prime
+//####################
+//=====Automap=====
+gfx/automap/mb2_cmp_hetzalprime
+{
+    nopicmip
+    {
+        clampmap gfx/automap/mb2_cmp_hetzalprime
+        depthfunc equal
+	blendfunc blend
+        rgbGen identity
+	alphaGen const 0.85
+	
+        
+    }
+}
+
+gfx/automap/mb2_cmp_hetzalprimefull
+{
+    nopicmip
+    nomipmaps
+    {
+        map gfx/automap/mb2_cmp_hetzalprimefull
+        blendfunc blend
+	rgbGen identity
+	alphaGen const 0.85
+    }
+}
+
+//####################
 //##### Onderon
 //####################
 gfx/automap/mb2_cmp_onderon
