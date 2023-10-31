@@ -15,6 +15,59 @@ Automap
 		radargraphicfull "gfx/automap/rescue_full"
 	}
 }
+
+HelpIcons
+{
+	//Side doors hack (secondary objective)
+	HelpIcon0
+	{
+		end0 "secondary"
+		redicon HLP_HACK_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		origin "1975 0 76"
+		sideobjective 1
+	}
+	
+	//obj doors hack (optional)
+	HelpIcon1
+	{
+		radius 800
+		start0
+		end0 "obj_1"
+		redicon HLP_HACK_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+		origin "1224 3792 37"
+		sideobjective 1
+		needvisible 1
+	}
+
+	//Generator Hack
+	HelpIcon2
+	{
+		start0 "obj_1"		
+		end0 "delay"
+		childradius 800
+		redicon HLP_HACKDESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+		origin "0 0 50"
+	}
+
+	//Generator
+	HelpIcon3
+	{
+		start0 "obj_1"	
+		parent 2
+		end0 "obj_2_delay"
+		redicon HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+		origin "24 -504 108"
+	}
+
+}
 roundbegin_target ""
 Rebellion
 {
@@ -28,8 +81,8 @@ Rebellion
 	{
 		goalname "Open CC"
 		final -1
-		message_team1 "We have gained access"
-		message_team2 "Warning: Security Breach"
+		message_team1 "Generator Access Sliced!"
+		message_team2 "Warning: Generator Breach"
 		objdesc "ACCOMPLISH:
 		Unlock the doors to the generator."
 		objgfx "gfx/rescue/obj_1"
@@ -38,8 +91,8 @@ Rebellion
 	{
 		goalname "Open Sec Route"
 		final 1
-		message_team1 ""
-		message_team2 ""
+		message_team1 "Side Routes Opened!"
+		message_team2 "Side Routes Opened!"
 		objdesc "PRIMARY GOAL:
 		Destroy the generator to trap Boba Fett."
 		objgfx "gfx/rescue/obj_2"
