@@ -1,23 +1,23 @@
-textures/ONDERON/onderon_sky
+    textures/ONDERON/onderon_sky
 {
-	qer_editorimage textures/skies/sky
-	q3map_lightRGB 0.923568 0.959106 1.000000
-        q3map_skylight 200 5
-        surfaceparm nomarks
-        surfaceparm sky
-		surfaceparm noimpact
-		surfaceparm nodlight
-        q3map_nolightmap
-		// not sure if this is needed -> q3map_lightmapFilterRadius 0 8
-        // Red, green, blue, intensity, degrees, elevation, deviance, samples
-        q3map_sunExt 1 0.807843 0.55294 1000 140 10 3 8
+	qer_editorImage textures/skies/sky
+	 surfaceparm nomarks
+	surfaceparm sky
+	surfaceparm noimpact
+	surfaceparm nodlight
+	q3map_skylight  250 8 -40 90 0
+	q3map_sunExt 1 0.84 0.61 675 152 14 0 8
+	notc
+	nopicmip
 	skyparms textures/ONDERON/onderon_sky 2048 -
-}
+ }
 
 textures/ONDERON/OND_lt02
 {
 	qer_editorimage	textures/ONDERON/OND_lt02
-	q3map_surfacelight	8000
+	q3map_surfacelight	7000
+	q3map_lightSubdivide	500
+	q3map_backSplash  0.2 0
     {
         map $lightmap
     }
@@ -31,11 +31,34 @@ textures/ONDERON/OND_lt02
         glow
     }
 }
+
+textures/ONDERON/OND_lt02_less
+{
+	qer_editorimage	textures/ONDERON/OND_lt02
+	q3map_surfacelight	800
+	q3map_lightSubdivide	500
+	q3map_backSplash  0.2 0
+    {
+        map $lightmap
+    }
+    {
+        map textures/ONDERON/OND_lt02
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ONDERON/OND_lt02
+        blendFunc GL_ONE GL_ONE
+        glow
+    }
+}
+
 
 textures/ONDERON/OND_lt03
 {
 	qer_editorimage	textures/ONDERON/OND_lt03
-	q3map_surfacelight	8000
+	q3map_surfacelight	8500
+	q3map_lightSubdivide	500
+	q3map_backSplash  0.3 0
     {
         map $lightmap
     }
@@ -50,6 +73,21 @@ textures/ONDERON/OND_lt03
     }
 }
 
+textures/ONDERON/OND_lt02_noemit
+{
+	qer_editorimage	textures/ONDERON/OND_lt02
+    {
+        map $lightmap
+    }
+    {
+        map textures/ONDERON/OND_lt02
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ONDERON/OND_lt02
+        blendFunc GL_ONE GL_ONE
+    }
+}
 
 textures/ONDERON/OND_dor2
 {
@@ -67,80 +105,66 @@ textures/ONDERON/OND_dor2
     }
 }
 
-
-textures/ONDERON/OND_wn02
-{
-	qer_editorimage	textures/ONDERON/OND_wn02
-	qer_trans	0.9
-	surfaceparm	nonopaque
-	surfaceparm	trans
-	q3map_material	Glass
-	q3map_nolightmap
-	q3map_nonplanar
-	q3map_shadeangle 120
-    {
-        map textures/ONDERON/OND_wn02
-        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
-    }
-}
-
 textures/ONDERON/glass_onderon
 {
-	qer_editorimage	textures/ONDERON/OND_wn02
-	qer_trans	0.6
-	surfaceparm	nonopaque
-	surfaceparm	forcefield
-	surfaceparm	trans
-	q3map_material	Glass
-	q3map_nolightmap
-    {
-        map textures/common/etest4
-        blendFunc GL_ONE GL_ONE
-        tcGen environment
+    qer_editorimage    textures/ONDERON/OND_wn02
+    qer_trans    0.9
+   // surfaceparm    alphashadow
+    surfaceparm    lightfilter
+   cull twosided
+   {
+        map textures/ONDERON/OND_wn02
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
     }
     {
-        map textures/ONDERON/OND_wn02
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
     }
 }
 
 textures/ONDERON/glass_stained
-{
-	qer_editorimage	textures/ONDERON/stainedglass
-	qer_trans	0.5
-	surfaceparm	nonopaque
-	surfaceparm	forcefield
-	surfaceparm	trans
-	q3map_material	Glass
-	q3map_nolightmap
-    {
-        map textures/common/etest4
-        blendFunc GL_ONE GL_ONE
-        tcGen environment
+{ 
+    qer_editorimage    textures/ONDERON/stainedglass
+    qer_trans    0.9
+    //surfaceparm    alphashadow
+    surfaceparm    lightfilter
+   cull twosided
+   {
+        map textures/ONDERON/stainedglass
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
     }
     {
-        map textures/ONDERON/stainedglass
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
     }
 }
 
 textures/ONDERON/glass_circle
-{
-	qer_editorimage	textures/ONDERON/skylight3
-	qer_trans	0.8
-	surfaceparm	nonopaque
-	surfaceparm	forcefield
-	surfaceparm	trans
-	q3map_material	Glass
-	q3map_nolightmap
-    {
-        map textures/common/etest4
-        blendFunc GL_ONE GL_ONE
-        tcGen environment
+{ 
+    qer_editorimage    textures/ONDERON/skylight3
+    qer_trans    0.9
+   // surfaceparm    alphashadow
+    surfaceparm    lightfilter
+   cull twosided
+   {
+        map textures/ONDERON/skylight3
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
     }
     {
-        map textures/ONDERON/skylight3
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
     }
 }
 
@@ -196,6 +220,22 @@ textures/ONDERON/pillar
     }
 }
 
+textures/ONDERON/trim1
+{ 
+ 	{
+ 		map $lightmap
+ 	}
+    {
+        map textures/bounty/trim1
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/imperial/env_shiny_floor
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 0.25
+        tcGen environment
+    }
+}
 
 textures/ONDERON/cathedralbrick
 { 
@@ -292,4 +332,44 @@ gfx/mp/siegeicons/onderon/forcefield_access
 		gfx/mp/siegeicons/onderon/forcefield_access
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 	}
+}
+
+textures/onderon/fillshadows
+{
+    qer_editorimage    textures/colors/white
+    qer_trans    0.4
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    surfaceparm nolightmap
+    q3map_lightRGB  1 0.94 0.71
+    q3map_nolightmap
+    q3map_surfacelight 800
+    q3map_lightSubdivide    600
+    {
+    map $whiteimage
+    rgbGen const ( 0.000000 0.000000 0.000000 )
+    blendFunc GL_ONE GL_ONE
+    }
+}
+
+textures/onderon/fillshadows_subtle
+{
+    qer_editorimage    textures/colors/white
+    qer_trans    0.4
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    surfaceparm nolightmap
+    q3map_lightRGB  1 0.94 0.71
+    q3map_nolightmap
+    q3map_surfacelight 100
+    q3map_lightSubdivide    400
+    {
+    map $whiteimage
+    rgbGen const ( 0.000000 0.000000 0.000000 )
+    blendFunc GL_ONE GL_ONE
+    }
 }
