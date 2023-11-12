@@ -6,7 +6,7 @@
 	surfaceparm noimpact
 	surfaceparm nodlight
 	q3map_skylight  250 8 -40 90 0
-	q3map_sunExt 1 0.84 0.61 675 152 14 0 8
+	q3map_sunExt 1 0.82 0.51 675 152 14 0 8
 	notc
 	nopicmip
 	skyparms textures/ONDERON/onderon_sky 2048 -
@@ -15,7 +15,7 @@
 textures/ONDERON/OND_lt02
 {
 	qer_editorimage	textures/ONDERON/OND_lt02
-	q3map_surfacelight	7000
+	q3map_surfacelight	7400
 	q3map_lightSubdivide	500
 	q3map_backSplash  0.2 0
     {
@@ -147,6 +147,27 @@ textures/ONDERON/glass_stained
     }
 }
 
+textures/ONDERON/stainedglass_sun
+{ 
+    qer_editorimage    textures/ONDERON/sundesign_window.tga
+    qer_trans    0.9
+    //surfaceparm    alphashadow
+    surfaceparm    lightfilter
+   cull twosided
+   {
+        map textures/ONDERON/sundesign_window.tga
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
 textures/ONDERON/glass_circle
 { 
     qer_editorimage    textures/ONDERON/skylight3
@@ -181,7 +202,7 @@ textures/onderon/StoneMedallion
     {
         map textures/imperial/env_shiny_floor
         blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen const 0.25
+        alphaGen const 0.15
         tcGen environment
     }
 }
@@ -198,7 +219,7 @@ textures/onderon/sandygray
     {
         map textures/imperial/env_shiny_floor
         blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen const 0.25
+        alphaGen const 0.15
         tcGen environment
     }
 }
@@ -215,7 +236,7 @@ textures/ONDERON/pillar
     {
         map textures/imperial/env_shiny_floor
         blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen const 0.25
+        alphaGen const 0.15
         tcGen environment
     }
 }
@@ -232,7 +253,7 @@ textures/ONDERON/trim1
     {
         map textures/imperial/env_shiny_floor
         blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen const 0.25
+        alphaGen const 0.15
         tcGen environment
     }
 }
@@ -249,7 +270,7 @@ textures/ONDERON/cathedralbrick
     {
         map textures/imperial/env_shiny_floor
         blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen const 0.25
+        alphaGen const 0.15
         tcGen environment
     }
 }
@@ -345,7 +366,7 @@ textures/onderon/fillshadows
     surfaceparm nolightmap
     q3map_lightRGB  1 0.94 0.71
     q3map_nolightmap
-    q3map_surfacelight 800
+    q3map_surfacelight 200
     q3map_lightSubdivide    600
     {
     map $whiteimage
@@ -367,6 +388,26 @@ textures/onderon/fillshadows_subtle
     q3map_nolightmap
     q3map_surfacelight 100
     q3map_lightSubdivide    400
+    {
+    map $whiteimage
+    rgbGen const ( 0.000000 0.000000 0.000000 )
+    blendFunc GL_ONE GL_ONE
+    }
+}
+
+textures/onderon/fillshadows_stainedglass
+{
+    qer_editorimage    textures/colors/orange
+    qer_trans    0.4
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    surfaceparm nolightmap
+    q3map_lightRGB  1 0.501961 0.172549
+    q3map_nolightmap
+    q3map_surfacelight 150
+    q3map_lightSubdivide    200
     {
     map $whiteimage
     rgbGen const ( 0.000000 0.000000 0.000000 )
