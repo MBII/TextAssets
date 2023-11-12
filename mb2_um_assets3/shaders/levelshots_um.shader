@@ -717,6 +717,16 @@ levelshots/um_football2
 	}
 }
 
+levelshots/um_glass
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/um_glass
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
 
 levelshots/um_goodandevil
 {
