@@ -21,3 +21,38 @@ textures/rescue/generator_screen_unlocked
     }
 }
 
+textures/rescue/byss_light2_yellow
+{
+	qer_editorimage	textures/rescue/byss_light2_yellow
+    {
+        map $lightmap
+    }
+    {
+        map textures/rescue/byss_light2_yellow
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/rescue/byss_light2_yellow_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/rescue/byss_light2_white
+{
+	qer_editorimage	textures/rescue/byss_light2_white
+    {
+        map $lightmap
+    }
+    {
+        map textures/rescue/byss_light2_white
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/rescue/byss_light2_white_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
