@@ -3,39 +3,29 @@
 ClassInfo
 {
 	name			"_h_h_rako"
-	weapons			WP_MELEE|WP_DEMP2|WP_FLECHETTE
-	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_A280,1|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_STAMINA,3|MB_ATT_ARC_RIFLE_SCOPE|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1
+	weapons			WP_MELEE|WP_DEMP2|WP_FLECHETTE|WP_PULSE_NADE
+	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_A280,2|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_STAMINA,3|MB_ATT_ARC_RIFLE_SCOPE|MB_ATT_HEALING,2|MB_ATT_BESKAR,2|MB_ATT_PULSE_GRENADES,1
 	maxhealth		125
-	maxarmor		125
+	maxarmor		80
 	Forcepool		7
 	forcepowers		FP_LEVITATION,1
-	speed          		 1.05
-	model			"Rako_Hardeen"
-	skin			"default"
+	speed          		 1.03
+	model			"jangofett"
+	skin			"orange"
 	customred		0.8
 	customgreen		0.751
 	customblue		0.6
 	MBClass			MB_CLASS_ARCTROOPER
+	classNumberLimit	2
+	uishader 		"models/players/jangofett/mb2_icon_orange"
 	classNumberLimit	1
-	uishader 		"models/players/Rako_Hardeen/mb2_icon_default"
-	headSwapModel "clonetrooper_p2"
-	headSwapSkin "rgb_jetpack_only"
-	classNumberLimit	1
-	rateoffire			1.2
 	jetpackFuelCooldown 2000
 	jetpackFuelAmount 	5 
-	damageGiven		1.2
 	WP_FlechetteFlags HELD_ALTRELOAD
+
+	rateoffire			1.15
+	damageGiven         1.05
 	
-	jetpackThrustSound	"sound/jetpack/thrust"
-	jetpackIdleSound		"sound/jetpack/idle"
-	jetpackStartSound	"sound/jetpack/ignite"
-	jetpackJetOffset		"0, 0, 0"
-	jetpackJet2Offset		"0, 0, 0"
-	jetpackJetTag	*jetpack_jet_0
-	jetpackJet2Tag	*jetpack_jet2_0		
-	//jetpackJetTag	"*holster_launcher"
-	//jetpackJet2Tag	"*holster_launcher2"	
 }
 
 WeaponInfo0
@@ -43,43 +33,61 @@ WeaponInfo0
 	WeaponToReplace		WP_FLECHETTE
 	WeaponBasedOff		WP_FLECHETTE	
 	NewWorldModel		"models/weapons2/DC-17m/sniper.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
 	Icon			"gfx/hud/w_icon_dc-17mS"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"   				//Optional: New muzzle effect
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 				//Optional: New alt muzzle effect
 	MissileEffect		"blaster/Shot01B"
 	AltMissileEffect 	"blaster/Shot01B"
-	//FlashSound0		"sound/weapons/dc17m/fire.mp3"
+	FlashSound0		"sound/weapons/dc17m/fire.wav"
+	AltFlashSound0 "sound/weapons/dc17m/alt_fire.mp3"
 	WeaponName		"DC-17m"
+	SelectSound   "sound/weapons/dc17m/select.mp3"
+	customammo 800
+	FPMult		1.06
 }
 WeaponInfo1
 {
 	WeaponToReplace		WP_DEMP2
 	WeaponBasedOff		WP_DEMP2
 	NewWorldModel		"models/weapons2/DE-10/blaster_pistol_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	NewViewModel		"models/weapons2/DE-10/blaster_pistol.md3"
 	Icon			"gfx/hud/w_icon_DE-10"
-	WeaponName		"Pistol"
+	MuzzleEffect		"DE-10/muzzle_flash"
+	AltMuzzleEffect		"DE-10/altmuzzle_flash"
+	WeaponName		"DE-10"
+	MissileEffect        "DE-10/shot"
+    Missile3Effect        "DE-10/shot"
+    AltMissileEffect    "DE-10/shot"
+    PowerupShotEffect    "DE-10/shot"
+    ChargeEffect        "gfx/effects/cloneFrontFlash"
+	FlashSound0		"sound/weapons/de10/fire.wav"
+	altFlashSound0	"sound/weapons/de10/fire.wav"
 	customAmmo 		600
+	FPMult 1.13
 }
 
-description	"Rako Hardeen
+description	"Archetype: Skirata Mandalorian
 
 Class: ARC Trooper.
 Class Summary: 
 A dexterous jetpack sniper.
 
-Weaponry:
-- Melee
-- Pistol (2)
-- DC-17m Sniper (based on Westar M5 level 2)
-- Deals 20% more damage but has 20% less rate of Fire
+Weapons:
+- DC-17m w/ Sniper Mode *
+- DE-10 (2)
+- Pulse Grenade (1)
+
+* Special Weapons Description:
+--- DC-17m
+- Based on Westar M5 (2)
+- Deals 13% increased damage
 
 Abilities: 
 - Dexterity (3)
 - Stamina (3)
-- Heal (1)
-- Blast Armour (1)
+- Heal (2)
+- Beskar (2)
 - Jetpack
 
-While celebrating his high-profile kill at Trueping's cantina, Rako Hardeen was summoned into the back room to meet his employer and receive payment. There, he was met by Jedi Masters Mace Windu and Obi-Wan Kenobi–his supposed victim, now physically altered to look like him. Hardeen was apprehended by the two Jedi, and his identity assumed by Kenobi in order to plant himself in a Republic prison. Hardeen's reputation for having killed a Jedi was essential to the plan, as Kenobi used it to gain the trust of other prisoners and attract the attention of Moralo Eval, from whom Kenobi was to acquire intel that would help the Jedi prevent a kidnapping attempt."
+Clan Skirata was a Mandalorian clan aligned with the Republic during the Clone Wars era. The head of the clan, Kal Skirata, expanded his tribe by adopting an elite clone unit, the Omega Squad and the Null-class ARC Troopers. Their leader was known for training many clone commandos in his life, passing on the Mandalorian ways of life to them."
