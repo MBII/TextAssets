@@ -1,25 +1,27 @@
 
-//Siege class def file.
+//Siege class def file. Created by Goosto
 
 ClassInfo
 {
-	name			"um_breakfloor_Wookiee"
-	weapons			WP_MELEE|WP_BLASTER|WP_FRAG_NADE|WP_BLASTER_PISTOL
+	name			"bf_t_gunner"
+	weapons			WP_MELEE|WP_BLASTER|WP_BLASTER_PISTOL
 	maxhealth		300
 	maxarmor		0
-	model			"wookieev2"
-	skin			"default4"
-	attributes		MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_BLASTER|MB_ATT_PISTOL|MB_ATT_SPY_DISGUISE,3|MB_ATT_FRAGS,1|MB_ATT_FLIPKICK|
+	model			"trandoshan"			//this is optional, if it's here it forces the model to this.
+	skin			"merc"
+	attributes		MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_BLASTER|MB_ATT_PISTOL|MB_ATT_FLIPKICK
 	classflags 		CFL_SHOTGUN|CFL_HEAVYMELEE|CFL_BLOODYMELEE|CFL_RUNFASTMELEE
-	holdables		HI_CLOAK
-	uishader		"models/players/wookieev2/mb2_icon_default4"
+	rageSoundOverride "sound/chars/trandoshan1/misc/taunt3.mp3"
+	bargeSoundOverride "sound/chars/trandoshan1/misc/taunt5.mp3"
+	uishader		"gfx/um_icons/tti_trand"
 	MBClass			MB_CLASS_WOOKIE
+	classNumberLimit	6
 	damageTaken		0.01
 	forcepowers		FP_LEVITATION,1
-	forcepool		8
-		saber1  css_knife
-	saberstyle		SS_FAST
+	forcepool		36
 	forcepowers		FP_SABER_OFFENSE,3
+	WP_BlasterPistolFlags	HELD_ALTRELOAD	
+	WP_BlasterFlags 	HELD_ALTRELOAD
 }
 
 WeaponInfo0
@@ -35,16 +37,15 @@ WeaponInfo0
 	MissileMissEffect "halo_smg/wall_impact"
 	FlashSound0		"sound/css_wep/m3super90_fire.wav"
 	SelectSound		"sound/css_wep/buttonclickrelease.wav"
-	customAmmo		440
+	customAmmo		220
 	clipSize  44
 	primHitscanShot		1
 	primHitscanTracer	10
 	altFireEnabled 		0
 	primGore		1
 	altGore			1
-
+	ReloadTimeModifier 1.25
 }
-
 
 WeaponInfo1
 {
@@ -61,33 +62,41 @@ WeaponInfo1
 	MissileMissEffect "halo_smg/wall_impact"
 	FlashSound0		"sound/css_wep/usp_fire.wav"
 	SelectSound		"sound/css_wep/buttonclickrelease.wav"
-	customAmmo		400
-	clipSize  40
+	customAmmo		216
+	clipSize  32
 	primHitscanShot		1
 	primHitscanTracer	10
 	altFireEnabled 		0
 	primGore		1
 	altGore			1
 	idleAnim  TORSO_WEAPONIDLE2
-	
 }
 
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER  
+	WeaponName		"Poop Stick"
+	NewWorldModel		"models/weapons2/wooden_stick/wooden_stick.glm"
+	NewViewModel		"models/weapons2/wooden_stick/wooden_stick.md3"
+	Icon			"models/weapons2/wooden_stick/wooden_stick.png"
+	SelectSound		"sound/css_wep/buttonclickrelease.wav"
+	primGore		1
+	altFireEnabled 1
+}
 
-description	"A Wookiee equipped with the means to break the floor beneath him.
+description	"Trandoshan Gunner
 
 Weapons:
 Melee
 Shotgun
 Pistol
-Frag Grenade
 
 Attributes:
 Strength (1)
 Fury (2)
-Flipkick
-Slightly enhanced jumps
+Flipkick [Tip: You can climb blocks by using this wisely]
+Firearms proficiency
 
-Inventory:
-Disguise
-Cloak
+Trandoshan Gunners were known for kicking people's fucking asses
 "
