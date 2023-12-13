@@ -52,6 +52,25 @@ textures/ONDERON/OND_lt02_less
     }
 }
 
+textures/ONDERON/OND_lt02_stronghold
+{
+	qer_editorimage	textures/ONDERON/OND_lt02
+	q3map_surfacelight	2000
+	q3map_lightSubdivide	500
+	q3map_backSplash  0.2 0
+    {
+        map $lightmap
+    }
+    {
+        map textures/ONDERON/OND_lt02
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/ONDERON/OND_lt02
+        blendFunc GL_ONE GL_ONE
+        glow
+    }
+}
 
 textures/ONDERON/OND_lt03
 {
@@ -126,6 +145,27 @@ textures/ONDERON/glass_onderon
     }
 }
 
+textures/ONDERON/floor_stainedglass
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	sort	seeThrough
+	polygonOffset
+	q3map_nolightmap	
+    {
+        map textures/ONDERON/floor_stainedglass
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
 textures/ONDERON/glass_stained
 { 
     qer_editorimage    textures/ONDERON/stainedglass
@@ -138,6 +178,69 @@ textures/ONDERON/glass_stained
         alphaFunc GE128
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
+textures/ONDERON/stainedglass_blur
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	sort	seeThrough
+	polygonOffset
+	q3map_nolightmap	
+    {
+        map textures/ONDERON/stainedglass_blur
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
+textures/ONDERON/stainedglass_blur2
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	sort	seeThrough
+	polygonOffset
+	q3map_nolightmap	
+    {
+        map textures/ONDERON/stainedglass_blur2
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
+textures/ONDERON/stainedglass_blur4
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	sort	seeThrough
+	polygonOffset
+	q3map_nolightmap	
+    {
+        map textures/ONDERON/stainedglass_blur4
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE
     }
     {
          map $lightmap
@@ -168,6 +271,68 @@ textures/ONDERON/stainedglass_sun
     }
 }
 
+textures/ONDERON/bluestainedglass
+{ 
+    qer_editorimage    textures/ONDERON/bluestainedglass.tga
+    qer_trans    0.9
+    //surfaceparm    alphashadow
+    surfaceparm    lightfilter
+   cull twosided
+   {
+        map textures/ONDERON/bluestainedglass.tga
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
+textures/ONDERON/stainedglass4
+{ 
+    qer_editorimage    textures/ONDERON/stainedglass4.tga
+    qer_trans    0.9
+    //surfaceparm    alphashadow
+    surfaceparm    lightfilter
+   cull twosided
+   {
+        map textures/ONDERON/stainedglass4.tga
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
+textures/ONDERON/sundesign_window_blur
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	sort	seeThrough
+	polygonOffset
+	q3map_nolightmap	
+    {
+        map textures/ONDERON/sundesign_window_blur
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
 textures/ONDERON/glass_circle
 { 
     qer_editorimage    textures/ONDERON/skylight3
@@ -180,6 +345,27 @@ textures/ONDERON/glass_circle
         alphaFunc GE128
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
+    }
+    {
+         map $lightmap
+         rgbGen identity
+         blendFunc GL_DST_COLOR GL_ZERO
+         depthFunc equal
+    }
+}
+
+textures/ONDERON/skylight3_blur
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	sort	seeThrough
+	polygonOffset
+	q3map_nolightmap	
+    {
+        map textures/ONDERON/skylight3_blur
+        alphaFunc GE128
+        blendFunc GL_SRC_ALPHA GL_ONE
     }
     {
          map $lightmap
@@ -395,6 +581,26 @@ textures/onderon/fillshadows_subtle
     }
 }
 
+textures/onderon/fillshadows_subtle_warmer
+{
+    qer_editorimage    textures/colors/orange
+    qer_trans    0.4
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    surfaceparm nolightmap
+    q3map_lightRGB  1 0.84 0.41
+    q3map_nolightmap
+    q3map_surfacelight 100
+    q3map_lightSubdivide    400
+    {
+    map $whiteimage
+    rgbGen const ( 0.000000 0.000000 0.000000 )
+    blendFunc GL_ONE GL_ONE
+    }
+}
+
 textures/onderon/fillshadows_stainedglass
 {
     qer_editorimage    textures/colors/orange
@@ -407,7 +613,7 @@ textures/onderon/fillshadows_stainedglass
     q3map_lightRGB  1 0.501961 0.172549
     q3map_nolightmap
     q3map_surfacelight 150
-    q3map_lightSubdivide    200
+    q3map_lightSubdivide    300
     {
     map $whiteimage
     rgbGen const ( 0.000000 0.000000 0.000000 )
