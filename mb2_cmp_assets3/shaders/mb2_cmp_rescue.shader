@@ -78,11 +78,11 @@ textures/rescue/byss_light2
         map $lightmap
     }
     {
-        map textures/rescue/byss_light2
+        map textures/byss/byss_light2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/rescue/byss_light2_glow
+        map textures/byss/byss_light2_glow
         blendFunc GL_ONE GL_ONE
         glow
         rgbGen identity
