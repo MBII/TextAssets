@@ -1,3 +1,5 @@
+//Created by Goosto
+
 textures/breakfloor/doortrim01d_Goosto
 {
     {
@@ -13,4 +15,16 @@ textures/breakfloor/doortrim01d_Goosto
         glow
         rgbGen wave sin 1 0.15 0 2
     }
+}
+
+gfx/hud/breakfloor/w_icon_bf_ball1
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/hud/breakfloor/w_icon_bf_ball1
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
 }

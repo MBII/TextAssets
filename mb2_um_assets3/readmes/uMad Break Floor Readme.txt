@@ -1,13 +1,38 @@
----INCOMING TRANSMISSION---
+                                                                             ,--,                                              
+                                                          ,--.            ,---.'|        ,----..        ,----..                
+    ,---,.  ,-.----.        ,---,.    ,---,           ,--/  /|     ,---,. |   | :       /   /   \      /   /   \   ,-.----.    
+  ,'  .'  \ \    /  \     ,'  .' |   '  .' \       ,---,': / '   ,'  .' | :   : |      /   .     :    /   .     :  \    /  \   
+,---.' .' | ;   :    \  ,---.'   |  /  ;    '.     :   : '/ /  ,---.'   | |   ' :     .   /   ;.  \  .   /   ;.  \ ;   :    \  
+|   |  |: | |   | .\ :  |   |   .' :  :       \    |   '   ,   |   |   .' ;   ; '    .   ;   /  ` ; .   ;   /  ` ; |   | .\ :  
+:   :  :  / .   : |: |  :   :  |-, :  |   /\   \   '   |  /    :   :  :   '   | |__  ;   |  ; \ ; | ;   |  ; \ ; | .   : |: |  
+:   |    ;  |   |  \ :  :   |  ;/| |  :  ' ;.   :  |   ;  ;    :   |  |-, |   | :.'| |   :  | ; | ' |   :  | ; | ' |   |  \ :  
+|   :     \ |   : .  /  |   :   .' |  |  ;/  \   \ :   '   \   |   :  ;/| '   :    ; .   |  ' ' ' : .   |  ' ' ' : |   : .  /  
+|   |   . | ;   | |  \  |   |  |-, '  :  | \  \ ,' |   |    '  |   |   .' |   |  ./  '   ;  \; /  | '   ;  \; /  | ;   | |  \  
+'   :  '; | |   | ;\  \ '   :  ;/| |  |  '  '--'   '   : |.  \ '   :  '   ;   : ;     \   \  ',  /   \   \  ',  /  |   | ;\  \ 
+|   |  | ;  :   ' | \.' |   |    \ |  :  :         |   | '_\.' |   |  |   |   ,/       ;   :    /     ;   :    /   :   ' | \.' 
+|   :   /   :   : :-'   |   :   .' |  | ,'         '   : |     |   :  \   '---'         \   \ .'       \   \ .'    :   : :-'   
+|   | ,'    |   |.'     |   | ,'   `--''           ;   |,'     |   | ,'                  `---`          `---`      |   |.'     
+`----'      `---'       `----'                     '---'       `----'                                              `---'       
+                                                                                                                               
 
-HELLO EVERYONE IT'S GOOSTO
+*kzzhk* 
 
-THIS IS MY FIRST MAP 
+---INCOMING TRANSMISSION- IT'S FROM GOOSTO!---
 
-IT'S MY ATTEMPT AT TRANSLATING THE CLASSIC CUSTOM SOURCE MAP BREAKFLOOR FOR MB2
+HELLO WHOEVER DECIDED TO READ THIS
 
-IT WAS ALSO A PROJECT DONE TO FAMILIARIZE MYSELF WITH NETRADIANT
+WELCOME TO MY FIRST MBII MAP
 
-SPECIAL THANKS TO FRENZY, SANDY, AND LINDSEY FOR MAPPING HELP
+WHY DID I DO THIS YOU ASK
+
+I DID IT TO SEE IF I COULD
+
+TO KEEP THE OLD SCHOOL SHOOTER CANDLES BURNING BRIGHT
+
+AND TO LEARN NETRADIANT
+
+SPECIAL THANKS TO FRENZY, SANDY, LINDSEY, MARSHALL, JUNEBUG FOR THEIR WISDOMS
 
 ---END OF TRANSMISSION---
+
+*kzzhk*
