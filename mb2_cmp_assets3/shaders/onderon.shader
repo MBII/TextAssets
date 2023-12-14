@@ -536,7 +536,7 @@ gfx/mp/siegeicons/onderon/forcefield_access
 	nopicmip
 	nomipmaps
 	{
-		map gfx/mp/siegeicons/onderon/forcefield_access
+		gfx/mp/siegeicons/onderon/forcefield_access
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 	}
 }
