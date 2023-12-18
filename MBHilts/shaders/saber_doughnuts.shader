@@ -236,52 +236,52 @@ models/weapons2/saber_dough/saber_zallow_diff
     }
 }
 
-models/weapons2/sharad_sabers/saber_w1
+models/weapons2/saber_dough/saber_asharad1
 {
 	{
-		map models/weapons2/sharad_sabers/saber_w1
+		map models/weapons2/saber_dough/saber_asharad1
 		rgbGen lightingDiffuse
 	}
 	{
-        map models/weapons2/sharad_sabers/saber_s1
+        map models/weapons2/saber_dough/saber_asharad1_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
     }
 }
 
-models/weapons2/sharad_sabers/saber_w2
+models/weapons2/saber_dough/saber_asharad2
 {
 	{
-		map models/weapons2/sharad_sabers/saber_w2
+		map models/weapons2/saber_dough/saber_asharad2
 		rgbGen lightingDiffuse
 	}
 	{
-        map models/weapons2/sharad_sabers/saber_s2
+        map models/weapons2/saber_dough/saber_asharad2_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
     }
 }
 
-models/weapons2/sharad_sabers/detail
+models/weapons2/saber_dough/asharad_detail
 {
 	cull	twosided
 	{
-		map models/weapons2/sharad_sabers/detail
+		map models/weapons2/saber_dough/asharad_detail
        	rgbGen lightingDiffuse
 		alphaFunc GE128
 	}
 }
 
-models/weapons2/saber_cjr/saber_w
+models/weapons2/saber_dough/saber_galen4
 {
     {
-        map models/weapons2/saber_cjr/saber_w
+        map models/weapons2/saber_dough/saber_galen4
         rgbGen lightingDiffuse
     }
     {
-        map models/weapons2/saber_cjr/saber_s
+        map models/weapons2/saber_dough/saber_galen4_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -491,4 +491,19 @@ models/weapons2/saber_dough/saber_stellangios_diff
         detail
     }
 
+}
+
+// Shader for Sith Stalker Saber //
+models/weapons2/saber_dough/saber_stalker
+{
+	{
+		map models/weapons2/saber_dough/saber_stalker
+		rgbGen lightingDiffuse
+	}
+	{
+        map models/weapons2/saber_dough/saber_stalker_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+    }
 }

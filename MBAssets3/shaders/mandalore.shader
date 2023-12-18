@@ -1,27 +1,23 @@
-models/players/mandalore/body
+models/players/mandalore/MandH
 {
-	q3map_onlyvertexlighting
-	cull	twosided
-	
     {
-        map models/players/mandalore/body
-		blendFunc GL_ONE GL_ZERO
+        map models/players/mandalore/MandH
         rgbGen lightingDiffuse
     }
 	{
-        map models/players/mandalore/reflect
-        blendFunc GL_ONE GL_ONE
-		rgbGen lightingDiffuse
-		alphaGen const 1
+        map models/players/t3m4/t3env
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
         tcGen environment
     }
 	{
-        map models/players/mandalore/body
+        map models/players/mandalore/MandH
+        rgbGen lightingDiffuse
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
     }
 	{
-        map models/players/mandalore/body_spec
+        map models/players/mandalore/MandH_spec
        	blendFunc GL_SRC_ALPHA GL_ONE
        	detail
         alphaGen lightingSpecular

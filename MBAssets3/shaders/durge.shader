@@ -1,6 +1,5 @@
 models/players/durge/arms
 {
-	cull	twosided
 	{
 		map models/players/durge/Arms
 		blendFunc GL_ONE GL_ZERO
@@ -66,7 +65,6 @@ models/players/durge/helmet
 
 models/players/durge/breastplate
 {
-	cull	twosided
 	{
 		map models/players/durge/breastplate
 		blendFunc GL_ONE GL_ZERO
@@ -88,7 +86,6 @@ models/players/durge/breastplate
 
 models/players/durge/jetpack
 {
-	cull	twosided
 	{
 		map models/players/durge/jetpack
 		blendFunc GL_ONE GL_ZERO

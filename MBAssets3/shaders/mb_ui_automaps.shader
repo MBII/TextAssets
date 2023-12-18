@@ -1,4 +1,10 @@
 //####################
+//    !!! NOTE !!!
+// nomipmaps also sets nopicmip, so no need to set both simultaneously
+//####################
+
+
+//####################
 //##### Corellia
 //####################
 gfx/automap/mb2_corellia1
@@ -36,10 +42,9 @@ gfx/automap/mb2_corellia3
 
 gfx/automap/mb2_corellia1full
 {
-	nopicmip
 	nomipmaps
     {
-        clampmap gfx/automap/mb2_corellia1full
+        map gfx/automap/mb2_corellia1full
 		blendfunc blend
 		alphaGen vertex
     }
@@ -47,10 +52,9 @@ gfx/automap/mb2_corellia1full
 
 gfx/automap/mb2_corellia2full
 {
-	nopicmip
 	nomipmaps
     {
-        clampmap gfx/automap/mb2_corellia2full
+        map gfx/automap/mb2_corellia2full
 		blendfunc blend
 		alphaGen vertex
     }
@@ -58,10 +62,9 @@ gfx/automap/mb2_corellia2full
 
 gfx/automap/mb2_corellia3full
 {
-	nopicmip
 	nomipmaps
     {
-        clampmap gfx/automap/mb2_corellia3full
+        map gfx/automap/mb2_corellia3full
 		blendfunc blend
 		alphaGen vertex
     }
@@ -69,7 +72,6 @@ gfx/automap/mb2_corellia3full
 
 gfx/automap/mb2_duel_corellia1
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia1
@@ -81,7 +83,6 @@ gfx/automap/mb2_duel_corellia1
 
 gfx/automap/mb2_duel_corellia2
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia2
@@ -93,7 +94,6 @@ gfx/automap/mb2_duel_corellia2
 
 gfx/automap/mb2_duel_corellia1full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia1
@@ -104,7 +104,6 @@ gfx/automap/mb2_duel_corellia1full
 
 gfx/automap/mb2_duel_corellia2full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_corellia2
@@ -134,12 +133,197 @@ gfx/mplevels/mb2_corellia/layout_duel
     }
 }
 
+//####################
+//##### CTF BACKSTREETS
+//####################
 
+gfx/automap/mb2_ctf_backstreets
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_backstreets
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_backstreetsfull
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_backstreetsfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_backstreets/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_backstreets/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_ctf_backstreets/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### CTF DEATHSTAR
+//####################
+
+gfx/automap/mb2_ctf_deathstar0
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar0full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar0full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar1full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_deathstar2full
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_deathstar2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+//####################
+//##### CTF DOTF
+//####################
+
+gfx/automap/mb2_ctf_dotf
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_dotf
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_dotffull
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_dotffull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_dotf/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_dotf/map
+		blendfunc blend
+		rgbGen vertex
+    }
+//    {
+//		map gfx/mplevels/mb2_ctf_dotf/map_overlay
+//		blendfunc blend
+//		rgbGen identity
+//    }
+}
+
+//####################
+//##### CTF STARKILLER BASE
+//####################
+
+gfx/automap/mb2_ctf_starkiller_base
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_starkiller_basefull
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_starkiller_basefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_starkiller_base/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_starkiller_base/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
 
 //####################
 //##### DEATHSTAR
 //####################
-
 gfx/automap/mb2_deathstar0
 {
 	nopicmip
@@ -153,7 +337,6 @@ gfx/automap/mb2_deathstar0
 
 gfx/automap/mb2_deathstar0full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar0full
@@ -175,7 +358,6 @@ gfx/automap/mb2_deathstar1
 
 gfx/automap/mb2_deathstar1full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar1full
@@ -197,7 +379,6 @@ gfx/automap/mb2_deathstar2
 
 gfx/automap/mb2_deathstar2full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar2full
@@ -219,7 +400,6 @@ gfx/automap/mb2_deathstar3
 
 gfx/automap/mb2_deathstar3full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_deathstar3full
@@ -304,9 +484,33 @@ gfx/mp/mplevels/mb2_deathstar/DeathStarLayout3
 }
 
 //####################
+//##### DUEL RAVAGER
+//####################
+gfx/automap/mb2_duel_ravager
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_duel_ravager
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+gfx/automap/mb2_duel_ravagerfull
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_duel_ravagerfull
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+//####################
 //##### DXUN
 //####################
-
 gfx/automap/mb2_dxunbot
 {
 	nopicmip
@@ -320,7 +524,6 @@ gfx/automap/mb2_dxunbot
 
 gfx/automap/mb2_dxunbotfull
 {
-	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxunbotfull
@@ -342,7 +545,6 @@ gfx/automap/mb2_dxunmid
 
 gfx/automap/mb2_dxunmidfull
 {
-	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxunmidfull
@@ -364,7 +566,6 @@ gfx/automap/mb2_dxuntop
 
 gfx/automap/mb2_dxuntopfull
 {
-	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxuntopfull
@@ -384,12 +585,68 @@ gfx/mplevels/mb2_dxun/map
 }
 
 //####################
-//##### ERAVANA
+//##### ECHOBASE
 //####################
 
-gfx/automap/mb2_eravana
+gfx/automap/mb2_echobase1
 {
 	nopicmip
+	{
+		clampmap gfx/automap/mb2_echobase1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+gfx/automap/mb2_echobase2
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_echobase2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+gfx/automap/mb2_echobase1full
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/automap/mb2_echobase1full
+		blendfunc blend
+		alphaGen vertex
+	}
+}
+
+gfx/automap/mb2_echobase2full
+{
+	nopicmip
+	nomipmaps
+	{
+		map gfx/automap/mb2_echobase2full
+		blendfunc blend
+		alphaGen vertex
+	}
+}
+
+gfx/mplevels/mb2_echobase/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_echobase/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### ERAVANA
+//####################
+gfx/automap/mb2_eravana
+{
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana
@@ -401,7 +658,6 @@ gfx/automap/mb2_eravana
 
 gfx/automap/mb2_eravana1
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana1
@@ -413,7 +669,6 @@ gfx/automap/mb2_eravana1
 
 gfx/automap/mb2_eravana2
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana2
@@ -425,7 +680,6 @@ gfx/automap/mb2_eravana2
 
 gfx/automap/mb2_eravanafull
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana
@@ -436,7 +690,6 @@ gfx/automap/mb2_eravanafull
 
 gfx/automap/mb2_eravana1full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana1
@@ -447,7 +700,6 @@ gfx/automap/mb2_eravana1full
 
 gfx/automap/mb2_eravana2full
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_eravana2
@@ -461,6 +713,76 @@ gfx/mplevels/mb2_eravana/map
     nopicmip
     {
         map gfx/mplevels/mb2_eravana/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### KAMINO
+//####################
+
+gfx/automap/mb2_kamino
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_kamino
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_kaminofull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_kaminofull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_kamino/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_kamino/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL KAMINO
+//####################
+
+gfx/automap/mb2_duel_kamino
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_kamino
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_kaminofull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_kamino
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_kamino/map_duel
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_kamino/map_duel
         blendfunc blend
         rgbGen vertex
     }
@@ -483,7 +805,6 @@ gfx/automap/mb2_lunarbase
 
 gfx/automap/mb2_lunarbasefull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_lunarbasefull
@@ -505,7 +826,6 @@ gfx/automap/mb2_lunarbase2
 
 gfx/automap/mb2_lunarbase2full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_lunarbase2full
@@ -545,9 +865,65 @@ gfx/mplevels/mb2_lunarbase/map2
 }
 
 //####################
+//##### Manaan
+//####################
+//=====Automap=====
+gfx/automap/mb2_manaan
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_manaan
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_manaan1
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_manaan1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_manaanfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_manaanfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_manaan1full
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_manaan1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mp/mplevels/mb2_manaan/map
+{
+    nopicmip
+    {
+        map gfx/mp/mplevels/mb2_manaan/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+
+//####################
 //##### MYGEETO
 //####################
-
 gfx/automap/mb2_mygeeto1
 {
 	nopicmip
@@ -561,7 +937,6 @@ gfx/automap/mb2_mygeeto1
 
 gfx/automap/mb2_mygeeto1full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_mygeeto1full
@@ -583,7 +958,6 @@ gfx/automap/mb2_mygeeto2
 
 gfx/automap/mb2_mygeeto2full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_mygeeto2full
@@ -603,9 +977,166 @@ gfx/mplevels/mb2_mygeeto/map
 }
 
 //####################
+//##### SMUGGLER
+//####################
+gfx/automap/mb2_smuggler
+    {
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_smuggler
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_smuggler2
+    {
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_smuggler2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_smugglerfull
+    {
+	nomipmaps
+    {
+		map gfx/automap/mb2_smugglerfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_smuggler2full
+    {
+	nomipmaps
+    {
+		map gfx/automap/mb2_smuggler2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_smuggler/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_smuggler/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### SNOWFACILITY
+//####################
+gfx/automap/mb2_snowfacility
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_snowfacility
+        blendfunc blend
+        alphaGen vertex
+        depthfunc equal
+    }
+}
+
+gfx/automap/mb2_snowfacilityfull
+{
+    nopicmip
+    nomipmaps
+    {
+        map gfx/automap/mb2_snowfacilityfull
+        blendfunc blend
+        alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_snowfacility/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_snowfacility/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### STARKILLER BASE
+//####################
+gfx/automap/mb2_starkiller_base
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_starkiller_basefull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_starkiller_basefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_starkiller_base/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_starkiller_base/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL STARKILLER BASE
+//####################
+gfx/automap/mb2_duel_starkiller_base
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_starkiller_basefull
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_starkiller_base
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_starkiller_base/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_starkiller_base/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### THEED
 //####################
-
 gfx/automap/mb2_theed
 {
 	nopicmip
@@ -619,7 +1150,6 @@ gfx/automap/mb2_theed
 
 gfx/automap/mb2_theedfull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_theedfull
@@ -641,7 +1171,6 @@ gfx/mplevels/mb2_theed/map
 //####################
 //##### YAVIN ASSAULT
 //####################
-
 gfx/automap/mb2_yavinassault
 {
 	nopicmip
@@ -655,7 +1184,6 @@ gfx/automap/mb2_yavinassault
 
 gfx/automap/mb2_yavinassaultfull
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_yavinassaultfull
@@ -677,7 +1205,6 @@ gfx/mplevels/mb2_yavinassault/map
 //####################
 //##### DUEL EMPEROR
 //####################
-
 gfx/automap/mb2_duel_emperor
 {
 	nopicmip
@@ -691,7 +1218,6 @@ gfx/automap/mb2_duel_emperor
 
 gfx/automap/mb2_duel_emperorfull
 {
-	nopicmip
 	nomipmaps
     {
 		clampmap gfx/automap/mb2_duel_emperor
@@ -711,9 +1237,145 @@ gfx/mplevels/mb2_duel_emperor/map
 }
 
 //####################
+//##### DUEL MALACHOR
+//####################
+gfx/automap/mb2_duel_malachor
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_malachor
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_malachor_full
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_malachor_full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_malachor/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_malachor/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL RAVAGER
+//####################
+gfx/automap/mb2_duel_ravager
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_ravager
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_ravagerfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_ravagerfull
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/mplevels/mb2_ravager/ravagermap
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ravager/ravagermap
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL REVAN
+//####################
+gfx/automap/mb2_duel_revan
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_revan
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_revanfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_revanfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_leviathan/duel_leviathan
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_leviathan/duel_leviathan
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### DUEL WBW
+//####################
+gfx/automap/mb2_duel_wbw
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_wbw
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_wbwfull
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_wbw
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_wbw/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_duel_wbw/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### DUEL YAVIN 4
 //####################
-
 gfx/automap/mb2_duel_yavin4
 {
 	nopicmip
@@ -727,7 +1389,6 @@ gfx/automap/mb2_duel_yavin4
 
 gfx/automap/mb2_duel_yavin4full
 {
-	nopicmip
 	nomipmaps
     {
 		map gfx/automap/mb2_duel_yavin4full
@@ -741,6 +1402,1246 @@ gfx/mplevels/mb2_duel_yavin4/map
     nopicmip
     {
         map gfx/mplevels/mb2_duel_yavin4/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### CTF ERAVANA
+//####################
+gfx/automap/mb2_ctf_eravana
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_eravana2
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_eravanafull
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ctf_eravana2full
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ctf_eravana2
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_eravana/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_ctf_eravana/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### CTF THEED
+//####################
+gfx/automap/mb2_ctf_theed
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_ctf_theed
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_theedfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_ctf_theedfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_theed/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_ctf_theed/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### CTF Scarif
+//####################
+gfx/automap/mb2_ctf_scarif
+{
+	nopicmip
+    {
+        clampmap gfx/automap/mb2_ctf_scarif
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ctf_scariffull
+{
+	nopicmip
+	nomipmaps
+    {
+        clampmap gfx/automap/mb2_ctf_scariffull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ctf_scarif/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ctf_scarif/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_ctf_scarif/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### Tatooine
+//####################
+gfx/automap/mb2_tatooine
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_tatooine
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_tatooinefull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_tatooinefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_tatooine/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_tatooine/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### Duel Tusken
+//####################
+gfx/automap/mb2_duel_tusken
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_tusken
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_tuskenfull
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_tusken
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_Tusken/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_Tusken/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### Duel DuneSea
+//####################
+gfx/automap/mb2_duel_dunesea
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_dunesea
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_duneseafull
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_dunesea
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_DuneSea/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_DuneSea/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### Siege Desert
+//####################
+gfx/mplevels/mb2_ps_desert/map
+{
+	nopicmip
+    {
+		clampmap gfx/mplevels/mb2_ps_desert/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert0
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert0
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ps_desert0full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert0
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ps_desert1full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ps_desert2full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ps_desert3full
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert0dd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert0
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert0dd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1ad
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert1_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert1ad
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1bd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert1_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert1bd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1cd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1c
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+	    {
+		clampmap gfx/automap/mb2_ps_desert1_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }    {
+		clampmap gfx/automap/mb2_ps_desert1cd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1dd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert1_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert1dd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2ad
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2ad
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2bd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2_doorsb
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2bd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2cd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2c
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2cd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2dd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert2dd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3ad
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3ad
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3bd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3bd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3cd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3c
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3cd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3dd
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3
+		depthfunc equal
+		blendfunc blend
+		rgbGen vertex
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3_doors
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+    {
+		clampmap gfx/automap/mb2_ps_desert3dd
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1a
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1a
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1b
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1b
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1c
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1c
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert1d
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert1d
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2a
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2a
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2b
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2b
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2c
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2c
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert2d
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert2d
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3a
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3a
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3b
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3b
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3c
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3c
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_ps_desert3d
+{
+	nopicmip
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_ps_desert3d
+		depthfunc equal
+		blendfunc blend
+		rgbGen identity
+		alphaGen vertex
+    }
+}
+
+//####################
+//##### Scarif
+//####################
+gfx/automap/mb2_scarif
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_scarif
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_scariffull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_scariffull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_scarif/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_scarif/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### Citadel
+//####################
+gfx/automap/mb2_citadel0
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_citadel0
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_citadel1
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_citadel1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_citadel2
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_citadel2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_citadel0full
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_citadel0full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_citadel1full
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_citadel1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/mb2_citadel2full
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_citadel2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_citadel/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_citadel/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### Star Destroyer
+//####################
+gfx/automap/mb2_SDestroyer
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_SDestroyer
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_SDestroyerfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_SDestroyerfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_sdestroyer/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_sdestroyer/map
+        blendfunc blend
+        rgbGen vertex
+    }
+	{
+		map gfx/mplevels/mb2_sdestroyer/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### CTF Star Destroyer
+//####################
+gfx/automap/mb2_ptf_SDestroyer
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_ptf_SDestroyer
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ptf_SDestroyerfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_ptf_SDestroyerfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_sdestroyer/map_ctf
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_sdestroyer/map_ctf
+        blendfunc blend
+        rgbGen vertex
+    }
+	{
+		map gfx/mplevels/mb2_sdestroyer/map_ctf_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### Duel Star Destroyer
+//####################
+gfx/automap/MB2_Duel_SDestroyer
+{
+	nopicmip
+    {
+		clampmap gfx/automap/MB2_Duel_SDestroyer
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/MB2_Duel_SDestroyerfull
+{
+	nomipmaps
+    {
+		map gfx/automap/MB2_Duel_SDestroyerfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_sdestroyer/map_duel
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_sdestroyer/map_duel
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
+//##### Jedi Temple
+//####################
+gfx/automap/mb2_jeditemple
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_jeditemple
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_jeditemplefull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_jeditemplefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_jeditemple/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_jeditemple/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### CTF Jedi Temple
+//####################
+gfx/automap/mb2_ptf_jeditemple
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_ptf_jeditemple
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_ptf_jeditemplefull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_ptf_jeditemplefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_ptf_jeditemple/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_ptf_jeditemple/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### Duel Jedi Temple
+//####################
+gfx/automap/mb2_duel_jeditemple
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_jeditemple
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_jeditemplefull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_duel_jeditemplefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_jeditemple/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_duel_jeditemple/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### Duel Cargo Heist
+//####################
+gfx/automap/mb2_duel_cargoheist
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_cargoheist
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_cargoheistfull
+{
+	nomipmaps
+    {
+		clampmap gfx/automap/mb2_duel_cargoheist
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_cargoheist/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_duel_cargoheist/map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+//####################
+//##### Mustafar
+//####################
+
+gfx/automap/mb2_mustafar
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_mustafar
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_mustafarfull
+{
+	nomipmaps
+    {
+		map gfx/automap/mb2_mustafarfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_mustafar/map
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_mustafar/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+gfx/mplevels/mb2_mustafar/map_duel
+{
+    nopicmip
+    {
+        map gfx/mplevels/mb2_mustafar/map_duel
         blendfunc blend
         rgbGen vertex
     }

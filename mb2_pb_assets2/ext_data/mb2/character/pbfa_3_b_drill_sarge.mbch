@@ -1,22 +1,25 @@
-//Siege class def file.
+//Power Battles II - Created by FrenzY
 
 ClassInfo
 {
 	name			"pbfa_3_b_drill_sarge"
-	weapons		WP_SABER|WP_MELEE|WP_BRYAR_PISTOL|WP_BLASTER|WP_STUN_BATON|WP_FRAG_NADE|WP_CONC_NADE
-	attributes		MB_ATT_RALLY|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_PROJECTILE_RIFLE|MB_ATT_FRAGS,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1
-	forcepowers		FP_LEVITATION
+	
+	model				"galak"
+	skin				"drill"
+	uishader			"gfx/hud/FA_Icons/mb2_icon_imp_sniper"
+	MBClass			MB_CLASS_HERO
+	
+	weapons			WP_SABER|WP_MELEE|WP_BRYAR_PISTOL|WP_BLASTER|WP_STUN_BATON|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE
+	attributes		MB_ATT_RALLY|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_PROJECTILE_RIFLE|MB_ATT_FRAGS,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1
+	forcepowers		FP_LEVITATION,1
 	forcepool		7
 	forceregen		2
 	WP_BlasterPistolFlags	HELD_EXPLOSIVE
 	maxhealth		100
 	maxarmor		100
-	model				"galak"
-	skin				"drill"
-	uishader			"gfx/hud/FA_Icons/mb2_icon_imp_sniper"
 	extralives		1
 	speed			1.1
-	MBClass		MB_CLASS_HERO
+
 	saber1			pb_baton	//PrisonRaidBatonJawa
 	sabercolor		0
 	saberstyle		SS_TAVION
@@ -32,6 +35,12 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/imp_pistol/pistol_fpv.md3"   	//Required: New 1st person weapon model
 	Icon				"gfx/hud/w_icon_imp_pistol" 				//Required: Weapon change icon
 	WeaponName			"Commando Blaster Pistol"    					//Required: Weapon change display name
+	MissileMissEffect		"ships/swoop_explosion"
+	MissileHitHumanEffect	"ships/swoop_explosion"
+	MissileHitDroidEffect	"ships/swoop_explosion"
+	altMissileMissEffect		"ships/swoop_explosion"
+	AltMissileHitHumanEffect	"ships/swoop_explosion"
+	AltMissileHitDroidEffect	"ships/swoop_explosion"
 }
 
 WeaponInfo1
@@ -47,7 +56,7 @@ WeaponName		"Stun Baton"
 WeaponInfo2
 {
 	WeaponToReplace		WP_STUN_BATON
-	WeaponBasedOff		WP_THERMAL
+	WeaponBasedOff		WP_DISRUPTOR
 	NewWorldModel		"models/weapons2/psg/disruptor_w.glm"
 	NewViewModel		"models/weapons2/psg/disruptor.md3"
 	Icon				"gfx/hud/w_icon_psg"
@@ -67,7 +76,8 @@ Pistol (2) (explosive)
 E-11 (3)
 Frag Grenade (3)
 Conc Nades (2)
-Sniper Rifle
+Trip Mines (2)
+Sniper Rifle (hitscan)
 Stun Baton
 
 Abilities:

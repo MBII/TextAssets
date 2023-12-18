@@ -7,22 +7,59 @@ models/players/nug_racto/racto_torso_lower
 	}
 }
 
-models/players/nug_racto/racto_torso_lowerb
+
+models/players/nug_racto/racto_hands
 {
-	cull	twosided
 	{
-		map models/players/nug_racto/racto_torso_lowerb
+		map models/players/nug_racto/racto_hands
 		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/devaronian/new_hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
 
-models/players/nug_racto/racto_torso_lowerr
+models/players/nug_racto/racto_arms
 {
-	cull	twosided
 	{
-		map models/players/nug_racto/racto_torso_lowerr
+		map models/players/nug_racto/racto_arms
 		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/devaronian/new_arms_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
 
+models/players/nug_racto/racto_legs
+{
+	{
+		map models/players/nug_racto/racto_legs
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/devaronian/new_legs_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
 
+models/players/nug_racto/racto_torso
+{
+	{
+		map models/players/nug_racto/racto_torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/devaronian/new_torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}

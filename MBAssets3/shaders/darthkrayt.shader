@@ -1,104 +1,181 @@
-models/players/darthkrayt/armor_belt
+// yuuzhan armored
+
+models/players/darthkrayt/mask
 {
-	cull	twosided
-    {
-        map models/players/darthkrayt/armor_belt
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
+                cull twosided	  
 	{
-		map models/players/sithtrooper/spec
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
+		map models/players/darthkrayt/mask
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
 	}
-}
-
-models/players/darthkrayt/flap
-{
-	cull	twosided
-    {
-        map models/players/darthkrayt/flap
-        rgbGen lightingDiffuse
-    }
-}
-
-models/players/darthkrayt/flaps
-{
-	cull	twosided
-    {
-        map models/players/darthkrayt/flaps
-        rgbGen lightingDiffuse
-    }
 	{
-		map models/players/sithtrooper/spec
+		map models/players/darthkrayt/spec2
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
 		tcGen environment
-	}
-}
-
-models/players/darthkrayt/helmet
-{
-	cull	twosided
-    {
-        map models/players/darthkrayt/helmet
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-	{
-		map models/players/sithtrooper/spec
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/players/darthkrayt/legmetal
-{
-	cull	twosided
-    {
-        map models/players/darthkrayt/legmetal
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-	{
-		map models/players/sithtrooper/spec
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/players/darthkrayt/torso
-{
-	cull	twosided
-    {
-        map models/players/darthkrayt/torso
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-	{
-		map models/players/sithtrooper/spec
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		detail
-		tcGen environment
-	}
-}
-
-models/players/darthkrayt/pants
-{
-	cull	twosided
-    {
-        map models/players/darthkrayt/pants
-        alphaFunc GE192
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-	{
-		map models/players/shadowtrooper/legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthkrayt/mask
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/darthkrayt/chest
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt/chest
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthkrayt/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthkrayt/chest
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/darthkrayt/krayt1
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt/krayt1
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthkrayt/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthkrayt/krayt1
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/darthkrayt/krayt2
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt/krayt2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthkrayt/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthkrayt/krayt2
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/darthkrayt/krayt3
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt/krayt3
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthkrayt/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthkrayt/krayt3
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/darthkrayt/krayt4
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt/krayt4
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthkrayt/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthkrayt/krayt4
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// the one sith
+
+models/players/darthkrayt2/hips_plate
+{
+	{
+		map models/players/darthkrayt2/hips_plate
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthkrayt2/hips_plate_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/darthkrayt2/pad
+{
+                cull twosided	  
+	{
+		map models/players/darthkrayt2/pad
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/darthkrayt2/robe
+{
+	cull twosided
+	{
+		map models/players/darthkrayt2/robe
+		rgbGen lightingDiffuse
 	}
 }

@@ -1,34 +1,62 @@
-//Siege class def file.
+//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name				"_h_j_Katarn"
-	weapons				WP_SABER|WP_MELEE|WP_BLASTER_PISTOL
-	saber1				saber_yun
-	sabercolor			2
+	weapons				WP_SABER|WP_MELEE|WP_BLASTER_PISTOL|WP_CONC_NADE|WP_TRIP_MINE
 	saberstyle			SS_MEDIUM|SS_STRONG
-	attributes			MB_ATT_PISTOL,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,1|MB_ATT_FORCEFOCUS,1|MB_ATT_DEFLECT,2
-	forcepowers			FP_GRIP,2|FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_PUSH,2|FP_PULL,2|FP_SPEED,2|FP_SEE,1|FP_HEAL,2|FP_TELEPATHY,2|FP_LIGHTNING,2|FP_SABER_DEFENSE,3
-	maxhealth			100
+	attributes		MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,1|MB_ATT_MICRO_GRENADES,1|MB_ATT_TRIP_MINES,1|MB_ATT_DEFLECT,2
+	forcepowers			FP_GRIP,2|FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_PUSH,2|FP_PULL,3|FP_SEE,2|FP_PROTECT,2|FP_SABER_DEFENSE,2|FP_SABERTHROW,3|FP_LIGHTNING,2
+	maxhealth			125
 	maxarmor			25
-	forcepool			100
-	forceregen			1
-	speed				1.1
-	ASmultiplier		0.9
-	APmultiplier		1.1
+	forcepool			120
+	speed				1.06
+	APmultiplier	    1.2
+	BPmultiplier        1.0
+	ASmultiplier	    1.05
+	CSmultiplier		1.05
+	modelscale          1.01
+	MBClass				MB_CLASS_JEDI
+	classNumberLimit  	1
+	
+
+	forceregen          1.04
+	
 	model				"KyleDF2"
 	skin				"default"
 	uishader			"models/players/kyledf2/mb2_icon_default"
-	MBClass				MB_CLASS_JEDI
-	classNumberLimit  	1
+	
+	model_1				"Kyle"
+	skin_1				"mots"
+	uishader_1			"models/players/kyle/mb2_icon_mots"
+
+	model_2		    	"ib-merc_kyle"
+	skin_2				"default"
+	uishader_2			"models/players/ib-merc_kyle/mb2_icon_default"
+	
+	model_3			    "Kyle"
+	skin_3				"default"
+	uishader_3			"models/players/kyle/mb2_icon_default"
+	
+	saber1			saber_qu_rahn
+	sabercolor		3
+	
+	saber1_1				saber_yun
+	sabercolor_1			2
+	
+	saber1_2			Katarn
+	sabercolor_2		4	
+	
+	respawnCustomTime  50000
+	
 }
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_BRYAR_OLD
-	NewWorldModel		"models/weapons2/kyle_bryar_pistol/briar_pistol_w.glm"
-	NewViewModel		"models/weapons2/kyle_bryar_pistol/briar_pistol.md3"
+	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
+	NewViewModel		"models/weapons2/briar_pistol/briar_pistol.md3"
 	Icon				"gfx/hud/w_icon_briar"
 	WeaponName			"Bryar Pistol"
 	MuzzleEffect		"Blaster/MuzzleFlash01Y"
@@ -39,29 +67,52 @@ WeaponInfo0
 	PowerupShotEffect	"Blaster/Shot04Y"
 	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash"
 	//OverchargeEffect	"Blaster/MuzzleFlash01Y"
-	ProjSpeedModifier 	0.6
+	idleAnim			MAND_SPISTOL 
+	firingAnim			MAND_SPISTOL_FIRE
+}
+
+WeaponInfo1
+{           
+	WeaponToReplace        WP_TRIP_MINE
+	WeaponBasedOff         WP_TRIP_MINE
+	NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
+	NewViewModel	  "models/weapons2/laser_trap/laser_trap.md3"  	
+	Icon             "gfx/hud/w_icon_tripmine"
+	WeaponName		"Trip Mine"
+	altFireEnabled 0
+	customAmmo    1
 }
 
 description	"Kyle Katarn
 
+Class: Jedi.
+Class Summary:
+A Jedi/gunner hybrid that rewards flanking, skirmishing, and swapping between weapons and force powers. 
+
 Lightsaber:
-- Defense (3)
- - 10 percent more AP
- - 10 percent less Attack Speed
-Bryar Pistol (3 with slow projectile speed)
+- Defense (2)
+- Deflect (2)
+- Can use Yellow and Red styles
+
+Weaponry:
+- Lightsaber
+- Bryar Pistol (2)
+- Concussion Grenades (1)
+- Trip Mine (1)
 
 Force Powers:
 - Jump (3)
 - Push (2)
-- Pull (2)
-- Sense (1)
-- Heal (2)
-- Mind Trick (2)
+- Pull (3)
+- Sense (2)
+- Protect (2)
 - Grip (2)
 - Lightning (2)
-- Deflect (2)
-- Block (1)
+- Force Block (2)
+- Force Focus (1)
+- Improved Saberthrow
+Attributes:
+- BP Free Jumps
 
-After learning of Morgan Katarn's death at the hands of Jerec, Kyle Katarn chose to continue his murdered father's mission of protecting the Valley of the Jedi's immense power from being abused.
-In the process of fighting through Jerec's minions, Kyle managed to teach himself a great deal about the Force and the ways of the Jedi, struggling with his own inner Dark Side, and walking the path of the Light.
-Although a mere novice, Kyle's untrained ability in the force is significantly enhanced by the hundreds of souls entombed in the Valley of the Jedi."
+After learning of Morgan Katarn's death at the hands of Jerec, Kyle Katarn chose to continue his murdered father's mission of protecting the Valley of the Jedi's immense power from being abused. In the process of fighting through Jerec's minions, Kyle managed to teach himself about the Force and the ways of the Jedi.
+"

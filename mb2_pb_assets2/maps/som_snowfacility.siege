@@ -1,12 +1,34 @@
-//This file should never exceed 16384 bytes.
-
 Teams
 {
 	team1 Heroes
 	team2 Villains
 }
 
-mapgraphic "gfx/mplevels/mb2_cmp_snowfacility/map"
+MBModesAllowed "2" //Space separated list of mode numbers the map may be played on. If the server is not using an allowed mode, it will change to the first mode in the list.
+
+LevelshotDesc
+{
+    desc1
+    {   
+        text "Intelligence reports that two Jedi are sheltering on an outer rim ice world. They are expecting a freighter to deliver supplies soon. Commandeer the craft to launch a surprise attack.
+
+Wipe out the droids protecting the facility then exterminate the Jedi."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "We just received warning that a freighter containing Imperial forces has landed in the facility.
+
+All droids to defensive positions! We cannot let the Imperials shut down the generator, or all will be lost."
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx/mplevels/mb2_snowfacility/map"
 missionname  "Snow Facility"
 radartopleft "-1024, 2560"
 radarbottomright "6656, -5120"
@@ -15,8 +37,8 @@ AutoMap
 {
 	AutoMap0
 	{
-		radargraphic "gfx/automap/mb2_cmp_snowfacility"
-		radargraphicfull "gfx/automap/mb2_cmp_snowfacilityfull"
+		radargraphic "gfx/automap/mb2_snowfacility"
+		radargraphicfull "gfx/automap/mb2_snowfacilityfull"
 	}
 }
 
@@ -77,8 +99,8 @@ Heroes
 		message_team1 ""
 		message_team2 ""
 		target ""
-		objdesc "Darth Vader has been sent to kill the jedi and destroy the facility. Stop him."
-		objgfx "gfx/mplevels/snowfacility/objective1"
+		objdesc "Darth Vader has been sent to kill the Jedi and destroy the facility. Stop him."
+		objgfx "gfx/mplevels/mb2_snowfacility/obj1r"
 	}
 	
 	wonround "Vader has been defeated."
@@ -106,8 +128,8 @@ Villains
 		final -1
 		message_team1 "They've opened the secondary doors!"
 		message_team2 "We've opened the secondary doors."
-		objdesc "Open the Secondary doors by hacking or destroying a panel to clear the path to the generator."
-		objgfx "gfx/mplevels/snowfacility/objective2"
+		objdesc "Open the Secondary doors to clear a path to the generator. This can be accomplished by destroying the door's power relay or slicing the controls in the command centre."
+		objgfx "gfx/mplevels/mb2_snowfacility/obj1b"
 	}
 	
 	Objective2
@@ -117,7 +139,7 @@ Villains
 		message_team1 "All is lost!"
 		message_team2 "We have eliminated the Jedi."
 		objdesc "Shut down the generator to neutralise the droids and force surrender."
-		objgfx "gfx/mplevels/snowfacility/objective3"
+		objgfx "gfx/mplevels/mb2_snowfacility/obj2b"
 	}
 
 	

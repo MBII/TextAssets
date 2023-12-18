@@ -150,3 +150,48 @@ models/players/tifa/hands
         alphaGen lightingSpecular
     }
 }
+
+// Blue Team
+models/players/tifa/torso_blue
+{
+    {
+        map models/players/tifa/torso_blue
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/tifa/torso_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Red Team
+models/players/tifa/torso_red
+{
+    {
+        map models/players/tifa/torso_red
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/tifa/torso_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+// Torn
+models/players/tifa/torso_torn
+{
+    {
+        map models/players/tifa/torso_torn
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/tifa/torso_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}

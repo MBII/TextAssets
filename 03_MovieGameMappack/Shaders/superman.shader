@@ -132,6 +132,3 @@ models/players/superman/torso_r
     	}
 
 }
-
-
-

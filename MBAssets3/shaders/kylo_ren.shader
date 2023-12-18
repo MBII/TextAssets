@@ -40,34 +40,6 @@ models/players/kylo_ren/cape
 	}
 }
 
-models/players/kylo_ren/body_red
-{
-	{
-		map models/players/kylo_ren/body_red
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/kylo_ren/body_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/kylo_ren/body_blue
-{
-	{
-		map models/players/kylo_ren/body_blue
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/kylo_ren/body_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
 models/players/kylo_ren/mask
 {
 	{
@@ -94,6 +66,37 @@ models/players/kylo_ren/mask
 	}
 }
 
+models/players/kylo_ren/mask_tros
+{
+	{
+		map models/players/kylo_ren/mask_tros
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/kylo_ren/env
+		blendFunc GL_DST_COLOR GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/kylo_ren/mask_mask
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		detail
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/kylo_ren/mask_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/kylo_ren/mask_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave sin 1 0.4 0 .6
+		glow
+	}
+}
 models/players/kylo_ren/gloves
 {
 	{

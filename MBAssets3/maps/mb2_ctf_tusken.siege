@@ -1,0 +1,99 @@
+Teams
+{
+	team1 TuskenRed
+	team2 TuskenBlue
+}
+
+mapgraphic "gfx\mplevels\mb2_tusken\map"
+missionname "Tusken Campsite CTF"
+radartopleft "-3904, 5568"
+radarbottomright "6636, -4672"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_duel_tusken"
+        radargraphicfull "gfx/automap/mb2_duel_tuskenfull"
+	}
+}
+
+HelpIcons
+{
+	HelpIcon0
+	{
+		dynamic 1
+		redicon HLP_AMMO
+		blueicon HLP_AMMO
+		specicon HLP_NONE
+		sideobjective 1
+		radius 750
+	}
+	
+	HelpIcon1
+	{
+		dynamic 1
+		redicon HLP_HEALTH
+		blueicon HLP_HEALTH
+		specicon HLP_NONE
+		sideobjective 1
+		radius 750
+	}
+}
+
+roundbegin_target ""
+
+TuskenRed
+{
+	RequiredObjectives 1
+	Timed 600
+	UseTeam "ctf_tusken_red" 					
+	TeamIcon "gfx/2d/logos/mb_tusk"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Capture the enemy flag and return it to base"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag and return it to base"
+		objgfx ""
+	}
+	
+	wonround "We survived!"
+	lostround "All is lost..."
+    roundover_sound_wewon "sound/Tusken/Tusken.mp3"
+	roundover_sound_welost "sound/Tusken/Tusken.mp3"
+	roundover_target ""
+	attackers 1
+	briefing ""
+}
+
+TuskenBlue
+{
+	RequiredObjectives 1
+	Timed 600
+	UseTeam "ctf_tusken_blue"
+	TeamIcon "gfx/2d/logos/mb_tusk"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Capture the enemy flag and return it to base"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Capture the enemy flag and return it to base"
+		objgfx ""
+	}
+
+	wonround "We survived!"
+	lostround "All is lost..."
+	roundover_sound_wewon "sound/Tusken/Tusken.mp3"
+	roundover_sound_welost "sound/Tusken/Tusken.mp3"
+	roundover_target "siegeend"
+	attackers 0
+	briefing ""
+}

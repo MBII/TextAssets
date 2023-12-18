@@ -1,67 +1,99 @@
-//Siege class def file.
+//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name				"_v_h_Bossk"
-	weapons				WP_FLECHETTE|WP_MELEE|WP_FIRE_NADE
-	attributes			MB_ATT_A280,2|MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,2|MB_ATT_FP_MIRALUKA|MB_ATT_QUICKTHROW,2|MB_ATT_GUNBASH|MB_ATT_WOOKIE_STRENGTH,1
-	forcepowers			FP_SEE,1
-	maxhealth			325
-	forcepool			25
-	forceregen			1
-	maxarmor			0
-	model				"trandoshan"
+	weapons				WP_BOWCASTER|WP_MELEE|WP_FIRE_NADE
+	attributes			MB_ATT_BOWCASTER,3|MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_HEALING,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_GRAPPLE_HOOK,1
+	maxhealth			350
+	forcepool            40
+	forceregen           0.4
+
+	//saber1          Bossk_legends
+	//saber2			Bossk_legends
+	//saberstyle		SS_DUAL
+
+	APmultiplier       0.8
+	forcepowers				FP_SEE,3
+	model				"bossk"
 	skin				"default"
-	uishader			"models/players/trandoshan/mb2_icon_default_jab"
-	MBClass				MB_CLASS_MANDALORIAN
+	uishader			"models/players/bossk/mb2_icon_default"
+	MBClass			    MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	Classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_HEAVYMELEE
-	modelscale			1.09
-	WP_FlechetteFlags	HELD_POISON|HELD_ALTRELOAD
-	WP_BlasterFlags		HELD_POISON|HELD_ALTRELOAD
-	speed	1
-	damageGiven 0.8
-	damageTaken 		1
-	rateOfFire		0.95
+	Classflags			CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_HEAVYMELEE
+	modelscale          1.08
+	WP_BowcasterFlags	HELD_POISON|HELD_ALTRELOAD
+	speed           1.02
+	saberStanceAnim	 MELEE_STAND
+	flourishAnim BOTH_THROW
+	gloatAnim BOTH_WOOKRAGE
+	tauntAnim BOTH_ENGAGETAUNT
+	
+	respawnCustomTime 50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_FLECHETTE
+	WeaponToReplace		WP_BOWCASTER
 	WeaponBasedOff		WP_CONCUSSION
-	NewWorldModel		"models/weapons2/dlt20a/dlt20a_w.glm"
-	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"
-	Icon				"gfx/hud/w_icon_DLT20a"
-	WeaponName			"DLT-20"
-	FlashSound0 		"sound/weapons/a280/alt_fire.mp3"
-	AltFlashSound0 		"sound/weapons/a280/fire.mp3"
+	NewWorldModel		"models/weapons2/relby_v10/model_w.glm"
+	NewViewModel		"models/weapons2/relby_v10/model.md3"
+	Icon				"gfx/hud/w_icon_relby_v10"
+	WeaponName			"Relby-v10 Targeting Rifle"
+	FlashSound0 		"sound/weapons/cw-w5/fire_scope.mp3"
+	AltFlashSound0 		"sound/weapons/cw-w5/fire_scope.mp3"
 	primGore		1
 	altGore			1
+	CustomAmmo           800
+	idleAnim  DC15_FIRE
 }
+
+//WeaponInfo1
+//{
+//	WeaponToReplace		WP_SABER
+//	WeaponBasedOff		WP_SABER
+//	NewWorldModel		"models/weapons2/noweap/noweap.glm"
+//	NewViewModel		"models/weapons2/dummy/dummy.md3"
+//	Icon			"gfx/mplevels/aliens3/aliens_claws"
+//	WeaponName		"Sharp Claws"
+//}
 
 ForceInfo0
 {
 	ForceToReplace	FP_SEE
 	Icon		"gfx/marvel/spidersense"
-	ForcePowerName	"Sense"
+	ForcePowerName	"Hunter Vision"
 }
 
 description			"Bossk
 
+Class: Arc Trooper.
 Class Summary: 
-Strong bounty hunter that quick-throws fire nades.
+A dextrous class with fire grenades, strong melee attacks, and unique poison firing rifle. 
 
 Weaponry:
-- Poisonous DLT-20 (alt mode for sniper)
-- Fire Grenades (2)
+- Relby-v10 Targeting Rifle* 
+- Fire Grenades (3)
+- Melee (Increased damage, Strength)
+
+* Special Weapon Descriptions:
+--- Relby-v10 Targeting Rifle
+- Based on Bowcaster 3
+- Deals poison damage on successful hits
+- Magazine based reloads
+
+Forcepowers:
+- Hunter Vision (Sense 3)
+
+Attributes:
+- Heal (3)
+- Strength (1)
+- Acid blood
 
 Abilities:
-- Gunbash (alt ability 3)
-- Quickthrow (special 1)
-- Strength (2)
-- Heightened Sense (1)
-- Powerful Melee Attacks
-- Melee Damage Reduction
-- Acid blood
+- Stamina (3) [Class Special 1]
+- Dexterity (3) [Alt Ability 1]
+--- Grappling Hook (1)
+- Hold Class Special 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
 
 A deadly Trandoshan bounty hunter, who was working freelance for Jabba at the time when Han Solo's friends attempted to rescue him from Jabba's palace."

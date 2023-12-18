@@ -6,6 +6,8 @@ Teams
 	team2 Villains
 }
 
+MBModesAllowed "2" //Space separated list of mode numbers the map may be played on. If the server is not using an allowed mode, it will change to the first mode in the list.
+
 LevelshotDesc
 {
     desc1
@@ -27,16 +29,16 @@ You have been well trained, they will be no match for you."
     }
 }
 
-mapgraphic "gfx\mplevels\mb2_dotf_classic\map"
-missionname  "Duel of the Fates Classic"
+mapgraphic "gfx\mplevels\mb2_dotf_classicB\map"
+missionname  "Duel of the Fates Classic B"
 radartopleft "-6976, 7040"
 radarbottomright "5888, -7296"
 AutoMap
 {
 	AutoMap0
 	{
-		radargraphic "gfx/automap/mb2_dotf_classic"
-		radargraphicfull "gfx/automap/mb2_dotf_classicfull"
+		radargraphic "gfx/automap/mb2_dotf_classicB"
+		radargraphicfull "gfx/automap/mb2_dotf_classicBfull"
 	}
 }
 
@@ -45,9 +47,8 @@ HelpIcons
 	//Side Gen Hack
 	HelpIcon0
 	{
-		parent 1
 		end0 "doorformaul"
-		origin "1007 3220 642"
+		origin "457 584 635"
 		redicon HLP_HACK_SUB
 		blueicon HLP_NONE
 		specicon HLP_NONE
@@ -57,31 +58,70 @@ HelpIcons
 	//Secondary Gen Hack
 	HelpIcon1
 	{
-		parent 1
-		end0 "t170"
-		origin "727 3220 642"
+		end0 "actsecondary"
+		origin "1272 584 635"
 		redicon HLP_HACK_SUB
 		blueicon HLP_NONE
 		specicon HLP_NONE
 		sideobjective 1
 	}
 
-	//Pit Hack
+	//Forcefields Hack
 	HelpIcon2
 	{
-		end0 "t138"
-		origin "490 5935 641"
+		end0 "t138_panel"
+		end1 "t138_gen"
+		origin "1007 3220 645"
 		redicon HLP_HACK_SUB
 		blueicon HLP_NONE
 		specicon HLP_NONE
 		sideobjective 1
+	}
+
+	//Fed Room Stairs Hack
+	HelpIcon3
+	{
+		radius 650
+		end0 "leftDoorFedAct"
+		origin "-1816 -1708 690"
+		redicon HLP_HACK_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+		sideobjective 1
+		needvisible 1
+	}
+
+	//Fed Room Entry Panel
+	HelpIcon4
+	{
+		radius 650
+		end0 "actsidesfed"
+		origin "-1486 -2885 692"
+		redicon HLP_DESTROY_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+		sideobjective 1
+		needvisible 1
 	}
 
 	//Throne Room Door Panel
-	HelpIcon3
+	HelpIcon5
 	{
-		end0 "t138"
-		origin "-3877 -3702 960"
+		end0 "t138_panel"
+		end1 "t138_gen"
+		origin "-3877 -3021 960"
+		redicon HLP_DESTROY_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+
+	//Throne Room Window
+	HelpIcon6
+	{
+		radius 500
+		end0 "windowBroken"
+		origin "-4584 -2400 1120"
 		redicon HLP_DESTROY_SUB
 		blueicon HLP_DEFEND_SUB
 		specicon HLP_DEFEND_SUB
@@ -89,10 +129,10 @@ HelpIcons
 	}
 
 	//Throne Room Final Hack
-	HelpIcon5
+	HelpIcon7
 	{
 		end0 "objectivedone"
-		origin "-4012 -3966 964"
+		origin "-4012 -3284 964"
 		redicon HLP_HACK
 		blueicon HLP_DEFEND
 		specicon HLP_DEFEND
@@ -122,7 +162,7 @@ Heroes
 		message_team2 "They have unlocked the throne room!"
 		objdesc "SECONDARY GOAL:
  		Get to the override console and open the throne room door"
-		objgfx "gfx/mplevels/mb2_dotf_classic/objectivea"
+		objgfx "gfx/mplevels/mb2_dotf_classicB/obj1"
 	}
             Objective2
 	{
@@ -132,7 +172,7 @@ Heroes
 		message_team2 "They got the Viceroy!"
 		objdesc "PRIMARY GOAL:
 		Gain control of the throne room"
-		objgfx "gfx/mplevels/mb2_dotf_classic/objectiveb"
+		objgfx "gfx/mplevels/mb2_dotf_classicB/obj2"
 	}
 	
 
@@ -162,7 +202,7 @@ Villains
 		target ""
 		objdesc "PRIMARY GOAL:
 		Keep the attackers away from the throne room!"
-		objgfx "gfx/mplevels/mb2_dotf_classic/objectivea"
+		objgfx "gfx/mplevels/mb2_dotf_classicB/obj2"
 	}
 	
 	

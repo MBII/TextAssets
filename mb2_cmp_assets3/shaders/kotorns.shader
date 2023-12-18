@@ -107,7 +107,7 @@ textures/kotorns/wnd2
         blendFunc GL_DST_COLOR GL_ZERO
     }
     {
-        map textures/kotorns/wnd2
+        map textures/kotorns/wnd2_glow
         blendFunc GL_ONE GL_ONE
         glow
     }

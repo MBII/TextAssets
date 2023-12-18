@@ -1,6 +1,6 @@
 models/players/tessek/head
 {
-        cull twosided
+    cull	disable
     {
         map models/players/tessek/head
         rgbGen lightingDiffuse
@@ -10,13 +10,13 @@ models/players/tessek/head
         map models/players/tessek/head_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
-	detail
+		detail
     }
 }
 
 models/players/tessek/quarren
 {
-        cull twosided
+    cull	disable
     {
         map models/players/tessek/quarren
         rgbGen lightingDiffuse
@@ -26,7 +26,6 @@ models/players/tessek/quarren
         map models/players/tessek/spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
-	detail
+		detail
     }
 }
-

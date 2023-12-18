@@ -1,0 +1,246 @@
+repeatDelay				300
+
+Particle
+{
+	name				explosion_cloud
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				6 8
+
+	life				500 1000
+
+	origin				0 -50 -50 50 50 50
+
+	rotation			0 360
+
+	rotationDelta		-8 8
+
+	velocity			10 -10 -10 25 10 10
+
+	rgb
+	{
+		start			1 1 1 1 0.5 0.5
+	}
+
+	alpha
+	{
+		start			0.8 1
+		end				0
+		parm			50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			25 50
+		end				75 150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+		effects/fire
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				6
+
+	life				1500 3000
+
+	delay				50 300
+
+	origin				0 -50 -50 50 50 50
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -50 -50 50 50 50
+
+	acceleration		-10 -10 -10 10 10 10
+
+	gravity				15 75
+
+	rgb
+	{
+		start			0.7529 0.7529 0.7529 0.6275 0.6275 0.6431
+		end				0.502 0.502 0.502 0 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			15 50
+		end				50 150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/black_smoke
+	]
+}
+
+Line
+{
+	count				4 8
+
+	life				100 200
+
+	origin2				60 -50 -50 90 50 50
+
+	alpha
+	{
+		start			0.25 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 2.5
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+		gfx/misc/spark2
+	]
+}
+
+Tail
+{
+	flags				usePhysics
+
+	count				8 20
+
+	life				700 1100
+
+	bounce				0.25 0.4
+
+	velocity			600 -400 -400 1250 400 400
+
+	gravity				-350 -450
+
+	size
+	{
+		start			1.5 2
+	}
+
+	length
+	{
+		start			20 50
+		end				0.5 5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Particle
+{
+	count				4 6
+
+	life				900 1000
+
+	velocity			40 -60 -60 80 60 60
+
+	gravity				12 24
+
+	alpha
+	{
+		start			0.2 0.4
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			20 60
+		end				60 120
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/vehicles/weapons/reb_blaster/impact.wav
+	]
+}
+
+Decal
+{
+	life				1e+004 2e+004
+
+	rotation			0 400
+
+	alpha
+	{
+		start			0.7 1
+	}
+
+	size
+	{
+		start			100 200
+	}
+
+	shaders
+	[
+		gfx/effects/scorch_mp
+	]
+}
+
+OrientedParticle
+{
+	count				1 2
+
+	life				2500 3000
+
+	rotation			0 180
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 150
+	}
+
+	shaders
+	[
+		gfx/effects/embers
+	]
+}

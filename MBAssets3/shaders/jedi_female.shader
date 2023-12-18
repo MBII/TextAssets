@@ -252,6 +252,20 @@ models/players/jedi_female/boots_exi
     }
 }
 
+models/players/jedi_female/boots_bri
+{
+    {
+        map models/players/jedi_female/boots_bri
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/jedi_female/boots-spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 models/players/jedi_female/boots_juh
 {
     {
@@ -265,3 +279,4 @@ models/players/jedi_female/boots_juh
 		detail
     }
 }
+

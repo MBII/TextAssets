@@ -1,50 +1,49 @@
-
-models/players/darthbane/torso
+models/players/darthbane/cape
 {
-  {
-      map models/players/darthbane/torso
-      rgbGen lightingDiffuse
-  }
-  {
-      map models/players/darthbane/torso-spec
-      blendFunc GL_SRC_ALPHA GL_ONE
-      detail
-      rgbGen lightingDiffuse
-      alphaGen lightingSpecular
-  }
-  {
-      map models/players/darthbane/torso_glow
-      blendFunc GL_ONE GL_ONE
-      glow
-  }
+	cull	twosided
+    {
+        map models/players/darthbane/cape
+        rgbGen lightingDiffuse
+    }
 }
 
-models/players/darthbane/boots
+models/players/darthbane/cloth
 {
+	cull	twosided
     {
-        map models/players/darthbane/boots
+        map models/players/darthbane/cloth
         rgbGen lightingDiffuse
-        //alphaFunc GE128
-    }
-    {
-        map models/players/darthbane/boots-spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
     }
 }
 
 models/players/darthbane/mouth_eyes
 {
+	cull	twosided
     {
         map models/players/darthbane/mouth_eyes
         rgbGen lightingDiffuse
-        //alphaFunc GE128
     }
     {
-        map models/players/darthbane/mouth_eyes-spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
+		map models/players/darthbane/mouth_eyes-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
     }
 }
+
+models/players/darthbane/armor
+{
+	cull	twosided
+	{
+		map models/players/darthbane/armor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sithtrooper/spec
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		detail
+		tcGen environment
+	}
+}
+
+

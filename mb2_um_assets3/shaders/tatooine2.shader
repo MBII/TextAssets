@@ -27,76 +27,44 @@ textures/tatooine/tatooine-sky2-night
 }
 
 textures/tatooine/light
-
-     {
-
-               qer_editorimage textures/tatooine/light
-
-               q3map_surfacelight 20000
-
-               q3map_backSplash 0.5 8
-
-               q3map_nolightmap
-
-               q3map_lightRGB 1 1 1
-               {
-
-                        map $whiteimage
-
-                        blendFunc GL_DST_COLOR GL_ZERO
-
-                        rgbGen const ( 1.00 1.00 1.00 )
-
-               }
-
-   {
-                        map $whiteimage
-
-                        blendFunc GL_ONE GL_ONE
-
-                        rgbGen const ( 1.00 1.00 1.00 )
-
-                        glow
-
-               }
-
-     }
+{
+	qer_editorimage textures/tatooine/light
+	q3map_surfacelight 20000
+	q3map_backSplash 0.5 8
+	q3map_nolightmap
+	q3map_lightRGB 1 1 1
+	{
+		map $whiteimage
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen const ( 1.00 1.00 1.00 )
+	}
+	{
+		map $whiteimage
+		blendFunc GL_ONE GL_ONE
+		rgbGen const ( 1.00 1.00 1.00 )
+		glow
+	}
+}
 
 textures/tatooine/night_light
-
-     {
-
-               qer_editorimage textures/tatooine/night_light
-
-               q3map_surfacelight 60000
-
-               q3map_backSplash 0.5 8
-
-               q3map_nolightmap
-
-               q3map_lightRGB 1 1 1
-               {
-
-                        map $whiteimage
-
-                        blendFunc GL_DST_COLOR GL_ZERO
-
-                        rgbGen const ( 1.00 1.00 1.00 )
-
-               }
-
-   {
-                        map $whiteimage
-
-                        blendFunc GL_ONE GL_ONE
-
-                        rgbGen const ( 1.00 1.00 1.00 )
-
-                        glow
-
-               }
-
-     }
+{
+	qer_editorimage textures/tatooine/night_light
+	q3map_surfacelight 60000
+	q3map_backSplash 0.5 8
+	q3map_nolightmap
+	q3map_lightRGB 1 1 1
+	{
+		map $whiteimage
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen const ( 1.00 1.00 1.00 )
+	}
+	{
+		map $whiteimage
+		blendFunc GL_ONE GL_ONE
+		rgbGen const ( 1.00 1.00 1.00 )
+		glow
+	}
+}
 
 textures/tatooine/sanddunes
 {

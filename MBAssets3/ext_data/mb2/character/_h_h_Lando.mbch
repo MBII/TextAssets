@@ -1,21 +1,44 @@
 ClassInfo
 {
 	name 				"_h_h_Lando"
-	weapons 			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER
-	attributes			MB_ATT_PISTOL,1|MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_HEALING,2|MB_ATT_DASH,2
-	maxhealth 			100
-	maxarmor 			60
-	speed				1.05
-	saberstyle			SS_MEDIUM
-	saber1				vibroaxe
-	model				"lando" 				
-	skin				"general"					
-	uishader			"models/players/lando/mb2_icon_general"
-	MBClass 			MB_CLASS_HERO
-	damageGiven			1.10
+	weapons 			WP_MELEE|WP_BRYAR_OLD|WP_EE4|WP_SABER|WP_FRAG_NADE
+	attributes			MB_ATT_PISTOL,2|MB_ATT_EE4,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_FUELREGEN,3|MB_ATT_FUEL,2
+	maxhealth 			125
+	maxarmor 			125
+	speed				1.18
+	forcepool           0
+	APmultiplier        1.1
+	CSmultiplier        0.95
+	ASmultiplier        0.95
+	saberstyle			SS_MEDIUM|SS_STRONG
+	forcepowers         FP_SABER_OFFENSE,1|FP_SABER_DEFENSE,1
+	saber1				vibroaxe_new_legends
+	MBClass 			MB_CLASS_MANDALORIAN
 	classNumberLimit 	1
-	holdables 			HI_AMMODISP
-	ASmultiplier        0.825
+	modelscale      1.02
+	WP_FragNadeFlags	HELD_KNOCKDOWN
+	
+	damageGiven 1.10
+
+	gloatAnim       BOTH_VICTORY_FAST
+	
+	model				"landoskiff" 				
+	skin				"default"					
+	uishader			"models/players/landoskiff/mb2_icon_default"
+	
+	model_1				"lando" 				
+	skin_1				"bespin"					
+	uishader_1			"models/players/lando/mb2_icon_bespin"
+	
+	model_2				"lando" 				
+	skin_2				"general"					
+	uishader_2			"models/players/lando/mb2_icon_general"
+		
+	model_3				"lando" 				
+	skin_3				"default"					
+	uishader_3			"models/players/lando/mb2_icon_default"
+	
+	respawnCustomTime  50000	
 }
 
 WeaponInfo0
@@ -24,26 +47,72 @@ WeaponInfo0
 	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_skiff_pike" 	//Required: Weapon change icon
+	Icon				"gfx/hud/w_icon_skiffaxe" 	//Required: Weapon change icon
 	WeaponName			"Vibro Axe"    					//Required: Weapon change display name
+}
+
+WeaponInfo1
+{
+ 	WeaponToReplace 	WP_EE4
+ 	WeaponBasedOff	 WP_BLASTER
+ 	NewWorldModel	 "models/weapons2/blaster_r/blaster_w.glm"
+ 	NewViewModel	 "models/weapons2/blaster_r/blaster.md3"
+ 	FlashSound0	 "sound/weapons/blasterMB/fire.mp3"
+ 	AltFlashSound0	 "sound/weapons/ee3/sniperfire.mp3"
+ 	Icon 		"gfx/hud/w_icon_E11"
+ 	WeaponName	 "E-11 Blaster Rifle"
+	customammo	900
+}
+
+WeaponInfo2
+{
+	WeaponToReplace 	WP_BRYAR_OLD       						
+	WeaponBasedOff		WP_BOWCASTER   						
+	NewWorldModel		"models/weapons2/s5_heavy_pistol/model_w.GLM"  
+	NewViewModel		"models/weapons2/s5_heavy_pistol/model.md3"
+	Icon				"gfx/hud/w_icon_s5pistol" 						
+	FlashSound0			"sound/weapons/spy_pistol/fire.wav"
+	AltFlashSound0		"sound/weapons/spy_pistol/fire.wav"
+	WeaponName			"S-5 Heavy Pistol"    					
+	MuzzleEffect		"Blaster/MuzzleFlash01G"	   				
+	AltMuzzleEffect		"Blaster/MuzzleFlash01G" 					
+	MissileEffect		"Blaster/Shot11G"  							
+	Missile3Effect		"Blaster/Shot03G"  							
+	AltMissileEffect	"Blaster/Shot11G"  							
+	PowerupShotEffect	"Blaster/Shot04G"  		
+	ChargeEffect		"gfx/effects/greenFrontFlash"
+	OverchargeEffect	"Blaster/MuzzleCharge01G"
+	FPMult     			1.1
+	ReloadTimeModifier 0.8
 }
 
 description "Lando Calrissian
 
+Class: Mandalorian.
 Class Summary: 
-A fast, high damage hero, moves in and out of combat with ease.
+A fast hybrid melee/gunner that moves in and out of combat with ease. 
 
 Weaponry:
-- Melee
-- Blaster Pistol (2)
-- E-11 Blaster Rifle (3)
-- Vibro Axe
+- S-5 Heavy Pistol (Based on Westar Pistol level 2)
+- E-11 Blaster (based on EE-4) (3)
+- Vibro-Axe *
+- Stun/Frag Grenades (3) (Alt fire with grenades will detonate on contact)
+
+* Special Weapon Descriptions:
+--- Vibro-Axe
+- Defense (1)
+- Can block lightsabers
+- Cannot block blaster shots
+- Can use Yellow and Red styles
 
 Attributes:
-- Ammo Dispenser
-- Dash
-- Dodge   (3)
-- Heal   (3)
-- Ammo   (3)
+- Heal (2)
+- Shield Recharge (1)
+- Dodge (3)
+- Dexterity (3)
+
+Abilities:
+- Dash (2) [Class Special 2 while attacking]
+- Quickthrow (2) [Alt Ability 1. Toggle Weaponmode in Melee for level 1 Quickthrows]
 
 Lando Calrissian has a dark past but has recently stumbled into good fortune as a mining colony administrator, that is until the Empire came to Cloud City. Now holding a position of Commander in the Rebellion Lando works to free the galaxy from the tyranny of the Emperor."

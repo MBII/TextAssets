@@ -1,0 +1,73 @@
+//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 BlueGuys
+	team2 RedGuys
+}
+
+mapgraphic "gfx/mplevels/map_none"
+missionname  "Glass"
+
+roundbegin_target ""
+
+countin_time 0
+
+BlueGuys
+{
+	RequiredObjectives 1
+	Timed 300								
+	UseTeam "glass_BlueGuys" 							
+	TeamIcon "gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"	
+
+	
+	Objective1
+	{
+		goalname "Kill The Red Noobs"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Kill All the Red noobs in Glass Area and make them fall to the abyss."
+		objgfx ""
+	}
+	
+      wonround "^5You Are victorius!!"
+	lostround "^6Better luck next time noobski"
+	roundover_sound_wewon "sound/jo_bespin/rebwin.mp3"
+	roundover_sound_welost "sound/jo_bespin/reblose.mp3"
+	roundover_target "siegeend"
+	attackers 1
+
+	briefing "Kill The Red Noobs"
+}
+
+RedGuys
+{
+	RequiredObjectives 1
+	Timed 300	
+	UseTeam "glass_RedGuys"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "kill The Blue Noobs"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Kill All The Blue noobs in Glass Area and Make them fall to the abyss."
+		objgfx ""
+	}
+	
+	wonround "^5You Are Victorius!!"
+	lostround "^6Better luck next time noobski"
+	roundover_sound_wewon "sound/jo_bespin/impwin.mp3"
+	roundover_sound_welost "sound/jo_bespin/implose.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "Kill The Blue Noobs."
+}

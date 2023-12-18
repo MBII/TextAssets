@@ -1,18 +1,15 @@
 //PowerBattles melee .saber files - created by Frenz
 pb_batarang
 {
-	name			"Batarang"
-
-	notinopen		1		
+	name			"Batarang"	
 	saberType		SABER_SINGLE
-	saberModel	"models/weapons2/dc_batarang/batarang.glm"	
+	saberModel		"models/weapons2/dc_batarang/batarang.glm"	
 	
 	twoHanded		0 
 	numBlades		2
 	saberLength		15
 	saberRadius		3
-	noBlade		1
-	
+	noManualDeactivate 1
 	
 	noWallMarks		1
 	noDlight		1
@@ -32,13 +29,10 @@ pb_batarang
 	disarmable		0
 	blasterBlocking 1 
 	boltToWrist		0 
-	noDlight		1
 	oninwater	1
 	damagescale .75
-	noManualDeactivate	1
 	noIdleEffect	1
 
-	bounceOnWalls		0
 	lungeAtkMove 		BOTH_A7_KICK_S 
 	flourishAnim 		BOTH_DOOKU_TAUNT
 	readyanim 			BOTH_A6_FB
@@ -54,11 +48,8 @@ pb_batarang
 //	alwaysBlock			0
 //	knockbackScale 		0
 
-
 // SOUNDS
 
-	notInOpen	1
-	noManualDeactivate 	1
 	saberColor	random
 	singleBladeStyle	dual
 	saberStyle	dual
@@ -86,15 +77,6 @@ pb_batarang
 	block2Sound2	"sound/weapons/clawshield/block2.mp3"
 	block2Sound3	"sound/weapons/clawshield/block3.mp3"
 	
-	blockEffect	"melee_weap/block.efx"
-	hitPersonEffect "melee_weap/attack.efx"
-	hitOtherEffect	"melee_weap/other.efx"
-	blockEffect2	"melee_weap/block.efx"
-	hitPersonEffect2 "melee_weap/attack.efx"
-	hitOtherEffect2	"melee_weap/other.efx"
-	g2MarksShader		"gfx/damage/bloodcutmark"
-	g2WeaponMarkShader	"gfx/effects/bloodsplat"
-
 
 // EFFECTS
 
@@ -112,13 +94,13 @@ pb_batarang
 	noBladeEffects 		1 			//disables saber blade effects
 	noDismemberment 	1
 	
-	blockEffect	"melee_weap/block"
- 	hitPersonEffect "melee_weap/attack"
-	hitOtherEffect	"sparks/spark"		// if set, plays this effect when the saber/sword hits something else damagable (instead of "saber/saber_cut.efx")
+	blockEffect	"melee_weap/block.efx"
+	hitPersonEffect "melee_weap/attack.efx"
+	hitOtherEffect	"melee_weap/other.efx"
+	blockEffect2	"melee_weap/block.efx"
+	hitPersonEffect2 "melee_weap/attack.efx"
+	hitOtherEffect2	"melee_weap/other.efx"		// if set, plays this effect when the saber/sword hits something else damagable (instead of "saber/saber_cut.efx")
 	noClashFlare	1
-
-//	bladeStyle2Start 		0			//0 - if set, blades from this number and higher use the following values (otherwise, they use the normal values already set)
-
 }
 
 heavymelee
@@ -126,8 +108,6 @@ heavymelee
 	name		"Heavy Melee"
 	saberType	SABER_SINGLE
 	saberModel	"models/weapons2/noweap/noweap.glm"
-	
-	NotInOpen 1
 
 	soundOn		"sound/effects/null.wav"
 	soundLoop	"sound/effects/null.wav"
@@ -167,7 +147,6 @@ heavymelee
 	splashRadius		150
 	splashDamage		10
 	splashKnockback		100
-	
 
 	//Blade Style 1
 	noWallMarks		1
@@ -213,8 +192,6 @@ iceman
 	soundLoop	"sound/effects/null.wav"
 	soundOff	"sound/effects/null.wav"
 
-	NotInOpen 1
-
 	twohanded	0
 	throwable	0
 
@@ -250,7 +227,6 @@ iceman
 
 	idleInBack 	"1"
 	
-
 	//Blade Style 1
 	noWallMarks		1
 	noDlight		1
@@ -280,52 +256,55 @@ iceman
 	jumpAtkFwdMove	LS_A_BACKFLIP_ATK
 }
 
+joint
+{
+	name		"Weed Powah"
+	saberType	SABER_SINGLE
+	saberModel	"models/weapons2/joint/joint_w.glm"
+	soundOn		"s/w/joint/weedon.mp3"
+	soundLoop	"s/w/joint/weedhum.wav"
+	soundOff	"s/w/joint/weedcrushed.mp3"
+	saberLength	40
+	saberColor	green
+}
 
 pb_baton
 {
-name		"Stun Baton"
-saberType	SABER_SINGLE
-saberModel	"models/weapons2/stunbaton/stun_w.glm"
+	name		"Stun Baton"
+	saberType	SABER_SINGLE
+	saberModel	"models/weapons2/stunbaton/stun_w.glm"
 
-soundOn		"sound/weapons/detpack/select.mp3"
-soundLoop	"sound/weapons/baton/idle.wav"
-soundOff	"sound/weapons/detpack/select.mp3"
+	soundOn		"sound/weapons/detpack/select.mp3"
+	soundLoop	"sound/weapons/baton/idle.wav"
+	soundOff	"sound/weapons/detpack/select.mp3"
 
-saberLength	20
-saberRadius	8
-throwable	0
-noWallMarks	1
-noDlight	1
-noBlade		1
-noClashFlare	1
-trailStyle	2
-noManualDeactivate	1
-NotInOpen 	1
-damageScale 	0.42
-noIdleEffect		1
-onInWater		1
-bounceOnWalls		1
+	saberLength	20
+	saberRadius	8
+	throwable	0
+	noWallMarks	1
+	noDlight	1
+	noBlade		1
+	noClashFlare	1
+	trailStyle	2
+	noManualDeactivate	1
+	damageScale 	0.42
+	noIdleEffect		1
+	onInWater		1
+	bounceOnWalls		1
 
-useGoreConfig 	1
-useGoreConfig2 	1
-noDismemberment 1
-noDismemberment2 1
-noBladeEffects	1
-noBladeEffects2 1
+	useGoreConfig 	1
+	useGoreConfig2 	1
+	noDismemberment 1
+	noDismemberment2 1
+	noBladeEffects	1
+	noBladeEffects2 1
 
-tauntAnim	BOTH_SHOWOFF_FAST
-gloatAnim	TORSO_SURRENDER_START
-flourishAnim	BOTH_COWER1
-jumpAtkFwdMove  LS_KICK_F_AIR
-g2MarksShader "gfx/damage/bloodcutmark"
-g2WeaponMarkShader "gfx/effects/bloodsplat"
-
-
-spinsound	"sound/weapons/tai_weap/swing3.wav"
-
-swingSound1	"sound/weapons/exec_hack/swing1.mp3"
-swingSound2	"sound/weapons/exec_hack/swing2.mp3"
-swingSound3	"sound/weapons/exec_hack/swing3.mp3"
+	tauntAnim	BOTH_SHOWOFF_FAST
+	gloatAnim	TORSO_SURRENDER_START
+	flourishAnim	BOTH_COWER1
+	jumpAtkFwdMove  LS_KICK_F_AIR
+	g2MarksShader "gfx/damage/bloodcutmark"
+	g2WeaponMarkShader "gfx/effects/bloodsplat"
 
 	spinSound	"sound/weapons/melee/swing1.mp3"
 	swingSound1	"sound/weapons/melee/swing2.mp3"
@@ -336,16 +315,15 @@ swingSound3	"sound/weapons/exec_hack/swing3.mp3"
 	bounceSound2	"sound/weapons/melee/swing2.mp3"
 	bounceSound3	"sound/weapons/melee/swing1.mp3"
 
-hitSound1	"sound/weapons/baton/fire.mp3"
-hitSound2	"sound/weapons/baton/fire.mp3"
-hitSound3	"sound/weapons/baton/fire.mp3"
+	hitSound1	"sound/weapons/baton/fire.mp3"
+	hitSound2	"sound/weapons/baton/fire.mp3"
+	hitSound3	"sound/weapons/baton/fire.mp3"
 
-blockSound1	"sound/weapons/exec_hack/block1.mp3"
-blockSound2	"sound/weapons/exec_hack/block2.mp3"
-blockSound3	"sound/weapons/exec_hack/block3.mp3"
+	blockSound1	"sound/weapons/exec_hack/block1.mp3"
+	blockSound2	"sound/weapons/exec_hack/block2.mp3"
+	blockSound3	"sound/weapons/exec_hack/block3.mp3"
 
-
-blockEffect	"melee_weap/block.efx"
-hitPersonEffect "stunBaton/flesh_impact.efx"
-hitOtherEffect	"melee_weap/other.efx"
+	blockEffect	"melee_weap/block.efx"
+	hitPersonEffect "stunBaton/flesh_impact.efx"
+	hitOtherEffect	"melee_weap/other.efx"
 }

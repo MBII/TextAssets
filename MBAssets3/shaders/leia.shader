@@ -168,3 +168,20 @@ models/players/leia_slave/wristcuff
 		alphaGen lightingSpecular
 	}
 }
+
+
+// poncho leia
+
+models/players/leia_endor/poncho
+{
+	{
+		map models/players/leia_endor/poncho
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/luke_rotj/endor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}

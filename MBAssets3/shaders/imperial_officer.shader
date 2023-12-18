@@ -68,10 +68,12 @@ models/players/hs_imperial/boots_hips-olive
 	}
 }
 
-models/players/hs_imperial/boots_hips-white
+
+// Galak
+models/players/hs_imperial/galak_boots_hips
 {
 	{
-		map models/players/hs_imperial/boots_hips-white
+		map models/players/hs_imperial/galak_boots_hips
 		rgbGen lightingDiffuse
 	}
 	{	
@@ -82,10 +84,12 @@ models/players/hs_imperial/boots_hips-white
 	}
 }
 
-models/players/hs_imperial/galak_boots_hips
+
+// Female
+models/players/imperial_fml/boots_hips
 {
 	{
-		map models/players/hs_imperial/galak_boots_hips
+		map models/players/imperial_fml/boots_hips
 		rgbGen lightingDiffuse
 	}
 	{	

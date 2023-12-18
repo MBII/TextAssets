@@ -1,6 +1,5 @@
 models/players/r2-d2/arc_body_r2d2
 {
-	cull	twosided
     {
         map models/players/r2-d2/arc_body_r2d2
         blendFunc GL_ONE GL_ZERO
@@ -16,7 +15,6 @@ models/players/r2-d2/arc_body_r2d2
 
 models/players/r2-d2/arc_legs_r2d2
 {
-	cull	twosided
     {
         map models/players/r2-d2/arc_legs_r2d2
         blendFunc GL_ONE GL_ZERO

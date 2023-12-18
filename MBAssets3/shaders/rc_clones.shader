@@ -25,7 +25,7 @@ models/players/rc_clones/head_rc_Demo_S1
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/clonecommander/commanderhead_spec
+		map models/players/clonemarine/commanderhead_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -41,7 +41,7 @@ models/players/rc_clones/commanderboots_rc_S1
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/clonecommander/commanderboots_spec
+		map models/players/clonemarine/commanderboots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular

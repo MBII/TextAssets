@@ -42,6 +42,40 @@ gfx/effects/acpbulletmark
 	}
 }
 
+// Amban
+gfx/energy/AmbanEnergy
+{
+	cull	twosided
+    {
+        map gfx/energy/ambanenergy
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+        alphaGen vertex
+        tcMod scroll -1.25 0.3
+    }
+}
+
+gfx/energy/AmbanLine
+{
+	cull	twosided
+    {
+        map gfx/effects/blueline
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen const ( 1.000000 0.400000 0.300000 )
+    }
+}
+
+gfx/effects/AmbanMuzzle
+{
+	cull	twosided
+    {
+        map gfx/effects/ambanmuzzle
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
 
 //	assaultcannon
 
@@ -315,6 +349,29 @@ gfx/effects/sabers/Flare03
 }
 
 
+// magnetic plating hit
+
+gfx/effects/mag_plating_flare
+{
+	cull	disable
+	{
+		map gfx/misc/flare
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+gfx/effects/mag_plating_elec
+{
+	cull	disable
+	{
+		map gfx/effects/chrome2
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+
 //	thermal sphere of doom
 
 models/weapons2/Thermal/sphereofdoom
@@ -371,4 +428,153 @@ gfx/effects/yellow_bryarFrontFlash
 		blendFunc GL_ONE GL_ONE
 		rgbGen vertex
 	}
+}
+
+
+// Grapple Hook Line
+
+gfx/effects/grapplehook
+{
+	notc
+	cull	twosided
+	{
+		map gfx/effects/grapplehook
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+// Electro staffs
+gfx/effects/sabers_more/electro
+{
+	cull	twosided
+    {
+        videomap video/LightningEdgeRGB
+        blendFunc GL_ONE GL_ONE
+        rgbGen identity
+	  glow
+    }
+}
+
+gfx/effects/sabers_more/glow/blue
+{
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	q3map_nolightmap
+    {
+        map gfx/effects/sabers_more/glow/blue
+        blendFunc GL_ONE_MINUS_DST_COLOR GL_ONE
+        glow
+        rgbGen wave triangle 1 0.2 0 8
+    }
+}
+
+gfx/effects/sabers_more/glow/orange
+{
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	q3map_nolightmap
+    {
+        map gfx/effects/sabers_more/glow/orange
+        blendFunc GL_ONE_MINUS_DST_COLOR GL_ONE
+        glow
+        rgbGen wave triangle 1 0.2 0 8
+    }
+}
+
+gfx/effects/sabers_more/glow/purple
+{
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	q3map_nolightmap
+    {
+        map gfx/effects/sabers_more/glow/purple
+        blendFunc GL_ONE_MINUS_DST_COLOR GL_ONE
+        glow
+        rgbGen wave triangle 1 0.2 0 8
+    }
+}
+
+gfx/misc/PurpleLine_new
+{
+	cull	twosided
+    {
+        map gfx/misc/PurpleLine_new
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/lightningFlash_purple
+{
+	cull	twosided
+    {
+        map gfx/misc/lightningflash_purple
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/orangeLine_new
+{
+	cull	twosided
+    {
+        map gfx/misc/orangeLine_new
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/lightningFlash_orange
+{
+	cull	twosided
+    {
+        map gfx/misc/lightningflash_orange
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+// Blue Effects
+gfx/effects/bryarfrontflash_h
+{
+	cull	twosided
+    {
+        map gfx/effects/bryarfrontflash_h
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/effects/bryarsideflash_h
+{
+	cull	twosided
+    {
+        map gfx/effects/bryarsideflash_h
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/misc/spark_h
+{
+	cull	twosided
+    {
+        map gfx/misc/spark_h
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+    }
+}
+
+gfx/misc/shockwave_h
+{
+	cull	twosided
+    {
+        map gfx/misc/shockwave_h
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+        tcMod scale 2 1
+    }
 }

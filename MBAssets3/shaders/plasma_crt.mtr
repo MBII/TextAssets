@@ -1,0 +1,507 @@
+//Sky
+
+textures/plasma_crt/crt_sky
+{
+	qer_editorimage textures/skies/sky
+	q3map_sunExt 1 1 0.85 350 135 60 2 6
+	q3map_lightmapFilterRadius 0 2
+	q3map_skylight 200 5
+	surfaceparm sky
+	surfaceparm noimpact
+	surfaceparm nomarks
+	q3map_nolightmap
+	skyParms textures/plasma_crt/crt_sky 512 -
+}
+
+textures/plasma_crt/crt_sky2
+{
+	qer_editorimage textures/skies/sky
+	//q3map_sunExt 1 0.65 0.1 100 135 60 2 6
+	q3map_sunExt 1 0.9 0.6 250 135 60 2 6
+	q3map_lightmapFilterRadius 0 2
+	q3map_skylight 200 5
+	surfaceparm sky
+	surfaceparm noimpact
+	surfaceparm nomarks
+	q3map_nolightmap
+	skyParms textures/plasma_crt/crt_sky2 512 -
+}
+
+//Salt
+
+textures/plasma_crt/falling_salt
+{
+	surfaceparm	trans
+	surfaceparm	noimpact
+	surfaceparm	nomarks
+	surfaceparm	nonsolid
+	surfaceparm	nodlight
+	q3map_nolightmap
+	cull	twosided
+	qer_trans	1.0
+    {
+        map textures/plasma_crt/falling_salt
+        alphaFunc GE128
+        rgbGen identity
+        //tcMod Scroll 0.075 -0.3
+        tcMod Scroll 0.075 -0.25
+        tcMod turb 0.01 0.025 0 -0.01
+    }
+}
+
+//Alpha Fade
+
+textures/plasma_crt/ground_fade
+{
+    qer_editorimage textures/plasma_crt/ground
+    q3map_material Sand
+    q3map_shadeangle 120
+    {
+      map $lightmap
+      rgbGen identity
+    }
+    {
+      map textures/plasma_crt/ground_alb
+	  normalMap textures/plasma_crt/ground_N
+	  rmoMap textures/plasma_crt/ground_RMO
+      blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+      map textures/plasma_crt/ground_blend
+      blendFunc blend
+      alphaGen oneMinusVertex
+    }
+}
+
+textures/plasma_crt/ground_fade2
+{
+    qer_editorimage textures/plasma_crt/ground
+    q3map_material Sand
+    q3map_shadeangle 120
+    {
+      map $lightmap
+      rgbGen identity
+    }
+    {
+      map textures/plasma_crt/ground_alb
+	  normalMap textures/plasma_crt/ground_N
+	  rmoMap textures/plasma_crt/ground_RMO
+      blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+      map textures/plasma_crt/ground_blend2
+      blendFunc blend
+      alphaGen oneMinusVertex
+    }
+}
+
+textures/plasma_crt/ground2_fade
+{
+    qer_editorimage textures/plasma_crt/ground2
+    q3map_material Sand
+    q3map_shadeangle 120
+    {
+      map $lightmap
+      rgbGen identity
+    }
+    {
+      map textures/plasma_crt/ground2_alb
+	  normalMap textures/plasma_crt/ground2_N
+	  rmoMap textures/plasma_crt/ground2_RMO
+      blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+      map textures/plasma_crt/ground_blend
+      blendFunc blend
+      alphaGen oneMinusVertex
+    }
+}
+
+textures/plasma_crt/ground2_fade2
+{
+    qer_editorimage textures/plasma_crt/ground2
+    q3map_material Sand
+    q3map_shadeangle 120
+    {
+      map $lightmap
+      rgbGen identity
+    }
+    {
+      map textures/plasma_crt/ground2_alb
+	  normalMap textures/plasma_crt/ground2_N
+	  rmoMap textures/plasma_crt/ground2_RMO
+      blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+      map textures/plasma_crt/ground_blend2
+      blendFunc blend
+      alphaGen oneMinusVertex
+    }
+}
+
+textures/plasma_crt/red_rock_ground2_fade
+{
+  qer_editorImage textures/plasma_crt/ground2
+	q3map_nonplanar
+	q3map_shadeangle 120
+    {
+      map textures/plasma_crt/ground2_alb
+	  normalMap textures/plasma_crt/ground2_N
+	  rmoMap textures/plasma_crt/ground2_RMO
+      rgbGen identity
+    }
+    {	
+      map textures/plasma_crt/red_rock_alb
+	  normalMap textures/plasma_crt/red_rock_N
+	  rmoMap textures/plasma_crt/red_rock_RMO
+	  normalScale 1.0 -0.65
+      alphaGen vertex
+      blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+      tcmod scale 2 2
+    }
+    {
+      map $lightmap
+      blendFunc GL_DST_COLOR GL_ZERO
+      tcGen lightmap
+    }
+}
+
+textures/plasma_crt/rock_ground2_fade
+{
+  qer_editorImage textures/plasma_crt/ground2
+	q3map_nonplanar
+	q3map_shadeangle 120
+    {
+      map textures/plasma_crt/ground2_alb
+	  normalMap textures/plasma_crt/ground2_N
+	  rmoMap textures/plasma_crt/ground2_RMO
+      rgbGen identity
+    }
+    {	
+      map textures/plasma_crt/rock_alb
+	  normalMap textures/plasma_crt/rock_N
+	  rmoMap textures/plasma_crt/rock_RMO
+	  normalScale 1.0 -0.65
+      alphaGen vertex
+      blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+      map $lightmap
+      blendFunc GL_DST_COLOR GL_ZERO
+      tcGen lightmap
+    }
+}
+
+textures/plasma_crt/rock2_ground2_fade
+{
+  qer_editorImage textures/plasma_crt/ground2
+	q3map_nonplanar
+	q3map_shadeangle 120
+    {
+      map textures/plasma_crt/rock2_alb
+	  normalMap textures/plasma_crt/rock2_N
+	  rmoMap textures/plasma_crt/rock2_RMO
+	  normalScale 1.0 -0.65
+      rgbGen identity
+    }
+    {	
+      map textures/plasma_crt/ground2_alb
+	  normalMap textures/plasma_crt/ground2_N
+	  rmoMap textures/plasma_crt/ground2_RMO
+      alphaGen vertex
+      blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+      map $lightmap
+      blendFunc GL_DST_COLOR GL_ZERO
+      tcGen lightmap
+    }
+}
+
+textures/plasma_crt/rock_rock2_fade
+{
+  qer_editorImage textures/plasma_crt/rock2
+	q3map_nonplanar
+	q3map_shadeangle 120
+    {
+      map textures/plasma_crt/rock2_alb
+	  normalMap textures/plasma_crt/rock2_N
+	  rmoMap textures/plasma_crt/rock2_RMO
+	  normalScale 1.0 -0.65
+      rgbGen identity
+    }
+    {	
+      map textures/plasma_crt/rock_alb
+	  normalMap textures/plasma_crt/rock_N
+	  rmoMap textures/plasma_crt/rock_RMO
+	  normalScale 1.0 -0.65
+      alphaGen vertex
+      blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    }
+    {
+      map $lightmap
+      blendFunc GL_DST_COLOR GL_ZERO
+      tcGen lightmap
+    }
+}
+
+//Terrain
+
+textures/plasma_crt/ground
+{
+	qer_editorImage textures/plasma_crt/ground
+	q3map_material	Sand
+	q3map_nonPlanar
+	q3map_shadeangle 120
+	{
+		map textures/plasma_crt/ground_alb
+		normalMap textures/plasma_crt/ground_N
+		rmoMap textures/plasma_crt/ground_RMO
+		rgbGen identity
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+}
+
+textures/plasma_crt/ground2
+{
+	qer_editorImage textures/plasma_crt/ground2
+	q3map_nonPlanar
+	q3map_shadeangle 120
+	q3map_material	Sand
+	{
+		map textures/plasma_crt/ground2_alb
+		normalMap textures/plasma_crt/ground2_N
+		rmoMap textures/plasma_crt/ground2_RMO
+		rgbGen identity
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+}
+
+textures/plasma_crt/red_rock
+{
+	qer_editorImage textures/plasma_crt/red_rock
+	q3map_nonPlanar
+	q3map_shadeangle 120
+	{
+		map textures/plasma_crt/red_rock_alb
+		normalMap textures/plasma_crt/red_rock_N
+		rmoMap textures/plasma_crt/red_rock_RMO
+		normalScale 1.0 -0.65
+		rgbGen identity
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+}
+
+textures/plasma_crt/red_rock_smooth
+{
+	qer_editorImage textures/plasma_crt/red_rock_smooth
+	q3map_nonPlanar
+	q3map_shadeangle 120
+	{
+		map textures/plasma_crt/red_rock_smooth_alb
+		normalMap textures/plasma_crt/red_rock_smooth_N
+		rmoMap textures/plasma_crt/red_rock_smooth_RMO
+		normalScale 1.0 -0.65
+		rgbGen identity
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+}
+
+textures/plasma_crt/rock
+{
+	qer_editorImage textures/plasma_crt/rock
+	q3map_nonPlanar
+	q3map_shadeangle 120
+	{
+		map textures/plasma_crt/rock_alb
+		normalMap textures/plasma_crt/rock_N
+		rmoMap textures/plasma_crt/rock_RMO
+		normalScale 1.0 -0.65
+		rgbGen identity
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+}
+
+textures/plasma_crt/rock2
+{
+	qer_editorImage textures/plasma_crt/rock2
+	q3map_nonPlanar
+	q3map_shadeangle 120
+	{
+		map textures/plasma_crt/rock2_alb
+		normalMap textures/plasma_crt/rock2_N
+		rmoMap textures/plasma_crt/rock2_RMO
+		normalScale 1.0 -0.65
+		rgbGen identity
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+}
+
+//Models
+
+models/map_objects/plasma_crt/at_m6
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/at_m6_alb
+		normalMap models/map_objects/plasma_crt/at_m6_N
+		rmoMap models/map_objects/plasma_crt/at_m6_RMO
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/door
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/door_alb
+		normalMap models/map_objects/plasma_crt/door_N
+		rmoMap models/map_objects/plasma_crt/door_RMO
+		normalScale 1.0 -1.0
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/floor_panel
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/floor_panel_alb
+		normalMap models/map_objects/plasma_crt/floor_panel_N
+		rmoMap models/map_objects/plasma_crt/floor_panel_RMO
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/gun_tower
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/gun_tower_alb
+		normalMap models/map_objects/plasma_crt/gun_tower_N
+		rmoMap models/map_objects/plasma_crt/gun_tower_RMO
+		normalScale 1.0 -1.0
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/gun_turret
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/gun_turret_alb
+		normalMap models/map_objects/plasma_crt/gun_turret_N
+		rmoMap models/map_objects/plasma_crt/gun_turret_RMO
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/ladder
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/ladder_alb
+		normalMap models/map_objects/plasma_crt/ladder_N
+		rmoMap models/map_objects/plasma_crt/ladder_RMO
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/blast_door
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/blast_door_alb
+		normalMap models/map_objects/plasma_crt/blast_door_N
+		rmoMap models/map_objects/plasma_crt/blast_door_RMO
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/fo_command_shuttle_main
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_tfa/fo_command_shuttle_main
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/fo_command_shuttle_wing
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_tfa/fo_command_shuttle_wing
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/gun_tower_damaged
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/gun_tower_damaged_alb
+		normalMap models/map_objects/plasma_crt/gun_tower_damaged_N
+		rmoMap models/map_objects/plasma_crt/gun_tower_damaged_RMO
+		normalScale 1.0 -1.0
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/gun_turret_damaged
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/gun_turret_damaged_alb
+		normalMap models/map_objects/plasma_crt/gun_turret_damaged_N
+		rmoMap models/map_objects/plasma_crt/gun_turret_damaged_RMO
+        rgbGen vertex
+    }
+}
+
+models/map_objects/plasma_crt/blast_door_damaged
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/map_objects/plasma_crt/blast_door_damaged_alb
+		normalMap models/map_objects/plasma_crt/blast_door_damaged_N
+		rmoMap models/map_objects/plasma_crt/blast_door_damaged_RMO
+        rgbGen vertex
+    }
+}

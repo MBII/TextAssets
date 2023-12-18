@@ -4,21 +4,59 @@ ClassInfo
 {
 	name			"ascb_pyro"
 	weapons			WP_DEMP2|WP_BLASTER|WP_MELEE|WP_REPEATER
-	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_CLONERIFLE,3
+	attributes		MB_ATT_PISTOL,2|MB_ATT_BLASTER,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_CLONERIFLE,3|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,2|MB_ATT_DODGE,3
 	maxhealth		175
-	model			"pyro" 				//this is optional, if it's here it forces the model to this.
-	skin			"blue"					//this is optional, if it's here it forces the skin to this.
+	model			"cw_arctrooper" 				//this is optional, if it's here it forces the model to this.
+	skin			"blue_pyro"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/cw_arctrooper/mb2_icon_blue"
-	MBClass			MB_CLASS_CLONETROOPER
-	extralives		3
+	MBClass			MB_CLASS_ARCTROOPER
+	extralives		    3
+    respawnCustomTime   20000
 	classnumberlimit	3
 	classflags		CFL_SHOTGUN|CFL_WFLAMETHROWER
-	classnumberlimit	3
+    WP_BlasterFlags HELD_ALTRELOAD
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+    FlashSound0			"sound/weapons/reshotgun/fire.wav"
+    MuzzleEffect		"halo_shotgun/Muzzle_Flash"
+	MissileEffect 		"flechette/shot"
+    MissileMissEffect   "blaster/Impact_Wall01Y"
+	primGore		    1
+    altFireEnabled	    0
+    clipSize            66 //3 shots
+    Icon				"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName			"Shotgun"
+    firingAnim          DC15_FIRE
+}
+
+WeaponInfo1
+{
+    WeaponToReplace		WP_REPEATER
+    WeaponBasedOff		WP_BLASTER
+    NewWorldModel		"models/weapons2/CR-24_flamerifle/rifle_w.glm"
+    NewViewModel		"models/weapons2/CR-24_flamerifle/rifle.md3"
+    Icon				"gfx/hud/w_icon_cr-24_flamerifle"
+    WeaponName			"Flamethrower"
 }
 
 description	"Pyro
+Class: Arc Trooper
 
 Weapon:
-Pistol
-Flamethrower
-Shotgun"
+- Pistol (2)
+- Flame Thrower (3)
+- Shotgun (2)
+
+Attributes:
+- Dexterity (2)
+- Stamina (2)
+
+Abilites:
+- Evasive Roll
+- Dodge (3)"

@@ -1,0 +1,121 @@
+Teams
+{
+	team1 Heroes
+	team2 Villains
+}
+
+MBModesAllowed "2" //Space separated list of mode numbers the map may be played on. If the server is not using an allowed mode, it will change to the first mode in the list.
+
+LevelshotDesc
+{
+    desc1
+    {   
+        text "We need to buy time to fix our hyperdrive after being ambushed by a Star Destroyer. Using a stolen Imperial shuttle we managed to sneak onto the ship. Now we just need to disable the Star Destroyer's turbo lasers by planting an EMP device near one of them.
+Good luck, it's not over yet."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "The Rebels have infiltrated our ship using a stolen Imperial shuttle. They must be trying to save their own ship, in which case they will likely attempt to sabotage the turbo lasers. Protect the system and do not allow them to escape.
+We have them now."
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx/mplevels/mb2_SDestroyer/map"
+missionname "Imperial Star Destroyer"
+radartopleft "-832, 7168"
+radarbottomright "8256, -1920"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_SDestroyer"
+		radargraphicfull "gfx/automap/mb2_SDestroyerfull"
+	}
+}
+
+HelpIcons
+{
+	//Side Hack
+	HelpIcon0
+	{
+		end0 "t7"
+		origin "4908 3596 36"
+		redicon HLP_HACK_SUB
+		blueicon HLP_DEFEND_SUB
+		specicon HLP_DEFEND_SUB
+		sideobjective 1
+	}
+	
+	//Turret Hack
+	HelpIcon1
+	{
+		end0 "t9"
+		origin "2792 6184 32"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+	}
+}
+
+roundbegin_target ""
+
+Heroes
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "SOM_Heroes"
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Detonate the EMP Bomb"
+		final 0
+		message_team1 "The Turbo Lasers are no longer operational"
+		message_team2 "The Turbo Lasers are no longer operational"
+		objdesc "Get to the Turbo Lasers and detonate the EMP bomb"
+		objgfx "gfx/mplevels/mb2_SDestroyer/obj"
+	}
+
+	wonround "The Turbo Lasers are no longer operational"
+	lostround "Our ship is lost"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundover"
+	attackers 1
+	briefing "Destroy the turbo lasers."
+}
+
+Villains
+{
+	RequiredObjectives 1
+	UseTeam "SOM_Villains"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Defend the turbo lasers"
+		final 0
+		message_team1 "The Rebellion has been held off"
+		message_team2 "The Rebellion has been held off"
+		objdesc "Stop the Rebellion destroying the turbo lasers"
+		objgfx "gfx/mplevels/mb2_SDestroyer/obj"
+	}
+
+	wonround "We have them now"
+	lostround "The turbo lasers have been destroyed"
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target "roundoverimp"
+	attackers 0
+	briefing "Defend the turbo lasers"
+}

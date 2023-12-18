@@ -3,20 +3,49 @@
 ClassInfo
 {
 	name			"ascb_scout"
-	weapons			WP_DEMP2|WP_DET_PACK|WP_MELEE
-	attributes		MB_ATT_PISTOL,2|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2
+	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_SABER
+	attributes		MB_ATT_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2|MB_ATT_DASH,2
 	maxhealth		125
-	model			"scout" 				//this is optional, if it's here it forces the model to this.
-	skin			"blue"					//this is optional, if it's here it forces the skin to this.
+	model			"cw_bdroid" 				//this is optional, if it's here it forces the model to this.
+	skin			"blue_scout"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/cw_bdroid/mb2_icon_blue"
-	MBClass			MB_CLASS_CLONETROOPER
+	MBClass			MB_CLASS_JEDI
 	speed			1.5
-	extralives		6
+	extralives		    6
+    respawnCustomTime   20000
 	classnumberlimit	3
+
+	forcepowers FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,3|FP_LEVITATION,2
+	forcepool 125
+	forceregen 1.2
+
+	saber1			scout_bat
+	sabercolor		6
+	saberstyle 		SS_MEDIUM|SS_DESANN
+
+	speed 1.15
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/saber_slugger/saber_slugger.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/bat"	
+	WeaponName		"Baseball Bat"
 }
 
 description	"Scout
+Class: Jedi
 
 Weapons:
-Pistol
-T21(1)"
+- Baseball Bat *
+--- Based on Lightsaber, Defense (3)
+- Pistol (3)
+
+Force Powers:
+- Jump (2)
+
+Attributes:
+- Dash (2)"

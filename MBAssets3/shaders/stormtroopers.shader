@@ -1,4 +1,4 @@
-//	atat pilot
+//	AT-AT Pilot
 
 models/players/atat_pilot/helmet
 {
@@ -24,54 +24,7 @@ models/players/atat_pilot/helmet
 }
 
 
-// stormie
-
-models/players/stormie/arms
-{
-	cull	twosided
-	{
-		map models/players/stormie/arms
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/arms-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormie/helmet
-{
-	{
-		map models/players/stormie/helmet
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/helmet-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormie/body-armor
-{
-	{
-		map models/players/stormie/body-armor
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/body-armor-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
-// stormie tfa
+// Storm Trooper TFA
 
 models/players/stormie_tfa/helmet
 {
@@ -133,7 +86,62 @@ models/players/stormie_tfa/vest
 }
 
 
-// pyre
+// Cardinal
+
+models/players/stormie_tfa/helmet_card
+{
+	{
+		map models/players/stormie_tfa/helmet_card
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/armor_card
+{
+	{
+		map models/players/stormie_tfa/armor_card
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    	{
+        	map models/players/phasma/gloss
+        	blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        	detail
+        	alphaGen lightingSpecular
+        	tcGen environment
+    	}
+}
+
+models/players/stormie_tfa/cape_card
+{
+	cull twosided
+    {
+        map models/players/stormie_tfa/cape_card
+        rgbGen lightingDiffuse
+    }
+
+}
+
+
+// Pyre
 
 models/players/stormie_tfa/helmet_pyre
 {
@@ -193,7 +201,80 @@ models/players/stormie_tfa/pauldron_pyre
 }
 
 
-// stormpilot
+//Executioner
+
+models/players/stormie_tfa/helmet_exe
+{
+	{
+		map models/players/stormie_tfa/helmet_exe
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/stormie_tfa/armor_exe
+{
+	{
+		map models/players/stormie_tfa/armor_exe
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+//Finn
+
+models/players/stormie_tfa/helmet_finn_l
+{
+	{
+		map models/players/stormie_tfa/helmet_finn_l
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_finnl_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/stormie_tfa/helmet_finn_r
+{
+	{
+		map models/players/stormie_tfa/helmet_finn_r
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/helmet_finnr_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+models/players/stormie_tfa/armor_finn
+{
+	{
+		map models/players/stormie_tfa/armor_finn
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/armor_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// TIE Pilot
 
 models/players/stormpilot/helmet1
 {
@@ -218,8 +299,31 @@ models/players/stormpilot/helmet1
 	}
 }
 
+models/players/tie_pilot/Shadow_Body2
+{
+	q3map_onlyvertexlighting
+	{
+		map models/players/tie_pilot/Shadow_Body2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/tie_pilot/Shadow_Body_S
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
 
-// swamptrooper
+
+// Swamp Trooper
 
 models/players/swamptrooper/arms_legs_green
 {
@@ -288,284 +392,480 @@ models/players/swamptrooper/torso_green
 	}
 }
 
-// Flame Trooper Stormie
 
-models/players/stormie/flame_arms
+// Default Stormie
+
+models/players/stormie/armor_clean
 {
-	cull	twosided
 	{
-		map models/players/stormie/flame_arms_rgb
-		rgbGen const ( 0.72 0 0 )
-	}
-	{
-		map models/players/stormie/flame_arms_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-	{
-		map models/players/stormie/flame_arms_rgb
-		blendFunc GL_ZERO GL_SRC_COLOR
+		map models/players/stormie/armor_clean
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/arms-spec
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_clean
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/armor_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/lens
+{
+	{
+		map models/players/stormie/lens
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+ 	{
+       		 map models/players/stormie/lens_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      		detail
+       		alphaGen lightingSpecular
+	}
+}
+	
+models/players/stormie/lens_OT
+{
+	{
+		map models/players/stormie/lens_OT
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+ 	{
+       		 map models/players/stormie/lens_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      		detail
+       		alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/bodysuit
+{
+	{
+		map models/players/stormie/bodysuit
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/bodysuit_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/bomb
+{
+	{
+		map models/players/stormie/bomb
+		rgbGen lightingDiffuse
+	}
+ 	{
+		map models/players/stormie/bomb_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/flame_helmet
+models/players/stormie/pauldron_blue
 {
 	{
-		map models/players/stormie/flame_helmet_rgb
-		rgbGen const ( 0.72 0 0 )
+		map models/players/stormie/pauldron_blue
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/pauldron-spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/pauldron_orange
+{
+	{
+		map models/players/stormie/pauldron_orange
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/pauldron-spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/pauldron_medic
+{
+	{
+		map models/players/stormie/pauldron_medic
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/pauldron-spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+}
+	
+models/players/stormie/pauldron_red
+{
+	{
+		map models/players/stormie/pauldron_red
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/pauldron-spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}	
+}
+
+models/players/stormie/pauldron_rgb
+{
+	{
+		map models/players/stormie/pauldron_rgb
+		rgbGen lightingDiffuseEntity
 	}
 	{
-		map models/players/stormie/flame_helmet_rgb
+		map models/players/stormie/pauldron_rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+ 	{
+		map models/players/stormie/pauldron-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      		detail
+       		alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/pauldron_chim_rgb
+{
+	{
+		map models/players/stormie/pauldron_chim_rgb
+		rgbGen lightingDiffuseEntity
 	}
 	{
-		map models/players/stormie/flame_helmet_rgb
-		blendFunc GL_ZERO GL_SRC_COLOR
+		map models/players/stormie/pauldron_chim_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+ 	{
+		map models/players/stormie/pauldron-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      		detail
+       		alphaGen lightingSpecular
+	}
+}
+
+
+// Incinerator Stormie
+
+models/players/stormie/armor_incinerator
+{
+	{
+		map models/players/stormie/armor_incinerator
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/helmet-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormie/flame_body
-{
-	{
-		map models/players/stormie/flame_body_rgb
-		rgbGen const ( 0.72 0 0 )
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
 	}
 	{
-		map models/players/stormie/flame_body_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-	{
-		map models/players/stormie/flame_body_rgb
-		blendFunc GL_ZERO GL_SRC_COLOR
+		map models/players/stormie/armor_incinerator
+		blendfunc blend
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/stormie/body-armor-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+ 	{
+        map models/players/stormie/armor_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/flame_pauldron
-{
-	{
-		map models/players/stormie/shoulder-rgb
-		rgbGen const ( 0.72 0 0 )
-	}
-	{
-		map models/players/stormie/shoulder-rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-    {
-        map models/players/stormie/shoulder-rgb
-        blendFunc GL_ZERO GL_SRC_COLOR
-        rgbGen lightingDiffuse
-    }
-}
-
-// Mortar Trooper Stormie
-
-models/players/stormie/mortar_arms
-{
-	cull	twosided
-	{
-		map models/players/stormie/flame_arms_rgb
-		rgbGen const ( 0.768 0.469 0.022 )
-	}
-	{
-		map models/players/stormie/flame_arms_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-	{
-		map models/players/stormie/flame_arms_rgb
-		blendFunc GL_ZERO GL_SRC_COLOR
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/arms-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormie/mortar_helmet
-{
-	{
-		map models/players/stormie/flame_helmet_rgb
-		rgbGen const ( 0.768 0.469 0.022 )
-	}
-	{
-		map models/players/stormie/flame_helmet_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-	{
-		map models/players/stormie/flame_helmet_rgb
-		blendFunc GL_ZERO GL_SRC_COLOR
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/helmet-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormie/mortar_body
-{
-	{
-		map models/players/stormie/flame_body_rgb
-		rgbGen const ( 0.768 0.469 0.022 )
-	}
-	{
-		map models/players/stormie/flame_body_rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-	{
-		map models/players/stormie/flame_body_rgb
-		blendFunc GL_ZERO GL_SRC_COLOR
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie/body-armor-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/stormie/mortar_pauldron
-{
-	{
-		map models/players/stormie/shoulder-rgb
-		rgbGen const ( 0.768 0.469 0.022 )
-	}
-	{
-		map models/players/stormie/shoulder-rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-	}
-    {
-        map models/players/stormie/shoulder-rgb
-        blendFunc GL_ZERO GL_SRC_COLOR
-        rgbGen lightingDiffuse
-    }
-}
 
 // Mimban Stormie
 
-models/players/stormie/Mimban_Arms
+models/players/stormie/armor_mimban
 {
-	cull	twosided
 	{
-		map models/players/stormie/Mimban_Arms
-		blendFunc GL_ONE GL_ZERO
+		map models/players/stormie/armor_mimban
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/Mimban_Arms_S
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_mimban
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/armor_dirty_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/bomb_mimban
+{
+	{
+		map models/players/stormie/bomb_mimban
+		rgbGen lightingDiffuse
+	}
+ 	{
+		map models/players/stormie/bomb_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Mimban_Helmet
+
+// Mortar Stormie
+
+models/players/stormie/armor_mortar
 {
 	{
-		map models/players/stormie/Mimban_Helmet
+		map models/players/stormie/armor_mortar
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/Mimban_Helmet_S
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_mortar
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/armor_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Mimban_Body
+
+// Nova Stormie
+
+models/players/stormie/armor_nova
 {
 	{
-		map models/players/stormie/Mimban_Body
+		map models/players/stormie/armor_nova
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/Mimban_Body_S
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
+	{
+        map models/players/stormie/armor_clean
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
 }
+
+models/players/stormie/accessoriesnova
+{
+	{
+		map models/players/stormie/accessoriesnova
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/accessoriesnew_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/pauldron_nova
+{
+	{
+		map models/players/stormie/pauldron_nova
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/pauldron-spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+}
+
 
 // Remnant Stormie
 
-models/players/stormie/Remnant_Arms
+models/players/stormie/armor_remnant
 {
-	cull	twosided
 	{
-		map models/players/stormie/Remnant_Arms
-		blendFunc GL_ONE GL_ZERO
+		map models/players/stormie/armor_remnant
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/Remnant_Arms_S
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_remnant
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/armor_dirty_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Remnant_Helmet
+
+// Sand Stormie
+
+models/players/stormie/armor_dirty
 {
 	{
-		map models/players/stormie/Remnant_Helmet
+		map models/players/stormie/armor_dirty
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/Remnant_Helmet_S
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_dirty
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/armor_dirty_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Remnant_Body
+models/players/stormie/bodysuit_dirty
 {
 	{
-		map models/players/stormie/Remnant_Body
+		map models/players/stormie/bodysuit_dirty
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/stormie/Remnant_Body_S
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+ 	{
+        map models/players/stormie/bodysuit_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
+
+models/players/stormie/bomb_dirty
+{
+	{
+		map models/players/stormie/bomb_dirty
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/stormie/bomb_dirty_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/accessories--1
+{
+	{
+		map models/players/stormie/accessories--1
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/accessories--1_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/accessories--2
+{
+	{
+		map models/players/stormie/accessories--2
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/accessories--2_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/accessoriesnew
+{
+	{
+		map models/players/stormie/accessoriesnew
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/accessoriesnew_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
 
 // Shadow Stormie
 
-models/players/stormie/Shadow_Arms
+models/players/stormie/armor_shadow
 {
-	cull	twosided
 	{
-		map models/players/stormie/Shadow_Arms
-		blendFunc GL_ONE GL_ZERO
+		map models/players/stormie/armor_shadow
 		rgbGen lightingDiffuse
 	}
 	{
@@ -577,155 +877,247 @@ models/players/stormie/Shadow_Arms
 		alphaGen lightingSpecular
 	}
 	{
-		map models/players/stormie/Shadow_Arms_S
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+        map models/players/stormie/armor_clean
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Shadow_Helmet
+models/players/stormie/lens_shadow
 {
 	{
-		map models/players/stormie/Shadow_Helmet
+		map models/players/stormie/lens_shadow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/deathtrooper/env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/stormie/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
 	}
-	{
-		map models/players/stormie/Shadow_Helmet_S
+ 	{
+        map models/players/stormie/lens_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Shadow_Body
+models/players/stormie/bomb_shadow
 {
-	q3map_onlyvertexlighting
 	{
-		map models/players/stormie/Shadow_Body
+		map models/players/stormie/bomb_shadow
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/stormie/Shadow_Body_S
+ 	{
+		map models/players/stormie/bomb_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+      		detail
+       		alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Shadow_Body2
-{
-	q3map_onlyvertexlighting
-	{
-		map models/players/stormie/Shadow_Body2
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/deathtrooper/env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
 
 // Shock Stormie
 
-models/players/stormie/Shock_Arms
+models/players/stormie/armor_shock
 {
-	cull	twosided
 	{
-		map models/players/stormie/Shock_Arms
-		blendFunc GL_ONE GL_ZERO
+		map models/players/stormie/armor_shock
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/arms-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_shock
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/armor_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Shock_Helmet
+
+// Sullust Stormie
+
+models/players/stormie/armor_sull
 {
 	{
-		map models/players/stormie/Shock_Helmet
+		map models/players/stormie/armor_sull
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/helmet-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_sull
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/stormie/armor_dirty_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/Shock_Body
+models/players/stormie/bomb_dirty2
 {
 	{
-		map models/players/stormie/Shock_Body
+		map models/players/stormie/bomb_dirty2
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/stormie/bomb_dirty_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+}
+
+models/players/stormie/hazard
+{
+	{
+		map models/players/stormie/hazard
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+		map models/players/stormie/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/hazard
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie/hazard_glow
+		blendfunc gl_one gl_one
+		glow
+	}
+ 	{
+        map models/players/stormie/hazard_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
+
 
 // TFU Commander Stormie
 
-models/players/stormie/TFUComm_Arms
+models/players/stormie/armor_tfucomm
 {
-	cull	twosided
 	{
-		map models/players/stormie/TFUComm_Arms
-		blendFunc GL_ONE GL_ZERO
+		map models/players/stormie/armor_tfucomm
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/arms-spec
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_tfucomm
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+		map models/players/stormie/armor_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/stormie/TFUComm_Helmet
-{
+// TFU Shadow Stormie
+
+models/players/stormie/armor_tfushadow
 	{
-		map models/players/stormie/TFUComm_Helmet
+	{
+		map models/players/stormie/armor_tfushadow
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/helmet-spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+        map models/players/stormie/armor-shine_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+	{
+		map models/players/phasma/gloss
+		blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+       	detail
+       	alphaGen lightingSpecular
+        tcGen environment 
+	}
+	{
+		map models/players/stormie/armor_glow
+		blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
 	}
 }
 
-models/players/stormie/TFUComm_Body
+models/players/stormie/lens_tfu
 {
 	{
-		map models/players/stormie/TFUComm_Body
+		map models/players/stormie/lens_tfu
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/stormie/body-armor-spec
+		map models/players/stormie/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+ 	{
+       	map models/players/stormie/lens_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
+      	detail
+       	alphaGen lightingSpecular
+	}
+	{
+		map models/players/stormie/lens_tfu
+		blendfunc GL_ONE GL_ONE
+		glow
+		rgbGen identity
+	}
+}
+
+models/players/stormie/bomb_tfushadow
+{
+	{
+		map models/players/stormie/bomb_tfushadow
+		rgbGen lightingDiffuse
+	}
+ 	{
+        	map models/players/stormie/bomb_spec
+	       	blendFunc GL_SRC_ALPHA GL_ONE
+	      	detail
+	       	alphaGen lightingSpecular
+	}
+	{
+		map models/players/phasma/gloss
+		blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+	       	detail
+	       	alphaGen lightingSpecular
+	        tcGen environment 
 	}
 }

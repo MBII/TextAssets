@@ -18,12 +18,12 @@ models/players/mara/mara
 }
 
 
-//   mots_mara
+//   MOTS Mara
 
-models/players/mara/mots_mara
+models/players/mara/mara_mots
 {
 	{
-		map models/players/mara/mots_mara
+		map models/players/mara/mara_mots
 		rgbGen lightingDiffuse
 	}
 	{
@@ -33,14 +33,14 @@ models/players/mara/mots_mara
 		tcGen environment 
 	}
 	{
-		map models/players/mara/mots_mara
+		map models/players/mara/mara_mots
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
 }
 
 
-//	mara_jumpsuit
+//	Jumpsuit Mara
 
 models/players/mara_jumpsuit/belt
 {

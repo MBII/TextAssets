@@ -3,51 +3,93 @@
 ClassInfo
 {
 	name			"_h_h_dash"
-	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_DISRUPTOR
-	attributes		MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_DISRUPTOR,2|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_DODGE,2|MB_ATT_DASH,2|MB_ATT_HEALING,2
+	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_BOWCASTER|WP_BLASTER|WP_ROCKET_LAUNCHER|WP_FRAG_NADE
+	attributes		MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_HEALING,2|MB_ATT_DODGE,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FRAGS,2|MB_ATT_BLASTER,3|MB_ATT_PLX1,1|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1
 	maxhealth		125
-	maxarmor		125
+	maxarmor		100
 	model			"dash_rendar" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"					//this is optional, if it's here it forces the skin to this.
+	skin			"jet"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/dash_rendar/mb2_icon_default"
-	MBClass			MB_CLASS_MANDALORIAN
+	MBClass			MB_CLASS_HERO
 	classNumberLimit	1
-	speed           1.05
 	customred		1
 	customgreen		1
 	customblue		1
-	damageGiven     1.3
-	rateOfFire      0.65
-	headSwapModel "clonetrooper_p2"
-	headSwapSkin "rgb_jetpack_only" 
+	rateOfFire      0.95
+	modelscale    1.01
+	speed         0.95
+	WP_BowcasterFlags HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_ALTRELOAD|HELD_HIGHDAMAGE|HELD_SLOWPROJ|HELD_KNOCKBACK
+	jetpackJetTag		*jetpack_jet		
+	jetpackJet2Tag		*jetpack_jet2
+	jetpackJetOffset		"0, 0, 0" 
+	jetpackJet2Offset		"0, 0, 0" 
+	
+	respawnCustomTime  50000	
 }
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL        					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER_PISTOL      					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/blaster_three/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/blaster_three/blaster_pistol.md3"   	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_blaster_pistol_3" 				//Required: Weapon change icon
-	WeaponName			"DL-44"    					//Required: Weapon change display name
-	CustomAmmo			600
-	idleAnim	MAND_SPISTOL 
-	firingAnim	MAND_SPISTOL_FIRE
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
+	MissileEffect		 "rockets/missile" 
+	AltMissileEffect     "rockets/missile"
+	MissileMissEffect        "ships/swoop_explosion"
+    MissileHitHumanEffect    "ships/swoop_explosion"
+    MissileHitDroidEffect    "ships/swoop_explosion"
+	FlashSound0          "sound/weapons/rocket/fire.mp3"
+	NewWorldModel		"models/weapons2/merr_sonn/merr_sonn_w.glm"
+	NewViewModel		"models/weapons2/merr_sonn/merr_sonn.md3"
+	NewBarrelModel	    "models/weapons2/merr_sonn/merr_sonn_barrel.md3"
+	NewHandsModel	"models/weapons2/merr_sonn/merr_sonn_hand.md3"
+	Icon			"gfx/hud/w_icon_merrsonn"
+	WeaponName		"PLX-2M"
+	clipSize 2
+	CustomAmmo 14
+	ReloadTimeModifier 	1.2
+	FPMult     			1.5
 }
 
+WeaponInfo1
+{
+	WeaponToReplace		WP_ROCKET_LAUNCHER
+	WeaponBasedOff		WP_ROCKET_LAUNCHER
+	NewWorldModel		"models/weapons2/plx-1/plx-1_cw_w.glm"
+	NewViewModel		"models/weapons2/plx-1/plx-1_cw.md3"
+	Icon			    "gfx/hud/w_icon_plx-1_cw"
+	WeaponName		    "PLX-1"
+}
 
 description	"Dash Rendar
 
+Class: Hero.
+Class Summary: 
+A pistoleer equipped with a jetpack and various heavy explosives. 
 
 Weaponry:
-- Pistol (2) 
-- Disruptor (2)
+- Pistol (3) 
+- E-11 (3)
+- PLX-1 Rocket Launcher (1)
+- PLX-2M *
+- Frag grenades (2)
+
+* Special Weapon Descriptions:  
+--- PLX-2M Rocket Launcher
+- Fires slow moving, high damage projectiles
+- Explodes on contact dealing extra splash damage
+- Causes knockdowns on direct hits
+- Cannot be Force Pushed like regular rockets
+- Magazine style reloads
+- 8 shots total, 1 shot per magazine
 
 Attributes:
--Jetpack
-- Fuel (3)
-- Dash (2)
 - Heal (2)
-- Dodge (2)
-- Weapons Expert (enhanced damage and rate of fire)
+- Fuel (3)
+- Blast Armor
+- Shield regeneration (1)
+
+Abilities:
+- Jetpack
+- Dash (2) [Alt Ability 1]
+- Dodge (3) [Class Special 1]
+- Wrist Flamethrower [Class Special 2]
 
 Dash Rendar was a Corellian smuggler and freelancer who worked briefly with the young Jedi Luke Skywalker and his friends during the Galactic Civil War."

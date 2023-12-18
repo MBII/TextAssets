@@ -19,7 +19,6 @@ models/players/dindjarin/cape_diff
 models/players/dindjarin/armor_diff
 {
 	q3map_onlyvertexlighting
-	cull	twosided
     {
         map models/players/dindjarin/armor_diff
         rgbGen lightingDiffuse
@@ -67,7 +66,6 @@ models/players/dindjarin/accessories_diff
 models/players/dindjarin/jetpack_diff
 {
 	q3map_onlyvertexlighting
-	cull	twosided
     {
         map models/players/dindjarin/jetpack_diff
         rgbGen lightingDiffuse

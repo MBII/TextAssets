@@ -1,100 +1,103 @@
+
 ClassInfo
 {
-	name			"prison_rep_CloneComm"
-	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER
-	attributes		MB_ATT_ANTI_MT,1|MB_ATT_A280,3|MB_ATT_FUEL,3|MB_ATT_CLONERIFLE,3|WP_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_PISTOL,3|MB_ATT_ARMOR,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_RALLY,1
-	maxhealth		135
-	maxarmor		80
-	saberstyle		SS_MEDIUM|SS_STRONG
-	saber1			swg_scythe
-	model			"clonetrooper_p1"
-	skin			"rgb"
-	customred		0.784
-	customgreen		0.623
-	customblue		0
-	uishader		"gfx/hud/FA_icons/mb2_icon_clonep1_yellow"
-	forcepowers		FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,3
-	classflags		CFL_FUEL_REGENERATION
-	MBClass			MB_CLASS_MANDALORIAN
-	APmultiplier 		.75
-	BPmultiplier 		.75
-	classNumberLimit	1
+	name				"prison_rep_CloneComm"
+	weapons				WP_SABER|WP_MELEE|WP_BLASTER|WP_BLASTER_PISTOL
+	attributes			MB_ATT_PISTOL,1|MB_ATT_BLASTER,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_DASH,2
+	maxhealth			125
+	maxarmor			40
+	saber1 				"arc_shiv_legends"
+	saberstyle			SS_TAVION
+	MBClass				MB_CLASS_HERO
+	speed				.9
+	holdables			HI_BINOCULARS|HI_MEDPAC
+	WP_BLASTERflags			HELD_ALTRELOAD
+	WP_BLASTER_PISTOLflags		HELD_LOWDAMAGE|HELD_ALTRELOAD
+	WP_MeleeFlags			HELD_LOWDAMAGE
+	rateOfFire			0.65
+	ASmultiplier			0.9
+	classflags			CFL_SEEING_STEALTH
+	respawnCustomTime  		30000
+	classNumberLimit		2
+	saberStanceAnim			BOTH_STAND9
+	model				"clonerc2"
+	skin				"default"
+	uishader			"models/players/clonerc2/mb2_icon_default"
 }
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_REPEATER
-	NewWorldModel		"models/weapons2/dc-15s/dc-15s_w.glm"
-	NewViewModel		"models/weapons2/dc-15s/dc-15s.md3"
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
+	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
+	FlashSound0		"sound/weapons/dc17m/fire.wav"
+	AltFlashSound0 		"sound/weapons/dc17m/fire.wav"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot02B"
-	AltMissileEffect 	"Blaster/Shot02B"
-	FlashSound0			"sound/weapons/repeater/fire.mp3"
-	AltFlashSound0		"sound/weapons/repeater/fire.mp3"
-	Icon				"gfx/hud/w_icon_dc-15s"
-	WeaponName			"DC-15S Blaster Carbine"
+	MissileEffect		"blaster/Shot01B"
+	AltMissileEffect 	"blaster/Shot01B"
+	Icon			"gfx/hud/w_icon_dc-17mB"
+	WeaponName		"DC-17M"
+	customAmmo 		500
+	clipSize		180
+	primFireEnabled		0
+	firingAnim  		BOTH_ATTACK3
 }
-
 
 WeaponInfo1
 {
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/dc-17_cw/dc-17_w.glm"
-	CorrectedWorldModel "models/weapons2/dc-17_cw/dc-17_w.glm"
-	NewViewModel		"models/weapons2/dc-17_cw/dc-17_cw.md3"
-	Icon				"gfx/hud/w_icon_dc-17_cw.tga"
-	WeaponName			"DC-17 Heavy Pistol"
+	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
+	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
+	Icon				"gfx/hud/w_icon_clonepistol"
+	WeaponName			"DC-15s"	
 	FlashSound0			"sound/weapons/demp2/fire.mp3"
 	AltFlashSound0 		"sound/weapons/demp2/altfire.mp3"
-	ChargeSound 		"sound/weapons/demp2/altcharge.mp3"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot02B"
-	Missile3Effect		"Blaster/Shot03B"
+	MissileEffect		"Blaster/Shot01B"
+	Missile3Effect		"Blaster/Shot04B"
 	AltMissileEffect	"Blaster/Shot04B"
 	PowerupShotEffect	"Blaster/Shot04B"
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
+	clipSize		5
+	
 }
 
 WeaponInfo2
-{
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/swg_scythe/saber_swgscythe.glm"
-	NewViewModel		"models/weapons2/swg_scythe/saber_swgscythe.md3"
-	Icon			"gfx/hud/w_icon_scythe"
-	WeaponName		"Vibro Scythe"
+{           
+	WeaponToReplace        WP_SABER
+	WeaponBasedOff         WP_SABER
+	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon             	"gfx/hud/w_icon_arc_shiv"
+	WeaponName			"Cortosis Shiv"
 }
 
-
-description	"Clone Commander
+description	"Clone Commando
 
 Weapons:
 
-DC-15S Blaster Carbine: (1)
-DC-17 Heavy Pistol: (3)
-Vibro Scythe: (X)
-Melee: (X)
+DC-17M: (2)
+- Clip Style Reload
+DC-15s: (1)
+- Clip Style Reload
+- Low Power Output (Reduced Damage)
+Cortosis Shiv
 
-Equiptment:
+Equipment:
 
-Binoculars: (X)
-Tracking Darts: (X)
+Medpack
+Binoculars
+Bacta Pack (25HP+)
 
 Attributes:
 
-Stamina: (3)
-Health Regeneration: (3)
-Dodge: (3)
-Immune to Jedi Mindtricks: (X)
-Sword Styles: (Yellow / Red)
-Attack Power: (0.75)
-Defense Power: (0.75)
-
-
+Shield Regeneration: (1)
+Dash: (2)
+Cannot be detected by Sense
 
 Details:
 

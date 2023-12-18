@@ -48,7 +48,6 @@ models/players/freedon_nadd/legs
 
 models/players/freedon_nadd/chest
 {
-	cull	twosided
     {
         map models/players/freedon_nadd/chest
         rgbGen lightingDiffuse
@@ -127,21 +126,20 @@ models/players/freedon_nadd/robes_nadd
 {
 	q3map_nolightmap
 	cull	disable
-   {
-       map models/players/freedon_nadd/robes_nadd
+	{
+		map models/players/freedon_nadd/robes_nadd
 		alphaFunc GE192
 		depthWrite
 		rgbGen lightingDiffuse
-   }
+	}
 }
 
 models/players/freedon_nadd/flaps
 {
-	cull	twosided
-   {
-       map models/players/freedon_nadd/flaps
+	{
+		map models/players/freedon_nadd/flaps
         rgbGen lightingDiffuse
-   }
+	}
 	{
 		map models/players/sithtrooper/spec
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
@@ -153,8 +151,8 @@ models/players/freedon_nadd/flaps
 models/players/freedon_nadd/torso_nadd_lower
 {
 	cull	twosided
-   {
-       map models/players/freedon_nadd/torso_nadd_lower
+	{
+		map models/players/freedon_nadd/torso_nadd_lower
         rgbGen lightingDiffuse
    }
 }
@@ -162,8 +160,17 @@ models/players/freedon_nadd/torso_nadd_lower
 models/players/freedon_nadd/hood
 {
 	cull	twosided
-   {
-       map models/players/freedon_nadd/hood
+	{
+		map models/players/freedon_nadd/hood
         rgbGen lightingDiffuse
-   }
+	}
+}
+
+models/players/freedon_nadd/cape
+{
+	cull	twosided
+	{
+		map models/players/freedon_nadd/cape
+        rgbGen lightingDiffuse
+	}
 }

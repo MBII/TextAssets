@@ -1,0 +1,78 @@
+//This file should never exceed 16384 bytes. Created by Goosto
+
+Teams
+{
+	team1 Wookiees
+	team2 Trandoshans
+}
+
+mapgraphic "gfx/mp/mplevels/breakfloor/breakfloorlayout.png"
+missionname  "BreakFloor"
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+
+countin_time 0
+
+Wookiees
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "breakfloor_wookiees"							
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+	Objective1
+	{
+		goalname "BREAK FLOOR"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "BREAK FLOOR"
+		objgfx ""
+	}
+
+	
+	wonround "We turned them into lizard shoes!"
+	lostround "Let the wookiee win."
+	roundover_sound_wewon "sound/breakfloor/ric_man_woo.mp3"
+	roundover_sound_welost "sound/breakfloor/let_wookiee_win.mp3"
+	roundover_target "siegeend"
+	attackers 0 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "BREAK FLOOR" //Displayed on the mission briefing menu.
+}
+
+Trandoshans
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "breakfloor_trandoshans"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "BREAK FLOOR"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "BREAK FLOOR"
+		objgfx ""
+	}
+
+		
+	wonround "YEEEEAAAAHHHH!!!!!"
+	lostround "We got turned into lizard shoes..."
+	roundover_sound_wewon "sound/breakfloor/yeah_csi.mp3"
+	roundover_sound_welost "sound/breakfloor/ric_man_woo.mp3"
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing "BREAK FLOOR"
+}
