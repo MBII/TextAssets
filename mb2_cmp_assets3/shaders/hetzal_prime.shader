@@ -148,7 +148,7 @@ textures/hetzal/ceilinglight1
 textures/hetzal/ceilinglight2
 {
 	qer_editorimage	textures/amace_cargo/ceilinglight1
-	q3map_surfacelight	4000
+	q3map_surfacelight	3000
 	q3map_lightRGB 1 0.941176 0.733333
 	q3map_nonplanar
  	q3map_shadeangle 120
@@ -193,6 +193,30 @@ textures/hetzal/ceilinglight3
     }
 }
 
+textures/hetzal/ceilinglight1_rd
+{
+	qer_editorimage	textures/fdepot/ceilinglight1
+	q3map_surfacelight	5000
+	q3map_lightRGB 1 0.129412 0.129412
+	q3map_nonplanar
+ 	q3map_shadeangle 120
+  	 q3map_lightSubdivide    150
+	q3map_backSplash  0.3 0
+    {
+        map $lightmap
+    }
+    {
+        map textures/fdepot/ceilinglight1
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/fdepot/ceilinglight1_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
 textures/hetzal/ceilinglight_outdoor
 {
 	qer_editorimage	textures/amace_cargo/ceilinglight1
@@ -220,7 +244,7 @@ textures/hetzal/ceilinglight_outdoor
 textures/hetzal/LightTrimBlue
 {
 	qer_editorimage	textures/amace_cargo/LightTrim2
-	q3map_surfacelight	700
+	q3map_surfacelight	650
 	   q3map_lightRGB  0.223529 0.831373 1
   	  q3map_lightSubdivide    300
 	q3map_backSplash  0.9 1
