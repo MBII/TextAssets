@@ -1,5 +1,4 @@
 textures/winterdotf/colorlights
-textures/winterdotf/colorlights
 {
 	qer_editorimage	textures/winterdotf/colorlights
 	polygonOffset
