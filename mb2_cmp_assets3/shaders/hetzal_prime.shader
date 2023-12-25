@@ -196,11 +196,11 @@ textures/hetzal/ceilinglight3
 textures/hetzal/ceilinglight1_rd
 {
 	qer_editorimage	textures/fdepot/ceilinglight1
-	q3map_surfacelight	5000
+	q3map_surfacelight	1500
 	q3map_lightRGB 1 0.129412 0.129412
 	q3map_nonplanar
  	q3map_shadeangle 120
-  	 q3map_lightSubdivide    150
+  	 q3map_lightSubdivide    64
 	q3map_backSplash  0.3 0
     {
         map $lightmap
