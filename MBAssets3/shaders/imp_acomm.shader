@@ -119,3 +119,30 @@ models/players/imp_acomm/jetpack
         rgbGen identity
     }
 }
+
+models/players/imp_acomm/rocket
+{
+    {
+        map models/players/imp_acomm/rocket
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/imp_acomm/rocket_s
+	blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/imp_acomm/gloss
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/imp_acomm/rocket_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
