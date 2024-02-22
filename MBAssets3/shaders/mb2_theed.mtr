@@ -1,0 +1,167 @@
+//////////// Standard Shaders ////////////
+textures/skies/pcot1
+{
+	qer_editorimage	textures/skies/sky
+	q3map_lightRGB 1.000000 1.000000 0.911903
+	q3map_skylight 200 5
+	surfaceparm	sky
+	surfaceparm	noimpact
+	surfaceparm	nomarks
+	q3map_lightmapFilterRadius 0 8
+	q3map_sunExt 1.000000 1.000000 0.911903 50 300 90 1 2
+	notc
+	q3map_nolightmap
+	skyParms	textures/skies/pcot1 1024 -
+}
+
+textures/cot1/rock_phong1
+{
+	q3map_shadeangle	80
+	qer_editorimage	textures/cot1/rock_phong1
+	q3map_material Rock
+	q3map_nolightmap
+	q3map_nonplanar
+	q3map_splotchfix
+	q3map_onlyvertexlighting
+    {
+        map textures/cot1/rock_phong1
+        rgbGen vertex
+    }
+}
+
+textures/cot1/shrubs1
+{
+	qer_editorimage textures/cot1/shrubs1.tga
+	cull twosided
+	surfaceparm trans
+	surfaceparm nonsolid
+	surfaceparm nomarks
+	surfaceparm NOLIGHTMAP
+    {
+		map textures/cot1/shrubs1
+		rgbGen vertex
+		depthWrite
+		alphaFunc GE128
+    }
+}
+
+textures/cot1/vines1
+{
+	qer_editorimage textures/cot1/vines1.tga
+	cull twosided
+	surfaceparm trans
+	surfaceparm nonsolid
+	surfaceparm nomarks
+	surfaceparm nolightmap
+    {
+		map textures/cot1/vines1
+		rgbGen vertex
+		depthWrite
+		alphaFunc GE128
+    }
+}
+
+textures/cot1/vines2
+{
+	qer_editorimage textures/cot1/vines2.tga
+	cull twosided
+	surfaceparm trans
+	surfaceparm nonsolid
+	surfaceparm nomarks
+	surfaceparm nolightmap
+    {
+		map textures/cot1/vines2
+		rgbGen vertex
+		depthWrite
+		alphaFunc GE128
+    }
+}
+
+textures/cot1/amace_wall_light
+{
+	qer_editorimage	textures/cot1/amace_wall_light
+    {
+		map $lightmap
+    }
+    {
+        map textures/cot1/amace_wall_light
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/cot1/amace_wall_light_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+		rgbGen identity
+    }
+}
+
+textures/cot1/glowy_light
+{
+	qer_editorimage textures/colors/white
+	q3map_nolightmap
+	{
+		map $whiteimage
+		glow
+	}
+}
+
+//////////// Rend2 Shaders ////////////
+textures/cot1/marbly_base1
+{
+    {
+		map $lightmap
+    }
+	{
+		map textures/cot1/marbly_base1
+		rmoMap textures/cot1/marbly_base1_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/cot1/marbly_floor1
+{
+    {
+		map $lightmap
+    }
+	{
+		map textures/cot1/marbly_floor1
+		rmoMap textures/cot1/marbly_base1_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/cot1/marbly_pillar1
+{
+    {
+		map $lightmap
+    }
+	{
+		map textures/cot1/marbly_pillar1
+		rmoMap textures/cot1/marbly_base1_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/cot1/marbly_wall1
+{
+    {
+		map $lightmap
+    }
+	{
+		map textures/cot1/marbly_wall1
+		rmoMap textures/cot1/marbly_wall1_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/cot1/nab2_bldg_window07
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/cot1/nab2_bldg_window07
+		rmoMap textures/theed/nab2_bldg_window07_DXT1_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}

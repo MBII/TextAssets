@@ -1,7 +1,6 @@
 models/players/NienNunb/head_eyes
 {
 	q3map_nolightmap
-	cull twosided
    	{
 		map models/players/NienNunb/head_eyes
 		rgbGen lightingDiffuse
@@ -19,7 +18,6 @@ models/players/NienNunb/head_eyes
 models/players/NienNunb/head
 {
 	q3map_nolightmap
-	cull twosided
 	{
 		map models/players/NienNunb/head
 		rgbGen lightingDiffuse
@@ -33,6 +31,21 @@ models/players/NienNunb/head
 }
 
 models/players/NienNunb/torso
+{
+	q3map_nolightmap
+	{
+		map models/players/NienNunb/torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/NienNunb/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/NienNunb/torso_cull
 {
 	q3map_nolightmap
 	cull twosided

@@ -39,3 +39,17 @@ models/players/kitfisto/head_tenticle
 		detail
 	}
 }
+
+models/players/kitfisto_cw/torso
+{
+	{
+		map models/players/kitfisto_cw/torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/kitfisto_cw/torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}

@@ -1,7 +1,6 @@
 models/players/Baze/torso
 {
 	q3map_nolightmap
-	cull twosided
 	{
 		map models/players/Baze/torso
 		rgbGen lightingDiffuse

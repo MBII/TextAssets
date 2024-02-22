@@ -207,6 +207,17 @@ levelshots/mb2_ctf_deathstar
 	}
 }
 
+levelshots/mb2_ctf_dotf
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_dotf
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_ctf_eravana
 {
 	nomipmaps
@@ -229,17 +240,6 @@ levelshots/mb2_ctf_eravana2
 	}
 }
 
-levelshots/mb2_ctf_imperial
-{
-	nomipmaps
-	notc
-	{
-		map levelshots/mb2_ctf_imperial
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen identity
-	}
-}
-
 levelshots/mb2_ctf_scarif
 {
 	nomipmaps
@@ -257,6 +257,28 @@ levelshots/mb2_ctf_scarif2
 	notc
 	{
 		map levelshots/mb2_ctf_scarif2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_starkiller_base
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_starkiller_base
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_ctf_starkiller_base2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_ctf_starkiller_base2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -1483,6 +1505,28 @@ levelshots/mb2_lunarbase2
 	}
 }
 
+levelshots/mb2_manaan
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_manaan
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_manaan2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_manaan2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_mustafar
 {
 	nomipmaps
@@ -2083,6 +2127,28 @@ levelshots/mb2_xmas_mustafar2
 	notc
 	{
 		map levelshots/mb2_xmas_mustafar2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_xmas_smuggler
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_xmas_smuggler
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_xmas_smuggler2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_xmas_smuggler2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}

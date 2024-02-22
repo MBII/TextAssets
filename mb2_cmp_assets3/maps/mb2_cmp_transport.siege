@@ -1,0 +1,168 @@
+Teams
+{
+    team1 CrimsonDawn
+    team2 Imperials
+}
+
+LevelshotDesc
+{
+    desc1
+    {   
+		text "The Crimson Dawn syndicate infiltrated one of our garrisons on Vandor. Secure the garrison's underground supply line so our airforce can wipe them out when they flee to the surface."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "We inflitrated an imperial garrison on Vandor. We suspect a shipment of refined Coaxium will pass through here in an hour and we need to secure the other side of the tube to make sure we don't miss it."
+
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx\mplevels\mb2_cmp_transport\map"
+missionname "Coaxium Transport"
+radartopleft "-2848, 2848"
+radarbottomright "2848, -2848"
+roundbegin_target "siegestart"
+AutoMap
+{
+    AutoMap0
+    {
+        radargraphic "gfx/automap/mb2_cmp_transport"
+        radargraphicfull "gfx/automap/mb2_cmp_transportfull"
+        height "0"
+    }
+}
+
+HelpIcons
+{
+    // Red base capture
+    HelpIcon0
+    {
+        dynamic 1
+        redicon HLP_DEFEND
+        blueicon HLP_CAPTURE
+        specicon HLP_CAPTURE
+    }
+
+    // Blue base capture
+    HelpIcon10
+    {
+        dynamic 1
+        redicon HLP_CAPTURE
+        blueicon HLP_DEFEND
+        specicon HLP_CAPTURE
+    }
+
+    // Middle capture neutral red
+    HelpIcon20
+    {
+        dynamic 1
+        redicon HLP_CAPTURE
+        blueicon HLP_NONE
+        specicon HLP_NONE
+    }
+
+	// Middle capture neutral blue
+    HelpIcon21
+    {
+        dynamic 1
+        redicon HLP_NONE
+        blueicon HLP_CAPTURE
+        specicon HLP_NONE
+    }
+
+    // Middle capture by red
+    HelpIcon22
+    {
+        dynamic 1
+        redicon HLP_DEFEND
+        blueicon HLP_CAPTURE
+        specicon HLP_DEFEND
+    }
+
+    // Middle capture by blue
+    HelpIcon23
+    {
+        dynamic 1
+        redicon HLP_CAPTURE
+        blueicon HLP_DEFEND
+        specicon HLP_DEFEND
+    }
+}
+
+
+CrimsonDawn
+{
+    RequiredObjectives 1
+    Timed 300
+    UseTeam "transport_crimsondawn"
+    TeamIcon "gfx/2d/logos/mb_crimsondawn"
+    TeamColorOn "1 0 0 1"
+    TeamColorOff ".7 0 0 1"
+
+    Objective1
+    {
+        goalname "Capture the service area"
+        final -1
+        message_team1 "We secured middle!"
+        message_team2 "They secured middle."
+        objdesc "Capture the service area to get us access the the other tube."
+        objgfx "gfx/mplevels/mb2_cmp_transport/objm"
+    }
+    
+    Objective2
+    {
+        goalname "Drive them out of the underground"
+        final 1
+        message_team1 "We secured the area!"
+        message_team2 "We lost control over the area."
+        objdesc "Drive them out of the underground to give us plenty of time to secure the Coaxium."
+        objgfx "gfx/mplevels/mb2_cmp_transport/objb"
+    }
+
+    wonround "We're gonna be rich!"
+    lostround "Dryden won't be pleased..."
+    roundover_target ""
+    attackers 1
+    briefing "Capture the supply line so we can abush a refined Coaxium shipment"
+}
+
+Imperials
+{
+    RequiredObjectives 1
+    Timed 300
+    UseTeam "transport_imperials"
+    TeamIcon "gfx/2d/logos/mb_empire"
+    TeamColorOn "0 0 1 1"
+    TeamColorOff "0 0 .7 1"
+
+    Objective1
+    {
+        goalname "Capture the service area"
+        final -1
+        message_team1 "They secured the middle!"
+        message_team2 "We secured the middle!"
+        objdesc "Capture the service area to get us access the the other tube."
+        objgfx "gfx/mplevels/mb2_cmp_transport/objm"
+    }
+    
+    Objective2
+    {
+        goalname "Drive them out of the underground"
+        final 1
+        message_team1 "We lost control over the area."
+        message_team2 "We secured the area!"
+        objdesc "Drive them out of the underground to let our pilots pick them off on the surface."
+        objgfx "gfx/mplevels/mb2_cmp_transport/objr"
+    }
+
+    wonround "We secured the area."
+    lostround "Boss won't be happy..."
+    roundover_target ""
+    attackers 1
+    briefing "Drive the Crimson Dawn out of our supply lines"
+}

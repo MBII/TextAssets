@@ -843,6 +843,50 @@ textures/scoreboard/whitestats
 
 ////SCOPES////
 
+gfx/2d/AmbanMask
+{
+	nopicmip
+	nomipmaps
+	notc
+    {
+        map gfx/2d/ambanmask
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+    {
+        clampanimMap 2 gfx/2d/ambanicons01 gfx/2d/ambanicons02 gfx/2d/ambanicons03 gfx/2d/ambanicons04 gfx/2d/ambanicons05 gfx/2d/ambanicons01 gfx/2d/ambanicons05 gfx/2d/ambanicons01 
+        blendFunc GL_ONE GL_ONE
+        tcMod transform 5 0 0 7 -4 0.1
+    }
+    {
+        clampanimMap 0.5 gfx/2d/ambannumbers01 gfx/2d/ambannumbers02 gfx/2d/ambannumbers03 gfx/2d/ambannumbers04 gfx/2d/ambannumbers05 gfx/2d/ambannumbers06 gfx/2d/ambannumbers07 gfx/2d/ambannumbers08 
+        blendFunc GL_ONE GL_ONE
+        tcMod transform 6 0 0 24 -2.5 -20.7
+    }
+}
+
+gfx/2d/AmbanCharge
+{
+	nopicmip
+	nomipmaps
+	notc
+    {
+        map gfx/2d/ambancharge
+        blendFunc GL_ONE GL_ONE
+    }
+}
+
+gfx/2d/AmbanCharge_Full
+{
+	nopicmip
+	nomipmaps
+	notc
+    {
+        map gfx/2d/ambancharge_full
+        blendFunc GL_ONE GL_ONE
+    }
+}
+
 gfx/2d/bowInsert
 {
 	nomipmaps
@@ -1121,4 +1165,43 @@ gfx/menus/mbeventspin
 		rgbGen identity
 		tcMod rotate 90
 	}
+}
+
+//// 3D OVERLAYS////
+gfx/2d/WhistlingLock01
+{
+	nopicmip
+	nomipmaps
+	notc
+    {
+        map gfx/2d/whistlinglock01
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+//    {
+//       map gfx/misc/scanline2
+//        blendFunc GL_DST_COLOR GL_ONE
+//        tcMod scroll 0 0.1
+//        tcMod scale 2 2
+//		rgbGen vertex
+//    }
+}
+
+gfx/2d/WhistlingLock02
+{
+	nopicmip
+	nomipmaps
+	notc
+    {
+        map gfx/2d/whistlinglock02
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+//    {
+//        map gfx/misc/scanline2
+//        blendFunc GL_DST_COLOR GL_ONE
+//        tcMod scroll 0 0.1
+//        tcMod scale 2 2
+//		rgbGen vertex
+//    }
 }

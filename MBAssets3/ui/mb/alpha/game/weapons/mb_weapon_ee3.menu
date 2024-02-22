@@ -5,7 +5,7 @@
 		name					"mb_weapon_ee3"
 		visible					0
 		fullscreen				0
-		rect					432 68 109 352
+		rect					432 68 109 366
 		focusColor				1 1 1 1
 		descX					320
 		descY					445
@@ -30,7 +30,7 @@
 			name				menu_background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect				0 127 109 221
+			rect				0 127 109 235
 			forecolor			1 1 1 1
 			backcolor			0 0 0 1
 			visible				1
@@ -128,7 +128,7 @@
 			name				Damage
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_EE3_PRIMARY_DAMAGE"
+			text				"#UI_C_EE3_PRIMARY_DAMAGE"
 			rect 30 138 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -187,8 +187,8 @@
 		{
 			name				FireRate
 			group				Stats
+			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_EE3_PRIMARY_FIRERATE"
 			rect 30 152 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -196,6 +196,13 @@
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvar				ui_help_performance
+			cvarFloatList
+			{
+				"#UI_EE3_PRIMARY_FIRERATE_1"	1
+				"#UI_EE3_PRIMARY_FIRERATE_2"	2
+				"#UI_EE3_PRIMARY_FIRERATE_3"	3
+			}
 			visible				1
 			decoration
 		}
@@ -221,12 +228,65 @@
 
 		itemDef
 		{
-			name				Velocity_Background
+			name				BurstDelay_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
 			rect 2 166 105 14
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.15
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				BurstDelay
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"BURST\nDELAY"
+			rect 3 166 20 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-1
+			font				6
+			textscale			0.06
+			forecolor			0.7 0.7 0.7 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				BurstDelay
+			group				Stats
+			type				ITEM_TYPE_MULTI
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect 30 166 20 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1 1 1 1
+			cvar				ui_help_performance
+			cvarFloatList
+			{
+				"#UI_EE3_PRIMARY_BURST_DELAY_1"	1
+				"#UI_EE3_PRIMARY_BURST_DELAY_2"	2
+				"#UI_EE3_PRIMARY_BURST_DELAY_3"	3
+			}
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Velocity_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 180 105 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
 			visible				1
 			decoration
 		}
@@ -236,7 +296,7 @@
 			name				VelocityIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 3 167 12 12
+			rect 3 181 12 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Velocity"
 			visible				1
@@ -249,7 +309,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_VELOCITY"
-			rect 30 166 20 14
+			rect 30 180 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -266,7 +326,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_SECONDARY_VELOCITY"
-			rect 75 166 20 14
+			rect 75 180 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -284,7 +344,7 @@
 			name				Spread_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 2 185 8 56
+			rect 2 199 8 56
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.35
 			visible				1
@@ -296,33 +356,9 @@
 			name				AccuracyIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 2 208 8 10
+			rect 2 222 8 10
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Accuracy"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Accuracy_Background
-			group				none
-			style				WINDOW_STYLE_FILLED
-			rect 10 185 97 14
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				AccuracyIcon
-			group				none
-			style				WINDOW_STYLE_SHADER
-			rect 11 186 10 12
-			forecolor			1 1 1 1
-			background			"gfx/menus/Alpha/Icon_Weap_Stand"
 			visible				1
 			decoration
 		}
@@ -346,7 +382,7 @@
 			style				WINDOW_STYLE_SHADER
 			rect 11 200 10 12
 			forecolor			1 1 1 1
-			background			"gfx/menus/Alpha/Icon_Weap_Walk"
+			background			"gfx/menus/Alpha/Icon_Weap_Stand"
 			visible				1
 			decoration
 		}
@@ -370,7 +406,7 @@
 			style				WINDOW_STYLE_SHADER
 			rect 11 214 10 12
 			forecolor			1 1 1 1
-			background			"gfx/menus/Alpha/Icon_Weap_Run"
+			background			"gfx/menus/Alpha/Icon_Weap_Walk"
 			visible				1
 			decoration
 		}
@@ -394,6 +430,30 @@
 			style				WINDOW_STYLE_SHADER
 			rect 11 228 10 12
 			forecolor			1 1 1 1
+			background			"gfx/menus/Alpha/Icon_Weap_Run"
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Accuracy_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 10 241 97 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				AccuracyIcon
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect 11 242 10 12
+			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Fall"
 			visible				1
 			decoration
@@ -405,7 +465,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_ACCURACY_STANDING"
-			rect 30 185 20 14
+			rect 30 199 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -422,7 +482,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_ACCURACY_WALKING"
-			rect 30 199 20 14
+			rect 30 213 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -437,15 +497,22 @@
 		{
 			name				Accuracy
 			group				Stats
+			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_EE3_PRIMARY_ACCURACY_RUNNING"
-			rect 30 213 20 14
+			rect 30 227 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvar				ui_help_performance
+			cvarFloatList
+			{
+				"#UI_EE3_PRIMARY_ACCURACY_RUNNING_1"	1
+				"#UI_EE3_PRIMARY_ACCURACY_RUNNING_2"	2
+				"#UI_EE3_PRIMARY_ACCURACY_RUNNING_3"	3
+			}
 			visible				1
 			decoration
 		}
@@ -454,15 +521,22 @@
 		{
 			name				Accuracy
 			group				Stats
+			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_EE3_PRIMARY_ACCURACY_AIRBORNE"
-			rect 30 227 20 14
+			rect 30 241 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
+			cvar				ui_help_performance
+			cvarFloatList
+			{
+				"#UI_EE3_PRIMARY_ACCURACY_AIRBORNE_1"	1
+				"#UI_EE3_PRIMARY_ACCURACY_AIRBORNE_2"	2
+				"#UI_EE3_PRIMARY_ACCURACY_AIRBORNE_3"	3
+			}
 			visible				1
 			decoration
 		}
@@ -471,18 +545,22 @@
 		{
 			name				Accuracy
 			group				Stats
+			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"#UI_EE3_SECONDARY_ACCURACY_STANDING_2"
-			//text				"#UI_C_EE3_PRIMARY_ACCURACY_STANDING"
-			rect 75 185 20 14
+			rect 75 199 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
 			font				6
 			textscale			0.1
 			forecolor			1 1 1 1
-			cvartest			ui_help_performance
-			showCvar			{ 2 }
+			cvar				ui_help_performance
+			cvarFloatList
+			{
+				"#UI_EE3_SECONDARY_ACCURACY_STANDING_1"	1
+				"#UI_EE3_SECONDARY_ACCURACY_STANDING_2"	2
+				"#UI_EE3_SECONDARY_ACCURACY_STANDING_3"	3
+			}
 			visible				1
 			cvartest			"ui_help_performance"
 			showcvar			{ "2", "3", }
@@ -495,8 +573,7 @@
 			group				Stats
 			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB1
-			//text				"#UI_C_EE3_PRIMARY_ACCURACY_WALKING"
-			rect 75 199 20 14
+			rect 75 213 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -520,36 +597,8 @@
 		{
 			name				Accuracy
 			group				Stats
-			type				ITEM_TYPE_MULTI
 			style				WINDOW_STYLE_TEXT_RGB1
-			//text				"#UI_C_EE3_PRIMARY_ACCURACY_RUNNING"
-			rect 75 213 20 14
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			10
-			textaligny			-2
-			font				6
-			textscale			0.1
-			forecolor			1 1 1 1
-			cvartest			"ui_help_performance"
-			showcvar			{ "2", "3", }
-			cvar				ui_help_performance
-			cvarFloatList
-			{
-				"#UI_EE3_SECONDARY_ACCURACY_RUNNING_1"	1
-				"#UI_EE3_SECONDARY_ACCURACY_RUNNING_2"	2
-				"#UI_EE3_SECONDARY_ACCURACY_RUNNING_3"	3
-			}
-			visible				1
-			decoration
-		}
-
-		itemDef // Secondary Airborne
-		{
-			name				Accuracy
-			group				Stats
-			type				ITEM_TYPE_MULTI
-			style				WINDOW_STYLE_TEXT_RGB1
-			//text				"#UI_C_EE3_PRIMARY_ACCURACY_AIRBORNE"
+			text				"#UI_EE3_SECONDARY_ACCURACY_RUNNING"
 			rect 75 227 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
@@ -559,13 +608,25 @@
 			forecolor			1 1 1 1
 			cvartest			"ui_help_performance"
 			showcvar			{ "2", "3", }
-			cvar				ui_help_performance
-			cvarFloatList
-			{
-				"#UI_EE3_SECONDARY_ACCURACY_AIRBORNE_1"	1
-				"#UI_EE3_SECONDARY_ACCURACY_AIRBORNE_2"	2
-				"#UI_EE3_SECONDARY_ACCURACY_AIRBORNE_3"	3
-			}
+			visible				1
+			decoration
+		}
+
+		itemDef // Secondary Airborne
+		{
+			name				Accuracy
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"#UI_EE3_SECONDARY_ACCURACY_AIRBORNE"
+			rect 75 241 20 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1 1 1 1
+			cvartest			"ui_help_performance"
+			showcvar			{ "2", "3", }
 			visible				1
 			decoration
 		}
@@ -575,7 +636,7 @@
 			name				Drain_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 2 246 105 10
+			rect 2 260 105 10
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.45
 			visible				1
@@ -587,7 +648,7 @@
 			name				Drain_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 2 256 8 28
+			rect 2 270 8 28
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.35
 			visible				1
@@ -599,21 +660,9 @@
 			name				DrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 2 261 8 18
+			rect 2 275 8 18
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Saber"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Drain_Background
-			group				none
-			style				WINDOW_STYLE_FILLED
-			rect 10 256 97 14
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.05
 			visible				1
 			decoration
 		}
@@ -629,6 +678,18 @@
 			visible				1
 			decoration
 		}
+
+		itemDef
+		{
+			name				Drain_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 10 284 97 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				1
+			decoration
+		}
 		
 		itemDef
 		{
@@ -636,7 +697,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"BLOCK"
-			rect 32 246 5 10
+			rect 32 260 5 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -653,7 +714,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"BLOCK"
-			rect 77 246 5 10
+			rect 77 260 5 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -672,7 +733,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"RUN"
-			rect 50 246 5 10
+			rect 50 260 5 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -689,7 +750,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"RUN"
-			rect 95 246 5 10
+			rect 95 260 5 10
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -707,7 +768,7 @@
 			name				DrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 257 10 12
+			rect 11 271 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Close"
 			visible				1
@@ -719,7 +780,7 @@
 			name				DrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 271 10 12
+			rect 11 285 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Far"
 			visible				1
@@ -732,7 +793,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"NEAR"
-			rect 11 256 20 14
+			rect 11 270 20 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			0
@@ -749,7 +810,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"FAR"
-			rect 11 270 20 14
+			rect 11 284 20 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			0
@@ -766,7 +827,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_FPDRAIN_BLOCKING_CLOSE"
-			rect 32 256 20 14
+			rect 32 270 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -783,7 +844,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_FPDRAIN_BLOCKING_FAR"
-			rect 32 270 20 14
+			rect 32 284 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -800,7 +861,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_FPDRAIN_CLOSE"
-			rect 50 256 20 14
+			rect 50 270 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -817,7 +878,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_FPDRAIN_FAR"
-			rect 50 270 20 14
+			rect 50 284 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -834,7 +895,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_SECONDARY_FPDRAIN_BLOCKING_CLOSE"
-			rect 77 256 20 14
+			rect 77 270 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -853,7 +914,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_SECONDARY_FPDRAIN_BLOCKING_FAR"
-			rect 77 270 20 14
+			rect 77 284 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -872,7 +933,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_SECONDARY_FPDRAIN_CLOSE"
-			rect 95 256 20 14
+			rect 95 270 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -891,7 +952,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_SECONDARY_FPDRAIN_FAR"
-			rect 95 270 20 14
+			rect 95 284 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			0
 			textaligny			-2
@@ -909,7 +970,7 @@
 			name				Ammo_Background
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect 2 289 8 56
+			rect 2 303 8 56
 			forecolor			1 1 1 1
 			backcolor			1 1 1 0.35
 			visible				1
@@ -921,21 +982,9 @@
 			name				AmmoIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 2 312 8 10
+			rect 2 326 8 10
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Ammo"
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
-			name				Ammo_Background
-			group				none
-			style				WINDOW_STYLE_FILLED
-			rect 10 289 97 14
-			forecolor			1 1 1 1
-			backcolor			1 1 1 0.15
 			visible				1
 			decoration
 		}
@@ -976,13 +1025,25 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				Ammo_Background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 10 345 97 14
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.15
+			visible				1
+			decoration
+		}
+
 
 		itemDef
 		{
 			name				ReloadIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 290 10 12
+			rect 11 304 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Reload"
 			visible				1
@@ -994,7 +1055,7 @@
 			name				AmmoDrainIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 304 10 12
+			rect 11 318 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_AmmoDrain"
 			visible				1
@@ -1007,7 +1068,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_RELOADTIME"
-			rect 30 289 20 14
+			rect 30 303 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -1024,7 +1085,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_RELOADTIME"
-			rect 75 289 20 14
+			rect 75 303 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -1043,7 +1104,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_PRIMARY_AMMODRAIN"
-			rect 30 303 20 14
+			rect 30 317 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -1060,7 +1121,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_EE3_SECONDARY_AMMODRAIN"
-			rect 75 303 20 14
+			rect 75 317 20 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			10
 			textaligny			-2
@@ -1078,7 +1139,7 @@
 			name				AmmoMagIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 318 10 12
+			rect 11 332 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_Magazine"
 			visible				1
@@ -1091,7 +1152,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_C_EE3_MAGCAPACITY"
-			rect 30 317 65 14
+			rect 30 331 65 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			30
 			textaligny			-2
@@ -1107,7 +1168,7 @@
 			name				AmmoCapIcon
 			group				none
 			style				WINDOW_STYLE_SHADER
-			rect 11 332 10 12
+			rect 11 346 10 12
 			forecolor			1 1 1 1
 			background			"gfx/menus/Alpha/Icon_Weap_AmmoCap"
 			visible				1
@@ -1120,7 +1181,7 @@
 			group				Stats
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"#UI_C_EE3_AMMOCAPACITY"
-			rect 30 331 65 14
+			rect 30 345 65 14
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			30
 			textaligny			-2

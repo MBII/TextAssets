@@ -445,6 +445,101 @@ models/players/sbd/body_b1
     }
 }
 
+models/players/sbd/body_survivor
+{
+    {
+        map models/players/sbd/body_survivor
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/body_survivor_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_beskar
+{
+    {
+        map models/players/sbd/body_beskar
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/body_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+{
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_dolovite
+{
+    {
+        map models/players/sbd/body_dolovite
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/body_dolovite_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/phasma/gloss
+        blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        tcGen environment
+    }
+{
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
 ////////////////////
 // EXTRAS SHADERS
 ////////////////////
@@ -758,6 +853,46 @@ models/players/sbd/extras_b1
         glow
         detail
         rgbGen identity
+    }
+}
+
+models/players/SBD/extras_beskar
+{
+    {
+        map models/players/SBD/extras_beskar
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+}
+
+models/players/SBD/extras_dolovite
+{
+    {
+        map models/players/SBD/extras_dolovite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/SBD/extras_s
+        blendFunc GL_SRC_ALPHA GL_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
     }
 }
 

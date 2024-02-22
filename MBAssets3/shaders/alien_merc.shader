@@ -1,9 +1,9 @@
-// Advozse
+// Abyssin
 
-models/players/alien_merc/advo_arms
+models/players/alien_merc/aby_arms
 {
 	{
-		map models/players/alien_merc/advo_arms
+		map models/players/alien_merc/aby_arms
 		rgbGen lightingDiffuse
 	}
 	{
@@ -14,24 +14,10 @@ models/players/alien_merc/advo_arms
 	}
 }
 
-models/players/alien_merc/advo_hands
+models/players/alien_merc/aby_legs
 {
 	{
-		map models/players/alien_merc/advo_hands
-		rgbGen lightingDiffuse
-	}
-	{
-		map  models/players/devaronian/new_hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/alien_merc/advo_legs
-{
-	{
-		map models/players/alien_merc/advo_legs
+		map models/players/alien_merc/aby_legs
 		rgbGen lightingDiffuse
 	}
 	{
@@ -42,10 +28,10 @@ models/players/alien_merc/advo_legs
 	}
 }
 
-models/players/alien_merc/advo_torso
+models/players/alien_merc/aby_torso
 {
 	{
-		map models/players/alien_merc/advo_torso
+		map models/players/alien_merc/aby_torso
 		rgbGen lightingDiffuse
 	}
 	{
@@ -56,11 +42,11 @@ models/players/alien_merc/advo_torso
 	}
 }
 
-models/players/alien_merc/advo_torso_lower
+models/players/alien_merc/aby_torso_lower
 {
 	cull	twosided
 	{
-		map models/players/alien_merc/advo_torso_lower
+		map models/players/alien_merc/aby_torso_lower
 		rgbGen lightingDiffuse
 	}
 }
@@ -132,6 +118,23 @@ models/players/alien_merc/arco_torso_lower
 }
 
 
+// Bith
+
+models/players/alien_merc/bith_hands
+{
+    {
+        map models/players/alien_merc/bith_hands
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_merc/itho_arm_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+    }
+}
+
+
 // Duros
 
 models/players/alien_merc/dur_hands
@@ -170,23 +173,6 @@ models/players/alien_merc/dur_hands3
     }
     {
         map models/players/alien_merc/itho_arm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-    }
-}
-
-
-// Gotal
-
-models/players/alien_merc/got_hands
-{
-    {
-        map models/players/alien_merc/got_hands
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/coleman/hands_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -306,63 +292,4 @@ models/players/alien_merc/qua_hands
 		alphaGen lightingSpecular
 		detail
     }
-}
-
-
-// Zhug
-
-models/players/human_merc/zhug_hands
-{
-	{
-		map models/players/human_merc/zhug_hands
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/devaronian/new_hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/human_merc/zhug_arms
-{
-	{
-		map models/players/human_merc/zhug_arms
-		rgbGen lightingDiffuse
-	}
-	{
-		map  models/players/devaronian/new_arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/human_merc/zhug_legs
-{
-	{
-		map models/players/human_merc/zhug_legs
-		rgbGen lightingDiffuse
-	}
-	{
-		map  models/players/devaronian/new_legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/human_merc/zhug_torso
-{
-	{
-		map models/players/human_merc/zhug_torso
-		rgbGen lightingDiffuse
-	}
-	{
-		map  models/players/devaronian/new_torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
 }

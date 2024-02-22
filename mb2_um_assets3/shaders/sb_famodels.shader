@@ -1,17 +1,7 @@
-models/players/sb_cunning/head_hat
-{
-	q3map_nolightmap
-	cull	twosided
-	{
-		map models/players/sb_cunning/head_hat
-		rgbGen lightingDiffuse
-	}
-}
-
 models/players/sb_cunning/arms_blue
 {
 	{
-		map models/players/sb_cunning/arms_blue
+		map models/players/reborn_new/arms_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -24,7 +14,7 @@ models/players/sb_cunning/arms_blue
 models/players/sb_cunning/legs_blue
 {
 	{
-		map models/players/sb_cunning/legs_blue
+		map models/players/reborn_new/legs_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -37,7 +27,7 @@ models/players/sb_cunning/legs_blue
 models/players/sb_cunning/torso_blue
 {
 	{
-		map models/players/sb_cunning/torso_blue
+		map models/players/reborn_new/torso_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -50,7 +40,7 @@ models/players/sb_cunning/torso_blue
 models/players/sb_cunning/arms_red
 {
 	{
-		map models/players/sb_cunning/arms_red
+		map models/players/reborn_new/arms
 		rgbGen lightingDiffuse
 	}
 	{
@@ -63,7 +53,7 @@ models/players/sb_cunning/arms_red
 models/players/sb_cunning/legs_red
 {
 	{
-		map models/players/sb_cunning/legs_red
+		map models/players/reborn_new/legs
 		rgbGen lightingDiffuse
 	}
 	{
@@ -76,7 +66,7 @@ models/players/sb_cunning/legs_red
 models/players/sb_cunning/torso_red
 {
 	{
-		map models/players/sb_cunning/torso_red
+		map models/players/reborn_new/torso
 		rgbGen lightingDiffuse
 	}
 	{
@@ -89,7 +79,7 @@ models/players/sb_cunning/torso_red
 models/players/sb_disciple/arms_blue
 {
 	{
-		map models/players/sb_disciple/arms_blue
+		map models/players/cultist/arms_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -99,10 +89,23 @@ models/players/sb_disciple/arms_blue
 	}
 }
 
+models/players/sb_disciple/face_blue
+{
+	{
+		map models/players/cultist/face_blue
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sb_disciple/face_blue_g
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+}
+
 models/players/sb_disciple/head_blue
 {
 	{
-		map models/players/sb_disciple/head_blue
+		map models/players/cultist/head_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -115,7 +118,7 @@ models/players/sb_disciple/head_blue
 models/players/sb_disciple/legs_blue
 {
 	{
-		map models/players/sb_disciple/legs_blue
+		map models/players/cultist/legs_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -128,7 +131,7 @@ models/players/sb_disciple/legs_blue
 models/players/sb_disciple/torso_blue
 {
 	{
-		map models/players/sb_disciple/torso_blue
+		map models/players/cultist/torso_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -141,7 +144,7 @@ models/players/sb_disciple/torso_blue
 models/players/sb_disciple/arms_red
 {
 	{
-		map models/players/sb_disciple/arms_red
+		map models/players/cultist/arms_red
 		rgbGen lightingDiffuse
 	}
 	{
@@ -151,10 +154,23 @@ models/players/sb_disciple/arms_red
 	}
 }
 
+models/players/sb_disciple/face_red
+{
+	{
+		map models/players/cultist/face_red
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sb_disciple/face_red_g
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+}
+
 models/players/sb_disciple/head_red
 {
 	{
-		map models/players/sb_disciple/head_red
+		map models/players/cultist/head_red
 		rgbGen lightingDiffuse
 	}
 	{
@@ -167,7 +183,7 @@ models/players/sb_disciple/head_red
 models/players/sb_disciple/legs_red
 {
 	{
-		map models/players/sb_disciple/legs_red
+		map models/players/cultist/legs_red
 		rgbGen lightingDiffuse
 	}
 	{
@@ -180,7 +196,7 @@ models/players/sb_disciple/legs_red
 models/players/sb_disciple/torso_red
 {
 	{
-		map models/players/sb_disciple/torso_red
+		map models/players/cultist/torso_red
 		rgbGen lightingDiffuse
 	}
 	{
@@ -192,7 +208,6 @@ models/players/sb_disciple/torso_red
 
 models/players/sb_droid/Arms_B
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Arms_B
 		blendFunc GL_ONE GL_ZERO
@@ -214,7 +229,6 @@ models/players/sb_droid/Arms_B
 
 models/players/sb_droid/arms_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/arms_blue
 		blendFunc GL_ONE GL_ZERO
@@ -241,7 +255,6 @@ models/players/sb_droid/arms_blue
 
 models/players/sb_droid/head_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/head_blue
 		blendFunc GL_ONE GL_ZERO
@@ -253,7 +266,7 @@ models/players/sb_droid/head_blue
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Head_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -263,7 +276,6 @@ models/players/sb_droid/head_blue
 
 models/players/sb_droid/hips_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/hips_blue
 		blendFunc GL_ONE GL_ZERO
@@ -275,7 +287,7 @@ models/players/sb_droid/hips_blue
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -285,7 +297,6 @@ models/players/sb_droid/hips_blue
 
 models/players/sb_droid/knees_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/knees_blue
 		blendFunc GL_ONE GL_ZERO
@@ -297,7 +308,7 @@ models/players/sb_droid/knees_blue
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Knees_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -307,7 +318,6 @@ models/players/sb_droid/knees_blue
 
 models/players/sb_droid/L_Forearm_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/L_Forearm_blue
 		blendFunc GL_ONE GL_ZERO
@@ -324,7 +334,7 @@ models/players/sb_droid/L_Forearm_blue
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/L_Forearm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -334,7 +344,6 @@ models/players/sb_droid/L_Forearm_blue
 
 models/players/sb_droid/Legs_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Legs_blue
 		blendFunc GL_ONE GL_ZERO
@@ -351,7 +360,7 @@ models/players/sb_droid/Legs_blue
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -361,7 +370,6 @@ models/players/sb_droid/Legs_blue
 
 models/players/sb_droid/Shins_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Shins_blue
 		blendFunc GL_ONE GL_ZERO
@@ -378,7 +386,7 @@ models/players/sb_droid/Shins_blue
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Shins_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -388,7 +396,6 @@ models/players/sb_droid/Shins_blue
 
 models/players/sb_droid/Shoulders_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Shoulders_blue
 		blendFunc GL_ONE GL_ZERO
@@ -400,7 +407,7 @@ models/players/sb_droid/Shoulders_blue
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Shoulders_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -410,7 +417,6 @@ models/players/sb_droid/Shoulders_blue
 
 models/players/sb_droid/Torso_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Torso_blue
 		rgbGen lightingDiffuse
@@ -431,7 +437,6 @@ models/players/sb_droid/Torso_blue
 
 models/players/sb_droid/Torso_B
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Torso_B
 		blendFunc GL_ONE GL_ZERO
@@ -453,7 +458,6 @@ models/players/sb_droid/Torso_B
 
 models/players/sb_droid/Feet_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Feet_blue
 		blendFunc GL_ONE GL_ZERO
@@ -465,7 +469,7 @@ models/players/sb_droid/Feet_blue
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Feet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -475,7 +479,6 @@ models/players/sb_droid/Feet_blue
 
 models/players/sb_droid/Thumbs_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Thumbs_blue
 		blendFunc GL_ONE GL_ZERO
@@ -487,7 +490,7 @@ models/players/sb_droid/Thumbs_blue
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Thumbs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -497,7 +500,6 @@ models/players/sb_droid/Thumbs_blue
 
 models/players/sb_droid/R_Forearm_B_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/R_Forearm_B_blue
 		blendFunc GL_ONE GL_ZERO
@@ -514,7 +516,7 @@ models/players/sb_droid/R_Forearm_B_blue
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/R_Forearm_B_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -524,7 +526,6 @@ models/players/sb_droid/R_Forearm_B_blue
 
 models/players/sb_droid/R_Forearm_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/R_Forearm_blue
 		blendFunc GL_ONE GL_ZERO
@@ -541,7 +542,7 @@ models/players/sb_droid/R_Forearm_blue
 		detail
 		tcGen environment
 	}  
-{
+	{
 		map models/players/sb_droid/R_Forearm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -551,7 +552,6 @@ models/players/sb_droid/R_Forearm_blue
 
 models/players/sb_droid/L_Forearm_B_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/L_Forearm_B_blue
 		blendFunc GL_ONE GL_ZERO
@@ -568,7 +568,7 @@ models/players/sb_droid/L_Forearm_B_blue
 		detail
 		tcGen environment
 	}  
-{
+	{
 		map models/players/sb_droid/L_Forearm_B_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -578,7 +578,6 @@ models/players/sb_droid/L_Forearm_B_blue
 
 models/players/sb_droid/L_Forearm_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/L_Forearm_blue
 		blendFunc GL_ONE GL_ZERO
@@ -595,7 +594,7 @@ models/players/sb_droid/L_Forearm_blue
 		detail
 		tcGen environment
 	}     
-{
+	{
 		map models/players/sb_droid/L_Forearm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -605,7 +604,6 @@ models/players/sb_droid/L_Forearm_blue
 
 models/players/sb_droid/Hands_B_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Hands_B_blue
 		blendFunc GL_ONE GL_ZERO
@@ -617,7 +615,7 @@ models/players/sb_droid/Hands_B_blue
 		detail
 		tcGen environment
 	} 
-{
+	{
 		map models/players/sb_droid/Hands_B_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -627,7 +625,6 @@ models/players/sb_droid/Hands_B_blue
 
 models/players/sb_droid/Hands_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Hands_blue
 		blendFunc GL_ONE GL_ZERO
@@ -645,7 +642,7 @@ models/players/sb_droid/Hands_blue
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Hands_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -655,7 +652,6 @@ models/players/sb_droid/Hands_blue
 
 models/players/sb_droid/Fingers_blue
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Fingers_blue
 		blendFunc GL_ONE GL_ZERO
@@ -667,7 +663,7 @@ models/players/sb_droid/Fingers_blue
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Fingers_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -677,7 +673,6 @@ models/players/sb_droid/Fingers_blue
 
 models/players/sb_droid/arms_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/arms_red
 		blendFunc GL_ONE GL_ZERO
@@ -704,7 +699,6 @@ models/players/sb_droid/arms_red
 
 models/players/sb_droid/head_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/head_red
 		blendFunc GL_ONE GL_ZERO
@@ -716,7 +710,7 @@ models/players/sb_droid/head_red
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Head_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -726,7 +720,6 @@ models/players/sb_droid/head_red
 
 models/players/sb_droid/hips_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/hips_red
 		blendFunc GL_ONE GL_ZERO
@@ -738,7 +731,7 @@ models/players/sb_droid/hips_red
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -748,7 +741,6 @@ models/players/sb_droid/hips_red
 
 models/players/sb_droid/knees_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/knees_red
 		blendFunc GL_ONE GL_ZERO
@@ -760,7 +752,7 @@ models/players/sb_droid/knees_red
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Knees_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -770,7 +762,6 @@ models/players/sb_droid/knees_red
 
 models/players/sb_droid/L_Forearm_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/L_Forearm_red
 		blendFunc GL_ONE GL_ZERO
@@ -787,7 +778,7 @@ models/players/sb_droid/L_Forearm_red
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/L_Forearm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -797,7 +788,6 @@ models/players/sb_droid/L_Forearm_red
 
 models/players/sb_droid/Legs_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Legs_red
 		blendFunc GL_ONE GL_ZERO
@@ -814,7 +804,7 @@ models/players/sb_droid/Legs_red
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -824,7 +814,6 @@ models/players/sb_droid/Legs_red
 
 models/players/sb_droid/Shins_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Shins_red
 		blendFunc GL_ONE GL_ZERO
@@ -841,7 +830,7 @@ models/players/sb_droid/Shins_red
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Shins_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -851,7 +840,6 @@ models/players/sb_droid/Shins_red
 
 models/players/sb_droid/Shoulders_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Shoulders_red
 		blendFunc GL_ONE GL_ZERO
@@ -863,7 +851,7 @@ models/players/sb_droid/Shoulders_red
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Shoulders_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -873,7 +861,6 @@ models/players/sb_droid/Shoulders_red
 
 models/players/sb_droid/Torso_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Torso_red
 		rgbGen lightingDiffuse
@@ -894,7 +881,6 @@ models/players/sb_droid/Torso_red
 
 models/players/sb_droid/Torso_B_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Torso_B_red
 		blendFunc GL_ONE GL_ZERO
@@ -916,7 +902,6 @@ models/players/sb_droid/Torso_B_red
 
 models/players/sb_droid/Feet_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Feet_red
 		blendFunc GL_ONE GL_ZERO
@@ -928,7 +913,7 @@ models/players/sb_droid/Feet_red
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Feet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -938,7 +923,6 @@ models/players/sb_droid/Feet_red
 
 models/players/sb_droid/Thumbs_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Thumbs_red
 		blendFunc GL_ONE GL_ZERO
@@ -950,7 +934,7 @@ models/players/sb_droid/Thumbs_red
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/Thumbs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -960,7 +944,6 @@ models/players/sb_droid/Thumbs_red
 
 models/players/sb_droid/R_Forearm_B_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/R_Forearm_B_red
 		blendFunc GL_ONE GL_ZERO
@@ -977,7 +960,7 @@ models/players/sb_droid/R_Forearm_B_red
 		detail
 		tcGen environment
 	}    
-{
+	{
 		map models/players/sb_droid/R_Forearm_B_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -987,7 +970,6 @@ models/players/sb_droid/R_Forearm_B_red
 
 models/players/sb_droid/R_Forearm_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/R_Forearm_red
 		blendFunc GL_ONE GL_ZERO
@@ -1004,7 +986,7 @@ models/players/sb_droid/R_Forearm_red
 		detail
 		tcGen environment
 	}  
-{
+	{
 		map models/players/sb_droid/R_Forearm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -1014,7 +996,6 @@ models/players/sb_droid/R_Forearm_red
 
 models/players/sb_droid/L_Forearm_B_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/L_Forearm_B_red
 		blendFunc GL_ONE GL_ZERO
@@ -1031,7 +1012,7 @@ models/players/sb_droid/L_Forearm_B_red
 		detail
 		tcGen environment
 	}  
-{
+	{
 		map models/players/sb_droid/L_Forearm_B_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -1041,7 +1022,6 @@ models/players/sb_droid/L_Forearm_B_red
 
 models/players/sb_droid/L_Forearm_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/L_Forearm_red
 		blendFunc GL_ONE GL_ZERO
@@ -1058,7 +1038,7 @@ models/players/sb_droid/L_Forearm_red
 		detail
 		tcGen environment
 	}     
-{
+	{
 		map models/players/sb_droid/L_Forearm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -1068,7 +1048,6 @@ models/players/sb_droid/L_Forearm_red
 
 models/players/sb_droid/Hands_B_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Hands_B_red
 		blendFunc GL_ONE GL_ZERO
@@ -1080,7 +1059,7 @@ models/players/sb_droid/Hands_B_red
 		detail
 		tcGen environment
 	} 
-{
+	{
 		map models/players/sb_droid/Hands_B_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -1090,7 +1069,6 @@ models/players/sb_droid/Hands_B_red
 
 models/players/sb_droid/Hands_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Hands_red
 		blendFunc GL_ONE GL_ZERO
@@ -1108,7 +1086,7 @@ models/players/sb_droid/Hands_red
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Hands_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -1118,7 +1096,6 @@ models/players/sb_droid/Hands_red
 
 models/players/sb_droid/Fingers_red
 {
-	cull	twosided
 	{
 		map models/players/sb_droid/Fingers_red
 		blendFunc GL_ONE GL_ZERO
@@ -1130,7 +1107,7 @@ models/players/sb_droid/Fingers_red
 		detail
 		tcGen environment
 	}   
-{
+	{
 		map models/players/sb_droid/Fingers_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
@@ -1141,7 +1118,7 @@ models/players/sb_droid/Fingers_red
 models/players/sb_elite/arms_blue
 {
 	{
-		map models/players/sb_elite/arms_blue
+		map models/players/reborn_twin/arms_blue
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1155,7 +1132,7 @@ models/players/sb_elite/arms_blue
 models/players/sb_elite/hands_blue
 {
 	{
-		map models/players/sb_elite/hands_blue
+		map models/players/reborn_twin/hands_blue
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1169,7 +1146,7 @@ models/players/sb_elite/hands_blue
 models/players/sb_elite/head_blue
 {
 	{
-		map models/players/sb_elite/head_blue
+		map models/players/reborn_twin/head_blue
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1180,24 +1157,10 @@ models/players/sb_elite/head_blue
 	}
 }
 
-models/players/sb_elite/face_blue
-{
-	{
-		map models/players/sb_elite/face_blue
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sb_elite/face_blue_g
-		blendFunc GL_ONE GL_ONE
-		glow
-	}
-}
-
 models/players/sb_elite/legs_blue
 {
 	{
-		map models/players/sb_elite/legs_blue
+		map models/players/reborn_twin/legs_blue
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1211,7 +1174,7 @@ models/players/sb_elite/legs_blue
 models/players/sb_elite/torso_blue
 {
 	{
-		map models/players/sb_elite/torso_blue
+		map models/players/reborn_twin/torso_blue
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1225,7 +1188,7 @@ models/players/sb_elite/torso_blue
 models/players/sb_elite/arms_red
 {
 	{
-		map models/players/sb_elite/arms_red
+		map models/players/reborn_twin/arms_red
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1239,7 +1202,7 @@ models/players/sb_elite/arms_red
 models/players/sb_elite/hands_red
 {
 	{
-		map models/players/sb_elite/hands_red
+		map models/players/reborn_twin/hands_red
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1253,7 +1216,7 @@ models/players/sb_elite/hands_red
 models/players/sb_elite/head_red
 {
 	{
-		map models/players/sb_elite/head_red
+		map models/players/reborn_twin/head_red
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1264,24 +1227,10 @@ models/players/sb_elite/head_red
 	}
 }
 
-models/players/sb_elite/face_red
-{
-	{
-		map models/players/sb_elite/face_red
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sb_elite/face_red_g
-		blendFunc GL_ONE GL_ONE
-		glow
-	}
-}
-
 models/players/sb_elite/legs_red
 {
 	{
-		map models/players/sb_elite/legs_red
+		map models/players/reborn_twin/legs_red
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1295,7 +1244,7 @@ models/players/sb_elite/legs_red
 models/players/sb_elite/torso_red
 {
 	{
-		map models/players/sb_elite/torso_red
+		map models/players/reborn_twin/torso_red
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1309,7 +1258,7 @@ models/players/sb_elite/torso_red
 models/players/sb_mad/basic_hand_blue
 {
 	{
-		map models/players/sb_mad/basic_hand_blue
+		map models/players/shadowtrooper/basic_hand_blue
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -1323,7 +1272,7 @@ models/players/sb_mad/basic_hand_blue
 models/players/sb_mad/head_blue
 {
 	{
-		map models/players/sb_mad/head_blue
+		map models/players/shadowtrooper/head_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -1336,7 +1285,7 @@ models/players/sb_mad/head_blue
 models/players/sb_mad/legs_blue
 {
 	{
-		map models/players/sb_mad/legs_blue
+		map models/players/shadowtrooper/legs_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -1349,7 +1298,7 @@ models/players/sb_mad/legs_blue
 models/players/sb_mad/torso_arms_blue
 {
 	{
-		map models/players/sb_mad/torso_arms_blue
+		map models/players/shadowtrooper/torso_arms_blue
 		rgbGen lightingDiffuse
 	}
 	{
@@ -1362,7 +1311,7 @@ models/players/sb_mad/torso_arms_blue
 models/players/sb_mad/basic_hand_red
 {
 	{
-		map models/players/sb_mad/basic_hand_red
+		map models/players/shadowtrooper/basic_hand_red
 		rgbGen lightingDiffuse
 	}
 	{
@@ -1375,7 +1324,7 @@ models/players/sb_mad/basic_hand_red
 models/players/sb_mad/head_red
 {
 	{
-		map models/players/sb_mad/head_red
+		map models/players/shadowtrooper/head_red
 		rgbGen lightingDiffuse
 	}
 	{
@@ -1388,7 +1337,7 @@ models/players/sb_mad/head_red
 models/players/sb_mad/legs_red
 {
 	{
-		map models/players/sb_mad/legs_red
+		map models/players/shadowtrooper/legs_red
 		rgbGen lightingDiffuse
 	}
 	{
@@ -1401,7 +1350,7 @@ models/players/sb_mad/legs_red
 models/players/sb_mad/torso_arms_red
 {
 	{
-		map models/players/sb_mad/torso_arms_red
+		map models/players/shadowtrooper/torso_arms_red
 		rgbGen lightingDiffuse
 	}
 	{

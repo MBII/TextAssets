@@ -1321,29 +1321,3 @@ textures/endor/endor_pipewall
 		blendFunc GL_ONE GL_ONE
 	}
 }
-
-gfx/automap/mb2_cmp_endor_18
-	{
-	nopicmip
-	nomipmaps
-	{
-	clampmap gfx/automap/mb2_cmp_endor_18
-	depthfunc equal
-	blendfunc blend
-	rgbGen identity
-	alphaGen const 0.85
-	}
-}
-
-
-gfx/automap/mb2_cmp_endor
-	{
-	nopicmip
-	nomipmaps
-	{
-	map gfx/automap/mb2_cmp_endor
-	blendfunc blend
-	rgbGen identity
-	alphaGen const 0.85
-	}
-}
