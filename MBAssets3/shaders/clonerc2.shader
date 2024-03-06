@@ -614,3 +614,220 @@ models/players/clonerc2/accessories_gregor_l
 		alphaGen lightingSpecular
 	}
 }
+
+
+//camo
+
+models/players/clonerc2/accessories_camo
+{
+	{
+		map models/players/clonerc2/accessories_camo
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/accessories-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/backpack_camo
+{
+	{
+		map models/players/clonerc2/backpack_camo
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/backpack-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/clonerc2/backpack-glow
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+}
+
+models/players/clonerc2/helmet_camo
+{
+	{
+		map models/players/clonerc2/helmet_camo
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/helmet-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/legs_camo
+{
+	cull	twosided
+	{
+		map models/players/clonerc2/legs_camo
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/legs-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/torso_camo
+{
+	{
+		map models/players/clonerc2/torso_camo
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/torso-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+//urban
+
+models/players/clonerc2/accessories_urban
+{
+	{
+		map models/players/clonerc2/accessories_urban
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/accessories-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/backpack_urban
+{
+	{
+		map models/players/clonerc2/backpack_urban
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/backpack-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/clonerc2/backpack-glow
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+}
+
+models/players/clonerc2/helmet_urban
+{
+	{
+		map models/players/clonerc2/helmet_urban
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/helmet-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/legs_urban
+{
+	cull	twosided
+	{
+		map models/players/clonerc2/legs_urban
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/legs-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/torso_urban
+{
+	{
+		map models/players/clonerc2/torso_urban
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/torso-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// spartan
+
+models/players/clonerc2/helmet_spartan
+{
+	{
+		map models/players/clonerc2/helmet_spartan
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/helmet-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/legs_spartan
+{
+	cull	twosided
+	{
+		map models/players/clonerc2/legs_spartan
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/legs-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/clonerc2/torso_spartan
+{
+	{
+		map models/players/clonerc2/torso_spartan
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/clonerc2/torso-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
