@@ -14298,11 +14298,11 @@ itemDef
 
 		itemDef
 		{
+			name				classmelee
 			group				attackcontrols
-			name				attacklook
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_USE
-			rect				142 170 230 14
+			text				"Class Melee / Gunbash:"
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -14315,10 +14315,10 @@ itemDef
 
 		itemDef
 		{
-			name				attacklook
 			group				attackcontrols
+			name				attacklook
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_USE_HELD_ITEM
+			text				@MENUS_USE
 			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -14335,7 +14335,7 @@ itemDef
 			name				attacklook
 			group				attackcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_NEXT_INVENTORY
+			text				@MENUS_USE_HELD_ITEM
 			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
@@ -14352,8 +14352,25 @@ itemDef
 			name				attacklook
 			group				attackcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_PREV_INVENTORY
+			text				@MENUS_NEXT_INVENTORY
 			rect				142 215 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_PREV_INVENTORY
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -14370,7 +14387,7 @@ itemDef
 			group				attackcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_LOOK_UP
-			rect				142 230 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -14388,7 +14405,7 @@ itemDef
 			group				attackcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_LOOK_DOWN
-			rect				142 245 230 14
+			rect				142 260 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -14404,7 +14421,7 @@ itemDef
 			group				attackcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_MOUSE_LOOK
-			rect				142 260 230 14
+			rect				142 275 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -14421,7 +14438,7 @@ itemDef
 			group				attackcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_CENTER_VIEW
-			rect				142 275 230 14
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -14535,6 +14552,40 @@ itemDef
 				hide			keybindstatus
 			}
 		}
+		
+		itemDef
+		{
+			name				classmelee
+			group				attackcontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			//cvar				"saberAttackCycle"
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			//descText			@MENUS_CYCLES_BETWEEN_AVAILABLE
+			action
+			{
+				play			sound/interface/button1
+			}
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 156 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+		}
 
 		itemDef
 		{
@@ -14544,7 +14595,7 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"+use"
-			rect				142 170 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -14560,7 +14611,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 171 230 15			
+				setitemrect		button_glow	142 186 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -14578,40 +14629,6 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"+button2"
-			rect				142 185 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			@MENUS_ACTIVATES_CURRENTLY_SELECTED
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 186 230 15			
-				show			keybindstatus
-			}
-			mouseExit
-			{
-				hide			button_glow			
-				hide			keybindstatus
-			}
-			action
-			{
-				play			"sound/interface/go.mp3"
-			}
-		}
-
-		itemDef
-		{
-			name				attacklook
-			group				attackcontrols
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_BIND
-			text				" "
-			cvar				"invnext"
 			rect				142 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -14620,7 +14637,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_SELECTS_NEXT_USABLE_ITEM
+			descText			@MENUS_ACTIVATES_CURRENTLY_SELECTED
 			mouseenter
 			{
 				show			button_glow 
@@ -14645,8 +14662,42 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"invprev"
+			cvar				"invnext"
 			rect				142 215 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			@MENUS_SELECTS_NEXT_USABLE_ITEM
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 216 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"invprev"
+			rect				142 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -14658,7 +14709,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
+				setitemrect		button_glow	142 231 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -14680,7 +14731,7 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"+lookup"
-			rect				142 230 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -14692,7 +14743,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 231 230 15			
+				setitemrect		button_glow	142 246 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -14715,39 +14766,6 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"+lookdown"
-			rect				142 245 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			descText			@MENUS_TILTS_VIEW_DOWNWARDS
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 246 230 15			
-				show			keybindstatus
-			}
-			mouseExit
-			{
-				hide			button_glow			
-				hide			keybindstatus
-			}
-			action
-			{
-				play			"sound/interface/go.mp3"
-			}
-		}
-
-		itemDef
-		{
-			name				attacklook
-			group				attackcontrols
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_BIND
-			text				" "
-			cvar				"+mlook"
 			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -14755,8 +14773,7 @@ itemDef
 			font				5
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			@MENUS_IF_HELD_ALLOWS_PLAYER
+			descText			@MENUS_TILTS_VIEW_DOWNWARDS
 			mouseenter
 			{
 				show			button_glow 
@@ -14781,8 +14798,42 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"centerview"
+			cvar				"+mlook"
 			rect				142 275 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			@MENUS_IF_HELD_ALLOWS_PLAYER
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 276 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			name				attacklook
+			group				attackcontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"centerview"
+			rect				142 290 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -14794,7 +14845,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 276 230 15			
+				setitemrect		button_glow	142 291 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -15411,45 +15462,28 @@ itemDef
 
 		itemDef
 		{
-			name				ability1
+			name				special3
 			group				mbcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Alternate Ability 1:"
+			text				"Class Special 3:"
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		
+		itemDef
+		{
+			name				special4
+			group				mbcontrols
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Class Special 4:"
 			rect				142 155 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-		
-		itemDef
-		{
-			name				ability2
-			group				mbcontrols
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Alternate Ability 2:"
-			rect				142 170 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-		
-		itemDef
-		{
-			name				ability3
-			group				mbcontrols
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Alternate Ability 3:"
-			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -15466,7 +15500,7 @@ itemDef
 			group				mbcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Class Configuration:"
-			rect				142 215 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -15483,7 +15517,7 @@ itemDef
 			group				mbcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Drop Siege Item:"
-			rect				142 230 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -15500,7 +15534,7 @@ itemDef
 			group				mbcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"Enlarge minimap:"
-			rect				142 245 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -15517,7 +15551,7 @@ itemDef
 			group				mbcontrols
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				"End Private Duel:"
-			rect				142 275 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -15600,12 +15634,46 @@ itemDef
 
 		itemDef
 		{
-			name				ability1
+			name				special3
 			group				mbcontrols
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"ability1"
+			//cvar				"+button14"
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Class Special 3. Common control for class unique abilities."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 141 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+		
+		itemDef
+		{
+			name				special4
+			group				mbcontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			//cvar				"+button14"
 			rect				142 155 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -15614,79 +15682,11 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Use Quick Throw. FA mode only: Alt control for Dash and Dexterity if class special conflict occurs."
+			descText			"Class Special 4. Common control for class unique abilities."
 			mouseenter
 			{
 				show			button_glow 
 				setitemrect		button_glow	142 156 230 15			
-				show			keybindstatus
-			}
-			mouseExit
-			{
-				hide			button_glow			
-				hide			keybindstatus
-			}
-			action
-			{
-				play			"sound/interface/go.mp3"
-			}
-		}
-		
-		itemDef
-		{
-			name				ability2
-			group				mbcontrols
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_BIND
-			text				" "
-			cvar				"ability2"
-			rect				142 170 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			"FA mode only: Alt control for weapon-out melee and Tracking Darts if class special conflict occurs."
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 171 230 15			
-				show			keybindstatus
-			}
-			mouseExit
-			{
-				hide			button_glow			
-				hide			keybindstatus
-			}
-			action
-			{
-				play			"sound/interface/go.mp3"
-			}
-		}
-		
-		itemDef
-		{
-			name				ability3
-			group				mbcontrols
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_BIND
-			text				" "
-			cvar				"ability3"
-			rect				142 185 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			"FA mode only: Alt control for Poison Darts and Gunbash if class special conflict occurs."
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 186 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -15708,7 +15708,7 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"ui_opensiegemenu ingame_playerforce"
-			rect				142 215 230 14
+			rect				142 185 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -15720,7 +15720,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 216 230 15			
+				setitemrect		button_glow	142 186 230 15		
 				show			keybindstatus
 			}
 			mouseExit
@@ -15742,7 +15742,7 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"dropSiegeItem"
-			rect				142 230 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -15754,7 +15754,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 231 230 15			
+				setitemrect		button_glow	142 201 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -15776,7 +15776,7 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"cg_drawminimap !"
-			rect				142 245 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -15788,7 +15788,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 246 230 15			
+				setitemrect		button_glow	142 216 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -15810,7 +15810,7 @@ itemDef
 			type				ITEM_TYPE_BIND
 			text				" "
 			cvar				"duel_end"
-			rect				142 275 230 14
+			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			textaligny			-5
@@ -15822,7 +15822,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 276 230 15			
+				setitemrect		button_glow	142 246 230 15			
 				show			keybindstatus
 			}
 			mouseExit
