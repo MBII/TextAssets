@@ -1,25 +1,29 @@
-models/players/sabine/JT_Diffuse
+models/players/sabine/jedi_trainer
 {
-	q3map_onlyvertexlighting
     {
-        map models/players/sabine/JT_Diffuse
+        map models/players/sabine/jedi_trainer
+        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
- 	}
-   	{
+    }
+    {
         map models/players/sabine/env
-        blendFunc GL_DST_COLOR GL_SRC_COLOR
-        detail
-        alphaGen lightingSpecular
-        tcGen environment
-    }
-   	{	
-       	map models/players/sabine/JT_Diffuse
+        blendFunc GL_ONE GL_ONE
         rgbGen lightingDiffuse
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-   	}
-   	{
-        map models/players/sabine/JT_Spec
-        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen const 1
+        tcGen environment
         detail
-       	alphaGen lightingSpecular
     }
+    {
+        map models/players/sabine/jedi_trainer
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+        detail
+    }
+    {
+        map models/players/sabine/jedi_trainer_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+}
+
