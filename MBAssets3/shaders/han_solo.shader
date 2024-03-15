@@ -46,6 +46,23 @@ models/players/han_solo/jackets2
 	}
 	}
 
+models/players/han_solo/hair
+	{
+		cull twosided
+	{
+		map models/players/han_solo/hair
+		alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/han_solo/hair_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
 
 models/players/han_solo/clothes
 	{
