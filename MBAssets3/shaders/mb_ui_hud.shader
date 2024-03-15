@@ -30,6 +30,18 @@ gfx/hud/alpha/HUD_StatusCircle
 		map gfx/hud/alpha/HUD_StatusCircle
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
+		alphaGen const 0.5
+	}
+}
+
+gfx/hud/alpha/HUD_StatusCircleFull
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusCircle
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
 	}
 }
 
@@ -78,6 +90,18 @@ gfx/hud/alpha/HUD_StatusMode_Disabled
 }
 
 gfx/hud/alpha/HUD_StatusBar
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusBar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		alphaGen const 0.5
+	}
+}
+
+gfx/hud/alpha/HUD_StatusBarFull
 {
 	nopicmip
 	notc
