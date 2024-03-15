@@ -3,67 +3,115 @@
 ClassInfo
 {
 name				"Cor_RRC1207Sev"
-weapons				WP_MELEE|WP_DISRUPTOR|WP_REPEATER|WP_DEMP2|WP_PULSE_NADE
-attributes			MB_ATT_PISTOL,2|MB_ATT_DISRUPTOR,2|MB_ATT_CLONERIFLE,2|MB_ATT_PULSE_GRENADES,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_STAMINA,2|MB_ATT_SHIELD_RECHARGE2,2
+weapons				WP_SABER|WP_MELEE|WP_PROJ|WP_CLONE_RIFLE|WP_CLONE_PISTOL|WP_PULSE_NADE
+attributes			MB_ATT_CLONE_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_PULSE_GRENADES,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FRAGS,2
 maxhealth			100
 maxarmor			100
 model				"clonerc2" 
 skin				"sev"
 uishader			"models/players/clonerc2/mb2_icon_sev"
-MBClass				MB_CLASS_CLONETROOPER
+MBClass				MB_CLASS_HERO
 classNumberLimit	1
-speed				1.05
 holdables			HI_MEDPAC|HI_BINOCULARS
+damagetaken			0.9
+
+saberstyle			SS_TAVION
+saber1 				"arc_shiv_legends"
+speed				0.9
+
+saberStanceAnim		BOTH_STAND9
+tauntAnim			BOTH_VICTORY_FAST
+gloatAnim			BOTH_MELEE_SPINKICK
+flourishAnim		both_stand9idle1
+meditateAnim 		both_knockdown4
+bowAnim 			both_headshake
+	
+WP_Repeaterflags	HELD_ALTRELOAD
+
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_REPEATER
+	WeaponToReplace		WP_CLONE_RIFLE
 	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/DC-17m/dc-17m_w.glm"
-	NewViewModel		"models/weapons2/DC-17m/dc-17m.md3"
-	Icon				"gfx/hud/w_icon_dc-17m"
-	WeaponName			"DC-17m"
+	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
+	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
+	FlashSound0			"sound/weapons/dc17m/fire.wav"
+	Icon				"gfx/hud/w_icon_dc-17mB"
+	WeaponName			"DC-17M: Blaster Attachment"
 	customAmmo 			500
+	clipSize			90
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_DEMP2
-	WeaponBasedOff		WP_DEMP2
+	WeaponToReplace		WP_CLONE_PISTOL
+	WeaponBasedOff		WP_CLONE_PISTOL
 	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
 	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
 	Icon				"gfx/hud/w_icon_clonepistol"
 	WeaponName			"DC-15s"
-	customAmmo 			500
 }
 
 WeaponInfo2
 {
-WeaponToReplace		WP_DISRUPTOR
-WeaponBasedOff		WP_DISRUPTOR
-NewWorldModel		"models/weapons2/clone_disruptor/clone_disruptor_w.glm"
-NewViewModel		"models/weapons2/clone_disruptor/clone_disruptor.md3"
-Icon				"gfx/hud/w_icon_c_disruptor"
-WeaponName			"DVX-9 Disruptor Rifle"
-MuzzleEffect		"disruptor_blue/muzzle_flash"
-AltMuzzleEffect		"disruptor_blue/altmuzzle_flash"
-MissileEffect		"disruptor_blue/projectile"
-AltMissileEffect	"disruptor_blue/projectile"
-PowerupShotEffect	"disruptor_blue/projectile" 
-DisruptorBeam1		"gfx/effects/disrupt_beam_blue"
-DisruptorBeam2		"gfx/effects/disrupt_beam_blue"
-ChargeEffect		"gfx/effects/bryarfrontflash_h"
-customAmmo 			800
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	MissileMissEffect			"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	missileHitHumanEffect		"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	missileHitDroidEffect		"Grenades/EXP_Flash"
+	
+	Icon						"gfx/hud/w_icon_stungrenade"
+	WeaponName					"Flashbang Grenade"
+	primFireEnabled				0
 }
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_PROJ
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/DC-17m/sniper.glm"
+	NewViewModel		"models/weapons2/DC-17m/sniper.md3"
+	Icon				"gfx/hud/w_icon_dc-17mS"
+	FlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
+	WeaponName			"DC-17M: Sniper Attachment"
+	PrimHitscanShot 	1
+	PrimHitscanTracer 	10
+	clipSize			1
+	customAmmo 			15
+	ReloadTimeModifier 	1.2
+	fpmult				1.1
+}
+
+WeaponInfo4
+{           
+	WeaponToReplace        WP_SABER
+	WeaponBasedOff         WP_SABER
+	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon             	"gfx/hud/w_icon_arc_shiv"
+	WeaponName			"Wrist Shiv"
+}
+
+
 
 description	"RC-1207 'Sev'
 
 Weaponry:
 DC-15s (2)
 DC-17M (2)
-DVX-9 Disruptor Rifle (2)
+DC-17M: Sniper Attachment (1)
+ - Hitscan Proj Rifle
+Flashbang Grenade (2)
 Pulse Grenade (1)
+Wrist Shiv
 
 Items:
 Bacta (25HP+)
@@ -72,10 +120,8 @@ Electrobinoculars
 Attributes:
 Armour (3)
 Ammo (3)
-Dodge (1)
 Strength (2)
-Stamina (2)
-Shield Regeneration (2)
+Shield Regeneration (1)
 
 Sev, part of Delta squad, was trained on Kamino by Sergeant Walon Vau. Vau, a Mandalorian, believed that in order for his commandos to survive in combat, he must train them as harshly as possible—to do anything less would compromise their training, thus, Delta squad did live fire exercises.
 A clone commando, or Republic commando, was an elite soldier of the Grand Army of the Republic. Often working in groups of four, clone commandos were assigned to carry out covert operations too delicate for regular clone troopers. Covert infiltration, sabotage, foreign unit training, and assassination were standard tasks for the clone commandos."

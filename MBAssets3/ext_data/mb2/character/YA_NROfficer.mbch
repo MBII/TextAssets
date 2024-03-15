@@ -3,13 +3,13 @@
 ClassInfo
 {
 	name			"YA_NROfficer"
-	weapons			WP_DEMP2|WP_FRAG_NADE|WP_CRYO_NADE
-	attributes		MB_ATT_RALLY,1|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_ARMOUR,2|MB_ATT_CRYOBAN_GRENADES,3|MB_ATT_HEALING,3|MB_ATT_DASH,2|MB_ATT_DODGE,2
+	weapons			WP_CLONE_PISTOL|WP_FRAG_NADE|WP_CRYO_NADE
+	attributes		MB_ATT_RALLY,1|MB_ATT_CLONE_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_ARMOUR,2|MB_ATT_CRYOBAN_GRENADES,3|MB_ATT_HEALING,3|MB_ATT_DASH,2|MB_ATT_DODGE,3
 	maxhealth		100
-	maxarmor		50
+	maxarmor		60
 	model			"rebel_commando" 				//this is optional, if it's here it forces the model to this.
-	skin			"snivvian"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/rebel_commando/mb2_icon_snivvian"
+	skin			"duros"					//this is optional, if it's here it forces the skin to this.
+	uishader		"models/players/rebel_commando/mb2_icon_duros"
 	MBClass			MB_CLASS_ELITETROOPER
 	classNumberLimit	1
 	holdables		HI_MEDPACK
@@ -17,7 +17,7 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_DEMP2					//Required: Weapon Slot of weapon you're replacing
+	WeaponToReplace		WP_CLONE_PISTOL				//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/blaster_two/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
 	CorrectedWorldModel 	"models/weapons2/blaster_pistol/blaster_pistol_corrected.glm"
@@ -34,12 +34,26 @@ WeaponInfo0
 	WeaponName			"Dual DL-44's"    					//Required: Weapon change display name
 }
 
+
+WeaponInfo1
+{
+ 	WeaponToReplace			WP_CRYO_NADE
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons2/cryoban_grenade/model_w.glm"
+	NewViewModel			"models/weapons2/cryoban_grenade/viewmodel.md3"
+	MissileModel			"models/weapons2/cryoban_grenade/model_proj.md3"
+    	AltMissileModel			"models/weapons2/cryoban_grenade/model_proj.md3"
+	Icon				"gfx/hud/w_icon_cryobangrenade"
+	WeaponName			"Cryoban Grenade"
+}
+
+
 description			"New Republic Officer
 
 Weapons:
 
 Dual Pistols (3)
-Cryo Grenade (2)
+Cryo Grenade (3)
 
 Equipment:
 
@@ -48,7 +62,7 @@ Bacta
 Attributes:
 
 Dash (2)
-Dodge (2)
+Dodge (3)
 Healing (3)
 Rally (1)
 

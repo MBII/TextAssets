@@ -3,19 +3,32 @@
 ClassInfo
 {
 	name 				"YA_NRSecurityDroid"
-	weapons 			WP_MELEE|WP_BLASTER
+	weapons 			WP_MELEE|WP_BLASTER|WP_SABER
 	attributes			MB_ATT_RECHARGE,2|MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,2|MB_ATT_BLASTER,1|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR
 	maxhealth			150
 	model 				"NRSD"
 	skin  				"default"
 	uishader  			"models/players/NRSD/mb2_icon_default"
-	MBClass 			MB_CLASS_SBD
-	meleeMoves			M_PUNCH|M_UPPERCUT|M_KICK
+	MBClass 			MB_CLASS_WOOKIE
 	classNumberLimit 		2
 	extralives			1
 	speed				0.95
 	modelscale			1.1
 	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_NOLOCATIONALDAMAGE
+	saber1				JawaBaton_legends
+	
+	gloatAnim			TORSO_HANDSIGNAL1
+	flourishAnim		TORSO_HANDSIGNAL4
+	tauntAnim			TORSO_HANDSIGNAL3
+	WalkForward 		SBD_WALK_NOGUN
+	WalkBackward		SBD_WALKBACK_NOGUN
+	
+	resource			RESOURCE_BATTERY
+	forcepool 			25
+	saberstyle			SS_MEDIUM
+
+
+	saberStanceAnim	    BOTH_DOOKU_STANCE
 }
 
 WeaponInfo0
@@ -29,10 +42,21 @@ WeaponInfo0
 	IdleAnim	        TORSO_WEAPONIDLE3
 }
 
+WeaponInfo1
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/base_baton/stun_baton.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_stun_baton"
+	WeaponName			"Stun Baton"
+}
+
 description	"New Republic Security Droid
 
 Weaponry:
 DH-17: (1)
+Stun Baton
 
 Attributes:
 
