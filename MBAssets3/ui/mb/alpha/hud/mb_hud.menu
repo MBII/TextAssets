@@ -31,32 +31,55 @@ assetGlobalDef
 	{
 		name					"lefthud"
 		fullScreen				0						// MENU_FALSE
-		rect					0 410 128 128			// Size and position of the menu
+		rect					30 410 128 128			// Size and position of the menu
 		visible					1						// Visible on open
 
-		// Metal Frame
+		// Main Frame
 		itemDef
 		{
 			name				"frame"
 			forecolor			1 1 1 1
-			background			"gfx/hud/Alpha/HUD_StatusMain"
-			rect				195 0 -165 50	// (these positions are relative to the initial position of the menu) // X pos, Y pos, char size, char height
+			background			"gfx/hud/alpha/HUD_StatusMainFlipped"
+			rect				0 0 165 50	// (these positions are relative to the initial position of the menu) // X pos, Y pos, char size, char height
 			style				0 // Determines whether Player Status HUD is Horizontal (0), Vertical (1), Circular (2)
+			align				3
 		}
 		
 		//Player Mode Frame
 		itemDef
 		{
 			name				BodyModeFrame
-			rect				31 0 48 50
+			rect				0 0 48 50
 			background			"gfx/hud/Alpha/HUD_StatusCircle"
+			align				0
 		}
 		
 		//Player Mode Icon
 		itemDef
 		{
 			name				BodyMode
-			rect				33 3 44 44
+			rect				0 3 44 44
+			align				3
+			textalignx			3
+		}
+		
+		// Held Item Frame
+		itemDef
+		{
+			name				"HeldItemFrame"
+			background			"gfx/hud/Alpha/HUD_StatusItems"
+			rect				0	-0.5 -49 51
+			align				3
+			textalignx			166
+		}
+		
+		// Held Item
+		itemDef
+		{
+			name				"HeldItem"
+			rect				0	-0.5 51 51
+			align				3
+			textalignx			166
 		}
 		
 		// Armor Frame
@@ -65,7 +88,9 @@ assetGlobalDef
 			name				"ArmorFrame"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				97 9 87 15
+			rect				0 9 87 15
+			align				3
+			textalignx			72
 		}
 		
 		// Armor Bar
@@ -74,7 +99,9 @@ assetGlobalDef
 			name				"ArmorBar"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				99 11 83 11
+			rect				0 11 83 11
+			align				3
+			textalignx			74
 		}
 
 		// Health Frame
@@ -83,7 +110,9 @@ assetGlobalDef
 			name				"HealthFrame"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				97 27 87 15
+			rect				0 27 87 15
+			align				3
+			textalignx			72
 		}
 		
 		// Health Bar
@@ -92,7 +121,9 @@ assetGlobalDef
 			name				"HealthBar"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				99 29 83 11
+			rect				0 29 83 11
+			align				3
+			textalignx			74
 		}
 
 		// Left HUD tics
@@ -192,26 +223,26 @@ assetGlobalDef
 		{
 			name				armoramount
 			forecolor			0.0 .613 .097 0.8
-			rect				59 6 4 9
+			rect				0 6 4 9
 			font				6
 			textscale			0.125
-			textalignx			0
+			textalignx			57
 			textaligny			0
-			align				0
-		}		
+			align				4
+		}
 
 		// Numeric counter for health
 		itemDef
 		{
 			name				healthamount
 			forecolor			.835 .015 .015 0.8
-			rect				59 23 4 9
+			rect				0 23 4 9
 			font				6
 			textscale			0.125
-			textalignx			0
+			textalignx			57
 			textaligny			0
-			align				0
-		}		
+			align				4
+		}
 
 		// Vehicle HUD (Swoop bike)
 		itemDef
@@ -241,7 +272,7 @@ assetGlobalDef
 	{
 		name					"righthud"
 		fullScreen				0						// MENU_FALSE
-		rect					640 410 -128 128		// Size and position of the menu
+		rect					610 410 -128 128		// Size and position of the menu
 		visible					1						// Visible on open	
 
 		// Metal Frame
@@ -250,8 +281,9 @@ assetGlobalDef
 			name				"frame"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusMain"
-			rect				-195 0 165 50
+			rect				0 0 165 50
 			style				0 // Determines whether Player Status HUD is Horizontal (0), Vertical (1), Circular (2)
+			align				2
 		}
 		
 		// Item Count Frame
@@ -260,22 +292,27 @@ assetGlobalDef
 			name				"ItemCountFrame"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusItems"
-			rect				-166 -0.5 49 51
+			rect				0 -0.5 49 51
+			align				5
+			textalignx			-142
 		}
 		
 		//Player Mode Frame
 		itemDef
 		{
 			name				WepModeFrame
-			rect				134 0 48 50
+			rect				0 0 49 50
 			background			"gfx/hud/Alpha/HUD_StatusCircle"
+			align				2
 		}
 		
 		//Weapon Mode Frame
 		itemDef
 		{
 			name				WepMode
-			rect				-77 3 44 44
+			rect				0 3 44 44
+			align				5
+			textalignx			-2
 		}
 		
 		// Resource Frame
@@ -284,7 +321,9 @@ assetGlobalDef
 			name				"ResourceFrame"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				27 9 87 15
+			rect				0 9 87 15
+			align				5
+			textalignx			-72
 		}
 
 		// Resource Bar
@@ -293,7 +332,9 @@ assetGlobalDef
 			name				"ResourceBar"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				29 11 83 11
+			rect				0 11 83 11
+			align				5
+			textalignx			-74
 		}
 
 		// Ammo Frame
@@ -302,7 +343,9 @@ assetGlobalDef
 			name				"AmmoFrame"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				27 27 87 15
+			rect				0 27 87 15
+			align				5
+			textalignx			-72
 		}
 
 		// Ammo Bar
@@ -311,7 +354,9 @@ assetGlobalDef
 			name				"AmmoBar"
 			forecolor			1 1 1 1
 			background			"gfx/hud/Alpha/HUD_StatusBar"
-			rect				29 29 83 11
+			rect				0 29 83 11
+			align				5
+			textalignx			-74
 		}
 		
 		// Weapon Mode icons
@@ -337,7 +382,9 @@ assetGlobalDef
 		itemDef
 		{
 			name				currentweaponicon
-			rect				-74 5 38 38
+			rect				0 5 38 38
+			align				5
+			textalignx			-5
 		}
 		
 		// Right HUD tics
@@ -408,52 +455,52 @@ assetGlobalDef
 		itemDef
 		{
 			name				forceamount
-			rect				-63 6 4 9
+			rect				0 6 4 9
 			forecolor			.359 .524 .722 0.8
 			font				6
 			textscale			0.125
-			textalignx			0
+			textalignx			-61
 			textaligny			0
-			align				2
+			align				4
 		}		
 
 		// Numeric counter for ammo
 		itemDef
 		{
 			name				ammoamount
-			rect				-63 23 4 9
+			rect				0 23 4 9
 			forecolor			1.0 .658 .062 0.8
 			font				6
 			textscale			0.125
-			textalignx			0
+			textalignx			-61
 			textaligny			0
-			align				2
+			align				4
 		}		
 
 		// Numeric counter for additional class info (blobs, wrist shots, etc)
 		itemDef
 		{
 			name				class1amount
-			rect				-150 8 4 9
+			rect				0 8 4 9
 			forecolor			0.88 0.81 0.02 1
 			font				6
 			textscale			0.1
-			textalignx			0
+			textalignx			-170
 			textaligny			0
-			align				2
+			align				4
 		}
 
 		// 2nd Numeric counter for additional class info (blobs, wrist shots, etc)
 		itemDef
 		{
 			name				class2amount
-			rect				-150 24 4 9
+			rect				0 24 4 9
 			forecolor			0.06 0.83 0.32 1
 			font				6
 			textscale			0.1
-			textalignx			0
+			textalignx			-170
 			textaligny			0
-			align				2
+			align				4
 		}
 		
 		// Tracker Dart Icon
@@ -462,7 +509,9 @@ assetGlobalDef
 			name				icon_trackerdart
 			background			"gfx/hud/Alpha/HUD_Icon_TrackerDart"
 			forecolor			0.88 0.81 0.02 1
-			rect				-161 12 9 9
+			rect				0 12 9 9
+			align				5
+			textalignx			-175
 		}
 		
 		// Poison Dart Icon
@@ -471,7 +520,9 @@ assetGlobalDef
 			name				icon_poisondart
 			background			"gfx/hud/Alpha/HUD_Icon_PoisonDart"
 			forecolor			0.06 0.83 0.32 1
-			rect				-161 29 9 9
+			rect				0 29 9 9
+			align				5
+			textalignx			-175
 		}
 
 		// When ammo is infinite (used in MP)
@@ -1290,14 +1341,6 @@ assetGlobalDef
 			name				"usehint"
 			rect				5 300 48 48
 			background			"gfx/hud/useablehint"
-			align				0
-		}
-
-		// Siege item model.
-		itemDef
-		{
-			name				"siegeitem"
-			rect				8 8 64 64
 			align				0
 		}
 	}
