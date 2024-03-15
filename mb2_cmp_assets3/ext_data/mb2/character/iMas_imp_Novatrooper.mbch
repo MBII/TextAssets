@@ -3,16 +3,18 @@
 Classinfo
 {
 	name			"iMas_imp_Novatrooper"
-	weapons			WP_MELEE|WP_DET_PACK|WP_BLASTER_PISTOL
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_FLAMETHROWER|MB_ATT_WRISTLASER,1|MB_ATT_FUEL,3|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_T21,1|MB_ATT_SHIELD_RECHARGE2,1
+	weapons			WP_MELEE|WP_CONCUSSION|WP_BLASTER_PISTOL
+	attributes		MB_ATT_ARMOUR,3|MB_ATT_FLAMETHROWER|MB_ATT_WRISTLASER,1|MB_ATT_FUEL,3|MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_SHIELD_RECHARGE1,1
 	maxhealth		80
-	maxarmor		35
+	maxarmor		30
 	model			"stormie"
 	skin			"novatrooper"
 	uishader		"models/players/stormie/mb2_icon_novatrooper"
 	MBclass			MB_CLASS_MANDALORIAN
 	classflags		CFL_CONCUSSIONRIFLE|CFL_EXTRAFLAMEDAMAGE
 	classNumberLimit	1
+	
+	WP_CONCUSSIONflags	HELD_ALTRELOAD|HELD_STUN|HELD_HIGHDAMAGE
 }
 
 WeaponInfo0
@@ -27,20 +29,25 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_DET_PACK
+	WeaponToReplace		WP_CONCUSSION
 	WeaponBasedOff		WP_CONCUSSION
-	NewWorldModel		"models/weapons2/smartgun/smartgun_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/smartgun/smartgun.md3"	
-	Icon			"gfx/hud/w_icon_smart" 
-	WeaponName		"Novatrooper Pulse Rifle"
-	MuzzleEffect		"Rockets/MuzzleFlashPulse"
-	AltMuzzleEffect		"Rockets/MuzzleFlashPulse"
-	MissileEffect		"Rockets/MissilePulse"
-	FlashSound0		"sound/weapons/rocket/alt_fire"
-	AltFlashSound0		"sound/weapons/rocket/alt_fire"
-	MissileMissEffect	"Grenades/GlowEMPS"
-	customammo		750
-	altFireEnabled		1	
+	NewWorldModel		"models/weapons2/LC/c_rifle_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/LC/c_rifle.md3"	
+	Icon			"gfx/hud/w_icon_LC" 
+	WeaponName			"Lightning Cannon"
+	MuzzleEffect		"LC/MuzzleFlash"
+	AltMuzzleEffect		"LC/MuzzleFlash"
+	MissileEffect		"LC/shot"
+	FlashSound0			"sound/weapons/llc/fire.wav"
+	
+	MissileMissEffect	"lc/explosion"
+	
+	
+	customammo		480
+	clipsize		10
+	ReloadTimeModifier 	1.5
+	altfireenabled	0
+
 
 }
 
@@ -49,15 +56,16 @@ Description 	"Imperial Novatrooper
 Weapons:
 
 Imperial Pistol: (2)
-Novatrooper Pulse Rifle: (1)
+Lightning Cannon: (1)
+- Single Shot Concussion Rifle
 
 Attributes:
 
-Recharging Energy Sheilds: (2)
-Magnetic Armor: (X)  
-Fuel: (2)
-Plasma Thrower: (2)
-Wrist Laser: (X) 
+Recharging Energy Sheilds (2)
+Magnetic Armor (X)  
+Fuel (2)
+Plasma Thrower (2)
+Wrist Laser
 
 Details:
 
