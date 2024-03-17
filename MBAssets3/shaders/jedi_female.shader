@@ -54,6 +54,20 @@ models/players/jedi_female/bootsb
     }
 }
 
+models/players/jedi_female/boots_meetra
+{
+    {
+        map models/players/jedi_female/boots_meetra
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/jedi_spanki/boots-spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 models/players/jedi_female/teeth
 {
 	cull	twosided
@@ -97,6 +111,17 @@ models/players/jedi_female/hair_03_alpha
     }
 }
 
+models/players/jedi_female/hair_meetra_alpha
+{
+	cull	twosided
+    {
+        map models/players/jedi_female/hair_meetra_alpha
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
 models/players/jedi_female/robeb
 {		
 	q3map_material	Fabric
@@ -119,6 +144,17 @@ models/players/jedi_female/robef
     }
 }
 
+models/players/jedi_female/robe_meetra
+{		
+	q3map_material	Fabric
+	cull	disable
+    {
+        map models/players/jedi_female/robe_meetra
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
 models/players/jedi_female/robe-partsb
 {		
 	q3map_material	Fabric
@@ -136,6 +172,17 @@ models/players/jedi_female/robe-partsf
 	cull	disable
     {
         map models/players/jedi_female/robe-partsf
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/jedi_female/robe-parts_meetra
+{		
+	q3map_material	Fabric
+	cull	disable
+    {
+        map models/players/jedi_female/robe-parts_meetra
         depthWrite
         rgbGen lightingDiffuse
     }
