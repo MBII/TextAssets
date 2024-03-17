@@ -3,8 +3,8 @@
 ClassInfo
 {
 	name			"YA_Jan"
-	weapons			WP_MELEE|WP_BLASTER|WP_BOWCASTER
-	attributes		MB_ATT_RALLY,1|MB_ATT_BLASTER,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_BOWCASTER,3
+	weapons			WP_MELEE|WP_FLECHETTE|WP_BOWCASTER
+	attributes		MB_ATT_RALLY,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_BOWCASTER,3
 	maxhealth		100
 	maxarmor		40
 	MBClass			MB_CLASS_HERO
@@ -12,8 +12,8 @@ ClassInfo
 	speed			1.05
 	classflags		CFL_SHOTGUN|CFL_RUNFASTMELEE
 	holdables		HI_BINOCULARS|HI_MEDPAC_BIG
-	WP_BlasterFlags 	HELD_ALTRELOAD
-	WP_BowcasterFlags 	HELD_ALTRELOAD|HELD_PULSE|HELD_LOWDAMAGE|HELD_SLOWPROJ
+	WP_FLECHETTEflags	HELD_ALTRELOAD
+	WP_Bowcasterflags	HELD_PULSE|HELD_LOWDAMAGE|HELD_SLOW
 		
 	model			"jan"
 	skin			"default"
@@ -26,15 +26,15 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace 	WP_BLASTER
-	WeaponBasedOff 		WP_FLECHETTE
+	WeaponToReplace 	WP_FLECHETTE
+	WeaponBasedOff 		WP_BOWCASTER
 	NewWorldModel		"models/weapons2/golan_arms/golan_arms_w.glm"
 	NewViewModel		"models/weapons2/golan_arms/golan_arms.md3"
 	NewBarrelModel		"models/weapons2/golan_arms/golan_arms_barrel.md3"
 	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
 	Icon			"gfx/hud/w_icon_golancr1"
-    FlashSound0		"sound/weapons/flechette/fire.mp3"  			
-	WeaponName 		"Golan Arms FC1 Flechette Launcher"
+    	FlashSound0		"sound/weapons/flechette/fire.mp3"  			
+	WeaponName 		"FC-1 Flechette Launcher"
 	
 	MuzzleEffect 		"flechette/muzzle_flash"
 	clipsize               24
@@ -52,29 +52,37 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace	WP_BOWCASTER					
-	WeaponBasedOff	WP_DISRUPTOR					
-	NewWorldModel	"models/weapons2/demp3/demp2_w.glm"  	
-	NewViewModel	"models/weapons2/demp3/demp2.md3"   	
-	Icon		"gfx/hud/w_icon_demp3"				
-	WeaponName	"Destructive Electro-Magnetic Pulse 2 Gun"  
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_CLONE_PISTOL
+	NewWorldModel		"models/weapons2/demp2/demp2_w.glm"
+	NewViewModel		"models/weapons2/demp2/demp2.md3"
+	NewHandsModel		"models/weapons2/demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2"
+	WeaponName			"DEMP 2"
 
-	MuzzleEffect		"arc_caster/ArcCasterMuzzle" 		
-	AltMuzzleEffect		"arc_caster/ArcCasterMuzzle" 
+	//Efx
+	MissileHitHumanEffect "effects/demp2/altdetonate"
+	MissileHitDroid 	"effects/demp2/altdetonate"
+	MissileMissEffect 			"effects/demp2/wall_impact"
+	MissileEffect		"effects/demp2/projectile"  					
+	//AltMissileEffect 	"effects/demp2/projectile" 
+	MuzzleEffect		"effects/demp2/muzzle_flash"
+	//AltMuzzleEffect		"effects/demp2/altmuzzle_flash"
 
-	MissileEffect		"demp2/projectile"
-	AltMissileEffect	"demp2/projectile"
-	PowerupShotEffect	"demp2/projectile" 
+	firingAnim		BOTH_ATTACK3
+	idleAnim		TORSO_WEAPONREADY3
+
+	PrimHitscanShot 	0
+	PrimHitscanTracer 	9
+
 
 	FlashSound0		"sound/weapons/demp2/fire_old.mp3"
-	AltFlashSound0		"sound/weapons/demp2/altfire_old.mp3"	
-
-	MissileMissEffect	"demp2/wall_impact"
-	AltMissileMissEffect	"demp2/wall_impact"
-
-	clipsize               12
+	AltFlashSound0	"sound/weapons/demp2/altfire_old.mp3"
+	ChargeSound		"sound/weapons/demp2/altcharge.mp3"
+	ReloadTimeModifier 	.85		// default is 1 - 100%
+	ProjSpeedModifier .8
 	
-	
+
 }
 
 
@@ -82,8 +90,8 @@ description	"Jan Ors
 
 Weapons:
 
-Golan Arms FC1 Flechette Weapon 	(3)
-DEMP2 (Bowcaster with pulse effect) (3)
+FC-1 Flechette Launcher (3)
+DEMP2  (3)
 
 Equipment:
 
@@ -92,8 +100,8 @@ Large Bacta
 
 Attributes:
 
-Dodge 	(3)
-Dash 	(2)
+Dodge (3)
+Dash (2)
 Healing (3)
 
 Jan Ors was an Alderaanian intelligence operative for the Rebel Alliance, and later for the New Republic and Galactic Alliance."

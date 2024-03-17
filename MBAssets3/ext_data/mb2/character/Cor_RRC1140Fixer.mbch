@@ -3,23 +3,37 @@
 ClassInfo
 {
 	name				"Cor_RRC1140Fixer"
-	weapons				WP_MELEE|WP_REPEATER|WP_DEMP2
-	attributes			MB_ATT_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_STAMINA,2|MB_ATT_SHIELD_RECHARGE2,2
+	weapons				WP_SABER|WP_MELEE|WP_CLONE_RIFLE|WP_CLONE_PISTOL|WP_PULSE_NADE
+	attributes			MB_ATT_CLONE_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE,2|MB_ATT_PULSE_GRENADES,3
 	maxhealth			100
 	maxarmor			100
 	model				"clonerc2"
 	skin				"fixer"
 	uishader			"models/players/clonerc2/mb2_icon_fixer"
-	MBClass				MB_CLASS_CLONETROOPER
+	MBClass				MB_CLASS_HERO
 	classNumberLimit	1
 	speed				1.05
-	classflags			CFL_FASTHACKING
-	holdables			HI_MEDPAC|HI_BINOCULARS|HI_HEALTHDISP|HI_AMMODISP
+	classflags			CFL_FASTHACKING|CFL_NOPICKUPS
+	holdables			HI_MEDPAC|HI_BINOCULARS|HI_HEALTHDISP|HI_AMMODISP|HI_ARMORDISP
+	damagetaken			0.9
+	
+	saberstyle			SS_TAVION
+	saber1 				"arc_shiv_legends"
+	speed				0.9
+	
+	saberStanceAnim		BOTH_STAND9
+	tauntAnim			BOTH_VICTORY_FAST
+	gloatAnim			BOTH_MELEE_SPINKICK
+	flourishAnim		both_stand9idle1
+	meditateAnim 		both_knockdown4
+	bowAnim 			both_headshake
+	WP_Repeaterflags	HELD_ALTRELOAD
+	
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_REPEATER
+	WeaponToReplace		WP_CLONE_RIFLE
 	WeaponBasedOff		WP_BOWCASTER
 	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
 	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
@@ -27,12 +41,13 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_dc-17mB"
 	WeaponName			"DC-17M: Blaster Attachment"
 	customAmmo 			500
+	clipSize			90
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_DEMP2
-	WeaponBasedOff		WP_DEMP2
+	WeaponToReplace		WP_CLONE_PISTOL
+	WeaponBasedOff		WP_CLONE_PISTOL
 	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
 	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
 	Icon				"gfx/hud/w_icon_clonepistol"
@@ -40,11 +55,23 @@ WeaponInfo1
 	customAmmo 			500
 }
 
+WeaponInfo2
+{           
+	WeaponToReplace        WP_SABER
+	WeaponBasedOff         WP_SABER
+	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon             	"gfx/hud/w_icon_arc_shiv"
+	WeaponName			"Wrist Shiv"
+}
+
 description	"RC-1140 'Fixer'
 
 Weaponry:
 DC-15s (2)
 DC-17M (2)
+Pulse Grenades (3)
+Wrist Shiv
 
 Items:
 Bacta (25HP+)
@@ -55,8 +82,6 @@ Ammo Stock - Give Allies Ammo
 Attributes:
 Armour (3)
 Ammo (3)
-Dodge (2)
-Stamina (2)
 Shield Regeneration (2)
 
 During training on Kamino, Fixer became a favorite student of the class's instructor, borderline sociopath Walon Vau. The two both shared a common obsession with weapons, technology and tactics. In fact, Vau and Fixer developed many new close-quarter combat moves.
