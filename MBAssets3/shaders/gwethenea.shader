@@ -443,6 +443,12 @@ models/players/gwethenea/legs_beige
         depthWrite
         rgbGen lightingDiffuse
     }
+    {
+        map models/players/gwethenea/legs_2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 models/players/gwethenea/legs_blue
@@ -451,6 +457,12 @@ models/players/gwethenea/legs_blue
         map models/players/gwethenea/legs_blue
         depthWrite
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/legs_2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
     }
 }
 
@@ -461,6 +473,12 @@ models/players/gwethenea/legs_brown
         depthWrite
         rgbGen lightingDiffuse
     }
+    {
+        map models/players/gwethenea/legs_2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 models/players/gwethenea/legs_brownb
@@ -470,6 +488,12 @@ models/players/gwethenea/legs_brownb
         depthWrite
         rgbGen lightingDiffuse
     }
+    {
+        map models/players/gwethenea/legs_2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 models/players/gwethenea/legs_green
@@ -478,6 +502,12 @@ models/players/gwethenea/legs_green
         map models/players/gwethenea/legs_green
         depthWrite
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/legs_2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
     }
 }
 
