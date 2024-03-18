@@ -27,3 +27,18 @@ models/players/sabine/jedi_trainer
     }
 }
 
+models/players/sabine/legs
+{
+    {
+        map models/players/sabine/legs
+        depthWrite
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/gwethenea/legs_2_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
