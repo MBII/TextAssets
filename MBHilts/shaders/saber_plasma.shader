@@ -2153,3 +2153,59 @@ models/weapons2/saber_plasma/saber_shin_diff
         alphaGen lightingSpecular
     }
 }
+
+models/weapons2/saber_plasma/saber_dagan_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_dagan_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_dagan_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_joruus_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_joruus_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_joruus_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_sabine_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_sabine_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_sabine_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/saber_plasma/saber_ezra3_diff
+{
+    {
+        map models/weapons2/saber_plasma/saber_ezra3_diff
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/saber_plasma/saber_ezra3_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
