@@ -497,7 +497,7 @@ gfx/effects/sabers_more/glow/purple
 
 //Stun weapons
 
-models/effects/soundring
+models/effects/stun_blasters/soundring
 {
     surfaceparm trans
     surfaceparm nomarks
@@ -505,13 +505,13 @@ models/effects/soundring
     surfaceparm nonopaque
     cull twosided
     {
-        map models/effects/soundring
+        map models/effects/stun_blasters/soundring
         blendFunc GL_ONE GL_ONE
         rgbGen lightingDiffuse
         tcMod scroll 0 -0.125
     }
     {
-        map models/effects/soundring_back
+        map models/effects/stun_blasters/soundring_back
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -519,7 +519,7 @@ models/effects/soundring
     }
 }
 
-models/effects/soundring2
+models/effects/stun_blasters/soundring2
 {
     surfaceparm trans
     surfaceparm nomarks
@@ -527,13 +527,13 @@ models/effects/soundring2
     surfaceparm nonopaque
     cull twosided
     {
-        map models/effects/soundring2
+        map models/effects/stun_blasters/soundring2
         blendFunc GL_ONE GL_ONE
         rgbGen lightingDiffuse
         tcMod scroll 0 -0.125
     }
     {
-        map models/effects/soundring_back
+        map models/effects/stun_blasters/soundring_back
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -553,7 +553,7 @@ gfx/sonic_pistol/wallmark
 }
 
 //Sonic Pistol
-models/effects/soundring
+models/effects/stun_blasters/soundring
 {
     surfaceparm trans
     surfaceparm nomarks
@@ -561,13 +561,13 @@ models/effects/soundring
     surfaceparm nonopaque
     cull twosided
     {
-        map models/effects/soundring
+        map models/effects/stun_blasters/soundring
         blendFunc GL_ONE GL_ONE
         rgbGen lightingDiffuse
         tcMod scroll 0 -0.125
     }
     {
-        map models/effects/soundring_back
+        map models/effects/stun_blasters/soundring_back
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -575,7 +575,7 @@ models/effects/soundring
     }
 }
 
-models/effects/soundring2
+models/effects/stun_blasters/soundring2
 {
     surfaceparm trans
     surfaceparm nomarks
@@ -583,13 +583,13 @@ models/effects/soundring2
     surfaceparm nonopaque
     cull twosided
     {
-        map models/effects/soundring2
+        map models/effects/stun_blasters/soundring2
         blendFunc GL_ONE GL_ONE
         rgbGen lightingDiffuse
         tcMod scroll 0 -0.125
     }
     {
-        map models/effects/soundring_back
+        map models/effects/stun_blasters/soundring_back
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
         detail
         alphaGen lightingSpecular
