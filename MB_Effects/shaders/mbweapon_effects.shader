@@ -495,6 +495,119 @@ gfx/effects/sabers_more/glow/purple
     }
 }
 
+//Stun weapons
+
+models/effects/soundring
+{
+    surfaceparm trans
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    cull twosided
+    {
+        map models/effects/soundring
+        blendFunc GL_ONE GL_ONE
+        rgbGen lightingDiffuse
+        tcMod scroll 0 -0.125
+    }
+    {
+        map models/effects/soundring_back
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        detail
+    }
+}
+
+models/effects/soundring2
+{
+    surfaceparm trans
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    cull twosided
+    {
+        map models/effects/soundring2
+        blendFunc GL_ONE GL_ONE
+        rgbGen lightingDiffuse
+        tcMod scroll 0 -0.125
+    }
+    {
+        map models/effects/soundring_back
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        detail
+    }
+}
+
+gfx/sonic_pistol/wallmark
+{
+	polygonOffset
+    {
+        map gfx/sonic_pistol/wallmark
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+        alphaGen vertex
+    }
+}
+
+//Sonic Pistol
+models/effects/soundring
+{
+    surfaceparm trans
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    cull twosided
+    {
+        map models/effects/soundring
+        blendFunc GL_ONE GL_ONE
+        rgbGen lightingDiffuse
+        tcMod scroll 0 -0.125
+    }
+    {
+        map models/effects/soundring_back
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        detail
+    }
+}
+
+models/effects/soundring2
+{
+    surfaceparm trans
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    cull twosided
+    {
+        map models/effects/soundring2
+        blendFunc GL_ONE GL_ONE
+        rgbGen lightingDiffuse
+        tcMod scroll 0 -0.125
+    }
+    {
+        map models/effects/soundring_back
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
+        detail
+        alphaGen lightingSpecular
+        detail
+    }
+}
+
+gfx/sonic_pistol/wallmark
+{
+	polygonOffset
+    {
+        map gfx/sonic_pistol/wallmark
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+        alphaGen vertex
+    }
+}
+
 gfx/misc/PurpleLine_new
 {
 	cull	twosided
