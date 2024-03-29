@@ -1176,6 +1176,64 @@ models/players/MB2_Clones/helmet_lambentp2
     }
 }
 
+models/players/mb2_clones/helmet_gree
+{
+    {
+        map models/players/mb2_clones/helmet_gree
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/mb2_clones/gloss_elite
+        blendFunc GL_ONE GL_ONE
+        rgbGen lightingDiffuse
+        alphaGen const 1
+        tcGen environment
+        detail
+    }
+    {
+        map models/players/mb2_clones/helmet_gree
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+        detail
+    }
+    {
+        map models/players/mb2_clones/helmet_gree_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+}
+
+models/players/mb2_clones/helmet_nemec
+{
+    {
+        map models/players/mb2_clones/helmet_nemec
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/mb2_clones/gloss_elite
+        blendFunc GL_ONE GL_ONE
+        rgbGen lightingDiffuse
+        alphaGen const 1
+        tcGen environment
+        detail
+    }
+    {
+        map models/players/mb2_clones/helmet_nemec
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+        detail
+    }
+    {
+        map models/players/mb2_clones/helmet_gree_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+        detail
+    }
+}
+
 models/players/MB2_Clones/head_face
 {
     {
@@ -3804,6 +3862,27 @@ models/players/MB2_clones/body_fives_p1
     }
 }
 
+models/players/mb2_clones/body_gree
+{
+    {
+        map models/players/mb2_clones/body_gree
+        rgbGen lightingDiffuse
+    }
+    //{
+       // map models/players/mb2_clones/gloss_elite
+       // blendFunc GL_DST_ALPHA GL_ONE
+       // detail
+       // alphaGen lightingSpecular
+       // tcGen environment
+   // }
+    {
+        map models/players/mb2_clones/body_gree_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/MB2_Clones/helmet_ep2_rgb
 {
     {
@@ -4913,6 +4992,27 @@ models/players/MB2_Clones_RC/specialist_parts_rc_cull
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
+    }
+}
+
+models/players/mb2_clones/extras_gree
+{
+    {
+        map models/players/mb2_clones/extras_gree_b
+        glow
+        tcMod scroll 0 0.55
+        tcMod entityTranslate
+    }
+    {
+        map models/players/mb2_clones/extras_gree
+        blendFunc GL_ONE GL_SRC_ALPHA
+        detail
+    }
+    {
+        map models/players/mb2_clones/extras_gree_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
     }
 }
 

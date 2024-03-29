@@ -1,143 +1,82 @@
-models/players/ig88/IG_torso
-{
-	{
-		map models/players/ig88/IG_torso
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/droideka/metal_env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/droideka/metal_env2
-		blendFunc GL_ONE GL_ONE
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/ig88/IG_torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
 
-models/players/ig88/IG_legs
-{
+models/players/ig88/ig88
 	{
-		map models/players/ig88/IG_legs
+	{
+		map models/players/ig88/ig88
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/droideka/metal_env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/droideka/metal_env2
-		blendFunc GL_ONE GL_ONE
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/ig88/IG_legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
 
-models/players/ig88/IG_arm
-{
+	}
 	{
-		map models/players/ig88/IG_arm
+		map models/players/ig88/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/ig88/ig88
+		blendfunc blend
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/droideka/metal_env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/droideka/metal_env2
-		blendFunc GL_ONE GL_ONE
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/ig88/IG_arm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/ig88/IG_head
-{
-	{
-		map models/players/ig88/IG_head
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/droideka/metal_env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/droideka/metal_env2
-		blendFunc GL_ONE GL_ONE
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/ig88/IG_head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/ig88/IG_extra
-{
-	{
-		map models/players/ig88/IG_extra
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/droideka/metal_env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/droideka/metal_env2
-		blendFunc GL_ONE GL_ONE
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/ig88/IG_extra_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/ig88/IG_lights
-{
-	{
-		map models/players/ig88/IG_lights
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/ig88/IG_lights_spec
-		blendFunc GL_ONE GL_ONE
-		detail
+		map models/players/ig88/ig88_e
+		blendfunc gl_one gl_one
 		glow
 	}
-}
+ 	{
+        		map models/players/ig88/ig88_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/ig88/ig88b
+	{
+	{
+		map models/players/ig88/ig88b
+		rgbGen lightingDiffuse
+
+	}
+	{
+		map models/players/ig88/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/ig88/ig88b
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/ig88/ig88_e
+		blendfunc gl_one gl_one
+		glow
+	}
+ 	{
+        		map models/players/ig88/ig88b_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/ig88/ig88c
+	{
+	{
+		map models/players/ig88/ig88c
+		rgbGen lightingDiffuse
+
+	}
+	{
+		map models/players/ig88/ig88_e
+		blendfunc gl_one gl_one
+		glow
+	}
+ 	{
+        		map models/players/ig88/ig88c_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}

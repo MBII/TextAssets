@@ -144,77 +144,6 @@ models/players/rebel/accessories_jk2_helmet
 }
 
 
-// rebel_r1
-
-models/players/rebel_r1/accessories
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/players/rebel_r1/accessories
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_r1/accessories_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/rebel_r1/accessories2
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/players/rebel_r1/accessories2
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_r1/accessories_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/rebel_r1/helmet
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/players/rebel_r1/helmet
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_r1/helmet_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/rebel_r1/helmetb
-{	  
-	q3map_nolightmap
-	q3map_onlyvertexlighting
-	{
-		map models/players/rebel_r1/helmetb
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_guerilla/helmet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
 // rebel_gag
 
 models/players/rebel_gag/interface_dark
@@ -476,6 +405,107 @@ models/players/rebel_guerilla/poncho
 }
 
 
+// rebel magma trooper
+
+models/players/rebel_magma/helmet
+{
+	{
+
+		map models/players/rebel_magma/helmet
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_magma/torso
+{
+	{
+		map models/players/rebel_magma/torso
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/poe/torso_resistance_officer_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// rebel_pathfinder
+
+models/players/rebel_pathfinder/head_hands
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder/head_hands
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/finn/head_hands_specular
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/rebel_pathfinder/torso_vest
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder/torso_vest
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/cassian/torso_vest_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/rebel_pathfinder/helmet
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_pathfinder/helmet
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pathfinder/helmet_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_pathfinder/helmetb
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_pathfinder/helmetb
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // rebel_pilot
 
 models/players/rebel_pilot/googles
@@ -483,6 +513,42 @@ models/players/rebel_pilot/googles
 	cull	twosided
 	{
 		map models/players/rebel_pilot/googles
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_pilot/googles2
+{
+	cull	twosided
+	{
+		map models/players/rebel_pilot/googles2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec2
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_pilot/googles3
+{
+	cull	twosided
+	{
+		map models/players/rebel_pilot/googles3
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		rgbGen lightingDiffuse
 	}
@@ -513,6 +579,167 @@ models/players/rebel_pilot/helmet_chinstrap
 	}
 	{
 		map models/players/rebel_pilot/helmet_chinstrap_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet_chinstrap2
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet_chinstrap2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/spec3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet_chinstrap3
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet_chinstrap3
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/spec3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet_chinstrap4
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet_chinstrap4
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/spec3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet_chinstrap5
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet_chinstrap5
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/spec3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet_chinstrap6
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet_chinstrap6
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/spec3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet_chinstrap7
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet_chinstrap7
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/spec3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet_chinstrap8
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet_chinstrap8
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/spec3
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_pilot/helmet_chinstrap_spec2
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -665,21 +892,6 @@ models/players/rebel_commando/backpack_d
 {
 	{
 		map models/players/rebel_commando/backpack_d
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_commando/backpack_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/rebel_commando/backpack_d2
-{
-	{
-		map models/players/rebel_commando/backpack_d2
 		depthWrite
 		rgbGen lightingDiffuse
 	}
@@ -885,21 +1097,6 @@ models/players/rebel_commando/urban_body_d
 	}
 }
 
-models/players/rebel_commando/urban_body_d2
-{
-	{
-		map models/players/rebel_commando/urban_body_d2
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/rebel_commando/body_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/rebel_commando/urban_extras_d
 {
 	cull	twosided
@@ -947,6 +1144,108 @@ models/players/rebel_commando/geo_body_d
 	}
 	{
 		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+//            rebel commando - tantive
+
+models/players/rebel_commando/tantive_body_d
+{
+	{
+		map models/players/rebel_commando/tantive_body_d
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+//             rebel vanguard
+
+models/players/rebel_vanguard/boots_hips
+{
+	{
+		map models/players/rebel_vanguard/boots_hips
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/imperial_army/boots_hips_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_vanguard/hand
+{
+	{
+		map models/players/rebel_vanguard/hand
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/imperial_army/hand_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_vanguard/helmet
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_vanguard/helmet
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_vanguard/helmet2
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_vanguard/helmet2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_vanguard/vest
+{
+	{
+
+		map models/players/rebel_vanguard/vest
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/stormie_tfa/vest_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
