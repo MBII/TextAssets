@@ -28,11 +28,11 @@ models/players/sith_officer/hipsUthar
 	}
 }
 
-models/players/yuthura/hips
+models/players/sith_officer_fem/hips
 {
 	q3map_nolightmap
     {
-		map models/players/yuthura/hips
+		map models/players/sith_officer_fem/hips
 		rgbGen lightingDiffuse
 	}
 	{
@@ -167,11 +167,11 @@ models/players/sith_officer/torsoUthar_cull
 	}
 }
 
-models/players/yuthura/torso
+models/players/sith_officer_fem/torso
 {
 	q3map_nolightmap
     {
-		map models/players/yuthura/torso
+		map models/players/sith_officer_fem/torso
 		rgbGen lightingDiffuse
 	}
 	{
@@ -182,12 +182,12 @@ models/players/yuthura/torso
 	}
 }
 
-models/players/yuthura/torso_cull
+models/players/sith_officer_fem/torso_cull
 {
 	q3map_nolightmap
 	cull twosided
     {
-		map models/players/yuthura/torso
+		map models/players/sith_officer_fem/torso
 		rgbGen lightingDiffuse
 	}
 	{
