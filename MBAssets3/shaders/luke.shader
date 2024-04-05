@@ -12,6 +12,7 @@ models/players/luke_anh/poncho
 	}
 }
 
+
 // esb luke
 
 models/players/luke_esb/hair_alpha
@@ -39,6 +40,8 @@ models/players/luke_esb/belt
 		detail
 	}
 }
+
+
 
 // dagobah luke
 

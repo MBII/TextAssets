@@ -14,6 +14,21 @@ models/players/nabooguard/Head
 	}
 }
 
+models/players/nabooguard/Head_cull
+{
+	cull	disable
+	{
+		map models/players/nabooguard/Head
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/nabooguard/Head_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
 models/players/nabooguard/Hips
 {
 	{
@@ -61,6 +76,21 @@ models/players/nabooguard/Torso_cull
 
 models/players/naboopalace/naboo_head
 {
+	{
+		map models/players/naboopalace/naboo_head
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/naboopalace/naboo_head_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/naboopalace/naboo_head_cull
+{
+	cull	disable
 	{
 		map models/players/naboopalace/naboo_head
 		rgbGen lightingDiffuse

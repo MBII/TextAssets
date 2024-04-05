@@ -1,45 +1,27 @@
-models/players/resistance/lense
+models/players/resistance/helmet
 {
-	cull	twosided
 	{
-		map models/players/resistance/lense
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
+
+		map models/players/resistance/helmet
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/common/spec2
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
+		map models/players/resistance/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/resistance/helm
+models/players/resistance/torso_parka
 {
 	{
 
-		map models/players/resistance/helm
+		map models/players/resistance/torso_parka
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/resistance/helm_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/resistance/vest
-{
-	{
-
-		map models/players/resistance/vest
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/stormie_tfa/vest_s
+		map models/players/cassian/torso_parka_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular

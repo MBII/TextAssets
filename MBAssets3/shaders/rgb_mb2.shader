@@ -1207,37 +1207,6 @@ models/players/st_shadowtrooper/basic_hand
 }
 
 
-// sandtrooper
-
-models/players/sandtrooper/shoulder-rgb
-{
-	{
-		map models/players/sandtrooper/shoulder-rgb
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/sandtrooper/shoulder-rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
-
-// stormie
-
-models/players/stormie/shoulder-rgb
-{
-	{
-		map models/players/stormie/shoulder-rgb
-		rgbGen lightingDiffuseEntity
-	}
-	{
-		map models/players/stormie/shoulder-rgb
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		rgbGen lightingDiffuse
-	}
-}
-
 
 // stormie tfa
 
