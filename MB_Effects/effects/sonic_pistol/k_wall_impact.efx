@@ -1,0 +1,381 @@
+repeatDelay				5000
+
+Particle
+{
+	name				00-Sound_Explosion
+
+	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	rgb
+	{
+		start			0.9569 0.9569 0.9569
+		end				0.9569 0.9569 0.9569
+		flags			linear
+	}
+
+	alpha
+	{
+		flags			linear
+	}
+
+	size
+	{
+		start			10 15
+		end				20 25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteglow.jpg
+	]
+}
+
+Particle
+{
+	name				01-Concentrate
+
+	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel
+
+	life				100
+
+	delay				50
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	rgb
+	{
+		start			0.9569 0.9569 0.9569
+		end				0.8667 1 0.4588 0.9176 1 0.6667
+	}
+
+	alpha
+	{
+		end				0.5
+		flags			linear
+	}
+
+	size
+	{
+		start			10 15
+		end				20 30
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteglow.jpg
+	]
+}
+
+Particle
+{
+	name				02-Chunks_Small
+
+	flags				expensivePhysics usePhysics useAlpha
+
+	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel orgOnSphere
+
+	count				10 20
+
+	life				2000
+
+	delay				50
+
+	cullrange			2048
+
+	bounce				0 0.25
+
+	radius				0 10
+
+	height				0 15
+
+	velocity			-150 -150 150 150 150 150
+
+	gravity				-600 -500
+
+	rgb
+	{
+		start			0.498 0.498 0.498
+		end				0 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			50
+		flags			linear
+	}
+
+	size
+	{
+		start			0.5 0.75
+		end				0
+		parm			50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/jk_terra_chunk2.png
+		gfx/effects/metal_shard.tga
+		gfx/misc/chunk.jpg
+	]
+}
+
+Emitter
+{
+	name				03-Chunks_Bigger
+
+	flags				expensivePhysics useModel usePhysics
+
+	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel orgOnSphere
+
+	count				5 10
+
+	life				5000
+
+	delay				50
+
+	cullrange			2048
+
+	bounce				0 0.25
+
+	radius				0 10
+
+	height				0 15
+
+	angle				-180 -180 -180 180 180 180
+
+	angleDelta			-5 -5 -5 5 5 5
+
+	velocity			-150 -150 150 150 150 150
+
+	gravity				-800 -600
+
+	size
+	{
+		start			0.25 0.5
+		end				0
+		parm			1000
+		flags			linear
+	}
+
+	models
+	[
+		models/chunks/metal/metal1_1.md3
+		models/chunks/metal/metal1_2.md3
+		models/chunks/metal/metal1_3.md3
+		models/chunks/metal/metal1_4.md3
+		models/chunks/metal/metal2_1.md3
+		models/chunks/metal/metal2_2.md3
+		models/chunks/metal/metal2_3.md3
+		models/chunks/metal/metal2_4.md3
+		models/chunks/metal/wmetal1_1.md3
+		models/chunks/metal/wmetal1_2.md3
+		models/chunks/metal/wmetal1_3.md3
+		models/chunks/metal/wmetal1_4.md3
+	]
+}
+
+Tail
+{
+	name				04-Sparks_Long
+
+	flags				usePhysics useAlpha
+
+	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel orgOnSphere rgbComponentInterpolation
+
+	count				10 15
+
+	life				750 1000
+
+	delay				50
+
+	cullrange			2048
+
+	bounce				0 0.25
+
+	radius				0 10
+
+	height				0 15
+
+	velocity			-300 -300 300 300 300 300
+
+	gravity				-600 -500
+
+	rgb
+	{
+		start			1 1 1 0.9569 0.9569 0.9569
+		end				1 1 1 1 0.6863 0.3529
+	}
+
+	alpha
+	{
+		end				0
+		parm			50
+		flags			linear
+	}
+
+	size
+	{
+		start			0.25 0.5
+		end				0
+		flags			linear
+	}
+
+	length
+	{
+		start			15 20
+		end				0
+		parm			2
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteglow.jpg
+	]
+}
+
+Decal
+{
+	name				05-DamageMark
+
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
+
+	life				5e+004
+
+	delay				50
+
+	rotation			-180 180
+
+	size
+	{
+		start			7.5 12.5
+	}
+
+	shaders
+	[
+		gfx/sound_pistol/wallmark.tga
+	]
+}
+
+Particle
+{
+	name				06-Wave
+
+	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel
+
+	life				300
+
+	delay				50
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	rgb
+	{
+		start			0.9569 0.9569 0.9569
+		end				0.8667 1 0.4588 0.9176 1 0.6667
+	}
+
+	alpha
+	{
+		start			0.05
+		end				0.25
+		flags			linear
+	}
+
+	size
+	{
+		start			5 10
+		end				15 20
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/eplosion_wave.jpg
+	]
+}
+
+Emitter
+{
+	name				07-Wave_Small
+
+	flags				useModel
+
+	life				300
+
+	delay				75
+
+	angle				0 0 -180 0 0 180
+
+	angleDelta			0 0 -2 0 0 2
+
+	velocity			-10 0 0 0 0 0
+
+	variance			0
+
+	size
+	{
+		start			5
+		end				25
+		flags			linear
+	}
+
+	models
+	[
+		models/effects/stun_blasters/soundring3.md3
+	]
+}
+
+Emitter
+{
+	name				08-Wave_Bigger
+
+	flags				useModel
+
+	life				300
+
+	delay				150
+
+	angle				0 0 -180 0 0 180
+
+	angleDelta			0 0 -2 0 0 2
+
+	velocity			-10 0 0 0 0 0
+
+	variance			0
+
+	size
+	{
+		start			10
+		end				50
+		flags			linear
+	}
+
+	models
+	[
+		models/effects/stun_blasters/soundring3.md3
+	]
+}
+
+Sound
+{
+	name				09-Sound
+
+	sounds
+	[
+		sound/weapons/demp2/hitwall.wav
+	]
+}

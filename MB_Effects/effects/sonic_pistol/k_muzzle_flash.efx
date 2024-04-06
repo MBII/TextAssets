@@ -1,0 +1,83 @@
+repeatDelay				5000
+
+CameraShake
+{
+	name				00-Recoil_Shake
+
+	spawnFlags			cheapOrgCalc
+
+	life				100
+
+	intensity			0 1
+
+	radius				50
+}
+
+Particle
+{
+	name				01-Muzzle_Flash
+
+	spawnFlags			absoluteAccel
+
+	life				100
+
+	origin				10 0 0
+
+	rotation			-180 180
+
+	velocity			30 0 0
+
+	rgb
+	{
+		start			0.9569 0.9569 0.9569
+		end				1 0.4941 0.1255
+	}
+
+	alpha
+	{
+		start			0.75 0.5
+		end				0.25 0
+		flags			linear
+	}
+
+	size
+	{
+		start			15
+		end				5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/jk_mist.jpg
+	]
+}
+
+Emitter
+{
+	name				02-Wave_Small
+
+	flags				useModel
+
+	spawnFlags			absoluteVel absoluteAccel
+
+	life				200
+
+	angle				0 0 -180 0 0 180
+
+	angleDelta			0 0 -2 0 0 2
+
+	variance			0
+
+	size
+	{
+		start			0
+		end				10
+		flags			linear
+	}
+
+	models
+	[
+		models/effects/stun_blasters/soundring3.md3
+	]
+}

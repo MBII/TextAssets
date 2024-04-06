@@ -12,7 +12,34 @@ models/players/luke_anh/poncho
 	}
 }
 
+
 // esb luke
+
+models/players/luke_esb/hair_alpha
+{
+	cull	disable
+	{
+		map models/players/luke_esb/hair_alpha
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/luke_esb/belt
+{
+	{
+		map models/players/luke_esb/belt
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/luke_esb/belt_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
 
 
 

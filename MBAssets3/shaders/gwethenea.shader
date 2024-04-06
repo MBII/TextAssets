@@ -132,6 +132,24 @@ models/players/gwethenea/headd_blue
 }
 
 
+// helmet
+
+models/players/gwethenea/helmet
+{
+	cull	twosided
+    {
+        map models/players/gwethenea/helmet
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_guerilla/helmet_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+
 // jacket
 
 models/players/gwethenea/jacket

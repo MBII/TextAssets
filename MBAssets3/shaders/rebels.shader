@@ -368,6 +368,7 @@ models/players/rebel_guerilla/torsoc
 
 models/players/rebel_guerilla/helmet
 {
+	cull	twosided
     {
         map models/players/rebel_guerilla/helmet
         rgbGen lightingDiffuse
@@ -382,6 +383,7 @@ models/players/rebel_guerilla/helmet
 
 models/players/rebel_guerilla/helmetb
 {
+	cull	twosided
     {
         map models/players/rebel_guerilla/helmetb
         rgbGen lightingDiffuse
@@ -409,6 +411,7 @@ models/players/rebel_guerilla/poncho
 
 models/players/rebel_magma/helmet
 {
+	cull	twosided
 	{
 
 		map models/players/rebel_magma/helmet
@@ -490,6 +493,7 @@ models/players/rebel_pathfinder/helmet
 
 models/players/rebel_pathfinder/helmetb
 {	  
+	cull	twosided
 	q3map_nolightmap
 	q3map_onlyvertexlighting
 	{
