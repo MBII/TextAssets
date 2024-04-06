@@ -60,7 +60,7 @@ models/players/dooku_dr/extras
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/sithtrooper/spec
+		map models/players/sabine/env
 		blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
 		alphaGen const 1
