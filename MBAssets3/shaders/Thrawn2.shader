@@ -43,3 +43,26 @@ models/players/Thrawn2/hips_legs_cull
 		alphaGen lightingSpecular
 	}
 }
+
+models/players/Thrawn2/thrawn_bits
+{
+	{
+		map models/players/Thrawn2/thrawn_bits
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sabine/env
+		blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/Thrawn2/thrawn_bits
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+		detail
+	}
+}
