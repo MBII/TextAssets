@@ -12,14 +12,11 @@ models/players/luke_anh/poncho
 	}
 }
 
-
-// esb luke
-
-models/players/luke_esb/hair_alpha
+models/players/luke_anh/hair_alpha
 {
 	cull	disable
 	{
-		map models/players/luke_esb/hair_alpha
+		map models/players/luke_anh/hair_alpha
 		alphaFunc GE128
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		depthWrite
@@ -27,20 +24,19 @@ models/players/luke_esb/hair_alpha
 	}
 }
 
-models/players/luke_esb/belt
+models/players/luke_anh/belt
 {
 	{
-		map models/players/luke_esb/belt
+		map models/players/luke_anh/belt
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/luke_esb/belt_s
+		map models/players/luke_anh/belt_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
-
 
 
 // dagobah luke
@@ -53,6 +49,138 @@ models/players/luke_dagobah/backpack
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// esb luke
+
+models/players/luke_esb/Lukehead
+	{
+	{
+		map models/players/luke_esb/LukeHead
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/LukeHead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/NewHands
+	{
+	{
+		map models/players/luke_esb/NewHands
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/NewHands_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/mouth_eyes
+	{
+	{
+		map models/players/luke_esb/mouth_eyes
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/mouth_eyes_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/LukeHead_damaged
+	{
+	{
+		map models/players/luke_esb/LukeHead_damaged
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/Lukehead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/LukeHair
+	{
+		cull twosided
+	{
+		map models/players/luke_esb/LukeHair
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/LukeHair_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/Bespin_suit
+	{
+	{
+		map models/players/luke_esb/Bespin_suit
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/Bespin_suit_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+
+models/players/luke_esb/Bespinsuit
+	{
+	{
+		map models/players/luke_esb/Bespinsuit
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/Bespinsuit_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/Bespin_suit_damaged
+	{
+	{
+		map models/players/luke_esb/Bespin_suit_damaged
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/Bespin_suit_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/belt
+	{
+	{
+		map models/players/luke_esb/belt
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/belt_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
 
 // rotj luke
 
@@ -91,7 +219,21 @@ models/players/luke_rotj/head
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/luke_rotj/head_spec
+		map models/players/luke_esb/LukeHead_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/luke_rotj/head_hood
+{
+	{
+		map models/players/luke_rotj/head_hood
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/luke_rotj/head_hood_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -106,6 +248,37 @@ models/players/luke_rotj/endor
 	}
 	{
 		map models/players/luke_rotj/endor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+
+// dark empire luke
+
+models/players/luke_de/hair
+{
+	{
+		map models/players/luke_de/hair
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/luke_esb/LukeHair_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/luke_de/head
+{
+	{
+		map models/players/luke_de/head
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/luke_esb/LukeHead_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -192,37 +365,8 @@ models/players/luke_tfa/mouth_eyes
 }
 
 
-// anh luke
-
-models/players/luke_anh/hair_alpha
-{
-	cull	disable
-    {
-        map models/players/luke_anh/hair_alpha
-        alphaFunc GE128
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        depthWrite
-        rgbGen lightingDiffuse
-    }
-}
-
-models/players/luke_anh/belt
-{
-    {
-        map models/players/luke_anh/belt
-        rgbGen lightingDiffuse
-        //alphaFunc GE128
-    }
-    {
-        map models/players/luke_anh/belt_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
-}
-
-
 // tm luke
+
 models/players/luke_rotj/belt_tm
 {
 	{
@@ -250,32 +394,8 @@ models/players/luke_rotj/belt_tm
 	}
 }
 
-// ceremonial luke
-models/players/luke_ceremonial/hair_alpha
-{
-	cull	disable
-	{
-		map models/players/luke_ceremonial/hair_alpha
-		alphaFunc GE128
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-}
 
-models/players/luke_ceremonial/belt
-{
-	{
-		map models/players/luke_ceremonial/belt
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/luke_ceremonial/belt_s
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
+// ceremonial luke
 
 models/players/luke_ceremonial/body
 {
