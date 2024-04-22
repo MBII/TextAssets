@@ -451,7 +451,7 @@ models/players/rebel_pathfinder/head
         rgbGen lightingDiffuse
     }
     {
-        map models/players/rebel_pathfinder/head_spec
+        map models/players/rebel_pathfinder/head
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
