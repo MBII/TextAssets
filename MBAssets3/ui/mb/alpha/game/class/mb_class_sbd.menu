@@ -265,13 +265,13 @@
 			}
 		}
 
-		// Advanced Logic title
+		// Cannon title
 		itemDef
 		{
-			name				setfp_rage
+			name				setfp_teamheal
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Advanced Logic"
+			text				"Cannon"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
 			rect 8 105 147 18
 			textalign			ITEM_ALIGN_LEFT
@@ -284,40 +284,20 @@
 			decoration
 		}
 
+		// Cannon assign
 		itemDef
 		{
-			name				Info_AdvLogic
-			group				pointssetup
-			rect				113 105 27 18
-			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
-			forecolor			1 1 1 0
-			visible				1
-			decoration
-			mouseEnter
-			{
-				open			mb_ability_advancedlogic
-			}
-			mouseExit
-			{
-				close			mb_ability_advancedlogic
-			}
-		}
-
-		// Advanced Logic assign
-		itemDef
-		{
-			name				setfp_rage
+			name				setfp_teamheal
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_RAGE
+			ownerdraw			UI_FORCE_RANK_TEAM_HEAL
 			rect 8 105 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
 			textscale			.25
 			forecolor			1 1 1 0.8
-			descText			"Defends against Mind Trick from Jedi"
+			descText			"Cannon for secondary fire."
 			visible				1
 			action
 			{
@@ -327,15 +307,15 @@
 			{
 				show			button_glow
 				setitemrect		button_glow	8 104 147 20
-				setitemcolor	setfp_rage forecolor 1 1 1 1
+				setitemcolor	setfp_teamheal forecolor 1 1 1 1
 			}
 			mouseExit
 			{
 				hide			button_glow
-				setitemcolor	setfp_rage forecolor 1 1 1 0.8
+				setitemcolor	setfp_teamheal forecolor 1 1 1 0.8
 			}
 		}
-
+		
 		// Advanced Targeting title
 		itemDef
 		{
@@ -478,6 +458,77 @@
 			}
 		}
 
+		// Advanced Logic title
+		itemDef
+		{
+			name				setfp_rage
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Advanced Logic"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 165 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Info_AdvLogic
+			group				pointssetup
+			rect				113 165 27 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_advancedlogic
+			}
+			mouseExit
+			{
+				close			mb_ability_advancedlogic
+			}
+		}
+
+		// Advanced Logic assign
+		itemDef
+		{
+			name				setfp_rage
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_RAGE
+			rect 8 165 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Defends against Mind Trick from Jedi"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 164 147 20
+				setitemcolor	setfp_rage forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_rage forecolor 1 1 1 0.8
+			}
+		}
+
 		// Cortosis title
 		itemDef
 		{
@@ -486,7 +537,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Cortosis"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 175 147 18
+			rect				8 195 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -501,7 +552,7 @@
 		{
 			name				Info_Cortosis
 			group				pointssetup
-			rect				113 175 13 18
+			rect				113 195 13 18
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -524,7 +575,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PULL
-			rect				8 175 147 18
+			rect				8 195 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -539,7 +590,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 174 147 20
+				setitemrect		button_glow	8 194 147 20
 				setitemcolor	setfp_pull forecolor 1 1 1 1
 			}
 			mouseExit
@@ -557,7 +608,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Blast Armour"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 195 147 18
+			rect				8 215 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -575,7 +626,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
-			rect 				8 195 147 18
+			rect 				8 215 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -590,7 +641,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 194 147 20
+				setitemrect		button_glow	8 214 147 20
 				setitemcolor	setfp_push forecolor 1 1 1 1
 			}
 			mouseExit
@@ -608,7 +659,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Magnetic Plating"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 215 147 18
+			rect				8 235 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -623,7 +674,7 @@
 		{
 			name				Info_MagPlating
 			group				pointssetup
-			rect				113 215 13 18
+			rect				113 235 13 18
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -646,7 +697,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SEE
-			rect				8 215 147 18
+			rect				8 235 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -661,7 +712,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 214 147 20
+				setitemrect		button_glow	8 234 147 20
 				setitemcolor	setfp_see forecolor 1 1 1 1
 			}
 			mouseExit
@@ -679,7 +730,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Ammo"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 245 147 18
+			rect				8 265 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -697,7 +748,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect				 8 245 147 18
+			rect				 8 265 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -712,7 +763,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 244 147 20
+				setitemrect		button_glow	8 264 147 20
 				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
 			}
 			mouseExit
