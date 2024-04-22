@@ -395,6 +395,23 @@ models/players/luke_rotj/belt_tm
 }
 
 
+// bobf luke
+
+models/players/luke_bobf/boots
+{
+	{
+		map models/players/luke_bobf/boots
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/obiwan_ep3/boots_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // ceremonial luke
 
 models/players/luke_ceremonial/body
