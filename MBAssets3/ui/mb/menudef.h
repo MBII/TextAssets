@@ -95,8 +95,8 @@
 #define FEEDER_FINDPLAYER				0x0e	// find player
 #define FEEDER_CINEMATICS				0x0f	// cinematics
 //#define FEEDER_FORCECFG				0x10	// force config list
-#define FEEDER_SIEGE_TEAM1				0x11	// siege class list for team1
-#define FEEDER_SIEGE_TEAM2				0x12	// siege class list for team2
+//#define FEEDER_SIEGE_TEAM1			0x11	// siege class list for team1 // GCJ_FA_NEW
+//#define FEEDER_SIEGE_TEAM2			0x12	// siege class list for team2 // GCJ_FA_NEW
 #define FEEDER_PLAYER_SPECIES			0x13	// models/player/*
 #define FEEDER_PLAYER_SKIN_HEAD			0x14	// head*.skin files in species folder
 #define FEEDER_PLAYER_SKIN_TORSO		0x15	// torso*.skin files in species folder
@@ -126,9 +126,7 @@
 #define FEEDER_SABER_SINGLE_INFO		0x2b	// saber single
 #define FEEDER_SABER_STAFF_INFO			0x2c	// saber staff
 #define FEEDER_ACHIEVEMENTS				0x2d	//achievements
-//#ifdef NETWORK_VERSIONING
-#define FEEDER_UPDATE					0x2e	// Update 
-//#endif
+#define FEEDER_UPDATE					0x2e	// Update // NETWORK_VERSIONING
 #define FEEDER_TUTORIAL					0x2f	// tutorial list
 
 #define FEEDER_UI_LAYOUT				0x30
@@ -145,7 +143,7 @@
 
 //#ifdef GCJ_CLASS
 #define FEEDER_MBCFG					0x39 // moviebattles class config list
-#define FEEDER_SIEGE_TEAM_ALL			0x3a // All Siege Class Feeder
+//#define FEEDER_SIEGE_TEAM_ALL			0x3a // All Siege Class Feeder // GCJ_FA_NEW
 
 #define FEEDER_UI_HUD					0x3b //#ifdef GCJ_UI_HUD_FEEDER
 
@@ -180,6 +178,16 @@
 #define FEEDER_XBL_PLAYERS				0xA1	// players (current and recent)
 #define FEEDER_XBL_FRIENDS				0xA2	// friends
 #define FEEDER_XBL_SERVERS				0xA3	// results of an optimatch query
+
+
+// GCJ_FA_NEW // GCJ_SIEGE_TEAM_FEEDER
+#define FEEDER_SIEGE_R					701
+#define FEEDER_SIEGE_B					702
+
+#define FEEDER_SIEGE_TEAM_ALL			2800
+#define FEEDER_SIEGE_TEAM1				2801
+#define FEEDER_SIEGE_TEAM2				2802
+
 
 // display flags
 #define CG_SHOW_BLUE_TEAM_HAS_REDFLAG	0x00000001

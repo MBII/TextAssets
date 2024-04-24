@@ -199,67 +199,91 @@ models/players/darthbandon/bandon_torso
 	}
 }
 
-
-// HK-47 //
-
-models/players/hk47/hk47
+//// HK-47 ////
+models/players/hk47/hk47_body
 {
-    {
-        map models/players/hk47/hk47
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/hk47/hk47_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
+	cull	twosided
+	{
+		map models/players/hk47/hk47_body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hk47/hk47_body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 	{	
-		map models/players/hk47/hk47_glow
+		map models/players/hk47/hk47_eye
 		blendFunc GL_ONE GL_ONE
 		rgbGen wave noise 1 0.5 0 2
 	}
 }
 
 
-// HK-50 //
+// hk-47 (KOTOR 2)
 
-models/players/hk47/hk50
+models/players/hk47/hk47_body_old
 {
-    {
-        map models/players/hk47/hk50
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/hk47/hk47_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
+	cull	twosided
+	{
+		map models/players/hk47/hk47_body_old
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hk47/hk47_body_old_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 	{	
-		map models/players/hk47/hk50_glow
+		map models/players/hk47/hk47_eye
 		blendFunc GL_ONE GL_ONE
 		rgbGen wave noise 1 0.5 0 2
 	}
 }
 
 
-// HK-51 //
+// hk-50
 
-models/players/hk47/hk51
+models/players/hk47/hk50_body
 {
-    {
-        map models/players/hk47/hk51
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/hk47/hk47_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
+	cull	twosided
+	{
+		map models/players/hk47/hk50_body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hk47/hk50_body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 	{	
-		map models/players/hk47/hk51_glow
+		map models/players/hk47/hk50_eye
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave noise 1 0.5 0 2
+	}
+}
+
+
+// hk-51
+
+models/players/hk47/hk51_body
+{
+	cull	twosided
+	{
+		map models/players/hk47/hk51_body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hk47/hk50_body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/hk47/hk51_eye
 		blendFunc GL_ONE GL_ONE
 		rgbGen wave noise 1 0.5 0 2
 	}
