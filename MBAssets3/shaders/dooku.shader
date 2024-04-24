@@ -20,8 +20,36 @@ models/players/dooku/chain-gold
 	}
 }
 
+models/players/dooku/boots_hips
+{
+	{
+		map models/players/dooku/boots_hips
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/hs_imperial/boots_hips_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
 
-//TotJ
+models/players/dooku/boots_hips-aotc
+{
+	{
+		map models/players/dooku/boots_hips-aotc
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/hs_imperial/boots_hips_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+//Tales of the Jedi
 
 models/players/dooku_totj/chain
 {
@@ -33,8 +61,53 @@ models/players/dooku_totj/chain
 	}
 }
 
+models/players/dooku_totj/boots
+{
+	{
+		map models/players/dooku_totj/boots
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/obiwan_ep3/boots_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// TCW - Pyjama
+
+models/players/dooku_pyjama/boots_hips
+{
+	{
+		map models/players/dooku_pyjama/boots_hips
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/hs_imperial/boots_hips_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 
 // TCW - Dark Ritual
+
+models/players/dooku_dr/boots_hips
+{
+	{
+		map models/players/dooku_dr/boots_hips
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/hs_imperial/boots_hips_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
 
 models/players/dooku_dr/extras_cull
 {
@@ -43,12 +116,6 @@ models/players/dooku_dr/extras_cull
     {
 		map models/players/dooku_dr/extras
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/dooku_dr/extras_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
 	}
 }
 
