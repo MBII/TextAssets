@@ -69,3 +69,28 @@ gfx/menus/diorama/diorama_ctf
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
     }
 }
+
+models/map_objects/mb2_diorama/MB2Logo20th
+{
+	qer_editorimage	models/map_objects/mb2_diorama/MB2Logo20th
+	q3map_lightmapSampleOffset 32
+	{
+        map models/map_objects/mb2_diorama/MB2Logo20th
+ 	}
+	{
+		map textures/common/env_chrome
+		tcGen environment
+		rgbGen const ( 0.75 0.75 0.75 )
+		tcmod scale 2 2
+	}
+   	{	
+       	map models/map_objects/mb2_diorama/MB2Logo20th
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+   	}
+	{
+		map $lightmap
+		blendfunc GL_DST_COLOR GL_ZERO
+		rgbGen identity
+	}
+}
