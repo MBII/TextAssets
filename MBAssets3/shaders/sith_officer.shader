@@ -198,6 +198,55 @@ models/players/sith_officer/torsoRepublic_cull
 }
 
 
+// Republic Officer - Male 2 (Saul Karath themed)
+
+models/players/sith_officer/hipsRepublic2
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/hipsRepublic2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hux/hips_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublic2
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/torsoRepublic2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublic2_cull
+{
+	q3map_nolightmap
+	cull twosided
+    {
+		map models/players/sith_officer/torsoRepublic2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // Republic Officer - Female
 
 models/players/sith_officer/hipsRepublicF
