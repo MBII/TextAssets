@@ -285,6 +285,14 @@ models/players/luke_de/head
 	}
 }
 
+models/players/luke_de/cape
+{
+	{
+		map models/players/luke_de/cape
+		rgbGen lightingDiffuse
+	}
+}
+
 
 // tfa luke
 
