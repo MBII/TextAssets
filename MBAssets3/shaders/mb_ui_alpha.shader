@@ -1292,3 +1292,39 @@ gfx/menus/alpha/Menu_TeamSelect_Team_Lock
 		rgbGen const ( 0.6 0 0 )
 	}
 }
+
+gfx/menus/MB220Saber
+{
+	nopicmip
+	nomipmaps
+    {
+        map gfx/menus/MB220Saber
+        blendFunc GL_ONE GL_ONE
+    }
+    {
+        map gfx/menus/MB220Saber
+        blendFunc GL_ONE_MINUS_DST_COLOR GL_ONE
+        rgbGen wave random 0.15 0.2 0 123
+        tcMod stretch noise 1 0.1 0 179
+    }
+}
+
+gfx/menus/MB220Star
+{
+	nopicmip
+	nomipmaps
+    {
+        map gfx/menus/MB220Star
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+        alphaGen wave sin 0 1 0 1
+        tcMod rotate 10
+    }
+    {
+        clampmap gfx/menus/MB220Star
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+        tcMod rotate -5
+        tcMod scale -1 1
+    }
+}

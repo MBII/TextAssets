@@ -110,3 +110,13 @@ models/players/darthtenebrous/torso
 		rgbGen lightingDiffuse
 	}
 }
+
+models/players/darthtenebrous/cape
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/darthtenebrous/cape
+		rgbGen lightingDiffuse
+	}
+}
