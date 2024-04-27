@@ -1,3 +1,6 @@
+
+// Sith Officer
+
 models/players/sith_officer/hipsOfficer
 {
 	q3map_nolightmap
@@ -7,67 +10,6 @@ models/players/sith_officer/hipsOfficer
 	}
 	{
 		map models/players/hux/hips_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sith_officer/hipsUthar
-{
-	q3map_nolightmap
-    {
-		map models/players/sith_officer/hipsUthar
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/hux/hips_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/yuthura/hips
-{
-	q3map_nolightmap
-    {
-		map models/players/yuthura/hips
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/hux/hips_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sith_officer/torsoJorak
-{
-	q3map_nolightmap
-    {
-		map models/players/sith_officer/torsoJorak
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sith_officer/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/sith_officer/torsoJorak_cull
-{
-	q3map_nolightmap
-	cull twosided
-    {
-		map models/players/sith_officer/torsoJorak
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/sith_officer/torso_specular
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -105,11 +47,14 @@ models/players/sith_officer/torsoOfficer_cull
 	}
 }
 
-models/players/sith_officer/torsoSaul
+
+// Jorak Uln
+
+models/players/sith_officer/torsoJorak
 {
 	q3map_nolightmap
     {
-		map models/players/sith_officer/torsoSaul
+		map models/players/sith_officer/torsoJorak
 		rgbGen lightingDiffuse
 	}
 	{
@@ -120,12 +65,12 @@ models/players/sith_officer/torsoSaul
 	}
 }
 
-models/players/sith_officer/torsoSaul_cull
+models/players/sith_officer/torsoJorak_cull
 {
 	q3map_nolightmap
 	cull twosided
     {
-		map models/players/sith_officer/torsoSaul
+		map models/players/sith_officer/torsoJorak
 		rgbGen lightingDiffuse
 	}
 	{
@@ -135,6 +80,9 @@ models/players/sith_officer/torsoSaul_cull
 		alphaGen lightingSpecular
 	}
 }
+
+
+// Uthar Wynn
 
 models/players/sith_officer/torsoUthar
 {
@@ -167,11 +115,13 @@ models/players/sith_officer/torsoUthar_cull
 	}
 }
 
-models/players/yuthura/torso
+// Saul Karath
+
+models/players/sith_officer/torsoSaul
 {
 	q3map_nolightmap
     {
-		map models/players/yuthura/torso
+		map models/players/sith_officer/torsoSaul
 		rgbGen lightingDiffuse
 	}
 	{
@@ -182,12 +132,208 @@ models/players/yuthura/torso
 	}
 }
 
-models/players/yuthura/torso_cull
+models/players/sith_officer/torsoSaul_cull
 {
 	q3map_nolightmap
 	cull twosided
     {
-		map models/players/yuthura/torso
+		map models/players/sith_officer/torsoSaul
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// Republic Officer - Male
+
+models/players/sith_officer/hipsRepublic
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/hipsRepublic
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hux/hips_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublic
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/torsoRepublic
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublic_cull
+{
+	q3map_nolightmap
+	cull twosided
+    {
+		map models/players/sith_officer/torsoRepublic
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// Republic Officer - Male 2 (Saul Karath themed)
+
+models/players/sith_officer/hipsRepublic2
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/hipsRepublic2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hux/hips_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublic2
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/torsoRepublic2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublic2_cull
+{
+	q3map_nolightmap
+	cull twosided
+    {
+		map models/players/sith_officer/torsoRepublic2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// Republic Officer - Female
+
+models/players/sith_officer/hipsRepublicF
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/hipsRepublicF
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hux/hips_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublicF
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/torsoRepublicF
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoRepublicF_cull
+{
+	q3map_nolightmap
+	cull twosided
+    {
+		map models/players/sith_officer/torsoRepublicF
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// Yuthura Ban
+
+models/players/sith_officer/hipsYuth
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/hipsYuth
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/hux/hips_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoYuth
+{
+	q3map_nolightmap
+    {
+		map models/players/sith_officer/torsoYuth
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_officer/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/sith_officer/torsoYuth_cull
+{
+	q3map_nolightmap
+	cull twosided
+    {
+		map models/players/sith_officer/torsoYuth
 		rgbGen lightingDiffuse
 	}
 	{

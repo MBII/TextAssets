@@ -21,7 +21,7 @@ models/players/pyke2/torso_c
         //alphaFunc GE128
     }
     {
-        map models/players/pyke2/torso_c_spec
+        map models/players/pyke2/torso_a_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 	detail
