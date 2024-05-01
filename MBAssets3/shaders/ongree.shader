@@ -5,7 +5,7 @@ models/players/ongree/boots_d
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
