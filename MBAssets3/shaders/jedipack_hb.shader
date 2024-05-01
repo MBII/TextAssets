@@ -21,7 +21,7 @@ models/players/jedipack_hb/boots_jedi1
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -35,7 +35,7 @@ models/players/jedipack_hb/boots_jedi2
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -49,7 +49,7 @@ models/players/jedipack_hb/boots_jedi3
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -77,7 +77,7 @@ models/players/jedipack_hb/boots_pada
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -106,7 +106,7 @@ models/players/jedipack_hb/boots_vrook
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -120,7 +120,7 @@ models/players/jedipack_hb/boots_zabrak
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/obiwan_ep3/boots-spec
+		map models/players/obiwan_ep3/boots_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
