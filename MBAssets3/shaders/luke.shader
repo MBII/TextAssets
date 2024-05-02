@@ -26,20 +26,17 @@ models/players/luke_anh/belt
 	}
 }
 
-models/players/luke_anh/hair
+models/players/luke_anh/hair_alpha
+{
+	cull	disable
 	{
-		cull twosided
-	{
-		map models/players/luke_anh/hair
-		rgbGen lightingDiffuse
+		map models/players/luke_anh/hair_alpha
+                                alphaFunc GE128
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+                                depthWrite
+                                rgbGen lightingDiffuse
 	}
- 	{
-        		map models/players/luke_esb/LukeHair_spec
-       		 blendFunc GL_SRC_ALPHA GL_ONE
-      		  detail
-       		 alphaGen lightingSpecular
-	}
-	}
+}
 
 
 // dagobah luke
