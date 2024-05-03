@@ -160,7 +160,7 @@ nda_horse_armor5
 
 
 ==========================
-|| Credits
+| Credits
 ==========================
 NOTE: This mod literally would not be possible without the following people. We are _very_ grateful
 for their extremely patient help, code snippets and suggestions. If we're missing anyone, holler!!
@@ -210,7 +210,7 @@ their creation and these songs will be replaced by that of our own RascHu in fut
 
 
 ==========================
-|| Disclaimer
+| Disclaimer
 ==========================
 THIS MODIFICATION IS NOT MADE, DISTRIBUTED, OR SUPPORTED BY ACTIVISION, RAVEN, OR
 LUCASARTS ENTERTAINMENT COMPANY LLC. ELEMENTS TM & © LUCASARTS
