@@ -665,6 +665,8 @@ models/players/bxdroid/headzor_citadel
 		rgbGen wave noise 1 0.5 0 2
 	}
 }
+
+
 //Jedi Survivor: Melee
 
 models/players/bxdroid/torsozor_melee
@@ -933,7 +935,9 @@ models/players/bxdroid/headzor_rmelee
 	}
 }
 
+
 //Jedi Survivor: Rifle
+
 models/players/bxdroid/torsozor_rifle
 {
 	{
@@ -1043,6 +1047,420 @@ models/players/bxdroid/headzor_rifle
 {
 	{
 		map models/players/bxdroid/headzor_rifle
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/headzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/bxdroid/headzor_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave noise 1 0.5 0 2
+	}
+}
+
+
+//Jedi: Survivor Hybrid
+
+models/players/bxdroid/torsozor_hybrid
+{
+	{
+		map models/players/bxdroid/torsozor_hybrid
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/torsozor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/bxdroid/torsozor_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave square 0 1 0 2
+	}
+}
+
+models/players/bxdroid/hipsorz_hybrid
+{
+	{
+		map models/players/bxdroid/hipsorz_hybrid
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/hipsorz_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/armzor_hybrid
+{
+	{
+		map models/players/bxdroid/armzor_hybrid
+	blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/armzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/legzor_hybrid
+{
+	{
+		map models/players/bxdroid/legzor_hybrid
+	blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/legzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/headzor_hybrid
+{
+	{
+		map models/players/bxdroid/headzor_hybrid
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/headzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/bxdroid/headzor_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave noise 1 0.5 0 2
+	}
+}
+
+
+// BS
+
+models/players/bxdroid/torsozor_bs
+{
+	{
+		map models/players/bxdroid/torsozor_bs
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/torsozor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/bxdroid/torsozor_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave square 0 1 0 2
+	}
+}
+
+models/players/bxdroid/hipsorz_bs
+{
+	{
+		map models/players/bxdroid/hipsorz_bs
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/hipsorz_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/armzor_bs
+{
+	{
+		map models/players/bxdroid/armzor_bs
+	blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/armzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/legzor_bs
+{
+	{
+		map models/players/bxdroid/legzor_bs
+	blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/legzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/headzor_bs
+{
+	{
+		map models/players/bxdroid/headzor_bs
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/headzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/bxdroid/headzor_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave noise 1 0.5 0 2
+	}
+}
+
+
+// BS CAPTAIN
+
+models/players/bxdroid/torsozor_bscapt
+{
+	{
+		map models/players/bxdroid/torsozor_bscapt
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/torsozor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/bxdroid/torsozor_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave square 0 1 0 2
+	}
+}
+
+models/players/bxdroid/hipsorz_bscapt
+{
+	{
+		map models/players/bxdroid/hipsorz_bscapt
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/hipsorz_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/armzor_bscapt
+{
+	{
+		map models/players/bxdroid/armzor_bscapt
+	blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/armzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/legzor_bscapt
+{
+	{
+		map models/players/bxdroid/legzor_bscapt
+	blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/legzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/bxdroid/headzor_bscapt
+{
+	{
+		map models/players/bxdroid/headzor_bscapt
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
