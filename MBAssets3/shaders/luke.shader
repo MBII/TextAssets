@@ -26,20 +26,17 @@ models/players/luke_anh/belt
 	}
 }
 
-models/players/luke_anh/hair
+models/players/luke_anh/hair_alpha
+{
+	cull	disable
 	{
-		cull twosided
-	{
-		map models/players/luke_anh/hair
-		rgbGen lightingDiffuse
+		map models/players/luke_anh/hair_alpha
+                                alphaFunc GE128
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+                                depthWrite
+                                rgbGen lightingDiffuse
 	}
- 	{
-        		map models/players/luke_esb/LukeHair_spec
-       		 blendFunc GL_SRC_ALPHA GL_ONE
-      		  detail
-       		 alphaGen lightingSpecular
-	}
-	}
+}
 
 
 // dagobah luke
@@ -70,6 +67,76 @@ models/players/luke_esb/Lukehead
 	}
 	}
 
+models/players/luke_esb/LukeHead_damaged
+	{
+	{
+		map models/players/luke_esb/LukeHead_damaged
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/Lukehead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/Lukehead_hood
+	{
+	{
+		map models/players/luke_esb/LukeHead_hood
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/LukeHead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/Lukehead_rotj
+	{
+	{
+		map models/players/luke_esb/LukeHead_rotj
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/LukeHead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/Lukehead_old
+	{
+	{
+		map models/players/luke_esb/LukeHead_old
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/LukeHead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+models/players/luke_esb/Lukehead_sith
+	{
+	{
+		map models/players/luke_esb/LukeHead_sith
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/LukeHead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
 models/players/luke_esb/NewHands
 	{
 	{
@@ -83,6 +150,21 @@ models/players/luke_esb/NewHands
        		 alphaGen lightingSpecular
 	}
 	}
+
+models/players/luke_esb/NewHands_damaged
+	{
+	{
+		map models/players/luke_esb/NewHands_damaged
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/NewHands_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
 
 models/players/luke_esb/mouth_eyes
 	{
@@ -98,25 +180,26 @@ models/players/luke_esb/mouth_eyes
 	}
 	}
 
-models/players/luke_esb/LukeHead_damaged
+models/players/luke_esb/LukeHair
 	{
+		cull twosided
 	{
-		map models/players/luke_esb/LukeHead_damaged
+		map models/players/luke_esb/LukeHair
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/luke_esb/Lukehead_spec
+        		map models/players/luke_esb/LukeHair_spec
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
 	}
 	}
 
-models/players/luke_esb/LukeHair
+models/players/luke_esb/LukeHair_sith
 	{
 		cull twosided
 	{
-		map models/players/luke_esb/LukeHair
+		map models/players/luke_esb/LukeHair_sith
 		rgbGen lightingDiffuse
 	}
  	{
@@ -215,28 +298,14 @@ models/players/luke_rotj/belt
 	}
 }
 
-models/players/luke_rotj/head
+models/players/luke_rotj/hair_rotj
 {
 	{
-		map models/players/luke_rotj/head
+		map models/players/luke_rotj/hair_rotj
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/luke_esb/LukeHead_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/luke_rotj/head_hood
-{
-	{
-		map models/players/luke_rotj/head_hood
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/luke_rotj/head_hood_spec
+		map models/players/luke_rotj/hair_rotj_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
