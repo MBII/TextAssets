@@ -302,10 +302,40 @@ models/players/bxdroid/legzor_dip
 	}
 }
 
-models/players/bxdroid/headzor_dip
+models/players/bxdroid/headzor_ldip
 {
 	{
-		map models/players/bxdroid/headzor_dip
+		map models/players/bxdroid/headzor_ldip
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+	}
+	{
+		map models/players/bxdroid/headzor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{	
+		map models/players/bxdroid/headzor_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave noise 1 0.5 0 2
+	}
+}
+
+models/players/bxdroid/headzor_rdip
+{
+	{
+		map models/players/bxdroid/headzor_rdip
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
