@@ -72,11 +72,11 @@ models/players/Thrawn2/thrawn_bits
 
 // Armored
 
-models/players/thrawn_armor/helmet
+models/players/Thrawn2/helmet
 {
 	cull	twosided
 	{
-		map models/players/thrawn_armor/helmet
+		map models/players/Thrawn2/helmet
 		rgbGen lightingDiffuse
 	}
 	{
@@ -87,10 +87,10 @@ models/players/thrawn_armor/helmet
 	}
 }
 
-models/players/thrawn_armor/helmet_buttons
+models/players/Thrawn2/helmet_buttons
 {
 	{
-		map models/players/thrawn_armor/helmet_buttons
+		map models/players/Thrawn2/helmet_buttons
 		rgbGen lightingDiffuse
 	}
 	{
@@ -107,10 +107,10 @@ models/players/thrawn_armor/helmet_buttons
 	}
 }
 
-models/players/thrawn_armor/helmet_thing
+models/players/Thrawn2/helmet_thing
 {
 	{
-		map models/players/thrawn_armor/helmet_thing
+		map models/players/Thrawn2/helmet_thing
 		rgbGen lightingDiffuse
 	}
 	{
@@ -127,11 +127,11 @@ models/players/thrawn_armor/helmet_thing
 	}
 }
 
-models/players/thrawn_armor/armor_heavy
+models/players/Thrawn2/armor_heavy
 {
 	cull	twosided
 	{
-		map models/players/thrawn_armor/armor_heavy
+		map models/players/Thrawn2/armor_heavy
 		rgbGen lightingDiffuse
 	}
 	{
