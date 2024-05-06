@@ -99,3 +99,28 @@ models/players/imperial_fml/boots_hips
 		alphaGen lightingSpecular
 	}
 }
+
+
+// Daala
+models/players/imperial_fml/hair_daala
+{
+	{
+		map models/players/imperial_fml/hair_daala
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sabine/env
+		blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/imperial_fml/hair_daala
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+		detail
+	}
+}
