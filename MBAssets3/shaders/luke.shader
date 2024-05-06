@@ -327,45 +327,6 @@ models/players/luke_rotj/endor
 }
 
 
-// dark empire luke
-
-models/players/luke_de/hair
-{
-	{
-		map models/players/luke_de/hair
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/luke_esb/LukeHair_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/luke_de/head
-{
-	{
-		map models/players/luke_de/head
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/luke_esb/LukeHead_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/luke_de/cape
-{
-	{
-		map models/players/luke_de/cape
-		rgbGen lightingDiffuse
-	}
-}
-
-
 // tfa luke
 
 models/players/luke_tfa/hair_alpha
@@ -522,4 +483,16 @@ models/players/luke_ceremonial/jacket_luke
         detail
         alphaGen lightingSpecular
     }
+}
+
+
+// dark empire luke
+
+models/players/luke_de/cape
+{
+	cull	twosided
+	{
+		map models/players/luke_de/cape
+		rgbGen lightingDiffuse
+	}
 }
