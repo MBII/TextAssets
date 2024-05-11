@@ -13,29 +13,47 @@ ClassInfo
 	modelscale      		1.04
 	damageGiven 			1
 	holdables      			HI_SENTRY_GUN|HI_EWEB
-	weapons					WP_FRAG_NADE|WP_BLASTER|WP_PXL1|WP_MELEE|WP_PULSE_NADE|WP_DISRUPTOR|WP_CLONE_RIFLE|WP_TRIP_MINE
-	attributes				MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,3|MB_ATT_PLX1,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_CLONERIFLE,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_DASH,1
+<<<<<<< Updated upstream
+	weapons					WP_FRAG_NADE|WP_BLASTER|WP_MELEE|WP_PULSE_NADE|WP_DISRUPTOR|WP_THROWER|WP_TRIP_MINE|WP_ROCKET_LAUNCHER
+	attributes				MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,3|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_THROWER_ICE,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_DASH,1
+	WP_ThrowerFlags 		HELD_ALTRELOAD
+=======
+	weapons					WP_FRAG_NADE|WP_BLASTER|WP_PXL1|WP_MELEE|WP_PULSE_NADE|WP_DISRUPTOR|WP_THROWER|WP_TRIP_MINE
+	attributes				MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,3|MB_ATT_PLX1,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_THROWER,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_RALLY
 	classflags				CFL_ICETHROWER|CFL_WFLAMETHROWER
-	WP_RepeaterFlags 		HELD_ALTRELOAD
-	
+	WP_ThrowerFlags 		HELD_ALTRELOAD|HELD_FREEZE
+>>>>>>> Stashed changes
 	respawnCustomTime 		50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_PXL1
-	WeaponBasedOff		WP_PLX1
-	NewWorldModel		"models/weapons2/MiniMag_launcher/launcher_w.glm"
-	NewViewModel		"models/weapons2/MiniMag_launcher/launcher.md3"
-	Icon			"gfx/hud/w_icon_MiniMag"
-	WeaponName		"Missile Launcher"
-	customAmmo       3
+	WeaponToReplace			WP_ROCKET_LAUNCHER
+	WeaponBasedOff			WP_ROCKET_LAUNCHER
+	NewWorldModel			"models/weapons2/merr_sonn/merr_sonn_w.glm"
+	NewViewModel			"models/weapons2/merr_sonn/merr_sonn.md3"
+	NewBarrelModel	    	"models/weapons2/merr_sonn/merr_sonn_barrel.md3"
+	NewHandsModel			"models/weapons2/merr_sonn/merr_sonn_hand.md3"
+	Icon					"gfx/hud/w_icon_merrsonn"
+	WeaponName				"Merr-Sonn Rocket Launcher"
+	clipSize 				1
+	CustomAmmo 				4
+	FPMult     				1.5
+	ReloadTimeModifier 		1.5
+	altfireenabled			0
+	
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_CLONE_RIFLE					//Required: Weapon Slot of weapon you're replacing
+<<<<<<< Updated upstream
+
+	WeaponToReplace		WP_THROWER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_CLONE_RIFLE					//Required: For future use, should be the same as WeaponToReplace
+=======
+	WeaponToReplace		WP_THROWER				//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_CONCUSSION					//Required: For future use, should be the same as WeaponToReplace
+>>>>>>> Stashed changes
 	NewWorldModel		"models/weapons/CarboniteRifle/model.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons/CarboniteRifle/model.md3"   	//Required: New 1st person weapon model
 	Icon			"gfx/hud/w_icon_carboniterifle" 					//Required: Weapon change icon
@@ -79,7 +97,7 @@ A grenadier, rocketeer and sniper class equipped with freeze ray.
 Weaponry:
 - Overcharged E-11 (3) (Can only use secondary fire)
 - Disruptor (2)
-- Rocket Launcher (3 rockets)
+- PLX-2M (4 rockets)
 - Trip Mines (2)
 - Pulse Grenades (2)
 - Frag Grenade (1)
@@ -98,8 +116,5 @@ Attributes:
 - Blast Armor
 - Heal (2)
 - Rally
-
-Abilities:
-- Dash (1) [Class Special 2]
 
 He claims to be an honest garbage hauler, but he's really one of the most powerful criminal kingpins in all of Nar Shaddaa. Even the Hutts won't touch him."

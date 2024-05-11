@@ -1,4 +1,229 @@
 ////HUD////
+gfx/hud/alpha/HUD_StatusMain
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMain
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusMainV
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMainV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusMainFlipped
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMain
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		tcMod scale -1.0 1.0
+	}
+}
+
+gfx/hud/alpha/HUD_StatusMainVFlipped
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMainV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		tcMod scale -1.0 1.0
+	}
+}
+
+gfx/hud/alpha/HUD_StatusCircle
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusCircle
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		alphaGen const 0.5
+	}
+}
+
+gfx/hud/alpha/HUD_StatusCircleFull
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusCircle
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusItems
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusItems
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusItemsV
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusItemsV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusMode_None
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMode_None
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusMode_Primary
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMode_Primary
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusMode_Secondary
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMode_Secondary
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusMode_Disabled
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusMode_Disabled
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusBar
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusBar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		alphaGen const 0.5
+	}
+}
+
+gfx/hud/alpha/HUD_StatusBarV
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusBarV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		alphaGen const 0.5
+	}
+}
+
+gfx/hud/alpha/HUD_StatusBarFull
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusBar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusBarVFull
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusBarV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusEmplaced
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusEmplaced
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusEmplacedV
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusEmplacedV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusEmplacedBar
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusEmplacedBar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusEmplacedBarV
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusEmplacedBarV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
 gfx/hud/alpha/HUD_Score
 {
 	nopicmip
