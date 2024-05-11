@@ -1,0 +1,535 @@
+repeatDelay				50
+
+Particle
+{
+	name				Explosion
+
+	flags				setShaderTime
+
+	life				1000 1300
+
+	origin				20 -20 -20 30 20 20
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			25 -50 -50 50 50 50
+
+	size
+	{
+		start			10 60
+		end				180 280
+		parm			5 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1
+		gfx/exp/rocket_explosion
+		gfx/exp/slower_rocket_explosion
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	count				4 5
+
+	life				1800 1900
+
+	delay				99
+
+	origin				-35 -35 -35 35 35 35
+
+	rotation			0 360
+
+	rotationDelta		-13 13
+
+	velocity			40 -20 -20 80 20 20
+
+	acceleration		-20 -40 -40 20 40 40
+
+	gravity				3 25
+
+	rgb
+	{
+		start			0.9882 0.9098 0.7882 1 1 0.8078
+		end				0.6 0.1569 0.007843
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.9
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			60 90
+		end				100 150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/expa1
+		gfx/exp/expa2
+		gfx/exp/expa3
+		gfx/exp/expa4
+		gfx/exp/expa5
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				1000
+
+	rgb
+	{
+		end				0.1725 0.04314 0.003922
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			1750
+		end				500
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				7 10
+
+	radius				1500 400
+}
+
+Sound
+{
+	name				Boom
+
+	cullrange			2000
+
+	sounds
+	[
+		sound/weapons/exp/exp1.wav
+		sound/weapons/exp/exp2.wav
+		sound/weapons/exp/exp3.wav
+		sound/weapons/exp/exp4.wav
+		sound/weapons/exp/exp5.wav
+		sound/weapons/exp/exp6.wav
+		sound/weapons/exp/exp7.wav
+		sound/weapons/exp/exp8.wav
+		sound/weapons/exp/exp9.wav
+		sound/weapons/exp/exp10.wav
+		sound/weapons/exp/exp11.wav
+		sound/weapons/exp/exp12.wav
+		sound/weapons/exp/exp13.wav
+		sound/weapons/exp/exp14.wav
+		sound/weapons/exp/exp15.wav
+		sound/weapons/exp/exp16.wav
+		sound/weapons/exp/exp17.wav
+		sound/weapons/exp/exp18.wav
+		sound/weapons/exp/exp19.wav
+		sound/weapons/exp/exp20.wav
+		sound/weapons/exp/exp21.wav
+		sound/weapons/exp/exp22.wav
+		sound/weapons/exp/exp23.wav
+		sound/weapons/exp/exp24.wav
+		sound/weapons/exp/exp25.wav
+	]
+}
+
+Decal
+{
+	name				BurnDamage
+
+	size
+	{
+		start			100 150
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Flash
+{
+	name				Flash
+
+	life				200
+
+	cullrange			600
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			5.5
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Flash
+{
+	name				Flash2
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				0 1
+
+	life				400 500
+
+	delay				100 150
+
+	cullrange			400
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608
+		end				0.6 0.502 0.4
+		parm			5.5
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Particle
+{
+	name				Smokepuffwhite
+
+	flags				useBBox usePhysics useAlpha
+
+	spawnFlags			rgbComponentInterpolation affectedByWind
+
+	count				6 9
+
+	life				1.3e+004 2.4e+004
+
+	delay				0 98
+
+	bounce				0.1
+
+	min					-1 -1 -1
+
+	max					1 1 1
+
+	origin				15 -90 -190 90 90 90
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			-25 -25 -25 25 25 25
+
+	gravity				1 7
+
+	rgb
+	{
+		start			1 1 1 0.7961 0.7961 0.8275
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.8
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 120
+		end				220 360
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Emitter
+{
+	name				ExperimentalTrails
+
+	flags				useBBox usePhysics useAlpha emitFx
+
+	spawnFlags			affectedByWind
+
+	count				4 9
+
+	life				600 1400
+
+	bounce				0.5 0.9
+
+	min					-1 -1 -1
+
+	max					1 1 1
+
+	origin				1 -10 -10 10 10 10
+
+	wind				1 30
+
+	angle				0 0 0 360 360 360
+
+	angleDelta			-50 -50 -20 50 50 20
+
+	velocity			-400 -400 -400 400 400 400
+
+	gravity				-100 -400
+
+	density				4
+
+	variance			0
+
+	alpha
+	{
+		end				0
+		parm			90
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			0.2
+	}
+
+	emitfx
+	[
+		emitter/small_smoke_trailer
+		emitter/small_smoke_trailer2
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke3
+
+	flags				useBBox useAlpha
+
+	spawnFlags			absoluteAccel rgbComponentInterpolation
+
+	count				9 12
+
+	life				5000 8000
+
+	intensity			0.1
+
+	origin				30 -35 -35 50 35 35
+
+	rotation			-180 180
+
+	rotationDelta		-20 20
+
+	velocity			40 -25 -25 75 25 25
+
+	gravity				3 10
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.7961 0.7961 0.8275
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.4 0.9
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			0
+		end				240 280
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+Emitter
+{
+	name				chunkies
+
+	flags				useModel usePhysics
+
+	count				9 19
+
+	life				8000 1.6e+004
+
+	bounce				0.2 0.3
+
+	origin				1 -2 -2 2 2 2
+
+	angle				0 0 0 360 360 0
+
+	angleDelta			-20 -20 0 20 20 0
+
+	velocity			0 -300 -300 360 300 300
+
+	gravity				-400 -600
+
+	size
+	{
+		start			0.1 0.5
+	}
+
+	models
+	[
+		models/chunks/metal/metal1_1.md3
+		models/chunks/metal/metal1_2.md3
+		models/chunks/metal/metal1_3.md3
+		models/chunks/metal/metal1_4.md3
+	]
+}
+
+Line
+{
+	name				Lines
+
+	count				6 14
+
+	life				1300 1600
+
+	delay				0 30
+
+	origin2				120 -120 -120 130 120 120
+
+	rgb
+	{
+		start			0.9843 0.6549 0.4078 0.9922 0.7961 0.651
+	}
+
+	alpha
+	{
+		start			0.45 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10 11
+		end				12 15
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+		gfx/flames/fball
+		gfx/flames/flamer1
+		gfx/flames/flamer2
+		gfx/flames/flamer7
+		gfx/flames/flamer8
+	]
+}
+
+Tail
+{
+	name				Sparktails
+
+	flags				usePhysics
+
+	spawnFlags			affectedByWind
+
+	count				220 260
+
+	life				600 1600
+
+	delay				0 100
+
+	cullrange			2100
+
+	bounce				0.3 0.6
+
+	origin				1 -10 -10 10 10 10
+
+	wind				1 20
+
+	velocity			250 -100 -100 300 100 100
+
+	gravity				-250 -350
+
+	rgb
+	{
+		start			0.9922 0.7961 0.651 0.9843 0.6549 0.4078
+		end				0.9843 0.4863 0.2745 0.9686 0.4431 0.2157
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.8 1
+	}
+
+	size
+	{
+		start			2.5 5
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	length
+	{
+		start			4 10
+		end				0
+		parm			200 0
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/sparkyellow
+	]
+}
