@@ -1,0 +1,243 @@
+repeatDelay				300
+
+Particle
+{
+	name				OrangeGlow
+
+	flags				setShaderTime
+
+	count				8
+
+	life				1300
+
+	delay				0 200
+
+	origin				20 -150 -150 100 150 150
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			25 -50 -50 50 50 50
+
+	size
+	{
+		start			10 40
+		end				175 300
+		parm			5 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/slower_rocket_explosion
+		gfx/exp/rocket_explosion
+		gfx/exp/explosion1
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				4
+
+	life				1500 2500
+
+	delay				300
+
+	cullrange			1200
+
+	origin				0 -100 -100 100 100 100
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			0 -100 -100 50 100 100
+
+	acceleration		-20 -40 -40 20 40 40
+
+	gravity				3 25
+
+	rgb
+	{
+		start			0.9882 0.9098 0.7882 1 1 0.8078
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			25 50
+		end				175 275
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				950
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			1750
+		end				500
+		flags			linear
+	}
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				3
+
+	life				900 1400
+
+	delay				250 500
+
+	cullrange			1000
+
+	origin				25 -100 -100 75 100 100
+
+	rotation			-180 180
+
+	rotationDelta		-3 3
+
+	velocity			100 -100 -100 200 100 100
+
+	acceleration		-25 -25 -25 25 25 25
+
+	gravity				-50 -30
+
+	rgb
+	{
+		start			1 1 0.4353 0.9451 0.4078 0.01176
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			5 30
+		end				150 250
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				1 2
+
+	radius				1500 400
+}
+
+Sound
+{
+	name				Boom
+
+	count				2
+
+	sounds
+	[
+		sound/vehicles/weapons/mine/impact.wav
+	]
+}
+
+Decal
+{
+	size
+	{
+		start			100 150
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Flash
+{
+	life				200
+
+	cullrange			600
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			5.5
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Flash
+{
+	count				0 1
+
+	life				150
+
+	delay				100 150
+
+	cullrange			400
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			5.5
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
