@@ -145,7 +145,7 @@ models/map_objects/futbol/seats4
 	{
     map textures/futbol/crowd
     surfaceSprites vertical 128 64 64 8192
-    ssFademax 999999999999999999999999
+    ssFademax 9999999999
     ssFadescale 0
     ssVariance 1 2
     ssWind 0.5
