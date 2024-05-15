@@ -39,18 +39,6 @@ models/players/luke_anh/hair_alpha
 }
 
 
-// dagobah luke
-
-models/players/luke_dagobah/backpack
-{
-	cull	disable
-	{
-		map models/players/luke_dagobah/backpack
-		rgbGen lightingDiffuse
-	}
-}
-
-
 // esb luke
 
 models/players/luke_esb/Lukehead
@@ -449,6 +437,30 @@ models/players/luke_bobf/boots
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+models/players/luke_bobf/basket
+{
+	cull	disable
+	{
+		map models/players/luke_bobf/basket
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_assassin/reflect
+		blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/luke_bobf/basket
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+		detail
 	}
 }
 
