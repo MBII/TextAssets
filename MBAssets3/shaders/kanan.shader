@@ -23,6 +23,12 @@ models/players/kanan/body_scout
         rgbGen lightingDiffuse
     }
     {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
+    }
+    {
         map models/players/kanan/body_scout_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
@@ -53,6 +59,12 @@ models/players/kanan/plate
         map models/players/kanan/plate
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
     }
     {
         map models/players/kanan/plate_spec
@@ -103,6 +115,12 @@ models/players/kanan/xrtaarms
         rgbGen lightingDiffuse
     }
     {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
+    }
+    {
         map models/players/kanan/xrtaarms_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
@@ -117,6 +135,12 @@ models/players/kanan/xtraparts-rec
         map models/players/kanan/xtraparts-rec
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
+    }
+    {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
     }
     {
         map models/players/kanan/xtraparts-rec_spec
