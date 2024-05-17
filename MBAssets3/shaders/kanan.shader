@@ -83,6 +83,12 @@ models/players/kanan/torsosec
         rgbGen lightingDiffuse
     }
     {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
+    }
+    {
         map models/players/kanan/torsosec_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
