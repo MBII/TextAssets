@@ -21,23 +21,6 @@ models/players/GI_rebels/armor
 	}
 }
 
-models/players/GI_rebels/armor_jtg
-{
-	cull	disable
-	{
-		map models/players/GI_rebels/armor_jtg
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/deathtrooper/env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/GI_rebels/hand
 {
 	{
@@ -52,17 +35,4 @@ models/players/GI_rebels/hand
 	}
 }
 
-models/players/GI_rebels/hand_jtg
-{
-	{
-		map models/players/GI_rebels/hand_jtg
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/imperial_army/hand_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
 
