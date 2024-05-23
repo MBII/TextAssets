@@ -1140,20 +1140,6 @@ models/players/st_shadowtrooper/head_rgb
 	}
 }
 
-models/players/st_shadowtrooper/torso_arms
-{
-	{
-		map models/players/st_shadowtrooper/torso_arms
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/st_shadowtrooper/torso_arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 models/players/st_shadowtrooper/accessories_rgb
 {
 	{
@@ -1177,35 +1163,6 @@ models/players/st_shadowtrooper/accessories_rgb
 		glow
 	}
 }
-
-models/players/st_shadowtrooper/legs
-{
-	{
-		map models/players/st_shadowtrooper/legs
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/st_shadowtrooper/legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/st_shadowtrooper/basic_hand
-{
-	{
-		map models/players/st_shadowtrooper/basic_hand
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/st_shadowtrooper/basic_hand_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
 
 
 // stormie tfa

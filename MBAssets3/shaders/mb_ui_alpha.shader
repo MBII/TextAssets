@@ -1314,7 +1314,7 @@ gfx/menus/MB220Star
 	nopicmip
 	nomipmaps
     {
-        clampmap gfx/menus/MB220Star
+        map gfx/menus/MB220Star
         blendFunc GL_ONE GL_ONE
         rgbGen vertex
         alphaGen wave sin 0 1 0 1
@@ -1323,7 +1323,6 @@ gfx/menus/MB220Star
     {
         clampmap gfx/menus/MB220Star
         blendFunc GL_ONE GL_ONE
-        detail
         rgbGen vertex
         tcMod rotate -5
         tcMod scale -1 1
