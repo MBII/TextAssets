@@ -1431,3 +1431,28 @@ levelshots/um_xwing2
 		rgbGen identity
 	}
 }
+
+
+levelshots/um_yavin2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/um_yavin2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+
+
+levelshots/um_yavin22
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/um_yavin22
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
