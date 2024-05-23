@@ -1,0 +1,387 @@
+repeatDelay				100
+
+Particle
+{
+	name				Explosion
+
+	flags				setShaderTime
+
+	life				1000 1300
+
+	origin				20 -20 -20 30 20 20
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			25 -50 -50 50 50 50
+
+	size
+	{
+		start			10 60
+		end				180 280
+		parm			5 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/explosion1
+		gfx/exp/rocket_explosion
+		gfx/exp/slower_rocket_explosion
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	count				4 5
+
+	life				1800 1900
+
+	delay				99
+
+	origin				-35 -35 -35 35 35 35
+
+	rotation			0 360
+
+	rotationDelta		-13 13
+
+	velocity			40 -40 -40 90 40 40
+
+	acceleration		-20 -40 -40 20 40 40
+
+	gravity				3 25
+
+	rgb
+	{
+		start			0.9882 0.9098 0.7882 1 1 0.8078
+		end				0.6 0.1569 0.007843
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.9
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			60 90
+		end				150 200
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/expa1
+		gfx/exp/expa2
+		gfx/exp/expa3
+		gfx/exp/expa4
+		gfx/exp/expa5
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				1000
+
+	rgb
+	{
+		end				0.1725 0.04314 0.003922
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			1750
+		end				500
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				7 10
+
+	radius				1500 400
+}
+
+Sound
+{
+	name				Boom
+
+	count				3
+
+	cullrange			2000
+
+	sounds
+	[
+		sound/weapons/exp/exp3.mp3
+		sound/weapons/exp/exp4.mp3
+		sound/weapons/exp/exp5.mp3
+		sound/weapons/exp/exp6.mp3
+		sound/weapons/exp/exp8.mp3
+		sound/weapons/exp/exp10.mp3
+		sound/weapons/exp/exp12.mp3
+		sound/weapons/exp/exp21.mp3
+		sound/weapons/exp/exp25.mp3
+	]
+}
+
+Decal
+{
+	name				BurnDamage
+
+	size
+	{
+		start			100 150
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Flash
+{
+	name				Flash
+
+	life				200
+
+	cullrange			600
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			5.5
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}
+
+Particle
+{
+	name				Smokepuffwhite
+
+	flags				useBBox useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				4
+
+	life				1000 2000
+
+	delay				0 98
+
+	intensity			0.1
+
+	origin				15 -90 -190 90 90 90
+
+	wind				5 25
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			-25 -25 -25 25 25 25
+
+	gravity				1 7
+
+	rgb
+	{
+		start			1 1 1 0.7961 0.7961 0.8275
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.8
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 120
+		end				220 360
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Emitter
+{
+	name				ExperimentalTrails
+
+	flags				useBBox usePhysics useAlpha emitFx
+
+	spawnFlags			affectedByWind
+
+	count				3
+
+	life				600 1400
+
+	bounce				0.5 0.9
+
+	min					-1 -1 -1
+
+	max					1 1 1
+
+	origin				1 -10 -10 10 10 10
+
+	wind				1 30
+
+	angle				0 0 0 360 360 360
+
+	angleDelta			-50 -50 -20 50 50 20
+
+	velocity			-400 -400 -400 400 400 400
+
+	gravity				-100 -400
+
+	density				4
+
+	variance			0
+
+	alpha
+	{
+		end				0
+		parm			90
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			0.2
+	}
+
+	emitfx
+	[
+		emitter/small_smoke_trailerz
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke3
+
+	flags				useBBox useAlpha
+
+	spawnFlags			absoluteAccel rgbComponentInterpolation
+
+	count				2
+
+	life				1000 2000
+
+	intensity			0.1
+
+	origin				30 -35 -35 50 35 35
+
+	rotation			-180 180
+
+	rotationDelta		-20 20
+
+	velocity			40 -25 -25 75 25 25
+
+	gravity				3 10
+
+	rgb
+	{
+		start			0.9529 0.9529 0.9608 0.7961 0.7961 0.8275
+		end				0.5843 0.5843 0.651
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.4 0.9
+		end				0
+		parm			40 50
+		flags			linear
+	}
+
+	size
+	{
+		start			0
+		end				300 380
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/puffa1
+		gfx/effects/puffa2
+	]
+}
+
+Line
+{
+	name				Lines
+
+	count				6 8
+
+	life				1300 1600
+
+	delay				0 30
+
+	origin2				120 -120 -120 130 120 120
+
+	rgb
+	{
+		start			0.9843 0.6549 0.4078 0.9922 0.7961 0.651
+	}
+
+	alpha
+	{
+		start			0.45 1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			10 11
+		end				12 15
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+		gfx/flames/fball
+		gfx/flames/flamer1
+		gfx/flames/flamer2
+		gfx/flames/flamer7
+		gfx/flames/flamer8
+	]
+}

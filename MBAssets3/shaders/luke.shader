@@ -39,18 +39,6 @@ models/players/luke_anh/hair_alpha
 }
 
 
-// dagobah luke
-
-models/players/luke_dagobah/backpack
-{
-	cull	disable
-	{
-		map models/players/luke_dagobah/backpack
-		rgbGen lightingDiffuse
-	}
-}
-
-
 // esb luke
 
 models/players/luke_esb/Lukehead
@@ -327,45 +315,6 @@ models/players/luke_rotj/endor
 }
 
 
-// dark empire luke
-
-models/players/luke_de/hair
-{
-	{
-		map models/players/luke_de/hair
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/luke_esb/LukeHair_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/luke_de/head
-{
-	{
-		map models/players/luke_de/head
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/luke_esb/LukeHead_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/luke_de/cape
-{
-	{
-		map models/players/luke_de/cape
-		rgbGen lightingDiffuse
-	}
-}
-
-
 // tfa luke
 
 models/players/luke_tfa/hair_alpha
@@ -491,6 +440,30 @@ models/players/luke_bobf/boots
 	}
 }
 
+models/players/luke_bobf/basket
+{
+	cull	disable
+	{
+		map models/players/luke_bobf/basket
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/sith_assassin/reflect
+		blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+		alphaGen const 1
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/luke_bobf/basket
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+		detail
+	}
+}
+
 
 // ceremonial luke
 
@@ -522,4 +495,16 @@ models/players/luke_ceremonial/jacket_luke
         detail
         alphaGen lightingSpecular
     }
+}
+
+
+// dark empire luke
+
+models/players/luke_de/cape
+{
+	cull	twosided
+	{
+		map models/players/luke_de/cape
+		rgbGen lightingDiffuse
+	}
 }
