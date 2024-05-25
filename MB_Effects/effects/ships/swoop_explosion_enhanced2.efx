@@ -1,274 +1,203 @@
-repeatDelay				300
+repeatDelay				5000
 
-Line
+Light
 {
-	name				Lines
+	name				Flash
 
-	count				6 14
-
-	life				300 500
-
-	cullrange			1500
-
-	origin2				40 -45 -45 50 45 45
-
-	rgb
-	{
-		start			0.9843 0.6549 0.4078 0.9922 0.7961 0.651
-	}
+	life				250
 
 	alpha
 	{
-		start			0.45 1
 		end				0
-		flags			linear
+		flags			random linear
 	}
 
 	size
 	{
-		start			4 6
-		end				8 9
+		start			120
+		end				10
 		flags			linear
 	}
+}
 
-	shaders
-	[
-		gfx/effects/whiteFlare
-		gfx/flames/fball
-		gfx/flames/flamer1
-		gfx/flames/flamer2
-		gfx/flames/flamer7
-		gfx/flames/flamer8
-	]
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				500 800
+
+	bounce				2 4
+
+	radius				300 400
 }
 
 Tail
 {
-	name				Sparktails
+	count				8 10
 
-	flags				usePhysics
+	life				600 1000
 
-	spawnFlags			affectedByWind
+	cullrange			800
 
-	count				220 260
+	origin				10 -10 -10 20 10 10
 
-	life				600 1600
+	velocity			10 -45 -45 35 45 45
 
-	delay				0 100
-
-	cullrange			2100
-
-	bounce				0.3 0.6
-
-	origin				1 -10 -10 10 10 10
-
-	wind				1 20
-
-	velocity			100 -20 -80 250 80 20
-
-	gravity				-250 -350
-
-	rgb
-	{
-		start			0.9922 0.7961 0.651 0.9843 0.6549 0.4078
-		end				0.9843 0.4863 0.2745 0.9686 0.4431 0.2157
-		flags			linear
-	}
+	gravity				0 -15
 
 	alpha
 	{
-		start			0.8 1
+		end				0
+		parm			30 50
+		flags			linear nonlinear
 	}
 
 	size
 	{
-		start			2.5 5
-		end				0
-		parm			200 0
-		flags			linear nonlinear
+		start			4 12
+		end				14 30
+		flags			linear
 	}
 
 	length
 	{
-		start			4 10
-		end				0
-		parm			200 0
-		flags			linear nonlinear
+		start			-40
+		end				-125 -180
+		flags			linear
 	}
 
 	shaders
 	[
-		gfx/misc/sparkyellow
+		gfx/effects/plume1
+		gfx/effects/plume2
 	]
 }
 
 Particle
 {
-	name				Sparks
+	name				metalchunk
 
-	flags				usePhysics
+	flags				useAlpha
 
-	spawnFlags			affectedByWind
+	spawnFlags			absoluteVel rgbComponentInterpolation
 
-	count				30 50
+	count				12
 
-	life				2000 3000
+	life				1500
 
-	cullrange			2400
+	radius				0
 
-	bounce				0.25 0.4
+	height				0
 
-	origin				-20 -20 -20 20 20 20
+	rotation			0 360
 
-	velocity			200 -115 -115 400 115 115
+	rotationDelta		-30 30
 
-	gravity				-450 -550
+	velocity			-150 -150 200 150 150 400
+
+	gravity				-300 -500
 
 	rgb
 	{
-		start			1 1 1 0.9843 0.8353 0.6353
+		start			0.6275 0.6392 0.6863 0.4431 0.451 0.5569
 	}
-
-	size
-	{
-		start			0.5 0.9
-		end				0
-		flags			linear
-	}
-
-	shaders
-	[
-		gfx/misc/spikeb
-	]
-}
-
-Decal
-{
-	name				ImpactDamage
-
-	rotation			2 190
-
-	size
-	{
-		start			50 55
-	}
-
-	shaders
-	[
-		gfx/damage/burnmark4
-		gfx/damage/burnmark1
-	]
-}
-
-Sound
-{
-	name				WallhitSounds
-
-	cullrange			2000
-
-	sounds
-	[
-		sound/weapons/impacts/hit1.wav
-	]
-}
-
-Emitter
-{
-	name				ExperimentalTrails
-
-	flags				useBBox usePhysics useAlpha emitFx
-
-	spawnFlags			affectedByWind
-
-	count				0 7
-
-	life				600 2500
-
-	bounce				0.3 0.6
-
-	min					-1 -1 -1
-
-	max					1 1 1
-
-	origin				0 -6 -6 0 6 6
-
-	wind				1 30
-
-	angle				0 0 0 360 360 360
-
-	angleDelta			-50 -50 -20 50 50 20
-
-	velocity			200 -120 -120 350 120 120
-
-	gravity				-200 -600
-
-	density				4
-
-	variance			0
 
 	alpha
 	{
 		end				0
-		parm			90
+		parm			85
 		flags			nonlinear
 	}
 
 	size
 	{
-		start			0.2
+		start			3 4
+		end				10 20
 	}
 
-	emitfx
+	shaders
 	[
-		emitter/small_smoke_trailer2
-		emitter/small_smoke_trailFake1
+		gfx/effects/metal_shard
 	]
 }
 
 Particle
 {
-	name				SmokepuffWhiteViolent
+	name				explosion01
 
-	flags				useBBox useAlpha
+	spawnFlags			cheapOrgCalc rgbComponentInterpolation
 
-	spawnFlags			affectedByWind
+	life				600
 
-	count				7 8
+	origin				0 0 20
 
-	life				2000 3000
+	rotation			0 360
 
-	rotation			-180 180
+	rotationDelta		-1 1
 
-	rotationDelta		-8 8
-
-	velocity			10 -10 -10 40 10 10
-
-	gravity				1 8
+	velocity			5 -5 -5 10 5 5
 
 	rgb
 	{
-		start			0.9922 0.9255 0.6588 1 0.851 0.702
-		end				0 0 0 0.698 0.698 0.698
-		flags			linear
+		start			1 0.8667 0.3333
 	}
 
 	alpha
 	{
-		start			0.7 0.8
 		end				0
 		flags			linear
 	}
 
 	size
 	{
-		start			26 30
-		end				40 45
+		start			60
+		end				200
 		flags			linear
 	}
 
 	shaders
 	[
-		gfx/effects/alpha_smoke
+		gfx/effects/burst
+	]
+}
+
+Particle
+{
+	name				explosion_delay
+
+	count				2
+
+	life				1000 1500
+
+	delay				350 400
+
+	origin				-20 -20 -20 20 20 20
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	velocity			5 -5 -5 10 5 5
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 150
+		end				250
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
 	]
 }
 
@@ -276,91 +205,118 @@ Particle
 {
 	name				OrangeGlow
 
-	spawnFlags			rgbComponentInterpolation
+	flags				setShaderTime
 
-	count				10
+	spawnFlags			orgOnSphere
 
-	life				400 1200
+	count				24
 
-	origin				10 -20 -20 10 20 20
+	life				1150
 
-	rotation			-180 180
+	delay				0 1000
+
+	origin				20 -8 -8 40 8 8
+
+	radius				60
+
+	height				60
+
+	rotation			0 360
 
 	rotationDelta		-1 1
 
-	velocity			40 -5 -5 50 5 5
-
-	rgb
-	{
-		start			1 0.9725 0.6235 1 0.8353 0.4902
-		end				0.502 0 0 0.9451 0.4078 0.01176
-		flags			linear
-	}
+	velocity			5 -20 -20 10 20 20
 
 	alpha
 	{
-		start			0.5
 		end				0
-		parm			70 85
-		flags			linear
+		parm			60 75
+		flags			linear nonlinear
 	}
 
 	size
 	{
-		start			10 20
-		end				35 50
-		flags			linear
+		start			16 32
+		end				90 150
+		parm			10 25
+		flags			linear clamp
 	}
 
 	shaders
 	[
-		gfx/misc/steam
-		gfx/misc/steam2
+		gfx/exp/rocket_explosion
+		gfx/exp/explosion1
 	]
-}
-
-Light
-{
-	name				Flash
-
-	life				600 650
-
-	rgb
-	{
-		start			0.7686 0.4431 0
-		end				0.1569 0.04314 0
-		flags			linear
-	}
-
-	size
-	{
-		start			300 350
-		end				0
-		flags			linear
-	}
 }
 
 Particle
 {
-	name				Dust
+	name				dust1
 
 	flags				useAlpha
 
-	spawnFlags			evenDistribution rgbComponentInterpolation
+	spawnFlags			cheapOrgCalc absoluteVel rgbComponentInterpolation
+
+	count				6
+
+	life				4000
+
+	delay				1000 3000
+
+	origin				-35 -35 0 35 35 50
+
+	rotation			0 360
+
+	rotationDelta		-1 1
+
+	velocity			-15 -15 0 15 15 20
+
+	rgb
+	{
+		start			0.502 0.502 0.502 0 0 0
+		end				0.502 0.502 0.502 0 0 0
+	}
+
+	alpha
+	{
+		start			0
+		parm			0.5
+		flags			wave
+	}
+
+	size
+	{
+		start			90
+		end				180
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke2
+	]
+}
+
+Particle
+{
+	name				dust2
+
+	flags				useAlpha
+
+	spawnFlags			cheapOrgCalc evenDistribution rgbComponentInterpolation
 
 	count				8
 
-	life				400 700
+	life				900 1400
 
-	delay				250 500
+	delay				350 500
 
-	origin				0 -20 -20 5 20 20
+	origin				-80 -80 0 80 80 80
 
 	rotation			-180 180
 
-	rotationDelta		-2 2
+	rotationDelta		-8 8
 
-	velocity			20 -20 -20 60 20 20
+	velocity			20 -40 -40 40 40 40
 
 	acceleration		-5 -5 -5 5 5 5
 
@@ -368,21 +324,20 @@ Particle
 
 	rgb
 	{
-		start			0.2392 0.1451 0.01176
+		start			0.9451 0.6549 0.4392 0.9882 0.7255 0.1804
 	}
 
 	alpha
 	{
-		start			0.7 0.8
 		end				0
-		parm			50 70
+		parm			60 75
 		flags			linear nonlinear
 	}
 
 	size
 	{
-		start			1 6
-		end				56 68
+		start			5 20
+		end				80 160
 		flags			linear
 	}
 
@@ -392,349 +347,60 @@ Particle
 	]
 }
 
-CameraShake
+Cylinder
 {
-	name				Shake
-
-	flags				usePhysics
-
-	life				300 400
-
-	bounce				5 8
-
-	radius				300 600
-}
-
-Particle
-{
-	name				Explosion
-
 	spawnFlags			rgbComponentInterpolation
 
 	life				700
 
-	origin				0.2 -10 -10 5 10 10
-
-	rotation			-180 180
-
-	rotationDelta		-13 13
-
-	velocity			35 -5 -5 50 5 5
+	origin				5 0 0
 
 	rgb
 	{
-		start			0.9843 0.4863 0.2745
+		start			1 0.8667 0.3333
 	}
 
 	alpha
 	{
-		start			0.7 0.8
+		start			0.2
 		end				0
-		parm			40 60
+		parm			60
 		flags			linear nonlinear
 	}
 
 	size
 	{
-		start			8 15
-		end				40 55
-		parm			20 40
-		flags			linear clamp
+		start			30
+		end				240
+		parm			40
+		flags			linear nonlinear
 	}
 
-	shaders
-	[
-		gfx/exp/expa1
-	]
-}
-
-Emitter
-{
-	name				chunkies
-
-	flags				useModel usePhysics
-
-	count				10 15
-
-	life				8000 1.6e+004
-
-	bounce				0.2 0.3
-
-	origin				1 -2 -2 2 2 2
-
-	angle				0 0 0 360 360 0
-
-	angleDelta			-20 -20 0 20 20 0
-
-	velocity			0 -100 -100 260 100 100
-
-	gravity				-400 -600
-
-	size
+	size2
 	{
-		start			0.1 0.2
-	}
-
-	models
-	[
-		models/chunks/metal/metal1_1.md3
-		models/chunks/metal/metal1_2.md3
-		models/chunks/metal/metal1_3.md3
-		models/chunks/metal/metal1_4.md3
-	]
-}
-
-Particle
-{
-	name				LingeringSmokeThick
-
-	flags				useAlpha
-
-	spawnFlags			absoluteAccel rgbComponentInterpolation
-
-	count				5 8
-
-	life				5000 8000
-
-	intensity			0.1
-
-	origin				20 -25 -25 50 25 25
-
-	rotation			0 360
-
-	rotationDelta		-20 20
-
-	velocity			25 -9 -9 50 9 9
-
-	gravity				4 7
-
-	rgb
-	{
-		start			1 1 1 0.7373 0.7529 0.8784
-	}
-
-	alpha
-	{
-		start			0.6 1
-		end				0
-		parm			40 50
-		flags			linear
-	}
-
-	size
-	{
-		start			12 20
-		end				140 180
-		flags			linear
-	}
-
-	shaders
-	[
-		gfx/effects/puffa1
-		gfx/effects/puffa2
-	]
-}
-
-Particle
-{
-	name				LingeringSmokeThickFirey
-
-	flags				useAlpha
-
-	spawnFlags			absoluteAccel rgbComponentInterpolation
-
-	count				4 6
-
-	life				1200 1400
-
-	intensity			0.1
-
-	origin				15 -25 -25 25 25 25
-
-	rotation			0 360
-
-	rotationDelta		-12 12
-
-	velocity			25 -20 -20 55 20 20
-
-	gravity				4 7
-
-	rgb
-	{
-		start			1 0.8941 0.6824 1 0.8863 0.7765
-		end				0.9922 0.7373 0.6902 0.9922 0.8118 0.651
-		flags			linear
-	}
-
-	alpha
-	{
-		start			0.6 0.7
-		end				0
-		parm			40 50
-		flags			linear
-	}
-
-	size
-	{
-		start			20 40
-		end				45 50
-		flags			linear
-	}
-
-	shaders
-	[
-		gfx/effects/puffa1
-		gfx/effects/puffa2
-	]
-}
-
-Particle
-{
-	name				Ashes
-
-	flags				useBBox usePhysics
-
-	spawnFlags			affectedByWind
-
-	count				15 25
-
-	life				2000 7000
-
-	bounce				0.25 0.4
-
-	min					-0.5 -0.5 -0.5
-
-	max					0.5 0.5 0.5
-
-	origin				1 0 0
-
-	velocity			120 -70 -70 270 70 70
-
-	gravity				-100 -300
-
-	rgb
-	{
-		start			0.9961 0.8863 0.7216 1 1 0.6157
-		end				1 0.4 0 0.8078 0.02353 0.02353
-		flags			linear
-	}
-
-	size
-	{
-		start			0.8 1
-		end				0
-		flags			linear
-	}
-
-	shaders
-	[
-		gfx/effects/whiteglow
-	]
-}
-
-Particle
-{
-	name				LingeringSmokeThick2
-
-	flags				useAlpha
-
-	spawnFlags			absoluteAccel rgbComponentInterpolation
-
-	count				3 4
-
-	life				4000 7000
-
-	intensity			0.1
-
-	origin				1 -5 -5 5 5 5
-
-	rotation			0 360
-
-	rotationDelta		-12 12
-
-	velocity			13 -9 -9 25 9 9
-
-	gravity				2 4
-
-	rgb
-	{
-		start			1 1 1 0.7961 0.7961 0.8275
-		end				0.5843 0.5843 0.651
-		flags			linear
-	}
-
-	alpha
-	{
-		start			0.4 0.6
-		end				0
-		parm			40 50
-		flags			linear
-	}
-
-	size
-	{
-		start			12 20
-		end				60 100
-		flags			linear
-	}
-
-	shaders
-	[
-		gfx/effects/puffa1
-		gfx/effects/puffa2
-	]
-}
-
-Tail
-{
-	name				SparktailsLight
-
-	spawnFlags			affectedByWind
-
-	count				220 230
-
-	life				600 800
-
-	delay				0 100
-
-	intensity			0.3 0.6
-
-	origin				1 -10 -10 10 10 10
-
-	velocity			50 -30 -30 120 30 30
-
-	gravity				-150
-
-	rgb
-	{
-		start			0.9922 0.7961 0.651 0.9843 0.6549 0.4078
-		end				0.9843 0.4863 0.2745 0.9686 0.4431 0.2157
-		flags			linear
-	}
-
-	alpha
-	{
-		start			0.8 1
-	}
-
-	size
-	{
-		start			1 2
-		end				0.2
-		parm			200 0
+		start			40
+		end				280
+		parm			40
 		flags			linear nonlinear
 	}
 
 	length
 	{
-		start			4 6
-		end				0.1 1
-		parm			200 0
-		flags			linear nonlinear
+		start			5
+		end				10
+		flags			linear
 	}
 
 	shaders
 	[
-		gfx/misc/sparkyellow
+		gfx/misc/grayRing
+	]
+}
+
+Sound
+{
+	sounds
+	[
+		sound/weapons/tie_fighter/tieexplode.wav
 	]
 }

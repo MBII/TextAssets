@@ -1056,13 +1056,9 @@ gfx/hud/qdeploy
 	nopicmip
 	nomipmaps
 	{
-		map gfx/hud/qdeploy
+		clampanimmap 1.5 gfx/hud/qdeploy1.tga gfx/hud/qdeploy2.tga gfx/hud/qdeploy3.tga gfx/hud/qdeploy4.tga gfx/hud/qdeploy5.tga gfx/hud/qdeploy6.tga gfx/hud/qdeploy5.tga gfx/hud/qdeploy4.tga gfx/hud/qdeploy3.tga gfx/hud/qdeploy2.tga gfx/hud/qdeploy1.tga
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-		alphaGen vertex
-	}
-	{
-	animmap 1.5 gfx/hud/qdeploy1.tga gfx/hud/qdeploy2.tga gfx/hud/qdeploy3.tga gfx/hud/qdeploy4.tga gfx/hud/qdeploy5.tga gfx/hud/qdeploy6.tga gfx/hud/qdeploy5.tga gfx/hud/qdeploy4.tga gfx/hud/qdeploy3.tga gfx/hud/qdeploy2.tga gfx/hud/qdeploy1.tga
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		tcMod transform 1.3 0 0 1.3 -0.15 -0.15
 	}
 }
 
@@ -1071,9 +1067,10 @@ gfx/hud/discharge
 	nopicmip
 	nomipmaps
 	{
-		map gfx/hud/discharge
+		clampmap gfx/hud/discharge
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		alphaGen vertex
+		tcMod transform 1.3 0 0 1.3 -0.15 -0.15
 	}
 }
 
@@ -1082,13 +1079,15 @@ gfx/hud/pm_shield
 	nopicmip
 	nomipmaps
 	{
-		map gfx/hud/pm_shield
+		clampmap gfx/hud/pm_shield
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		alphaGen vertex
+		tcMod transform 1.2 0 0 1.2 -0.1 -0.1
 	}
 	{
-	animmap 1 gfx/hud/pm_shield2.tga gfx/hud/pm_shield3.tga gfx/hud/pm_shield4.tga gfx/hud/pm_shield5.tga      
-	blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		clampanimMap 1 gfx/hud/pm_shield2.tga gfx/hud/pm_shield3.tga gfx/hud/pm_shield4.tga gfx/hud/pm_shield5.tga      
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		tcMod transform 1.2 0 0 1.2 -0.1 -0.1
 	}
 }
 
@@ -1097,13 +1096,15 @@ gfx/hud/pm_ammo
 	nopicmip
 	nomipmaps
 	{
-		map gfx/hud/pm_ammo
+		clampmap gfx/hud/pm_ammo
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		alphaGen vertex
+		tcMod transform 1.2 0 0 1.2 -0.1 -0.1
 	}
 	{
-	animmap 1 gfx/hud/pm_ammo2.tga gfx/hud/pm_ammo3.tga gfx/hud/pm_ammo4.tga gfx/hud/pm_ammo5.tga      
-	blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		clampanimMap 1 gfx/hud/pm_ammo2.tga gfx/hud/pm_ammo3.tga gfx/hud/pm_ammo4.tga gfx/hud/pm_ammo5.tga      
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		tcMod transform 1.2 0 0 1.2 -0.1 -0.1
 	}
 }
 
