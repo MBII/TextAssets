@@ -55,12 +55,6 @@ models/players/han_solo/hair
         blendFunc GL_DST_COLOR GL_SRC_COLOR
 		rgbGen lightingDiffuse
 	}
- 	{
-        		map models/players/han_solo/hair_s
-       		 blendFunc GL_SRC_ALPHA GL_ONE
-      		  detail
-       		 alphaGen lightingSpecular
-	}
 	}
 
 
