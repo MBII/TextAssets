@@ -1,96 +1,123 @@
-//Legends Mode character file - Created by Frenzy & Leos
-
 ClassInfo
 {
-	  name  		"_V_B3_Thug"
-	  weapons    	WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE
-	  attributes  	MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,3|MB_ATT_THERMALS,1|MB_ATT_DISRUPTOR,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_TRACKING_DART,2|MB_ATT_FP_MIRALUKA
-	  ClassFlags	CFL_FASTHACKING
-	  maxhealth 	100
-	  maxarmor  	80
+	name				"_V_B3_Thug"
+	weapons				WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_BOWCASTER|WP_TRIP_MINE|WP_SABER
+	attributes			MB_ATT_BLASTER,3|MB_ATT_BOWCASTER,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,1|MB_ATT_ASSEMBLE,1|MB_ATT_TRIP_MINES,1|MB_ATT_DODGE,2|MB_ATT_DASH,1|MB_ATT_GRAPPLE_HOOK,1
+	maxhealth			60
+	maxarmor			60
+	extralives			2
+	
+	forcepool       5
+	classflags			CFL_BPFREEJUMPS
+	MBClass			MB_CLASS_CLONETROOPER
+	classNumberLimit	2
+	modelscale          1.045
+	speed              1.02
+	
+	APmultiplier		.9	
+	BPmultiplier		.8
+	saberstyle  		SS_MEDIUM|SS_STRONG
+	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	saber1				vibroaxe_new_legends 
+	saber1_1				short_vibroaxe_legends
 
-	  forcepowers FP_SEE,1
-	  forcepool 25
-	  
-	  model 		"4lom"
-	  skin  		"default"
-	  uishader  	"models/players/4lom/mb2_icon_default"
-	  
-	  model_1			"dengar"
-	  skin_1			"default"
-	  uishader_1	"models/players/dengar/mb2_icon_default"
+	WP_BOWCASTERflags HELD_HIGHDAMAGE|HELD_ALTRELOAD
+	
+	gloatAnim       BOTH_VICTORY_FAST
+	
+	model			"weequay" 				
+	skin			"default"					
+	uishader		"models/players/weequay/mb2_icon_default_jab"
+	
+	model_1				"gran"
+	skin_1				"default"
+	uishader_1			"models/players/gran/mb2_icon_default"
+	
+	model_2				"gran"
+	skin_2				"jk"
+	uishader_2			"models/players/gran/mb2_icon_jk"
+	
+	model_3			"weequay"				
+	skin_3			"rgb_abyssin"					
+	uishader_3		"models/players/weequay/mb2_icon_rgb_abyssin"
+	
+	model_4			"weequay" 				
+	skin_4			"nikto"					
+	uishader_4		"models/players/weequay/mb2_icon_nikto"
 
-	  model_2			"bounty_hunter"
-	  skin_2			"default"
-	  uishader_2	"models/players/bounty_hunter/mb2_icon_default"
-
-	 model_3				"mayfeld" 					
-	skin_3			"default"						
-	uishader_3			"models/players/mayfeld/mb2_icon_default"
-
-	  
-	  MBClass 			MB_CLASS_BOUNTY_HUNTER
-	  classNumberLimit  1
-	  rateoffire		0.92
-	  speed          	 0.99
-	  modelscale  		0.97
-	  
-	  damageTaken 		0.9
-	  
-	  respawnCustomTime 50000
-	  special2			EAS_HI_TRACKER
+	model_5		    "human_merc" 				
+	skin_5			"kaleesh"			
+	uishader_5		"models/players/human_merc/mb2_icon_kaleesh"
+		
+	respawnCustomTime 15000
+	
+	resource		RESOURCE_STAMINA
+	
+	special1				EAS_HI_DODGE
+	special2				EAS_HI_GRAPPLEHOOK
+	special3				EAS_HI_DASH
 }
 
 WeaponInfo0
 {
-	WeaponToReplace WP_CLONE_RIFLE
-	WeaponBasedOff  WP_CLONE_RIFLE
-	NewWorldModel "models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
-	NewViewModel  "models/weapons2/DLT-19_HeavyBlaster/riflescoped.md3"
-	Icon  "gfx/hud/w_icon_dlt19scoped"
-	WeaponName  "DLT-19"
-	FlashSound0	"sound/weapons/DLT19/fire.wav"	
-	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
-	customAmmo         900
-	FPMult     			0.9
+    WeaponToReplace		WP_BOWCASTER
+    WeaponBasedOff		WP_BOWCASTER
+    NewWorldModel		"models/weapons2/bowcaster/bowcaster_w.glm"
+    NewViewModel		"models/weapons2/bowcaster/bowcaster.md3"
+    FlashSound0			"sound/weapons/kotor/fire_hvy.wav"	 
+    MissileEffect   	"effects/Chewiecaster/shot.efx" 
+    MuzzleEffect    	"effects/Chewiecaster/muzzle_flash.efx" 	
+   	Icon				"gfx/hud/w_icon_bowcaster" 
+    WeaponName			"Two-shot Bowcaster"
+    clipSize			4
+    CustomAmmo			60
 }
-
-ForceInfo0
+	
+WeaponInfo1
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon				"gfx/hud/w_icon_thugblades" 	//Required: Weapon change icon
+	WeaponName			"Vibro Axe"    					//Required: Weapon change display name
 }
 
+description			"Archetype: Mercenary Thug
 
-description	"Archetype: The Mercenary Shooter 
-
-Class: Bounty Hunter.
+Class: Clone Trooper.
 Class Summary:
-A high speed supressive fire class with a long-range sniper and area-control tools. 
+A multi-life hybrid melee class with mid-range blaster, powerful two-shot bowcaster, trip mines and a concussion grenade. 
 
 Weaponry:
-- DLT-19 * 
-- Disruptor Rifle (2)
-- Fire Grenade (1)
-- Thermal Detonator (1)
+- E-11 (3)
+- Concussion Grenades (1)
+- Trip Mine (1)
+- Two-shot Bowcaster *
+- Vibro-Axe *
 
 * Special Weapon Descriptions:
---- DLT-19
-- Based on Clone Rifle 
-- Rate of fire between Clone Rifle level 2 and 3
-- Ion Blobs (3)
-- Concussion blobs (3)
+--- Vibro-Axe
+- Defense (1)
+- Can block lightsabers
+- Cannot block blaster shots
+- Can use Yellow and Red styles
+- Can slap 
+- Comes in short and long-handled variations. The long-handled version has greater reach, but the short handled variant has faster swing speed.
+--- Two-shot Bowcaster
+- Based on Bowcaster level (1)
+- Deals twice the damage
+- Limited to two shots per clip
+- Clip style reload
 
 Attributes:
-- Magnetic Plating
-- Blast Armor
-- Recharging Shields (1)
-- Radar Scanner
-- Fast Hacking
+- Reinforcements (2)
+- Strength (1)
+- Assemble
 
 Abilities:
-- Tracking Darts (2) [Class Special 2]
+- Dodge (2) [Class Special 1]
+- Grappling Hook (1) [Class Special 2]
+- Dash (1) [Class Special 3]
 
-Mercenaries worked as guns-for-hire -- The right amount of credits could get any job done."
+Mercenaries served mostly as a gun-for-hire."
