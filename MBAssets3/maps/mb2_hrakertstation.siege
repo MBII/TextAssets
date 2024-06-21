@@ -5,6 +5,23 @@ Teams
 	team1 Republic
 	team2 InsaneSelkath
 }
+LevelshotDesc
+{
+    desc1
+    {   
+        text "All Selkath and defensive systems in the Hrakert Rift have gone insane. The station is overrun with mad Selkath and malfunctioning machinery. All emergency hatches are locked except one; this may be our only escape route to find the Star Map."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "Aaargh! Intruders! The Republic has sent more mercenaries! The survivors must not escape the station! Kill them! Kill them all! Aaargh!"
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
 
 mapgraphic "gfx/mp/mplevels/mb2_hrakertstation/map"
 missionname  "Hrakert Station Escape"
@@ -84,7 +101,8 @@ HelpIcons
 
 Republic
 {
-	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	RequiredObjectives 1
+	Timed 300
 	UseTeam "Hrakert_Republic" 						//Specifies the name of team "theme" to use
 	TeamIcon	"gfx/2d/logos/mb_oldrepublic2"
 	TeamColorOn	"1 0 0 1"
@@ -96,7 +114,7 @@ Republic
 		goalname "Unlock the last airlock"
 		final -1
 		objdesc "ATTACK: Slice the security consoles to unlock the last airlock."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_hrakertstation/obj1"
 	}
 
 	Objective2
@@ -106,7 +124,7 @@ Republic
 		message_team1 ""
 		message_team2 ""
 		objdesc "ATTACK: Get to the last airlock and escape the station."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_hrakertstation/obj2"
 	}
 	
 
@@ -123,7 +141,6 @@ Republic
 InsaneSelkath
 {
 	RequiredObjectives 1
-        Timed 300
 	UseTeam "Hrakert_Selkath"
 	TeamIcon	"gfx/2d/logos/mb_sithempire"
 	TeamColorOn	"0 0 1 1"
@@ -132,22 +149,22 @@ InsaneSelkath
 	Objective1
 	{
 		goalname "Defend the security consoles."
-		final -1
+		final 0
 		message_team1 ""
 		message_team2 ""
 		objdesc "DEFEND: Stop the survivors from slicing the consoles."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_hrakertstation/obj1"
 	}
 
 
 	Objective2
 	{
 		goalname "Stop the intruders from escaping. "
-		final -1
+		final 0
 		message_team1 ""
 		message_team2 ""
 		objdesc "DEFEND: Stop the survivors from escaping the station."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_hrakertstation/obj2"
 	}
 	
 	
