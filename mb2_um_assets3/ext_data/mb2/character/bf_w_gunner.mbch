@@ -3,30 +3,30 @@
 
 ClassInfo
 {
-	name			"bf_w_gunner"
-	weapons			WP_MELEE|WP_SHOTGUN|WP_BLASTER_PISTOL
-	maxhealth		300
-	maxarmor		0
-	model			"wookieev2"
-	skin			"default4"
-	attributes		MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_SHOTGUN|MB_ATT_PISTOL|MB_ATT_FLIPKICK,1
-	classflags 		CFL_HEAVYMELEE|CFL_BLOODYMELEE|CFL_RUNFASTMELEE
-	uishader		"models/players/wookieev2/mb2_icon_default4"
-	MBClass			MB_CLASS_WOOKIE
-	classNumberLimit	6
-	damageTaken		0.01
-	forcepowers		FP_LEVITATION,1
-	forcepool		8
-	forcepowers		FP_SABER_OFFENSE,3
-	WP_BlasterPistolFlags	HELD_ALTRELOAD	
-	WP_SHOTGUNFlags 	HELD_ALTRELOAD
-	idleAnim	BOTH_RIGHTHANDCHOPPEDOFF
-	gloatAnim	BOTH_STAND10
-	flourishAnim BOTH_VT_ATF_G
-	tauntAnim	BOTH_VT_ATR_S
-	bowAnim		BOTH_FORCE_PROTECT_FAST
-	//meditateAnim	BOTH_DEATHBACKWARD2
-	meditateAnim	BOTH_RUNBACK_STAFF
+	name					"bf_w_gunner"
+	weapons					WP_MELEE|WP_SHOTGUN|WP_BOWCASTER
+	maxhealth				300
+	maxarmor				0
+	model					"wookieev2"
+	skin					"default4"
+	attributes				MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_SHOTGUN,2|MB_ATT_FLIPKICK,1|MB_ATT_BOWCASTER,1
+	classflags 				CFL_HEAVYMELEE|CFL_BLOODYMELEE|CFL_RUNFASTMELEE
+	uishader				"models/players/wookieev2/mb2_icon_default4"
+	MBClass					MB_CLASS_WOOKIE
+	classNumberLimit		6
+	damageTaken				0.01
+	special2			EAS_HI_BARGE
+	resource      			RESOURCE_ENERGY
+	forcepool				1
+	WP_BOWCASTERFlags		HELD_ALTRELOAD
+	WP_SHOTGUNFlags 		HELD_ALTRELOAD|HELD_HIGHDAMAGE
+	//idleAnim				BOTH_RIGHTHANDCHOPPEDOFF
+	gloatAnim				BOTH_STAND10
+	flourishAnim 			BOTH_VT_ATF_G
+	tauntAnim				BOTH_VT_ATR_S
+	bowAnim					BOTH_FORCE_PROTECT_FAST
+	//meditateAnim			BOTH_DEATHBACKWARD2
+	meditateAnim			BOTH_RUNBACK_STAFF
 }
 
 WeaponInfo0
@@ -35,47 +35,48 @@ WeaponInfo0
 	WeaponBasedOff		WP_SHOTGUN
 	NewWorldModel		"models/weapons2/css_wep/m3super90.glm"
 	NewViewModel		"models/weapons2/css_wep/m3super90.md3"
-	Icon			"models/weapons2/css_wep/m3super90.png"
-	WeaponName		"Shotgun"
+	Icon				"models/weapons2/css_wep/m3super90.png"
+	WeaponName			"Shotgun"
 	MuzzleEffect		"halo_shotgun/Muzzle_Flash"
 	MissileEffect		"halo_shotgun/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"sound/css_wep/m3super90_fire.wav"
-	SelectSound		"sound/css_wep/buttonclickrelease.wav"
-	customAmmo		220
-	clipSize  44
+	MissileMissEffect	"halo_smg/wall_impact"
+	FlashSound0			"sound/css_wep/m3super90_fire.wav"
+	SelectSound			"sound/css_wep/buttonclickrelease.wav"
+	customAmmo			120
+	clipSize  			24
 	primHitscanShot		1
 	primHitscanTracer	10
 	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	ReloadTimeModifier 1.25
+	primGore			1
+	altGore				1
+	ReloadTimeModifier 	1.25
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponToReplace		WP_BOWCASTER
 	WeaponBasedOff		WP_BLASTER_PISTOL
 	NewWorldModel		"models/weapons2/css_wep/usp.glm"
 	NewViewModel		"models/weapons2/css_wep/usp.md3"
 	Icon				"models/weapons2/css_wep/usp.png"
-	WeaponName		"Pistol"
+	WeaponName			"Pistol"
 	MuzzleEffect		"halo_pistol/Muzzle_Flash"
 	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
 	MissileEffect		"halo_pistol/shot"
 	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"sound/css_wep/usp_fire.wav"
-	SelectSound		"sound/css_wep/buttonclickrelease.wav"
-	customAmmo		216
-	clipSize  32
+	MissileMissEffect 	"halo_smg/wall_impact"
+	FlashSound0			"sound/css_wep/usp_fire.wav"
+	SelectSound			"sound/css_wep/buttonclickrelease.wav"
+	customAmmo			24
+	clipSize  			8
 	primHitscanShot		1
 	primHitscanTracer	10
 	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim  BOTH_VT_IDLE
-	firingAnim	MAND_SPISTOL_FIRE
+	primGore			1
+	altGore				1
+	idleAnim  			BOTH_VT_IDLE
+	firingAnim			MAND_SPISTOL_FIRE
+	ReloadTimeModifier 		1.1
 }
 
 description	"Wookiee Gunner
@@ -87,8 +88,8 @@ Pistol
 
 Attributes:
 Strength (1)
-Fury (2)
-Flipkick [Tip: You can climb blocks by using this wisely]
+Barge
+Flipkick (1) [Tip: You can climb blocks by using this wisely]
 Firearms proficiency
 
 Wookiee Gunners were known for kicking people's fucking asses
