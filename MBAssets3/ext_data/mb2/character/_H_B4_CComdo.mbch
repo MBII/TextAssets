@@ -4,9 +4,9 @@ ClassInfo
 {
 	name					"_H_B4_CComdo"
 	weapons					WP_SABER|WP_MELEE|WP_BLASTER|WP_PROJ|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_FRAG_NADE
-	attributes				MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_FRAGS,2|MB_ATT_DASH,1
-	maxhealth				125
-	maxarmor				30
+	attributes				MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_FRAGS,2|MB_ATT_DASH,1
+	maxhealth				70
+	maxarmor				50
 	saber1 					"arc_shiv_legends"
 	saberstyle				SS_TAVION
 	MBClass					MB_CLASS_CLONETROOPER
@@ -17,7 +17,7 @@ ClassInfo
 	classNumberLimit		1
 	DamageTaken				0.90
 
-	WP_BLASTERflags			HELD_ALTRELOAD	
+	WP_BlasterFlags			HELD_ALTRELOAD	
 	
 	resource		RESOURCE_STAMINA
 	forcepool	100
@@ -27,7 +27,7 @@ ClassInfo
 	special3	EAS_HI_DEX
 	special4	EAS_HI_GRAPPLEHOOK
 	
-	saberStanceAnim			BOTH_STAND9
+	saberStanceAnim		BOTH_STAND9
 	tauntAnim			BOTH_VICTORY_FAST
 	gloatAnim			BOTH_MELEE_SPINKICK
 	flourishAnim		both_stand9idle1
@@ -59,16 +59,16 @@ WeaponInfo0
 	WeaponBasedOff		WP_BOWCASTER
 	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
 	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
-	FlashSound0		"sound/weapons/dc17m/fire.wav"
-	AltFlashSound0 	"sound/weapons/dc17m/fire.wav"
+	FlashSound0			"sound/weapons/dc17m/fire.wav"
+	AltFlashSound0 		"sound/weapons/dc17m/fire.wav"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
 	MissileEffect		"blaster/Shot01B"
 	AltMissileEffect 	"blaster/Shot01B"
 	Icon				"gfx/hud/w_icon_dc-17mB"
-	WeaponName			"DC-17M Repeating Blaster Rifle"
-	customAmmo 			900
-	clipSize			180
+	WeaponName			"DC-17M Blaster Carbine"
+	customAmmo 			600
+//	clipSize			180
 	primFireEnabled			0
 	firingAnim  		BOTH_ATTACK3
 	ReloadTimeModifier 	1.5
@@ -78,8 +78,8 @@ WeaponInfo1
 {           
 	WeaponToReplace        WP_SABER
 	WeaponBasedOff         WP_SABER
-	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	
 	Icon             	"gfx/hud/w_icon_arc_shiv"
 	WeaponName			"Wrist Shiv"
 }
@@ -103,56 +103,61 @@ WeaponInfo2
 
 WeaponInfo3
 {
-	WeaponToReplace	WP_BLASTER_PISTOL
-	WeaponBasedOff	WP_CLONE_PISTOL
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_CLONE_PISTOL
 	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
 	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
 	Icon				"gfx/hud/w_icon_clonepistol"
-	WeaponName		"DC-15s Pistol"	
-	FlashSound0		"sound/weapons/demp2/fire.mp3"
-	AltFlashSound0 	"sound/weapons/demp2/altfire.mp3"
+	WeaponName			"DC-15S Blaster Carbine"	
+	FlashSound0			"sound/weapons/demp2/fire.mp3"
+	AltFlashSound0 		"sound/weapons/demp2/altfire.mp3"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect	"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
 	MissileEffect		"Blaster/Shot01B"
-	Missile3Effect	"Blaster/Shot04B"
+	Missile3Effect		"Blaster/Shot04B"
 	AltMissileEffect	"Blaster/Shot04B"
 	PowerupShotEffect	"Blaster/Shot04B"
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
 	clipSize			5
 	ReloadTimeModifier 	1.5
-	customammo 900
+	customammo 			400
 }
 
 description	"Archetype: Delta Squad Clone Commando
 
 Class: Clone Trooper
 Brief Overview: 
-A speedy, dexterous gunner with versatile tools designed to meet any challenge. 
+A speedy, dexterous gunner with a fast overall rate of fire and versatile tools designed to meet any challenge. 
 
 ^2Weaponry:
 - Melee
 - Wrist Shiv
 -- Cyan/Purple styles
 -- Cannot block blasters/sabers
-- DC-15S Pistol
--- Based on Pistol level (1)
+-- 20% less damage
+- DC-15S Blaster Carbine
+-- Based on Pistol (1)
+-- 50% slower reload
 -- 5 shots per clip
 - DC-17M Repeating Blaster Rifle
 -- Based on E-11 (2)
 -- Primary fire disabled
+-- 50% slower reload
 -- Magazine-style reload
 - Frag Grenades (2)
 - EMP Grenades (2)
 - DC-17M Sniper Attachment
 -- Based on Projectile Rifle
+-- 20% slower reload
+-- 10% higher FP damage
 -- 5 shots total
 
 ^8Attributes:
 - Stamina (3)
 - Dexterity (1)
+- Blast Armor
 - Healing (2)
 - Shield Recharge (1)
-- Blast Armor
 
 ^3Abilities:
 - Sprint [Class Special 1]
