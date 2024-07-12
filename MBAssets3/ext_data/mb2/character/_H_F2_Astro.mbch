@@ -10,6 +10,7 @@ ClassInfo
 	maxarmor			20
 	modelscale			0.85
 	MBClass				MB_CLASS_MANDALORIAN
+	WP_MeleeFLAGS		HELD_LOWDAMAGE
 	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_EXTRAFLAMEDAMAGE|CFL_NOLOCATIONALDAMAGE
 	forcepowers			FP_LIGHTNING,1|FP_SEE,1
 	forcepool			90
@@ -20,7 +21,9 @@ ClassInfo
 	damageTaken 0.8
 	damageGiven 1.15
 	
-	meleeMoves			M_JUMPKICK
+	meleeMoves			M_JUMPKICK|M_KATA
+	
+	tauntanim BOTH_T4_BR_BL
 	
 	model			"r2-d2" 				
 	skin				"default"					
@@ -32,18 +35,18 @@ ClassInfo
 	
 	respawnCustomTime 40000
 }
-WeaponInfo0
-{
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/forcepowers/AnnoyingBastard"
-	WeaponName		"Null Weapon Slot"
-	primFireEnabled		1
-	AltFireEnabled 		0
-}
 
+//WeaponInfo0
+//{
+//	WeaponToReplace		WP_MELEE
+//	WeaponBasedOff		WP_MELEE
+//	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+//	NewViewModel		"models/weapons2/dummy/dummy.md3"
+//	Icon			"gfx/forcepowers/AnnoyingBastard"
+//	WeaponName		"Jump Kick"
+//	primFireEnabled		1
+//	AltFireEnabled 		1
+//}
 
 ForceInfo0
 {
@@ -65,23 +68,28 @@ Class: Mandalorian
 Brief Overview: 
 A speedy flanker with jet boosters, regenerating armor and numerous gadgets. Immune to Force Push/Pull.
 
-^2Weaponry (toggled via weapon mode):
-- Recharging Mini-Blaster [CS2]
-- Extra Powerful Flamethrower [CS2]
-- Headbutt (Flipkick 2)
-- Shock Probe
--- Based on Force Lightning (1)
--- Must be used with Wrist Blaster enabled
+^3Weaponry:
+- Light Limited Melee
+-- Push (Kick)
+-- Body Slam (Jump Kick)
+-- Nudge (Kata)
 
 ^8Attributes:
-- Damage taken ignores locational differences
-- Melee Damage Resistance
-- Self-Repair (Armor Regeneration 1)
-- Radar Scanner (Passive Sense 1)
 - Strength (2)
+- Damage taken ignores locational differences
+- 50% Melee damage resist.
+- Self-Repair (Armor Regen 1)
+- Radar Scanner (Passive Force Sense 1)
+
+^3Abilities:
 - Jet Boosters (Jetpack)
--- Fuel (1) with regeneration
--- No jetpackcooldown
+-- Fuel (1)
+-- Fuel Regen (2)
+- Recharging Mini-Blaster ^3[CS2*]
+- Super Flamethrower ^3[CS2*]
+- Shock Probe (Force Lightning 1)
+- Headbutt (Flipkick 2) [Double-jump off players/surfaces]
+[*Mode switch]
 
 ~ R2-D2 'Artoo': His bravery, coupled with his many gadgets, played a role in saving the galaxy for more than a century. Served Padme Amidala, Anakin Skywalker, and Luke Skywalker.
-~ C1-10P 'Chopper': A member of the Spectres, a rebel cell led by the Twi'lek captain Hera Syndulla and the Jedi Kanan Jarrus."
+~ C1-10P 'Chopper': A member of the Spectres, a Rebel cell led by the Twi'lek captain Hera Syndulla and the Jedi Kanan Jarrus."
