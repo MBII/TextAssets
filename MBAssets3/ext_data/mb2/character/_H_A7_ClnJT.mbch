@@ -16,13 +16,12 @@ ClassInfo
 	speed				1.06
 	jetpackJetTag			*jet1
 	jetpackJet2Tag		*jet2
-	WP_RocketLauncherFlags 		HELD_KNOCKDOWN|HELD_ALTRELOAD|HELD_SLOWPROJ|HELD_PULSE|HELD_HIGHDAMAGE
+	WP_RocketLauncherFlags HELD_KNOCKDOWN|HELD_ALTRELOAD|HELD_PULSE|HELD_HIGHDAMAGE|HELD_SLOWPROJ
 	modelscale      		1.02
 	
 	rateOfFire      0.97
-	
-	special1		EAS_HI_QUICKTHROW
 	special2		EAS_HI_FLAME
+	special3		EAS_HI_QUICKTHROW
 
 	model				"clonetrooper_p2"
 	skin				"501_jetpack_rgb"
@@ -44,10 +43,11 @@ WeaponInfo0
 	MissileMissEffect        "Grenades/EXP_Alt"
     MissileHitHumanEffect    "Grenades/EXP_Alt"
     MissileHitDroidEffect    "Grenades/EXP_Alt"
-	FlashSound0			"sound/weapons/rocket/alt_fire.mp3" 	
-	NewWorldModel		"models/weapons2/t-21/t-21_w.glm"
-	NewViewModel		"models/weapons2/t-21/t-21.md3"
-	Icon			"gfx/hud/w_icon_t-21"
+	NewWorldModel		"models/weapons2/merr_sonn/merr_sonn_w.glm"
+	NewViewModel		"models/weapons2/merr_sonn/merr_sonn.md3"
+	NewBarrelModel	    "models/weapons2/merr_sonn/merr_sonn_barrel.md3"
+	NewHandsModel		"models/weapons2/merr_sonn/merr_sonn_hand.md3"
+	Icon				"gfx/hud/w_icon_merrsonn"
 	WeaponName		"Merr-Sonn EMP Rocket Launcher"
 	clipSize 	1
 	CustomAmmo 	4
@@ -58,7 +58,7 @@ description	"Clone Jet Trooper
 
 Class: Mandalorian
 Brief Overview:
-A two-life jetpack user with a clone rifle, blobs, and an EMP rocket launcher.
+A two-life jetpack user with a clone rifle, blobs, and an EMP rocket launcher with homing capabilities.
 
 ^2Weaponry:
 - Melee
@@ -67,7 +67,9 @@ A two-life jetpack user with a clone rifle, blobs, and an EMP rocket launcher.
 -- Concussion Blob (1)
 -- Ion Blobs (3)
 - Merr-Sonn EMP Rocket Launcher
--- Electrocutes/knocks down targets
+-- Displaces and electrocutes targets based on explosion proximity
+-- Sec. fire: Shoots slow rocket
+-- Sec. fire hold while targeting: Shoots fast homing rocket
 -- 100% more damage
 -- 75% slower projectiles
 -- 20% slower reload
@@ -80,7 +82,8 @@ A two-life jetpack user with a clone rifle, blobs, and an EMP rocket launcher.
 
 ^3Abilities:
 - Jetpack
-- Quick Throw (1) ^3[CS1 outside of Grenades]
 - Wrist Flamethrower ^3[CS2] 
+- Quick Throw (1) ^3[CS3*]
+[*When not holding a Grenade]
 
 Clone jetpack troopers were a variant of clone trooper trained for aerial combat."
