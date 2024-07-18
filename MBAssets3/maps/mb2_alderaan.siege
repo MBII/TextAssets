@@ -78,47 +78,105 @@ HelpIcons
 		specicon HLP_NONE
 		sideobjective 1
 	}
-	
-	//Main Bomb Hack
-	HelpIcon10
+
+	//bomb - dropped icon
+	HelpIcon3
 	{
-		end0 "baybomb_planted"
+		end0 "bomb_planted"
+		end1 "t2"
+		dynamic 1
+		redicon HLP_ITEM_PICKUP
+		blueicon HLP_NONE
+		specicon HLP_ITEM
+	}
+	
+	//bomb - carried icon
+	HelpIcon4
+	{
+		end0 "bomb_planted"
+		end1 "t2"
+		dynamic 1
+		redicon HLP_ITEM
+		blueicon HLP_NONE
+		specicon HLP_ITEM
+	}
+	
+	//bomb - planting zones
+	HelpIcon5
+	{
+		end0 "bomb_planted"
+		end1 "t2"
+		dynamic 1
+		redicon HLP_ITEM_DROPOFF
+		blueicon HLP_NONE
+		specicon HLP_NONE
+	}
+	
+	//site A - defend
+	HelpIcon6
+	{
+		end0 "t4"
 		end1 "bomb_planted"
-		origin "96 -1844 32"
-		redicon HLP_DEFEND
-		blueicon HLP_HACK
+		origin "312 4464 -224"
+		redicon HLP_NONE
+		blueicon HLP_DEFEND
 		specicon HLP_DEFEND
 	}
-	//Main Bomb Defuse
-	HelpIcon11
+	
+	//site A - arm
+	HelpIcon7
 	{
-		start0 "baybomb_planted"
-		end0 "baybomb_defused"
-		origin "96 -1844 32"
+		start0 "t2"
+		end0 "t4"
+		origin "312 4464 -224"
 		redicon HLP_HACK
-		blueicon HLP_DEFEND
+		blueicon HLP_NONE
+		specicon HLP_NONE
+	}
+	
+	//site A - defuse
+	HelpIcon8
+	{
+		start0 "t4"
+		end0 "t5"
+		end1 "t7"
+		origin "312 4464 -224"
+		redicon HLP_DEFEND
+		blueicon HLP_HACK
 		specicon HLP_HACK
 	}
 	
-	//Alt Bomb Hack
-	HelpIcon12
+	//site B - defend
+	HelpIcon9
 	{
-		start0 "impshax"
-		end0 "baybomb_planted"
-		end1 "bomb_planted"
-		origin "1328 -1736 68"
-		redicon HLP_DEFEND
-		blueicon HLP_HACK
+		end0 "bomb_armed"
+		end1 "t2"
+		origin "2496 2424 -224"
+		redicon HLP_NONE
+		blueicon HLP_DEFEND
 		specicon HLP_DEFEND
 	}
-	//Alt Bomb Defuse
-	HelpIcon13
+	
+	//site B - arm
+	HelpIcon10
 	{
 		start0 "bomb_planted"
-		end0 "bomb_defused"
-		origin "1328 -1736 68"
+		end0 "bomb_armed"
+		origin "2496 2424 -224"
 		redicon HLP_HACK
-		blueicon HLP_DEFEND
+		blueicon HLP_NONE
+		specicon HLP_NONE
+	}
+	
+	//site B - defuse
+	HelpIcon11
+	{
+		start0 "bomb_armed"
+		end0 "imp_win"
+		end1 "rebel_win"
+		origin "2496 2424 -224"
+		redicon HLP_DEFEND
+		blueicon HLP_HACK
 		specicon HLP_HACK
 	}
 }
@@ -135,20 +193,42 @@ Rebels
 
 	Objective1
 	{
-		goalname "Stop the Imperials from blowing up the cargo."
-		final 0
-		message_team1 "Supplies have been shipped to the alliance."
-		message_team2 " have been shipped to the alliance."
-		objdesc " Stop the Imperials from blowing up the cargo."
-		objgfx "gfx/mplevels/mb2_alderaan/obj"
+		goalname "Plant the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Pick up the explosive from the Entrance and plant it at one of the two bomb sites."
+		
 	}
+	
+	Objective2
+	{
+		goalname "Arm the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Arm the planted explosive."
+		
+	}
+	
+	Objective3
+	{
+		goalname "Defend the Bomb"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Prevent the Imperials from defusing the bomb."
+		objgfx "gfx/mplevels/mb2_alderaan/obj"
+		
+	}
+
 
 	wonround " Supplies have been shipped to the alliance."
 	lostround "We lost our supplies..."
 	roundover_sound_wewon ""
 	roundover_sound_welost ""
 	roundover_target "roundover"
-	attackers 1
+	attackers 0
 	briefing "Protect the supplies."
 }
 
@@ -163,13 +243,35 @@ Imperials
 
 	Objective1
 	{
-		goalname "Blow up Rebels' supplies."
-		final 0
-		message_team1 "Rebels' supplies have been blown up."
-		message_team2 " Rebels' supplies have been blown up."
-		objdesc "Prevent Rebels' from shipping their supplies to Alliance"
-		objgfx "gfx/mplevels/mb2_alderaan/obj"
+		goalname "Stop them Planting the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop the Rebels from planting the explosive at one of the two bomb sites."
+		
 	}
+	
+	Objective2
+	{
+		goalname "Stop them Arming the Explosive"
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Stop the Rebels from arming the planted explosive."
+		
+	}
+	
+	Objective3
+	{
+		goalname "Defuse the Bomb"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defuse the bomb before it explodes."
+		objgfx "gfx/mplevels/mb2_alderaan/obj"
+		
+	}
+
 
 	wonround "Rebels' supplies have been blown up."
 	lostround "We have failed to blow up their supplies..."
