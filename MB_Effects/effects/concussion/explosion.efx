@@ -1,0 +1,667 @@
+Emitter
+{
+	name				Implosion
+
+	flags				useModel
+
+	life				1000
+
+	delay				100
+
+	rotation			0 360
+
+	angleDelta			0 0 0 360 180 90
+
+	size
+	{
+		start			5
+		end				0
+		parm			30
+		flags			linear nonlinear
+	}
+
+	models
+	[
+		models/weapons2/concussion/explosive_sphere.md3
+	]
+}
+
+Particle
+{
+	name				Baseflare
+
+	count				3
+
+	life				1000
+
+	delay				100
+
+	rotation			0 360
+
+	rotationDelta		-30 40
+
+	rgb
+	{
+		start			1 1 1 1 0.7098 0.4431
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			100 150
+		end				4 6
+		parm			20
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/energyball
+		gfx/effects/forceflare
+		gfx/effects/forcePush
+	]
+}
+
+Particle
+{
+	name				Charge
+
+	count				1 2
+
+	life				500 600
+
+	rotation			0 360
+
+	rgb
+	{
+		start			0.651 0.7922 0.9412
+		end				0 0 0.6275
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		parm			3
+		flags			linear
+	}
+
+	size
+	{
+		start			80 70
+		end				175 150
+		parm			50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+	]
+}
+
+Particle
+{
+	name				Shell
+
+	life				100
+
+	rgb
+	{
+		start			0.4745 0.6588 1
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		end				175 150
+		parm			30
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}
+
+Particle
+{
+	name				OuterShell
+
+	life				1000
+
+	delay				100
+
+	rgb
+	{
+		start			0.4745 0.6588 1
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			175 150
+		parm			30
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}
+
+Light
+{
+	name				Illumination
+
+	life				950
+
+	rgb
+	{
+		start			0.502 0.502 1
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			350
+		end				100
+		flags			linear
+	}
+}
+
+Decal
+{
+	name				Impactmark
+
+	rotation			0 360
+
+	size
+	{
+		start			20 25
+	}
+
+	shaders
+	[
+		gfx/damage/projmark2
+		gfx/damage/shrapmark
+		gfx/effects/scorch_mp
+	]
+}
+
+OrientedParticle
+{
+	name				Shocky
+
+	life				500
+
+	delay				1050
+
+	rgb
+	{
+		start			0.9922 0.7961 0.651 0.9843 0.6549 0.4078
+		end				0.9843 0.4863 0.2745 0.9686 0.4431 0.2157
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1 0.2
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		end				250 300
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}
+
+Particle
+{
+	name				Shockwave
+
+	life				500
+
+	delay				1050
+
+	rgb
+	{
+		start			0.9922 0.7961 0.651 0.9843 0.6549 0.4078
+		end				0.9843 0.4863 0.2745 0.9686 0.4431 0.2157
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1 0.2
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		end				250 300
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/gcircle
+	]
+}
+
+Particle
+{
+	name				Explosion
+
+	life				500
+
+	delay				1050
+
+	rgb
+	{
+		end				0.9765 0.3333 0.02353 0.702 0 0
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			280 320
+		end				80 120
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/colflare
+	]
+}
+
+Particle
+{
+	name				Flare Core
+
+	life				500
+
+	delay				1050
+
+	rgb
+	{
+		start			0.9961 0.9922 0.8039
+	}
+
+	alpha
+	{
+		start			0.6 0.8
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			260 270
+		end				80 120
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/sabers/Flare02
+	]
+}
+
+Particle
+{
+	name				Flare Stream Additive
+
+	life				500
+
+	delay				1050
+
+	rotation			-360 360
+
+	rgb
+	{
+		start			0.9882 0.9765 0.4863
+	}
+
+	alpha
+	{
+		start			0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			300 320
+		end				120 150
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/sabers/Flare03
+	]
+}
+
+Particle
+{
+	name				Flare Additive
+
+	life				500
+
+	delay				1050
+
+	rgb
+	{
+		start			0.9961 0.9922 0.8039 0.9922 0.9804 0.5098
+		end				0.9961 0.9922 0.8392
+	}
+
+	alpha
+	{
+		start			0.6
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			250 270
+		end				80 100
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/sabers/Flare02
+	]
+}
+
+Particle
+{
+	name				Flare Stream core
+
+	count				2
+
+	life				500
+
+	delay				1050
+
+	rotation			-360 360
+
+	rgb
+	{
+		start			1 1 0
+	}
+
+	alpha
+	{
+		start			0.2 0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			320 340
+		end				70 80
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/sabers/Flare03
+	]
+}
+
+Flash
+{
+	name				Flash
+
+	life				120
+
+	delay				1050
+
+	cullrange			800
+
+	rgb
+	{
+		end				0 0.5216 1 0.5804 0.7255 0.9961
+	}
+
+	alpha
+	{
+		parm			80
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlare
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	life				500 800
+
+	intensity			3 5
+
+	radius				300 400
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	flags				useAlpha
+
+	spawnFlags			orgOnSphere axisFromSphere
+
+	count				15 20
+
+	life				1300 1500
+
+	delay				1050
+
+	origin				-5 -5 -5 5 5 5
+
+	height				20
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	velocity			-5 -15 -15 50 15 15
+
+	acceleration		-10 -10 -10 10 10 10
+
+	gravity				-50 50
+
+	rgb
+	{
+		start			0 0 0 0 0 0.1765
+		end				0.7529 0.7529 0.7529 1 1 1
+		parm			60
+		flags			linear nonlinear
+	}
+
+	alpha
+	{
+		end				0
+		parm			60 75
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			20 30
+		end				50 70
+		parm			10 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+		gfx/effects/alpha_smoke2
+		gfx/effects/WcloudA
+	]
+}
+
+Particle
+{
+	name				ExplodingAir
+
+	count				20
+
+	life				300 500
+
+	delay				1050
+
+	rotation			0 360
+
+	rotationDelta		-4 4
+
+	velocity			0 -25 -25 20 25 25
+
+	acceleration		0 0 2 4 0 8
+
+	gravity				0 40
+
+	rgb
+	{
+		start			0.5804 0.7255 0.9961 0.651 0.7922 0.9412
+		end				0.5804 0.7255 0.9961 1 1 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1
+	}
+
+	size
+	{
+		start			3 4
+		end				250 300
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+		gfx/misc/steam2
+	]
+}
+
+Light
+{
+	name				Light
+
+	life				700 750
+
+	delay				1050
+
+	rgb
+	{
+		start			1 0.6039 0.1686 0.9765 0.3333 0.02353
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			350
+		end				100
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Copy of Shake
+
+	life				800 1000
+
+	delay				1000
+
+	intensity			7 9
+
+	radius				300 400
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/weapons/concussion/explosion.wav
+	]
+}
+
+Decal
+{
+	name				Burnmark
+
+	delay				1050
+
+	rotation			0 360
+
+	size
+	{
+		start			60 70
+	}
+
+	shaders
+	[
+		gfx/damage/explosionmark1
+		gfx/damage/explosionmark2
+		gfx/damage/explosionmark3
+	]
+}
