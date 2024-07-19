@@ -4,24 +4,24 @@
 ClassInfo
 {
 	name				"_H_E7B_Crshair"
-	weapons				WP_SABER|WP_MELEE
-	attributes			MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_RALLY|MB_ATT_AMMO,3|MB_ATT_ANTI_MT,2|MB_ATT_CLONE_PISTOL,2|MB_ATT_GRAPPLING_HOOK,3|MB_ATT_FP_SABER_DEFENSE,0
-	forcepowers     	FP_SEE,3
-	
-	maxhealth			145
-	maxarmor			100
-	
+	weapons				WP_MELEE|WP_CLONE_PISTOL|WP_PULSE_NADE|WP_PROJ|WP_FRAG_NADE
+	attributes			MB_ATT_CLONE_PISTOL,3|MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FLIPKICK,1
+	maxhealth			115
+	maxarmor			115
 	saber1				arc_shiv_legends
-	saberstyle			SS_TAVION
-	
-	MBClass				MB_CLASS_HERO
-	
-	classNumberLimit  	1
-	rateoffire			0.8
-	damagegiven			1.2
+	saberstyle			SS_TAVION|SS_DESANN
+	speed               1.09
+	MBClass				MB_CLASS_ARCTROOPER
+	classNumberLimit	1
 	modelscale      	1.02
-	speed           	1.00
+	rateOfFire      	1
 	damageTaken			0.9
+	damageGiven         1.1
+	
+	holdables				HI_BINOCULARS
+	saberStanceAnim			BOTH_STAND9
+	WP_ProjFlags 			HELD_PULSE
+	WP_CLONEPISTOLFlags     HELD_ALTRELOAD
 	
 	saberStanceAnim		BOTH_STAND9	
 	
@@ -30,6 +30,10 @@ ClassInfo
 	model				"clonerc2"
 	skin				"crosshair"
 	uishader			"models/players/clonerc2/mb2_icon_crosshair"
+	
+	special1		EAS_HI_SPRINT
+	special2		EAS_HI_GRAPPLEHOOK
+	special3		EAS_HI_DEX
 	
 }
 
@@ -54,15 +58,21 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_CLONE_RIFLE
-	NewWorldModel		"models/weapons2/dc-15_ext/dc-15_ext_w.glm"
-	NewViewModel		"models/weapons2/dc-15_ext/dc-15_ext.md3"
-	Icon				"gfx/hud/w_icon_clonerifle_blobs"
-	WeaponName			"DC-15A Blaster Rifle"
+	WeaponToReplace		WP_PROJ					 
+	WeaponBasedOff      WP_CONCUSSION
+	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel  "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+	Icon  "gfx/hud/w_icon_dlt-18"
+	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
+	WeaponName			"Valken-38x Sniper Rifle"    				 
+	CustomAmmo 	24
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"Blaster/Shot10B"
+	fpmult	1.1
+	ReloadTimeModifier 	0.8
 }
 
-WeaponInfo3
+WeaponInfo2
 {
 	WeaponToReplace		WP_BLASTER
 	WeaponBasedOff		WP_BLASTER
@@ -90,15 +100,41 @@ description	"Crosshair
 
 Class: Hero
 Brief Overview:
-SUMMARY HERE
+A dextrous class with powerful dual pistols, electrifying sniper rifle, and grappling hook. 
 
 ^2Default Weaponry:
 - Melee
-- Wrist Shiv 
-- Clone Pistol (1)
+- Wrist Shiv
+- Dual DC-17 Pistols
+-- Extended clip
+-- magazine style reload
+- Valken-38x
+-- Based on Projectile Rifle
+-- stuns on direct hits
+- Frag Grenade (1)
+- Pulse Grenades (2)
 
-^3Default Abilities:
-- Rally
+* Special Weapon Descriptions:
+--- Wrist Shiv
+- Can use Cyan and Purple style
+- Cannot block lightsabers or blasters 
+
+
+^6Inventory:
+- Binoculars
+
+^8Attributes:
+- Heal (2)
+- Shield Regeneration (1)
+- Blast Armor
+
+^3Abilities:
+- Stamina (3) [CS1]
+- Dexterity (3) [CS3]
+--- Flipkick (1)  
+- Double press jump on target for frontal kick, single press for side-kick
+--- Grappling Hook (2) [CS2]
+- Hold Special Ability 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
 "
 
 
