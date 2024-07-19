@@ -62,6 +62,88 @@ models/weapons2/boushh_staff/pike
 
 //	concussion
 
+gfx/damage/explosionmark1
+{
+    polygonOffset
+    q3map_nolightmap
+    sort    decal
+    {
+        map gfx/damage/explosionmark1
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen vertex
+    }
+}
+
+gfx/damage/explosionmark2
+{
+    polygonOffset
+    q3map_nolightmap
+    sort    decal
+    {
+        map gfx/damage/explosionmark2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen vertex
+    }
+}
+
+gfx/damage/explosionmark3
+{
+    polygonOffset
+    q3map_nolightmap
+    sort    decal
+    {
+        map textures/decals/burnmark4
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+        alphaGen vertex
+    }
+    {
+        map gfx/effects/scorch
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen vertex
+    }
+}
+
+gfx/damage/projmark2
+{
+    polygonOffset
+    q3map_nolightmap
+    sort    decal
+    {
+        map gfx/damage/projmark2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen vertex
+    }
+}
+
+gfx/damage/shrapmark
+{
+    polygonOffset
+    q3map_nolightmap
+    sort    decal
+    {
+        map gfx/damage/shrapmark
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen vertex
+    }
+}
+
+
+models/weapons2/concussion/explosive_sphere
+{
+    cull    twosided
+    {
+        map models/weapons2/concussion/explosive_sphere
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        glow
+        tcGen environment
+        tcMod scroll 0.5 2.6
+        tcMod turb 0.6 0.3 0 0.6
+    }
+}
+
+
+// is this out of date now? leaving this here since idk -frenz
 models/weapons2/concussion/silver.jpg
 {
 	{
