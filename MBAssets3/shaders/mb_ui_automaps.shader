@@ -574,6 +574,27 @@ gfx/automap/mb2_dxuntopfull
 	}
 }
 
+gfx/automap/mb2_dxuncliff
+{
+	nopicmip
+	{
+		clampmap gfx/automap/mb2_dxuntop
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+	}
+}
+
+gfx/automap/mb2_dxunclifffull
+{
+	nomipmaps
+	{
+		map gfx/automap/mb2_dxuntopfull
+		blendfunc blend
+		alphaGen vertex
+	}
+}
+
 gfx/mplevels/mb2_dxun/map
 {
     nopicmip

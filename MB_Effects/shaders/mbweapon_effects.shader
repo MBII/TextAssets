@@ -325,6 +325,29 @@ gfx/effects/redLine2
 	}
 }
 
+//conc rifle
+
+
+gfx/effects/energyball
+{
+    cull    twosided
+    {
+        map gfx/effects/energyball
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/effects/forceflare
+{
+    cull    twosided
+    {
+        map gfx/effects/forceflare
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
 
 //	saber clash
 

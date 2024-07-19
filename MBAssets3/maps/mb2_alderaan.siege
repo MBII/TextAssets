@@ -47,136 +47,55 @@ HelpIcons
 	{
 		childradius 800
 		end0 "impshax"
-		end1 "baybomb_planted" // technically still hackable after but no point
+		end1 "bomb_armed" // technically still hackable after but no point
+		end2 "t28"
 		origin "1820 -116 32"
 		redicon HLP_DEFEND_SUB
 		blueicon HLP_HACK_SUB
 		specicon HLP_NONE
 		sideobjective 1
 	}
-	//Imp Side Hack 1
+	
+	//Main Bomb Hack
 	HelpIcon1
 	{
-		parent 0
-		end0 "impshax"
-		end1 "baybomb_planted"
-		origin "1820 -12 0"
-		redicon HLP_DEFEND_SUB
-		blueicon HLP_HACK_SUB
-		specicon HLP_NONE
-		sideobjective 1
-	}
-	//Imp Side Hack 2
-	HelpIcon2
-	{
-		parent 0
-		end0 "impshax"
-		end1 "baybomb_planted"
-		origin "1820 -220 0"
-		redicon HLP_DEFEND_SUB
-		blueicon HLP_HACK_SUB
-		specicon HLP_NONE
-		sideobjective 1
-	}
-
-	//bomb - dropped icon
-	HelpIcon3
-	{
-		end0 "bomb_planted"
-		end1 "t2"
-		dynamic 1
-		redicon HLP_ITEM_PICKUP
-		blueicon HLP_NONE
-		specicon HLP_ITEM
-	}
-	
-	//bomb - carried icon
-	HelpIcon4
-	{
-		end0 "bomb_planted"
-		end1 "t2"
-		dynamic 1
-		redicon HLP_ITEM
-		blueicon HLP_NONE
-		specicon HLP_ITEM
-	}
-	
-	//bomb - planting zones
-	HelpIcon5
-	{
-		end0 "bomb_planted"
-		end1 "t2"
-		dynamic 1
-		redicon HLP_ITEM_DROPOFF
-		blueicon HLP_NONE
-		specicon HLP_NONE
-	}
-	
-	//site A - defend
-	HelpIcon6
-	{
-		end0 "t4"
-		end1 "bomb_planted"
-		origin "312 4464 -224"
-		redicon HLP_NONE
-		blueicon HLP_DEFEND
-		specicon HLP_DEFEND
-	}
-	
-	//site A - arm
-	HelpIcon7
-	{
-		start0 "t2"
-		end0 "t4"
-		origin "312 4464 -224"
-		redicon HLP_HACK
-		blueicon HLP_NONE
-		specicon HLP_NONE
-	}
-	
-	//site A - defuse
-	HelpIcon8
-	{
-		start0 "t4"
-		end0 "t5"
-		end1 "t7"
-		origin "312 4464 -224"
+		end0 "bomb_armed"
+		end1 "t28"
+		origin "96 -1844 32"
 		redicon HLP_DEFEND
 		blueicon HLP_HACK
+		specicon HLP_DEFEND
+	}
+	//Main Bomb Defuse
+	HelpIcon2
+	{
+		start0 "bomb_armed"
+		end0 "baybomb_defused"
+		origin "96 -1844 32"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
 		specicon HLP_HACK
 	}
 	
-	//site B - defend
-	HelpIcon9
+	//Alt Bomb Hack
+	HelpIcon3
 	{
+		//start0 "impshax"
 		end0 "bomb_armed"
-		end1 "t2"
-		origin "2496 2424 -224"
-		redicon HLP_NONE
-		blueicon HLP_DEFEND
-		specicon HLP_DEFEND
-	}
-	
-	//site B - arm
-	HelpIcon10
-	{
-		start0 "bomb_planted"
-		end0 "bomb_armed"
-		origin "2496 2424 -224"
-		redicon HLP_HACK
-		blueicon HLP_NONE
-		specicon HLP_NONE
-	}
-	
-	//site B - defuse
-	HelpIcon11
-	{
-		start0 "bomb_armed"
-		end0 "imp_win"
-		end1 "rebel_win"
-		origin "2496 2424 -224"
+		end1 "t28"
+		origin "1328 -1736 68"
 		redicon HLP_DEFEND
 		blueicon HLP_HACK
+		specicon HLP_DEFEND
+	}
+	//Alt Bomb Defuse
+	HelpIcon4
+	{
+		start0 "t28"
+		end0 "bomb_defused"
+		origin "1328 -1736 68"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
 		specicon HLP_HACK
 	}
 }
@@ -198,6 +117,7 @@ Rebels
 		message_team1 ""
 		message_team2 ""
 		objdesc "Pick up the explosive from the Entrance and plant it at one of the two bomb sites."
+		objgfx "gfx/mplevels/mb2_alderaan/obj"
 		
 	}
 	
@@ -218,10 +138,8 @@ Rebels
 		message_team1 ""
 		message_team2 ""
 		objdesc "Prevent the Imperials from defusing the bomb."
-		objgfx "gfx/mplevels/mb2_alderaan/obj"
 		
-	}
-
+	}	
 
 	wonround " Supplies have been shipped to the alliance."
 	lostround "We lost our supplies..."
@@ -271,7 +189,6 @@ Imperials
 		objgfx "gfx/mplevels/mb2_alderaan/obj"
 		
 	}
-
 
 	wonround "Rebels' supplies have been blown up."
 	lostround "We have failed to blow up their supplies..."
