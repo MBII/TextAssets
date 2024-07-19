@@ -295,6 +295,17 @@ gfx/effects/redLine
 	}
 }
 
+gfx/effects/orangeline
+{
+	cull	twosided
+	{
+		map gfx/effects/orangeline
+		blendFunc GL_ONE GL_ONE
+		rgbGen vertex
+	}
+}
+
+
 gfx/effects/blueLine
 {
 	cull	twosided
