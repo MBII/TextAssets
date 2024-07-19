@@ -348,6 +348,19 @@ gfx/effects/forceflare
     }
 }
 
+models/weapons2/concussion/explosive_sphere
+{
+    cull    twosided
+    {
+        map models/weapons2/concussion/explosive_sphere
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        glow
+        tcGen environment
+        tcMod scroll 0.5 2.6
+        tcMod turb 0.6 0.3 0 0.6
+    }
+}
+
 
 //	saber clash
 
