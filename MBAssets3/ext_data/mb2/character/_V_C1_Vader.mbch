@@ -4,7 +4,7 @@ ClassInfo
 {
 	name				"_V_C1_Vader"
 	weapons				WP_SABER|WP_MELEE
-	attributes			MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_FORCEFOCUS,3|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,3
+	attributes			MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_FORCEFOCUS,3|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR
 	saberstyle			SS_DESANN|SS_STRONG
 	forcepowers			FP_SABER_OFFENSE,3|FP_PUSH,2|FP_PULL,2|FP_GRIP,3|FP_SEE,2|FP_SABERTHROW,3
 	APmultiplier		1.40
@@ -17,7 +17,18 @@ ClassInfo
 	modelscale			1.09
 	speed               0.92
 	forceregen          0.95
-	//special1	EAS_FP_SABERTHROW
+	//special1	EAS_FP_SABERTHROW game chooses spec1 if not defined, leave as is
+	special2 EAS_FP_PUSH
+	special3 EAS_FP_PULL
+	special4 EAS_FP_SEE
+	
+	WalkForward BOTH_WALK1
+	//WalkBackward BOTH_WALK1
+	//RunForward BOTH_WALK1
+	//RunBackward BOTH_WALK1
+	gloatAnim BOTH_FORCEGRIP3
+	flourishAnim BOTH_FORCEGRIP3
+	bowAnim BOTH_CROUCH3
 	
 	classflags			CFL_HASQ3|CFL_HEAVYMELEE
 	MBClass				MB_CLASS_JEDI
@@ -39,6 +50,10 @@ ClassInfo
 	skin				"default"
 	uishader			"models/players/darthvader/mb2_icon_default"
 	
+	//model_1 "TESB_vader"
+	//skin_1 "default"
+	//uishader_1  "models/players/TESB_vader/mb2_icon_default"
+	
 	model_1			"darthvader"
 	skin_1			"breather"
 	uishader_1		"models/players/darthvader/mb2_icon_breather"
@@ -50,6 +65,10 @@ ClassInfo
 	model_3			"darthvader"
 	skin_3			"damaged"
 	uishader_3		"models/players/darthvader/mb2_icon_damaged"
+	
+	//model_4 		"darthvader"
+	//skin_4 		"infinities"
+	//uishader_4 	"models/players/darthvader/mb2_icon_infinities"
 		
 	respawnCustomTime 	50000
 }
@@ -58,7 +77,7 @@ description "Darth Vader
 
 Class: Sith
 Brief Overview: 
-A tanky saberist able to block blaster fire while swinging. Strong offense comes at the cost of mobility. 
+A tanky saberist able to block blaster fire while swinging. Strong offense comes at the cost of mobility. Regains BP upon defeating enemies.
 
 ^2Weaponry:
 - Heavy Melee
@@ -67,12 +86,12 @@ A tanky saberist able to block blaster fire while swinging. Strong offense comes
 -- Saber/Blaster Defense (3)
 -- Blaster Deflect (3)
 -- Can block blaster fire while swinging (Q3)
--- Saber Throw (3) ^3[CS1]
+-- Enhanced Saber Throw (3) ^3[CS1]
 
 ^5Force Powers:
-- Push (2)
-- Pull (2)
-- Sense (2)
+- Push (2) ^3[CS2]
+- Pull (2) ^3[CS3]
+- Sense (2) ^3[CS4]
 - Grip (3)
 
 ^8Attributes:

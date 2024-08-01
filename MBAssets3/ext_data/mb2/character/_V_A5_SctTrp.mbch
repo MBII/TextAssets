@@ -11,31 +11,31 @@ ClassInfo
 	forcepool		50
 	forceregen 		1.25
 
-	attributes		MB_ATT_ASSEMBLE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1
+	attributes		MB_ATT_ASSEMBLE,1|MB_ATT_GUN_DEFENSE,1
 
-	MBClass			MB_CLASS_CLONETROOPER
+	MBClass			MB_CLASS_HERO
 	classNumberLimit	2
 
 	maxhealth		80
-	maxarmor		10
+	maxarmor			10
 	rankArmor		20,30,40
 	
-	forceblocking	1
+	forceblocking		1
 	
-	speed           1
+	speed           .75
 	rateofFire		1.1
 
-	CSmultiplier        1.05
-	ASmultiplier		1.05
-	APmultiplier        0.6
+	CSmultiplier       	1.05
+	ASmultiplier			1.05
+	APmultiplier        	0.6
 	
-	BPmultiplier        1.0
+	BPmultiplier       	1.0
 	RankBP				1.2,1.4,1.6
-	rankforcepool		75,100,125
+	rankforcepool			75,100,125
 	
 	modelscale		    1
 
-	WP_ProjFlags HELD_LOWDAMAGE
+	WP_ProjFlags 		HELD_LOWDAMAGE
 	WP_SaberFlags	  HELD_LOWDAMAGE
 
 	tauntAnim 		BOTH_VICTORY_FAST
@@ -64,15 +64,16 @@ ClassInfo
 	uishader_2		"models/players/scouttrooper/mb2_icon_swamp"
 	
 	special1				EAS_HI_SPRINT
-	special2				EAS_HI_DASH
+
 	special3				EAS_HI_DEX
+	special4				EAS_HI_MEDPAC
 
 	customred 255
 	customgreen 0
 	customblue 0
 
 	isCustomBuild		1
-	mbPoints			150
+	mbPoints			140
 		
 	c_att_skill_0	MB_ATT_INVALID
 	c_att_names_0	"^2Weaponry"
@@ -80,7 +81,7 @@ ClassInfo
 	
 	c_att_skill_1	MB_ATT_PISTOL
 	c_att_names_1	"Scout Blaster Pistol:"
-	c_att_ranks_1	0,4,15
+	c_att_ranks_1	1,4,15
 	
 	c_att_skill_2	MB_ATT_PROJECTILE_RIFLE
 	c_att_names_2	"DLT-20A (Sniper Config):"
@@ -102,37 +103,37 @@ ClassInfo
 	c_att_names_6	"Reinforcements:"
 	c_att_ranks_6	10,30
 	
-	c_att_skill_7	MB_ATT_FP_SABER_DEFENSE
-	c_att_names_7	"Saber Defense:"
-	c_att_ranks_7	20	
+	c_att_skill_7	MB_ATT_POWER
+	c_att_names_7	"Extra Stamina Pool:"
+	c_att_ranks_7	10,10,10
 	
-	c_att_skill_8	MB_ATT_STAMINA
-	c_att_names_8	"Stamina ^3[CS1]^7:"
-	c_att_ranks_8	5,5,5
-	
-	c_att_skill_9	MB_ATT_DASH
-	c_att_names_9	"Dash ^3[CS2]^7:"
-	c_att_ranks_9	10,5
-		
-	c_att_skill_10	MB_ATT_DEXTERITY
-	c_att_names_10	"Dexterity ^3[CS3]^7:"
-	c_att_ranks_10 1,4,15
-	
-	c_att_skill_11	MB_ATT_POWER
-	c_att_names_11	"Extra Stamina Pool:"
-	c_att_ranks_11	10,10,10
+	c_att_skill_8	MB_ATT_ARMOUR
+	c_att_names_8	"Armor:"
+	c_att_ranks_8	8,8,8
 
-	c_att_skill_12	MB_ATT_AS_MULTIPLIER
-	c_att_names_12	"Improved Melee (+BP):"
-	c_att_ranks_12	10,10,10
+	c_att_skill_9		MB_ATT_FP_SABER_DEFENSE
+	c_att_names_9		"Saber Defense:"
+	c_att_ranks_9		20	
 	
-	c_att_skill_13	MB_ATT_AMMO
-	c_att_names_13	"Ammo:"
-	c_att_ranks_13	1,3,6
+	c_att_skill_10	MB_ATT_AS_MULTIPLIER
+	c_att_names_10	"Baton Attack Speed (+AS):"
+	c_att_ranks_10	10,10,10
+
+	c_att_skill_11	MB_ATT_AMMO
+	c_att_names_11	"Ammo:"
+	c_att_ranks_11	1,3,6
 	
-	c_att_skill_14	MB_ATT_ARMOUR
-	c_att_names_14	"Armor:"
-	c_att_ranks_14	8,8,8
+	c_att_skill_12	MB_ATT_STAMINA
+	c_att_names_12	"Stamina ^3[CS1]^7:"
+	c_att_ranks_12	5,5,5
+	
+	c_att_skill_13	MB_ATT_DASH
+	c_att_names_13	"Dash ^3[CS2]^7:"
+	c_att_ranks_13	10,5
+		
+	c_att_skill_14	MB_ATT_DEXTERITY
+	c_att_names_14	"Dexterity ^3[CS3]^7:"
+	c_att_ranks_14 	0,4,15
 }
 
 WeaponInfo0
@@ -177,23 +178,29 @@ WeaponInfo2
 
 description	"Imperial Scout Trooper
 
-Class: Clone Trooper
+Class: Hero
 Brief Overview:
-A lightly armored but versatile class capable of sniping, CQC, and even defending against blasters/sabers.
+A lightly armored but versatile class who can spec into sniping, CQC, and even saber defense.
 
 ^2Default Weaponry:
 - Melee
 - Stun Baton and Shield
 -- Based on Lightsaber
 -- Dual style
--- Saber Defense (1)
 -- Blaster Defense (1) 
--- 66% less damage
+-- Cannot block sabers
+-- 35% less damage
 
 ^6Default Inventory:
-- Bacta (25+ HP to self)
+- Bacta (25+ HP to self) ^3[CS4]
+
+^8Default Attributes:
+- Stamina (0)
+- Dexterity (1)
+- Assemble
 
 ^3Default Abilities:
-- Assemble
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS3]
 
 Scout troopers were specialized stormtrooper variants used on a range of missions in containing and defusing insurrectionist scenarios, due to the spread of the influence of the Rebel Alliance to even within loyalist populations in the Galactic Empire."

@@ -1,12 +1,11 @@
 //Legends Mode character file - Created by Frenzy & Leos
-//test
 //tutaminis one day
 
 Classinfo
 {
-	name					"_V_C6_Brsrk"
+	name					"_V_C6_Rgns"
 	weapons					WP_MELEE|WP_SABER
-	attributes 				MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DEFLECT,3|MB_ATT_JETPACK,1|MB_ATT_CORTOSIS,1|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,2
+	attributes				MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DEFLECT,3|MB_ATT_JETPACK,1|MB_ATT_CORTOSIS,1
 	forcepowers				FP_LIGHTNING,3|FP_PUSH,3|FP_PULL,3|FP_GRIP,3|FP_DRAIN,3|FP_SEE,3|FP_SABER_OFFENSE,3|FP_RAGE,2
 	
 	saber1 					force_deflection
@@ -19,13 +18,18 @@ Classinfo
 	speed           		1.04
 	APmultiplier    		1.3
 	damageGiven     		1.1
-	classflags				CFL_DISMEMBERFRAGILE|CFL_NO_JETPACK_COOLDOWN
+	classflags				CFL_DISMEMBERFRAGILE
 	MBclass					MB_CLASS_JEDI
 	classNumberLimit  		1
 	bargeSoundOverride 		"sound/chars/snoke/misc/jump1.mp3"
 	rageSoundOverride 		"sound/chars/snoke/misc/pain75.mp3"
 	
-	resource				RESOURCE_RAGE
+	special1 EAS_FP_PUSH
+	special2 EAS_FP_PULL
+	special3 EAS_FP_SEE
+	//special4 EAS_FP_LIGHTNING
+	
+	resource				RESOURCE_FORCE
 	
 	jetpackFuelCap       	0.1
 	
@@ -38,22 +42,14 @@ Classinfo
 	jetpackIdleSound	"sound/ambience/artus/artus_shaft"
 	
 	saberStanceAnim 	MELEE_BLOCK_BLASTER_R
+	WalkForward BOTH_SWIM_IDLE1
+	WalkBackward BOTH_SWIM_IDLE1
+	RunForward BOTH_SWIM_IDLE1
+	RunBackward BOTH_SWIM_IDLE1
 	
-	model			"darthplagueis"
-	skin			"legends"
-	uishader		"models/players/darthplagueis/mb2_icon_default"
-		
-	model_1			"darthplagueis"
-	skin_1			"mask_legends"
-	uishader_1		"models/players/darthplagueis/mb2_icon_mask"
-	
-	model_2			"Snoke"
-	skin_2			"legends"
-	uishader_2		"models/players/Snoke/mb2_icon_default"
-	
-	model_3			"old_marka_ragnos" 				
-	skin_3			"ghost"					
-	uishader_3		"gfx/hud/fa_icons/mb2_icon_GhostOfRagnos"
+	model			"old_marka_ragnos" 				
+	skin			"ghost_legends"					
+	uishader		"gfx/hud/fa_icons/mb2_icon_GhostOfRagnos"
 	
 	respawnCustomTime 50000
 	
@@ -72,9 +68,9 @@ WeaponInfo0
 	WeaponName		"Lightning Fists"
 }
 
-Description 	"Archetype: Force Berserker
+Description 	"Marka Ragnos
 
-Class: Jedi
+Class: Sith
 Brief Overview: 
 A flying hybrid class that combines melee brawling abilities and offensive dark side powers. 
 
@@ -83,16 +79,16 @@ A flying hybrid class that combines melee brawling abilities and offensive dark 
 - Lightning Fists
 -- Based on Lightsaber
 -- Dual style
--- Saber Defense (2)
+-- Saber Defense (1)
 -- Blaster Defense/Deflect (3)
 -- Unique Crouch Special
 -- 45% shorter reach
 -- 33% wider radius
 
 ^5Force Powers:
-- Push (3)
-- Pull (3)
-- Sense (3)
+- Push (3) ^3[CS1]
+- Pull (3) ^3[CS2]
+- Sense (3) ^3[CS3]
 - Lightning (3)
 - Drain (3)
 - Dark Rage (2)
@@ -105,11 +101,8 @@ A flying hybrid class that combines melee brawling abilities and offensive dark 
 - Force Focus (3)
 
 ^3Abilities:
-- Force Flight [Double-tap/hold jump]
+- Force Flight ^3[Double-tap/hold ^3jump] ['Use' to deactivate]
 -- Based on Jetpack
 -- Consumes FP
--- No cooldown
 
-~ Darth Plagueis: Dark Lord of the Sith and master to Darth Sidious.
-~ Supreme Leader Snoke: An artificial genetic construct puppeted by Darth Sidious.
-~ Ghost of Marka Ragnos: An ancient Sith of legend whose power and majesty became a storied legacy of the Sith Order itself."
+An ancient Sith of legend whose power and majesty became a storied legacy of the Sith Order itself."
