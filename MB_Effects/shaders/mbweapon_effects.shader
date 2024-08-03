@@ -531,65 +531,51 @@ gfx/effects/sabers_more/glow/purple
     }
 }
 
-//Stun weapons
+//stun and sonic pistol
 
-models/effects/stun_blasters/soundring
+gfx/stun_blaster/stun_projectile
 {
-    surfaceparm trans
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
     surfaceparm nomarks
     surfaceparm nonsolid
-    surfaceparm nonopaque
     cull twosided
     {
-        map models/effects/stun_blasters/soundring
+        map gfx/stun_blaster/stun_projectile
         blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcMod scroll 0 -0.125
-    }
-    {
-        map models/effects/stun_blasters/soundring_back
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
-        detail
-        alphaGen lightingSpecular
-        detail
-    }
-}
-
-models/effects/stun_blasters/soundring2
-{
-    surfaceparm trans
-    surfaceparm nomarks
-    surfaceparm nonsolid
-    surfaceparm nonopaque
-    cull twosided
-    {
-        map models/effects/stun_blasters/soundring2
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcMod scroll 0 -0.125
-    }
-    {
-        map models/effects/stun_blasters/soundring_back
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
-        detail
-        alphaGen lightingSpecular
-        detail
-    }
-}
-
-gfx/sonic_pistol/wallmark
-{
-	polygonOffset
-    {
-        map gfx/sonic_pistol/wallmark
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        glow
         rgbGen vertex
-        alphaGen vertex
     }
 }
 
-//Sonic Pistol
-models/effects/stun_blasters/soundring
+gfx/stun_blaster/stunfrontflash
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	cull	twosided
+    {
+        map gfx/stun_blaster/stunfrontflash
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/stun_blaster/stunsideflash
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	cull	twosided
+    {
+        map gfx/stun_blaster/stunsideflash
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+models/effects/soundring
 {
     surfaceparm trans
     surfaceparm nomarks
@@ -597,13 +583,13 @@ models/effects/stun_blasters/soundring
     surfaceparm nonopaque
     cull twosided
     {
-        map models/effects/stun_blasters/soundring
+        map models/effects/soundring
         blendFunc GL_ONE GL_ONE
         rgbGen lightingDiffuse
         tcMod scroll 0 -0.125
     }
     {
-        map models/effects/stun_blasters/soundring_back
+        map models/effects/soundring_back
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
         detail
         alphaGen lightingSpecular
@@ -611,7 +597,7 @@ models/effects/stun_blasters/soundring
     }
 }
 
-models/effects/stun_blasters/soundring2
+models/effects/soundring2
 {
     surfaceparm trans
     surfaceparm nomarks
@@ -619,13 +605,13 @@ models/effects/stun_blasters/soundring2
     surfaceparm nonopaque
     cull twosided
     {
-        map models/effects/stun_blasters/soundring2
+        map models/effects/soundring2
         blendFunc GL_ONE GL_ONE
         rgbGen lightingDiffuse
         tcMod scroll 0 -0.125
     }
     {
-        map models/effects/stun_blasters/soundring_back
+        map models/effects/soundring_back
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
         detail
         alphaGen lightingSpecular
