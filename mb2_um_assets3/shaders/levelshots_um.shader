@@ -437,12 +437,34 @@ levelshots/um_ctf_darkandlight
 	}
 }
 
+levelshots/um_ctf_darkandlight2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/um_ctf_darkandlight2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/um_ctf_dfarena
 {
 	nomipmaps
 	notc
 	{
 		map levelshots/um_ctf_dfarena
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/um_ctf_dfarena2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/um_ctf_dfarena2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
