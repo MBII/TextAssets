@@ -4,16 +4,17 @@
 ClassInfo
 {
 	name				"bh_tr_sbd"
-	weapons				WP_SBD|WP_MELEE
-
-	attributes		    MB_ATT_GUNBASH
-
-
+	weapons				WP_SBD|WP_SABER|WP_MELEE
+	attributes		    MB_ATT_AMMO,2|MB_ATT_GUNBASH|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_FP_SABER_OFFENSE,3
+    forcepowers         FP_PULL,3|FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
 	maxhealth			400
-	maxarmor			10
+	maxarmor			100
+    forcepool           40
 	saberstyle		    SS_DUAL
+    saber1              droidmelee_projsbd
+    saber2              droidmelee_projsbd
 	
-	speed				1.0
+	speed				1.25
 	modelscale		    1.12
 	rateOfFire			1.15
 
@@ -44,13 +45,13 @@ ClassInfo
     c_att_names_2        "Melee Strength:"
     c_att_ranks_2        8,15
 
-    c_att_skill_3        MB_ATT_SBD_CANNON
-    c_att_names_3        "Wrist Cannon:"
-    c_att_ranks_3		 15
+    c_att_skill_3        MB_ATT_ROCKET_LAUNCHER
+    c_att_names_3        "Wrist Rocket:"
+    c_att_ranks_3		 25
 
 	c_att_skill_4		 MB_ATT_AMMO
 	c_att_names_4		 "Ammo"
-	c_att_ranks_4		 5,5,10,20
+	c_att_ranks_4		 5,5,10
     
     c_att_skill_5        MB_ATT_INVALID
     c_att_names_5        "^1-SBD Defense-"
@@ -88,6 +89,35 @@ ClassInfo
     c_att_names_13       "Zoom:"
     c_att_ranks_13       15
 	
+    special1        EAS_HI_RECHARGE
+}
+
+WeaponInfo0
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Droid Melee"
+	primGore		1
+	altGore			1
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_ROCKET_LAUNCHER
+	WeaponBasedOff		WP_ROCKET_LAUNCHER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_sbdarm"
+	WeaponName			"SBD Wrist Rocket"
+	customAmmo           1
+    clipSize             1
+
+	idleAnim		SBD_GUN_OUT_STAND
+	firingAnim	    SBD_FIRE
+	altFiringAnim	SBD_FIRE
 }
 
 description	"Team Red - Super Battle Droid
