@@ -535,9 +535,9 @@ gfx/effects/sabers_more/glow/purple
 
 gfx/effects/stun_projectile
 {
-	surfaceparm	nonsolid
-	surfaceparm	nonopaque
-	surfaceparm	trans
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
     surfaceparm nomarks
     surfaceparm nonsolid
     cull twosided
@@ -545,33 +545,33 @@ gfx/effects/stun_projectile
         map gfx/effects/stun_projectile
         blendFunc GL_ONE GL_ONE
         glow
-        rgbGen vertex
     }
 }
 
-gfx/effects/stunfrontflash
+gfx/effects/sonic_projectile
 {
 	surfaceparm	nonsolid
 	surfaceparm	nonopaque
 	surfaceparm	trans
-	cull	twosided
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    cull twosided
     {
-        map gfx/effects/stunfrontflash
-        blendFunc GL_ONE GL_ONE
-        rgbGen vertex
+        map gfx/effects/sonic_projectile
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        glow
+        rgbGen entity
     }
 }
 
-gfx/effects/stunsideflash
+gfx/damage/sonicmark1
 {
-	surfaceparm	nonsolid
-	surfaceparm	nonopaque
-	surfaceparm	trans
-	cull	twosided
+	polygonOffset
     {
-        map gfx/effects/stunsideflash
-        blendFunc GL_ONE GL_ONE
+        map gfx/damage/sonicmark1
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen vertex
+        alphaGen vertex
     }
 }
 
@@ -616,17 +616,6 @@ models/effects/stun_blasters/soundring2
         detail
         alphaGen lightingSpecular
         detail
-    }
-}
-
-gfx/damage/wallmark
-{
-	polygonOffset
-    {
-        map gfx/damage/wallmark
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen vertex
-        alphaGen vertex
     }
 }
 
