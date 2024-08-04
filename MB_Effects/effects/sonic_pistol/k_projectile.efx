@@ -111,31 +111,91 @@ Particle
 	]
 }
 
-Emitter
+OrientedParticle
 {
-	name				03-Soundring
+	name				03-Soundring_01
 
 	flags				useModel
 
-	spawnFlags			cheapOrgCalc absoluteVel absoluteAccel
+	spawnFlags			absoluteAccel
 
-	life				2000
+	life				500
 
-	delay				15
+	delay				10
 
-	cullrange			1024
+	cullrange			1536
+
+	origin				0 0 0 15 0 0
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
 
 	angle				0 0 -180 0 0 180
 
 	angleDelta			0 0 -2 0 0 2
 
-	size
+	velocity			30 0 0
+
+	rgb
 	{
-		start			5
+		start			0.9569 0.9569 0.9569
+		end				0.6235 0.8353 0 0.8118 1 0.251
 	}
 
-	models
+	size
+	{
+		start			2
+		parm			5
+		flags			wave
+	}
+
+	shaders
 	[
-		models/effects/stun_blasters/soundring4.md3
+		gfx/effects/sonic_projectile.jpg
+	]
+}
+
+OrientedParticle
+{
+	name				04-Soundring_02
+
+	flags				useModel
+
+	spawnFlags			cheapOrgCalc absoluteAccel rgbComponentInterpolation
+
+	life				750
+
+	delay				20
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	angle				0 0 -180 0 0 180
+
+	angleDelta			0 0 -2 0 0 2
+
+	rgb
+	{
+		start			0.9569 0.9569 0.9569
+		end				0.6235 0.8353 0 0.8118 1 0.251
+	}
+
+	alpha
+	{
+		end				0
+	}
+
+	size
+	{
+		start			2
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/sonic_projectile.jpg
 	]
 }
