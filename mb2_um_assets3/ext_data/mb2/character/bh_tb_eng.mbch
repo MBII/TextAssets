@@ -8,7 +8,7 @@ ClassInfo
     saberstyle      SS_TAVION|SS_DESANN
 	attributes		MB_ATT_RESPAWNS,1|MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_FP_LEVITATION,2|MB_ATT_FLIPKICK,2|MB_ATT_PISTOL,3|MB_ATT_DEMP2,3|MB_ATT_AMMO,3|MB_ATT_GUNBASH
 	forcepowers     FP_LEVITATION,2|FP_SEE,2|FP_SABER_OFFENSE,2
-    classflags      CFL_BPFREEJUMPS|CFL_STATVIEWER|CFL_FASTHACKING
+    classflags      CFL_BPFREEJUMPS|CFL_STATVIEWER|CFL_FASTHACKING|CFL_HEAVYMELEE
     holdables       HI_ARMORDISP|HI_CLOAK|HI_EWEB|HI_SENTRY_GUN
     maxhealth		75
 	maxarmor		25
@@ -28,7 +28,9 @@ ClassInfo
 	flourishAnim	BOTH_COWER1
 	tauntAnim	BOTH_SHOWOFF_FAST
 
-    WP_DEMP2Flags HELD_ALTRELOAD
+    rateoffire_melee  3
+
+    //WP_DEMP2Flags HELD_LOWDAMAGE
 
 	model_1			"ugnaught"
 	skin_1			"blue"
@@ -130,6 +132,43 @@ WeaponInfo2
     customAmmo      500
     clipSize        100
     FPMult          0.8
+}
+
+WeaponInfo3
+{
+    WeaponToReplace        WP_DEMP2
+    WeaponBasedOff        WP_DEMP2
+    NewWorldModel        "models/weapons2/demp2/demp2_w.glm"
+    NewViewModel        "models/weapons2/demp2/demp2.md3"
+    NewHandsModel        "models/weapons2/demp2/demp2_hand.md3"
+    Icon                "gfx/hud/w_icon_basedemp2"
+    WeaponName            "DEMP 2"
+
+    //Efx
+    MissileHitHumanEffect "effects/demp2/altdetonate"
+    MissileHitDroid     "effects/demp2/altdetonate"
+    MissileMissEffect             "effects/demp2/wall_impact"
+    MissileEffect        "effects/demp2/projectile"
+    //AltMissileEffect     "effects/demp2/projectile" 
+    MuzzleEffect        "effects/demp2/muzzle_flash"
+    //AltMuzzleEffect        "effects/demp2/altmuzzle_flash"
+
+    firingAnim        BOTH_ATTACK3
+    idleAnim        TORSO_WEAPONREADY3
+
+    PrimHitscanShot     0
+    PrimHitscanTracer     9
+
+
+    FlashSound0        "sound/weapons/demp2/fire_old.mp3"
+    AltFlashSound0    "sound/weapons/demp2/altfire_old.mp3"
+    ChargeSound        "sound/weapons/demp2/altcharge.mp3"
+    CustomAmmo     100
+    ClipSize         5
+    ReloadTimeModifier 3        // default is 1 - 100%
+    ProjSpeedModifier .8
+	PrimFireEnabled	0
+
 }
 
 description	"Team Blue - Engineer
