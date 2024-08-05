@@ -9,7 +9,7 @@ ClassInfo
 	forcepowers     FP_LEVITATION,2
     maxhealth		75
 	maxarmor		50
-    forcepool       25
+    forcepool       17
 	customred		0.1
 	customgreen		0.1
 	customblue		1
@@ -17,7 +17,7 @@ ClassInfo
 	skin			"rgb"
 	uishader		"models/players/projheaven/mb2_icon_blue_grunt"
 	MBClass			"MB_CLASS_ELITETROOPER"
-	speed			0.8
+	speed			1.25
 	
 	model_1			"weequay"
 	skin_1			"rgb_abyssin"
@@ -55,7 +55,6 @@ ClassInfo
 	skin_9			"hoth3_rgb"
 	uishader_9		"models/players/jedi_kdm/mb2_icon_hoth3_rgb"
 
-    extralives	5
     respawnWait 10000
     respawnCustomTime 10000
 
@@ -73,42 +72,38 @@ ClassInfo
     c_att_skill_2        MB_ATT_BLASTER
     c_att_names_2        "E-11 Blaster:"
     c_att_ranks_2        5,7,9
-
-    c_att_skill_3        MB_ATT_DLT20A
-    c_att_names_3        "DLT-20a Blaster:"
-    c_att_ranks_3        8,17,5
     
-    c_att_skill_4        MB_ATT_FRAGS
-    c_att_names_4        "Frag Grenades:"
+    c_att_skill_3        MB_ATT_FRAGS
+    c_att_names_3        "Frag Grenades:"
+    c_att_ranks_3        15,20
+    
+    c_att_skill_4        MB_ATT_FIRE_GRENADES
+    c_att_names_4        "Fire Grenades:"
     c_att_ranks_4        15,20
     
-    c_att_skill_5        MB_ATT_FIRE_GRENADES
-    c_att_names_5        "Fire Grenades:"
-    c_att_ranks_5        15,20
+    c_att_skill_5        MB_ATT_MICRO_GRENADES
+    c_att_names_5        "Concussion Grenades:"
+    c_att_ranks_5        5,10,15
     
-    c_att_skill_6        MB_ATT_MICRO_GRENADES
-    c_att_names_6        "Concussion Grenades:"
-    c_att_ranks_6        5,10,15
-    
-    c_att_skill_7        MB_ATT_TRIP_MINES
-    c_att_names_7        "Trip Mines"
-    c_att_ranks_7        10,15
+    c_att_skill_6        MB_ATT_TRIP_MINES
+    c_att_names_6        "Trip Mines"
+    c_att_ranks_6        10,15
 
-    c_att_skill_8        MB_ATT_INVALID
-    c_att_names_8        "^5-Abilities-"
-    c_att_ranks_8        -1
+    c_att_skill_7        MB_ATT_INVALID
+    c_att_names_7        "^5-Abilities-"
+    c_att_ranks_7        -1
     
-    c_att_skill_9        MB_ATT_CCTRAINING
-    c_att_names_9        "Close Combat Training:"
-    c_att_ranks_9        4,2
+    c_att_skill_8        MB_ATT_CCTRAINING
+    c_att_names_8        "Close Combat Training:"
+    c_att_ranks_8        4,2
 
-	c_att_skill_10		  MB_ATT_DASH
-	c_att_names_10		  "Hero Dash:"
-	c_att_ranks_10		  6,12
+	c_att_skill_9		  MB_ATT_DASH
+	c_att_names_9		  "Hero Dash:"
+	c_att_ranks_9		  6,12
     
-    c_att_skill_11        MB_ATT_BLAST_ARMOUR
-    c_att_names_11        "Blast Armor:"
-    c_att_ranks_11        15
+    c_att_skill_10        MB_ATT_BLAST_ARMOUR
+    c_att_names_10        "Blast Armor:"
+    c_att_ranks_10        15
 
     resource            RESOURCE_STAMINA
 
@@ -118,12 +113,34 @@ ClassInfo
 
 WeaponInfo0
 {
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_MANDO_PISTOL
+	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
+	NewViewModel		"models/weapons2/briar_pistol/briar_pistol.md3"
+	Icon				"gfx/hud/w_icon_briar"
+	WeaponName			"Bryar Pistol"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"blaster/Shot01B"
+	Missile3Effect		"Blaster/Shot10B"
+	AltMissileEffect	"blaster/Shot01B"
+	PowerupShotEffect	"Blaster/Shot10B"
+	ChargeEffect		"gfx/effects/clonefrontflash"
+	OverchargeEffect	"Blaster/MuzzleFlash04B"
+}
+
+WeaponInfo1
+{
     WeaponToReplace        WP_BLASTER                           //Required: Weapon Slot of weapon you're replacing
     WeaponBasedOff        WP_BLASTER                          //Required: For future use, should be the same as WeaponToReplace
     NewWorldModel        "models/weapons2/blaster_r/blaster_w.glm"      //Required: New 3rd person/dropped weapon model
     NewViewModel        "models/weapons2/blaster_r/blaster.md3"       //Required: New 1st person weapon model
     Icon                "gfx/hud/w_icon_e11"                 //Required: Weapon change icon
     WeaponName            "Stolen E-11 Carbine"                        //Required: Weapon change display name
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"blaster/Shot01B"
+	AltMissileEffect	"blaster/Shot01B"
     customAmmo      500
     clipSize        100
     FPMult          0.8
