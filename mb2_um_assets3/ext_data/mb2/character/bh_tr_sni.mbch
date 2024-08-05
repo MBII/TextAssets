@@ -9,7 +9,7 @@ ClassInfo
 	forcepowers		FP_LEVITATION,2
 	maxhealth		100
 	maxarmor		75
-	forcepool		25
+	forcepool		17
 	customred		1
 	customgreen		0.1
 	customblue		0.1
@@ -17,7 +17,7 @@ ClassInfo
 	skin			"rgb"
 	uishader		"models/players/projheaven/mb2_icon_red_sniper"
 	MBClass			"MB_CLASS_BOUNTY_HUNTER"
-	speed			0.8
+	speed			1.0
 	
 	model_1			"weequay"
 	skin_1			"rgb_abyssin"
@@ -43,9 +43,9 @@ ClassInfo
 	skin_6			"hoth4_rgb"
 	uishader_6		"models/players/jedi_hf/mb2_icon_hoth4_rgb"
 
-	model_7			"jedi_tf"
-	skin_7			"hoth2_rgb"
-	uishader_7		"models/players/jedi_tf/mb2_icon_hoth2_rgb"
+	model_7			"tusken"
+	skin_7			"red"
+	uishader_7		"models/players/tusken/icon_red"
 
 	model_8			"jedi_zf"
 	skin_8			"rgb_et"
@@ -54,6 +54,10 @@ ClassInfo
 	model_9			"jedi_kdm"
 	skin_9			"hoth3_rgb"
 	uishader_9		"models/players/jedi_kdm/mb2_icon_hoth3_rgb"
+
+	model_10		"tusken"
+	skin_10			"red"
+	uishader_10		"models/players/tusken/icon_red"
 
     respawnWait 10000
     respawnCustomTime 10000
@@ -68,50 +72,46 @@ ClassInfo
     c_att_skill_1        MB_ATT_BLASTER
     c_att_names_1        "E-11 Blaster:"
     c_att_ranks_1        5,7,9
-
-    c_att_skill_2        MB_ATT_DLT20A
-    c_att_names_2        "DLT-20a Blaster:"
-    c_att_ranks_2        8,17,5
     
-    c_att_skill_3        MB_ATT_PROJECTILE_RIFLE
-    c_att_names_3        "Projectile Rifle:"
-    c_att_ranks_3        20
+    c_att_skill_2        MB_ATT_PROJECTILE_RIFLE
+    c_att_names_2        "Projectile Rifle:"
+    c_att_ranks_2        20
 
-	c_att_skill_4		 MB_ATT_DISRUPTOR
-	c_att_names_4		 "Disruptor Rifle:"
-	c_att_ranks_4		 15,5
+	c_att_skill_3		 MB_ATT_DISRUPTOR
+	c_att_names_3		 "Disruptor Rifle:"
+	c_att_ranks_3		 15,5
 
-    c_att_skill_5        MB_ATT_FRAGS
-    c_att_names_5        "Frag Grenades:"
+    c_att_skill_4        MB_ATT_FRAGS
+    c_att_names_4        "Frag Grenades:"
+    c_att_ranks_4        15,20
+    
+    c_att_skill_5        MB_ATT_PULSE_GRENADES
+    c_att_names_5        "Pulse Grenades:"
     c_att_ranks_5        15,20
     
-    c_att_skill_6        MB_ATT_PULSE_GRENADES
-    c_att_names_6        "Pulse Grenades:"
-    c_att_ranks_6        15,20
-    
-    c_att_skill_7        MB_ATT_THERMALS
-    c_att_names_7        "Thermal Detonators:"
-    c_att_ranks_7		 20
+    c_att_skill_6        MB_ATT_THERMALS
+    c_att_names_6        "Thermal Detonators:"
+    c_att_ranks_6		 20
 
-	c_att_skill_8		 MB_ATT_INVALID
-	c_att_names_8		 "^1-Abilities-"
-	c_att_ranks_8		 -1
+	c_att_skill_7		 MB_ATT_INVALID
+	c_att_names_7		 "^1-Abilities-"
+	c_att_ranks_7		 -1
 
-	c_att_skill_9		 MB_ATT_TRACKING_DART
-	c_att_names_9		 "Tracking Darts:"
+	c_att_skill_8		 MB_ATT_TRACKING_DART
+	c_att_names_8		 "Tracking Darts:"
+	c_att_ranks_8		 5,5,10
+
+	c_att_skill_9		 MB_ATT_POISON_DART
+	c_att_names_9		 "Poison Darts:"
 	c_att_ranks_9		 5,5,10
 
-	c_att_skill_10		 MB_ATT_POISON_DART
-	c_att_names_10		 "Poison Darts:"
-	c_att_ranks_10		 5,5,10
-
-	c_att_skill_11		  MB_ATT_DASH
-	c_att_names_11		  "Hero Dash:"
-	c_att_ranks_11		  6,12
+	c_att_skill_10		  MB_ATT_DASH
+	c_att_names_10		  "Hero Dash:"
+	c_att_ranks_10		  6,12
     
-    c_att_skill_12        MB_ATT_BLAST_ARMOUR
-    c_att_names_12        "Blast Armor:"
-    c_att_ranks_12        15
+    c_att_skill_11        MB_ATT_BLAST_ARMOUR
+    c_att_names_11        "Blast Armor:"
+    c_att_ranks_11        15
 
     resource            RESOURCE_STAMINA
 
@@ -123,13 +123,23 @@ ClassInfo
 
 WeaponInfo0
 {
-    WeaponToReplace        WP_A280                           //Required: Weapon Slot of weapon you're replacing
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_MANDO_PISTOL
+	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
+	NewViewModel		"models/weapons2/briar_pistol/briar_pistol.md3"
+	Icon				"gfx/hud/w_icon_briar"
+	WeaponName			"Bryar Pistol"
+}
+
+WeaponInfo1
+{
+    WeaponToReplace        WP_BLASTER                           //Required: Weapon Slot of weapon you're replacing
     WeaponBasedOff        WP_BLASTER                          //Required: For future use, should be the same as WeaponToReplace
-    NewWorldModel        "models/weapons2/DLT20a/dlt20a_w.glm"      //Required: New 3rd person/dropped weapon model
-    NewViewModel        "models/weapons2/DLT20a/dlt20a.md3"       //Required: New 1st person weapon model
-    Icon                "gfx/hud/w_icon_DLT20a"                 //Required: Weapon change icon
-    WeaponName            "DLT20A Rifle"                        //Required: Weapon change display name
-    customAmmo      800
+    NewWorldModel        "models/weapons2/blaster_r/blaster_w.glm"      //Required: New 3rd person/dropped weapon model
+    NewViewModel        "models/weapons2/blaster_r/blaster.md3"       //Required: New 1st person weapon model
+    Icon                "gfx/hud/w_icon_e11"                 //Required: Weapon change icon
+    WeaponName            "Stolen E-11 Carbine"                        //Required: Weapon change display name
+    customAmmo      500
     clipSize        100
     FPMult          0.8
 }
