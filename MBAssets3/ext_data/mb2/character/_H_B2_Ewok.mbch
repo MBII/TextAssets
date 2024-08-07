@@ -4,8 +4,8 @@
 ClassInfo
 {
 	name				"_H_B2_Ewok"
-	weapons				WP_MELEE|WP_FRAG_NADE|WP_SABER|WP_T21
-	attributes 			MB_ATT_FRAGS,2|MB_ATT_ASSEMBLE,1|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_T21,1
+	weapons				WP_MELEE|WP_SABER|WP_T21|WP_REPEATER
+	attributes 			MB_ATT_ASSEMBLE,1|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_REPEATER
 	maxhealth		90
 	maxarmor  		25
 	forcepool        0
@@ -15,8 +15,12 @@ ClassInfo
 	modelscale		0.68
 	MBClass			MB_CLASS_HERO
 	classNumberLimit 	4
-	WP_FragNadeFlags	HELD_KNOCKDOWN
-	WP_T21Flags		HELD_ALTRELOAD|HELD_LOWDAMAGE
+	//WP_FragNadeFlags	HELD_KNOCKDOWN|HELD_LOWDAMAGE
+	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE
+	WP_Repeaterflags		HELD_ALTRELOAD|HELD_STUN
+	WP_MELEEflags HELD_LOWDAMAGE 
+	rateOfFire_Melee	.5
+	classFlags 			CFL_BLOODYMELEE
 	
 	rateOfFire 		0.85
 	APmultiplier		0.8
@@ -24,15 +28,17 @@ ClassInfo
 	gloatanim	 	BOTH_SABERKILLER1
 	tauntAnim		BOTH_ENGAGETAUNT
 	flourishAnim		BOTH_FORCE_RAGE
-	WalkBackward 	BOTH_WALK2
-	WalkForward 	BOTH_WALK2
+	//WalkBackward 	BOTH_WALK2
+	//WalkForward 	BOTH_WALK2
+	
+	//skilltimermod 	1.33
 	
 	special1 EAS_HI_DODGE
 	special2 EAS_HI_DASH
-	special3 EAS_HI_QUICKTHROW
+	//special3 EAS_HI_QUICKTHROW
 	
 	model		"Jedi_EW"
-	skin		"endor_warrick"
+	skin			"endor_warrick"
 	uishader 	"models/players/Jedi_EW/mb2_Icon_endor_warrick"
 	
 	model_1		"Jedi_EW"
@@ -66,21 +72,21 @@ ClassInfo
 	respawnCustomTime 10000
 }
 
-WeaponInfo0
-{	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
-	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
-	NewViewModel			"models/weapons2/stone/thermal.md3"
-	Icon					"gfx/hud/w_icon_stone"
-	WeaponName			"Stones"
-	altMissileMissEffect	"stone/explosion"
-	MissileModel 			"models/weapons2/stone/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	primFireEnabled		0
-	CustomAmmo		2
-}
+//WeaponInfo0
+//{	WeaponToReplace		WP_FRAG_NADE
+	//WeaponBasedOff		WP_FRAG_NADE
+	//NewWorldModel			"models/weapons2/stone/thermal_w.glm"
+	//NewViewModel			"models/weapons2/stone/thermal.md3"
+	//Icon					"gfx/hud/w_icon_stone"
+	//WeaponName			"Stones"
+	//altMissileMissEffect	"stone/explosion"
+	//MissileModel 			"models/weapons2/stone/thermal_proj.md3"
+	//MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
+	//primFireEnabled		0
+	//CustomAmmo		2
+//}
 
-WeaponInfo1
+WeaponInfo0
 {
 	WeaponToReplace	WP_SABER
 	WeaponBasedOff	WP_SABER
@@ -90,45 +96,98 @@ WeaponInfo1
 	WeaponName		"Spear"
 }
 
-WeaponInfo2
+WeaponInfo1
 {
 	WeaponToReplace 	WP_T21
 	WeaponBasedOff 	WP_T21
 	NewWorldModel 	"models/weapons2/bow/bowcaster_w.glm"
 	NewViewModel 		"models/weapons2/bow/bowcaster.md3"
 	Icon 			"gfx/hud/w_icon_bow"
-	WeaponName 		"Bow"
-	FlashSound0 		"sound/300/wpn_bow_fire_01.wav"
-	MuzzleEffect  	"halo_smg/rings"
+	WeaponName 		"Bow and Arrows"
+	FlashSound0 		"sound/weapons/bow/alt_fire.wav"
+	MuzzleEffect  	"bow/muzzle"
 	MissileModel  	"models/weapons2/dc_gabow/greenarrow_arrow.md3"
-	MissileEffect 	"halo_smg/rings"
-	altMissileMissEffect	"dc/explosion"
+	MissileEffect 	"bow/whoosh"
+	MissileMissEffect	"dc/explosion"
 	clipSize			32	
 	customAmmo		184
-	idleAnim  		DC15_FIRE
+	idleAnim  		DC15_READY
+	firingAnim DC15_FIRE
 	altFireEnabled	0
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_FRAG_NADE
+	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
+	NewViewModel		"models/weapons2/stone/thermal.md3"
+	NewHandsModel		"models/weapons2/stone/thermal_hand.md3"
+	NewBarrelModel	"models/weapons2/stone/thermal_hand.md3"
+	
+	primfireenabled 0
+	altfireenabled	1
+	
+	Icon					"gfx/hud/w_icon_stone"
+	WeaponName			"Stones"
+	AltMuzzleEffect		"null"
+	AltMissileEffect	 "stone/missile1"
+	AltMissileMissEffect	"stone/explosion"
+	AltMissileHitHumanEffect "stone/explosion"
+	AltMissileHitDroidEffect	"stone/explosion"
+	MuzzleEffect		"null"
+	MissileEffect	 "stone/missile1"
+	MissileMissEffect	"stone/explosion"
+	MissileHitHumanEffect "stone/explosion"
+	MissileHitDroidEffect	"stone/explosion"
+	//MissileModel 			"models/weapons2/stone/thermal_proj.md3"
+	AltMissileModel 		"models/weapons2/stone/thermal.md3"
+	AltFlashSound0		"sound/weapons/stone/fire.mp3"	
+	AltFlashSound1		"sound/weapons/stone/fire.mp3"
+	AltFlashSound2		"sound/weapons/stone/fire.mp3"
+	AltFlashSound3		"sound/weapons/stone/fire.mp3"
+	MissileModel 		"models/weapons2/stone/thermal.md3"
+	FlashSound0		"sound/weapons/stone/fire.mp3"	
+	FlashSound1		"sound/weapons/stone/fire.mp3"
+	FlashSound2		"sound/weapons/stone/fire.mp3"
+	FlashSound3		"sound/weapons/stone/fire.mp3"
+	//FlashSound0			"sound/weapons/repeater/fire_old.wav"
+
+	clipSize 				25
+	customAmmo 125
+	firingAnim	NADE_SECONDARY
+	idleAnim	 TORSO_WEAPONIDLE10
+
+	//ProjSpeedModifier 1.5
+	
+	//primGore 1
+	//altGore 1
 }
 
 description "Ewok
 
 Class: Hero
 Brief Overview: 
-A small bowman and spear wielder carrying powerful/magical stones that deal intense knockback. 
+A small archer and spear wielder carrying powerful stones.
 
 ^2Weaponry:
-- Melee 
+- Light Melee 
+-- 50% faster punches
 - Spear 
 -- Based on Lightsaber
 -- Yellow style
 -- Cannot block blasters/sabers
--- 50% less damage
+-- 62% less damage
 -- 53% shorter reach
 -- 33% wider radius
-- Stones (2)
--- Based on Frag Grenades
+- Stones (6)
+-- Based on Imperial Repeater
 -- Sec. fire only
--- Detonate on contact
-- Bow (T-21 Heavy Blaster 1)
+-- 50% less damage
+-- Passive ammo regen
+- Bow and Arrows
+-- Based on T-21 Heavy Blaster (1)
+-- 50% lower damage
 
 ^8Attributes:
 - Reinforcements (2)
@@ -138,6 +197,5 @@ A small bowman and spear wielder carrying powerful/magical stones that deal inte
 ^3Abilities:
 - Dodge (3) ^3[CS1]
 - Dash (2) ^3[CS2]
-- Quick Throw (2) ^3[CS3 outside ^3of Grenades]
 
 Ewoks were a diminutive species of furry bipeds native to the forest moon of Endor. A large community of Ewoks assisted the Rebel Alliance in defeating the Galactic Empire at the Battle of Endor."
