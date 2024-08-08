@@ -1,0 +1,99 @@
+repeatDelay				300
+
+Emitter
+{
+	name				01: Stone_crushing
+
+	flags				useModel usePhysics
+
+	count				4
+
+	life				1000
+
+	cullrange			2048
+
+	bounce				0 0.25
+
+	angle				-180 -180 -180 180 180 180
+
+	angleDelta			-1 -1 -1 1 1 1
+
+	velocity			-150 -150 -150 150 150 150
+
+	gravity				-600 -400
+
+	size
+	{
+		start			1 2
+	}
+
+	models
+	[
+		models/chunks/stone/chunk_1.md3
+		models/chunks/stone/chunk_2.md3
+		models/chunks/stone/chunk_3.md3
+		models/chunks/stone/chunk_4.md3
+	]
+}
+
+Particle
+{
+	name				02: Dust
+
+	spawnFlags			orgOnSphere rgbComponentInterpolation affectedByWind
+
+	count				4
+
+	life				150 250
+
+	delay				300
+
+	cullrange			1024
+
+	wind				0 25
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			-10 -10 -10 10 10 10
+
+	acceleration		-5 -5 -5 5 5 5
+
+	rgb
+	{
+		start			0.8039 0.7961 0.7059 0.9294 0.9216 0.8784
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			2.5 5
+		end				10 15
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+CameraShake
+{
+	name				00: Shake
+
+	flags				usePhysics
+
+	life				250 500
+
+	bounce				1 2
+
+	radius				128
+}
