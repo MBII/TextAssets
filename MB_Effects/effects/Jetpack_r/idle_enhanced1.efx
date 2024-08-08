@@ -1,0 +1,178 @@
+repeatDelay				50
+
+Particle
+{
+	name				SmokeParticles
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				1 0
+
+	life				150 250
+
+	cullrange			500
+
+	origin				0 0 -7 0 0 -6
+
+	rotation			-180 180
+
+	rotationDelta		-20 20
+
+	velocity			0 0 -60 0 0 -70
+
+	gravity				-10 -15
+
+	rgb
+	{
+		start			0.7216 0.7176 0.5373 0.8431 0.8431 0.7569
+		end				0.2353 0.2353 0.2353
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			0 1
+		end				5 7
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Tail
+{
+	name				SmokeTail
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	life				150 50
+
+	cullrange			500
+
+	origin				0 0 -3
+
+	velocity			0 0 -1
+
+	rgb
+	{
+		start			0.9961 0.8706 0.003922 1 0.8392 0.1843
+		end				1 0.651 0
+		parm			20
+		flags			clamp
+	}
+
+	alpha
+	{
+		start			0 0.1
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 2
+		end				1 2
+		flags			linear
+	}
+
+	length
+	{
+		start			-10 -5
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Light
+{
+	name				Light
+
+	rgb
+	{
+		start			1 1 0
+	}
+
+	size
+	{
+		start			0.5 1
+		end				0.2 0.4
+		flags			linear
+	}
+}
+
+Line
+{
+	name				thrust
+
+	life				5
+
+	origin				0 0 -1
+
+	origin2				0 0 -7 0 0 -13
+
+	size
+	{
+		start			2 3
+	}
+
+	shaders
+	[
+		gfx/effects/jetpack/jetpack_thrust_r_1
+		gfx/effects/jetpack/jetpack_thrust_r_2
+		gfx/effects/jetpack/jetpack_thrust_r_3
+	]
+}
+
+Particle
+{
+	name				spark
+
+	flags				impactKills
+
+	count				0 1
+
+	life				100 0
+
+	cullrange			200
+
+	origin				0 0 -2
+
+	rotation			180 -180
+
+	velocity			100 -100 -40 -100 100 -400
+
+	rgb
+	{
+		end				0 0 0
+		flags			linear
+	}
+
+	size
+	{
+		start			0.7 0.5
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/jetpack/jetpack_spark_1
+	]
+}

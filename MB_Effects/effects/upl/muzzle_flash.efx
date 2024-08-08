@@ -1,0 +1,454 @@
+repeatDelay				1000
+
+Light
+{
+	name				00: Light
+
+	spawnFlags			rgbComponentInterpolation
+
+	life				100
+
+	cullrange			2048
+
+	rgb
+	{
+		start			0.251 0.4392 1 0.102 0.549 1
+	}
+
+	size
+	{
+		start			100
+		end				0
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				01: Shake
+
+	flags				usePhysics
+
+	life				150
+
+	bounce				2 1
+
+	radius				50
+}
+
+Sound
+{
+	name				02: Sound
+
+	sounds
+	[
+		sound/weapons/rocket/fire.wav
+	]
+}
+
+Particle
+{
+	name				03: Front_Flash
+
+	count				2
+
+	life				60
+
+	cullrange			4096
+
+	rotation			-1180 180
+
+	rotationDelta		-2.5 2.5
+
+	rgb
+	{
+		start			0.251 0.4392 1 0.502 0.6235 1
+	}
+
+	alpha
+	{
+		start			0.75
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			15
+		end				5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteflare.jpg
+	]
+}
+
+Particle
+{
+	name				04: Front_Smoke
+
+	flags				useAlpha
+
+	count				3 5
+
+	life				500 1000
+
+	cullrange			2048
+
+	origin				-2.5 -1 -1 -2.5 1 1
+
+	rotation			-180 180
+
+	rotationDelta		-10 10
+
+	velocity			40 -15 -15 60 15 15
+
+	acceleration		-40 0 0
+
+	gravity				-5 5
+
+	rgb
+	{
+		start			0 0 0.1686
+		parm			5
+		flags			linear clamp
+	}
+
+	alpha
+	{
+		end				0
+		parm			50
+		flags			linear clamp
+	}
+
+	size
+	{
+		start			4 6
+		end				8 10
+		parm			50
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke.tga
+	]
+}
+
+Line
+{
+	name				05: Side_Flash
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				3
+
+	life				60
+
+	cullrange			4096
+
+	origin				-2.5 0 0
+
+	origin2				25 0 0 30 0 0
+
+	rgb
+	{
+		start			0.6667 0.749 1 0.8353 0.8745 1
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			5 7.5
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/ftail.jpg
+		gfx/effects/ftail1.jpg
+		gfx/effects/water_splash.jpg
+	]
+}
+
+Tail
+{
+	name				06.1: Firejet_Left
+
+	count				3
+
+	life				80 120
+
+	delay				0 100
+
+	cullrange			2048
+
+	origin				-2 -1 0
+
+	velocity			0.5 -1 0
+
+	rgb
+	{
+		start			0.251 0.4392 1 0.502 0.6235 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			75
+		flags			linear
+	}
+
+	size
+	{
+		start			2 4
+		end				6 8
+		flags			linear
+	}
+
+	length
+	{
+		start			-5
+		end				-10 -15
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/ftail.jpg
+		gfx/effects/ftail1.jpg
+		gfx/effects/water_splash.jpg
+	]
+}
+
+Tail
+{
+	name				06.2: Firejet_Right
+
+	count				3
+
+	life				80 120
+
+	delay				0 100
+
+	cullrange			2048
+
+	origin				-2 1 0
+
+	velocity			0.5 1 0
+
+	rgb
+	{
+		start			0.251 0.4392 1 0.502 0.6235 1
+	}
+
+	alpha
+	{
+		end				0
+		parm			75
+		flags			linear
+	}
+
+	size
+	{
+		start			2 4
+		end				6 8
+		flags			linear
+	}
+
+	length
+	{
+		start			-5
+		end				-10 -15
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/ftail.jpg
+		gfx/effects/ftail1.jpg
+		gfx/effects/water_splash.jpg
+	]
+}
+
+Particle
+{
+	name				07.1: Smoke_Left_01
+
+	spawnFlags			evenDistribution
+
+	count				6
+
+	life				250
+
+	delay				250 500
+
+	cullrange			2048
+
+	origin				-1.5 0 0 -2.5 0 0
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			5 -50 0
+
+	alpha
+	{
+		start			0
+		end				0.25 0.35
+		parm			2.5
+		flags			linear wave
+	}
+
+	size
+	{
+		start			1 2
+		end				5 10
+		parm			25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Particle
+{
+	name				07.2: Smoke_Right_01
+
+	spawnFlags			evenDistribution
+
+	count				6
+
+	life				250
+
+	delay				250 500
+
+	cullrange			2048
+
+	origin				-1.5 0 0 -2.5 0 0
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			5 50 0
+
+	alpha
+	{
+		start			0
+		end				0.25 0.35
+		parm			2.5
+		flags			linear wave
+	}
+
+	size
+	{
+		start			1 2
+		end				5 10
+		parm			25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Particle
+{
+	name				08.1: Smoke_Left_02
+
+	spawnFlags			evenDistribution
+
+	count				4
+
+	life				1000
+
+	delay				500 750
+
+	cullrange			2048
+
+	origin				-27.5 -1 -1 -27.5 -1 0
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			0 -2.5 -10
+
+	alpha
+	{
+		start			0
+		end				0.25 0.35
+		flags			linear
+	}
+
+	size
+	{
+		start			1 2
+		end				5 10
+		parm			25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Particle
+{
+	name				08.2: Smoke_Right_02
+
+	spawnFlags			evenDistribution
+
+	count				4
+
+	life				1000
+
+	delay				500 750
+
+	cullrange			2048
+
+	origin				-27.5 1 -1 -27.5 1 0
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	velocity			0 2.5 -10
+
+	alpha
+	{
+		start			0
+		end				0.25 0.35
+		flags			linear
+	}
+
+	size
+	{
+		start			1 2
+		end				5 10
+		parm			25
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}

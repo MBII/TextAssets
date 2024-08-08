@@ -531,7 +531,49 @@ gfx/effects/sabers_more/glow/purple
     }
 }
 
-//Stun weapons
+//stun and sonic pistol
+
+gfx/effects/stun_projectile
+{
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    cull twosided
+    {
+        map gfx/effects/stun_projectile
+        blendFunc GL_ONE GL_ONE
+        glow
+    }
+}
+
+gfx/effects/sonic_projectile
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+    surfaceparm nomarks
+    surfaceparm nonsolid
+    cull twosided
+    {
+        map gfx/effects/sonic_projectile
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        glow
+        rgbGen entity
+    }
+}
+
+gfx/damage/sonicmark1
+{
+	polygonOffset
+    {
+        map gfx/damage/sonicmark1
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+        alphaGen vertex
+    }
+}
 
 models/effects/stun_blasters/soundring
 {
@@ -574,73 +616,6 @@ models/effects/stun_blasters/soundring2
         detail
         alphaGen lightingSpecular
         detail
-    }
-}
-
-gfx/sonic_pistol/wallmark
-{
-	polygonOffset
-    {
-        map gfx/sonic_pistol/wallmark
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen vertex
-        alphaGen vertex
-    }
-}
-
-//Sonic Pistol
-models/effects/stun_blasters/soundring
-{
-    surfaceparm trans
-    surfaceparm nomarks
-    surfaceparm nonsolid
-    surfaceparm nonopaque
-    cull twosided
-    {
-        map models/effects/stun_blasters/soundring
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcMod scroll 0 -0.125
-    }
-    {
-        map models/effects/stun_blasters/soundring_back
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
-        detail
-        alphaGen lightingSpecular
-        detail
-    }
-}
-
-models/effects/stun_blasters/soundring2
-{
-    surfaceparm trans
-    surfaceparm nomarks
-    surfaceparm nonsolid
-    surfaceparm nonopaque
-    cull twosided
-    {
-        map models/effects/stun_blasters/soundring2
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-        tcMod scroll 0 -0.125
-    }
-    {
-        map models/effects/stun_blasters/soundring_back
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_COLOR
-        detail
-        alphaGen lightingSpecular
-        detail
-    }
-}
-
-gfx/sonic_pistol/wallmark
-{
-	polygonOffset
-    {
-        map gfx/sonic_pistol/wallmark
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        rgbGen vertex
-        alphaGen vertex
     }
 }
 

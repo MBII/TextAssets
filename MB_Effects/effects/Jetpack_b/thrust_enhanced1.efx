@@ -1,0 +1,125 @@
+repeatDelay				9
+
+Particle
+{
+	name				SmokeParticles
+
+	flags				useAlpha
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				1 2
+
+	life				1000 500
+
+	cullrange			500
+
+	origin				0 0 -20 0 0 -16
+
+	rotation			-180 180
+
+	rotationDelta		-20 20
+
+	velocity			0 0 -160 0 0 -70
+
+	gravity				-10 -15
+
+	rgb
+	{
+		start			0.8863 0.8863 0.8118
+		end				0.2353 0.2353 0.2353
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.1 0.2
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1 3
+		end				23 15
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Light
+{
+	name				Light
+
+	rgb
+	{
+		start			1 1 0
+	}
+
+	size
+	{
+		start			0.5 1
+		end				0.2 0.4
+		flags			linear
+	}
+}
+
+Line
+{
+	name				thrust
+
+	life				5
+
+	origin2				0 0 -16 0 0 -20
+
+	size
+	{
+		start			2 3
+	}
+
+	shaders
+	[
+		gfx/effects/jetpack/jetpack_thrust_b_1
+		gfx/effects/jetpack/jetpack_thrust_b_2
+		gfx/effects/jetpack/jetpack_thrust_b_3
+	]
+}
+
+Particle
+{
+	name				spark
+
+	flags				impactKills
+
+	count				0 1
+
+	life				250 0
+
+	origin				0 0 -2
+
+	rotation			180 -180
+
+	velocity			100 -100 -40 -100 100 -400
+
+	rgb
+	{
+		end				0 0 0
+		flags			linear
+	}
+
+	size
+	{
+		start			0.7 0.5
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/jetpack/jetpack_spark_1
+	]
+}
