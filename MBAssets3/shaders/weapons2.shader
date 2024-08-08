@@ -369,6 +369,54 @@ models/weapons2/elg-3a/blaster_pistol
 	}
 }
 
+// Ewok stone
+
+models/weapons2/stone/fur_ewok
+{
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    cull    twosided
+    {
+        map models/weapons2/stone/fur_ewok
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+    }
+}
+
+models/weapons2/stone/hands_ewok
+    {
+    q3map_nolightmap
+    q3map_onlyvertexlighting
+    {
+        map models/weapons2/stone/hands_ewok
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/stone/hands_ewok_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/stone/stone
+    {
+    q3map_nolightmap
+    q3map_onlyvertexlighting
+    {
+        map models/weapons2/stone/stone
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/stone/stone_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
 
 //	plasma
 
@@ -1814,5 +1862,60 @@ models/weapons2/f11d_blaster/F11D_Phasma_Stock
         detail
         alphaGen lightingSpecular
         tcGen environment
+    }
+}
+
+// UPL - Merr-Sonn Electromagnetic Pulse Launchers for Clone Jet Trooper
+
+models/weapons2/upl/body
+{
+    {
+        map models/weapons2/upl/body
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/upl/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/upl/body_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/upl/screen
+{
+    {
+        map models/weapons2/upl/screen
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/upl/screen_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/weapons2/upl/warhead
+{
+	polygonOffset
+	cull	twosided
+    {
+        map models/weapons2/upl/warhead
+        blendFunc GL_ONE GL_ZERO
+        rgbGen wave sin 0 0.25 0 0.25
+    }
+    {
+        map models/weapons2/upl/warhead_glow_emp
+        blendFunc GL_ONE GL_ONE
+        glow
+        tcMod scroll 0.25 0.25
     }
 }
