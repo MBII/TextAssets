@@ -4,9 +4,9 @@
 ClassInfo
 {
 	name			"bh_tr_sco"
-	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_SHOTGUN
+	weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_SHOTGUN
 	attributes		MB_ATT_RESPAWNS,1|MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_FP_LEVITATION,2|MB_ATT_FLIPKICK,2|MB_ATT_PISTOL,3|MB_ATT_SHOTGUN,3|MB_ATT_AMMO,3|MB_ATT_GUNBASH|MB_ATT_BLAST_ARMOUR
-	forcepowers     FP_LEVITATION,2
+	forcepowers     FP_LEVITATION,2|FP_SABER_OFFENSE,2
     maxhealth		65
 	maxarmor		10
     forcepool       50
@@ -21,13 +21,21 @@ ClassInfo
     WP_ShotgunFlags HELD_ALTRELOAD
     WP_FlechetteFlags HELD_LOWDAMAGE
 
+    saber1      soldierbaton_proj_red
+    saber2      none
+    saberstyle  SS_MEDIUM
+
     model_1         "prisoner"
     skin_1          "red"
     uishader_1      "models/players/prisoner/icon_red"
 
-    model_2			"noghri"
-	skin_2			"red"
-	uishader_2		"models/players/noghri/icon_red"
+    model_2         "shadowtrooper"
+    skin_2          "red"
+    uishader_2      "models/players/shadowtrooper/icon_red"
+
+    model_3			"noghri"
+	skin_3			"red"
+	uishader_3		"models/players/noghri/icon_red"
 
     respawnWait 10000
     respawnCustomTime 10000
@@ -96,6 +104,16 @@ ClassInfo
 
 WeaponInfo0
 {
+	WeaponToReplace		WP_SABER			
+	WeaponBasedOff		WP_SABER			
+	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
+	Icon			"gfx/hud/w_icon_soldierbaton"
+	WeaponName		"Shock Baton" 
+}
+
+WeaponInfo1
+{
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_MANDO_PISTOL
 	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
@@ -104,7 +122,7 @@ WeaponInfo0
 	WeaponName			"Bryar Pistol"
 }
 
-WeaponInfo1
+WeaponInfo2
 {
     WeaponToReplace        WP_BLASTER                           //Required: Weapon Slot of weapon you're replacing
     WeaponBasedOff        WP_BLASTER                          //Required: For future use, should be the same as WeaponToReplace
@@ -112,12 +130,12 @@ WeaponInfo1
     NewViewModel        "models/weapons2/blaster_r/blaster.md3"       //Required: New 1st person weapon model
     Icon                "gfx/hud/w_icon_e11"                 //Required: Weapon change icon
     WeaponName            "Stolen E-11 Carbine"                        //Required: Weapon change display name
-    customAmmo      500
+    customAmmo      300
     clipSize        100
     FPMult          0.8
 }
 
-WeaponInfo2
+WeaponInfo3
 {
     WeaponToReplace        WP_SHOTGUN                           //Required: Weapon Slot of weapon you're replacing
     WeaponBasedOff        WP_SHOTGUN                          //Required: For future use, should be the same as WeaponToReplace
@@ -127,11 +145,11 @@ WeaponInfo2
     WeaponName            "Flechette Pistol"                        //Required: Weapon change display name
 	idleAnim			MAND_SPISTOL 
 	firingAnim			MAND_SPISTOL_FIRE
-    customAmmo      500
+    customAmmo      160
     clipSize        30
 }
 
-WeaponInfo3
+WeaponInfo4
 {
 	WeaponToReplace		WP_CONCUSSION
 	WeaponBasedOff		WP_CONCUSSION
@@ -146,7 +164,7 @@ WeaponInfo3
 	ReloadTimeModifier 	2
 }
 
-WeaponInfo4
+WeaponInfo5
 {
 	WeaponToReplace 	WP_FLECHETTE
 	WeaponBasedOff 		WP_FLECHETTE
