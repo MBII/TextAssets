@@ -18,10 +18,7 @@ ClassInfo
 	MBClass			"MB_CLASS_ARCTROOPER"
 	speed			1.4
 
-    WP_ShotgunFlags HELD_ALTRELOAD
-    WP_FlechetteFlags HELD_LOWDAMAGE
-
-    saber1      soldierbaton_proj_red
+    saber1      soldierbaton_lota_red
     saber2      none
     saberstyle  SS_MEDIUM
 
@@ -40,6 +37,11 @@ ClassInfo
     respawnWait 10000
     respawnCustomTime 10000
     classNumberLimit  	2
+
+    WP_BlasterPistolFlags	HELD_KNOCKBACK
+    WP_ShotgunFlags         HELD_ALTRELOAD|HELD_LOWDAMAGE
+    WP_BlasterFlags         HELD_KNOCKBACK
+    WP_FlechetteFlags       HELD_LOWDAMAGE
 
     isCustomBuild        1
     mbPoints            150
@@ -117,13 +119,15 @@ WeaponInfo0
 WeaponInfo1
 {
 	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_MANDO_PISTOL
+	WeaponBasedOff		WP_BLASTER_PISTOL
 	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
 	NewViewModel		"models/weapons2/briar_pistol/briar_pistol.md3"
 	Icon				"gfx/hud/w_icon_briar"
 	WeaponName			"Bryar Pistol"
     MissileMissEffect	"effects/impacts/impactsmallred1"
 	AltMissileMissEffect	"effects/impacts/impactsmallred1"
+    idleAnim		BOTH_MAND_PISTOL_IDLE 
+	firingAnim		MAND_SPISTOL_FIRE
 }
 
 WeaponInfo2
@@ -149,7 +153,7 @@ WeaponInfo3
 	NewViewModel		"models/weapons/FWG-5_FlechettePistol/model.md3"
 	Icon				"gfx/hud/w_icon_flechettepistol"  	
     WeaponName            "Flechette Pistol"                        //Required: Weapon change display name
-	idleAnim			MAND_SPISTOL 
+	idleAnim			BOTH_MAND_PISTOL_IDLE  
 	firingAnim			MAND_SPISTOL_FIRE
     MissileMissEffect	"effects/impacts/impactsmallred1"
 	AltMissileMissEffect	"effects/impacts/impactsmallred1"
