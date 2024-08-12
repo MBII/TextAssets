@@ -578,18 +578,18 @@ gfx/automap/mb2_dxuncliff
 {
 	nopicmip
 	{
-		clampmap gfx/automap/mb2_dxuntop
+		clampmap gfx/automap/mb2_dxuncliff
 		blendfunc blend
 		alphaGen vertex
 		depthfunc equal
 	}
 }
 
-gfx/automap/mb2_dxuncliffull
+gfx/automap/mb2_dxunclifffull
 {
 	nomipmaps
 	{
-		map gfx/automap/mb2_dxuntopfull
+		map gfx/automap/mb2_dxunclifffull
 		blendfunc blend
 		alphaGen vertex
 	}
