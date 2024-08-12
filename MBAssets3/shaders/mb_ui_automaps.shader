@@ -585,7 +585,7 @@ gfx/automap/mb2_dxuncliff
 	}
 }
 
-gfx/automap/mb2_dxunclifffull
+gfx/automap/mb2_dxuncliffull
 {
 	nomipmaps
 	{
