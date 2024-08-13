@@ -3,15 +3,15 @@
 
 ClassInfo
 {
-	name			"bh_tr_sup"
+	name			"lota_tr_sup"
 	weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
 	saberstyle  	SS_MEDIUM|SS_FAST|SS_STRONG
-	forcepowers		FP_LEVITATION,3|FP_PUSH,2|FP_PULL,2|FP_SABERTHROW,3
+	forcepowers		FP_LEVITATION,3|FP_PUSH,2|FP_PULL,2|FP_SABERTHROW,3|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3
 	attributes		MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_FORCEFOCUS,2|MB_ATT_FLIPKICK,2|MB_ATT_DEFLECT,3|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_OFFENSE,3|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_FORCEBLOCK,3|MB_ATT_FP_LEVITATION,3|MB_ATT_FP_REPULSE
 	classflags		CFL_BPFREEJUMPS
 	forcepool		100
 	maxhealth		100
-	maxarmor		0
+	maxarmor		20
 	customred		1
 	customgreen		0.1
 	customblue		0.1
@@ -124,6 +124,17 @@ ClassInfo
 
 WeaponInfo0
 {
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/saber_reborn/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_lightsaber" 	//Required: Weapon change icon
+	WeaponName		"Lightsaber"    					//Required: Weapon change display name
+	idleAnim	BOTH_WALK2
+}
+
+WeaponInfo1
+{
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_BLASTER_PISTOL
 	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
@@ -132,7 +143,7 @@ WeaponInfo0
 	WeaponName			"Bryar Pistol"
 	MissileMissEffect	"effects/impacts/impactsmallred1"
 	AltMissileMissEffect	"effects/impacts/impactsmallred1"
-    idleAnim		BOTH_MAND_PISTOL_IDLE 
+    idleAnim		MAND_SPISTOL 
 	firingAnim		MAND_SPISTOL_FIRE
 }
 
