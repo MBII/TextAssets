@@ -3,9 +3,9 @@
 
 ClassInfo
 {
-	name			"bh_tr_sni"
-	weapons			WP_MELEE|WP_BLASTER_PISTOL
-	attributes		MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_FP_LEVITATION,2|MB_ATT_FLIPKICK,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_CCTRAINING,2|MB_ATT_GUNBASH
+	name			"lota_tr_sni"
+	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER
+	attributes		MB_ATT_BUNNY_HOP,2|MB_ATT_BLASTER,3|MB_ATT_FLOAT_HOP|MB_ATT_FP_LEVITATION,2|MB_ATT_FLIPKICK,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_CCTRAINING,2|MB_ATT_GUNBASH
 	forcepowers		FP_LEVITATION,2
 	maxhealth		100
 	maxarmor		75
@@ -18,6 +18,8 @@ ClassInfo
 	uishader		"models/players/projheaven/mb2_icon_red_sniper"
 	MBClass			"MB_CLASS_BOUNTY_HUNTER"
 	speed			1.0
+
+	damageGiven		1.1
 	
 	model_1			"galak"
 	skin_1			"red"
@@ -55,63 +57,59 @@ ClassInfo
 	skin_9			"red"
 	uishader_9		"models/players/human_merc/icon_red"
 
-    respawnWait 10000
-    respawnCustomTime 10000
-
 	WP_ProjFlags	HELD_DISRUPTIFY
 	WP_BlasterPistolFlags	HELD_KNOCKBACK
     WP_BlasterFlags         HELD_KNOCKBACK
 
+    respawnWait 10000
+    respawnCustomTime 10000
+
     isCustomBuild        1
-    mbPoints            150
+    mbPoints            50
 
 	c_att_skill_0		MB_ATT_INVALID
 	c_att_names_0		"^1-Weapons-"
 	c_att_ranks_0		-1
-
-    c_att_skill_1        MB_ATT_BLASTER
-    c_att_names_1        "E-11 Blaster:"
-    c_att_ranks_1        10,5,5
     
-    c_att_skill_2        MB_ATT_PROJECTILE_RIFLE
-    c_att_names_2        "Projectile Rifle:"
-    c_att_ranks_2        20
+    c_att_skill_1        MB_ATT_PROJECTILE_RIFLE
+    c_att_names_1        "Projectile Rifle:"
+    c_att_ranks_1        20
 
-	c_att_skill_3		 MB_ATT_DISRUPTOR
-	c_att_names_3		 "Disruptor Rifle:"
-	c_att_ranks_3		 15,5
+	c_att_skill_2		 MB_ATT_DISRUPTOR
+	c_att_names_2		 "Disruptor Rifle:"
+	c_att_ranks_2		 15,5
 
-    c_att_skill_4        MB_ATT_FRAGS
-    c_att_names_4        "Frag Grenades:"
+    c_att_skill_3        MB_ATT_FRAGS
+    c_att_names_3        "Frag Grenades:"
+    c_att_ranks_3        15,20
+    
+    c_att_skill_4        MB_ATT_PULSE_GRENADES
+    c_att_names_4        "Pulse Grenades:"
     c_att_ranks_4        15,20
     
-    c_att_skill_5        MB_ATT_PULSE_GRENADES
-    c_att_names_5        "Pulse Grenades:"
-    c_att_ranks_5        15,20
-    
-    c_att_skill_6        MB_ATT_THERMALS
-    c_att_names_6        "Thermal Detonators:"
-    c_att_ranks_6		 20
+    c_att_skill_5        MB_ATT_THERMALS
+    c_att_names_5        "Thermal Detonators:"
+    c_att_ranks_5		 20
 
-	c_att_skill_7		 MB_ATT_INVALID
-	c_att_names_7		 "^1-Abilities-"
-	c_att_ranks_7		 -1
+	c_att_skill_6		 MB_ATT_INVALID
+	c_att_names_6		 "^1-Abilities-"
+	c_att_ranks_6		 -1
 
-	c_att_skill_8		 MB_ATT_TRACKING_DART
-	c_att_names_8		 "Tracking Darts:"
+	c_att_skill_7		 MB_ATT_TRACKING_DART
+	c_att_names_7		 "Tracking Darts:"
+	c_att_ranks_7		 5,5,10
+
+	c_att_skill_8		 MB_ATT_POISON_DART
+	c_att_names_8		 "Poison Darts:"
 	c_att_ranks_8		 5,5,10
 
-	c_att_skill_9		 MB_ATT_POISON_DART
-	c_att_names_9		 "Poison Darts:"
-	c_att_ranks_9		 5,5,10
-
-	c_att_skill_10		  MB_ATT_DASH
-	c_att_names_10		  "Hero Dash:"
-	c_att_ranks_10		  6,12
+	c_att_skill_9		  MB_ATT_DASH
+	c_att_names_9		  "Hero Dash:"
+	c_att_ranks_9		  6,12
     
-    c_att_skill_11        MB_ATT_BLAST_ARMOUR
-    c_att_names_11        "Blast Armor:"
-    c_att_ranks_11        15
+    c_att_skill_10        MB_ATT_BLAST_ARMOUR
+    c_att_names_10        "Blast Armor:"
+    c_att_ranks_10        15
 
     resource            RESOURCE_STAMINA
 
@@ -131,7 +129,7 @@ WeaponInfo0
 	WeaponName			"Bryar Pistol"
 	MissileMissEffect	"effects/impacts/impactsmallred1"
 	AltMissileMissEffect	"effects/impacts/impactsmallred1"
-    idleAnim		BOTH_MAND_PISTOL_IDLE 
+    idleAnim		MAND_SPISTOL 
 	firingAnim		MAND_SPISTOL_FIRE
 }
 
@@ -160,8 +158,10 @@ WeaponInfo2
 	WeaponName			"Projectile Rifle"
 	MuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"blaster/Shot03R"
-	MissileMissEffect	"effects/impacts/impactsmallred1"
-	AltMissileMissEffect	"effects/impacts/impactsmallred1"
+	MissileMissEffect	"effects/impacts/impactsmallred2"
+	AltMissileMissEffect	"effects/impacts/impactsmallred2"
+	MissileHitHumanEffect	"effects/impacts/impactsmallred2"
+	MissileHitDroidEffect	"effects/impacts/impactsmallred2"
 	primGore		1
 	altGore			1
 	customAmmo		8
@@ -190,7 +190,5 @@ Tracking Darts
 
 Attributes:
 Close Combat (2)
-Pistol (3)
-Armor (3)
 Flip Kick (2)
 Gun Bash"

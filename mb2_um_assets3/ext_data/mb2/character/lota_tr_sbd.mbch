@@ -3,9 +3,9 @@
 
 ClassInfo
 {
-	name				"bh_tb_sbd"
+	name				"lota_tr_sbd"
 	weapons				WP_SBD|WP_SABER|WP_MELEE
-	attributes		    MB_ATT_AMMO,2|MB_ATT_GUNBASH|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_FP_SABER_OFFENSE,3|MB_ATT_FUEL,1
+	attributes		    MB_ATT_AMMO,2|MB_ATT_GUNBASH|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_CORTOSIS|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_FP_SABER_OFFENSE,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_DEFLECT,1|MB_ATT_FUEL,1
     forcepowers         FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
 	maxhealth			400
 	maxarmor			100
@@ -14,22 +14,19 @@ ClassInfo
     saber1              droidmelee_lotasbd
     saber2              droidmelee_lotasbd
 	
-	speed				0.7
+	speed				0.8
 	//modelscale		1.12
-	modelscale			1.6
+	modelscale			1.5
 
-	rateoffire		0.92
-
-	//WP_MeleeFlags		HELD_LOWDAMAGE|HELD_SLOW
-    WP_RocketLauncherFlags  HELD_KNOCKDOWN|HELD_KNOCKBACK|HELD_IGNOREBLOCK|HELD_EXPLOSIVE|HELD_ALTRELOAD
+	rateoffire		0.8
 
 	//model				"SBD"
-	//skin				"cw"
-	uishader		    "models/players/projheaven/mb2_icon_blue_sbd"
+	//skin				"dolovite"
+	uishader		    "models/players/projheaven/mb2_icon_red_sbd"
 
 	model			"sb_droid"
-	skin			"blue"
-	//uishader		"gfx/um_icons/droiddiscipleB"
+	skin			"red"
+	//uishader		"gfx/um_icons/droiddiscipleR"
 		
 	classNumberLimit  	1
 	MBClass				MB_CLASS_MANDALORIAN
@@ -37,7 +34,9 @@ ClassInfo
 	respawnWait 15000
 	respawnCustomTime  15000
 
-	WP_SBDFlags		HELD_KNOCKBACK
+	//WP_MeleeFlags		HELD_LOWDAMAGE|HELD_SLOW
+    WP_PLX1Flags  HELD_KNOCKDOWN|HELD_KNOCKBACK|HELD_IGNOREBLOCK|HELD_EXPLOSIVE|HELD_ALTRELOAD
+	WP_SBDFlags		HELD_KNOCKBACK|HELD_KNOCKDOWNRESISTANCE
 
 	WalkBackward	SBD_WALK_NOGUN
 	WalkForward 	SBD_WALK_NOGUN
@@ -46,10 +45,10 @@ ClassInfo
 	rateoffire_melee	2
 
     isCustomBuild        1
-    mbPoints            150
+    mbPoints            100
 
     c_att_skill_0        MB_ATT_INVALID
-    c_att_names_0        "^5-SBD Offense-"
+    c_att_names_0        "^1-SBD Offense-"
     c_att_ranks_0        -1
     
     c_att_skill_1        MB_ATT_FIREPOWER
@@ -58,14 +57,14 @@ ClassInfo
     
     c_att_skill_2        MB_ATT_WOOKIE_STRENGTH
     c_att_names_2        "Melee Strength:"
-    c_att_ranks_2        8,15
+    c_att_ranks_2        8,15,5
 
-    c_att_skill_3        MB_ATT_ROCKET_LAUNCHER
+    c_att_skill_3        MB_ATT_PLX1
     c_att_names_3        "Wrist Rocket:"
     c_att_ranks_3		 25
     
     c_att_skill_4        MB_ATT_INVALID
-    c_att_names_4        "^5-SBD Defense-"
+    c_att_names_4        "^1-SBD Defense-"
     c_att_ranks_4        -1
     
     c_att_skill_5        MB_ATT_HULL_STRENGTH
@@ -85,7 +84,7 @@ ClassInfo
     c_att_ranks_8        5,10,15
     
     c_att_skill_9       MB_ATT_INVALID
-    c_att_names_9       "^5-SBD Abilities-"
+    c_att_names_9       "^1-SBD Abilities-"
     c_att_ranks_9       -1
 
 	c_att_skill_10		 MB_ATT_RADAR
@@ -113,7 +112,6 @@ ClassInfo
 	rankForcePool	30
 
     special1        EAS_HI_RECHARGE
-	
 }
 
 WeaponInfo0
@@ -130,13 +128,15 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
+	WeaponToReplace		WP_PLX1
+	WeaponBasedOff		WP_PLX1
 	NewWorldModel		"models/weapons2/dummy/dummy.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_sbdarm"
 	WeaponName			"Wrist Rocket"
-	MissileEffect         "rockets/Missile" 
+	MissileEffect         "Mace\sithshot"
+	MissileSound                "sound/weapons/upl/missleloop.wav"
+    MissileModel                 "models/weapons2/upl/projectile_a.md3"
 	AltMissileMissEffect	"effects/Grenades/EXP_Explosion"
 	AltMissileHitHumanEffect	"effects/Grenades/EXP_Explosion"
 	AltMissileHitDroidEffect	"effects/Grenades/EXP_Explosion"
@@ -146,7 +146,8 @@ WeaponInfo1
     FlashSound0            "sound/weapons/WhistlingBird/Fire3.mp3"
 	customAmmo           1
     clipSize             1
-	ReloadTimeModifier 	3
+	ReloadTimeModifier 	2
+	AltFireEnabled		0
 
 	idleAnim		SBD_GUN_OUT_STAND
 	firingAnim	    SBD_FIRE
@@ -161,12 +162,8 @@ WeaponInfo2
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_sbdarm"
 	WeaponName			"Wrist Blaster"
-    MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"blaster/Shot02B"
-	AltMissileEffect	"blaster/Shot02B"
-	MissileMissEffect	"effects/impacts/impactsmallblue1"
-	AltMissileMissEffect	"effects/impacts/impactsmallblue1"
+	MissileMissEffect	"effects/impacts/impactsmallred1"
+	AltMissileMissEffect	"effects/impacts/impactsmallred1"
 	customAmmo           400
     clipSize             100
 
@@ -175,6 +172,6 @@ WeaponInfo2
 	altFiringAnim	SBD_FIRE
 }
 
-description	"Team Blue - Super Battle Droid
+description	"Team Red - Super Battle Droid
 
 Short Respawn (CTF)"
