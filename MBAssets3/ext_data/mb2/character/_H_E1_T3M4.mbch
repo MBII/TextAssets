@@ -2,33 +2,31 @@
 
 ClassInfo
 {
-	name					"_H_E1_T3M4"
+	name				"_H_E1_T3M4"
 
-	weapons					WP_CLONE_PISTOL|WP_THROWER
-	attributes				MB_ATT_FIREPOWER,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_RECHARGE,3|MB_ATT_FP_MIRALUKA,1|MB_ATT_CLONE_PISTOL,1|MB_ATT_FUEL,3|MB_ATT_THROWER_ICE,3|MB_ATT_ZOOM
-	forcepowers				FP_SEE,1
-	maxhealth				125
+	weapons		WP_CLONE_PISTOL|WP_THROWER
+	attributes	MB_ATT_FIREPOWER,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_RECHARGE,3|MB_ATT_FP_MIRALUKA,1|MB_ATT_CLONE_PISTOL,1|MB_ATT_FUEL,3|MB_ATT_THROWER_ICE,3|MB_ATT_ZOOM
+	forcepowers			FP_SEE,1
+	maxhealth			125
 	maxarmor				20
-	model					"t3m4" 
-	modelscale				0.72
+	model				"t3m4" 
+	modelscale			0.72
 	skin					"default"
 	uishader				"gfx/hud/fa_icons/mb2_icon_t3m4"
-	MBClass					MB_CLASS_SBD
-	classflags				CFL_ICETHROWER|CFL_FASTHACKING|CFL_NOLOCATIONALDAMAGE
-	forcepowers				FP_SEE,1
-	forcepool				100
-	speed					1.3
+	MBClass				MB_CLASS_SBD
+	classflags			CFL_ICETHROWER|CFL_FASTHACKING|CFL_NOLOCATIONALDAMAGE
+	forcepowers			FP_SEE,1
+	forcepool			100
+	speed				1.3
 	classNumberLimit 		1
 	//meleeMoves			M_JUMPKICK
 	WP_ClonePistolFlags   HELD_PULSE|HELD_ALTRELOAD
+	WP_ThrowerFlags 		HELD_ALTRELOAD|HELD_SLOW
 	damageTaken 			0.9
-	WP_ThrowerFlags 			HELD_ALTRELOAD|HELD_SLOW
-	
 	disableGunBash 1
 	
 	special1	EAS_HI_RECHARGE
-	special2 	EAS_HI_SBD_ZOOM
-		
+	special2 EAS_HI_SBD_ZOOM
 	respawnCustomTime 50000
 }
 WeaponInfo0
@@ -60,22 +58,23 @@ WeaponInfo1
 	FlashSound0		"sound/weapons/kotor/fire_light.wav" 
 	customammo 		500
 }
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_THROWER
+	WeaponBasedOff		WP_CLONE_RIFLE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon			"gfx/hud/w_icon_carboniterifle"
+	WeaponName		"Cryoban Projector"
+	ReloadTimeModifier 	1.5
+}
+
 ForceInfo0
 {
 	ForceToReplace	FP_SEE
 	Icon		"gfx/forcepowers/radar"
 	ForcePowerName	"Radar Scanner"
-}
-
-WeaponInfo2
-{
-	WeaponToReplace		WP_THROWER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_CLONE_RIFLE					//Required: For future use, should be the same as WeaponToReplace
-		NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/noweap/noweap.md3"
-	Icon			"gfx/hud/w_icon_carboniterifle" 					//Required: Weapon change icon
-	WeaponName		"Ice Thrower"    				//Required: Weapon change display name
-	ReloadTimeModifier 	1.5
 }
 
 description	"T3-M4
@@ -90,6 +89,10 @@ A fast moving support class with a weapon-disabling ion blaster and a freeze ray
 - Ion Blaster
 -- Based on Clone Pistol (1)
 -- Electrocutes targets on hit
+- Cryoban Projector
+-- Based on Flamethrower
+-- Slows/freezes targets
+-- 50% slower reload
 
 ^8Attributes:
 - Fast Hacking
@@ -99,5 +102,4 @@ A fast moving support class with a weapon-disabling ion blaster and a freeze ray
 - Radar Scanner (Passive Force Sense 1)
 
 ^3Abilities:
-- Low Power Mode ^3[CS1]
-- Cryoban Projector ^3[CS2]"
+- Low Power Mode ^3[CS1]"
