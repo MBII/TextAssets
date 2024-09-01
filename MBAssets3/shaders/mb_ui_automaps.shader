@@ -578,7 +578,7 @@ gfx/automap/mb2_dxuncliff
 {
 	nopicmip
 	{
-		clampmap gfx/automap/mb2_dxuntop
+		clampmap gfx/automap/mb2_dxuncliff
 		blendfunc blend
 		alphaGen vertex
 		depthfunc equal
