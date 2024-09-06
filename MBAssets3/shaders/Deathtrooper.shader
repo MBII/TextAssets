@@ -1,3 +1,5 @@
+// Default
+
 models/players/deathtrooper/head
 {
 	q3map_nolightmap
@@ -99,6 +101,61 @@ models/players/deathtrooper/torso_bodysuit_cull
 	}
 	{
 		map models/players/deathtrooper/torso_bodysuit_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// Undead
+
+models/players/deathtrooper/head_dmg
+{
+	q3map_nolightmap
+	{
+		map models/players/deathtrooper/head_dmg
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/deathtrooper/head_dmg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/deathtrooper/head_glow
+		blendFunc GL_ONE GL_ONE
+		detail
+		glow
+	}
+}
+
+models/players/deathtrooper/torso_armour_dmg
+{
+	q3map_nolightmap
+   	{
+		map models/players/deathtrooper/torso_armour_dmg
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/deathtrooper/torso_armour_dmg_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
