@@ -749,6 +749,15 @@ models/players/sithtrooper/codpiece_red
 	}
 }
 
+models/players/sithtrooper/cape
+{
+	cull twosided
+    {
+        map models/players/sithtrooper/cape
+        rgbGen lightingDiffuse
+    }
+}
+
 
 // gold
 models/players/sithtrooper/hips_gold
