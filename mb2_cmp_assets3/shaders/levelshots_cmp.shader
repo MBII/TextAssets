@@ -135,7 +135,7 @@ levelshots/mb2_cmp_ctf_poolparty
 	nomipmaps
 	notc
 	{
-		map levelshots/mb2_cmp_ctf_ascension
+		map levelshots/mb2_cmp_ctf_poolparty
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
@@ -146,7 +146,7 @@ levelshots/mb2_cmp_ctf_poolparty2
 	nomipmaps
 	notc
 	{
-		map levelshots/mb2_cmp_ctf_ascension2
+		map levelshots/mb2_cmp_ctf_poolparty2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}
