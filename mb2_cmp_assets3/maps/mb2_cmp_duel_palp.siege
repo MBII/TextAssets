@@ -1,0 +1,68 @@
+Teams
+    {
+    	team1 Jedi
+    	team2 Sith
+    }
+    
+    mapgraphic ""
+    missionname  "mb2_duel_palp"
+    
+    roundbegin_target "gfx/mp/mplevels/duel_palp/map"
+    
+    Jedi
+    {
+    	RequiredObjectives 1
+    	Timed 300
+    	UseTeam "grievous_good"							
+    
+    	TeamIcon	"gfx/2d/logos/mb_newjediorder"
+    	TeamColorOn	"1 0 0 1"
+    	TeamColorOff	".7 0 0 1"	
+    	
+    	Objective1
+    	{
+    		goalname "Kill Grievous!!"
+    		final -1
+    		message_team1 ""
+    		message_team2 ""
+    		objdesc "Primary Goal: Kill Grievous!!"
+    		objgfx "gfx/mp/mplevels/duel_palp/rebelobjective1"
+    	}
+    	
+    	wonround "He was too dangerous to be kept alive"
+    	lostround "ARGH!"
+    	roundover_sound_wewon ""
+    	roundover_sound_welost ""
+    	roundover_target "siegeend"
+    	attackers 1
+    	briefing "Kill General Grievous!!!"
+    }
+    
+    Sith
+    {
+    	RequiredObjectives 1
+    	UseTeam "grievous_evil"
+    	TeamIcon	"gfx/2d/logos/mb_tradefederation"
+    	TeamColorOn	"0 0 1 1"
+    	TeamColorOff	"0 0 .7 1"
+    
+    	Objective1
+    	{
+    		goalname "Execute the Jedi"
+    		final 1
+    		message_team1 ""
+    		message_team2 ""
+    		objdesc "Primary Goal: Execute the Jedi"
+    		objgfx "gfx/mp/mplevels/palp_office/impobjective1"
+    	}
+    	
+    		
+    	wonround "You have survived."
+    	lostround "Your plans are ruined"
+    	roundover_sound_wewon ""
+    	roundover_sound_welost ""
+    	roundover_target "siegeend"
+    	attackers 0
+    
+    	briefing "Kill the assassinating Jedi"
+    }
