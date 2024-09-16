@@ -4,19 +4,55 @@ ClassInfo
 {
 	name			"CS_Sniper"
 	weapons			WP_BLASTER_PISTOL|WP_DISRUPTOR|WP_MELEE
-	attributes		MB_ATT_PISTOL,2|MB_ATT_DISRUPTOR,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2
+	attributes		MB_ATT_PISTOL,2|MB_ATT_DISRUPTOR,2|MB_ATT_AMMO,3|MB_ATT_DASH,1
 	maxhealth		100
 	maxarmor		100
 	model			"sithtrooper"
 	skin			"red"
 	uishader		"models/players/sithtrooper/mb2_icon_red"
-	MBClass			MB_CLASS_ELITETROOPER
+	MBClass			MB_CLASS_HERO
+	classflags		CFL_RUNFASTMELEE
+}
+
+WeaponInfo0
+{
+	WeaponToReplace	WP_BLASTER_PISTOL
+	WeaponBasedOff	WP_BLASTER_PISTOL	
+	NewWorldModel		"models/weapons2/kotor_bpistol2/kotor_bpistol2_w.glm"  
+    NewViewModel		"models/weapons2/kotor_bpistol2/kotor_bpistol2.md3"
+	Icon				"gfx/hud/w_icon_kotor_bpistol2"
+	flashsound0		"sound/weapons/kotor/fire_light.wav"
+	Altflashsound0	"sound/weapons/kotor/fire_power1.wav"
+    WeaponName		"Blaster Pistol"
+	idleAnim			BOTH_MAND_PISTOL_IDLE 
+	firingAnim		MAND_SPISTOL_FIRE
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_DISRUPTOR
+	WeaponBasedOff		WP_DISRUPTOR
+	NewWorldModel		"models/weapons2/kotor_drifle/kotor_drifle_w.glm"
+	NewViewModel		"models/weapons2/kotor_drifle/kotor_drifle.md3"
+	Icon					"gfx/hud/w_icon_kotor_drifle"
+	WeaponName			"Assassin's Disruptor"
+	MissileEffect		"Blaster/Shot02Y"
+	Missile3Effect 		"Blaster/Shot04Y"
+	AltMissileEffect 	"Blaster/Shot04Y"
+	PowerupShotEffect	"Blaster/Shot04Y"
+	FlashSound0			"sound/weapons/kotor/fire_med.wav"
+	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav"
 }
 
 description	"Sniper
 
 Weapon:
-Pistol (2)
-Disruptor (2)
+Blaster Pistol (2)
+Assassin's Disruptor (2)
+- Disruptor
+
+Attributes:
+Dash (1)
+Runs Faster With Melee
 
 A disruptor is a particularly powerful energy weapon often preferred by assassins."
