@@ -2,9 +2,9 @@
 ClassInfo
 {
 	name		"_V_B3_Thug"
-	weapons		WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_BOWCASTER|WP_TRIP_MINE|WP_SABER|WP_DET_PACK|WP_THERMAL
+	weapons		WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_BOWCASTER|WP_TRIP_MINE|WP_SABER|WP_DET_PACK|WP_THERMAL|WP_FRAG_NADE
 	
-	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_BLASTER,3|MB_ATT_BOWCASTER,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_BASE_TD,3|MB_ATT_ASSEMBLE,1|MB_ATT_TRIP_MINES,1|MB_ATT_DODGE,2|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_DET_PACK,1
+	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_BLASTER,3|MB_ATT_BOWCASTER,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_BASE_TD,3|MB_ATT_ASSEMBLE,1|MB_ATT_TRIP_MINES,1|MB_ATT_DODGE,2|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_DET_PACK,1|MB_ATT_FRAGS,1
 	
 	maxhealth		60
 	maxarmor			60
@@ -21,21 +21,26 @@ ClassInfo
 	forcepowers		FP_SABER_OFFENSE,3
 	saber1			vibroaxe_new_legends 
 	saber1_1			short_vibroaxe_legends
-
+	
+	//WP_THERMALFlags HELD_SPEED
+	WP_FragNadeFlags HELD_LOWDAMAGE
+	WP_SaberFlags HELD_POISON
 	WP_BowcasterFlags HELD_HIGHDAMAGE|HELD_ALTRELOAD
+	//WP_TripMineFlags HELD_HIGHDAMAGE
+	//WP_DetPackFLAGS HELD_HIGHDAMAGE
 	
 	gloatAnim       BOTH_VICTORY_FAST
 	flourishAnim BOTH_STAND5TOAIM
 	WalkBackward BOTH_WALK_DUAL
 	WalkForward BOTH_WALK_DUAL
 	
-	model_1		"weequay" 				
-	skin_1			"default"					
-	uishader_1		"models/players/weequay/mb2_icon_default_jab"
-	
-	model		"gran"
+	model	"gran"
 	skin		"default"
 	uishader	"models/players/gran/mb2_icon_default"
+	
+	model_1		"weequay" 				
+	skin_1		"default"					
+	uishader_1	"models/players/weequay/mb2_icon_default_jab"
 	
 	model_2		"chiss"
 	skin_2		"default"
@@ -103,7 +108,27 @@ WeaponInfo1
 	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
 	Icon				"gfx/hud/w_icon_thugblades" 	//Required: Weapon change icon
-	WeaponName			"Skiff Weapon"    					//Required: Weapon change display name
+	WeaponName			"Acidic Vibroaxe"    					//Required: Weapon change display name
+}
+
+WeaponInfo2
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/fraggrenade/thermal_w.glm"
+	NewViewModel			"models/weapons2/fraggrenade/thermal_hand.md3"
+	MissileModel 			"models/weapons2/fraggrenade/thermal_proj.md3"
+	
+	altMissileMissEffect		"Grenades/EXP_Explosion"
+	MissileMissEffect			"Grenades/EXP_Explosion"
+	altMissileHitHumanEffect	"Grenades/EXP_Explosion"
+	missileHitHumanEffect		"Grenades/EXP_Explosion"
+	altMissileHitDroidEffect	"Grenades/EXP_Explosion"
+	missileHitDroidEffect		"Grenades/EXP_Explosion"
+	
+	Icon						"gfx/hud/w_icon_fraggrenade"
+	WeaponName					"Frag Grenade"
+	altFireEnabled				0
 }
 
 description	"Mercenary Thug
@@ -114,28 +139,30 @@ A 3-life hybrid Melee class with a powerful two-shot Bowcaster and explosives.
 
 ^2Weaponry:
 - Melee
-- Skiff Weapon
+- Acidic Vibroaxe
 -- Based on Lightsaber
 -- Yellow/Red styles
 -- Saber Defense (1)
 -- Cannot block Blasters
+-- Poisons targets
+-- 25% less damage
+-- 33% wider radius
 -- Cannot Saber Throw
 -- Slap ^3[CS2]
-> Skiff Vibropike
--- 25% less damage
+> BD-1 Cutter Vibroaxe
 -- 10% shorter reach
--- 33% wider radius
-> Skiff Vibroaxe
+> BD-1 Cutter Short Vibroaxe
 -- 15% faster swings
--- 25% less damage
 -- 40% shorter reach
--- 33% wider radius
 - E-11 Blaster Rifle (3)
 - Two-shot Bowcaster (1)
 -- 100% more damage
 -- Fixed-length reload
-- Trip Mine (1)
 - Thermal Grenades (3)
+- Frag Grenade (1)
+-- 50% less damage
+-- Prim. fire only
+- Trip Mine (1)
 - Det Pack (1)
 
 ^8Attributes:
