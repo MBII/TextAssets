@@ -4,30 +4,72 @@ ClassInfo
 {
 	name  "uds_ZPalpatine"
 	weapons WP_MELEE
-	attributes			MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,3
-	forcepowers FP_LEVITATION,3|FP_PUSH,3|FP_PULL,3|FP_LIGHTNING,3
+	attributes			MB_ATT_FORCEFOCUS,2|MB_ATT_FORCEBLOCK,3|MB_ATT_JETPACK|MB_ATT_FP_REPULSE|MB_ATT_FP_MIRALUKA|MB_ATT_ROSHTAUNT
+	forcepowers 		FP_PUSH,3|FP_PULL,3|FP_LIGHTNING,3|FP_SEE,3|FP_DRAIN,2|FP_DEADLYSIGHT,2
 	maxhealth 150
-	forceregen  1.25
+	forceregen  1.5
 	model "palpatine"
-	skin  "zombie"
+	skin  "ghost"
 	uishader  "models/players/palpatine/mb2_icon_zombie"
 	MBClass MB_CLASS_JEDI
 	classNumberLimit  1
 	classflags  CFL_SEEING_STEALTH
 	forcepool 125
+	damagetaken	0.8
+	
+	resource	resource_force
+	special1	EAS_FP_REPULSE
+	special2	EAS_FP_LIGHTNING
+	special3	EAS_FP_DRAIN
+	special4	EAS_FP_DEADLYSIGHT
+	
+	WP_MELEEFlags	HELD_LOWDAMAGE|HELD_PULSE|HELD_DISRUPTIFY
+	
+	meleeMoves M_BLOCK|M_KATA|M_PUNCH|M_UPPERCUT
+	tauntAnim      BOTH_FORCE_2HANDEDLIGHTNING
+	gloatAnim 	BOTH_FORCE_PROTECT_FAST
+	flourishAnim	BOTH_FORCE_DRAIN_RELEASE
+	
+	jetpackThrustEffect		""
+	jetpackIdleEffect		""
+	jetpackFinishSound 	"sound/effects/woosh4"
+	jetpackThrustSound  "sound/ambience/artus/artus_shaft"
+	jetpackStartSound 	"sound/effects/woosh22"
+	jetpackIdleSound	"sound/ambience/artus/artus_shaft"
+	Rateoffire_melee	1.2
 }
 
-description	"Zombie Emperor
+WeaponInfo0
+{
+	WeaponToReplace WP_MELEE
+	WeaponBasedOff  WP_MELEE
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Lightning Fists"
+}
+
+description	"The Undead Emperor
 
 Weaponry:
-Melee
+Lightning Hands
+- Slow Attack Speed
+- Does Low Damage
+- Shocks on Strike
+- Enemies Disintergrate when Killed
 
 Force Powers:
-Force Jump (3)
+Force Flight
 Force Push (3)
 Force Pull (3)
-Force Lightning (3)
+Perma Sense (2)
+Force Repulse ^5[CS1]
+Force Lightning (3) [^5[CS2]
+Force Drain (2) ^4[CS3]
+Deadly Sight (2) ^5[CS4]
+Force Focus (2)
 Force Block (3)
 Invisible to Sense
+Taunt Damage
 
-^1UNLIMITED BRAINZZZZZZZZZZZZZ"
+^1Here to Haunt you."
