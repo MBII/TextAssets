@@ -6,15 +6,16 @@ ClassInfo
 	saber1  		chirrut_stick_legends
 	saberstyle  	SS_STAFF
 	forcepowers		FP_SEE,1|FP_SABER_OFFENSE,3
-	classflags 		CFL_BPFREEJUMPS
 	maxhealth 		200
 	maxarmor  		40
 	forcepool		100
-	forceregen		2.5
+	forceregen		1.15
 	model 			"chirrut"
 	skin  			"default"
 	uishader  		"models/players/chirrut/mb2_icon_default"
 	MBClass 		MB_CLASS_HERO
+	resource		resource_force
+	
 	speed 			1.04
 	modelscale      0.98
 	rateOfFire          0.75
@@ -28,13 +29,15 @@ ClassInfo
 	WP_T21Flags   HELD_KNOCKBACK|HELD_HIGHDAMAGE
 	//WP_BlasterFlags   HELD_KNOCKBACK
 
-	gloatAnim       BOTH_VICTORY_FAST
-	flourishAnim    BOTH_MELEE_SPINKICK
+	gloatAnim       BOTH_BOW
+	flourishAnim    BOTH_SILENCEGESTURE1
+	//saberStanceAnim BOTH_P6_S6_T_
+	walkForward BOTH_WALK2
 		
 	special1		EAS_HI_DODGE
-	special2		EAS_HI_DASH
+	special2		EAS_MELEE
 	special3		EAS_HI_DEX
-		
+	special4 		EAS_HI_DASH
 	respawnCustomTime  50000	
 }
 
@@ -55,12 +58,12 @@ WeaponInfo1
 	NewViewModel  "models/weapons2/bowcaster/bowcaster.md3"
 	Icon  "gfx/hud/w_icon_bowcaster"
 	WeaponName  "Lightbow"
-		customAmmo          288
-	clipsize            96
+	customAmmo          300
+	clipsize            48//6 ticks per shot, 8 in clip
 	idleAnim  DC15_FIRE
 	firingAnim	        DC15_FIRE
 	FPmult              1.4
-	altfireenabled 		0
+	altfireenabled 	0
 }
 
 description	"Chirrut Imwe
@@ -71,14 +74,18 @@ A speedy, dexterous gunner/melee hybrid with fast resource regen, many evasive o
 
 ^2Weaponry:
 - Melee
-- Staff
+- Chirrut's Staff
 -- Based on Lightsaber
 -- Staff/Yellow styles
 -- Saber Defense (1)
+-- Cannot block Blasters
 -- 25% longer Staff reach
+-- 30% less damage
 -- 33% thinner radius
+-- Cannot Saber Throw
+-- Slap ^3[CS2]
 - Lightbow
--- Based on T21 (1)
+-- Based on T-21 Heavy Blaster (1)
 -- 100% more damage
 -- 40% more FP damage
 -- Knocks back targets
@@ -88,11 +95,9 @@ A speedy, dexterous gunner/melee hybrid with fast resource regen, many evasive o
 - Healing (3)
 - Force Block (3)
 - Passive Force Sense (1)
-- Immune to Mind Trick (2)
+- Mind Trick Immunity (2)
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
-- Dash (2) ^3[CS2]
 - Dex Roll ^3[CS3]
-
-Chirrut Imwe was a blind Human male born on the moon Jedha in 52 BBY. One of the Guardians of the Whills, an order of spiritual warrior-monks, he was active during the days of the Galactic Empire and worked as an itinerant preacher in Jedha City."
+- Dash (2) ^3[CS4]"

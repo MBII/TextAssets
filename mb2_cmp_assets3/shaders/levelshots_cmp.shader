@@ -130,6 +130,28 @@ levelshots/mb2_cmp_ctf_ascension2
 	}
 }
 
+levelshots/mb2_cmp_ctf_poolparty
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_ctf_poolparty
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_cmp_ctf_poolparty2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_ctf_poolparty2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
 levelshots/mb2_cmp_deltaprime
 {
 	nomipmaps
@@ -191,6 +213,28 @@ levelshots/mb2_cmp_duel_calodan2
 	notc
 	{
 		map levelshots/mb2_cmp_duel_calodan2
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_cmp_duel_palp
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_duel_palp
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+}
+
+levelshots/mb2_cmp_duel_palp2
+{
+	nomipmaps
+	notc
+	{
+		map levelshots/mb2_cmp_duel_palp2
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen identity
 	}

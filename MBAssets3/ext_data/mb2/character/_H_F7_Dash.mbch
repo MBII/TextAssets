@@ -1,12 +1,12 @@
 //Siege class def file.
-//test
+
 ClassInfo
 {
 	name			"_H_F7_Dash"
 	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_ROCKET_LAUNCHER|WP_FRAG_NADE
-	attributes		MB_ATT_FUELREGEN,2|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FRAGS,2|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ROCKET_LAUNCHER
+	attributes		MB_ATT_FUELREGEN,2|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ROCKET_LAUNCHER
 	maxhealth		135
-	maxarmor		125
+	maxarmor		135
 	model			"dash_rendar" 				//this is optional, if it's here it forces the model to this.
 	skin			"jet"					//this is optional, if it's here it forces the skin to this.
 	uishader		"models/players/dash_rendar/mb2_icon_default"
@@ -17,12 +17,14 @@ ClassInfo
 	customblue		1
 	rateOfFire      0.6
 	modelscale    1.01
-	speed         0.95
-	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_LOWDAMAGE
+	speed         1.08
+	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_SLOW|HELD_HIGHDAMAGE|HELD_KNOCKDOWN
 	jetpackJetTag		*jet1		
 	jetpackJet2Tag		*jet2
 	jetpackJetOffset		"0, 0, 0" 
-	jetpackJet2Offset		"0, 0, 0" 
+	jetpackJet2Offset		"0, 0, 0"
+
+	damageGiven		    1.15
 	
 	forcepool			30
 	
@@ -40,10 +42,8 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3"   	//Required: New 1st person weapon model
 	Icon				"gfx/hud/w_icon_blaster_pistol_2" 				//Required: Weapon change icon
 	WeaponName			"DL-44 Blaster Pistol"    					//Required: Weapon change display name
-	clipSize 			12
-	idleAnim			BOTH_MAND_PISTOL_IDLE 
-	firingAnim			MAND_SPISTOL_FIRE
-	ProjSpeedModifier 	1.1
+	clipSize 			24
+	ProjSpeedModifier 	1.2
 	
 }
 
@@ -58,7 +58,7 @@ WeaponInfo1
 	Icon			"gfx/hud/w_icon_merrsonn"
 	WeaponName			"PLX-2M Rocket Launcher"
 	clipSize 1
-	CustomAmmo 6
+	CustomAmmo 7
 	ReloadTimeModifier 	1.5
 }
 
@@ -66,26 +66,28 @@ description	"Dash Rendar
 
 Class: Hero
 Brief Overview: 
-A pistoleer equipped with a jetpack and a rocket launcher.
+A Pistoleer equipped with a Jetpack and a Rocket Launcher. Sports an extremely fast base fire rate.
 
 ^2Weaponry:
 - Melee
 - DL-44 Blaster Pistol (2)
--- 10% faster projectiles
+-- 20% faster projectiles
 - PLX-2M Rocket Launcher
--- 50% less damage
+-- 100% more damage
+-- Knocks down targets on direct hit
+-- 15% slower movement
 -- 50% slower reload
-- Frag Grenades (2)
+-- Fixed-length reload
+-- Homing Rockets ^3[Hold Sec. ^3fire]
+- Frag Grenades (3)
 
 ^8Attributes:
 - Blast Armor
 - Armor Regen (1)
 - Healing (2)
-- Fuel (3)
 
 ^3Abilities:
 - Jetpack ^3[Double-tap/hold ^3jump] ['Use' to deactivate]
+-- Fuel (3)
 - Wrist Flamethrower ^3[CS2]
-- Dash (2) ^3[CS3]
-
-Dash Rendar was a Corellian smuggler and freelancer who worked briefly with the young Jedi Luke Skywalker and his friends during the Galactic Civil War."
+- Dash (2) ^3[CS3]"

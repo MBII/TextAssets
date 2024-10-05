@@ -210,6 +210,58 @@ models/players/Selkath/Head_purple
     }
 }
 
+models/players/Selkath/Head_yellow
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head_yellow
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Selkath/gloss
+        blendFunc GL_ONE GL_ONE
+        alphaGen const 1
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/Head_yellow
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Selkath/Head_black
+{
+	q3map_nolightmap
+    {
+        map models/players/Selkath/Head_black
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Selkath/gloss
+        blendFunc GL_ONE GL_ONE
+        alphaGen const 1
+        tcGen environment
+    }
+    {
+        map models/players/Selkath/Head_black
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map  models/players/Selkath/Head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+    }
+}
+
 
 //Teeth
 

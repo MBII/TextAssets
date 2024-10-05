@@ -17,9 +17,9 @@ ClassInfo
 	forceregen	1
 	
 	forcepowers		FP_SABER_OFFENSE,3
-	
-	forcepool		90
-	rankforcepool	100,115,130	
+		//classflags CFL_NOPICKUPS
+	forcepool		100
+	rankforcepool	120,140	
 	
 	//APattribute		1.0, 1.1, 1.2 // Increases MB_ATT_APmult to this level for each
 	
@@ -40,72 +40,68 @@ ClassInfo
 	uishader_3	"models/players/jedi_female/mb2_icon_rcnaat"
 	
 	model_4	"gwethenea"
-	skin_4	"desert"
-	uishader_4 "models/players/gwethenea/mb2_icon_desert"
+	skin_4	"jedi"
+	uishader_4 "models/players/gwethenea/mb2_icon_jedi"
 	
-	model_5	"gwethenea"
-	skin_5	"jedi"
-	uishader_5 "models/players/gwethenea/mb2_icon_jedi"
-	
-	model_6	"jedi_tf"
-	skin_6 "bluebabe" 
-	uishader_6 "models/players/jedi_tf/mb2_icon_bluebabe"
+	model_5	"jedi_tf"
+	skin_5 "twibabe" 
+	uishader_5 "models/players/jedi_tf/mb2_icon_twibabe"
 	 
-	model_7 "jedi_hm"
-	skin_7 "jaden"
-	uishader_7 "models/players/jedi_hm/mb2_icon_jaden"
+	model_6 "jedi_hm"
+	skin_6 "jaden"
+	uishader_6 "models/players/jedi_hm/mb2_icon_jaden"
 	
-	model_8 "jedi_rm"
-	skin_8 "default"
-	uishader_8 "models/players/jedi_rm/mb2_icon_default"
+	model_7 "jedi_rm"
+	skin_7 "default"
+	uishader_7 "models/players/jedi_rm/mb2_icon_default"
 	
-	model_9 "jedipack_hb"
-	skin_9 "twilek"
-	uishader_9 "models/players/jedipack_hb/mb2_icon_twilek"
+	model_8 "jedipack_hb"
+	skin_8 "twilek"
+	uishader_8 "models/players/jedipack_hb/mb2_icon_twilek"
 		
 	saber1			single_1
 	sabercolor		4
-	saberstyle		
+	//saberstyle		
 	
 	saber1_1			single_3
 	sabercolor_1		3
-	saberstyle_1
+	//saberstyle_1
 	
 	saber1_2  		single_5
 	sabercolor_2 		5
-	saberstyle_2	
+	//saberstyle_2	
 	
 	saber1_3  		single_2
 	sabercolor_3 		2
-	saberstyle_3		
+	//saberstyle_3		
 	
 	saber1_4  		single_4
 	sabercolor_4 		1
-	saberstyle_4		
+	//saberstyle_4		
 	
 	saber1_5			single_9
 	sabercolor_5		4
-	saberstyle_5		
+	//saberstyle_5		
 	
 	saber1_6			single_6
 	sabercolor_6		3
-	saberstyle_6
+	//saberstyle_6
 	
 	saber1_7  		single_7
 	sabercolor_7 		5
-	saberstyle_7	
+	//saberstyle_7	
 	
 	saber1_8 		single_8
 	sabercolor_8 		2
-	saberstyle_8		
+	//saberstyle_8		
 	
 	saber1_9 		single_106
 	sabercolor_9 		1
-	saberstyle_9	
+	//saberstyle_9	
 	
-	special2 EAS_FP_PUSH
-	special4 EAS_FP_PULL
-	//special4 EAS_FP_SEE
+	special2 EAS_MELEE
+	//special3 EAS_FP_TELEPATHY
+	//special4 EAS_FP_SPEED
 	
 	classNumberLimit	4
 	
@@ -121,11 +117,11 @@ ClassInfo
 	c_att_ranks_1	0,2,4
 	
 	c_att_skill_2	MB_ATT_FP_PUSH
-	c_att_names_2	"Push ^3[CS2]^7:"
+	c_att_names_2	"Push:"
 	c_att_ranks_2	4,4,6
 
 	c_att_skill_3	MB_ATT_FP_PULL
-	c_att_names_3	"Pull ^3[CS4]^7:"
+	c_att_names_3	"Pull:"
 	c_att_ranks_3	4,4,6
 	
 	c_att_skill_4	MB_ATT_FP_SEE
@@ -142,10 +138,10 @@ ClassInfo
 	
 	c_att_skill_7	MB_ATT_POWER
 	c_att_names_7	"Force Pool (Attunement):"
-	c_att_ranks_7	4,6,6
+	c_att_ranks_7	6,6
 		
-	c_att_skill_8	MB_ATT_FP_FORCEBLOCK
-	c_att_names_8	"Block:"
+	c_att_skill_8	MB_ATT_FORCEBLOCK
+	c_att_names_8	"Force Block:"
 	c_att_ranks_8	4,6,4
 	
 	c_att_skill_9	MB_ATT_INVALID
@@ -169,25 +165,28 @@ ClassInfo
 	c_att_ranks_13	8,8,4
 	
 	c_att_skill_14	MB_ATT_DEFLECT
-	c_att_names_14	"Blaster Deflect:"
-	c_att_ranks_14	6,6,4
+	c_att_names_14	"Saber Deflect:"
+	c_att_ranks_14	4,4,2
 }
 
-description	"Archetype: Jedi Knight
+description	"Jedi Knight
 
 Class: Jedi
 Brief Overview: 
-A two-life Jedi with customizable Force Powers and Lightsaber attributes.
+2-life Jedi with customizable Force Powers and Lightsaber attributes.
 
 ^2Default Weaponry: 
 - Melee
 - Lightsaber
 -- Yellow style
 -- Saber Throw ^3[CS1]
+-- Slap ^3[CS2]
 
 ^8Default Attributes:
 - Reinforcement (1)
 - Force Focus (1)
-- Assemble
+- Assemble (Respawn on Rally allies)
 
-For over a thousand generations, the Jedi Knights were the guardians of peace and justice in the Old Republic."
+^9Point Buy Info:
+- Force Pool (Attunement)
+-- 120, 140"

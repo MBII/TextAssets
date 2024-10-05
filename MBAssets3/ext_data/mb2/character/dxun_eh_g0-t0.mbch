@@ -3,10 +3,10 @@
 ClassInfo
 {
 name			"dxun_eh_g0-t0"
-weapons			WP_BLASTER
-maxhealth		40
+weapons			WP_BLASTER|WP_ROCKET_LAUNCHER
+maxhealth		50
 maxarmor		50
-attributes		MB_ATT_TRACKING_DART,3|MB_ATT_WHISTLINGBIRD,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_BLASTER,1|MB_ATT_FUEL,3|MB_ATT_JETPACK
+attributes		MB_ATT_TRACKING_DART,3|MB_ATT_WHISTLINGBIRD,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_BLASTER,1|MB_ATT_FUEL,3|MB_ATT_JETPACK
 model			"G0-T0"
 skin			"default"
 uishader		"models/players/g0-t0/mb2_icon_default"
@@ -14,6 +14,7 @@ MBClass			MB_CLASS_MANDALORIAN
 classNumberLimit	1
 modelscale 		1.5
 classflags		CFL_NO_FUEL_USE|CFL_NO_JETPACK_OVERHEAT|CFL_FASTHACKING
+WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_SLOW|HELD_HIGHDAMAGE|HELD_KNOCKDOWN
 
 resource		resource_battery
 forcepool		30
@@ -49,12 +50,27 @@ WeaponInfo0
 	customammo 			500
 }
 
+WeaponInfo1
+{
+	WeaponToReplace		WP_ROCKET_LAUNCHER
+	WeaponBasedOff		WP_ROCKET_LAUNCHER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon				"gfx/hud/w_icon_merrsonn"
+	WeaponName			"Droid Rocket Launcher"
+	clipSize 1
+	CustomAmmo 5
+	ReloadTimeModifier 	1.5
+}
+
 description	"G0-T0 Droid
 
 Weapons:
 
 Mounted Blaster (1)
 Whistling Birds (1)
+Rocket Launcher (5)
+
 
 Attributes:
 Hit Points (600)

@@ -1,31 +1,33 @@
 ClassInfo
 {
 	name 				"_H_F4_Lando"
-	weapons 			WP_MELEE|WP_MANDO_PISTOL|WP_EE4|WP_SABER|WP_FRAG_NADE
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE4,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DODGE,2|MB_ATT_FUELREGEN,3
-	maxhealth 		145
-	maxarmor 		60
-	speed			1.05
+	weapons 			WP_MELEE|WP_MANDO_PISTOL|WP_EE3|WP_SABER|WP_FRAG_NADE
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DODGE,2|MB_ATT_FUELREGEN,3
+	maxhealth 			165
+	maxarmor 			60
+	speed				1.05
 	APmultiplier     	1.1
 	CSmultiplier     	0.95
 	ASmultiplier     	0.95
-	forcepool		150
-	forceregen		1.5
-	saberstyle		SS_MEDIUM|SS_STRONG
+	forcepool			150
+	forceregen			1.5
+	saberstyle			SS_MEDIUM|SS_STRONG
 	forcepowers      	FP_SABER_OFFENSE,1
-	saber1			vibroaxe_new_legends
+	saber1				vibroaxe_new_legends
 	MBClass 			MB_CLASS_HERO
 	classNumberLimit 	1
 	modelscale      	1.02
 	//WP_FragNadeFlags	HELD_KNOCKDOWN
+	rateoffire			0.75
 	
 	damageGiven 		1.10
 
 	gloatAnim       BOTH_VICTORY_FAST
 	
 	special1	EAS_HI_DODGE
-	special2 EAS_HI_DASH
-	special3 EAS_HI_QUICKTOSS
+	special2 EAS_MELEE
+	special3 EAS_HI_DASH
+	special4 EAS_HI_QUICKTOSS
 	
 	model			"lando" 				
 	skin				"default"					
@@ -58,15 +60,23 @@ WeaponInfo0
 
 WeaponInfo1
 {
- 	WeaponToReplace 	WP_EE4
- 	WeaponBasedOff	 WP_BLASTER
- 	NewWorldModel	 "models/weapons2/blaster_r/blaster_w.glm"
- 	NewViewModel	 "models/weapons2/blaster_r/blaster.md3"
- 	FlashSound0	 "sound/weapons/blasterMB/fire.mp3"
- 	AltFlashSound0	 "sound/weapons/ee3/sniperfire.mp3"
- 	Icon 		"gfx/hud/w_icon_E11"
- 	WeaponName	 "Lando's E-11 Blaster Rifle"
-	customammo	900
+ 	WeaponToReplace 	WP_EE3
+ 	WeaponBasedOff	 	WP_BLASTER
+ 	NewWorldModel	 	"models/weapons2/blaster_r/blaster_w.glm"
+ 	NewViewModel	 	"models/weapons2/blaster_r/blaster.md3"
+ 	FlashSound0	 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound1	 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound2	 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound3	 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound0	 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound1	 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound2	 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound3	 		"sound/weapons/blasterMB/fire.mp3"
+ 	Icon 				"gfx/hud/w_icon_E11"
+ 	WeaponName	 		"Lando's E-11 Blaster Rifle"
+	MissileEffect		"Blaster/Shot01R"
+	AltMissileEffect	"Blaster/Shot01R"
+	customammo			900
 }
 
 WeaponInfo2
@@ -88,15 +98,31 @@ WeaponInfo2
 	ChargeEffect		"gfx/effects/greenFrontFlash"
 	OverchargeEffect	"Blaster/MuzzleCharge01G"
 	FPMult     			1.1
-	ReloadTimeModifier 0.8
-	firingAnim		MAND_SPISTOL_FIRE
+	ReloadTimeModifier 	0.8
+	firingAnim			MAND_SPISTOL_FIRE
+	MissileEffect		"Blaster/Shot01R"
 }
+
+WeaponInfo3
+{	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon				"gfx/hud/w_icon_stungrenade"
+	WeaponName			"Gambler's Palm Grenades"
+	MissileModel 		"models/weapons/Grenade_Concussion/proj.md3"
+	altMissileMissEffect	"grenades/EXP_alt"
+	primFireEnabled		0
+	altFireEnabled        0
+	customammo			4
+}
+
 
 description "Lando Calrissian
 
 Class: Hero
 Brief Overview: 
-A fast melee/gunner hybrid that can disguise himself and move in and out of combat with ease. Carries powerful guns and hybrid frag/stun grenades.
+A fast Saber/gunner hybrid that can Disguise himself and move in and out of combat with ease. Carries powerful Blasters and Quick-Throw Grenades.
 
 ^2Weaponry:
 - Melee
@@ -104,24 +130,26 @@ A fast melee/gunner hybrid that can disguise himself and move in and out of comb
 -- Based on Lightsaber
 -- Yellow/Red styles
 -- Saber Defense (1)
--- Cannot block blasters
+-- Cannot block Blasters
+-- Cannot Saber Throw
+-- Slap ^3[CS2]
 - S-5 Heavy Blaster Pistol 
 -- Based on WESTAR-34 (2)
 -- 10% more FP damage
 -- 20% faster reload
-- Frag Grenades (3)
-- Lando's E-11 Blaster Rifle (EE-4 3)
+- Gambler's Palm Grenades (4)
+-- Based on Frag Grenades
+-- Quick-Throw only
+- Lando's E-11 Blaster Rifle
+-- Based on EE-3 Carbine (3)
 
 ^8Attributes:
 - Armor Regen (1)
 - Healing (2)
-- BP Regen (3)
 - Urban Speed
 
 ^3Abilities:
 - Disguise (1) ^3[In Melee, swap ^3mode]
 - Dodge (2) ^3[CS1]
-- Dash (2) ^3[CS2]
-- Quick Throw (1) ^3[CS3 outside ^3of Grenades]
-
-Though Lando Calrissian came from a dark past, he had recently stumbled into good fortune as a mining colony administrator on Cloud City - that is, until the Empire paid a visit. Now holding a position of Commander in the Rebellion, Lando works to free the galaxy from the tyranny of the Emperor."
+- Dash (2) ^3[CS3]
+- Quick-Throw (2) ^3[CS4 outside ^3of Grenades]"
