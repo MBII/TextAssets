@@ -8,27 +8,27 @@ ClassInfo
 	uishader		"models/players/med_droid/icon_default"
 	MBClass		MB_CLASS_BOUNTY_HUNTER
 
-	weapons		WP_SABER|WP_MELEE|WP_CONC_NADE|WP_SHOTGUN
-	attributes		MB_ATT_SHOTGUN,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_ASSEMBLE|MB_ATT_TRACKING_DART,3|MB_ATT_POISON_DART,3|MB_ATT_FP_MIRALUKA|MB_ATT_DISP_HEALTH,3
+	weapons		WP_SABER|WP_MELEE|WP_CONC_NADE|WP_SHOTGUN|WP_STUN_BATON
+	attributes		MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_SHOTGUN,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_ASSEMBLE|MB_ATT_TRACKING_DART,3|MB_ATT_POISON_DART,3|MB_ATT_FP_MIRALUKA|MB_ATT_DISP_HEALTH,3|MB_ATT_USE_DISTANCE,1|MB_ATT_STUN_BATON,3
 	forcepowers		FP_SEE,3
 	forceregen 		1
 	maxarmor		100
 	modelscale		0.93
 
-
-	WP_SHOTGUNFlags	HELD_POISON
+	saberDamage -15
+	WP_ShotgunFlags	HELD_POISON
 
 	WP_ConcNadeFlags	HELD_HIGHDAMAGE
 	WP_MeleeFlags	HELD_PULSE
 	classflags		CFL_ACIDBLOOD|CFL_RUNFASTMELEE|CFL_STATVIEWER|CFL_HEAVYMELEE
 	holdables		HI_MEDPAC|HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_EWEB|HI_SHIELD
 	speed       1.1
-	saber1			pb_baton
+	saber1			pb_heal_baton
 	sabercolor		0
 	saberstyle		SS_TAVION
 
-	classNumberLimit	3
-	extralives		2
+	classNumberLimit	2
+	extralives		1
 }
 
 WeaponInfo0
@@ -46,12 +46,12 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"
-	NewViewModel		"models/weapons2/stun_baton/baton.md3"
-	Icon			"gfx/hud/w_icon_stun_baton"
-	WeaponName		"Stun Baton"
+	WeaponToReplace		WP_SABER			
+	WeaponBasedOff		WP_SABER			
+	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	
+	Icon			"gfx/2d/hud/hlp_resupply_health"
+	WeaponName		"Heal Baton"
 }
 
 WeaponInfo2
@@ -84,7 +84,8 @@ Weapons:
 Shotgun (3)
 E-Web Turret
 Concussive Grenades (3) (x2 dmg)
-Stun Baton
+Heal Baton (Hit teammates to heal wounds)
+Stun Baton (3)
 Poison Darts (3)
 Tracking Darts (3)
 Electrical Melee
@@ -101,5 +102,5 @@ Items:
 Portable Sentry Gun
 Bacta
 
-Two Extra Lives
+1 extra life
 "
