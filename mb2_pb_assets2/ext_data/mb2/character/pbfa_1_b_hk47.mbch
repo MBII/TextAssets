@@ -8,8 +8,8 @@ ClassInfo
 	uishader		"models/players/hk47/mb2_icon_default"
 	MBClass			MB_CLASS_BOUNTY_HUNTER
 	
-	weapons			WP_MELEE|WP_BRYAR_OLD|WP_BLASTER|WP_CONC_NADE|WP_A280
-	attributes		MB_ATT_RESPAWNS,3|MB_ATT_ASSEMBLE|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_A280,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3
+	weapons			WP_MELEE|WP_BRYAR_OLD|WP_BLASTER|WP_CONC_NADE|WP_A280|WP_DEMP2
+	attributes		MB_ATT_RESPAWNS,3|MB_ATT_ASSEMBLE|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_A280,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_DEMP2,3
 	maxhealth		100
 	maxarmor		80
 	resource	RESOURCE_ENERGY
@@ -44,8 +44,8 @@ WeaponInfo1
 	WeaponName			"Jungle Rifle"    					//Required: Weapon change display name
 }
 
- WeaponInfo2
- {
+WeaponInfo2
+{
  	WeaponToReplace 	 WP_CONC_NADE
  	WeaponBasedOff 		 WP_CONC_NADE
  	NewWorldModel		 "models/weapons2/V-59_Concussion/V-59_conc_w.glm"
@@ -54,13 +54,45 @@ WeaponInfo1
  	AltMissileModel		 "models/weapons2/V-59_Concussion/V-59_conc_proj.md3"
 	Icon 				 "gfx/hud/w_icon_V-59_conc"
  	WeaponName 			 "V-59 Concussion Grenade"   			
- }
+}
+WeaponInfo3
+{
+	WeaponToReplace		WP_DEMP2
+	WeaponBasedOff		WP_DEMP2
+	NewWorldModel		"models/weapons2/demp2/demp2_w.glm"
+	NewViewModel		"models/weapons2/demp2/demp2.md3"
+	NewHandsModel		"models/weapons2/demp2/demp2_hand.md3"
+	Icon				"gfx/hud/w_icon_basedemp2"
+	WeaponName			"DEMP 2"
+	//Efx
+	MissileHitHumanEffect "effects/demp2/altdetonate"
+	MissileHitDroid 	"effects/demp2/altdetonate"
+	MissileMissEffect 			"effects/demp2/wall_impact"
+	MissileEffect		"effects/demp2/projectile"  					
+	AltMissileEffect 	"effects/demp2/projectile" 
+	MuzzleEffect		"effects/demp2/muzzle_flash"
+	AltMuzzleEffect		"effects/demp2/altmuzzle_flash"
+	firingAnim		BOTH_ATTACK3
+	idleAnim		TORSO_WEAPONREADY3
+	PrimHitscanShot 	0
+	//PrimHitscanTracer 	9
+	FlashSound0		"sound/weapons/demp2/fire_old.mp3"
+	AltFlashSound0	"sound/weapons/demp2/altfire_old.mp3"
+	ChargeSound		"sound/weapons/demp2/altcharge.mp3"
+	CustomAmmo 	9
+	ClipSize 		3
+	ReloadTimeModifier 	1	// default is 1 - 100%
+	ProjSpeedModifier 1
+	AltFireEnabled 1
+	PrimFireEnabled 0
+}
 
 description	"HK-47
 
 Weapons:
 Pistol (2)
 E-11 (3)
+DEMP2 (3)
 Jungle Rifle (A280 3)
 Conc Nades (2) (x2 damage)
 
