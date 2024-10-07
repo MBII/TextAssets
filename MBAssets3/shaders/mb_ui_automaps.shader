@@ -589,7 +589,7 @@ gfx/automap/mb2_dxunclifffull
 {
 	nomipmaps
 	{
-		map gfx/automap/mb2_dxuntopfull
+		map gfx/automap/mb2_dxunclifffull
 		blendfunc blend
 		alphaGen vertex
 	}
