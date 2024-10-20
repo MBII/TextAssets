@@ -3,8 +3,8 @@
 ClassInfo
 {
 	name  "uds_Lando"
-	weapons WP_BLASTER|WP_CONC_NADE|WP_MELEE
-	attributes  MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_RALLY,1
+	weapons WP_BLASTER|WP_CONC_NADE|WP_MELEE|WP_THROWER
+	attributes  MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_RALLY,1|MB_ATT_THROWER_FLAME,2
 	maxhealth 100
 	maxarmor  45
 	speed 1.1
@@ -13,13 +13,32 @@ ClassInfo
 	uishader  "models/players/lando/mb2_icon_default"
 	MBClass MB_CLASS_HERO
 	classNumberLimit  1
+	WP_ThrowerFlags	HELD_SLOW|HELD_ALTRELOAD
+	WP_ConcNadeFlags	HELD_HIGHDAMAGE
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_THROWER
+	WeaponBasedOff		WP_CLONE_RIFLE
+	NewWorldModel		"models/weapons2/CR-24_flamerifle/rifle_w.glm"
+	NewViewModel		"models/weapons2/CR-24_flamerifle/rifle.md3"
+	Icon				"gfx/hud/w_icon_cr-24_flamerifle"
+	WeaponName			"CR-24 Flame Rifle"
+	customAmmo			520
+	clipsize			90
+	ReloadTimeModifier 	1.2
 }
 
 description	"Lando Calrissian
 
 Weaponry:
 E-11 (3)
+CR-24 Flame Rifle (2)
+-- Slow Movement
+-- Mag Style Reload
 2 V-59 Concussion Grenades
+-- High Damage
 
 Attributes:
 Heal (3)
