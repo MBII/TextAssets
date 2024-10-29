@@ -2,25 +2,27 @@
 
 ClassInfo
 {
-	name				"_H_B1_Skrm"	
-	weapons				WP_MELEE|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_FRAG_NADE|WP_STUN_BATON
-	sabercolor			0
-	saberstyle			SS_MEDIUM
-	attributes			MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_BLASTER,1|MB_ATT_DODGE,2|MB_ATT_DASH,1|MB_ATT_TRIP_MINES,2|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,3
-	maxhealth			70
-	maxarmor				35
-	MBClass				MB_CLASS_BOUNTY_HUNTER
-	holdables       		HI_SEEKER|HI_MEDPAC|HI_SENTRY_GUN
-	modelscale			0.75
-	rateOfFire      		1.4
-	resource				RESOURCE_ENERGY
-	forcepool       		25
-	WP_BlasterFlags 		HELD_PULSE|HELD_ALTRELOAD
-	WP_FragNadeFlags		HELD_KNOCKDOWN|HELD_LOWDAMAGE
-	classNumberLimit		2
-	speed				1.05
-	
-	extralives			2
+	name			"_H_B1_Skrm"	
+	weapons			WP_MELEE|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_FRAG_NADE|WP_STUN_BATON
+	sabercolor		0
+	saberstyle		SS_MEDIUM
+	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_BLASTER,1|MB_ATT_DODGE,2|MB_ATT_DASH,1|MB_ATT_TRIP_MINES,2|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,3
+	maxhealth		70
+	maxarmor			35
+	MBClass			MB_CLASS_BOUNTY_HUNTER
+	holdables       	HI_SEEKER|HI_MEDPAC|HI_SENTRY_GUN
+	modelscale	0.75
+	rateOfFire      1.4
+	rateOfFire_Melee	0.5
+	resource			RESOURCE_ENERGY
+	forcepool       	65
+	WP_BlasterFlags 	HELD_PULSE|HELD_ALTRELOAD
+	WP_FragNadeFlags	HELD_KNOCKDOWN|HELD_LOWDAMAGE
+	WP_MeleeFlags		HELD_LOWDAMAGE
+	classNumberLimit	2
+	speed			1.05
+
+	extralives		2
 	
 	special1	EAS_HI_DODGE
 	special2	EAS_HI_DASH
@@ -35,17 +37,21 @@ ClassInfo
 	skin			"tfu"
 	uishader		"gfx/hud/fa_icons/mb2_icon_jawa_legends"
 	
-	model_1		"ugnaught_worker"
-	skin_1  		"tech"
-	uishader_1 	"models/players/ugnaught_worker/mb2_icon_tech"
+	model_1			"ugnaught"
+	skin_1			"default_nopurse"
+	uishader_1		"models/players/ugnaught/mb2_icon_base3"
 	
-	model_2		"ugnaught"
-	skin_2		"base2"
-	uishader_2 	"models/players/ugnaught/mb2_icon_base2"
-	 
-	model_3		 "uglynaught"
-	skin_3 		"base"
-	uishader_3 	"models/players/uglynaught/mb2_icon_base"
+	model_2			"ugnaught"
+	skin_2 			"default_rax"
+	uishader_2 		"models/players/ugnaught/mb2_icon_default_rax"
+	
+	model_3		"ugnaught_worker"
+	skin_3  		"tech"
+	uishader_3 	"models/players/ugnaught_worker/mb2_icon_tech"
+
+	model_4		 "uglynaught"
+	skin_4 		"base"
+	uishader_4 	"models/players/uglynaught/mb2_icon_base"
 	
 	respawnCustomTime 10000
 }
@@ -85,37 +91,41 @@ WeaponInfo1
 	CustomAmmo		1
 }
 
-description	"Archetype: Skirmisher
+description	"Skirmisher
 
 Class: Bounty Hunter
 Brief Overview:
-A multi-life midget with munitions, gadgets, and an ion gun that can temporarily disable enemy weapons/vehicles. 
+3-life midgets with munitions, gadgets, and an Ion Blaster that can temporarily disable enemy weapons/vehicles. 
 
 ^2Weaponry:
-- Melee
+- Light Melee
+-- 50% faster punches
 - Ion Blaster
--- Based on E-11 Blaster Rifle (1)
+-- Based on E-11 Rifle (1)
 -- Electrocutes targets
 -- 30% more FP damage
 -- 15% faster reload
+-- Fixed-length reload
+-- Prim. fire only
 - Stun Grenade (1)
+-- Based on Frag Grenade
+-- Detonates on all surface contact
+-- 50% less damage
+-- Sec. fire only
 - Trip Mines (2)
-- EMP Grenade (1)
+- Pulse Grenade (1)
 - Stun Baton
 
 ^6Inventory:
-- Bacta (+25 HP to self) ^3[CS4]
+- Bacta (25 HP to self) ^3[CS4]
 - Portable Sentry Gun
 - Seeker Drone
 
 ^8Attributes:
 - Reinforcements (2)
-- Assemble
+- Assemble (Respawn on Rally allies)
 
 ^3Abilities:
 - Dodge (2) ^3[CS1]
 - Dash (1) ^3[CS2]
-- Gun Kick ^3[CS3]
-
-~ Jawa: A race of passionate scavengers who comb the deserts of Tatooine searching for droids or scraps to capture and sell to nearby residents.
-~ Ugnaught: Hard-working porcine humanoids."
+- Gun Kick ^3[CS3]"

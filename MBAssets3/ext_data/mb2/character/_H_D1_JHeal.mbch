@@ -1,16 +1,15 @@
 //Legends Mode character file - Created by Frenzy & Leos
-//testing
 
 ClassInfo
 {
 	name				"_H_D1_JHeal"
 	weapons				WP_SABER|WP_MELEE
-	attributes			MB_ATT_FORCEFOCUS,2|MB_ATT_DEFLECT,1|MB_ATT_FORCEBLOCK,2|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,2
+	attributes			MB_ATT_HEALING,2|MB_ATT_FORCEFOCUS,2|MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,2
 	saberstyle			SS_MEDIUM|SS_FAST
 	forcepowers			FP_LEVITATION,3|FP_PUSH,2|FP_PULL,2|FP_SABER_OFFENSE,3|FP_SEE,3|FP_TEAM_HEAL,1|FP_SABERTHROW,1|FP_TELEPATHY,2
 	maxhealth			100
-	forcepool           100
-	forceregen          1.2
+	forcepool           120
+	forceregen          1.1
 	BPmultiplier		0.9
 	APmultiplier		0.9
 	ASmultiplier 		1.00
@@ -19,34 +18,37 @@ ClassInfo
 	MBClass				MB_CLASS_JEDI
 	classNumberLimit	1
 	skilltimermod 		1.5
-
-//testing this
-blockRegenRate 3500
-
+	classflags			CFL_STATVIEWER
+	//testing this
+	blockRegenRate 3500
+	//classflags CFL_NOPICKUPS
 	//special1	EAS_FP_SABERTHROW game chooses spec1 if not defined, leave as is
-	special2 EAS_FP_PUSH
-	special3 EAS_FP_PULL
-	special4 EAS_FP_SEE
+	special2 EAS_MELEE
+	special3 EAS_FP_HEAL
+	special4 EAS_FP_TEAM_HEAL
 	
 	flourishAnim BOTH_FORCEHEAL_QUICK
 
 	damageGiven        1
 	
+	//WP_SaberFlags HELD_HEAL
+	//WP_MeleeFlags HELD_HEAL
+	
 	model		"barriss_offee"
 	skin			"default"
 	uishader		"models/players/barriss_offee/mb2_icon_default"
 	
-	model_1		"adigallia"
-	skin_1		"robed"
-	uishader_1	"models/players/adigallia/mb2_icon_robed"
+	model_2		"adigallia"
+	skin_2		"robed"
+	uishader_2	"models/players/adigallia/mb2_icon_robed"
 	
-	model_2 		"adigallia"
-	skin_2 		"default"
-	uishader_2 	"models/players/adigallia/mb2_icon_default"
+	model_1 		"adigallia"
+	skin_1		"default"
+	uishader_1 	"models/players/adigallia/mb2_icon_default"
 	
-	model_3			"rey"
-	skin_3			"default"
-	uishader_3		"models/players/rey/mb2_icon_default"
+	model_3		"rey"
+	skin_3		"default"
+	uishader_3	"models/players/rey/mb2_icon_default"
 	
 	model_4		"rey"
 	skin_4		"resistance"
@@ -56,9 +58,9 @@ blockRegenRate 3500
 	skin_5		"jedi"
 	uishader_5	"models/players/rey/mb2_icon_jedi"
 	
-	//model_3				"luminara"
-	//skin_3				"default"
-	//uishader_3			"models/players/luminara/mb2_icon_default"
+	//model_3		"luminara"
+	//skin_3		"default"
+	//uishader_3	"models/players/luminara/mb2_icon_default"
 	
 	saber1			saber_barriss
 	sabercolor		4
@@ -75,32 +77,33 @@ blockRegenRate 3500
     respawnCustomTime  50000	
 }
 
-description	"Archetype: Jedi Healer
+description	"Jedi Healer
 
 Class: Jedi
 Brief Overview: 
-A Jedi with AoE team Force healing powers.
+A Jedi with passive healing and team Force healing powers.
 
 ^2Weaponry:
 - Melee
 - Lightsaber
 -- Yellow/Blue styles
 -- Saber Defense (2)
--- Blaster Defense/Deflect (1)
+--- 25% slower BP regen
+-- Blaster Defense (2)
+-- Saber Deflect (1)
 -- Enhanced Saber Throw (1) ^3[CS1]
+-- Slap ^3[CS2]
 
 ^5Force Powers:
 - Jump (3)
-- Push (2) ^3[CS2]
-- Pull (2) ^3[CS3]
-- Sense (3) ^3[CS4]
+- Push (2)
+- Pull (2)
+- Sense (3)
 - Mind Trick (2)
-- Team Heal (1)
+- Team Heal (1) ^3[CS4]
 
 ^8Attributes:
 - 50% slower skill cooldown
-- Force Block/Focus (2)
-
-~ Barriss Offee: The young Mirialan apprentice of Luminara Unduli, known as "the healer".
-~ Stass Allie: A female Tholothian Jedi Master who served the Jedi Order and the Galactic Republic during the Clone Wars.
-~ Rey: A Human Jedi trained by Jedi Master Luke Skywalker."
+- Healing (2)
+- Ally Stat Viewer
+- Force Block/Focus (2)"

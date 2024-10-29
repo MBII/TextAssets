@@ -276,6 +276,131 @@ models/weapons2/thermal/thermal_w_1
 	}
 }
 
+///////////// RealTD - New /////////////
+
+models/weapons2/realTD/td
+{
+    {
+        map models/weapons2/realTD/td
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/realTD/td_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/realTD/td_prts
+{
+    {
+        map models/weapons2/realTD/td_prts
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/realTD/td_prts_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/realTD/td_prts_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+    {
+        animMap 2 models/weapons2/realTD/01td/td_prts_t1 models/weapons2/realTD/01td/td_prts_t2 models/weapons2/realTD/01td/td_prts_t3 models/weapons2/realTD/01td/td_prts_t4 models/weapons2/realTD/01td/td_prts_t1 models/weapons2/realTD/01td/td_prts_t3 models/weapons2/realTD/01td/td_prts_t4 models/weapons2/realTD/01td/td_prts_t5 models/weapons2/realTD/01td/td_prts_t3 models/weapons2/realTD/01td/td_prts_t6
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+models/weapons2/realTD/dp
+{
+    {
+        map models/weapons2/realTD/dp
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/realTD/dp_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/realTD/dp_prts
+{
+    {
+        map models/weapons2/realTD/dp_prts
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/realTD/dp_prts_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/realTD/dp_prts_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+    {
+        animMap 2 models/weapons2/realTD/02dp/dp_prts_t1 gfx/colors/black models/weapons2/realTD/02dp/dp_prts_t2 gfx/colors/black models/weapons2/realTD/02dp/dp_prts_t3 gfx/colors/black models/weapons2/realTD/02dp/dp_prts_t4 gfx/colors/black models/weapons2/realTD/02dp/dp_prts_t4 gfx/colors/black models/weapons2/realTD/02dp/dp_prts_t4 gfx/colors/black
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+models/weapons2/realTD/bf
+{
+    {
+        map models/weapons2/realTD/bf
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/realTD/bf_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/realTD/dp_prts
+{
+    {
+        map models/weapons2/realTD/bf_prts
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/realTD/bf_prts_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/realTD/bf_prts_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+    {
+        animMap 5 models/weapons2/realTD/03bf/bf_prts_t1 models/weapons2/realTD/03bf/bf_prts_t2 models/weapons2/realTD/03bf/bf_prts_t3 models/weapons2/realTD/03bf/bf_prts_t2 models/weapons2/realTD/03bf/bf_prts_t1 models/weapons2/realTD/03bf/bf_prts_t2  models/weapons2/realTD/03bf/bf_prts_t3 models/weapons2/realTD/03bf/bf_prts_t4
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
 
 ///////////// Laser Trip Mines ///////////// 
 
@@ -1549,89 +1674,96 @@ models/weapons2/wsidearm/pistol_spec
 	}
 }
 
-//z6 rotary cannon//
+///////////// Z6 Rotary Cannon /////////////
 
-models/weapons2/z6_rotary/barrel_S1
+models/weapons2/z6_rotary/body
 {
-	{
-		map models/weapons2/z6_rotary/barrel_S1
-	}
-	{
-		map models/weapons2/z6_rotary/barrel_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/z6_rotary/body
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/z6_rotary/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/z6_rotary/cooling_S1
+models/weapons2/z6_rotary/body_parts
 {
-	{
-		map models/weapons2/z6_rotary/cooling_S1
-	}
-	{
-		map models/weapons2/z6_rotary/cooling_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/z6_rotary/body_parts
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/z6_rotary/body_parts_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/z6_rotary/ironsight_S1
+models/weapons2/z-6s/body
 {
-	{
-		map models/weapons2/z6_rotary/ironsight_S1
-	}
-	{
-		map models/weapons2/z6_rotary/ironsight_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/z-6s/body
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/z-6s/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/z6_rotary/magnet_S1
+models/weapons2/z-6s/body_parts
 {
-	{
-		map models/weapons2/z6_rotary/magnet_S1
-	}
-	{
-		map models/weapons2/z6_rotary/magnet_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+    {
+        map models/weapons2/z-6s/body_parts
+        alphaFunc GE128
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/z-6s/body_parts_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
-models/weapons2/z6_rotary/plate_S1
+models/weapons2/z-6s/shield
 {
-	{
-		map models/weapons2/z6_rotary/plate_S1
-	}
-	{
-		map models/weapons2/z6_rotary/plate_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/weapons2/z6_rotary/plate_S1_glow
-		blendFunc GL_ONE GL_ONE
-	glow
-	}
-}
-
-models/weapons2/z6_rotary/rings_S1
-{
-	{
-		map models/weapons2/z6_rotary/rings_S1
-	}
-	{
-		map models/weapons2/z6_rotary/rings_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
+	qer_nocarve
+	qer_trans	0.1
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map models/weapons2/z-6s/shield
+        blendFunc GL_ONE GL_ONE
+        glow
+        tcMod scroll -0.01 0.01
+    }
+    {
+        map models/weapons2/z-6s/shield_ef_i
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_ALPHA
+        rgbGen wave sin 0 -1.5 0 0.1
+        alphaGen wave sin 0 -1.5 0 0.1
+        tcMod scroll 0 -0.1
+    }
+    {
+        map models/weapons2/z-6s/shield_ef_ii
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen wave sin 0 -1.5 0 0.1
+        alphaGen wave sin 0 -1.5 0 0.1
+        tcMod scroll 0 -0.1
+    }
 }
 
 ///////////// JA HILTS /////////////

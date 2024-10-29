@@ -137,3 +137,23 @@ models/players/sithtrooper_tor/body_yavin
 		detail
     }
 }
+
+models/players/sithtrooper_tor/jetpack
+{
+	{
+		map models/players/sithtrooper_tor/jetpack
+		rgbGen lightingDiffuse
+	}
+ 	{
+		map models/players/sithtrooper_tor/jetpack
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+    {
+		map models/players/sithtrooper_tor/jetpack_glow
+        blendFunc GL_ONE GL_ONE_MINUS_SRC_COLOR
+        detail
+        glow
+    }
+}

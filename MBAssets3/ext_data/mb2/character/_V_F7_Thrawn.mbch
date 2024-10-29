@@ -2,32 +2,31 @@ ClassInfo
 {
 	name  				"_V_F7_Thrawn"
 	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_FIRE_NADE|WP_SONIC_NADE
-	attributes			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY|MB_ATT_FLIPKICK,2|MB_ATT_FRAGS,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_FORCEBLOCK,2|MB_ATT_DODGE,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DISP_ARMOR,3|MB_ATT_DISP_HEALTH,3
+	attributes			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY|MB_ATT_FLIPKICK,2|MB_ATT_FRAGS,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_FORCEBLOCK,3|MB_ATT_DODGE,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DISP_ARMOR,3|MB_ATT_DISP_HEALTH,3|MB_ATT_USE_DISTANCE,1
 	forcepowers			FP_SEE,3
 	classflags			CFL_STATVIEWER
 	forcepool			100
-	forceregen           0.3
 	maxhealth			150
-	maxarmor				80
+	maxarmor			80
 	speed			    0.95
 	MBClass				MB_CLASS_HERO
 	
-	resource			RESOURCE_ENERGY
+	resource			RESOURCE_FORCE
 	
 	classNumberLimit		1
 	modelscale          1.01
 	holdables 			HI_MEDPAC_BIG|HI_MEDPAC|HI_SEEKER|HI_BINOCULARS
 	
 	special1 EAS_HI_DODGE
-	special2	EAS_HI_MEDPAC
-	special3	EAS_HI_MEDPAC_BIG
-	special4 EAS_HI_SEEKER
+	special2	EAS_FP_SENSE
+	special3	EAS_HI_MEDPAC
+	special4 EAS_HI_MEDPAC_BIG
 	
 	WalkForward BOTH_WALK6
 	WalkBackward BOTH_WALK6
 	idleanim	BOTH_STAND4
 	gloatanim	BOTH_TALKCOMM1START
-	//flourishanim
+	flourishanim  BOTH_STAND1_TALK1
 	//firinganim
 
 	model		"imperial"
@@ -35,7 +34,7 @@ ClassInfo
 	uishader		"models/players/imperial/mb2_icon_thrawn"
 	
 	model_1		"thrawn2"
-	skin	_1		"default"
+	skin_1		"default"
 	uishader_1	"models/players/thrawn2/mb2_icon_default"
 	
 	model_2		"thrawn2"
@@ -53,6 +52,18 @@ ForceInfo0
 	ForcePowerName	"Advanced Deduction"
 }
 
+WeaponInfo0
+{
+    WeaponToReplace    WP_BLASTER_PISTOL
+	WeaponBasedOff	WP_BLASTER_PISTOL
+	NewWorldModel		"models/weapons2/blaster_three/blaster_pistol_w.glm"  	
+	NewViewModel		"models/weapons2/blaster_three/blaster_pistol.md3" 
+	Icon				"gfx/hud/w_icon_blaster_pistol_3"
+	WeaponName "Blaster Pistol"
+	ClipSize 21
+	customAmmo 700
+}
+
 description	"Mitth'raw'nuruodo
 
 Class: Hero
@@ -67,21 +78,20 @@ An agile, pistol-wielding commander/medic hybrid with Force power resistance.
 - Sonic Detonators (2)
 
 ^8Attributes:
-- Rally
-- Tactical Acumen (Ally Stat Viewer)
 - Combat Training (Force Jump 1)
-- Ysalimari (Force Block 2)
+- Ysalimari (Force Block 3)
+- Rally (Assemble allies spawn on you)
+- Tactical Acumen (Ally Stat Viewer)
 
 ^6Inventory:
-- Binoculars
-- Bacta (+25 HP to self) ^3[CS2]
-- Big Bacta (+50 HP to self) ^3[CS3]
-- Seeker Drone ^3[CS4]
+- Electrobinoculars
+- Bacta (25 HP to self) ^3[CS3]
+- Big Bacta (50 HP to self) ^3[CS4]
+- Seeker Drone
 
 ^3Abilities:
-- Health/Armor Dispenser (3) ^3['Use' on allies]
-- Advanced Deduction (Force Sense 3)
 - Dodge (2) ^3[CS1]
-- Flipkick (2) ^3[Single/double-jump off players ^3& surfaces ^3sideways/forwards]
-
-Mitth'raw'nuruodo, better known as 'Thrawn', was recognized across the galaxy as a brilliant and ruthless military strategist. He believed that in order to achieve victory in war, one must know their enemy. As such, he dedicated himself to understanding the philosophy, art, and culture of his opponents."
+- Advanced Deduction (Force Sense 3) ^3[CS2]
+- Health/Armor Dispenser (3) ^3['Use' on allies]
+-- +1 Heal Range
+- Flipkick (2) ^3[Single/double-jump off players ^3& surfaces ^3sideways/forwards]"

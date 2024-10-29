@@ -4,7 +4,7 @@ ClassInfo
 {
 	name				"_V_E2_Hondo"
 	weapons				WP_MELEE|WP_M5|WP_PULSE_NADE|WP_SHOTGUN|WP_SABER
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SHOTGUN,2|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_WESTARM5,1|MB_ATT_AMMO,2|MB_ATT_HEALING,2|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_GRAPPLE_HOOK,2
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SHOTGUN,2|MB_ATT_PULSE_GRENADES,3|MB_ATT_WESTARM5,1|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_GRAPPLE_HOOK,2
 	classflags			CFL_SEEING_STEALTH
 	MBClass				MB_CLASS_ARCTROOPER
 	saber1              Cutlass_legends
@@ -20,8 +20,12 @@ ClassInfo
 	classNumberLimit	1	
 	modelscale			1.03
 	speed				1.05
-	forcepool			80
-	WP_SHOTGUNFlags     HELD_ALTRELOAD
+	forcepool			100
+	WP_ShotgunFlags     HELD_ALTRELOAD|HELD_HIGHDAMAGE
+	
+	gloatAnim BOTH_TALKCOMM1START
+	tauntAnim BOTH_STAND1_TALK1
+	flourishAnim BOTH_STAND1_TALK1
 	
 	special1		EAS_HI_SPRINT
 	special2		EAS_HI_DEX
@@ -36,7 +40,7 @@ ClassInfo
 WeaponInfo0
 {
 	WeaponToReplace		WP_M5
-	WeaponBasedOff		WP_FLECHETTE
+	WeaponBasedOff		WP_BLASTER
 	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
 	NewViewModel 		"models/weapons2/e5/e5.md3"
 	Icon				"gfx/hud/w_icon_e5"
@@ -49,8 +53,8 @@ WeaponInfo0
 	WeaponName			"Modified E-5 Blaster Rifle"
 	customAmmo			600
 	altFireEnabled		1
-	idleAnim		BOTH_MAND_PISTOL_IDLE 
-	firingAnim		MAND_SPISTOL_FIRE
+	idleAnim			BOTH_MAND_PISTOL_IDLE 
+	firingAnim			MAND_SPISTOL_FIRE
 }
 
 WeaponInfo1
@@ -64,9 +68,9 @@ WeaponInfo1
 	FlashSound0			"sound/weapons/acparray/fire.wav"
 	Icon				"gfx/hud/w_icon_cp-50_repeater"
 	WeaponName			"ACP Array Gun"
-	clipsize            12
-	primHitscanShot		1
-	primHitscanTracer	10
+	clipSize            12
+	//primHitscanShot		1
+	//primHitscanTracer	10
 	altFireEnabled		0
 	ReloadTimeModifier  0.95
 }
@@ -85,7 +89,7 @@ description	"Hondo Ohnaka
 
 Class: ARC Trooper
 Brief Overview: 
-A dexterous, mobile gunner with a devastating hitscan shotgun, a sword, and EMP grenades.
+A dexterous, highly mobile gunner with a devastating one-tap Shotgun and a Cutlass. Cannot be spotted by Force Sense.
 
 ^2Weaponry:
 - Melee
@@ -93,28 +97,29 @@ A dexterous, mobile gunner with a devastating hitscan shotgun, a sword, and EMP 
 -- Based on Lightsaber
 -- Yellow/Cyan styles
 -- Saber Defense (1)
--- Cannot block blasters
+-- Cannot block Blasters
 -- 30% less damage
 -- 50% shorter reach
 -- 67% thinner radius
-- Modified E-5 Blaster Rifle
--- Based on WESTAR-M5 (1) w/ scope
+-- Slap ^3[Gunbash]
 - ACP Array Gun
 -- Based on Shotgun (2)
--- Hitscan rounds
+-- 100% more damage
 -- 5% faster reload
-- EMP Grenades (3)
+-- Fixed-length reload
+-- Prim. fire only
+- Modified E-5 Blaster Rifle
+-- Based on WESTAR-M5 (1) + Scope
+- Pulse Grenades (3)
 
 ^8Attributes:
 - Stamina (3)
 - Dexterity (3)
 - Healing (2)
-- Unpredictability (Invisible to Force Sense)
+- Unpredictability (Force Sense Immunity)
 
 ^3Abilities:
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
 - Dodge (3) ^3[CS3]
-- Grappling Hook (2) ^3[CS4 in ^3Melee]
-
-Hondo Ohnaka was the leader of the Ohnaka Gang of space pirates during the Clone Wars. His gang was involved in trading spice and receiving ransoms through kidnapping."
+- Grappling Hook (2) ^3[CS4 in ^3Melee]"

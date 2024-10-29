@@ -1,29 +1,31 @@
 //Legends Mode character file - Created by Frenzy & Leos
-//testing. heroes get dash by default it seems
 
 ClassInfo
 {
 	name			"_H_F3_Han"
 	weapons			WP_MELEE		
 	maxhealth		100
-	maxarmor		20
+	maxarmor		25
 	speed           1.06
 	modelscale      1.027
-	rateOfFire      1.3
+	rateOfFire      1.2
 	
 	Resource		RESOURCE_ENERGY
 	forcepool		100
 	forceregen		2
 	
-	rankHealth  	130,160
-	rankArmor		40,60
+	rankHealth  	120,140,160
+	rankArmor		40,80
 	
-	rankforcepool	125,150,200		
+	rankforcepool	135,165,200		
 	
 	MBClass						MB_CLASS_HERO
 	classNumberLimit			1
 	WP_FragNadeFlags			HELD_KNOCKDOWN
 	WP_BlasterPistolFlags		HELD_HIGHDAMAGE|HELD_SLOW
+	
+	flourishAnim BOTH_STAND1_TALK3
+	
 	
 	model	"han_solo"
 	skin		"default"
@@ -59,7 +61,7 @@ ClassInfo
 
 	special1				EAS_HI_DODGE
 	
-	special3				EAS_HI_QUICKTHROW
+	//special3				EAS_HI_QUICKTHROW
 		
 	isCustomBuild		1
 	mbPoints			130
@@ -69,11 +71,11 @@ ClassInfo
 	c_att_ranks_0	-1
 	
 	c_att_skill_1	MB_ATT_PISTOL
-	c_att_names_1	"Han Solo's DL-44:"
-	c_att_ranks_1	1,5,25
+	c_att_names_1	"Han Solo's DL-44 Pistol:"
+	c_att_ranks_1	0,5,25
 	
 	c_att_skill_2	MB_ATT_FRAGS
-	c_att_names_2	"Stun Grenades:"
+	c_att_names_2	"Frag Grenades:"
 	c_att_ranks_2	10,10,10
 	
 	c_att_skill_3	MB_ATT_MICRO_GRENADES
@@ -84,18 +86,18 @@ ClassInfo
 	c_att_names_4	"^8Attributes^7/^3Abilities"
 	c_att_ranks_4	-1
 	
-	c_att_skill_5 MB_ATT_ARMOUR
-	c_att_names_5 "Armor:"
-	c_att_ranks_5 10,10
-	
-	c_att_skill_6	MB_ATT_HEALTH
-	c_att_names_6	"Health:"
-	c_att_ranks_6	10,10
+	c_att_skill_5	MB_ATT_HEALTH
+	c_att_names_5	"Health:"
+	c_att_ranks_5	5,5,5
 		
-	c_att_skill_7	MB_ATT_HEALING
-	c_att_names_7	"Healing:"
-	c_att_ranks_7	5,5,5
+	c_att_skill_6	MB_ATT_HEALING
+	c_att_names_6	"Healing:"
+	c_att_ranks_6	5,5,5
 	
+	c_att_skill_7 MB_ATT_ARMOUR
+	c_att_names_7 "Armor:"
+	c_att_ranks_7 5,10
+
 	c_att_skill_8	MB_ATT_POWER
 	c_att_names_8	"Energy Pool:"
 	c_att_ranks_8	10,10,10
@@ -108,9 +110,9 @@ ClassInfo
 	c_att_names_10 "Dash ^3[CS2]^7:"
 	c_att_ranks_10 10,5
 	
-	c_att_skill_11	MB_ATT_QUICKTHROW
-	c_att_names_11	"Quick Throw ^3[CS3]^7:"
-	c_att_ranks_11	5,5
+	c_att_skill_11 MB_ATT_QUICKTHROW
+	c_att_names_11 "Quick-Throw ^3[CS3]^7:"
+	c_att_ranks_11 5,5
 }
 
 WeaponInfo0
@@ -121,11 +123,11 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/blaster_three/blaster_pistol.md3" 
 	Icon				"gfx/hud/w_icon_blaster_pistol_3"
 	WeaponName		"Han Solo's DL-44 Heavy Blaster Pistol" 
-	clipSize       		16
 	idleAnim			BOTH_MAND_PISTOL_IDLE
 	firingAnim		MAND_SPISTOL_FIRE
 	FlashSound0		"sound/weapons/han_pistol/fire.mp3"  
-	altFlashSound0	"sound/weapons/han_pistol/alt_fire.mp3"  
+	altFlashSound0	"sound/weapons/han_pistol/alt_fire.mp3"
+	clipSize       		15	
 	FPMult     			0.8
 	ProjSpeedModifier 	1.25
 	ReloadTimeModifier 	2.5
@@ -136,26 +138,28 @@ WeaponInfo0
 	ALTMissileEffect	"blaster/Shot03R"
 }
 
-WeaponInfo1
-{	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_THERMAL
-	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
-	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
-	Icon					"gfx/hud/w_icon_stungrenade"
-	WeaponName			"Frag/Stun Grenades"
-	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
-	primFireEnabled		0
-	firingAnim	NADE_SECONDARY
-	altMissileMissEffect	"grenades/EXP_alt"
-}
-
 description	"Han Solo
 
 Class: Hero
 Brief Overview: 
-A scrappy class with custom options like a powerful pistol, a massive Energy pool, and quick-throw frag/stun grenades.
+A scrappy class with custom options like a double-damage Pistol, a massive Energy pool, and Quick-Throw Frag Grenades.
 
 ^2Default Weaponry:
 - Melee
 
-If, at the height of his smuggling days, you told Han Solo that he would be a hero of the Rebellion, fall in love with an Alderaanian princess, and become a general in the Alliance, he would have had no shortage of smart remarks for you. But if anything is consistent in Solo's life, it is unpredictability."
+^9Point Buy Info:
+- Han Solo's DL-44 Heavy Blaster Pistol
+-- Based on DL-44
+-- 100% more damage
+-- 25% faster projectiles
+-- 15% slower movement
+-- 20% less FP damage
+-- 250% slower reload
+- Frag Grenades
+-- Sec. fire detonates upon surface contact
+- Health
+-- 120, 140, 160
+- Armor
+-- 40, 80
+- Energy Pool
+-- 135, 165, 200"

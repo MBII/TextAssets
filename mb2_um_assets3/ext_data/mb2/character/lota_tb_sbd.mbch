@@ -1,0 +1,183 @@
+//Galactic Conquest/Supremacy character file - Created by Stephen & John & FrenZy
+//Siege class def file.
+
+ClassInfo
+{
+	name				"lota_tb_sbd"
+	weapons				WP_SBD|WP_SABER|WP_MELEE
+	attributes		    MB_ATT_AMMO,2|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_CORTOSIS|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_DEFLECT,1|MB_ATT_FUEL,1
+    forcepowers         FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	maxhealth			400
+	maxarmor			100
+    forcepool           20
+	forceregen			2
+	saberstyle		    SS_DUAL
+    saber1              droidmelee_lotasbd
+    saber2              droidmelee_lotasbd
+	
+	speed				0.8
+	//modelscale		1.12
+	modelscale			1.5
+
+	rateoffire		0.8
+
+	//model				"SBD"
+	//skin				"cw"
+	uishader		    "gfx/um_icons/lota/mb2_icon_blue_sbd"
+
+	model			"sb_droid"
+	skin			"blue"
+	//uishader		"gfx/um_icons/droiddiscipleB"
+		
+	classNumberLimit  	1
+	MBClass				MB_CLASS_MANDALORIAN
+	meleeMoves				M_PUNCH|M_KICK
+	respawnWait 15000
+	respawnCustomTime  15000
+
+	//WP_MeleeFlags		HELD_LOWDAMAGE|HELD_SLOW
+    WP_PLX1Flags  HELD_KNOCKDOWN|HELD_KNOCKBACK|HELD_IGNOREBLOCK|HELD_EXPLOSIVE|HELD_ALTRELOAD
+	WP_SBDFlags		HELD_KNOCKBACK|HELD_KNOCKDOWNRESISTANCE
+
+	WalkBackward	SBD_WALK_NOGUN
+	WalkForward 	SBD_WALK_NOGUN
+	RunForward		SBD_RUN_NOGUN
+
+	rateoffire_melee	2
+
+    isCustomBuild        1
+    mbPoints            100
+
+    c_att_skill_0        MB_ATT_INVALID
+    c_att_names_0        "^5-SBD Offense-"
+    c_att_ranks_0        -1
+    
+    c_att_skill_1        MB_ATT_FIREPOWER
+    c_att_names_1        "Firepower:"
+    c_att_ranks_1        0,4,10
+    
+    c_att_skill_2        MB_ATT_WOOKIE_STRENGTH
+    c_att_names_2        "Melee Strength:"
+    c_att_ranks_2        8,15,5
+
+    c_att_skill_3        MB_ATT_PLX1
+    c_att_names_3        "Wrist Rocket:"
+    c_att_ranks_3		 25
+    
+    c_att_skill_4        MB_ATT_INVALID
+    c_att_names_4        "^5-SBD Defense-"
+    c_att_ranks_4        -1
+    
+    c_att_skill_5        MB_ATT_HULL_STRENGTH
+    c_att_names_5        "Hull Strength:"
+    c_att_ranks_5        5,10,10
+
+    c_att_skill_6        MB_ATT_MAGNETIC_PLATING
+    c_att_names_6        "Magnetic Plating:"
+    c_att_ranks_6        15
+    
+    c_att_skill_7        MB_ATT_BLAST_ARMOR
+    c_att_names_7        "Blast Armor:"
+    c_att_ranks_7        15
+
+    c_att_skill_8        MB_ATT_ANTI_MT
+    c_att_names_8        "Anti Mind Trick"
+    c_att_ranks_8        5,10,15
+    
+    c_att_skill_9       MB_ATT_INVALID
+    c_att_names_9       "^5-SBD Abilities-"
+    c_att_ranks_9       -1
+
+	c_att_skill_10		 MB_ATT_RADAR
+	c_att_names_10		 "Radar:"
+	c_att_ranks_10		 10
+            
+    c_att_skill_11       MB_ATT_RECHARGE
+    c_att_names_11       "Battery Recharge:"
+    c_att_ranks_11       5,5,10
+    
+    c_att_skill_12       MB_ATT_ZOOM
+    c_att_names_12       "Zoom:"
+    c_att_ranks_12       15
+
+	c_att_skill_13       MB_ATT_POWER
+    c_att_names_13       "DFA:"
+    c_att_ranks_13       30
+
+	c_att_skill_14       MB_ATT_JETPACK
+    c_att_names_14       "Jump Thrusters:"
+    c_att_ranks_14       30
+
+	resource		RESOURCE_BATTERY
+
+	rankForcePool	30
+
+    special1        EAS_HI_RECHARGE
+	
+}
+
+WeaponInfo0
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Droid Melee"
+	primGore		1
+	altGore			1
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_PLX1
+	WeaponBasedOff		WP_PLX1
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_sbdarm"
+	WeaponName			"Wrist Rocket"
+	MissileEffect			"upl/shot"
+	MissileSound                "sound/weapons/upl/missleloop.wav"
+    MissileModel                 "models/weapons2/upl/projectile_a.md3"
+	AltMissileMissEffect	"effects/Grenades/EXP_Explosion"
+	AltMissileHitHumanEffect	"effects/Grenades/EXP_Explosion"
+	AltMissileHitDroidEffect	"effects/Grenades/EXP_Explosion"
+    MissileMissEffect        "effects/Grenades/EXP_Explosion"
+    MissileHitHumanEffect    "effects/Grenades/EXP_Explosion"
+    MissileHitDroidEffect    "effects/Grenades/EXP_Explosion"
+    FlashSound0            "sound/weapons/WhistlingBird/Fire3.mp3"
+	customAmmo           1
+    clipSize             1
+	ReloadTimeModifier 	2
+	AltFireEnabled		0
+
+	idleAnim		SBD_GUN_OUT_STAND
+	firingAnim	    SBD_FIRE
+	altFiringAnim	SBD_FIRE
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_SBD
+	WeaponBasedOff		WP_BLASTER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_sbdarm"
+	WeaponName			"Wrist Blaster"
+    MuzzleEffect		"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"blaster/Shot02B"
+	AltMissileEffect	"blaster/Shot02B"
+	MissileMissEffect	"effects/impacts/impactsmallblue1"
+	AltMissileMissEffect	"effects/impacts/impactsmallblue1"
+	customAmmo           400
+    clipSize             100
+
+	idleAnim		SBD_GUN_OUT_STAND
+	firingAnim	    SBD_FIRE
+	altFiringAnim	SBD_FIRE
+}
+
+description	"Team Blue - Super Battle Droid
+
+Short Respawn (CTF)"
