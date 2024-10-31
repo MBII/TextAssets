@@ -4,7 +4,7 @@ ClassInfo
 {
 	name			"unsc_sarge"
 	weapons			WP_MELEE|WP_SHOTGUN|WP_BLASTER_PISTOL
-	attributes		MB_ATT_PISTOL,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_SHOTGUN,2|MB_ATT_CLONERIFLE,2|MB_ATT_RALLY,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3
+	attributes		MB_ATT_PISTOL,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_SHOTGUN,2|MB_ATT_RALLY,1|MB_ATT_AMMO,3
 	maxhealth		80
 	maxarmor		80
 	model			"colonial_marine"
@@ -12,6 +12,9 @@ ClassInfo
 	uishader		"models/players/colonial_marine/mb2_icon_unsc_sarge"
 	MBClass			MB_CLASS_ELITETROOPER
 	classNumberLimit	1
+	WP_ShotgunFlags	HELD_ALTRELOAD
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
+	WP_CloneRifleFlags		HELD_ALTRELOAD
 }
 
 WeaponInfo0
@@ -74,6 +77,29 @@ WeaponInfo2
   NewViewModel		"models/weapons2/dummy/dummy.md3"
   Icon			"models/weapons2/halo_melee/icon.png"
 	WeaponName		"Melee"
+	primGore		1
+	altGore			1
+}
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_CLONE_RIFLE
+	WeaponBasedOff		WP_CLONE_RIFLE
+	NewWorldModel		"models/weapons2/halo_smg/smg.glm"
+	NewViewModel		"models/weapons2/halo_smg/smg.md3"
+	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon			"models/weapons2/halo_smg/icon.png"
+	WeaponName		"M7 SMG"
+	MuzzleEffect		"halo_smg/Muzzle_Flash"
+	MissileEffect		"halo_smg/projectile"
+	MissileMissEffect "halo_smg/wall_impact"
+	FlashSound0		"sound/weapons/halo_smg/fire.wav"
+	SelectSound		"sound/weapons/halo_smg/select.wav"
+	customAmmo		400
+	clipSize  40
+	primHitscanShot		1
+	primHitscanTracer	5
+	altFireEnabled 0
 	primGore		1
 	altGore			1
 }
