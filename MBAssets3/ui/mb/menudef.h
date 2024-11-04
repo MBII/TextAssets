@@ -173,6 +173,8 @@
 #define FEEDER_MBHEADS_MAIN				0x48
 #define FEEDER_MBHEADS_SUBS				0x49
 
+#define FEEDER_CONQUEST					0x4a	// GCJ_NEW_CONQUEST
+
 // Xbox specific, hope no one minds
 #define FEEDER_XBL_ACCOUNTS				0xA0	// list of available XBL accounts
 #define FEEDER_XBL_PLAYERS				0xA1	// players (current and recent)
