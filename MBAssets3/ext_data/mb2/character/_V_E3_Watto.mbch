@@ -1,10 +1,10 @@
 ClassInfo
 {
 	name			"_V_E3_Watto"
-	weapons		WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE
+	weapons		WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE|WP_FLECHETTE
 	maxhealth		125
 	maxarmor       	125
-	attributes  MB_ATT_FUELREGEN,2|MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2
+	attributes  MB_ATT_FUELREGEN,2|MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2|MB_ATT_FLECHETTE,2
 
 	modelscale .82
 	MBClass			MB_CLASS_MANDALORIAN
@@ -17,6 +17,8 @@ ClassInfo
 	speed 				1.07
 
 	holdables       HI_SEEKER
+	
+	WP_FlechetteFlags HELD_SLOWPROJ
 	
 	special1 EAS_HI_SPRINT
 	special2 EAS_MELEE
@@ -33,17 +35,17 @@ ClassInfo
 	WalkForward	BOTH_VT_RUN_FWD
 	tauntAnim	BOTH_LK_S_DL_T_SB_1_L
 	gloatAnim	BOTH_ENGAGETAUNT
-	//meditateAnim BOTH_SWIM_IDLE1
+	bowAnim BOTH_SLEEP1GETUP
 	idleAnim BOTH_SWIM_IDLE1
 	flourishAnim BOTH_MINDTRICK1
 	
-	saber1			pitdroid_legends
-	saberstyle      SS_MEDIUM|SS_STRONG|SS_DESANN
+	saber1		pitdroid_legends
+	saberstyle     SS_MEDIUM|SS_STRONG|SS_DESANN
 	
 	jetpackThrustEffect	""
 	jetpackIdleEffect		""
 	jetpackJetTag		"*r_leg_foot"
-	jetpackJet2Tag		"*l_leg_foot"
+	jetpackJet2Tag	"*l_leg_foot"
 	jetpackJetOffset		"0, 0, 21"
 	jetpackJet2Offset		"0, 0, 21"
 	jetpackJetAngles	"0, -70, 0"
@@ -52,9 +54,9 @@ ClassInfo
 	jetpackThrustSound 	"sound/effects/woosh4"
 	jetpackIdleSound		"sound/effects/woosh4"
 	jetpackStartSound 	"sound/effects/woosh22"
-			
-	model			"watto" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"				//this is optional, if it's here it forces the skin to this.
+	
+	model		"watto" 
+	skin			"default"				
 	uishader		"gfx/hud/fa_icons/mb2_icon_watto"
 	
 	respawnCustomTime  50000		
@@ -82,11 +84,35 @@ WeaponInfo1
 	WeaponName  "Folded Pit Droid"
 }
 
+WeaponInfo2
+{
+	WeaponToReplace WP_FLECHETTE
+	WeaponBasedOff  WP_DET_PACK
+	NewWorldModel	"models/weapons2/concussion_old/c_rifle_w.glm"
+	NewViewModel	"models/map_objects/desert/3po_head.md3"
+	Icon "gfx/doom_wpicons/w_icon_arm"
+	WeaponName  "Busted Parts"
+	AltFlashSound0 "sound/weapons/whistlingbird/flyby3.mp3"
+	AltFlashSound1 "sound/weapons/whistlingbird/flyby2.mp3"
+	AltFlashSound2 "sound/weapons/whistlingbird/flyby1.mp3"
+	FlashSound0 "sound/weapons/whistlingbird/flyby3.mp3"
+	FlashSound1 "sound/weapons/whistlingbird/flyby2.mp3"
+	FlashSound2 "sound/weapons/whistlingbird/flyby1.mp3"
+	//AltMissileEffect		"stone/missile1"
+	//AltMissileMissEffect	"stone/explosion"
+	//AltMissileHitHumanEffect "stone/explosion"
+	//AltMissileHitDroidEffect	"stone/explosion"
+	MissileModel "models/map_objects/desert/3po_head.md3"
+	AltMissileModel "models/map_objects/desert/3po_head.md3"
+	primFireEnabled 0
+	clipsize 60
+}
+
 description "Watto
 
 Class: Mandalorian
 Brief Overview: 
-A dexterous, Flight-capable gunner/grenadier hybrid who specializes in placing traps for his enemies.
+A dexterous, Flight-capable grenadier who specializes in placing traps for his enemies and raining down hell from the sky.
 
 ^2Weaponry: 
 - Melee
@@ -101,6 +127,10 @@ A dexterous, Flight-capable gunner/grenadier hybrid who specializes in placing t
 -- Cannot Saber Throw
 -- Slap ^3[CS2]
 - DL-44 Blaster Pistol (2)
+- Busted Parts
+-- Based on FC-1 Flechette Launcher (2)
+-- 75% slower projectiles
+-- Sec. fire only
 - Frag Grenades (3)
 - Trip Mines (3)
 - Concussion Grenades (2)
