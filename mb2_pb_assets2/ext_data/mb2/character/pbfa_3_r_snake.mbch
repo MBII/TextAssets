@@ -8,8 +8,8 @@ ClassInfo
 	uishader		"models/players/snakev3/mb2_icon_default_pb"
 	MBClass			MB_CLASS_HERO
 
-	weapons			WP_MELEE|WP_SABER|WP_PROJ|WP_BLASTER_PISTOL|WP_BLASTER|WP_FRAG_NADE|WP_SONIC_NADE
-	attributes		MB_ATT_THERMALS,2|MB_ATT_ASSEMBLE|MB_ATT_PROJECTILE_RIFLE|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_SPY_DISGUISE,2|MB_ATT_TRACKING_DART,3|MB_ATT_BLASTER,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_ANTI_MT|MB_ATT_DASH,2
+	weapons			WP_MELEE|WP_SABER|WP_PROJ|WP_BLASTER_PISTOL|WP_BLASTER|WP_FRAG_NADE|WP_SONIC_NADE|WP_CONC_NADE
+	attributes		MB_ATT_THERMALS,2|MB_ATT_ASSEMBLE|MB_ATT_PROJECTILE_RIFLE|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_SPY_DISGUISE,2|MB_ATT_TRACKING_DART,3|MB_ATT_BLASTER,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_ANTI_MT,2|MB_ATT_DASH,2|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2
 
 	classflags		CFL_SEEING_STEALTH|CFL_HEAVYMELEE
 	forcepowers		FP_TELEPATHY,2
@@ -26,7 +26,8 @@ ClassInfo
 	saberstyle				SS_TAVION|SS_DESANN
 	respawnCustomTime	30
 	extralives		2
-
+	special1 EAS_HI_TRACKER
+	special2 EAS_HI_DASH
 	classNumberLimit	1
 }
 WeaponInfo0
@@ -100,26 +101,27 @@ WeaponInfo2
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/saber_knife/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_knife" 	//Required: Weapon change icon
-	WeaponName		"Knife"    					//Required: Weapon change display name
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER			
+	NewWorldModel		"models/weapons2/saber_knife/saber_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_knife" 	
+	WeaponName		"Knife"    				
 }
 
 WeaponInfo4
 {
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
+	WeaponToReplace		WP_CONC_NADE
+	WeaponBasedOff		WP_CONC_NADE
 	NewWorldModel		"models/weapons2/smokenade/thermal_w.glm"  
     	NewViewModel		"models/weapons2/smokenade/thermal.md3"
 	missileModel		"models/weapons2/smokenade/thermal_proj.md3"
     	Icon			"models/weapons2/smokenade/icon"
 	MissileMissEffect		"flashnade/explosion"
 	altMissileMissEffect	"flashnade/explosion"
-	WeaponName		"Flash Grenade"
-	primFireEnabled		0
+	WeaponName		"Flash Grenades"
+	primFireEnabled		1
+	altFireEnabled 1
 }
 
 WeaponInfo5
@@ -132,25 +134,52 @@ WeaponInfo5
 	WeaponName			"Close Quarter Combat"
 }
 
+WeaponInfo6
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel				"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel				"models/weapons2/thermal/thermal_hand.md3"
+	Icon						"gfx/hud/w_thermal_grenade"
+	MissileModel 				"models/weapons2/thermal/thermal_proj.md3"
+	//altMissileModel			"models/weapons2/thermal/thermal_proj.md3"
+	MissileEffect 			"stone/missile1"
+	MissileMissEffect			"smokenadeleg/explode"
+	altMissileEffect 			"stone/missile1"
+	altMissileMissEffect		"smokebomb/explosivesmoke"
+	AltMissileHitHumanEffect "smokenadeleg/explode"
+	AltMissileHitDroidEffect	"smokenadeleg/explode"
+	FlashSound0		"sound/weapons/smokenade/select.mp3"
+	AltFlashSound0 "sound/weapons/smokenade/select.mp3"
+	//MuzzleEffect 
+	//AltMuzzleEffect 
+	WeaponName  				"Smoke Bombs"
+	altFireEnabled 1
+	primFireEnabled 0
+	customAmmo 3
+}
+
 description	"Solid Snake
 
 Weapons:
-PSG1 Poison Pistol (3)
-FAMAS
+Close Quarter Combat
 Knife
-AWP
-Flash Grenade (2)
-Sonic Nade (2)
+Paralyzing Pistol (3)
+FAMAS (2)
+Smoke Bombs (3)
+Thermal Detonator
+Sonic Nades (2)
+Flash Grenades (2)
+PSG1
 
 Abilities:
 Spy Disguise
-Mindtrick (2)
-Tracking Darts (3)
 Cloaking Device
+Mind Trick (2)
+Tracking Darts (3) ^3[CS1]
+Dash (2) ^3[CS2]
 Sense Immunity
-MT Immunity
-Heavy Melee
-Dash
+MT Immunity (2)
 Assemble
 
 Extra Life
