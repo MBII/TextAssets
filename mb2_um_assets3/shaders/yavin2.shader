@@ -1,3 +1,35 @@
+textures/yavin2/Water_Yavin2
+{
+	qer_editorimage	textures/common/direction
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	water
+	surfaceparm	trans
+	q3map_material	Water
+	cull	twosided
+    {
+        map textures/common/water3
+        blendFunc GL_ONE GL_SRC_ALPHA
+        rgbGen const ( 0.752941 0.752941 0.752941 )
+        alphaGen const 0.2
+        tcMod scroll 0 -0.1
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map textures/common/stars
+        blendFunc GL_ONE GL_ONE
+        tcMod scroll 0 -0.15
+    }
+}
+
+
+
+
+
+
 textures/yavin2/yavin2sky
 {
 	qer_editorimage	textures/skies/sky
@@ -6,6 +38,22 @@ textures/yavin2/yavin2sky
 	q3map_lightsubdivide	42
 	//sun 1 1 1 400 300 90
 	q3map_sunExt 1.000000 0.858268 0.590551 62 270 90 2 3
+	surfaceparm	sky
+	surfaceparm	noimpact
+	surfaceparm	nomarks
+	notc
+	q3map_nolightmap
+	skyParms	textures/skies/yavin 512 -
+}
+
+textures/yavin2/yavin2sky2
+{
+	qer_editorimage	textures/skies/sky
+	q3map_lightmapFilterRadius 0 160
+	q3map_surfacelight	100
+	q3map_lightsubdivide	60
+	//sun 1 1 1 400 300 90
+	q3map_sunExt 1.000000 0.858268 0.590551 80 270 90 2 3
 	surfaceparm	sky
 	surfaceparm	noimpact
 	surfaceparm	nomarks
