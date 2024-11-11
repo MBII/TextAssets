@@ -4,7 +4,7 @@
 	{
 		name					"ingame_about"
 		fullScreen				0// MENU_TRUE
-		rect					93 50 554 418//454 418
+		rect					93 50 454 418
 		visible					0
 		focusColor				1 1 1 0.6
 		appearanceIncrement		75
@@ -22,9 +22,6 @@
 		}
 		onOpen
 		{
-			uiscript				conquestnames
-			uiscript				conquestteams
-			
 			setcvar					currentObjButton "null"
 			exec					"siegeCompleteCvarUpdate"
 			setitembackground		mappic			"*siege_mapgraphic"
@@ -1243,7 +1240,7 @@
 			name				mappic
 			group				none
 			style				WINDOW_STYLE_MAP_RGB1
-			rect				9 109 423 212//9 117 423 212//
+			rect				9 109 423 212
 			forecolor			1 1 1 1
 			visible				1
 			decoration
@@ -1253,7 +1250,7 @@
 		itemDef
 		{
 			name				mappic_zoomin
-			rect				398 114 15 20//398 122 15 20//
+			rect				398 114 15 20
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Icon_ZoomIn"
 			forecolor			1 1 1 0.6
@@ -1264,7 +1261,7 @@
 		itemDef
 		{
 			name				mappic_zoomout
-			rect				415 114 15 20//415 122 15 20//
+			rect				415 114 15 20
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Icon_ZoomOut"
 			forecolor			1 1 1 0.6
@@ -1449,108 +1446,5 @@
 			visible				1
 			decoration
 		}
-		
-		
-		
-		
-		itemDef
-		{
-			name			nodelist
-			group			conquest
-			rect			10 323 150 85//76
-			type			ITEM_TYPE_LISTBOX
-			//style			WINDOW_STYLE_LISTBOX_RGB1
-			elementwidth	120
-			elementheight	16
-			font			2
-			textaligny		16
-			textscale		.7
-			border			1
-			bordersize		1
-			bordercolor		1 1 1 1
-			forecolor		0.9 0.9 0.9 1
-			backcolor		0 0 .5 .25
-			outlinecolor	.5 .5 .5 .5
-			elementtype		LISTBOX_TEXT
-			feeder			FEEDER_CONQUEST
-			//descText		"Select a spawn point."
-			textalign		ITEM_ALIGN_LEFT
-			visible			0
-			action
-			{
-				play		"sound/interface/button1.wav"
-			}
-			mouseEnter
-			{
-				setitemcolor	nodelist bordercolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	nodelist bordercolor1 0.1 0.7 1 0.9
-			}
-		}
-
-		
-		itemDef
-		{
-			name		selectSpawn
-			group		conquest
-			text		"Select Spawn" //@MENUS_FORCE_TEMPLATES
-			type		1
-			style		WINDOW_STYLE_TEXT_RGB2
-			rect		165 340 75 20
-			textalign	ITEM_ALIGN_LEFT
-			textalignx	0
-			textaligny	-4
-			font		7
-			textscale	.15
-			forecolor	1 1 1 1
-			descText	""
-			visible		0
-			action
-			{
-				play	"sound/interface/button1.wav"
-				uiscript setCqtSpawn
-			}
-		}
-		
-		itemDef
-		{
-			name		removeSpawn
-			group		conquest
-			text		"Remove Spawn" //@MENUS_FORCE_TEMPLATES
-			type		1
-			style		WINDOW_STYLE_TEXT_RGB2
-			rect		165 370 75 20
-			textalign	ITEM_ALIGN_LEFT
-			textalignx	0
-			textaligny	-4
-			font		7
-			textscale	.15
-			forecolor	1 1 1 1
-			descText	""
-			visible		0
-			action
-			{
-				play	"sound/interface/button1.wav"
-				uiscript rmCqtSpawn
-			}
-		}
-		
-		
-		// Legend
-		itemDef
-		{
-			name				legendCqt
-			group				conquest
-			style				WINDOW_STYLE_FILLED
-			rect				300 54 180 51//9 334 243 71
-			forecolor			1 1 1 1
-			backcolor			1 1 1 1
-			visible				0
-			decoration
-			background			"gfx/menus/mission_legend"
-		}
-		
 	}
 }

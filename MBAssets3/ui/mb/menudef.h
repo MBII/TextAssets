@@ -173,8 +173,6 @@
 #define FEEDER_MBHEADS_MAIN				0x48
 #define FEEDER_MBHEADS_SUBS				0x49
 
-#define FEEDER_CONQUEST					0x4a	// GCJ_NEW_CONQUEST
-
 // Xbox specific, hope no one minds
 #define FEEDER_XBL_ACCOUNTS				0xA0	// list of available XBL accounts
 #define FEEDER_XBL_PLAYERS				0xA1	// players (current and recent)
@@ -190,9 +188,6 @@
 #define FEEDER_SIEGE_TEAM1				2801
 #define FEEDER_SIEGE_TEAM2				2802
 
-// GCJ_SIEGE_FEEDER_TEAM_ALL
-#define FEEDER_SIEGE_TEAM1_ALL			3201
-#define FEEDER_SIEGE_TEAM2_ALL			3202
 
 // display flags
 #define CG_SHOW_BLUE_TEAM_HAS_REDFLAG	0x00000001
