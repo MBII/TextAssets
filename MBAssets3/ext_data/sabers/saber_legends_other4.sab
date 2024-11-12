@@ -19,14 +19,13 @@ vibroblade_zaalbar_legends
 	hitSound1	"sound/weapons/blade/heavyhit3.mp3"
 	hitSound2	"sound/weapons/blade/heavyhit2.mp3"
 	hitSound3	"sound/weapons/blade/heavyhit1.mp3"
-	blockSound1	"s/w/v/hit1.mp3"
-	blockSound2	"s/w/v/hit2.mp3"
-	blockSound3	"s/w/v/hit3.mp3"
+	blockSound1	"s/w/h/bounce1.mp3"
+	blockSound2	"s/w/h/bounce2.mp3"
+	blockSound3	"s/w/h/bounce3.mp3"
 
-	bounceSound1	"s/w/v/hit3.mp3"
-	bounceSound2	"s/w/v/hit3.mp3"
-	bounceSound3	"s/w/v/hit3.mp3"
-	
+	bounceSound1	"s/w/h/bounce1.mp3"
+	bounceSound2	"s/w/h/bounce2.mp3"
+	bounceSound3	"s/w/h/bounce3.mp3"
 	g2MarksShader "gfx/damage/bloodcutmark"
 	g2WeaponMarkShader "gfx/effects/bloodsplat"
 	blockEffect	"melee_weap/block.efx"
@@ -84,13 +83,13 @@ vibrosword_zaalbar_legends
 	hitSound2	"sound/weapons/blade/heavyhit2.mp3"
 	hitSound3	"sound/weapons/blade/heavyhit1.mp3"
 
-	blockSound1	"s/w/v/hit1.mp3"
-	blockSound2	"s/w/v/hit2.mp3"
-	blockSound3	"s/w/v/hit3.mp3"
+	blockSound1	"s/w/h/bounce1.mp3"
+	blockSound2	"s/w/h/bounce2.mp3"
+	blockSound3	"s/w/h/bounce3.mp3"
 
-	bounceSound1	"s/w/v/hit3.mp3"	
-	bounceSound2	"s/w/v/hit3.mp3"
-	bounceSound3	"s/w/v/hit3.mp3"
+	bounceSound1	"s/w/h/bounce1.mp3"
+	bounceSound2	"s/w/h/bounce2.mp3"
+	bounceSound3	"s/w/h/bounce3.mp3"
 	
 	
 	g2MarksShader "gfx/damage/bloodcutmark"
@@ -383,7 +382,7 @@ Gaffi_legends2
 vibroaxe_new_legends
 {
 	name		"BD-1 Cutter Vibroaxe"
-	saberType	SABER_STAFF
+	saberType	SABER_SINGLE
 	saberModel	"models/weapons2/longaxe/saber_vibroaxe.GLM"
 	soundOn	"sound/weapons/swordraiden/draw1.mp3"
 	soundLoop	"s/w/shwartz/saberhum1.wav"
@@ -448,13 +447,13 @@ bossnass_shield_legends
 	name		"Gungan Personal Energy Shield"
 	saberType	SABER_SINGLE
 	saberModel	"models/weapons2/gungan_shield/model_bossnass.GLM"
-	soundOn		"s/w/b/draw1.mp3"
-	soundLoop	none
-	soundOff	none
+	soundOn		"s/w/a/swing2.wav"
+	soundLoop	"sound/ambience/prototype/forcefieldhum.wav"
+	soundOff	"s/w/s/spin1.wav"
 	saberLength	73
 	saberRadius	 1
 	throwable		0
-	maxChain		3
+	maxChain		1
 	disarmable	0
 	notInMP		0
 	noDlight		1
@@ -476,7 +475,6 @@ bossnass_shield_legends
 	g2MarksShader		"gfx/damage/bloodcutmark"
 	g2WeaponMarkShader	"gfx/effects/bloodsplat"
 
-
 	spinsound	"s/w/b/spin.mp3"
 
 	swingSound1	"s/w/v/swish1.mp3"
@@ -491,16 +489,13 @@ bossnass_shield_legends
 	hitSound2	"s/w/v/hit2.wav"
 	hitSound3	"s/w/v/hit3.wav"
 
-	blockSound1	"s/w/v/hit1.mp3"
-	blockSound2	"s/w/v/hit2.mp3"
-	blockSound3	"s/w/v/hit3.mp3"
+	blockSound1	"sound/weapons/plasma_sword/impact.wav"
+	blockSound2	"sound/weapons/hit/hit8.wav"
+	blockSound3	"sound/weapons/hit/hit6.wav"
 
 	bounceSound1	"s/w/v/hit3.mp3"	
 	bounceSound2	"s/w/v/hit3.mp3"
 	bounceSound3	"s/w/v/hit3.mp3"
-	
-	
-	
 	g2MarksShader "gfx/damage/bloodcutmark"
 	g2WeaponMarkShader "gfx/effects/bloodsplat"
 	blockEffect	"melee_weap/block.efx"
@@ -776,29 +771,32 @@ trayasab
 	jumpAtkLeftMove LS_NONE
 }
 
-saber_r2_fire
+saber_r2_fire //very hacky jets
 {
 	name  		"r2"
-	saberType 	SABER_SINGLE
+	saberType 	SABER_DUAL
 	saberModel		"models/weapons2/dummy/dummy.glm"
     soundOn		none
 	soundLoop	none
 	soundOff none
-	saberLength 25
-	saberRadius 0.1
-	lungeAtkMove LS_A_FLIP_STAB
-	jumpAtkFwdMove LS_STABDOWN_DUAL
-	jumpAtkRightMove LS_A_BACKFLIP_ATK
-	jumpAtkLeftMove LS_A_BACKFLIP_ATK
+	sabercolor orange
+	saberLength 12
+	saberRadius 36
+
+	lungeAtkMove LS_A_BACKFLIP_ATK
+	jumpAtkFwdMove LS_A_BACKFLIP_ATK
+	//jumpAtkRightMove LS_A_BACKFLIP_ATK
+	//jumpAtkLeftMove LS_A_BACKFLIP_ATK
+	numblades 2
 	noManualDeactivate 1
 	noBlade 1
-	noBladeEffects1
+	noBladeEffects 1
 	noWallMarks	1
 	noDlight	1
-
+	BoltToWrist 1
 	noClashFlare	1
 	trailStyle	1
-	noManualDeactivate	1
+	noManualDeactivate 1
 	noIdleEffect	1
 	onInWater	1
 	bounceOnWalls	1
@@ -818,8 +816,14 @@ saber_r2_fire
     noCartwheels   1
     noKicks    1
     noMirrorAttacks   1
+	splashRadius       50
+    splashDamage       1  
+    splashKnockback    1 
+	maxchain 1
+	animspeedscale 0.80
+	knockbackScale   1
+    damageScale    0.01
 }
-
 riot_baton_b_legends
 {
 	name		"Stun Baton + Shield - B"
@@ -897,6 +901,8 @@ riot_baton_b_legends
 	
 	//animSpeedScale 1.15
 	noCartwheels 1
+		jumpAtkLeftMove LS_NONE
+	jumpAtkRightMove LS_NONE
 	useGoreConfig 1
 	useGoreConfig2 1
 	noG2Marks 1
@@ -987,6 +993,8 @@ riot_baton_o_legends
 	
 	//animSpeedScale 1.15
 	noCartwheels 1
+		jumpAtkLeftMove LS_NONE
+	jumpAtkRightMove LS_NONE
 	useGoreConfig 1
 	useGoreConfig2 1
 	noG2Marks 1
