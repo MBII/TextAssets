@@ -1,0 +1,174 @@
+//Siege class def file.
+//has flamethrower default
+
+ClassInfo
+{
+	name 				 "hFDinMando"
+	attributes			MB_ATT_AMMO,3|MB_ATT_FUELREGEN,1|MB_ATT_QUICKTHROW,1|MB_ATT_FUEL,3|MB_ATT_TRACKING_BEACON
+	weapons 			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
+	forcepowers 		FP_SABER_OFFENSE,2
+	maxhealth 			115
+	classNumberLimit  	1
+	
+	forcepool           30
+	forceregen			1.25
+	
+	model 				"dindjarin"
+	skin  				"jetpack"
+	uishader  			"models/players/dindjarin/mb2_icon_jetpack"
+	MBClass			    MB_CLASS_MANDALORIAN
+	speed				1.05
+	//rateoffire			0.93
+	damageGiven         1.1
+	
+	maxarmor			50
+	rankArmor			100,150,200
+	
+	resource			resource_fuel
+	
+	BPmultiplier		0.9
+	rankBP				1.0,1.1,1.25
+	
+	APMultiplier		0.9
+	rankAP				1.0,1.1,1.25
+	
+	modelscale          1.01
+	
+	saber1 				mando_pike_legends
+	saberstyle			SS_STAFF
+	
+	holdables 			HI_BINOCULARS
+	damageGiven 		1.1
+	
+	gloatAnim     		BOTH_VICTORY_FAST
+	flourishAnim BOTH_STAND1_TALK3
+	isCustomBuild		1
+	mbPoints			150
+	
+	special1		EAS_HI_WHISTLING_BIRDS
+	//no special 2 fixes this class so that it can wrist laser AND flamethrower! gj goosto
+	special3		EAS_HI_QUICKTHROW
+	special4 		EAS_MELEE
+
+	c_att_skill_0	MB_ATT_INVALID
+	c_att_names_0	"^2Weaponry"
+	c_att_ranks_0	-1
+	
+	c_att_skill_1	MB_ATT_PISTOL
+	c_att_names_1	"IB-94 Blaster Pistol:"
+	c_att_ranks_1	0,5,15
+	
+	c_att_skill_2	MB_ATT_FRAGS
+	c_att_names_2	"Frag Grenades:"
+	c_att_ranks_2	10,10,10
+	
+	c_att_skill_3	MB_ATT_TRIP_MINES
+	c_att_names_3	"Trip Mines:"
+	c_att_ranks_3	5,5,5
+	
+	c_att_skill_4	MB_ATT_AMBAN
+	c_att_names_4	"Amban Phase-Pulse Blaster:"
+	c_att_ranks_4	10,5,10
+	
+	c_att_skill_5	MB_ATT_INVALID
+	c_att_names_5	"^8Attributes^7/^3Abilities:"
+	c_att_ranks_5	-1
+	
+	c_att_skill_6	MB_ATT_ARMOUR
+	c_att_names_6	"Armor:"
+	c_att_ranks_6	15,15,15
+	
+	c_att_skill_7	MB_ATT_BESKAR
+	c_att_names_7	"Beskar:"
+	c_att_ranks_7	10,5,10
+	
+	c_att_skill_8 MB_ATT_FP_SABER_DEFENSE
+	c_att_names_8	"Spear (Saber) Defense:"
+	c_att_ranks_8	15,15,5
+	
+	c_att_skill_9 	MB_ATT_BP_MULTIPLIER
+	c_att_names_9	"Spear Block Power (BP):"
+	c_att_ranks_9	5,5,10
+	
+	c_att_skill_10	MB_ATT_AP_MULTIPLIER
+	c_att_names_10 	"Spear Attack Power (AP):"
+	c_att_ranks_10	5,5,10
+	
+	c_att_skill_11	MB_ATT_JETPACK
+	c_att_names_11	"^3Jetpack^7:"
+	c_att_ranks_11	15
+	
+	c_att_skill_12	MB_ATT_WHISTLINGBIRD
+	c_att_names_12	"Whistling Birds ^3[CS1]^7:"
+	c_att_ranks_12	10
+	
+	c_att_skill_13	MB_ATT_FLAMETHROWER
+	c_att_names_13	"Flamethrower ^3[CS2 TM]^7:"
+	c_att_ranks_13	10
+	
+	c_att_skill_14	MB_ATT_WRISTLASER
+	c_att_names_14	"Wrist Laser ^3[CS2 TM]^7:"
+	c_att_ranks_14	10
+}
+
+WeaponInfo0
+{
+	WeaponToReplace WP_BLASTER_PISTOL
+	WeaponBasedOff  WP_BOWCASTER
+	NewWorldModel "models/weapons2/mando_pistol/mando_pistol.glm"
+	NewViewModel  "models/weapons2/mando_pistol/pistol.md3"
+	WeaponName  "IB-94 Blaster Pistol"
+	Icon        "gfx/hud/w_icon_mandopistol"
+	idleAnim 	BOTH_MAND_PISTOL_IDLE 
+	firingAnim  MAND_SPISTOL_FIRE
+	CustomAmmo		700
+	clipSize 21
+}
+
+WeaponInfo1
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel "models/weapons2/beskarpike/beskarpike.glm"
+	NewViewModel  "models/weapons2/dummy/dummy.md3"
+	Icon  "gfx/hud/w_icon_beskarpike"
+	WeaponName  "Beskar Spear"
+}
+
+description	"Din Djarin
+
+Class: Mandalorian
+Brief Overview: 
+A hybrid Melee fighter who can spec into Mandalorian abilities like a Jetpack and Whistling Birds, damage protection, the ability to block Sabers, and his Spear dueling prowess.
+
+^2Default Weaponry:
+- Melee
+- Beskar Spear
+-- Staff style
+-- Cannot block Blasters
+-- 25% longer reach
+-- 33% wider radius
+-- Cannot Saber Throw
+-- Slap ^3[CS4]
+- IB-94 Blaster Pistol (1)
+
+^6Default Inventory: 
+- Electrobinoculars
+
+^8Default Attributes:
+- Fuel (3)
+- Fuel Regen (1)
+- Tracking Beacon (See Tracked players)
+
+^3Default Abilities:
+- Quick-Throw (1) ^3[CS3 outside ^3of Grenades]
+
+^9Point Buy Info:
+- Armor
+-- 100, 150, 200
+- Spear Block Power (BP)
+-- 1, 1.1, 1.25
+- Spear Attack Power (AP)
+-- 1, 1.1, 1.25
+- Jetpack ^3[Double-tap/hold ^3jump] ['Use' to deactivate]
+- Flamethrower/Wrist Laser ^3[Toggle mode in Melee]"

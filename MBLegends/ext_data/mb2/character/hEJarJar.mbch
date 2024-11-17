@@ -1,0 +1,171 @@
+//test rework
+//speed lunge dex = punching
+//tongue?
+Classinfo	
+{		  		
+ 
+ 	name				"hEJarJar"		
+ 	MBClass				MB_CLASS_HERO
+	saber1 				jarjar_leg
+	saberstyle			SS_DUAL|SS_TAVION
+	modelScale          1.07			
+	basespeed 			275
+ 	maxhealth			210
+	maxarmor			50
+	saberMaxChain 1
+	saberDamage 80 //40
+	APmultiplier 		1
+	BPmultiplier 		1
+	ASmultiplier 		1
+	CSmultiplier 		1
+ 	weapons				WP_MELEE|WP_REPEATER|WP_SABER|WP_T21
+	
+	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_REPEATER,3|MB_ATT_FLIPKICK,2|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1
+
+ 	forcepowers			FP_LEVITATION,3
+	forcepool			300
+	forceregen 3
+	resource RESOURCE_STAMINA
+
+  	classNumberLimit		1	
+	
+  	forceBlocking 		1
+	
+	rateOfFire .15
+	rateOfFire_Melee	0.75
+	damageGiven 0.5
+	knockbackTaken 1.5
+	knockbackGiven 1.5
+
+	special1	EAS_HI_SPRINT
+	special2	EAS_HI_DEX
+	special3	EAS_HI_DASH
+	special4	EAS_HI_DODGE
+	
+	classflags CFL_BLOODYMELEE|CFL_NOLOCATIONALDAMAGE
+	//special4			EAS_HI_GRAPPLEHOOK
+	
+ 	model 			"jarjar"					
+ 	skin				"default"	
+	uishader			"models/players/jarjar/mb2_icon_default"
+	
+	WalkForward		BOTH_WALK7
+	WalkBackward 		BOTH_WALK7
+	tauntAnim		BOTH_ENGAGETAUNT
+	gloatAnim       	BOTH_TUSKENTAUNT1
+	flourishAnim		BOTH_FORCEWALLRUNFLIP_START
+	bowAnim 			BOTH_KNOCKDOWN3
+	saberStanceAnim	TORSO_SURRENDER_START
+	
+	WP_SaberFlags HELD_KNOCKDOWN
+	WP_RepeaterFlags HELD_PULSE|HELD_STUN|HELD_HIGHDAMAGE|HELD_ALTRELOAD|HELD_DISRUPTIFY
+	WP_MeleeFlags HELD_HIGHDAMAGE
+	WP_T21Flags HELD_LOWDAMAGE
+	
+	respawnCustomTime  	50000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_PULSE_NADE
+	NewWorldModel		"models/weapons2/halo_pgren/pgren.glm"
+	NewViewModel		"models/weapons2/halo_pgren/pgren.md3"
+	altFlashSound0		"sound/weapons/stone/fire.mp3"
+	altMissileMissEffect		"lightningtouch/flesh_impact"
+	altMissileHitHumanEffect "lightningtouch/flesh_impact"
+	altMissileHitDroidEffect	"lightningtouch/flesh_impact"
+	Icon				"gfx/hud/w_icon_rpgren"
+	MuzzleEffect			"stone/muzzle1"
+	altMuzzleEffect 		"stone/muzzle1"
+	primFireEnabled 0
+	WeaponName			"Boomas"
+	customAmmo 			125
+	clipSize			25
+	ReloadTimeModifier 2.5
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_T21
+	WeaponBasedOff		WP_T21 
+	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
+	NewViewModel 		"models/weapons2/e5/e5.md3"
+	Icon				"gfx/hud/w_icon_e5"
+	WeaponName			"Salvaged E-5 Blaster Rifle"	
+	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound1 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound2 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound3 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound0	   "sound/weapons/blasterMB/fire.mp3"
+	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	MissileEffect		"blaster/Shot01R"
+	altMuzzleEffect		"Blaster/MuzzleFlash01R"
+	altMissileEffect		"blaster/Shot01R"
+	customAmmo 640
+	clipsize 128
+}
+
+WeaponInfo2
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Grand Gungan Ticklers"
+	primGore		1
+	altGore			1
+}
+ 
+description "Jar Jar Binks
+
+Class: Hero
+Brief Overview: A concentrated ball of chaos with unreliable firepower, but all the luck in the world.
+
+^2Weaponry:
+- Melee
+-- 25% faster swings
+-- 100% more damage
+- Grand Gungan Ticklers
+-- Based on Lightsaber
+-- Dual/Cyan styles
+-- Cannot block Sabers/Blasters
+-- Max chain limit: 1
+-- Knocks down targets
+-- 500% more knockback
+-- 40% faster swings
+-- 84/66% less damage
+-- 25% shorter reach
+-- 300% wider radius
+- Boomas (6)
+-- Based on Imperial Repeater
+-- 100% more damage
+-- Electrocutes, staggers, and knocks down targets on direct hit
+-- 150% slower reload
+-- Fixed-length reload
+-- Sec. fire only
+- Salvaged E-5 Blaster Rifle
+-- Based on T-21 (1)
+-- 50% less damage 
+
+^8Attributes:
+- 50% more knockback taken
+- 50% more knockback given
+- Damage taken ignores locational differences
+- Gungan Jump (Force Jump 3)
+- Bunny Hop (2)
+- Slow Faller
+- Stamina (3)
+- Dexterity (3)
+- Healing (3)
+- Underwater Breathing
+
+^3Abilities:
+- Toxic Taunt (Taunts damage Sith)
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Dash (2) ^3[CS3]
+-- Can Jump while Dashing
+- Dodge (3) ^3[CS4]
+- Flipkick (2) ^3[Single/double-jump off players ^3& surfaces ^3sideways/forwards]"
