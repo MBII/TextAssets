@@ -1,0 +1,131 @@
+//Legends Mode character file - Created by Frenzy & Leos
+
+ClassInfo
+{
+	name				"vEWatTam"
+	weapons				WP_BLASTER|WP_MELEE|WP_BOWCASTER|WP_FRAG_NADE|WP_CONC_NADE
+	attributes			MB_ATT_BLASTER,3|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_POISON_DART,3|MB_ATT_FP_MIRALUKA|MB_ATT_RALLY|MB_ATT_BOWCASTER,1|MB_ATT_FRAGS,2|MB_ATT_MICRO_GRENADES,2|MB_ATT_FUEL,2|MB_ATT_FLAMETHROWER|MB_ATT_SHIELD_RECHARGE,1
+	maxhealth		125
+	maxarmor		100
+	speed           1.03
+	model			"wat_tambor" 				
+	skin				"default"					
+	uishader			"gfx/hud/FA_icons/mb2_icon_wat_tambor"
+	
+	//model_1			"wat_tambor" 				
+	//skin_1				"dxun"					
+	//uishader_1			"gfx/hud/FA_icons/mb2_icon_wat_tambor"
+	MBClass			MB_CLASS_BOUNTY_HUNTER
+	classNumberLimit	1
+	holdables		HI_SHIELD|HI_SENTRY_GUN
+	//classflags		CFL_SEEING_STEALTH
+	forcepool		50
+	forcepowers		FP_SEE,1
+	modelscale      1.07
+	
+		flourishAnim	BOTH_TALKCOMM1START
+			//RunForward BOTH_WALK1TALKCOMM1
+		//RunBackward BOTH_WALK1TALKCOMM1
+		WalkForward BOTH_WALK1TALKCOMM1
+		WalkBackward BOTH_WALK1TALKCOMM1
+	
+	RESOURCE		RESOURCE_FUEL
+	special1 	EAS_HI_POISON
+	special2 	EAS_HI_FLAME
+	special3	EAS_HI_SENTRY_GUN
+	special4 	EAS_HI_KICK
+
+	damageGiven	1.1
+	
+	WP_BowcasterFlags  HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_KNOCKBACK|HELD_EXPLOSIVE|HELD_HIGHDAMAGE
+	respawnCustomTime  50000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BLASTER						
+	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
+	NewViewModel 		"models/weapons2/e5/e5.md3"
+	Icon				"gfx/hud/w_icon_e5"
+	WeaponName			"E-5 Blaster Rifle"
+	customAmmo			520
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/concussion/c_rifle_w.glm"
+	NewViewModel		"models/weapons2/concussion/c_rifle.md3"
+	NewBarrelModel		"models/weapons2/concussion/c_rifle_barrel.md3"
+	NewHandsModel		"models/weapons2/concussion/c_rifle_hand.md3"
+	Icon			"gfx/hud/w_icon_realconc"
+	WeaponName		"Stouker Concussion Rifle"
+	MuzzleEffect		"base_concussion/muzzle_flash"
+	MissileEffect		"concussion/shot"
+	AltMissileEffect    "concussion/shot"
+	FlashSound0		"sound/weapons/concussion/fire"
+	MissileMissEffect        "concussion/explosion"
+    MissileHitHumanEffect    "concussion/explosion"
+    MissileHitDroidEffect    "concussion/explosion"
+		clipSize 2
+	CustomAmmo 14
+	ReloadTimeModifier 	1.4
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_FRAG_NADE       					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_FRAG_NADE      						//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel 		"models/weapons2/oldfraggrenade/thermal_w.glm"
+	NewViewModel 		"models/weapons2/oldfraggrenade/thermal.md3"
+	MissileModel	"models/weapons2/oldfraggrenade/thermal_proj.md3"
+	Icon				"gfx/hud/w_icon_oldfraggrenade"
+	WeaponName			"Frag Grenades"	
+	altMissileMissEffect	"grenades/EXP_alt"
+	//AltMissileModel		"models/weapons/oldfraggrenade/thermal_proj.md3"
+	MissileModel		"models/weapons/oldfraggrenade/thermal_proj.md3"
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Radar Scanner"
+}
+
+description	"Wat Tambor
+
+Class: Bounty Hunter
+Brief Overview:
+A commander unit with a powerful displacement rifle with explosive rounds, Grenades, and gadgets.
+
+^2Weaponry:
+- Melee
+- E-5 Blaster Rifle (3)
+- Stouker Concussion Rifle
+-- Based on Bowcaster (1)
+-- 100% more damage
+-- Explosive rounds
+-- Knocks back/down targets
+-- 40% slower reload
+-- Fixed-length reload
+- Frag Grenades (2)
+- Concussion Grenades (2)
+
+^6Inventory:
+- Portable Assault Sentry ^3[CS3]
+- Forcefield 
+
+^8Attributes:
+- Armor Regen (1)
+- Healing (2)
+- Fuel (2)
+- Radar Scanner (Passive Force Sense 1)
+- Rally (Assemble allies spawn on you)
+
+^3Abilities:
+- Poison Darts (3) ^3[CS1 in Melee]
+- Wrist Flamethrower ^3[CS2]
+- Gun Kick ^3[CS4]"

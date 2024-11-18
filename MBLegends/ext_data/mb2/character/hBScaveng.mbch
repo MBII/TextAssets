@@ -1,0 +1,131 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name			"hBScaveng"	
+	weapons			WP_MELEE|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_FRAG_NADE|WP_STUN_BATON
+	sabercolor		0
+	saberstyle		SS_MEDIUM
+	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_BLASTER,1|MB_ATT_DODGE,2|MB_ATT_DASH,1|MB_ATT_TRIP_MINES,2|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,3
+	maxhealth		70
+	maxarmor			35
+	MBClass			MB_CLASS_BOUNTY_HUNTER
+	holdables       	HI_SEEKER|HI_MEDPAC|HI_SENTRY_GUN
+	modelscale	0.75
+	rateOfFire      1.4
+	rateOfFire_Melee	0.5
+	resource			RESOURCE_ENERGY
+	forcepool       	65
+	WP_BlasterFlags 	HELD_PULSE|HELD_ALTRELOAD
+	WP_FragNadeFlags	HELD_KNOCKDOWN|HELD_LOWDAMAGE
+	WP_MeleeFlags		HELD_LOWDAMAGE
+	classNumberLimit	2
+	speed			1.05
+
+	extralives		2
+	
+	special1	EAS_HI_DODGE
+	special2	EAS_HI_DASH
+	special3	EAS_HI_KICK	
+	special4 EAS_HI_MEDPAC
+	
+	gloatAnim	TORSO_SURRENDER_START
+	flourishAnim	BOTH_COWER1
+	//tauntAnim	BOTH_SHOWOFF_FAST
+	
+	model		"jawa"
+	skin			"tfu"
+	uishader		"gfx/hud/fa_icons/mb2_icon_jawa_legends"
+	
+	model_1			"ugnaught"
+	skin_1			"default_nopurse"
+	uishader_1		"models/players/ugnaught/mb2_icon_base3"
+	
+	model_2			"ugnaught"
+	skin_2 			"default_rax"
+	uishader_2 		"models/players/ugnaught/mb2_icon_default_rax"
+	
+	model_3		"ugnaught_worker"
+	skin_3  		"tech"
+	uishader_3 	"models/players/ugnaught_worker/mb2_icon_tech"
+
+	model_4		 "uglynaught"
+	skin_4 		"base"
+	uishader_4 	"models/players/uglynaught/mb2_icon_base"
+	
+	respawnCustomTime 10000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER			 
+	WeaponBasedOff		WP_CONCUSSION					 
+	NewWorldModel		"models/weapons2/jawa_blaster/model_w.glm"  	 
+	NewViewModel		"models/weapons2/jawa_blaster/model.md3" 
+	Icon				"gfx/hud/w_icon_jawablaster" 				 
+	WeaponName			"Ion Blaster"    				 
+	MuzzleEffect		"arc_caster/ArcCasterMuzzle"
+	MissileEffect		"arc_caster/ArcCasterShock"
+   	MissileHitHumanEffect	"SBD/Cortosis_blue"
+	MissileHitDroidEffect	"SBD/Cortosis_blue"
+	MissileMissEffect	"SBD/Cortosis_blue"
+	CustomAmmo 	400
+	ClipSize 		8
+	ReloadTimeModifier 	.85		 
+	FlashSound0		"sound/weapons/demp2/fire_old.mp3"
+	AltFireEnabled 0
+	FPMult     			1.3
+}
+
+WeaponInfo1
+{	
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon					"gfx/hud/w_icon_stungrenade"
+	WeaponName			"Stun Grenade"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	altMissileMissEffect	"grenades/EXP_alt"
+	primFireEnabled		0
+	CustomAmmo		1
+}
+
+description	"Scavenger
+
+Class: Bounty Hunter
+Brief Overview:
+3-life midgets with munitions, gadgets, and an Ion Blaster that can temporarily disable enemy weapons/vehicles. 
+
+^2Weaponry:
+- Light Melee
+-- 50% faster swings
+- Ion Blaster
+-- Based on E-11 Rifle (1)
+-- Electrocutes targets
+-- 30% more FP damage
+-- 15% faster reload
+-- Fixed-length reload
+-- Prim. fire only
+- Stun Grenade (1)
+-- Based on Frag Grenade
+-- Detonates on all surface contact
+-- 50% less damage
+-- Sec. fire only
+- Trip Mines (2)
+- Pulse Grenade (1)
+- Stun Baton (3)
+
+^6Inventory:
+- Bacta (25 HP to self) ^3[CS4]
+- Portable Sentry Gun
+- Seeker Drone
+
+^8Attributes:
+- Reinforcements (2)
+- Assemble (Respawn on Rally allies)
+
+^3Abilities:
+- Dodge (2) ^3[CS1]
+- Dash (1) ^3[CS2]
+- Gun Kick ^3[CS3]"

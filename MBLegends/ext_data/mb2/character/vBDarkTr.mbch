@@ -1,0 +1,105 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name 	"vBDarkTr"
+	weapons 	WP_MELEE|WP_BOWCASTER|WP_ROCKET_LAUNCHER
+	
+	attributes 	MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BOWCASTER,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,3
+	
+	maxhealth 		200
+	maxarmor			220
+
+	modelscale 			1.17
+	rateOfFire    		0.95
+	damageTaken   		0.9
+	speed               0.9
+	
+	classflags	CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE|CFL_NOLOCATIONALDAMAGE
+	
+	WP_RocketLauncherFlags 	HELD_ALTRELOAD|HELD_SLOW|HELD_HIGHDAMAGE|HELD_KNOCKDOWN
+
+	resource	RESOURCE_FUEL
+	forcepool 110
+	
+	model 	"darktrooper_p3"
+	skin  	"default"
+	uishader  "models/players/DarkTrooper_p3/mb2_icon_default"
+
+	jetpackJetTag	 *jet1
+	jetpackJet2Tag *jet2
+	
+	respawnCustomTime 	75000
+	classNumberLimit  	1
+	MBClass 	MB_CLASS_WOOKIE
+	
+	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
+		flourishAnim BOTH_STAND5TOAIM
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_ROCKET_LAUNCHER
+	NewWorldModel			"models/weapons2/assault_cannon/model_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	NewHandsModel			"models/weapons2/merr_sonn/merr_sonn_hand.md3"
+	Icon					"gfx/hud/w_icon_DTAC"
+	WeaponName				"Assault Cannon"
+	FlashSound0 			"sound/weapons/assault_cannon/fire.mp3"
+	AltFlashSound0 			"sound/weapons/assault_cannon/fire.mp3"
+	idleanim				DC15_FIRE
+	CustomAmmo 				800
+	MuzzleEffect			"assault_cannon/muzzle_flash"
+	AltMuzzleEffect			"assault_cannon/muzzle_flash"
+	MissileEffect			"demp2/projectile"
+	AltMissileEffect			"demp2/projectile"
+    MissileMissEffect 		"effects/blaster/Impact_Wall01B"	
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_ROCKET_LAUNCHER
+	WeaponBasedOff		WP_ROCKET_LAUNCHER
+	NewWorldModel		"models/weapons2/assault_cannon/model_w.glm"
+	NewViewModel		"models/weapons2/assault_cannon/model.md3"
+	Icon				"gfx/hud/w_icon_DTAC_rocket"
+	WeaponName			"Assault Cannon Rocket Attachment"
+	idleanim			DC15_FIRE
+	firinganim			DC15_FIRE
+	CustomAmmo 			4
+	clipSize 			1
+	ReloadTimeModifier 	1.5
+}
+
+description	"Phase III/Third Generation Dark Trooper
+
+Class: Wookiee
+Brief Overview: 
+A Jetpack-equipped tank with a high-powered Assault Cannon and Rocket Launcher.
+
+^2Weaponry:
+- Wookiee-style Melee
+- Assault Cannon
+-- Based on Bowcaster (3)
+- Assault Cannon Rocket Attachment
+-- Based on Rocket Launcher
+-- 100% more damage
+-- Knocks down targets on direct hit
+-- 15% slower movement
+-- 50% slower reload
+-- Fixed-length reload
+-- Homing Rockets ^3[Hold Sec. ^3fire]
+
+^8Attributes:
+- Next Generation Armor
+-- Beskar (3) 
+-- Strength (2)
+-- 50% Melee damage resist.
+-- Damage taken ignores locational differences
+-- Blast Armor
+- Fuel (3)
+-- 10% more Fuel
+
+^3Abilities:
+- Jetpack ^3[Double-tap/hold ^3jump] ['Use' to deactivate]"
