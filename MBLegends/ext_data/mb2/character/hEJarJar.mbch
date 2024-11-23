@@ -11,16 +11,16 @@ Classinfo
 	modelScale          1.07			
 	basespeed 			225
  	maxhealth			210
-	maxarmor			50
+	maxarmor			80
 	saberMaxChain 1
 	saberDamage 80 //40
 	APmultiplier 		1
 	BPmultiplier 		1
 	ASmultiplier 		1
 	CSmultiplier 		1
- 	weapons				WP_MELEE|WP_SABER|WP_T21|WP_FRAG_NADE
+ 	weapons				WP_MELEE|WP_SABER|WP_BLASTER|WP_FRAG_NADE
 	
-	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_FRAGS,6
+	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_BLASTER,2|MB_ATT_BLAST_ARMOUR|MB_ATT_FRAGS,6
 	
  	//forcepowers		FP_LEVITATION,1	
 	forcepool			200
@@ -62,7 +62,7 @@ Classinfo
 	//WP_RepeaterFlags HELD_PULSE|HELD_STUN|HELD_HIGHDAMAGE|HELD_ALTRELOAD|HELD_DISRUPTIFY|HELD_EXPLOSIVE
 	WP_MeleeFlags HELD_HIGHDAMAGE
 	WP_FragNadeFlags HELD_STUN|HELD_PULSE|HELD_HIGHDAMAGE|HELD_DISRUPTIFY
-	WP_T21Flags HELD_LOWDAMAGE
+	//WP_T21Flags HELD_LOWDAMAGE
 	//WP_CloneRifleFlags HELD_STUN|HELD_PULSE|HELD_EXPLOSIVE
 	
 	respawnCustomTime  	50000
@@ -72,27 +72,27 @@ WeaponInfo0
 {
 	WeaponToReplace		WP_FRAG_NADE
 	WeaponBasedOff		WP_PULSE_NADE
-	NewWorldModel		"models/weapons2/halo_pgren/pgren.glm"
-	NewViewModel		"models/weapons2/halo_pgren/pgren.md3"
-	altFlashSound0		"sound/weapons/stone/fire.mp3"
-	altMissileMissEffect		"rockets/explosionpulse"
-	altMissileHitHumanEffect "rockets/explosionpulse"
-	altMissileHitDroidEffect	 "rockets/explosionpulse"
-	Icon				"gfx/hud/w_icon_rpgren"
-	MuzzleEffect			"stone/muzzle1"
-	altMuzzleEffect 		"stone/muzzle1"
-	altMissileEffect "grenades/glowempb"
-	MissileEffect "grenades/glowempb"
-	primFireEnabled 0
-	WeaponName			"Boomas"
-	customAmmo 			6
+	NewWorldModel			"models/weapons2/thr_booma/booma.glm"
+	NewViewModel			"models/weapons2/thr_booma/booma.md3"
+	altFlashSound0			"sound/weapons/stone/fire.mp3"
+	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
+	Icon						"gfx/hud/w_icon_rpgren"
+	MuzzleEffect				"stone/muzzle1"
+	altMuzzleEffect 			"stone/muzzle1"
+	altMissileEffect 		"grenades/glowempb"
+	MissileEffect 			"grenades/glowempb"
+	primFireEnabled 			0
+	WeaponName				"Boomas"
+	customAmmo 				6
 	//ReloadTimeModifier 2.5
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_T21
-	WeaponBasedOff		WP_T21 
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BLASTER
 	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
 	NewViewModel 		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_e5"
@@ -106,8 +106,8 @@ WeaponInfo1
 	MissileEffect		"blaster/Shot01R"
 	altMuzzleEffect		"Blaster/MuzzleFlash01R"
 	altMissileEffect		"blaster/Shot01R"
-	customAmmo 560
-	clipsize 112
+	customAmmo 		560
+	//clipsize 		112
 }
 
 WeaponInfo2
@@ -122,22 +122,6 @@ WeaponInfo2
 	altGore			1
 }
 
-//WeaponInfo3
-{
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_PULSE_NADE
-	NewWorldModel		"models/weapons2/halo_pgren/pgren.glm"
-	NewViewModel		"models/weapons2/halo_pgren/pgren.md3"
-	altFlashSound0		"sound/weapons/stone/fire.mp3"
-	altMissileMissEffect		"concussion/explosion"
-	altMissileHitHumanEffect "concussion/explosion"
-	altMissileHitDroidEffect	"concussion/explosion"
-	Icon				"gfx/hud/w_icon_rpgren"
-	MuzzleEffect			"stone/muzzle1"
-	altMuzzleEffect 		"stone/muzzle1"
-	primFireEnabled 0
-	WeaponName			"Li'l Boomas"
-}
  
 description "Jar Jar Binks
 
@@ -160,12 +144,11 @@ Brief Overview: A concentrated ball of chaos with unreliable firepower, but all 
 -- 25% shorter reach
 -- 300% wider radius
 - Salvaged E-5 Blaster Rifle
--- Based on T-21 (1)
--- 50% less damage 
+-- Based on E-11 (2)
 - Boomas (6)
 -- Based on Frag Grenades
 -- Electrifies, staggers, and knocks down targets
--- 100% more damage
+-- 60 Damage
 -- Sec. fire only
 
 ^8Attributes:
