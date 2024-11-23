@@ -18,10 +18,11 @@ Classinfo
 	BPmultiplier 		1
 	ASmultiplier 		1
 	CSmultiplier 		1
- 	weapons				WP_MELEE|WP_REPEATER|WP_SABER|WP_T21
+ 	weapons				WP_MELEE|WP_SABER|WP_T21|WP_FRAG_NADE
 	
-	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR
- 	forcepowers			FP_LEVITATION,3
+	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_FRAGS,6
+	
+ 	//forcepowers		FP_LEVITATION,1	
 	forcepool			200
 	forceregen 2
 	resource RESOURCE_STAMINA
@@ -40,7 +41,7 @@ Classinfo
 	special2	EAS_HI_DEX
 	special3	EAS_HI_DASH
 	
-	uioverlay "gfx/icons/hybrid"
+	uioverlay "gfx/icons/spec_infantry"
 	
 	classflags CFL_BLOODYMELEE
 	//special4			EAS_HI_GRAPPLEHOOK
@@ -58,31 +59,34 @@ Classinfo
 	saberStanceAnim	TORSO_SURRENDER_START
 	
 	WP_SaberFlags HELD_KNOCKDOWN
-	WP_RepeaterFlags HELD_PULSE|HELD_STUN|HELD_HIGHDAMAGE|HELD_ALTRELOAD|HELD_DISRUPTIFY
+	//WP_RepeaterFlags HELD_PULSE|HELD_STUN|HELD_HIGHDAMAGE|HELD_ALTRELOAD|HELD_DISRUPTIFY|HELD_EXPLOSIVE
 	WP_MeleeFlags HELD_HIGHDAMAGE
+	WP_FragNadeFlags HELD_STUN|HELD_PULSE|HELD_HIGHDAMAGE|HELD_DISRUPTIFY
 	WP_T21Flags HELD_LOWDAMAGE
+	//WP_CloneRifleFlags HELD_STUN|HELD_PULSE|HELD_EXPLOSIVE
 	
 	respawnCustomTime  	50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_REPEATER
+	WeaponToReplace		WP_FRAG_NADE
 	WeaponBasedOff		WP_PULSE_NADE
 	NewWorldModel		"models/weapons2/halo_pgren/pgren.glm"
 	NewViewModel		"models/weapons2/halo_pgren/pgren.md3"
 	altFlashSound0		"sound/weapons/stone/fire.mp3"
-	altMissileMissEffect		"lightningtouch/flesh_impact"
-	altMissileHitHumanEffect "lightningtouch/flesh_impact"
-	altMissileHitDroidEffect	"lightningtouch/flesh_impact"
+	altMissileMissEffect		"rockets/explosionpulse"
+	altMissileHitHumanEffect "rockets/explosionpulse"
+	altMissileHitDroidEffect	 "rockets/explosionpulse"
 	Icon				"gfx/hud/w_icon_rpgren"
 	MuzzleEffect			"stone/muzzle1"
 	altMuzzleEffect 		"stone/muzzle1"
+	altMissileEffect "grenades/glowempb"
+	MissileEffect "grenades/glowempb"
 	primFireEnabled 0
 	WeaponName			"Boomas"
-	customAmmo 			125
-	clipSize			25
-	ReloadTimeModifier 2.5
+	customAmmo 			6
+	//ReloadTimeModifier 2.5
 }
 
 WeaponInfo1
@@ -90,7 +94,7 @@ WeaponInfo1
 	WeaponToReplace		WP_T21
 	WeaponBasedOff		WP_T21 
 	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
-	NewViewModel 		"models/weapons2/e5/e5.md3"
+	NewViewModel 		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_e5"
 	WeaponName			"Salvaged E-5 Blaster Rifle"	
 	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
@@ -117,6 +121,23 @@ WeaponInfo2
 	primGore		1
 	altGore			1
 }
+
+//WeaponInfo3
+{
+	WeaponToReplace		WP_CLONE_RIFLE
+	WeaponBasedOff		WP_PULSE_NADE
+	NewWorldModel		"models/weapons2/halo_pgren/pgren.glm"
+	NewViewModel		"models/weapons2/halo_pgren/pgren.md3"
+	altFlashSound0		"sound/weapons/stone/fire.mp3"
+	altMissileMissEffect		"lightningtouch/flesh_impact"
+	altMissileHitHumanEffect "lightningtouch/flesh_impact"
+	altMissileHitDroidEffect	"lightningtouch/flesh_impact"
+	Icon				"gfx/hud/w_icon_rpgren"
+	MuzzleEffect			"stone/muzzle1"
+	altMuzzleEffect 		"stone/muzzle1"
+	primFireEnabled 0
+	WeaponName			"Li'l Boomas"
+}
  
 description "Jar Jar Binks
 
@@ -138,22 +159,19 @@ Brief Overview: A concentrated ball of chaos with unreliable firepower, but all 
 -- 84/66% less damage
 -- 25% shorter reach
 -- 300% wider radius
-- Boomas (6)
--- Based on Imperial Repeater
--- 100% more damage
--- Electrocutes, staggers, and knocks down targets on direct hit
--- 150% slower reload
--- Fixed-length reload
--- Sec. fire only
 - Salvaged E-5 Blaster Rifle
 -- Based on T-21 (1)
 -- 50% less damage 
+- Boomas (6)
+-- Based on Frag Grenades
+-- Electrifies, staggers, and knocks down targets
+-- 100% more damage
+-- Sec. fire only
 
 ^8Attributes:
 - 100% slower skill cooldown
 - 50% more knockback taken
 - 50% more knockback given
-- Gungan Jump (Force Jump 3)
 - Bunny Hop (2)
 - Slow Faller
 - Stamina (3)
@@ -167,5 +185,5 @@ Brief Overview: A concentrated ball of chaos with unreliable firepower, but all 
 - Dodge (3) ^3[CS1]
 - Dex Roll ^3[CS2]
 - Dash (2) ^3[CS3]
--- Can Jump while Dashing
+-- Can jump while Dashing
 - Flipkick (2) ^3[Single/double-jump off players ^3& surfaces ^3sideways/forwards]"
