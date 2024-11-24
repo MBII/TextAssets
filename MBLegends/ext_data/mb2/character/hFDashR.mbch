@@ -4,7 +4,7 @@ ClassInfo
 {
 	name			"hFDashR"
 	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_ROCKET_LAUNCHER|WP_FRAG_NADE
-	attributes		MB_ATT_FUELREGEN,2|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ROCKET_LAUNCHER|MB_ATT_DASH_JUMP
+	attributes		MB_ATT_FUELREGEN,2|MB_ATT_PISTOL,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ROCKET_LAUNCHER|MB_ATT_DASH_JUMP|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP
 	maxhealth	135
 	maxarmor		135
 	model		"dash_rendar"
@@ -15,7 +15,7 @@ ClassInfo
 	customred		1
 	customgreen		1
 	customblue		1
-	rateOfFire      0.6
+	rateOfFire      0.425
 	modelscale    1.01
 	speed         1.08
 	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_SLOW|HELD_HIGHDAMAGE|HELD_KNOCKDOWN
@@ -24,9 +24,11 @@ ClassInfo
 	jetpackJetOffset		"0, 0, 0" 
 	jetpackJet2Offset		"0, 0, 0"
 
-	damageGiven		    1.15
+	damageGiven		    0.85
 	
 	forcepool			30
+		
+	skilltimermod 1.5
 	
 	respawnCustomTime  50000	
 		
@@ -46,7 +48,18 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3"  
 	Icon				"gfx/hud/w_icon_blaster_pistol_2"
 	WeaponName			"Dash's DL-44 Blaster Pistol"    					
-	clipSize 			24
+	clipSize 			15
+	customAmmo 285
+	MissileEffect		"blaster/dash_bolt"
+	AltMissileEffect		"blaster/dash_bolt"
+	MuzzleEffect "null"
+	AltMuzzleEffect "null"
+	FlashSound0 "sound/weapons/ee4/fire.mp3"
+	AltFlashSound "sound/weapons/ee4/sniperfire.mp3"
+	MissileHitHumanEffect "blaster/dash_impact"
+	MissileHitDroidEffect "blaster/dash_impact"
+	MissileMissEffect "blaster/dash_impact"
+	altFireEnabled 0
 }
 
 WeaponInfo1
@@ -72,7 +85,7 @@ A Pistoleer equipped with a regenerating Jetpack and a Rocket Launcher. Sports a
 
 ^2Weaponry:
 - Melee
-- Dash's DL-44 Blaster Pistol (2)
+- Dash's DL-44 Blaster Pistol (1)
 - PLX-2M Rocket Launcher
 -- 100% more damage
 -- Knocks down targets on direct hit
@@ -83,6 +96,9 @@ A Pistoleer equipped with a regenerating Jetpack and a Rocket Launcher. Sports a
 - Frag Grenades (3)
 
 ^8Attributes:
+- Bunny Hop (1)
+- Slow Faller
+- 50% slower skill cooldown
 - Fuel (3)
 - Blast Armor
 - Armor Regen (1)
@@ -92,4 +108,4 @@ A Pistoleer equipped with a regenerating Jetpack and a Rocket Launcher. Sports a
 - Jetpack ^3[Double-tap/hold ^3jump] ['Use' to deactivate]
 - Wrist Flamethrower ^3[CS2]
 - Dash (2) ^3[CS3]
--- Can Jump while Dashing"
+-- Can jump while Dashing"
