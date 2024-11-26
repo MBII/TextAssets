@@ -59,8 +59,7 @@ models/weapons2/boushh_staff/pike
 	}
 }
 
-//booma nade
-
+//booma 
 models/weapons2/thr_booma/sphere
 {
 	surfaceparm	nonopaque
@@ -131,7 +130,24 @@ models/weapons2/thr_booma/core
     }
 }
 
+//gungan atlatl
 
+models/weapons2/pw_atlatl/atlatl
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/weapons2/pw_atlatl/atlatl
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/pw_atlatl/atlatl_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
 
 
 //	concussion
