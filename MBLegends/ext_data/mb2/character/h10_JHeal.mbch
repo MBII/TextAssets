@@ -4,13 +4,12 @@ ClassInfo
 {
 	name				"h10_JHeal"
 	weapons				WP_SABER|WP_MELEE
-	attributes			MB_ATT_HEALING,2|MB_ATT_FORCEFOCUS,2|MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_DISP_HEALTH,3|MB_ATT_USE_DISTANCE,7
-	saberstyle			SS_MEDIUM|SS_FAST
-	forcepowers			FP_LEVITATION,3|FP_PUSH,2|FP_SABER_OFFENSE,3|FP_SEE,3|FP_TEAM_HEAL,1|FP_SABERTHROW,1|FP_TELEPATHY,2|FP_PULL,1
+	attributes			MB_ATT_HEALING,2|MB_ATT_FORCEFOCUS,2|MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,2|MB_ATT_DISP_HEALTH,3|MB_ATT_USE_DISTANCE,7
+	saberstyle			SS_FAST
+	forcepowers			FP_LEVITATION,3|FP_SABER_OFFENSE,3|FP_SEE,3|FP_SABERTHROW,1|FP_TELEPATHY,2
 	maxhealth			100
-	forcepool           120
-	forceregen          1.1
-	BPmultiplier		0.9
+
+	BPmultiplier		0.8
 	APmultiplier		0.9
 	ASmultiplier 		1.00
 	CSmultiplier 		1.00
@@ -20,8 +19,7 @@ ClassInfo
 	classNumberLimit	1
 	skilltimermod 		1.5
 	classflags			CFL_STATVIEWER|CFL_NOPICKUPS
-	//testing this //does this even work?
-	blockRegenRate 3500
+
 	//special1	EAS_FP_SABERTHROW game chooses spec1 if not defined, leave as is
 	special2 EAS_MELEE
 	//special3 EAS_FP_HEAL
@@ -37,20 +35,20 @@ ClassInfo
 	//WP_MeleeFlags HELD_HEAL
 	
 	model		"barriss_offee"
-	skin			"default"
-	uishader		"models/players/barriss_offee/mb2_icon_default"
+	skin		"default"
+	uishader	"models/players/barriss_offee/mb2_icon_default"
 	
 	model_2		"adigallia"
 	skin_2		"robed"
 	uishader_2	"models/players/adigallia/mb2_icon_robed"
 	
-	model_1 		"adigallia"
+	model_1 	"adigallia"
 	skin_1		"default"
 	uishader_1 	"models/players/adigallia/mb2_icon_default"
 	
-	model_3			"jedi_kotor"
-	skin_3			"zhar"
-	uishader_3		"models/players/jedi_kotor/mb2_icon_zhar"
+	model_3		"jedi_kotor"
+	skin_3		"zhar"
+	uishader_3	"models/players/jedi_kotor/mb2_icon_zhar"
 	
 	model_4		"rey"
 	skin_4		"default"
@@ -76,6 +74,72 @@ ClassInfo
 	sabercolor_4		1
 
     respawnCustomTime  50000	
+	isCustomBuild		1
+	mbPoints			19
+	
+	Forcepool 80
+	Forceregen 0.9
+	BlockGegenRate 1500
+	BlockRegencap 80
+	BlockRegenAmount 3
+	
+	rankForcePool	100,120,140
+	rankForceRegen	1,1.1,1.2
+
+	rankBlockRegenRate	1500,1000,500
+	rankBlockRegenCap	80,100,120
+	rankBlockRegenAmount 3,4,5
+	rankBPmultiplier	0.9,1,1.1
+
+	c_att_skill_0		MB_ATT_FP_TEAM_HEAL
+	c_att_names_0		"Force Team Heal:"
+	c_att_ranks_0		0,5,5
+
+	c_att_skill_1		MB_ATT_FP_DRAIN
+	c_att_names_1		"Drain:"
+	c_att_ranks_1		0,4,6
+
+	c_att_skill_2		MB_ATT_FP_PUSH
+	c_att_names_2		"Push:"
+	c_att_ranks_2		0,5
+
+	c_att_skill_3		MB_ATT_FP_PULL
+	c_att_names_3		"Pull:"
+	c_att_ranks_3		0,5
+
+	c_att_skill_4		MB_ATT_POWER
+	c_att_names_4		"Force Pool:"
+	c_att_ranks_4		5,5,5
+
+	c_att_skill_5		MB_ATT_REGEN
+	c_att_names_5		"Force Regen:"
+	c_att_ranks_5		5,5,5	
+
+	c_att_skill_6		MB_ATT_GUN_DEFENSE
+	c_att_names_6		"Gun Defense"
+	c_att_ranks_6		0,5,5
+
+	c_att_skill_7		MB_ATT_BP_MULTIPLIER
+	c_att_names_7		"Block Multiplier"
+	c_att_ranks_7		2,2,2            
+
+	c_att_skill_8		MB_ATT_BLOCK_REGEN_RATE
+	c_att_names_8		"Block Regen Rate"
+	c_att_ranks_8		0,2,2
+
+	c_att_skill_9		MB_ATT_BLOCK_REGEN_CAP
+	c_att_names_9		"Block Bar Cap"
+	c_att_ranks_9		0,2,2
+
+	c_att_skill_10		MB_ATT_BLOCK_REGEN_AMOUNT
+	c_att_names_10		"Block Bar Amount"
+	c_att_ranks_10		0,2,2
+	
+	c_att_skill_11		MB_ATT_SS_YELLOWSTYLE
+	c_att_names_11		"Yellow Style"
+	c_att_ranks_11		5
+
+
 }
 
 description	"Jedi Healer
@@ -87,20 +151,19 @@ A Jedi with passive healing and team Force healing powers.
 ^2Weaponry:
 - Melee
 - Lightsaber
--- Yellow/Blue styles
--- Saber Defense (2)
---- 25% slower BP regen
--- Blaster Defense (2)
+-- Blue style
+-- Blaster Defense (1)
 -- Saber Deflect (2)
 -- Enhanced Saber Throw (1) ^3[CS1]
 -- Slap ^3[CS2]
 
 ^5Force Powers:
 - Jump (3)
-- Push (2)
+- Push (1)
 - Pull (1)
 - Sense (3)
 - Mind Trick (2)
+- Drain (1)
 - Team Heal (1) ^3[CS4]
 
 ^6Inventory:
@@ -113,5 +176,5 @@ A Jedi with passive healing and team Force healing powers.
 - Force Block/Focus (2)
 
 ^3Abilities:
-- Health Dispenser (3) ^3['Use' on ^3allies]
+- Health Dispenser (3) ^3['Use' on allies]
 -- +7 Heal Distance"
