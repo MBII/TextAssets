@@ -1,0 +1,141 @@
+//figure out how to make wings flap like watto
+
+ClassInfo
+{
+	name			"v5_Geonos"
+	weapons		WP_MELEE|WP_BOWCASTER|WP_CONC_NADE|WP_SABER
+	maxhealth	80
+	maxarmor        70
+	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_STAMINA,3|MB_ATT_JETPACK,1|MB_ATT_BOWCASTER,1|MB_ATT_DODGE,2|MB_ATT_DEXTERITY,2|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,1|MB_ATT_ASSEMBLE,1|MB_ATT_FUEL,3
+
+	modelscale .95
+	MBClass			MB_CLASS_ARCTROOPER
+	classNumberLimit	2
+	classflags	CFL_NO_JETPACK_OVERHEAT
+	extralives	1
+	
+	forcepowers	FP_SABER_OFFENSE,3
+	forcepool    100
+	speed 	1.07
+
+	BPMultiplier 1.15
+	CSMultiplier 1.05
+	ASMultiplier 1.05
+	saberDamage 96
+	special1		EAS_HI_SPRINT
+	special2 	EAS_MELEE
+	special3		EAS_HI_DEX
+	special4		EAS_HI_DODGE
+	
+	uioverlay "gfx/icons/aerial"
+	
+	resource		resource_fuel
+	
+	respawnCustomTime 30000
+	
+	saber1		geonosian_spear_legends
+	saberstyle      SS_DESANN|SS_STAFF
+	
+	jetpackThrustEffect	""
+	jetpackIdleEffect		""
+	jetpackJetTag		"*r_leg_foot"
+	jetpackJet2Tag		"*l_leg_foot"
+	jetpackJetOffset		"0, 0, 21"
+	jetpackJet2Offset		"0, 0, 21"
+	jetpackJetAngles	"0, -70, 0"
+	jetpackJet2Angles	"0, 50, 0"
+	jetpackFinishSound 	"sound/effects/woosh4"
+	jetpackThrustSound 	"sound/effects/woosh4"
+	jetpackIdleSound		"sound/effects/woosh4"
+	jetpackStartSound 	"sound/effects/woosh22"
+	
+	WP_BowcasterFlags    HELD_SONIC|HELD_ALTRELOAD
+	WP_SaberFlags HELD_PULSE
+	rateoffire			1.4
+	
+	saberStanceAnim     BOTH_TAVION_STANCE
+	flourishAnim BOTH_FLIP_ATTACK7
+	WalkBackward BOTH_WALK_DUAL
+	WalkForward BOTH_WALK_DUAL
+		gloatAnim BOTH_360PUSH
+	
+	model		"geonosian" 				
+	skin			"default"				
+	uishader		"models/players/geonosian/mb2_icon_default"
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/geonosian/sonicrifle.glm" 
+	NewViewModel		"models/weapons2/geonosian/sonicrifle.md3"
+	Icon				"gfx/hud/w_icon_sonicrifle" 			
+	WeaponName			"Geonosian Sonic Blaster"    			
+		
+	MissileMissEffect 	"effects/sonic_pistol/wall_impact"
+	MissileEffect		"effects/sonic_pistol/projectile"  					
+	MuzzleEffect		"effects/sonic_pistol/muzzle_flash"   	
+	FlashSound0		"sound/weapons/geonosian/fire.mp3"
+
+	CustomAmmo 	200
+	ClipSize 		8
+	FPmult              1.25
+	AltFireEnabled 0
+}
+
+WeaponInfo1
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel "models/weapons2/beskarpike/beskarpike.glm"
+	NewViewModel  "models/weapons2/dummy/dummy.md3"
+	Icon  "gfx/hud/w_icon_beskarpike"
+	WeaponName  "Geonosian Static Pike"
+}
+
+description "Geonosian Warrior
+
+Class: ARC Trooper
+Brief Overview: 
+A flight-capable, 2-life dexterous gunner with a Sonic stun Blaster and electric spear.
+
+^2Weaponry: 
+- Melee
+- Geonosian Static Pike
+-- Based on Lightsaber
+-- Staff/Purple styles
+-- Saber Defense (1)
+-- Cannot block Blasters
+-- Electrifies targets
+-- 5% more knockback
+-- 63/76% less damage
+-- 25/6% shorter reach
+-- 33% wider radius
+-- Slap ^3[CS2]
+- Geonosian Sonic Blaster
+-- Based on Bowcaster (1)
+-- Applies Sonic stun to targets
+-- 25% more FP damage
+-- Fixed-length reload
+-- Prim. fire only
+- Concussion Grenades (2)
+
+^8Attributes:
+- Reinforcement (1)
+- Stamina (3)
+- Dexterity (2)
+- Healing (1)
+- Fuel (3)
+- Fuel Regen (2)
+- Assemble (Respawn on Rally allies)
+
+^3Abilities:
+- Flight (Jetpack)
+-- No overheating
+- Sprint ^3[CS1]
+-- No Stamina drain
+- Dex Roll ^3[CS3]
+- Dodge (2) ^3[CS4]
+
+^9Note: Double-tap jump for Flight ^9to avoid Dex flip Stamina drain."
