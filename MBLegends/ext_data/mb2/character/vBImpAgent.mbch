@@ -10,10 +10,15 @@ ClassInfo
 	saberstyle		SS_TAVION|SS_FAST
 	attributes		MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,1
 
-	maxhealth		90
+	maxhealth		100
 
 	MaxArmor		5
-	rankArmor		10,20,35
+	rankArmor		10,20,40
+	
+	//ArmourRegenCap 40
+	ArmourRegenRate	1000
+	
+	rankArmourRegenAmount 1,2
 
 	resource			RESOURCE_BATTERY
 
@@ -23,7 +28,6 @@ ClassInfo
 	classNumberLimit	2
 	classflags		CFL_HEAVYMELEE|CFL_SEEING_STEALTH
 	holdables		HI_CLOAK
-	extralives		1
 	forceregen		2.65
 	
 	special1 EAS_HI_CLOAK
@@ -99,15 +103,15 @@ ClassInfo
 	
 	c_att_skill_7	MB_ATT_RESPAWNS
 	c_att_names_7	"Reinforcements:"
-	c_att_ranks_7	15
+	c_att_ranks_7	10,15
 	
 	c_att_skill_8	MB_ATT_ARMOUR
 	c_att_names_8	"Armor:"
 	c_att_ranks_8	2,4,8
 	
-	c_att_skill_9	MB_ATT_SHIELD_RECHARGE
+	c_att_skill_9	MB_ATT_ARMOUR_REGEN_AMOUNT
 	c_att_names_9	"Armor Regen:"
-	c_att_ranks_9	5,12
+	c_att_ranks_9	5,5
 	
 	c_att_skill_10	MB_ATT_FP_SEE
 	c_att_names_10	"Radar Scanner (Sense):"
@@ -119,7 +123,7 @@ ClassInfo
 	
 	c_att_skill_12	MB_ATT_SPY_DISGUISE
 	c_att_names_12	"Disguise:"
-	c_att_ranks_12	4,4,4
+	c_att_ranks_12	3,3,3
 	
 	c_att_skill_13	MB_ATT_DASH
 	c_att_names_13	"Dash ^3[CS3]^7:"
@@ -138,6 +142,7 @@ WeaponInfo0
 		firingAnim			BOTH_ATTACK2
 		idleAnim			TORSO_WEAPONIDLE2
 		clipSize 21
+		CustomAmmo 460
 }
 
 WeaponInfo1
@@ -147,7 +152,8 @@ WeaponInfo1
 	NewWorldModel 		"models/weapons2/blaster_r/blaster_w_stock.GLM"
 	NewViewModel  		"models/weapons2/dlt-blaster_r/blaster_w.glm"
 	Icon  				"gfx/hud/w_icon_e11_extendedstock"	
-	WeaponName			"E-11 Blaster Rifle"    					
+	WeaponName			"E-11 Blaster Rifle"    
+	customAmmo		520
 	
 }
 
@@ -181,11 +187,11 @@ ForceInfo0
 	ForcePowerName	"Radar Scanner"
 }
 
-description	"Imperial Stormcommando
+description	"Imperial Agent
 
 Class: Hero
 Brief Overview: 
-A mid-ranged elite soldier who can disguise himself and Cloak.
+A mid-ranged elite soldier who can Disguise himself and Cloak.
 
 ^2Default Weaponry:
 - Heavy Melee
@@ -209,5 +215,7 @@ A mid-ranged elite soldier who can disguise himself and Cloak.
 
 ^9Point Buy Info:
 - Armor
--- 10, 20, 35
+-- 10, 20, 40
+- Armor Regen
+-- 1/s, 2/s
 - Disguise ^3[In Melee, swap ^3mode]"
