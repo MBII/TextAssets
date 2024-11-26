@@ -1,0 +1,114 @@
+
+ClassInfo
+{
+	name  		"vFReelo"
+	model 		"reelo"
+	skin  		"default"
+	uishader  	"models/players/reelo/mb2_icon_default"
+	MBClass		MB_CLASS_WOOKIE
+	classNumberLimit	1
+	maxhealth	225
+	maxarmor		100
+	rateOfFire    .85
+	speed       1.00
+	modelscale      	1.04
+	damageGiven 	1
+	attributes				MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,2|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_THROWER_ICE,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_DASH,1
+	
+	holdables     HI_EWEB
+	
+	uioverlay "gfx/icons/tactician"
+	
+	weapons					WP_FRAG_NADE|WP_BLASTER|WP_MELEE|WP_PULSE_NADE|WP_DISRUPTOR|WP_THROWER|WP_TRIP_MINE|WP_ROCKET_LAUNCHER
+	
+	WP_ThrowerFlags 			HELD_ALTRELOAD
+	WP_RocketLauncherFlags 	HELD_ALTRELOAD|HELD_HIGHDAMAGE|HELD_KNOCKDOWN
+	respawnCustomTime 		50000
+	
+	special1	EAS_HI_EWEB
+	special2	EAS_HI_DASH
+	
+	flourishanim	BOTH_STAND5TOAIM
+	
+	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_ROCKET_LAUNCHER
+	WeaponBasedOff			WP_ROCKET_LAUNCHER
+	NewWorldModel			"models/weapons2/merr_sonn/merr_sonn_w.glm"
+	NewViewModel			"models/weapons2/merr_sonn/merr_sonn.md3"
+	NewBarrelModel	    	"models/weapons2/merr_sonn/merr_sonn_barrel.md3"
+	NewHandsModel			"models/weapons2/merr_sonn/merr_sonn_hand.md3"
+	Icon					"gfx/hud/w_icon_merrsonn"
+	WeaponName				"Merr-Sonn Rocket Launcher"
+	clipSize 				1
+	CustomAmmo 				4
+	ReloadTimeModifier 		2
+	altfireenabled			1
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_THROWER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_CLONE_RIFLE					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons/CarboniteRifle/model.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons/CarboniteRifle/model.md3"   	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_carboniterifle" 					//Required: Weapon change icon
+	WeaponName		"Carbonite Rifle"    				//Required: Weapon change display name
+	ReloadTimeModifier 	1.5
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_BLASTER				//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_BLASTER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel	"models/weapons2/blaster_r/blaster_w.glm"  	
+	NewViewModel	"models/weapons2/blaster_r/blaster.md3"     	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_E11" 					//Required: Weapon change icon
+	WeaponName		"Overcharged E-11 Blaster Rifle"    				//Required: Weapon change display name
+	customAmmo      720
+	clipSize        60
+	altFireEnabled		1
+    primFireEnabled	    0
+	firingAnim	        BOTH_ATTACK4
+}
+
+description	"Reelo Baruk
+
+Class: Wookiee
+Brief Overview: 
+A grenadier, rocketeer and sniper class equipped with a freeze ray. Cannot be knocked down by Force Push/Pull.
+
+^2Weaponry:
+- Wookiee-style Melee
+- Overcharged E-11 Blaster Rifle (2)
+-- Sec. fire only
+- Disruptor Rifle (2)
+- Carbonite Rifle
+-- Based on Flamethrower
+-- Slows/freezes targets
+-- 50% slower reload
+-- Fixed-length reload
+- Merr-Sonn Rocket Launcher
+-- 100% more damage
+-- Knocks down targets on direct hit
+-- 50% slower reload
+-- Fixed-length reload
+-- Homing Rockets ^3[Hold Sec. ^3fire]
+- Frag Grenade (1)
+- Trip Mines (2)
+- Pulse Grenades (2)
+
+^6Inventory:
+- Portable E-Web Cannon ^3[CS1]
+
+^8Attributes:
+- Strength (2)
+- Blast Armor
+- Healing (2)
+- Rally (Assemble allies spawn on you)
+
+^3Abilities:
+- Dash (1) ^3[CS2]"
