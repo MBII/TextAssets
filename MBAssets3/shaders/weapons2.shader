@@ -59,6 +59,96 @@ models/weapons2/boushh_staff/pike
 	}
 }
 
+//booma 
+models/weapons2/thr_booma/sphere
+{
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+    {
+        map models/weapons2/thr_booma/sphere
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+    {
+        map textures/common/glass2
+        blendFunc GL_ONE GL_ONE
+        tcGen environment
+    }
+}
+
+models/weapons2/thr_booma/sphere_inner
+{
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+    {
+        map models/weapons2/thr_booma/sphere
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        depthWrite
+        rgbGen lightingDiffuse
+        alphaGen wave sin 0.95 0.001 0.01 0.01
+    }
+}
+
+models/weapons2/thr_booma/core
+{
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+    {
+        animMap 0.125 models/weapons2/thr_booma/core/core_tile_01 models/weapons2/thr_booma/core/core_tile_02 models/weapons2/thr_booma/core/core_tile_03 models/weapons2/thr_booma/core/core_tile_04 models/weapons2/thr_booma/core/core_tile_05 models/weapons2/thr_booma/core/core_tile_06 models/weapons2/thr_booma/core/core_tile_07 models/weapons2/thr_booma/core/core_tile_08 models/weapons2/thr_booma/core/core_tile_09 models/weapons2/thr_booma/core/core_tile_10 models/weapons2/thr_booma/core/core_tile_11 models/weapons2/thr_booma/core/core_tile_12 models/weapons2/thr_booma/core/core_tile_13 models/weapons2/thr_booma/core/core_tile_14 models/weapons2/thr_booma/core/core_tile_15 models/weapons2/thr_booma/core/core_tile_16 
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen wave triangle 0 0.5 0 0.125
+        alphaGen vertex
+        tcMod stretch sin 1 -0.01 0.75 0.25
+    }
+    {
+        animMap 0.125 models/weapons2/thr_booma/core/core_tile_05 models/weapons2/thr_booma/core/core_tile_06 models/weapons2/thr_booma/core/core_tile_07 models/weapons2/thr_booma/core/core_tile_08 models/weapons2/thr_booma/core/core_tile_09 models/weapons2/thr_booma/core/core_tile_10 models/weapons2/thr_booma/core/core_tile_11 models/weapons2/thr_booma/core/core_tile_12 models/weapons2/thr_booma/core/core_tile_13 models/weapons2/thr_booma/core/core_tile_14 models/weapons2/thr_booma/core/core_tile_15 models/weapons2/thr_booma/core/core_tile_16 models/weapons2/thr_booma/core/core_tile_01 models/weapons2/thr_booma/core/core_tile_02 models/weapons2/thr_booma/core/core_tile_03 models/weapons2/thr_booma/core/core_tile_04 
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen wave sin 0 0.5 0.25 0.125
+        alphaGen vertex
+        tcMod stretch sin 1 -0.01 0.75 0.25
+    }
+    {
+        animMap 0.125 models/weapons2/thr_booma/core/core_tile_09 models/weapons2/thr_booma/core/core_tile_10 models/weapons2/thr_booma/core/core_tile_11 models/weapons2/thr_booma/core/core_tile_12 models/weapons2/thr_booma/core/core_tile_13 models/weapons2/thr_booma/core/core_tile_14 models/weapons2/thr_booma/core/core_tile_15 models/weapons2/thr_booma/core/core_tile_16 models/weapons2/thr_booma/core/core_tile_01 models/weapons2/thr_booma/core/core_tile_02 models/weapons2/thr_booma/core/core_tile_03 models/weapons2/thr_booma/core/core_tile_04 models/weapons2/thr_booma/core/core_tile_05 models/weapons2/thr_booma/core/core_tile_06 models/weapons2/thr_booma/core/core_tile_07 models/weapons2/thr_booma/core/core_tile_08 
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen wave triangle 0 0.5 0.5 0.125
+        alphaGen vertex
+        tcMod stretch sin 1 -0.01 0.75 0.25
+    }
+    {
+        animMap 0.125 models/weapons2/thr_booma/core/core_tile_13 models/weapons2/thr_booma/core/core_tile_14 models/weapons2/thr_booma/core/core_tile_15 models/weapons2/thr_booma/core/core_tile_16 models/weapons2/thr_booma/core/core_tile_01 models/weapons2/thr_booma/core/core_tile_02 models/weapons2/thr_booma/core/core_tile_03 models/weapons2/thr_booma/core/core_tile_04 models/weapons2/thr_booma/core/core_tile_05 models/weapons2/thr_booma/core/core_tile_06 models/weapons2/thr_booma/core/core_tile_07 models/weapons2/thr_booma/core/core_tile_08 models/weapons2/thr_booma/core/core_tile_09 models/weapons2/thr_booma/core/core_tile_10 models/weapons2/thr_booma/core/core_tile_11 models/weapons2/thr_booma/core/core_tile_12 
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen wave triangle 0 0.5 0.75 0.125
+        alphaGen vertex
+        tcMod stretch sin 1 -0.01 0.75 0.25
+    }
+}
+
+//gungan atlatl
+
+models/weapons2/pw_atlatl/atlatl
+{
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+    {
+        map models/weapons2/pw_atlatl/atlatl
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/pw_atlatl/atlatl_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 
 //	concussion
 

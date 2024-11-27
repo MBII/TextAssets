@@ -1,0 +1,223 @@
+//Lair of the Ancients character file - made by 2cwldys/Stephen
+//Siege class def file.
+
+ClassInfo
+{
+	name			"lota_tr_hvy"
+	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_MINIGUN
+	attributes		MB_ATT_INAIR_FORCE_REGEN|MB_ATT_BUNNY_HOP,2|MB_ATT_MINIGUN,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_DEXTERITY,3|MB_ATT_FLOAT_HOP|MB_ATT_FLIPKICK,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_CCTRAINING,2|MB_ATT_BLAST_ARMOUR|MB_ATT_GUNBASH
+    classflags		CFL_BUBBLESHIELD|CFL_STRONGAGAINSTPHYSICAL
+	forcepowers		FP_LEVITATION,1
+	modelscale		1.2
+	maxhealth		150
+	maxarmor		0
+    forcepool       30
+	customred		0.1
+	customgreen		0.1
+	customblue		1
+	model			"snowtrooper"
+	skin			"red"
+	//uishader		"models/players/snowtrooper/icon_red"
+	uishader		"gfx/um_icons/lota/mb2_icon_red_heavy"
+	MBClass			MB_CLASS_WOOKIE
+	speed			1
+	
+	rageSoundOverride 	"sound/chars/clonetrooper_p2/misc/taunt5.mp3"
+	bargeSoundOverride 		"sound/chars/clonetrooper_p2/misc/combat1.mp3"
+
+	model_1			"swamptrooper"
+	skin_1			"red"
+	uishader_1		"models/players/swamptrooper/icon_red"
+
+    //respawnWait 15000
+    respawnCustomTime 15000
+
+	classNumberLimit	1
+
+	rateoffire		1.4
+	damageGiven		1.2
+
+    WP_MinigunFlags	HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_SLOW
+	WP_PLX1Flags	HELD_LOWDAMAGE
+	WP_EE3Flags		HELD_KNOCKBACK
+    WP_BlasterPistolFlags	HELD_KNOCKBACK
+
+    isCustomBuild        1
+    mbPoints            50
+    
+    c_att_skill_0        MB_ATT_INVALID
+    c_att_names_0        "^1-Weapons-"
+    c_att_ranks_0        -1
+    
+    c_att_skill_1        MB_ATT_EE3
+    c_att_names_1        "Heavy E-11 Blaster:"
+    c_att_ranks_1        10,5,5
+
+    c_att_skill_2        MB_ATT_PLX1
+    c_att_names_2        "Rocket Launcher:"
+    c_att_ranks_2        30
+    
+    c_att_skill_3        MB_ATT_SONIC_DETONATOR
+    c_att_names_3        "Sonic Grenades:"
+    c_att_ranks_3        15,20
+
+    c_att_skill_4        MB_ATT_FRAGS
+    c_att_names_4        "Flashbang Grenades:"
+    c_att_ranks_4        15,20
+    
+    c_att_skill_5        MB_ATT_DET_PACK
+    c_att_names_5        "Detonation Pack"
+    c_att_ranks_5        15,5
+
+    c_att_skill_6        MB_ATT_INVALID
+    c_att_names_6        "^1-Abilities-"
+    c_att_ranks_6        -1
+
+	c_att_skill_7		  MB_ATT_BESKAR
+	c_att_names_7		  "Beskar Plating:"
+	c_att_ranks_7		  15,10,5
+    
+    c_att_skill_8        MB_ATT_MAGNETIC_PLATING
+    c_att_names_8        "Magnetic Plating:"
+    c_att_ranks_8        15
+
+    c_att_skill_9        MB_ATT_CORTOSIS
+    c_att_names_9        "Cortosis Plating:"
+    c_att_ranks_9        30
+
+    c_att_skill_10        MB_ATT_ARMOUR
+    c_att_names_10        "Combat Shielding:"
+    c_att_ranks_10        25,10,5
+
+    resource            RESOURCE_STAMINA
+
+	rankArmor			50,75,100
+
+    special1			EAS_HI_BARGE
+    special2            EAS_HI_KICK
+	special3			EAS_HI_DEX
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER_PISTOL
+	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_briar"
+	WeaponName			"Bryar Pistol"
+    MissileMissEffect	"effects/impacts/impactsmallred1"
+	AltMissileMissEffect	"effects/impacts/impactsmallred1"
+    idleAnim		MAND_SPISTOL 
+	firingAnim		MAND_SPISTOL_FIRE
+}
+
+WeaponInfo1
+{
+    WeaponToReplace        WP_EE3                           //Required: Weapon Slot of weapon you're replacing
+    WeaponBasedOff        WP_EE3                          //Required: For future use, should be the same as WeaponToReplace
+    NewWorldModel        "models/weapons2/blaster_r/blaster_w.glm"      //Required: New 3rd person/dropped weapon model
+    NewViewModel        "models/weapons2/blaster_r/blaster.md3"       //Required: New 1st person weapon model
+    Icon                "gfx/hud/w_icon_e11"                 //Required: Weapon change icon
+    WeaponName            "Heavy E-11 Blaster"                        //Required: Weapon change display name
+	MissileEffect		"blaster/Shot03R"
+	AltMissileEffect	"blaster/Shot03R"
+	MissileMissEffect	"effects/impacts/impactsmallred2"
+	AltMissileMissEffect	"effects/impacts/impactsmallred2"
+	FlashSound0		"sound/weapons/blasterMB/alt_fire.wav"
+	FlashSound1		"sound/weapons/blasterMB/alt_fire.wav"
+	FlashSound2		"sound/weapons/blasterMB/alt_fire.wav"
+	FlashSound3		"sound/weapons/blasterMB/alt_fire.wav"
+	FlashSound4		"sound/weapons/blasterMB/alt_fire.wav"
+	AltFlashSound0		"sound/weapons/blasterMB/fire.wav"
+	AltFlashSound1		"sound/weapons/blasterMB/fire.wav"
+	AltFlashSound2		"sound/weapons/blasterMB/fire.wav"
+	AltFlashSound3		"sound/weapons/blasterMB/fire.wav"
+	AltFlashSound4		"sound/weapons/blasterMB/fire.wav"
+    customAmmo      300
+    clipSize        100
+    FPMult          0.8
+}
+
+WeaponInfo2
+{
+    WeaponToReplace        WP_MINIGUN                           //Required: Weapon Slot of weapon you're replacing
+    WeaponBasedOff        WP_MINIGUN                          //Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel "models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
+	NewViewModel  "models/weapons2/DLT-19_HeavyBlaster/riflescoped.md3"
+	Icon  "gfx/hud/w_icon_dlt19scoped"
+    WeaponName           "DLT-19 Minigun Blaster"                        //Required: Weapon change display name
+	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
+	MissileEffect		"blaster/Shot03R"
+	Missile3Effect		"blaster/Shot03R"
+	AltMissileEffect	"blaster/Shot03R"
+	PowerupShotEffect	"Blaster/Shot03R"
+	MissileMissEffect	"effects/impacts/impactsmallred2"
+	AltMissileMissEffect	"effects/impacts/impactsmallred2"
+	FlashSound0	"sound/weapons/DLT19/fire.wav"
+	FlashSound1	"sound/weapons/DLT19/fire.wav"
+	FlashSound2	"sound/weapons/DLT19/fire.wav"
+	FlashSound3	"sound/weapons/DLT19/fire.wav"
+	AltFlashSound0	"sound/weapons/DLT19/fire.wav"
+	AltFlashSound1	"sound/weapons/DLT19/fire.wav"
+	AltFlashSound2	"sound/weapons/DLT19/fire.wav"
+	AltFlashSound3	"sound/weapons/DLT19/fire.wav"
+    customAmmo      500
+    clipSize        100
+	ProjSpeedModifier 		0.8
+	ReloadTimeModifier	4
+	altFireEnabled		1
+	isMinigun			1
+	firingAnim		MINIGUN_FIRE
+	idleAnim		MINIGUN_READY
+    FPMult          1.2
+}
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_PLX1
+	WeaponBasedOff		WP_PLX1
+	NewWorldModel		"models/weapons2/MiniMag_launcher/launcher_w.glm"
+	NewViewModel		"models/weapons2/MiniMag_launcher/launcher.md3"
+	Icon				"gfx/hud/w_icon_MiniMag"
+	WeaponName			"Rocket Launcher"
+	customAmmo           1
+	clipSize			 1
+}
+
+WeaponInfo4
+{
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_FRAG_NADE
+	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
+	MissileModel		"models/weapons/Grenade_Concussion/proj.md3"
+
+	AltMissileMissEffect	"Grenades/EXP_Flash"
+	MissileMissEffect		"Grenades/EXP_Flash"
+	AltMissileHitHumanEffect	"Grenades/EXP_Flash"
+	MissileHitHumanEffect		"Grenades/EXP_Flash"
+	AltMissileHitDroidEffect	"Grenades/EXP_Flash"
+	MissileHitDroidEffect	"Grenades/EXP_Flash"
+	Icon				"gfx/hud/w_icon_stungrenade"
+	WeaponName			"Flashbang Grenades"
+	PrimFireEnabled		 0
+}
+
+description	"Team Red - Heavy
+
+Short Respawn (CTF)
+SPECIAL1 - BARGE
+SPECIAL2 - BH KICK
+SPECIAL3 - ARC ROLL
+
+Weaponry:
+Pistol (3)
+Minigun (3)
+
+Attributes:
+Close Combat Training (2)
+Strength (3)
+Dexterity (3)
+Gun Bash"

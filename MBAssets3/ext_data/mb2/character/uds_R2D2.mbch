@@ -3,9 +3,10 @@
 ClassInfo
 {
 	name  "uds_R2D2"
-	weapons WP_MELEE|
-	attributes		MB_ATT_FUELREGEN,3|MB_ATT_HEALING,3|MB_ATT_ARMOUR,3|MB_ATT_FLAMETHROWER,1|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|
-	maxhealth 60
+	weapons WP_MELEE
+	attributes		MB_ATT_FUELREGEN,3|MB_ATT_HEALING,3|MB_ATT_FLAMETHROWER,1|MB_ATT_JETPACK,1|MB_ATT_FUEL,3
+	forcepowers		FP_SEE,1|FP_LIGHTNING,2
+	maxhealth 50
 	maxarmor  80
 	model "r2-d2" 
 	modelscale  0.8
@@ -14,12 +15,32 @@ ClassInfo
 	MBClass MB_CLASS_MANDALORIAN
 	classflags  CFL_FASTHACKING
 	classNumberLimit	1
+	speed			0.96
+	special2		EAS_HI_PLASMA
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_LIGHTNING
+	Icon		"gfx/forcepowers/lightning"
+	ForcePowerName	"Shock Probe"
+}
+
+ForceInfo1
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Radar Scanner"
+	StartSound "sound/mb2/Silence.wav"
+	LoopSound  "sound/mb2/R2Scanner.wav"
 }
 
 description	"R2D2
 
 Attributes:
+Shock Probe (Lightning 2)
+Radar (Perma Sense 1)
 Self-Repair	(Heal 3)
 Fast Hacking
-Flamethrower
+Plasmathrower
 Jetpack"

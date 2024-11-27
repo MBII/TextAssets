@@ -1,0 +1,520 @@
+repeatDelay				5000
+
+Light
+{
+	name				00: Light
+
+	life				750
+
+	cullrange			2048
+
+	rgb
+	{
+		start			0.251 0.4392 1 0.3451 0.251 1
+		parm			5
+		flags			linear wave
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			256
+		end				32
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				01: Shake
+
+	flags				usePhysics
+
+	life				500 750
+
+	cullrange			64
+
+	bounce				1 2
+
+	radius				256 512
+}
+
+Sound
+{
+	name				02: Sound
+
+	sounds
+	[
+		sound/weapons/upl/explosion_emp.wav
+	]
+}
+
+Flash
+{
+	name				03: Flash
+
+	cullrange			64
+
+	rgb
+	{
+		start			0.3333 0.502 1 0.3451 0.251 1
+		parm			5
+		flags			linear wave
+	}
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			0
+		end				128
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/lightningflash.jpg
+	]
+}
+
+Particle
+{
+	name				04: Inner_Core_01
+
+	spawnFlags			rgbComponentInterpolation
+
+	life				150
+
+	cullrange			4096
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	rgb
+	{
+		end				0.102 0.549 1 0.2118 0.102 1
+	}
+
+	size
+	{
+		start			32
+		end				128
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteflare.jpg
+	]
+}
+
+OrientedParticle
+{
+	name				05: Inner_Core_02
+
+	spawnFlags			rgbComponentInterpolation
+
+	life				150
+
+	cullrange			4096
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	rgb
+	{
+		end				0.102 0.549 1 0.2118 0.102 1
+	}
+
+	size
+	{
+		start			32
+		end				28
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteflare.jpg
+	]
+}
+
+Particle
+{
+	name				06: Core_01
+
+	life				150
+
+	cullrange			4096
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	rgb
+	{
+		start			0.251 0.4392 1 0.3451 0.251 1
+		end				0.102 0.549 1 0.2118 0.102 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.75
+		flags			linear
+	}
+
+	size
+	{
+		start			64
+		end				256
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteflare.jpg
+	]
+}
+
+OrientedParticle
+{
+	name				07: Core_02
+
+	life				150
+
+	cullrange			4096
+
+	rotation			-180 180
+
+	rotationDelta		-2 2
+
+	rgb
+	{
+		start			0.251 0.4392 1 0.3451 0.251 1
+		end				0.102 0.549 1 0.2118 0.102 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.75
+		flags			linear
+	}
+
+	size
+	{
+		start			64
+		end				256
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/whiteflare.jpg
+	]
+}
+
+Electricity
+{
+	name				08: Lightning
+
+	flags				useModel useBBox usePhysics
+
+	spawnFlags			orgOnCylinder
+
+	count				30
+
+	delay				100 850
+
+	cullrange			4096
+
+	bounce				5
+
+	origin2				50 -100 -100 50 100 100
+
+	radius				50
+
+	height				0
+
+	size
+	{
+		start			5 10
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+}
+
+Particle
+{
+	name				09: Lightning_flashes
+
+	flags				useModel
+
+	spawnFlags			axisFromSphere
+
+	count				20
+
+	delay				100 850
+
+	cullrange			4096
+
+	origin				0 -50 -50 50 50 50
+
+	radius				0
+
+	height				0
+
+	rotation			-180 180
+
+	rotationDelta		10
+
+	angle				-180 -180 -180 180 180 180
+
+	angleDelta			-5 -5 -5 5 5 5
+
+	rgb
+	{
+		end				0.251 0.4392 1 0.3451 0.251 1
+		parm			5
+		flags			linear wave
+	}
+
+	alpha
+	{
+		end				0
+		parm			5
+		flags			wave
+	}
+
+	size
+	{
+		start			32
+		end				0
+	}
+
+	shaders
+	[
+		models/effects/lightning1.jpg
+		models/effects/lightning2.jpg
+		models/effects/lightning3.jpg
+	]
+}
+
+Emitter
+{
+	name				10: Lightning_bubbles
+
+	flags				useModel
+
+	spawnFlags			axisFromSphere
+
+	count				20
+
+	life				100
+
+	delay				100 850
+
+	cullrange			4096
+
+	origin				0 -50 -50 50 50 50
+
+	radius				0
+
+	height				0
+
+	angle				-180 -180 -180 180 180 180
+
+	angleDelta			-10 -10 -10 10 10 10
+
+	size
+	{
+		start			0
+		end				32
+		parm			5
+		flags			linear
+	}
+
+	models
+	[
+		models/effects/lightingsphere1.md3
+		models/effects/lightingsphere2.md3
+		models/effects/lightingsphere3.md3
+	]
+}
+
+OrientedParticle
+{
+	name				11: Lightning_wave
+
+	flags				setShaderTime useAlpha
+
+	spawnFlags			evenDistribution rgbComponentInterpolation
+
+	count				5
+
+	life				250
+
+	delay				0 100
+
+	rotation			-180 180
+
+	rotationDelta		-5 5
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			8 16
+		end				32 64
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/exp/demp2
+	]
+}
+
+Particle
+{
+	name				12: Clouds
+
+	flags				useAlpha
+
+	spawnFlags			absoluteVel orgOnSphere affectedByWind
+
+	count				4
+
+	life				2000 3500
+
+	delay				100
+
+	cullrange			4096
+
+	radius				50 75
+
+	height				50 75
+
+	wind				0 25
+
+	rotation			-180 180
+
+	rotationDelta		-2.5 2.5
+
+	velocity			-16 -16 0 16 16 32
+
+	rgb
+	{
+		start			0.6667 0.749 1 0.7098 0.6667 1
+		flags			linear
+	}
+
+	alpha
+	{
+		end				0
+	}
+
+	size
+	{
+		start			0
+		end				160
+		parm			0 5
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke.tga
+	]
+}
+
+Tail
+{
+	name				13: Sparks_long
+
+	flags				usePhysics impactKills
+
+	spawnFlags			affectedByWind
+
+	count				30
+
+	life				750
+
+	delay				100
+
+	cullrange			2048
+
+	bounce				0.1 0.25
+
+	wind				0 25
+
+	velocity			0 -750 -750 1000 750 750
+
+	acceleration		-500 -250 -250 0 250 250
+
+	gravity				-400 -300
+
+	size
+	{
+		start			0.25 0.75
+		end				0
+		flags			linear
+	}
+
+	length
+	{
+		start			-20
+		end				0
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark3.jpg
+	]
+}
+
+Decal
+{
+	name				14: Wallmark
+
+	spawnFlags			rgbComponentInterpolation
+
+	life				999
+
+	delay				750
+
+	cullrange			4096
+
+	rotation			-180 180
+
+	size
+	{
+		start			128
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4.png
+	]
+}

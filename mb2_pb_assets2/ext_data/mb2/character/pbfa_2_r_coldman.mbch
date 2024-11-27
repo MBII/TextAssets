@@ -12,17 +12,23 @@ ClassInfo
 	saber1			iceman
 	saber2			iceman
 	saberstyle		SS_DUAL|SS_TAVION
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_THROWER_ICE,3|MB_ATT_FUEL,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_CRYOBAN_GRENADES|MB_ATT_DODGE,2|MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,3|MB_ATT_FP_MIRALUKA,1
+	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_THROWER_ICE,3|MB_ATT_FUEL,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_CRYOBAN_GRENADES|MB_ATT_DODGE,2|MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,3|MB_ATT_FP_MIRALUKA,1|MB_ATT_CLONE_PISTOL,1
 	forcepowers		FP_LEVITATION,3|FP_SABER_DEFENSE,1|FP_SPEED,1|FP_BLIND,1|FP_SEE,1
 	maxhealth		250
 	speed			1.1
-
+	WP_MeleeFlags HELD_FREEZE
+	WP_SaberFlags HELD_FREEZE
+	WP_ClonePistolFlags HELD_FREEZE|HELD_SLOW|HELD_AMMOREGEN|HELD_LOWDAMAGE
+	
 	forcepool 		100
 	forceregen		1
 	extralives		1
 	classflags		CFL_HEAVYMELEE|CFL_BPFREEJUMPS
-	WP_ClonePistolFlags	HELD_SLOW|HELD_AMMOREGEN|HELD_LOWDAMAGE
+
 	classNumberLimit	1
+	 
+	special3 EAS_FP_BLIND
+	special4 EAS_FP_SPEED
 }
 
 
@@ -58,16 +64,16 @@ WeaponInfo2
   NewViewModel  "models/weapons2/dummy/dummy.md3"
   Icon  		"gfx/marvel/freezeblast"
 	MissileEffect "Rockets/missile"
-	FlashSound0 	"Sound/effects/ice.wav"
-	FlashSound1		"Sound/effects/ice.wav"
- 	FlashSound2		"Sound/effects/ice.wav"
- 	FlashSound3		"Sound/effects/ice.wav"
+	FlashSound0 	"Sound/player/snow_land.mp3"
+	FlashSound1		"Sound/player/snow_land.mp3"
+ 	FlashSound2		"Sound/player/snow_land.mp3"
+ 	FlashSound3		"Sound/player/snow_land.mp3"
 	WeaponName  	"Ice Dart"
 	firingAnim		MAND_FLAME
 	Idleanim		HEROPISTOLIDLE
 	altFireEnabled  0
 	CustomAmmo		200
-	clipSize		-1
+	clipSize		100
 }
 
 WeaponInfo3
@@ -106,8 +112,8 @@ Ice Fists
 - Block 3
 
 Dodge (2)
-Ice Blind (1)
-Ice Speed (2)
+Ice Blind (1) ^3[CS3]
+Ice Speed (2) ^3[CS4]
 
 Ice Darts
 Ice Nades (20)

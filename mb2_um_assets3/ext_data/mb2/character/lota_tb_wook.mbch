@@ -1,0 +1,169 @@
+//Lair of the Ancients character file - made by 2cwldys/Stephen
+//Siege class def file.
+
+ClassInfo
+{
+	name				"lota_tb_wook"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL
+    attributes			MB_ATT_INAIR_FORCE_REGEN|MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_PISTOL,3|MB_ATT_FLIPKICK,2|MB_ATT_CCTRAINING,2|MB_ATT_AMMO,3|MB_ATT_GUNBASH
+	forcepowers         FP_LEVITATION,1
+    classflags          CFL_HEAVYMELEE
+    maxhealth			400
+	maxarmor			40
+    forcepool           50
+	modelscale			1.2
+	MBClass				MB_CLASS_WOOKIE
+		
+	model			    "wookiee"
+	skin				"blue"
+	uishader			"gfx/um_icons/lota/mb2_icon_blue_wookiee"
+
+    model_1             "chewbacca"
+    skin_1              "blue"
+    uishader_1          "models/players/chewbacca/icon_blue" 
+	
+	speed			    1.25
+	classNumberLimit    1
+    //respawnWait 15000
+    respawnCustomTime 15000
+
+    WP_BlasterPistolFlags	HELD_KNOCKBACK
+    WP_BowcasterFlags       HELD_KNOCKBACK
+    WP_BlasterFlags         HELD_KNOCKBACK
+
+    isCustomBuild        1
+    mbPoints            150
+        
+    c_att_skill_0        MB_ATT_INVALID
+    c_att_names_0        "^5-Weapons-"
+    c_att_ranks_0        -1
+
+    c_att_skill_1        MB_ATT_BOWCASTER
+    c_att_names_1        "Bowcaster:"
+    c_att_ranks_1        20,15,10
+
+    c_att_skill_2        MB_ATT_BLASTER
+    c_att_names_2        "E-11 Blaster:"
+    c_att_ranks_2        10,5,5
+    
+    c_att_skill_3        MB_ATT_FRAGS
+    c_att_names_3        "Frag Grenades:"
+    c_att_ranks_3        15,15
+    
+    c_att_skill_4        MB_ATT_FIRE_GRENADES
+    c_att_names_4        "Fire Grenades:"
+    c_att_ranks_4        15,15
+    
+    c_att_skill_5        MB_ATT_MICRO_GRENADES
+    c_att_names_5        "Concussion Grenades:"
+    c_att_ranks_5        5,5,5
+    
+    c_att_skill_6        MB_ATT_INVALID
+    c_att_names_6        "^5-Abilities-"
+    c_att_ranks_6        -1
+
+    c_att_skill_7        MB_ATT_WOOKIE_STRENGTH
+    c_att_names_7        "Wookiee Strength:"
+    c_att_ranks_7        0,15,25
+
+    c_att_skill_8        MB_ATT_WOOKIEE_FURY
+    c_att_names_8        "Wookiee Fury:"
+    c_att_ranks_8        30,10,5
+
+    c_att_skill_9        MB_ATT_BLAST_ARMOUR
+    c_att_names_9        "Blast Armor:"
+    c_att_ranks_9        15
+
+    c_att_skill_10        MB_ATT_MAGNETIC_PLATING
+    c_att_names_10        "Magnetic Plating:"
+    c_att_ranks_10        15
+
+    resource        RESOURCE_RAGE
+
+    special1        EAS_HI_FURY
+    special2        EAS_HI_BARGE
+}
+
+WeaponInfo0
+{
+    WeaponToReplace        WP_BOWCASTER                           //Required: Weapon Slot of weapon you're replacing
+    WeaponBasedOff        WP_BOWCASTER                          //Required: For future use, should be the same as WeaponToReplace
+    NewWorldModel        "models/weapons2/bowcaster/bowcaster_w.glm"      //Required: New 3rd person/dropped weapon model
+    NewViewModel        "models/weapons2/bowcaster/bowcaster.md3"       //Required: New 1st person weapon model
+    Icon                "gfx/hud/w_icon_bowcaster"                 //Required: Weapon change icon
+    WeaponName            "Wookiee Bowcaster"                        //Required: Weapon change display name
+	ChargeEffect		"gfx/effects/greenfrontflash"
+	MuzzleEffect		"Bowcaster/muzzle_flash"
+	MissileEffect		"Bowcaster/shot"
+	AltMissileEffect	"Bowcaster/shot"
+    MissileMissEffect	"effects/impacts/impactsmallgreen2"
+	AltMissileMissEffect	"effects/impacts/impactsmallgreen2"
+    MissileHitHumanEffect   "effects/impacts/impactsmallgreen2"
+    MissileHitDroidEffect   "effects/impacts/impactsmallgreen2"
+    AltMissileHitHumanEffect   "effects/impacts/impactsmallgreen2"
+    AltMissileHitDroidEffect    "effects/impacts/impactsmallgreen2" 
+    customAmmo      400
+    clipSize        100
+    FPMult          0.8
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER_PISTOL
+	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_briar"
+	WeaponName			"Bryar Pistol"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"blaster/Shot01B"
+	Missile3Effect		"Blaster/Shot03B"
+	AltMissileEffect	"blaster/Shot01B"
+	ChargeEffect		"gfx/effects/clonefrontflash"
+	OverchargeEffect	"Blaster/MuzzleFlash04B"
+	PowerupShotEffect	"Blaster/Shot04B"
+    MissileMissEffect	"effects/impacts/impactsmallblue1"
+	AltMissileMissEffect	"effects/impacts/impactsmallblue1"
+    idleAnim		MAND_SPISTOL 
+	firingAnim		MAND_SPISTOL_FIRE
+}
+
+WeaponInfo2
+{
+    WeaponToReplace        WP_BLASTER                           //Required: Weapon Slot of weapon you're replacing
+    WeaponBasedOff        WP_BLASTER                          //Required: For future use, should be the same as WeaponToReplace
+    NewWorldModel        "models/weapons2/blaster_r/blaster_w.glm"      //Required: New 3rd person/dropped weapon model
+    NewViewModel        "models/weapons2/blaster_r/blaster.md3"       //Required: New 1st person weapon model
+    Icon                "gfx/hud/w_icon_e11"                 //Required: Weapon change icon
+    WeaponName            "Stolen E-11 Carbine"                        //Required: Weapon change display name
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"blaster/Shot01B"
+	AltMissileEffect	"blaster/Shot01B"
+    MissileMissEffect	"effects/impacts/impactsmallblue1"
+	AltMissileMissEffect	"effects/impacts/impactsmallblue1"
+    customAmmo      300
+    clipSize        100
+    FPMult          0.8
+}
+
+description	"Team Blue - Wookiee Soldier
+
+Short Respawn (CTF)
+SPECIAL1 - FURY
+SPECIAL2 - BARGE
+
+Weaponry:
+Pistol (3)
+Wookiee Bowcaster (3)
+Frag Grenades (2)
+
+Attributes:
+Magnetic Plating (Wookiee Armor)
+Wookiee Health (3)
+Wookiee Strength (3)
+
+Abilities:
+Wookiee Fury (1)
+Gunbash"

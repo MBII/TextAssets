@@ -7,20 +7,27 @@ ClassInfo
 	saber1			re_hunterR
 	saber2			re_hunterL
 	saberstyle		SS_DUAL
-	attributes		MB_ATT_HEALING,1|MB_ATT_WOOKIE_STRENGTH,3
+	attributes		MB_ATT_HEALING,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_POISON_DART,3
 	forcepowers		FP_LEVITATION,3|FP_SABER_OFFENSE,3
-	maxhealth		150
+	maxhealth		200
 	model			"re_hunter"
 	skin			"default"
 	uishader		"gfx/mplevels/revil/re_hunter"
 	MBClass			MB_CLASS_WOOKIE
-	speed			1.00
-	forceregen		2
-	forcepool		20
+	speed			1.09
+	forceregen		1.4
+	forcepool		40
 	extralives		1
 	modelscale		1.1
-	classflags		CFL_NOPICKUPS|CFL_BLOODYMELEE
+	classflags		CFL_NOPICKUPS|CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_NOLOCATIONALDAMAGE
 	classnumberlimit	1
+	resource	resource_force
+	damagetaken	0.5
+	special1		EAS_HI_POISON
+	special2		EAS_HI_BARGE
+	WP_MELEEFlags	HELD_POISON
+	
+	bargeSoundOverride	"sound/chars/re_zombiec/misc/taunt.wav"
 }
 
 WeaponInfo0
@@ -44,7 +51,7 @@ WeaponInfo1
 	SelectSound		"sound/weapons/rerlauncher/select.wav"
 	FlashSound0		"Sound/chars/re_hunter/misc/taunt.wav"
 	AltFlashSound0  "Sound/chars/re_hunter/misc/taunt.wav"
-	WeaponName		"^7Melee"
+	WeaponName		"^7Toxic Melee"
 	primGore		1
 	altGore			1
 }
@@ -52,9 +59,14 @@ WeaponInfo1
 description	"Hunter
 
 Weaponry:
-Melee
+Toxic Melee (Causes Poison Damage)
 Claws
+Toxic Spit	^3[CS1]
+Charge ^3[CS2]
 
 Attributes:
-Self Healing (1)
-Strength (3)"
+Self Healing (3)
+Strength (3)
+50% Damage Resistance
+Toxic Blood (Hurts Enemies When Killed)
+Immune to Location Based Damage"
