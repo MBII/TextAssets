@@ -1,35 +1,37 @@
 //test rework
-//speed lunge dex = punching
-//tongue?
+//speed lunge dex = punching //tongue?
+
 Classinfo	
 {		  		
  
  	name				"h2_JarJar"		
  	MBClass				MB_CLASS_HERO
-	saber1 				jarjar_leg
-	saberstyle			SS_TAVION
-	modelScale          1.07			
-	basespeed 			225
- 	maxhealth			210
-	maxarmor			80
-	saberMaxChain 1
-	saberDamage 80 //40
+	weapons			WP_MELEE|WP_SABER|WP_T21|WP_FRAG_NADE|WP_PULSE_NADE
+	
+	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,3|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|
+
+	modelScale   1.07			
+	basespeed 	230
+ 	maxhealth	210
+	maxarmor		80
+	
+	saber1 		jarjar_leg
+	saberstyle	SS_TAVION
+	
+	saberMaxChain 	1
+	saberDamage		80 //40
 	APmultiplier 		1
 	BPmultiplier 		1
 	ASmultiplier 		1
 	CSmultiplier 		1
- 	weapons				WP_MELEE|WP_SABER|WP_T21|WP_FRAG_NADE
-	
-	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_FRAGS,6
-	
- 	//forcepowers		FP_LEVITATION,1	
-	forcepool			200
+
+	forcepool	200
 	forceregen 2
 	resource RESOURCE_STAMINA
 
-  	classNumberLimit		1	
+  	classNumberLimit	1	
 	
-  	forceBlocking 		1
+  	forceBlocking 	1
 	
 	rateOfFire .15
 	rateOfFire_Melee	0.75
@@ -44,7 +46,6 @@ Classinfo
 	uioverlay "gfx/icons/spec_infantry"
 	
 	classflags CFL_BLOODYMELEE
-	//special4			EAS_HI_GRAPPLEHOOK
 	
  	model 			"jarjar"					
  	skin				"default"	
@@ -58,12 +59,11 @@ Classinfo
 	bowAnim 			BOTH_KNOCKDOWN3
 	saberStanceAnim	TORSO_SURRENDER_START
 	
-	WP_SaberFlags HELD_KNOCKDOWN
-	//WP_RepeaterFlags HELD_PULSE|HELD_STUN|HELD_HIGHDAMAGE|HELD_ALTRELOAD|HELD_DISRUPTIFY|HELD_EXPLOSIVE
 	WP_MeleeFlags HELD_HIGHDAMAGE
-	WP_FragNadeFlags HELD_STUN|HELD_PULSE|HELD_HIGHDAMAGE|HELD_DISRUPTIFY
+	WP_SaberFlags HELD_KNOCKDOWN
+	WP_FragNadeFlags HELD_STUN|HELD_PULSE|HELD_HIGHDAMAGE|HELD_DISRUPTIFY|HELD_KNOCKDOWN
+	WP_PulseNadeFlags HELD_DISRUPTIFY|HELD_HIGHDAMAGE
 	WP_T21Flags HELD_LOWDAMAGE
-	//WP_CloneRifleFlags HELD_STUN|HELD_PULSE|HELD_EXPLOSIVE
 	
 	respawnCustomTime  	50000
 }
@@ -72,23 +72,54 @@ WeaponInfo0
 {
 	WeaponToReplace		WP_FRAG_NADE
 	WeaponBasedOff		WP_PULSE_NADE
-	NewWorldModel			"models/weapons2/thr_booma/booma.glm"
-	NewViewModel			"models/weapons2/thr_booma/booma.md3"
-	altFlashSound0			"sound/weapons/stone/fire.mp3"
+	NewWorldModel			"models/weapons2/pw_atlatl/atlatl.glm"
+	NewViewModel			"models/weapons2/pw_atlatl/atlatl.md3"
+	altFlashSound0		"sound/weapons/stone/fire.mp3"
+	altMissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
 	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
 	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
 	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
-	Icon						"gfx/hud/w_icon_rpgren"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
+	MissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	MissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	MissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	MissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
 	MuzzleEffect				"stone/muzzle1"
 	altMuzzleEffect 			"stone/muzzle1"
-	altMissileEffect 		"grenades/glowempb"
 	MissileEffect 			"grenades/glowempb"
+	altMissileEffect 		"grenades/glowempb"
 	primFireEnabled 			0
-	WeaponName				"Boomas"
-	customAmmo 				6
+	WeaponName				"Atlatl and Boomas"
+	Icon						"gfx/hud/w_icon_atlatl"
+	customAmmo 				3
 }
 
 WeaponInfo1
+{
+	WeaponToReplace		WP_PULSE_NADE
+	WeaponBasedOff		WP_PULSE_NADE
+	NewWorldModel			"models/weapons2/thr_booma/booma.glm"
+	NewViewModel			"models/weapons2/thr_booma/booma.md3"
+	altFlashSound0		"sound/weapons/stone/fire.mp3"
+	altMissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
+	altMuzzleEffect 			"stone/muzzle1"
+	altMissileEffect 		"grenades/glowempb"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
+	MissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	MissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	MissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	MissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
+	MuzzleEffect				"stone/muzzle1"
+	altFireEnabled 			0
+	WeaponName				"Hand Boomas"
+	Icon						"gfx/hud/w_icon_booma"
+	customAmmo 				3
+}
+
+WeaponInfo2
 {
 	WeaponToReplace		WP_T21
 	WeaponBasedOff		WP_T21
@@ -105,11 +136,11 @@ WeaponInfo1
 	MissileEffect		"blaster/Shot01R"
 	altMuzzleEffect		"Blaster/MuzzleFlash01R"
 	altMissileEffect		"blaster/Shot01R"
-	customAmmo 		560
+	customAmmo 		672
 	clipsize 		112
 }
 
-WeaponInfo2
+WeaponInfo3
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
@@ -124,12 +155,12 @@ WeaponInfo2
 description "Jar Jar Binks
 
 Class: Hero
-Brief Overview: A concentrated ball of chaos with unreliable firepower, but all the luck in the world.
+Brief Overview: A chaos vortex with unreliable firepower, but all the luck in the world.
 
 ^2Weaponry:
 - Melee
 -- 25% faster swings
--- 100% more damage
+-- 100% more dmg
 - Grand Gungan Ticklers
 -- Based on Lightsaber
 -- Cyan style
@@ -138,22 +169,25 @@ Brief Overview: A concentrated ball of chaos with unreliable firepower, but all 
 -- Knocks down targets
 -- 50% more knockback
 -- 30% faster swings
--- 84/66% less damage
+-- 66% less dmg
 -- 25% shorter reach
 - Salvaged E-5 Blaster Rifle
--- Based on T-21 (2)
--- 50% less damage
-- Boomas (6)
--- Based on Frag Grenades
--- Electrifies, pushes, and knocks down targets
--- 100% more damage
+-- Based on T-21 (1)
+-- 50% less dmg
+- Atlatl and Boomas (3)
+-- Based on OG Frag Grenades
+-- Electrifies/staggers/knocks down targets
+-- 100% more dmg
 -- Sec. fire only
+- Hand Boomas (3)
+-- Based on Pulse Grenades
+-- 100% more dmg
+-- Prim. fire only
 
 ^8Attributes:
 - 200% slower skill cooldown
-- 50% more knockback taken/given
-- Bunny Hop (2)
-- Slow Faller
+- 50% more KB taken/given
+- Bunny Hop (2) + Slow Faller
 - Stamina (3)
 - Dexterity (3)
 - Blast Armor
@@ -161,9 +195,8 @@ Brief Overview: A concentrated ball of chaos with unreliable firepower, but all 
 - Underwater Breathing
 
 ^3Abilities:
-- Toxic Taunt (Taunts damage Sith)
+- Toxic Taunt
 - Dodge (3) ^3[CS1]
 - Dex Roll ^3[CS2]
-- Dash (2) ^3[CS3]
--- Can jump while Dashing
-- Flipkick (2)"
+- Dash Jump (2) ^3[CS3]
+- Flipkick (3)"
