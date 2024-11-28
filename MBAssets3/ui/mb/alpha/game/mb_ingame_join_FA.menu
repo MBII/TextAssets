@@ -44,12 +44,24 @@
 			play				"sound/interface/back.mp3"
 			close				all
 			open				ingame			
-		}		
+		}
+
+		itemDef
+		{
+			name				btn_info_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/btn_info_hl"
+			forecolor			0.8 0.8 0.8 1
+			visible				0
+			decoration
+		}
 
 //----------------------------------------------------------------------------------------------
 // MAP TIME SECTION
 //----------------------------------------------------------------------------------------------
-
+		
 		itemDef
 		{
 			name				bg_teamselect
@@ -987,22 +999,87 @@
 		visible 			0
 		decoration
 	}
-
+	
+		// Class Config Info Button
 	itemDef
 	{
-		name 				plusTitle
-		//group				classdescription
-		rect 				175 66 0 0 
-		style				WINDOW_STYLE_TEXT_RGB1
-		text				"+"
-		font				7
-		textscale			0.4
-		textalign 			ITEM_ALIGN_LEFT
-		textalignx 			0
-		textaligny 			-26
-		forecolor			1 1 1 1
-		visible 			0
-		decoration
+			name				plusTitle2
+			//group				none
+			//text				"grr"
+			descText			"Class Info"	
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/btn_info"			
+			rect				175 66 20 20	
+			textaligny			-12
+			font				6
+			textscale			0.5
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			forecolor			1 1 1 0.1
+			visible				0	  
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ; 
+				hide			descriptionButton
+				show			customizeButton
+				hide			descriptionFeeder
+				show			faSkills
+				show			plusTitle
+				hide			plusTitle2
+			}
+			mouseenter
+			{
+				setitemcolor	plusTitle2 forecolor 1 1 1 0.25
+				show			btn_info_hl
+				setitemrect		btn_info_hl 175 66 20 20	
+			}
+			mouseExit
+			{
+				setitemcolor	plusTitle2 forecolor 1 1 1 0.1
+				hide			btn_info_hl
+			}
+	}
+	itemDef
+	{
+			name				plusTitle
+			//group				none
+			//text				"grr"
+			descText			"Class Info"	
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"			
+			rect				175 66 20 20	
+			textaligny			-12
+			font				6
+			textscale			0.5
+			textalignx			58
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			forecolor			1 1 1 0.1
+			visible				0	  
+			action 
+			{ 			
+				play			"sound/interface/go.mp3" ;
+				show			descriptionButton
+				hide			customizeButton
+				show			descriptionFeeder
+				hide			faSkills
+				show			plusTitle2
+				hide			plusTitle
+			}
+			mouseenter
+			{
+				setitemcolor	plusTitle forecolor 1 1 1 0.25
+				show			btn_info_hl
+				setitemrect		btn_info_hl 175 66 20 20	
+			}
+			mouseExit
+			{
+				setitemcolor	plusTitle forecolor 1 1 1 0.1
+				hide			btn_info_hl
+			}
 	}
 
 	itemDef
@@ -1011,7 +1088,6 @@
 		rect 				175 66 150 15 //205 66 90 15
 		style				WINDOW_STYLE_TEXT_RGB1
 		text				"OVERVIEW"
-		type				1
 		font				7
 		textscale			0.2
 		textalign 			ITEM_ALIGN_CENTER
@@ -1019,14 +1095,6 @@
 		textaligny 			-10
 		forecolor			1 1 1 1
 		visible 			0
-		action
-		{
-			play	"sound/interface/button1.wav"
-			hide	descriptionButton
-			show	customizeButton
-			hide	descriptionFeeder
-			show	faSkills
-		}
 	}
 	
 	itemDef
@@ -1035,7 +1103,6 @@
 		rect 				175 66 155 15
 		style				WINDOW_STYLE_TEXT_RGB1
 		text				"BUILD"
-		type				1
 		font				7
 		textscale			0.2
 		textalign 			ITEM_ALIGN_CENTER
@@ -1043,14 +1110,6 @@
 		textaligny 			-10
 		forecolor			1 1 1 1
 		visible 			0
-		action
-		{
-			play	"sound/interface/button1.wav"
-			show	descriptionButton
-			hide	customizeButton
-			show	descriptionFeeder
-			hide	faSkills
-		}
 	}
 	
 
