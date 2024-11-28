@@ -524,6 +524,7 @@ gfx/automap/mb2_dxunbot
 
 gfx/automap/mb2_dxunbotfull
 {
+	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxunbotfull
@@ -545,6 +546,7 @@ gfx/automap/mb2_dxunmid
 
 gfx/automap/mb2_dxunmidfull
 {
+	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxunmidfull
@@ -566,6 +568,7 @@ gfx/automap/mb2_dxuntop
 
 gfx/automap/mb2_dxuntopfull
 {
+	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxuntopfull
@@ -587,6 +590,7 @@ gfx/automap/mb2_dxuncliff
 
 gfx/automap/mb2_dxunclifffull
 {
+	nopicmip
 	nomipmaps
 	{
 		map gfx/automap/mb2_dxunclifffull
