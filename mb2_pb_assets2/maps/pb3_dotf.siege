@@ -2,30 +2,10 @@
 
 Teams
 {
-	team1 Naboo
-	team2 TradeFederation
+	team1 Goodies
+	team2 Baddies
 }
 
-LevelshotDesc
-{
-    desc1
-    {   
-        text "The pilots have their job to do, we have ours. We need to get to the Throne Room and seal the doors. The entire Palace is locked down, but if someone can slice the controls at the generator our attack will be much easier.
-We'll take the long way."
-        
-        rect "410 147 220 55"
-        scale 0.125
-    }
-    desc2
-    {   
-        text "The Naboo are attacking the Palace. Security has been raised to its highest level, but there is an access console in the Generator room. If the Naboo manage to slice it, defense will be more difficult.
-
-You have been well trained, they will be no match for you."
-        
-        rect "410 258 220 55"
-        scale 0.125
-    }
-}
 
 mapgraphic "gfx\mplevels\mb2_dotf_classicB\map"
 missionname  "Duel of the Fates Classic B"
@@ -143,7 +123,7 @@ roundbegin_target ""
 
 //All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
 
-Naboo
+Goodies
 {
 	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
 	Timed 300
@@ -154,38 +134,37 @@ Naboo
 	
 		Objective1
 	{
-		goalname "Get to the generator room and deactivate the throne room's lock"
+		goalname "Storm the generator room and hack into the Pentagon!!"
 		final -1
-		message_team1 "We have gained access!"
-		message_team2 "They have unlocked the throne room!"
+		message_team1 "We're in!"
+		message_team2 "They have unlocked the knee surgery room!"
 		objdesc "SECONDARY GOAL:
- 		Get to the override console and open the throne room door"
+ 		Get to the override console and open the knee surgery room door"
 		objgfx "gfx/mplevels/mb2_dotf_classicB/obj1"
 	}
+
             Objective2
 	{
-		goalname "Gain control of the throne room and close the door!"
+		goalname "Raid Area 51 and take their grimace shakes!"
 		final 0
 		message_team1 "We did it!"
-		message_team2 "They got the Viceroy!"
+		message_team2 "They got Baby Gronk!"
 		objdesc "PRIMARY GOAL:
-		Gain control of the throne room"
+		Gain control of the Skibidi Toilet"
 		objgfx "gfx/mplevels/mb2_dotf_classicB/obj2"
 	}
 	
-
-	
 	wonround "EZ + Destroyed + Ratio + Get fucked" 						//Printed to this team if they won the round.
 	lostround "These skill issues are getting out of hand!"						//Printed to this team if they lost the round.
-	roundover_sound_wewon "sound/mapsound_pb3/aids.mp3"
-	roundover_sound_welost "sound/mapsound_pb3/mariolose.mp3"
+	roundover_sound_wewon "sound/vjun/aids.mp3"
+	roundover_sound_welost "sound/vjun/mariolose.mp3"
 	roundover_target "siegeend"
 	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
 
-	briefing "Get to the Throne Room" //Displayed on the mission briefing menu.
+	briefing "Get to the Knee Surgery Room" //Displayed on the mission briefing menu.
 }
 
-TradeFederation
+Baddies
 {
 	RequiredObjectives 1
 	UseTeam "PB3_B"
@@ -195,19 +174,19 @@ TradeFederation
 
 	Objective1
 	{
-		goalname "Keep the attackers away from the throne room!"
+		goalname "Keep the sigmas from reaching our weed!"
 		final -1
 		target ""
 		objdesc "PRIMARY GOAL:
-		Keep the attackers away from the throne room!"
+		Keep the sigmas from reaching our weed!"
 		objgfx "gfx/mplevels/mb2_dotf_classicB/obj2"
 	}
 	
 	
 	wonround "EZ + Destroyed + Ratio + Get fucked"
 	lostround "These skill issues are getting out of hand!"
-	roundover_sound_wewon "sound/mapsound_pb3/isen.mp3"
-	roundover_sound_welost "sound/mapsound_pb3/nelul.mp3" 
+	roundover_sound_wewon "sound/vjun/isen.mp3"
+	roundover_sound_welost "sound/vjun/nelul.mp3" 
 	roundover_target "siegeend"
 	attackers 0
 
