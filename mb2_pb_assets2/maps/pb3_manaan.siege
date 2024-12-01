@@ -1,0 +1,224 @@
+	//This file should never exceed 16384 bytes.
+
+Teams
+{
+	team1 Goodies
+	team2 Baddies
+}
+
+mapgraphic "gfx/mp/mplevels/mb2_manaan/map"
+missionname  "Manaan Ahto City Uprising"
+radartopleft "-124, -1632"
+radarbottomright "11408, -10972"
+
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_manaan"
+		radargraphicfull "gfx/automap/mb2_manaanfull"
+                height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_manaan1"
+		radargraphicfull "gfx/automap/mb2_manaan1full"
+		height "540"
+	}
+
+}
+
+roundbegin_target ""
+//this is a global target, it will be fired off if there is one when the round begins (this happens
+//when there is at least 1 player on each team active)
+
+//All message strings, like message_team1, wonround, etc. can be striped references by having the first char as @.
+HelpIcons
+{
+
+//Kolto south
+	HelpIcon1
+	{
+		end0 "kolto_n4"
+		end1 "capture_obj"
+		end2 "imp_obj_relay"
+		origin "6364 -8608 244"
+		redicon HLP_DEFEND
+		blueicon HLP_DESTROY
+		specicon HLP_DEFEND
+		radius 3500
+	}
+//Kolto Hotel
+	HelpIcon2
+	{
+		end0 "kolto_n3"
+		end1 "capture_obj"
+		end2 "imp_obj_relay"
+		origin "3436 -5324 192"
+		redicon HLP_DEFEND
+		blueicon HLP_DESTROY
+		specicon HLP_DEFEND
+		radius 3500
+	}
+
+//Kolto Embassy
+	HelpIcon3
+	{
+		end0 "kolto_n1"
+		end1 "capture_obj"
+		end2 "imp_obj_relay"
+		origin "424 -7748 140"
+		redicon HLP_DEFEND
+		blueicon HLP_DESTROY
+		specicon HLP_DEFEND
+		radius	 3500
+	}
+
+//Capture West
+	HelpIcon4
+	{
+		end0 "capture_west"
+		end1 "capture_obj"
+		end2 "imp_obj_relay"
+		origin "1476 -5872 156"
+		redicon HLP_CAPTURE
+		blueicon HLP_DEFEND
+		specicon HLP_CAPTURE
+		radius	 3500
+	}
+
+//Capture Main
+	HelpIcon5
+	{
+		end0 "capture_main"
+		end1 "capture_obj"
+		end2 "imp_obj_relay"
+		origin "5320 -6252 156"
+		redicon HLP_CAPTURE
+		blueicon HLP_DEFEND
+		specicon HLP_CAPTURE
+		radius	 3500
+	}
+
+//Hack ship Imps
+	HelpIcon6
+	{
+                start0 "imp_obj_relay"
+		end0 "sith_escape"
+		origin "9548 -6184 200"
+		redicon HLP_DEFEND
+		blueicon HLP_HACK
+		specicon HLP_DEFEND
+		radius	 5000
+	}
+
+//Hack ship Rebs
+	HelpIcon7
+	{
+                start0 "capture_obj"
+		end0 "rebs_escape"
+		origin "10572 -5752 244"
+		redicon HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+		radius	 5000
+	}
+}
+
+Goodies
+{
+	RequiredObjectives 1								//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
+	UseTeam "PB3_G" 						//Specifies the name of team "theme" to use
+	TeamIcon	"gfx/2d/logos/mb_oldrepublic2"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	
+
+	Objective1
+	{
+		goalname "Protect the Kolto supplies."
+		final -1
+		objdesc "DEFEND: Stop the Sith from destroying our Kolto supplies."
+		objgfx "gfx/mp/mplevels/mb2_manaan/obj1"
+	}
+
+	Objective2
+	{
+		goalname "Secure Ahto Center and Ahto West."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ATTACK: Capture Ahto Center and Ahto West."
+		objgfx "gfx/mp/mplevels/mb2_manaan/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Get to Sith Hangar and stop them from escaping."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ATTACK: Get to Sith Hangar and stop them from escaping."
+		objgfx "gfx/mp/mplevels/mb2_manaan/obj3"
+	}
+
+	wonround "EZ + Destroyed + Ratio + Get fucked" 						//Printed to this team if they won the round.
+	lostround "These skill issues are getting out of hand!"						//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/vjun/aids.mp3"
+	roundover_sound_welost "sound/vjun/mariolose.mp3"
+	roundover_target "siegeend"
+	attackers 1 									//this actually does not affect the mission, but the bot AI will use the knowledge to decide on how to act.
+
+	briefing "" //Displayed on the mission briefing menu.
+}
+
+Baddies
+{
+	RequiredObjectives 1
+        Timed 300
+	UseTeam "PB3_B"
+	TeamIcon	"gfx/2d/logos/mb_sithempire"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Destroy the Republic Kolto supplies."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ATTACK: Destroy the Republic Kolto supplies."
+		objgfx "gfx/mp/mplevels/mb2_manaan/obj1"
+	}
+
+
+	Objective2
+	{
+		goalname "Defend Ahto Center and Ahto West."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		objdesc "DEFEND: Stop the Republic from capturing Ahto Center and Ahto West."
+		objgfx "gfx/mp/mplevels/mb2_manaan/obj2"
+	}
+	
+	Objective3
+	{
+		goalname "Get to the Sith Hangar and escape in the transporter."
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "ATTACK: Get to the Sith Hangar and escape in the transporter."
+		objgfx "gfx/mp/mplevels/mb2_manaan/obj3"
+	}
+	
+	wonround "EZ + Destroyed + Ratio + Get fucked"
+	lostround "These skill issues are getting out of hand!"
+	roundover_sound_wewon "sound/vjun/isen.mp3"
+	roundover_sound_welost "sound/vjun/nelul.mp3" 
+	roundover_target "siegeend"
+	attackers 0
+
+	briefing ""
+}

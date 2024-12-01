@@ -1,0 +1,140 @@
+Teams
+{
+	team1 Goodies
+	team2 Baddies
+}
+
+
+mapgraphic "gfx/mplevels/mb2_cloudcity/cloudcity"
+missionname "Delivery of Han Solo"
+radartopleft "-4608, 17920"
+radarbottomright "8960, 6400"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cloudcity"
+		radargraphicfull "gfx/automap/mb2_cloudcityfull"
+	}
+}
+
+HelpIcons
+{
+	//Han In Carbonite
+	HelpIcon0
+	{
+		dynamic 1
+		end0 "siegeend"
+		redicon HLP_PAYLOAD
+		blueicon HLP_PAYLOAD
+		specicon HLP_PAYLOAD
+	}
+	
+	//Falcon
+	HelpIcon1
+	{
+		end0 "t30"
+		origin "6928 10352 -180"
+		redicon HLP_CUSTOM
+		redcustomicon "gfx/2d/hud/hlp_payload2"
+		blueicon HLP_DEFEND
+		specicon HLP_DEFEND
+	}
+
+	//Slave 1
+	HelpIcon2
+	{
+		end0 "hackrelaytofinal"
+		origin "1296 14524 -132"
+		redicon HLP_DEFEND
+		blueicon HLP_CUSTOM
+		bluecustomicon "gfx/2d/hud/hlp_payload2"
+		specicon HLP_DEFEND
+	}
+}
+
+countin_time 0
+
+roundbegin_target ""
+
+Baddies
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "PB3_B"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Hold the Rebellion off"
+		final 0
+		message_team1 "The Rebellion has been defeated."
+		message_team2 "You have been held off."
+		objdesc "SECONDARY GOAL:
+		Hold the rescue-mission of the Rebellion off."
+		objgfx "gfx/mplevels/mb2_cloudcity/imp_objective2"
+	}
+
+	Objective2
+	{
+		goalname "Deliver Han Solo to the Slave I"
+		final 0
+		message_team1 "You have completed the delivery."
+		message_team2 "You have failed to regain Han Solo."
+		objdesc "PRIMARY GOAL:
+		Deliver the in carbonite frozen Han Solo to the Slave I."
+		objgfx "gfx/mplevels/mb2_cloudcity/imp_objective1"
+	}
+
+	wonround "EZ + Destroyed + Ratio + Get fucked" 						//Printed to this team if they won the round.
+	lostround "These skill issues are getting out of hand!"						//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/vjun/aids.mp3"
+	roundover_sound_welost "sound/vjun/mariolose.mp3"
+	roundover_target "siegeend"
+	attackers 1 
+	briefing "Deliver Han Solo."
+}
+
+Goodies
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "PB3_G"
+	TeamIcon "gfx/2d/logos/mb_bespin"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Regain Han Solo"
+		final 0
+		message_team1 "The Imperial Forces have been held off."
+		message_team2 "You lost Han Solo."
+		target ""
+		objdesc "SECONDARY GOAL:
+		Rescue the in carbonite frozen Han Solo from the Imperial Forces."
+		objgfx "gfx/mplevels/mb2_cloudcity/reb_objective2"
+	}
+
+	Objective2
+	{
+		goalname "Regain Han Solo"
+		final 0
+		message_team1 "Han Solo has been taken to the Millennium Falcon."
+		message_team2 "The Rebellion has escaped with Han Solo."
+		target ""
+		objdesc "PRIMARY GOAL:
+		Retrieve Han Solo and deliver him to the Millennium Falcon to escape."
+		objgfx "gfx/mplevels/mb2_cloudcity/reb_objective1"
+	}
+
+	wonround "EZ + Destroyed + Ratio + Get fucked"
+	lostround "These skill issues are getting out of hand!"
+	roundover_sound_wewon "sound/vjun/isen.mp3"
+	roundover_sound_welost "sound/vjun/nelul.mp3" 
+	roundover_target "siegeend"
+	attackers 0
+	briefing "Regain Han Solo."
+}
