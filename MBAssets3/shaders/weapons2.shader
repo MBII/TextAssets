@@ -59,7 +59,7 @@ models/weapons2/boushh_staff/pike
 	}
 }
 
-//booma 
+//booma nade
 models/weapons2/thr_booma/sphere
 {
 	surfaceparm	nonopaque
@@ -129,8 +129,6 @@ models/weapons2/thr_booma/core
         tcMod stretch sin 1 -0.01 0.75 0.25
     }
 }
-
-//gungan atlatl
 
 models/weapons2/pw_atlatl/atlatl
 {
@@ -246,6 +244,22 @@ models/weapons2/concussion/silver.jpg
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+//dt-29 heavy pistol
+
+models/weapons2/bp_dt29/base
+{
+    {
+        map models/weapons2/bp_dt29/base
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/bp_dt29/base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 //	e60r launcher
