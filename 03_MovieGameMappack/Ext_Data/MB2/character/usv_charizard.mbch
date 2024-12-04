@@ -5,15 +5,15 @@ ClassInfo
 	name			"usv_charizard"
 	weapons		WP_MELEE|WP_FRAG_NADE|WP_SABER|WP_THROWER
 	saber1			slashR
-	saberstyle		SS_MEDIUM
+	saberstyle		SS_MEDIUM|SS_DESANN
 	maxhealth		200
-	attributes		MB_ATT_FUELREGEN,3|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_FRAGS,3|MB_ATT_THROWER_FLAME,2
+	attributes		MB_ATT_JETPACK,1|MB_ATT_FRAGS,3|MB_ATT_THROWER_FLAME,3
 	model			"charizard"
 	skin			"default"
 	uishader		"gfx/mplevels/ultimate_showdown/charizard"
 	modelscale 1.4
-	MBClass			MB_CLASS_MANDALORIAN
-	classflags	CFL_NO_JETPACK_OVERHEAT|CFL_NO_JETPACK_COOLDOWN|CFL_HEAVYMELEE
+	MBClass			MB_CLASS_JEDI
+	classflags	CFL_NO_JETPACK_OVERHEAT|CFL_NO_JETPACK_COOLDOWN|CFL_HEAVYMELEE|CFL_NO_FUEL_USE
 	jetpackThrustEffect	""
 	jetpackIdleEffect		""
 	jetpackJetTag		"*r_leg_foot"
@@ -26,6 +26,8 @@ ClassInfo
 	jetpackIdleSound		"sound/effects/woosh4"
 	jetpackStartSound 	"sound/effects/woosh22"
 	classnumberlimit	1
+	resource			RESOURCE_FORCE
+	forceregen			1.5
 }
 
 WeaponInfo0
@@ -35,7 +37,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/noweap/noweap.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon		"gfx/hud/pokemon/icon_normal"
-	WeaponName		"Tackle"
+	WeaponName		"Slash"
 	SelectSound "Sound/pokemon/select.wav"
 }
 
@@ -62,7 +64,7 @@ WeaponInfo2
 	NewWorldModel		"models/weapons2/noweap/noweap.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon		"gfx/hud/pokemon/icon_normal"
-	WeaponName		"Slash"
+	WeaponName		"Dragon Claw"
 	SelectSound "Sound/pokemon/select.wav"
 }
 
@@ -70,23 +72,25 @@ WeaponInfo2
 WeaponInfo3
 {
 	WeaponToReplace		WP_THROWER
-	WeaponBasedOff		WP_THROWER
+	WeaponBasedOff		WP_CLONE_RIFLE
 	NewWorldModel		"models/weapons2/noweap/noweap.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon		"gfx/hud/pokemon/icon_fire"
 	WeaponName		"Flamethrower"
 	SelectSound "Sound/pokemon/select.wav"
+		customAmmo			999
+	clipsize			999
 }
 
 description	"Charizard - Pokemon
 
 Moves:
-Tackle (Normal)
 Slash (Normal)
+Dragon Claw (Dragon)
 Smokescreen (Normal)
 Flamethrower (Fire)
 
 HM:
 Fly (Normal)
 
-HP: 140"
+HP: 200"
