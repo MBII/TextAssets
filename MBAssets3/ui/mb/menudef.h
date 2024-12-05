@@ -33,6 +33,7 @@
 #define ITEM_ALIGN_LEFT					0	// left alignment
 #define ITEM_ALIGN_CENTER				1	// center alignment
 #define ITEM_ALIGN_RIGHT				2	// right alignment
+#define ITEM_ALIGN_MIDDLE				6	// middle alignment
 
 #define ITEM_TEXTSTYLE_NORMAL			0	// normal text
 #define ITEM_TEXTSTYLE_BLINK			1	// fast blinking
@@ -156,6 +157,8 @@
 
 #define FEEDER_EXHEADS					0x40 // GCJ_EX_MODELS
 
+#define FEEDER_CONQUEST					0x4a	// GCJ_NEW_CONQUEST
+
 // GCJ_OPEN_CLASS_FEEDER
 #define FEEDER_MB_CLASS_R				0x41
 #define FEEDER_MB_CLASS_B				0x42
@@ -188,6 +191,9 @@
 #define FEEDER_SIEGE_TEAM1				2801
 #define FEEDER_SIEGE_TEAM2				2802
 
+// GCJ_SIEGE_FEEDER_TEAM_ALL
+#define FEEDER_SIEGE_TEAM1_ALL			3201
+#define FEEDER_SIEGE_TEAM2_ALL			3202
 
 // display flags
 #define CG_SHOW_BLUE_TEAM_HAS_REDFLAG	0x00000001
@@ -364,26 +370,30 @@
 #define UI_PREVIEWCINEMATIC			254
 #define UI_STARTMAPCINEMATIC		255
 #define UI_MAPS_SELECTION			256
-#define UI_FORCE_SIDE				257
-#define UI_FORCE_RANK				258
-#define UI_FORCE_RANK_HEAL			259
-#define UI_FORCE_RANK_LEVITATION	260
-#define UI_FORCE_RANK_SPEED			261
-#define UI_FORCE_RANK_PUSH			262
-#define UI_FORCE_RANK_PULL			263
-#define UI_FORCE_RANK_TELEPATHY		264
-#define UI_FORCE_RANK_GRIP			265
-#define UI_FORCE_RANK_LIGHTNING		266
-#define UI_FORCE_RANK_RAGE			267
-#define UI_FORCE_RANK_PROTECT		268
-#define UI_FORCE_RANK_ABSORB		269
-#define UI_FORCE_RANK_TEAM_HEAL		270
-#define UI_FORCE_RANK_TEAM_FORCE	271
-#define UI_FORCE_RANK_DRAIN			272
-#define UI_FORCE_RANK_SEE			273
-#define UI_FORCE_RANK_SABERATTACK	274
-#define UI_FORCE_RANK_SABERDEFEND	275
-#define UI_FORCE_RANK_SABERTHROW	276
+
+// GCJ_FA_TRI_TREES
+//#define UI_FORCE_SIDE				257
+//#define UI_FORCE_RANK				258
+//#define UI_FORCE_RANK_HEAL		259
+//#define UI_FORCE_RANK_LEVITATION	260
+//#define UI_FORCE_RANK_SPEED		261
+//#define UI_FORCE_RANK_PUSH		262
+//#define UI_FORCE_RANK_PULL		263
+//#define UI_FORCE_RANK_TELEPATHY	264
+//#define UI_FORCE_RANK_GRIP		265
+//#define UI_FORCE_RANK_LIGHTNING	266
+//#define UI_FORCE_RANK_RAGE		267
+//#define UI_FORCE_RANK_PROTECT		268
+//#define UI_FORCE_RANK_ABSORB		269
+//#define UI_FORCE_RANK_TEAM_HEAL	270
+//#define UI_FORCE_RANK_TEAM_FORCE	271
+//#define UI_FORCE_RANK_DRAIN		272
+//#define UI_FORCE_RANK_SEE			273
+//#define UI_FORCE_RANK_SABERATTACK	274
+//#define UI_FORCE_RANK_SABERDEFEND	275
+//#define UI_FORCE_RANK_SABERTHROW	276
+
+
 #define UI_VERSION					277
 #define UI_TOTALFORCESTARS			278
 #define UI_AUTOSWITCHLIST			279
@@ -418,7 +428,7 @@
 #define UI_JOINMBMODE				299
 #define UI_CHAT_HAND				300
 
-//#ifdef GCJ_FA_REVERSE_SELECTION
+// GCJ_FA_REVERSE_SELECTION
 #define UI_FA_00 700
 #define UI_FA_01 701
 #define UI_FA_02 702
@@ -428,7 +438,79 @@
 #define UI_FA_06 706
 #define UI_FA_07 707
 #define UI_FA_08 708
-//#endif
+
+
+// GCJ_FA_TRI_TREES
+#define UI_FORCE_SIDE				3000
+#define UI_FORCE_RANK				3001
+
+#define UI_FA_RANK_00				3002
+#define UI_FA_RANK_01				3003
+#define UI_FA_RANK_02				3004
+#define UI_FA_RANK_03				3005
+#define UI_FA_RANK_04				3006
+#define UI_FA_RANK_05				3007
+#define UI_FA_RANK_06				3008
+#define UI_FA_RANK_07				3009
+#define UI_FA_RANK_08				3010
+#define UI_FA_RANK_09				3011
+#define UI_FA_RANK_10				3012
+#define UI_FA_RANK_11				3013
+#define UI_FA_RANK_12				3014
+#define UI_FA_RANK_13				3015
+#define UI_FA_RANK_14				3016
+#define UI_FA_RANK_15				3017
+#define UI_FA_RANK_16				3018
+#define UI_FA_RANK_17				3019
+#define UI_FA_RANK_18				3020
+#define UI_FA_RANK_19				3021
+#define UI_FA_RANK_20				3022
+#define UI_FA_RANK_21				3023
+#define UI_FA_RANK_22				3024
+#define UI_FA_RANK_23				3025
+#define UI_FA_RANK_24				3026
+#define UI_FA_RANK_25				3027
+#define UI_FA_RANK_26				3028
+#define UI_FA_RANK_27				3029
+#define UI_FA_RANK_28				3030
+#define UI_FA_RANK_29				3031
+#define UI_FA_RANK_30				3032
+#define UI_FA_RANK_31				3033
+#define UI_FA_RANK_32				3034
+#define UI_FA_RANK_33				3035
+#define UI_FA_RANK_34				3036
+#define UI_FA_RANK_35				3037
+#define UI_FA_RANK_36				3038
+#define UI_FA_RANK_37				3039
+#define UI_FA_RANK_38				3040
+#define UI_FA_RANK_39				3041
+#define UI_FA_RANK_40				3042
+#define UI_FA_RANK_41				3043
+#define UI_FA_RANK_42				3044
+#define UI_FA_RANK_43				3045
+#define UI_FA_RANK_44				3046
+#define UI_FA_RANK_45				3047
+
+#define UI_FORCE_RANK_HEAL									3002
+#define UI_FORCE_RANK_LEVITATION							3003
+#define UI_FORCE_RANK_SPEED									3004
+#define UI_FORCE_RANK_PUSH									3005
+#define UI_FORCE_RANK_PULL									3006
+#define UI_FORCE_RANK_TELEPATHY								3007
+#define UI_FORCE_RANK_GRIP									3008
+#define UI_FORCE_RANK_LIGHTNING								3009
+#define UI_FORCE_RANK_RAGE									3010
+#define UI_FORCE_RANK_PROTECT								3011
+#define UI_FORCE_RANK_ABSORB								3012
+#define UI_FORCE_RANK_TEAM_HEAL								3013
+#define UI_FORCE_RANK_TEAM_FORCE							3014
+#define UI_FORCE_RANK_DRAIN									3015
+#define UI_FORCE_RANK_SEE									3016
+#define UI_FORCE_RANK_SABERATTACK							3017
+#define UI_FORCE_RANK_SABERDEFEND							3018
+#define UI_FORCE_RANK_SABERTHROW							3019
+
+
 
 #define VOICECHAT_GETFLAG			"getflag"			// command someone to get the flag
 #define VOICECHAT_OFFENSE			"offense"			// command someone to go on offense

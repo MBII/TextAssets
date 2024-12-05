@@ -21,29 +21,25 @@
 			setitembackground	team1_symbol	"*team1_icon"
 			setitembackground	team2_symbol	"*team2_icon"
 
-			uiscript			setteamclassicons
-				
 			show				spectator_button
-				
-		    setcvar				cg_escapeactive "1"
+
+			setcvar				cg_escapeactive "1"
 		}
 		onClose
 		{
 			setcvar				cg_escapeactive "0"
-				
+
 			hide				Team1Feeder
 			hide				Team2Feeder
 			hide				FA_count
 			hide				titleV
 			hide				playermodels
-			hide				classdescription
-			hide				stats
 		}
 		onESC
 		{
 			play				"sound/interface/back.mp3"
 			close				all
-			open				ingame			
+			open				ingame
 		}
 
 		itemDef
@@ -188,24 +184,15 @@
 				setitemcolor	team1_buttonbg	backcolor	1 1 1 0.1
 				setitemcolor	team1_buttonbg	forecolor	0.5 0.5 0.5 1
 				setitemcolor	team1_count		forecolor	0.5 0.5 0.5 1
-				// show the class stuff, cause this uses class
-				show			class_button
-				show			class_count
-				show			class_count_bk
 
 				play			"sound/interface/button1.wav"
 				setcvar			ui_holdteam				1
 				uiscript		updatesiegeclasscnt		1
 				uiscript		updatesiegecvars
-				
-				// turn on class buttons
-				disable			class_button	0
 
-				uiscript		resetsiegelistboxes
 				uiscript		feederselection
 				hide			feeders
-				hide			stats
-				hide			classdescription
+				
 				show			character_title
 				show			Team1Feeder
 				hide			Team2Feeder
@@ -298,25 +285,15 @@
 				setitemcolor	team2_buttonbg	backcolor	1 1 1 0.1
 				setitemcolor	team2_buttonbg	forecolor	0.5 0.5 0.5 1
 				setitemcolor	team2_count		forecolor	0.5 0.5 0.5 1
-				// show the class stuff, cause this uses class
-				show			class_button
-				show			class_count
-				show			class_count_bk
 
 				play			"sound/interface/button1.wav"
 				setcvar			ui_holdteam			2
 				uiscript		updatesiegeclasscnt	2
 				uiscript		updatesiegecvars
 
-				// turn on class buttons
-				disable			class_button	0
-
-				show			borderclass
-				uiscript		resetsiegelistboxes
 				uiscript		feederselection
 				hide			feeders
-				hide			stats
-				hide			classdescription
+
 				show			character_title
 				hide			Team1Feeder
 				show			Team2Feeder
@@ -391,12 +368,7 @@
 				setitemcolor	spectator_buttonbg	backcolor	1 1 1 0.1
 				setitemcolor	spectator_buttonbg	forecolor	0.5 0.5 0.5 1
 				play			"sound/interface/button1.wav"
-				hide			borderclass
-				hide			stats
-				hide			classdescription
-				hide			class_button
-				hide			class_count
-				hide			class_count_bk
+
 				setcvar			ui_holdteam 3
 				setcvar			ui_class	0
 				exec			"cmd team s"
@@ -472,9 +444,6 @@
 			{  
 				play			"sound/interface/button1"
 				show			feeders
-				show			stats
-				show			classdescription
-				//uiscript		updatesiegecvars
 			}
 			mouseEnter
 			{ 
@@ -508,9 +477,6 @@
 			{  
 				play			"sound/interface/button1"
 				show			feeders
-				show			stats
-				show			classdescription
-				//uiscript		updatesiegecvars
 			}
 			mouseEnter
 			{ 
@@ -525,7 +491,6 @@
 		itemDef
 		{
 			name				FA_count
-			group				FA_count
 			type 				ITEM_TYPE_TEXT
 			rect				140 66 0 0
 			cvar				ui_FAque
@@ -534,7 +499,7 @@
 			textaligny 			-10
 			font				7
 			textscale			0.2
-			forecolor			0.9 0.9 0.9 1		
+			forecolor			0.9 0.9 0.9 1
 			visible				1
 			decoration
 		}
@@ -644,58 +609,19 @@
 			decoration
 		}
 
-		itemDef
-		{
-			name				class_portrait
-			style				WINDOW_STYLE_FILLED
-			rect				10 95 45 60
-			backcolor			1 1 1 1
-			visible				0
-			decoration
-		}
-
-//--------------------------------------------------
-// CLASS DESCRIPTION
-//--------------------------------------------------
-//		// HEADER
 //		itemDef
 //		{
-//			name 				description_title
-//			group				classdescription
-//			rect 				245 66 10 15
-//			style				WINDOW_STYLE_TEXT_RGB1
-//			text				"OVERVIEW"
-//			font				7
-//			textscale			0.2
-//			textalign 			ITEM_ALIGN_CENTER
-//			textalignx 			0
-//			textaligny 			-10
-//			forecolor			1 1 1 1
-//			visible 			0
+//			name				class_portrait
+//			style				WINDOW_STYLE_FILLED
+//			rect				10 95 45 60
+//			backcolor			1 1 1 1
+//			visible				0
 //			decoration
 //		}
-//
-//		itemDef
-//		{
-//			name 				description
-//			group				classdescription
-//			rect 				174 87 147 320
-//			type				ITEM_TYPE_TEXTSCROLL
-//			style 				WINDOW_STYLE_TEXT_RGB1
-//			text				"   "
-//			cvar				ui_classdesc
-//			font				6
-//			textscale 			0.15
-//			textalign 			ITEM_ALIGN_LEFT
-//			forecolor			1 1 1 1
-//			visible 			0
-//			lineHeight			13			
-//		}
-		
+
 //--------------------------------------------------
 // STATS
 //--------------------------------------------------
-		// HEADER
 		itemDef
 		{
 			name 				stats_title
@@ -979,6 +905,167 @@
 			decoration
 		}
 		
+
+//-----------------------------------------------
+// CUSTOM POINT SPECS
+//-----------------------------------------------
+	itemDef
+	{
+		name 				specs_title
+		group				faSpecs
+		rect 				392 66 10 15
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				"SPECS"
+		font				7
+		textscale			0.2
+		textalign 			ITEM_ALIGN_CENTER
+		textalignx 			0
+		textaligny 			-10
+		forecolor			1 1 1 1
+		visible 			0
+		decoration
+	}
+	
+	itemDef
+	{
+		name				specTitle
+		descText			"Swap between Stats and Spec"
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		background			"gfx/menus/alpha/Btn_Info"
+		rect				345 66 20 20
+		textaligny			-12
+		font				6
+		textscale			0.5
+		textalignx			58
+		textalign			ITEM_ALIGN_CENTER
+		textstyle			0
+		forecolor			1 1 1 0.1
+		visible				0
+		action 
+		{
+			play			"sound/interface/go.mp3" ;
+			uiScript		fa_specstats
+		}
+		mouseenter
+		{
+			setitemcolor	specTitle forecolor 1 1 1 0.25
+			show			btn_info_hl
+			setitemrect		btn_info_hl 345 66 20 20
+		}
+		mouseExit
+		{
+			setitemcolor	specTitle forecolor 1 1 1 0.1
+			hide			btn_info_hl
+		}
+	}
+
+
+	itemDef
+	{
+		name		sk1
+		group		faSpecs
+		text		"Skill 1"
+		type		ITEM_TYPE_BUTTON
+		style		WINDOW_STYLE_TEXT_RGB1
+		rect		355 100 75 100
+		textalign	ITEM_ALIGN_MIDDLE
+		textaligny	-15
+		font		6
+		textscale	.25
+		forecolor	1 1 1 1
+		descText	""
+		visible		0
+		action
+		{
+			play	"sound/interface/go.mp3"
+			show	faSkills1
+			hide	faSkills2
+			hide	faSkills3
+			uiScript	fa_setSpec1
+		}
+	}
+	itemDef
+	{
+		name		ic1
+		group		faSpecs
+		style		WINDOW_STYLE_SHADER
+		rect		355 120 75 75
+		forecolor	1 1 1 1
+		visible		0
+		decoration
+	}
+	itemDef
+	{
+		name		sk2
+		group		faSpecs
+		text		"Skill 2"
+		type		ITEM_TYPE_BUTTON
+		style		WINDOW_STYLE_TEXT_RGB1
+		rect		355 210 75 100
+		textalign	ITEM_ALIGN_MIDDLE
+		textaligny	-15
+		font		6
+		textscale	.25
+		forecolor	1 1 1 1
+		descText	""
+		visible		0
+		action
+		{
+			play	"sound/interface/go.mp3"
+			hide	faSkills1
+			show	faSkills2
+			hide	faSkills3
+			uiScript	fa_setSpec2
+		}
+	}
+	itemDef
+	{
+		name		ic2
+		group		faSpecs
+		style		WINDOW_STYLE_SHADER
+		rect		355 230 75 75
+		forecolor	1 1 1 1
+		visible		0
+		decoration
+	}
+	itemDef
+	{
+		name		sk3
+		group		faSpecs
+		text		"Skill 3"
+		type		ITEM_TYPE_BUTTON
+		style		WINDOW_STYLE_TEXT_RGB1
+		rect		355 320 75 100
+		textalign	ITEM_ALIGN_MIDDLE
+		textaligny	-15
+		font		6
+		textscale	.25
+		forecolor	1 1 1 1
+		descText	""
+		visible		0
+		action
+		{
+			play	"sound/interface/go.mp3"
+			hide	faSkills1
+			hide	faSkills2
+			show	faSkills3
+			uiScript	fa_setSpec3
+		}
+	}
+	itemDef
+	{
+		name		ic3
+		group		faSpecs
+		style		WINDOW_STYLE_SHADER
+		rect		355 340 75 75
+		forecolor	1 1 1 1
+		visible		0
+		decoration
+	}
+
+
+
 //-----------------------------------------------
 // CUSTOM POINT BUILDS
 //-----------------------------------------------
@@ -986,7 +1073,7 @@
 	itemDef
 	{
 		name 				descriptionTitle
-		//group				classdescription
+		group				classdesc
 		rect 				245 66 10 15 
 		style				WINDOW_STYLE_TEXT_RGB1
 		text				"OVERVIEW"
@@ -1000,91 +1087,45 @@
 		decoration
 	}
 	
-		// Class Config Info Button
+	// Class Config Info Button
 	itemDef
 	{
-			name				plusTitle2
-			//group				none
-			//text				"grr"
-			descText			"Class Info"	
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/btn_info"			
-			rect				175 66 20 20	
-			textaligny			-12
-			font				6
-			textscale			0.5
-			textalignx			58
-			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
-			forecolor			1 1 1 0.1
-			visible				0	  
-			action 
-			{ 			
-				play			"sound/interface/go.mp3" ; 
-				hide			descriptionButton
-				show			customizeButton
-				hide			descriptionFeeder
-				show			faSkills
-				show			plusTitle
-				hide			plusTitle2
-			}
-			mouseenter
-			{
-				setitemcolor	plusTitle2 forecolor 1 1 1 0.25
-				show			btn_info_hl
-				setitemrect		btn_info_hl 175 66 20 20	
-			}
-			mouseExit
-			{
-				setitemcolor	plusTitle2 forecolor 1 1 1 0.1
-				hide			btn_info_hl
-			}
-	}
-	itemDef
-	{
-			name				plusTitle
-			//group				none
-			//text				"grr"
-			descText			"Class Info"	
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"			
-			rect				175 66 20 20	
-			textaligny			-12
-			font				6
-			textscale			0.5
-			textalignx			58
-			textalign			ITEM_ALIGN_CENTER
-			textstyle			0
-			forecolor			1 1 1 0.1
-			visible				0	  
-			action 
-			{ 			
-				play			"sound/interface/go.mp3" ;
-				show			descriptionButton
-				hide			customizeButton
-				show			descriptionFeeder
-				hide			faSkills
-				show			plusTitle2
-				hide			plusTitle
-			}
-			mouseenter
-			{
-				setitemcolor	plusTitle forecolor 1 1 1 0.25
-				show			btn_info_hl
-				setitemrect		btn_info_hl 175 66 20 20	
-			}
-			mouseExit
-			{
-				setitemcolor	plusTitle forecolor 1 1 1 0.1
-				hide			btn_info_hl
-			}
+		name				plusTitle
+		descText			"Swap between Description and Build"
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		background			"gfx/menus/alpha/Btn_Info"
+		rect				175 66 20 20	
+		textaligny			-12
+		font				6
+		textscale			0.5
+		textalignx			58
+		textalign			ITEM_ALIGN_CENTER
+		textstyle			0
+		forecolor			1 1 1 0.1
+		visible				0	  
+		action 
+		{ 			
+			play			"sound/interface/go.mp3" ;
+			uiScript		fa_builddesc
+		}
+		mouseenter
+		{
+			setitemcolor	plusTitle forecolor 1 1 1 0.25
+			show			btn_info_hl
+			setitemrect		btn_info_hl 175 66 20 20
+		}
+		mouseExit
+		{
+			setitemcolor	plusTitle forecolor 1 1 1 0.1
+			hide			btn_info_hl
+		}
 	}
 
 	itemDef
 	{
 		name 				descriptionButton
+		group				classdesc
 		rect 				175 66 150 15 //205 66 90 15
 		style				WINDOW_STYLE_TEXT_RGB1
 		text				"OVERVIEW"
@@ -1100,6 +1141,7 @@
 	itemDef
 	{
 		name 				customizeButton
+		group				faSkills
 		rect 				175 66 155 15
 		style				WINDOW_STYLE_TEXT_RGB1
 		text				"BUILD"
@@ -1116,6 +1158,7 @@
 	itemDef
 	{
 		name 				descriptionFeeder
+		group				classdesc
 		rect 				174 87 147 320
 		type				ITEM_TYPE_TEXTSCROLL
 		style 				WINDOW_STYLE_TEXT_RGB1
@@ -1126,55 +1169,8 @@
 		textalign 			ITEM_ALIGN_LEFT
 		forecolor			1 1 1 1
 		visible 			0
-		lineHeight			13			
+		lineHeight			13
 	}
-
-//	itemDef
-//	{
-//		name		descriptionButton
-//		text		"OVERVIEW" //@MENUS_FORCE_TEMPLATES
-//		type		1
-//		style		WINDOW_STYLE_TEXT_RGB2
-//		rect		245 66 10 15
-//		textalign	ITEM_ALIGN_CENTER
-//		textalignx	52
-//		textaligny	2
-//		font		2
-//		textscale	.8
-//		forecolor	1 1 1 1
-//		descText	""
-//		visible		1
-//		action
-//		{
-//			play	"sound/interface/button1.wav"
-//			show	ClassDescription
-//			hide	faSkills
-//		}
-//	}
-//	itemDef
-//	{
-//		name		customizeButton
-//		text		245 66 10 15 //@MENUS_FORCE_TEMPLATES
-//		type		1
-//		style		WINDOW_STYLE_TEXT_RGB2
-//		rect		510 5 99 20
-//		textalign	ITEM_ALIGN_CENTER
-//		textalignx	52
-//		textaligny	2
-//		font		2
-//		textscale	.8
-//		forecolor	1 1 1 1
-//		descText	""
-//		visible		1
-//		action
-//		{
-//			play	"sound/interface/button1.wav"
-//			hide	ClassDescription
-//			show	faSkills
-//		}
-//	}
-
-
 
 	// Skill points remaining
 	itemDef
@@ -1235,7 +1231,7 @@
 	itemDef
 	{
 		name				setfa_title0
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 115 147 18
@@ -1251,9 +1247,9 @@
 	itemDef
 	{
 		name				setfa_title0
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_HEAL
+		ownerdraw			UI_FA_RANK_00
 		rect 175 115 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1283,7 +1279,7 @@
 	itemDef
 	{
 		name				setfa_title1
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 135 147 18
@@ -1299,9 +1295,9 @@
 	itemDef
 	{
 		name				setfa_title1
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_LEVITATION
+		ownerdraw			UI_FA_RANK_01
 		rect 175 135 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1331,7 +1327,7 @@
 	itemDef
 	{
 		name				setfa_title2
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 155 147 18
@@ -1347,9 +1343,9 @@
 	itemDef
 	{
 		name				setfa_title2
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_SPEED
+		ownerdraw			UI_FA_RANK_02
 		rect 175 155 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1379,7 +1375,7 @@
 	itemDef
 	{
 		name				setfa_title3
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 175 147 18
@@ -1395,9 +1391,9 @@
 	itemDef
 	{
 		name				setfa_title3
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_PUSH
+		ownerdraw			UI_FA_RANK_03
 		rect 175 175 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1427,7 +1423,7 @@
 	itemDef
 	{
 		name				setfa_title4
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 195 147 18
@@ -1443,9 +1439,9 @@
 	itemDef
 	{
 		name				setfa_title4
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_PULL
+		ownerdraw			UI_FA_RANK_04
 		rect 175 195 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1475,7 +1471,7 @@
 	itemDef
 	{
 		name				setfa_title5
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 215 147 18
@@ -1491,9 +1487,9 @@
 	itemDef
 	{
 		name				setfa_title5
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_TELEPATHY
+		ownerdraw			UI_FA_RANK_05
 		rect 175 215 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1523,7 +1519,7 @@
 	itemDef
 	{
 		name				setfa_title6
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 235 147 18
@@ -1539,9 +1535,9 @@
 	itemDef
 	{
 		name				setfa_title6
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_GRIP
+		ownerdraw			UI_FA_RANK_06
 		rect 175 235 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1571,7 +1567,7 @@
 	itemDef
 	{
 		name				setfa_title7
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 255 147 18
@@ -1587,9 +1583,9 @@
 	itemDef
 	{
 		name				setfa_title7
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_LIGHTNING
+		ownerdraw			UI_FA_RANK_07
 		rect 175 255 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1619,7 +1615,7 @@
 	itemDef
 	{
 		name				setfa_title8
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 275 147 18
@@ -1635,9 +1631,9 @@
 	itemDef
 	{
 		name				setfa_title8
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_RAGE
+		ownerdraw			UI_FA_RANK_08
 		rect 175 275 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1667,7 +1663,7 @@
 	itemDef
 	{
 		name				setfa_title9
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 295 147 18
@@ -1683,9 +1679,9 @@
 	itemDef
 	{
 		name				setfa_title9
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_PROTECT
+		ownerdraw			UI_FA_RANK_09
 		rect 175 295 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1715,7 +1711,7 @@
 	itemDef
 	{
 		name				setfa_title10
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 315 147 18
@@ -1731,9 +1727,9 @@
 	itemDef
 	{
 		name				setfa_title10
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_ABSORB
+		ownerdraw			UI_FA_RANK_10
 		rect 175 315 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1763,7 +1759,7 @@
 	itemDef
 	{
 		name				setfa_title11
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 335 147 18
@@ -1779,9 +1775,9 @@
 	itemDef
 	{
 		name				setfa_title11
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_TEAM_HEAL
+		ownerdraw			UI_FA_RANK_11
 		rect 175 335 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1811,7 +1807,7 @@
 	itemDef
 	{
 		name				setfa_title12
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 355 147 18
@@ -1827,9 +1823,9 @@
 	itemDef
 	{
 		name				setfa_title12
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_TEAM_FORCE
+		ownerdraw			UI_FA_RANK_12
 		rect 175 355 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1859,7 +1855,7 @@
 	itemDef
 	{
 		name				setfa_title13
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 375 147 18
@@ -1875,9 +1871,9 @@
 	itemDef
 	{
 		name				setfa_title13
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_DRAIN
+		ownerdraw			UI_FA_RANK_13
 		rect 175 375 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1907,7 +1903,7 @@
 	itemDef
 	{
 		name				setfa_title14
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
 		text				""
 		rect 175 395 147 18
@@ -1923,9 +1919,9 @@
 	itemDef
 	{
 		name				setfa_title14
-		group				faSkills
+		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		ownerdraw			UI_FORCE_RANK_SEE
+		ownerdraw			UI_FA_RANK_14
 		rect 175 395 147 18
 		textalign			ITEM_ALIGN_LEFT
 		textalignx			105
@@ -1951,102 +1947,1453 @@
 		}
 	}
 	
-//	// FA Skill 15
-//	itemDef
-//	{
-//		name				setfa_title15
-//		group				faSkills
-//		style				WINDOW_STYLE_TEXT_RGB3
-//		text				""
-//		rect 175 415 147 18
-//		textalign			ITEM_ALIGN_LEFT
-//		textalignx			0
-//		textaligny			-5
-//		font				6
-//		textscale			0.15
-//		forecolor			1 1 1 0.8
-//		visible				0
-//		decoration
-//	}
-//	itemDef
-//	{
-//		name				setfa_title15
-//		group				faSkills
-//		style				WINDOW_STYLE_TEXT_RGB3
-//		ownerdraw			UI_FORCE_RANK_SABERATTACK
-//		rect 175 415 147 18
-//		textalign			ITEM_ALIGN_LEFT
-//		textalignx			105
-//		textaligny			-5
-//		textscale			.25
-//		forecolor			1 1 1 0.8
-//		descText			""
-//		visible				0
-//		action
-//		{
-//			play			"sound/interface/button1.wav"
-//		}
-//		mouseenter
-//		{
-//			show			button_glow
-//			setitemrect		button_glow	175 414 147 20
-//			setitemcolor	setfa_title15 forecolor 1 1 1 1
-//		}
-//		mouseExit
-//		{
-//			hide			button_glow
-//			setitemcolor	setfa_title15 forecolor 1 1 1 0.8
-//		}
-//	}
-//	
-//	// FA Skill 16
-//	itemDef
-//	{
-//		name				setfa_title16
-//		group				faSkills
-//		style				WINDOW_STYLE_TEXT_RGB3
-//		text				""
-//		rect 175 435 147 18
-//		textalign			ITEM_ALIGN_LEFT
-//		textalignx			0
-//		textaligny			-5
-//		font				6
-//		textscale			0.15
-//		forecolor			1 1 1 0.8
-//		visible				0
-//		decoration
-//	}
-//	itemDef
-//	{
-//		name				setfa_title16
-//		group				faSkills
-//		style				WINDOW_STYLE_TEXT_RGB3
-//		ownerdraw			UI_FORCE_RANK_SABERDEFEND
-//		rect 175 435 147 18
-//		textalign			ITEM_ALIGN_LEFT
-//		textalignx			105
-//		textaligny			-5
-//		textscale			.25
-//		forecolor			1 1 1 0.8
-//		descText			""
-//		visible				0
-//		action
-//		{
-//			play			"sound/interface/button1.wav"
-//		}
-//		mouseenter
-//		{
-//			show			button_glow
-//			setitemrect		button_glow	175 434 147 20
-//			setitemcolor	setfa_title16 forecolor 1 1 1 1
-//		}
-//		mouseExit
-//		{
-//			hide			button_glow
-//			setitemcolor	setfa_title16 forecolor 1 1 1 0.8
-//		}
-//	}
+	
+	
+	
+	
+	// FA Skill 15
+	itemDef
+	{
+		name				setfa_title15
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title15
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_15
+		rect 175 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 114 147 20
+			setitemcolor	setfa_title15 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title15 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 16
+	itemDef
+	{
+		name				setfa_title16
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title16
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_16
+		rect 175 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 134 147 20
+			setitemcolor	setfa_title16 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title16 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 17
+	itemDef
+	{
+		name				setfa_title17
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title17
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_17
+		rect 175 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 154 147 20
+			setitemcolor	setfa_title17 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title17 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 18
+	itemDef
+	{
+		name				setfa_title18
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title18
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_18
+		rect 175 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 174 147 20
+			setitemcolor	setfa_title18 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title18 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 19
+	itemDef
+	{
+		name				setfa_title19
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title19
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_19
+		rect 175 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 194 147 20
+			setitemcolor	setfa_title19 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title19 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 20
+	itemDef
+	{
+		name				setfa_title20
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title20
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_20
+		rect 175 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 214 147 20
+			setitemcolor	setfa_title20 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title20 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 21
+	itemDef
+	{
+		name				setfa_title21
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title21
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_21
+		rect 175 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 234 147 20
+			setitemcolor	setfa_title21 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title21 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 22
+	itemDef
+	{
+		name				setfa_title22
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title22
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_22
+		rect 175 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 254 147 20
+			setitemcolor	setfa_title22 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title22 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 23
+	itemDef
+	{
+		name				setfa_title23
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title23
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_23
+		rect 175 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 274 147 20
+			setitemcolor	setfa_title23 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title23 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 24
+	itemDef
+	{
+		name				setfa_title24
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title24
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_24
+		rect 175 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 294 147 20
+			setitemcolor	setfa_title24 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title24 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 25
+	itemDef
+	{
+		name				setfa_title25
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title25
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_25
+		rect 175 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 314 147 20
+			setitemcolor	setfa_title25 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title25 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 26
+	itemDef
+	{
+		name				setfa_title26
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title26
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_26
+		rect 175 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 334 147 20
+			setitemcolor	setfa_title26 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title26 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 27
+	itemDef
+	{
+		name				setfa_title27
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title27
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_27
+		rect 175 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 354 147 20
+			setitemcolor	setfa_title27 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title27 forecolor 1 1 1 0.8
+		}
+	}
 		
+	// FA Skill 28
+	itemDef
+	{
+		name				setfa_title28
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title28
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_28
+		rect 175 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 374 147 20
+			setitemcolor	setfa_title28 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title28 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 29
+	itemDef
+	{
+		name				setfa_title29
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title29
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_29
+		rect 175 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 394 147 20
+			setitemcolor	setfa_title29 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title29 forecolor 1 1 1 0.8
+		}
+	}
+	
+	
+	
+	// FA Skill 30
+	itemDef
+	{
+		name				setfa_title30
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title30
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_30
+		rect 175 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 114 147 20
+			setitemcolor	setfa_title30 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title30 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 31
+	itemDef
+	{
+		name				setfa_title31
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title31
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_31
+		rect 175 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 134 147 20
+			setitemcolor	setfa_title31 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title31 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 32
+	itemDef
+	{
+		name				setfa_title32
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title32
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_32
+		rect 175 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 154 147 20
+			setitemcolor	setfa_title32 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title32 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 33
+	itemDef
+	{
+		name				setfa_title33
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title33
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_33
+		rect 175 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 174 147 20
+			setitemcolor	setfa_title33 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title33 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 34
+	itemDef
+	{
+		name				setfa_title34
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title34
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_34
+		rect 175 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 194 147 20
+			setitemcolor	setfa_title34 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title34 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 35
+	itemDef
+	{
+		name				setfa_title35
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title35
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_35
+		rect 175 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 214 147 20
+			setitemcolor	setfa_title35 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title35 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 36
+	itemDef
+	{
+		name				setfa_title36
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title36
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_36
+		rect 175 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 234 147 20
+			setitemcolor	setfa_title36 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title36 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 37
+	itemDef
+	{
+		name				setfa_title37
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title37
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_37
+		rect 175 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 254 147 20
+			setitemcolor	setfa_title37 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title37 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 38
+	itemDef
+	{
+		name				setfa_title38
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title38
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_38
+		rect 175 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 274 147 20
+			setitemcolor	setfa_title38 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title38 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 39
+	itemDef
+	{
+		name				setfa_title39
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title39
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_39
+		rect 175 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 294 147 20
+			setitemcolor	setfa_title39 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title39 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 40
+	itemDef
+	{
+		name				setfa_title40
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title40
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_40
+		rect 175 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 314 147 20
+			setitemcolor	setfa_title40 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title40 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 41
+	itemDef
+	{
+		name				setfa_title41
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title41
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_41
+		rect 175 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 334 147 20
+			setitemcolor	setfa_title41 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title41 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 42
+	itemDef
+	{
+		name				setfa_title42
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title42
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_42
+		rect 175 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 354 147 20
+			setitemcolor	setfa_title42 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title42 forecolor 1 1 1 0.8
+		}
+	}
+		
+	// FA Skill 43
+	itemDef
+	{
+		name				setfa_title43
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title43
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_43
+		rect 175 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 374 147 20
+			setitemcolor	setfa_title43 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title43 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 44
+	itemDef
+	{
+		name				setfa_title44
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title44
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_44
+		rect 175 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 394 147 20
+			setitemcolor	setfa_title44 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title4 forecolor 1 1 1 0.8
+		}
+	}
+
+
 //-----------------------------------------------
 // JOIN + BACK BUTTONS
 //-----------------------------------------------
@@ -2073,8 +3420,6 @@
 			action
 			{ 
 				play			"sound/interface/back.mp3"
-				hide			stats
-				hide			forcepowerlevel
 				close			all
 				open			main
 				open			ingame
@@ -2106,7 +3451,7 @@
 			name				okay
 			group				bg_button_r
 			text				"OKAY"
-			descText			@MENUS_JOIN_GAME			
+			descText			@MENUS_JOIN_GAME
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_FILLED_RGB1
 			textstyle			WINDOW_STYLE_TEXT_RGB2
