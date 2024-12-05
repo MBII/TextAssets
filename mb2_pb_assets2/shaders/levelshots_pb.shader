@@ -525,3 +525,75 @@ levelshots/pb_sdestroyer2
         rgbGen identity
     }
 }
+
+levelshots/pb3_dotf
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/pb3_dotf
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/pb3_dotf2
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/pb3_dotf2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/pb3_reactor
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/pb3_reactor
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/pb3_manaan
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/pb3_manaan
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/pb3_cloudcity
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/pb3_cloudcity
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}
+
+levelshots/pb3_starkiller_base
+{
+    nopicmip
+    nomipmaps
+    notc
+    {
+        map levelshots/pb3_starkiller_base
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+    }
+}

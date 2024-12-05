@@ -1,11 +1,11 @@
 ClassInfo
 {
 	name  "dcu_batman"
-	weapons WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_SABER
+	weapons WP_MELEE|WP_CLONE_RIFLE|WP_FRAG_NADE|WP_SABER
 	saber1  dc_melee
 	saberstyle  SS_DUAL
 	forcepowers FP_LEVITATION,3|FP_SEE,3
-	attributes  MB_ATT_GRAPPLE_HOOK,3|MB_ATT_FRAGS,3|MB_ATT_ARMOUR,3|MB_ATT_DODGE,3|MB_ATT_MICRO_GRENADES,6|MB_ATT_POISON_DART,3|MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2
+	attributes  MB_ATT_GRAPPLE_HOOK,3|MB_ATT_FRAGS,3|MB_ATT_ARMOUR,3|MB_ATT_DODGE,3|MB_ATT_CLONERIFLE,1|MB_ATT_POISON_DART,3|MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_CLONEBLOBS,3
 	maxhealth 150
 	maxarmor  100
 	speed 1.2
@@ -18,6 +18,8 @@ ClassInfo
 	forceregen  5
 	classNumberLimit  1
 	classflags  CFL_HEAVYMELEE|CFL_BPFREEJUMPS|CFL_STRONGAGAINSTPHYSICAL|
+	special1 EAS_HI_POISON
+	special4 EAS_HI_GRAPPLEHOOK
 }
 
 ForceInfo0
@@ -29,16 +31,17 @@ ForceInfo0
 
 WeaponInfo0
 {
-	WeaponToReplace WP_CONC_NADE
+	WeaponToReplace WP_CLONE_RIFLE
 	WeaponBasedOff  WP_FRAG_NADE
 	NewWorldModel "models/weapons2/dc_batarang/batarang.glm"  
-  NewViewModel  "models/weapons2/dc_batarang/batarang.md3"
-	missileModel  "models/weapons2/dc_batarang/batarang_proj.md3"
-  Icon  "gfx/mplevels/dc_universe/dc_batarang"
+	NewViewModel  "models/weapons2/dc_batarang/batarang.md3"
+	MissileModel "models/weapons2/dc_batarang/batarang_proj.md3"
+	altMissileModel "models/weapons2/dc_batarang/batarang_proj.md3"
 	MissileMissEffect "melee_weap/block.efx"
 	altMissileMissEffect  "melee_weap/block.efx"
 	WeaponName  "^2Batarang"
-	customAmmo  6
+	Icon  "gfx/mplevels/dc_universe/dc_batarang"
+	primFireEnabled 0
 }
 
 WeaponInfo1
@@ -49,8 +52,9 @@ WeaponInfo1
   NewViewModel  "models/weapons2/dc_smokepellet/smokepellet.md3"
 	missileModel  "models/weapons2/dc_smokepellet/smokepellet_proj.md3"
   Icon  "gfx/mplevels/dc_universe/dc_smokepellet"
-	MissileMissEffect "smokenade/explosion"
-	altMissileMissEffect  "smokenade/explosion"
+  altMissileEffect "null"
+	MissileMissEffect "smokenadeleg/explode_vol"
+	altMissileMissEffect  "smokenadeleg/explode_vol"
 	WeaponName  "^2Smoke Pellet"
 	primFireEnabled 0
 }
