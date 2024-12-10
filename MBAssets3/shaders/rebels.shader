@@ -1084,7 +1084,7 @@ models/players/rebel_commando/desert_glass_d
 }
 
 
-//             rebel_commando - urban
+//             rebel_commando - urban (scarif)
 
 models/players/rebel_commando/urban_backpack_d
 {
@@ -1126,13 +1126,19 @@ models/players/rebel_commando/urban_extras_d
 	}
 }
 
-models/players/rebel_commando/urban_extras_d2
+models/players/rebel_commando/urban_glass_d
 {
 	cull	twosided
 	{
-		map models/players/rebel_commando/urban_extras_d2
+		map models/players/rebel_commando/urban_glass_d
 		depthWrite
 		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/glass_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
 	}
 }
 
@@ -1166,6 +1172,34 @@ models/players/rebel_commando/geo_body_d
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+
+//            rebel commando - melshi
+
+models/players/rebel_commando/melshi_body_d
+{
+	{
+		map models/players/rebel_commando/melshi_body_d
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_commando/melshi_extras_d
+{
+	cull	twosided
+	{
+		map models/players/rebel_commando/melshi_extras_d
+		depthWrite
+		rgbGen lightingDiffuse
 	}
 }
 
