@@ -113,6 +113,7 @@ models/players/deathtrooper/torso_bodysuit_cull
 models/players/deathtrooper/head_dmg
 {
 	q3map_nolightmap
+	cull twosided
 	{
 		map models/players/deathtrooper/head_dmg
 		rgbGen lightingDiffuse

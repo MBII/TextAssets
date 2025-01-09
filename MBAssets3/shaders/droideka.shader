@@ -858,3 +858,93 @@ models/players/droideka/parts_white
 		glow
 	}
 }
+
+//Jedi Survivor
+models/players/droideka/parts_JS_a
+{
+	{
+		map models/players/droideka/parts_JS_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/black_parts_a_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+models/players/droideka/shell_JS_a
+{
+	{
+		map models/players/droideka/shell_JS_a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+		depthWrite
+	}
+	{
+		map models/players/droideka/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/black_shell_a_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/droideka/body_JS_a
+{
+	{
+		map models/players/droideka/body_JS_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/black_body_a_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+models/players/droideka/parts_JS
+{
+	{
+		map models/players/droideka/parts_JS
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/droideka/metal_env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/metal_env2
+		blendFunc GL_ONE GL_ONE
+		tcGen environment
+		detail
+	}
+	{
+		map models/players/droideka/parts_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
