@@ -69,6 +69,20 @@ models/players/Thrawn2/thrawn_bits
 	}
 }
 
+models/players/thrawn2/eye
+{
+	{
+		map models/players/thrawn2/eye
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/thrawn2/eye_glow
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+}
+
 
 // Armored
 

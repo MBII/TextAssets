@@ -93,3 +93,61 @@ models/players/nighttrooper/lens_NT
       		glow
 	}
 }
+
+// Captain Enoch
+
+models/players/enoch/armor
+{
+	{
+		map models/players/enoch/armor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/enoch/armor
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/enoch/armor_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/enoch/belt
+{
+	{
+		map models/players/enoch/belt
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/enoch/belt_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/enoch/belt_cull
+{
+	cull	disable
+	{
+		map models/players/enoch/belt
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/enoch/belt_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}

@@ -1431,6 +1431,12 @@ models/players/MB2_Clones/visor_elite
 		detail
         tcGen environment
     }
+    {
+       map models/players/MB2_Clones/visor_elite
+       blendFunc GL_ONE GL_ONE
+       detail
+       glow
+    }
 }
 
 // Armor (63)
@@ -4372,6 +4378,7 @@ models/players/MB2_Clones/body_keller_rgb
 //FA (3)
 models/players/MB2_Clones/jetpack_p1_rgb
 {
+	cull	disable
     {
         map models/players/MB2_Clones/jetpack_p1_rgb
         blendFunc GL_ONE GL_ZERO
@@ -4392,6 +4399,7 @@ models/players/MB2_Clones/jetpack_p1_rgb
 
 models/players/MB2_Clones/jetpack_p1_clean_rgb
 {
+	cull	disable
     {
         map models/players/MB2_Clones/jetpack_p1_clean_rgb
         blendFunc GL_ONE GL_ZERO
@@ -4412,6 +4420,7 @@ models/players/MB2_Clones/jetpack_p1_clean_rgb
 
 models/players/MB2_Clones/jetpack_501_rgb
 {
+	cull	disable
     {
         map models/players/MB2_Clones/jetpack_501_rgb
         blendFunc GL_ONE GL_ZERO

@@ -407,6 +407,54 @@ models/players/rebel_guerilla/poncho
 }
 
 
+// rebel honor guard
+
+models/players/rebel_honor/boots_hips_rhg
+{	  
+	{
+		map models/players/rebel_honor/boots_hips_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/boots_hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_honor/hips_rhg
+{	  
+	{
+		map models/players/rebel_honor/hips_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_honor/torso_rhg
+{	  
+	{
+		map models/players/rebel_honor/torso_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/torso_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // rebel magma trooper
 
 models/players/rebel_magma/helmet

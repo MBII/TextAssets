@@ -140,6 +140,20 @@ models/players/alien_heads/durosZ
     }
 }
 
+models/players/alien_heads/duros_eyepatch
+{
+    {
+        map models/players/alien_heads/duros_eyepatch
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/alien_heads/duros_eyepatch_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/alien_heads/gotal
 {
     {
