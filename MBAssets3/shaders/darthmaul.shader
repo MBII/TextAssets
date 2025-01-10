@@ -165,14 +165,82 @@ models/players/maul_cw/body_solo
 {
     {
         map models/players/maul_cw/body_solo
+		alphaFunc GE128
         rgbGen lightingDiffuse
     }
     {
-        map models/players/maul_cw/body_spec
+        map models/players/maul_cw/body_solo_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
     }
+}
+
+models/players/maul_cw/body_solo_hood
+{
+    {
+		map models/players/maul_cw/body_solo_hood
+		alphaFunc GE128
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/maul_cw/body_solo_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/maul_cw/head
+{
+    {
+        map models/players/maul_cw/head
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/darthmaul/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_cw/head_solo
+{
+    {
+        map models/players/maul_cw/head_solo
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/maul_cw/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/maul_cw/head_solo_hood
+{
+    {
+        map models/players/maul_cw/head_solo_hood
+        rgbGen lightingDiffuse
+        //alphaFunc GE128
+    }
+    {
+        map models/players/maul_cw/head_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/maul_cw/cloth
+{
+	cull	twosided
+	{
+		map models/players/maul_cw/cloth
+		rgbGen lightingDiffuse
+	}
 }
 
 // Rebels (by swegmaster)
