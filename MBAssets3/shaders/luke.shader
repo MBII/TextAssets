@@ -1,3 +1,5 @@
+// CANON
+
 // anh luke
 
 models/players/luke_anh/poncho
@@ -76,7 +78,7 @@ models/players/luke_esb/Lukehead_hood
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/luke_esb/LukeHead_spec
+        		map models/players/luke_esb/LukeHead_hood_spec
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
@@ -198,21 +200,6 @@ models/players/luke_esb/LukeHair_sith
 	}
 	}
 
-models/players/luke_esb/Bespin_suit
-	{
-	{
-		map models/players/luke_esb/Bespin_suit
-		rgbGen lightingDiffuse
-	}
- 	{
-        		map models/players/luke_esb/Bespin_suit_s
-       		 blendFunc GL_SRC_ALPHA GL_ONE
-      		  detail
-       		 alphaGen lightingSpecular
-	}
-	}
-
-
 models/players/luke_esb/Bespinsuit
 	{
 	{
@@ -227,14 +214,14 @@ models/players/luke_esb/Bespinsuit
 	}
 	}
 
-models/players/luke_esb/Bespin_suit_damaged
+models/players/luke_esb/Bespinsuit_damaged
 	{
 	{
-		map models/players/luke_esb/Bespin_suit_damaged
+		map models/players/luke_esb/Bespinsuit_damaged
 		rgbGen lightingDiffuse
 	}
  	{
-        		map models/players/luke_esb/Bespin_suit_s
+        		map models/players/luke_esb/Bespinsuit_s
        		 blendFunc GL_SRC_ALPHA GL_ONE
       		  detail
        		 alphaGen lightingSpecular
@@ -498,6 +485,8 @@ models/players/luke_ceremonial/jacket_luke
 }
 
 
+// EXPANDED UNIVERSE
+
 // dark empire luke
 
 models/players/luke_de/cape
@@ -508,3 +497,37 @@ models/players/luke_de/cape
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// heir to the empire luke
+
+models/players/luke_dagobah/waylandsuit
+	{
+	{
+		map models/players/luke_dagobah/waylandsuit
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/Bespinsuit_s
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
+
+
+// the last command luuke
+
+models/players/luuke/Lukehead_clone
+	{
+	{
+		map models/players/luuke/Lukehead_clone
+		rgbGen lightingDiffuse
+	}
+ 	{
+        		map models/players/luke_esb/LukeHead_spec
+       		 blendFunc GL_SRC_ALPHA GL_ONE
+      		  detail
+       		 alphaGen lightingSpecular
+	}
+	}
