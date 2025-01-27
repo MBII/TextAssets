@@ -5,17 +5,18 @@ ClassInfo
 	name			"v6_ScoutTr"
 	weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
 	
-	resource		RESOURCE_STAMINA
+	resource			RESOURCE_STAMINA
 	forcepool		50
+	rankforcepool		75,100,125
 	forceregen 		1.1
 
 	attributes		MB_ATT_ASSEMBLE,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,1
 
 	MBClass			MB_CLASS_HERO
-	classNumberLimit	2
+	classNumberLimit	3
 
 	maxhealth		80
-	maxarmor		10
+	maxarmor			10
 	rankArmor		25,50,75
 	
 	forceblocking		1
@@ -23,33 +24,31 @@ ClassInfo
 	speed           .77
 	rateofFire		1.1
 
-	CSmultiplier       	1.05
-	
-	uioverlay "gfx/icons/scout"
-		
+	CSmultiplier     1.05
+
 	ASmultiplier		1
-	rankAS				1.04,1.08,1.12
+	rankAS			1.04,1.08,1.12
 	
-	APmultiplier        0.75
+	APmultiplier  	0.75
 	
-	BPmultiplier       	1.15
+	BPmultiplier   	1.15
 	
-	rankforcepool		75,100,125
-	
+
+	saberDamage 115
 	modelscale		    1
 	
 	extralives			1
 
 	WP_ProjFlags 		HELD_LOWDAMAGE
-	WP_SaberFlags	  HELD_LOWDAMAGE
-		//tauntAnim BOTH_SCEPTER_HOLD
-	gloatAnim TORSO_HANDSIGNAL4
+	
+	//tauntAnim 		BOTH_SCEPTER_HOLD
+	gloatAnim 		TORSO_HANDSIGNAL4
 	flourishAnim 		BOTH_STAND5STARTLEDLOOKLEFT
 	saberStanceAnim	BOTH_ROSH_HEAL
 
 	holdables		HI_MEDPAC
 
-	saberstyle SS_DUAL
+	saberstyle 		SS_DUAL
 
 	saber1			riot_baton_p_legends
 	saber2			riot_shield_legends
@@ -59,6 +58,8 @@ ClassInfo
 	
 	saber1_2			riot_baton_o_legends
 	saber2_2			riot_shield_legends
+
+	uioverlay 		"gfx/icons/scout"
 
 	model			"scouttrooper"
 	skin				"default"	
@@ -75,15 +76,14 @@ ClassInfo
 	skin_2			"swamp"	
 	uishader_2		"models/players/scouttrooper/mb2_icon_swamp"
 	
-	model_3		"scouttrooper"
-	skin_3		"swamp2"
-	uishader_3	"models/players/scouttrooper/mb2_icon_swamp2"
+	model_3			"scouttrooper"
+	skin_3			"swamp2"
+	uishader_3		"models/players/scouttrooper/mb2_icon_swamp2"
 	
-	model_4		"scouttrooper"
-	skin_4  		"novaofficer"
-	uishader_4  	"models/players/scouttrooper/mb2_icon_novaofficer"
+	model_4			"scouttrooper"
+	skin_4  			"novaofficer"
+	uishader_4  		"models/players/scouttrooper/mb2_icon_novaofficer"
 
-	
 	special1		EAS_HI_SPRINT
 	special2		EAS_MELEE
 	special3		EAS_HI_DEX
@@ -125,7 +125,7 @@ ClassInfo
 	c_att_ranks_6	-1
 	
 	c_att_skill_7	MB_ATT_RESPAWNS
-	c_att_names_7	"Reinforcements:"
+	c_att_names_7	"Reinforcement:"
 	c_att_ranks_7	16
 	
 	c_att_skill_8	MB_ATT_ARMOUR
@@ -186,22 +186,21 @@ WeaponInfo2
 	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"
 	Icon				"gfx/hud/w_icon_DLT20a"
 	WeaponName			"DLT-20A (Sniper Config.)"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R" 
-	AltMissileEffect	"Blaster/Shot01R"
+	MissileEffect			"Blaster/Shot01R" 
+	AltMissileEffect		"Blaster/Shot01R"
 	Missile3Effect		"Blaster/Shot01R" 
-	clipsize			2
-	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"
+	clipsize				2
+	FlashSound0 			"sound/weapons/Glie-44/alt_fire.wav"
 	ReloadTimeModifier 	0.65
-	
 }
 
 description	"Imperial Scout Trooper
 
 Class: Hero
 Brief Overview:
-A lightly armored but versatile class who can spec into extra lives, sniping, and even Saber Defense.
+A 2-life lightly armored but versatile class whose spec options include enhanced movement, Saber Defense, grenades, sniping, and a third life.
 
 ^2Default Weaponry:
 - Melee
@@ -209,16 +208,17 @@ A lightly armored but versatile class who can spec into extra lives, sniping, an
 -- Based on Lightsaber
 -- Dual style
 -- Blaster Defense (2) 
--- 68% less damage
--- 65/85% shorter RH/LH reach
+-- 55% less damage
+-- 85/65% shorter LH/RH reach
 -- Cannot Saber Throw
 -- Slap ^3[CS2]
-- EC-17 Hold-Out Pistol (1)
+- EC-17 Hold-Out Blaster Pistol (1)
 
 ^6Default Inventory:
 - Bacta (25 HP to self)
 
 ^8Default Attributes:
+- Reinforcement (1)
 - Stamina (0)
 - Assemble (Respawn on Rally allies)
 
@@ -232,7 +232,8 @@ A lightly armored but versatile class who can spec into extra lives, sniping, an
 -- Based on Projectile Rifle
 -- 2 shots per reload
 -- 35% faster reload
-- Ammo (Base: 100/8)
+-- 50% less damage
+- Ammo (100/8)
 -- 180/8, 300/12, 420/18
 - Armor
 -- 25, 50, 75
