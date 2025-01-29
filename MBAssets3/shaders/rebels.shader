@@ -407,6 +407,54 @@ models/players/rebel_guerilla/poncho
 }
 
 
+// rebel honor guard
+
+models/players/rebel_honor/boots_hips_rhg
+{	  
+	{
+		map models/players/rebel_honor/boots_hips_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/boots_hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_honor/hips_rhg
+{	  
+	{
+		map models/players/rebel_honor/hips_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_honor/torso_rhg
+{	  
+	{
+		map models/players/rebel_honor/torso_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/torso_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // rebel magma trooper
 
 models/players/rebel_magma/helmet
@@ -458,11 +506,11 @@ models/players/rebel_pathfinder/head
     }
 }
 
-models/players/rebel_pathfinder/head_hands
+models/players/rebel_pathfinder/hands
 {
 	q3map_nolightmap
     {
-        map models/players/rebel_pathfinder/head_hands
+        map models/players/rebel_pathfinder/hands
         rgbGen lightingDiffuse
     }
     {
@@ -478,6 +526,22 @@ models/players/rebel_pathfinder/torso_vest
 	q3map_nolightmap
     {
         map models/players/rebel_pathfinder/torso_vest
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/cassian/torso_vest_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/rebel_pathfinder/torso_vestc
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder/torso_vestc
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -1084,7 +1148,7 @@ models/players/rebel_commando/desert_glass_d
 }
 
 
-//             rebel_commando - urban
+//             rebel_commando - urban (scarif)
 
 models/players/rebel_commando/urban_backpack_d
 {
@@ -1126,13 +1190,19 @@ models/players/rebel_commando/urban_extras_d
 	}
 }
 
-models/players/rebel_commando/urban_extras_d2
+models/players/rebel_commando/urban_glass_d
 {
 	cull	twosided
 	{
-		map models/players/rebel_commando/urban_extras_d2
+		map models/players/rebel_commando/urban_glass_d
 		depthWrite
 		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/glass_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
 	}
 }
 
@@ -1166,6 +1236,34 @@ models/players/rebel_commando/geo_body_d
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+
+//            rebel commando - melshi
+
+models/players/rebel_commando/melshi_body_d
+{
+	{
+		map models/players/rebel_commando/melshi_body_d
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_commando/melshi_extras_d
+{
+	cull	twosided
+	{
+		map models/players/rebel_commando/melshi_extras_d
+		depthWrite
+		rgbGen lightingDiffuse
 	}
 }
 

@@ -445,14 +445,14 @@ models/players/sbd/body_b1
     }
 }
 
-models/players/sbd/body_survivor
+models/players/sbd/body_beskar
 {
     {
-        map models/players/sbd/body_survivor
+        map models/players/sbd/body_beskar
         rgbGen lightingDiffuse
     }    
     {
-        map models/players/sbd/body_survivor_s
+        map models/players/sbd/body_beskar_s
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular

@@ -104,6 +104,7 @@ models/players/imperial_fml/boots_hips
 // Daala
 models/players/imperial_fml/hair_daala
 {
+	cull	disable
 	{
 		map models/players/imperial_fml/hair_daala
 		blendFunc GL_ONE GL_ZERO

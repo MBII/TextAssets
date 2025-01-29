@@ -65,6 +65,26 @@ models/players/cultist/face_rgb
 	}
 }
 
+models/players/cultist/face_fem_rgb
+{
+	cull	twosided
+	{
+		map models/players/cultist/face_fem_rgb
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/cultist/face_fem_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/cultist/face_fem_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/cultist/head_rgb
 {
 	cull	twosided

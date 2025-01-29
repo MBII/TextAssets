@@ -132,7 +132,7 @@ models/players/stormie_tfa/armor_card
 
 models/players/stormie_tfa/cape_card
 {
-	cull twosided
+	cull disable
     {
         map models/players/stormie_tfa/cape_card
         rgbGen lightingDiffuse
@@ -316,76 +316,6 @@ models/players/tie_pilot/Shadow_Body2
 	}
 	{
 		map models/players/tie_pilot/Shadow_Body_S
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-
-// Swamp Trooper
-
-models/players/swamptrooper/arms_legs_green
-{
-	q3map_nolightmap
-	{
-		map models/players/swamptrooper/arms_legs_green
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/effects/chr_inv
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/swamptrooper/arms_legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-
-	}
-}
-
-models/players/swamptrooper/helmet2_green
-{
-	q3map_nolightmap
-	{
-		map models/players/swamptrooper/helmet2_green
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/effects/chr_inv
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/swamptrooper/helmet2_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/swamptrooper/torso_green
-{
-	q3map_nolightmap
-	{
-		map models/players/swamptrooper/torso_green
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
-	{
-		map gfx/effects/chr_inv
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
-		map models/players/swamptrooper/torso_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -860,7 +790,7 @@ models/players/stormie/accessoriesnew
 }
 
 
-// Shadow Stormie
+// Shadow Stormie (basic)
 
 models/players/stormie/armor_shadow
 {
@@ -915,6 +845,31 @@ models/players/stormie/bomb_shadow
 		blendFunc GL_SRC_ALPHA GL_ONE
       		detail
        		alphaGen lightingSpecular
+	}
+}
+
+
+// Shadow Stormie (Vader comics)
+
+models/players/stormie/armor_vader
+{
+	{
+		map models/players/stormie/armor_vader
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathtrooper/env
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+        map models/players/stormie/armor_clean
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
 	}
 }
 

@@ -57,3 +57,13 @@ models/players/darthwyyrlok/lekku
 		alphaGen lightingSpecular
 	}
 }
+
+models/players/darthwyyrlok/cape
+{
+	cull	twosided
+	{
+		map models/players/darthwyyrlok/cape
+		alphaFunc GE192
+		rgbGen lightingDiffuse
+	}
+}

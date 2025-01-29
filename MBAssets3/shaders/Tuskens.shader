@@ -1,10 +1,10 @@
 // DEFAULT
 
-models/players/mc_tusken_jk3/robebottom
+models/players/tusken_jk3/robebottom
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/robebottom
+        map models/players/tusken_jk3/robebottom
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -12,11 +12,11 @@ models/players/mc_tusken_jk3/robebottom
     }
 }
 
-models/players/mc_tusken_jk3/robebottom_jet
+models/players/tusken_jk3/robebottom_jet
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/robebottom_jet
+        map models/players/tusken_jk3/robebottom_jet
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -24,11 +24,11 @@ models/players/mc_tusken_jk3/robebottom_jet
     }
 }
 
-models/players/mc_tusken_jk3/robeinside
+models/players/tusken_jk3/robeinside
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/robeinside
+        map models/players/tusken_jk3/robeinside
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -39,11 +39,11 @@ models/players/mc_tusken_jk3/robeinside
 
 // FEMALE
 
-models/players/mc_tusken_jk3/bag_fem
+models/players/tusken_jk3/bag_fem
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/bag_fem
+        map models/players/tusken_jk3/bag_fem
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -51,11 +51,11 @@ models/players/mc_tusken_jk3/bag_fem
     }
 }
 
-models/players/mc_tusken_jk3/mask_fem
+models/players/tusken_jk3/mask_fem
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/mask_fem
+        map models/players/tusken_jk3/mask_fem
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -63,11 +63,11 @@ models/players/mc_tusken_jk3/mask_fem
     }
 }
 
-models/players/mc_tusken_jk3/mask_fem2
+models/players/tusken_jk3/mask_fem2
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/mask_fem2
+        map models/players/tusken_jk3/mask_fem2
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -75,11 +75,11 @@ models/players/mc_tusken_jk3/mask_fem2
     }
 }
 
-models/players/mc_tusken_jk3/poncho
+models/players/tusken_jk3/poncho
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/poncho
+        map models/players/tusken_jk3/poncho
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -87,11 +87,11 @@ models/players/mc_tusken_jk3/poncho
     }
 }
 
-models/players/mc_tusken_jk3/poncho_blue
+models/players/tusken_jk3/poncho_blue
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/poncho_blue
+        map models/players/tusken_jk3/poncho_blue
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -99,11 +99,11 @@ models/players/mc_tusken_jk3/poncho_blue
     }
 }
 
-models/players/mc_tusken_jk3/poncho_red
+models/players/tusken_jk3/poncho_red
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/poncho_red
+        map models/players/tusken_jk3/poncho_red
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -111,11 +111,11 @@ models/players/mc_tusken_jk3/poncho_red
     }
 }
 
-models/players/mc_tusken_jk3/poncho2
+models/players/tusken_jk3/poncho2
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/poncho2
+        map models/players/tusken_jk3/poncho2
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite
@@ -123,11 +123,11 @@ models/players/mc_tusken_jk3/poncho2
     }
 }
 
-models/players/mc_tusken_jk3/robebottom_fem
+models/players/tusken_jk3/robebottom_fem
 {
 	q3map_nolightmap
     {
-        map models/players/mc_tusken_jk3/robebottom_fem
+        map models/players/tusken_jk3/robebottom_fem
         alphaFunc GE128
         blendFunc GL_ONE GL_ZERO
         depthWrite

@@ -218,6 +218,27 @@ models/players/hk47/hk47
 		map models/players/hk47/hk47_glow
 		blendFunc GL_ONE GL_ONE
 		rgbGen wave noise 1 0.5 0 2
+		glow
+	}
+}
+
+models/players/hk47/hk47_body_old
+{
+    {
+        map models/players/hk47/hk47_body_old
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/hk47/hk47_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+	{	
+		map models/players/hk47/hk47_glow
+		blendFunc GL_ONE GL_ONE
+		rgbGen wave noise 1 0.5 0 2
+		glow
 	}
 }
 
@@ -240,6 +261,7 @@ models/players/hk47/hk50
 		map models/players/hk47/hk50_glow
 		blendFunc GL_ONE GL_ONE
 		rgbGen wave noise 1 0.5 0 2
+		glow
 	}
 }
 
@@ -262,6 +284,7 @@ models/players/hk47/hk51
 		map models/players/hk47/hk51_glow
 		blendFunc GL_ONE GL_ONE
 		rgbGen wave noise 1 0.5 0 2
+		glow
 	}
 }
 
