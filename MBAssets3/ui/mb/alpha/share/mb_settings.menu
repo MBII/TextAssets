@@ -21,6 +21,7 @@
 			show				AUDIOBTN
 			show				OTHERBTN
 			show				UIBTN
+			uiScript			getPredict
 			uiScript			loadControls
 			uiscript			mb_uischeme
 			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
@@ -57,6 +58,7 @@
 			hide				gamedefaultsmenubutton
 			hide				crosshair2menubutton
 			hide				gameoption2menubutton
+			hide				gameoption3menubutton
 			hide 				video
 			hide				video2
 			hide				experimental
@@ -69,6 +71,7 @@
 			// hide				sound2
 			hide				options
 			hide				options2
+			hide				options3
 			hide				uioptions
 			hide				uioptions2
 			hide				uioptions3
@@ -107,6 +110,10 @@
 			setitemcolor		mediacontrolbutton			forecolor 1 1 1 0.9
 			setitemcolor		othercontrolbutton			forecolor 1 1 1 0.9
 		}
+		onClose
+		{
+			uiScript			setPredict
+		}
 		onESC
 		{
 			play				"sound/interface/back.mp3"
@@ -115,6 +122,7 @@
 			open				ingame
 			open				main_nomusic
 			uiScript			saveControls
+			uiScript			setPredict
 		}
 
 // MENU BACKGROUND		
@@ -385,6 +393,7 @@
 				hide				gamedefaultsmenubutton
 				hide				crosshair2menubutton
 				hide				gameoption2menubutton
+				hide				gameoption3menubutton
 				hide				setup_background
 				hide 				video
 				hide				video2
@@ -398,6 +407,7 @@
 				// hide				sound2
 				hide				options
 				hide				options2
+				hide				options3
 				hide				uioptions
 				hide				uioptions2
 				hide				uioptions3
@@ -504,6 +514,7 @@ itemDef
 				hide				setup_background
 				show				gammamenubutton
 				hide				gameoption2menubutton
+				hide				gameoption3menubutton
 				show 				video
 				hide				video2
 				hide				experimental
@@ -516,6 +527,7 @@ itemDef
 				// hide				sound2
 				hide				options
 				hide				options2
+				hide				options3
 				hide				uioptions
 				hide				uioptions2
 				hide				uioptions3
@@ -606,6 +618,7 @@ itemDef
 				// hide				sound2menubutton
 				show				gameoptionmenubutton
 				show				gameoption2menubutton
+				show				gameoption3menubutton
 				hide				uioptionmenubutton
 				hide				uioption2menubutton
 				hide				uioption3menubutton
@@ -634,6 +647,7 @@ itemDef
 				// hide				sound2
 				show				options
 				hide				options2
+				hide				options3
 				hide				uioptions
 				hide				uioptions2
 				hide				uioptions3
@@ -662,6 +676,7 @@ itemDef
 				hide				othercontrols
 				setitemcolor	gameoptionmenubutton		forecolor 0.5 0.5 0.5 0.9
 				setitemcolor	gameoption2menubutton		forecolor 1 1 1 0.9
+				setitemcolor	gameoption3menubutton		forecolor 1 1 1 0.9
 				setitemcolor	uioptionmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	connectionoptmenubutton		forecolor 1 1 1 0.9
 				setitemcolor	CONTROLSBTN		forecolor 1 1 1 0.9
@@ -735,6 +750,7 @@ itemDef
 				hide				cameramenubutton
 				hide				crosshair2menubutton
 				hide				gameoption2menubutton
+				hide				gameoption3menubutton
 				hide				setup_background
 				hide 				video
 				hide				video2
@@ -748,6 +764,7 @@ itemDef
 				// hide				sound2
 				hide				options
 				hide				options2
+				hide				options3
 				hide				uioptions
 				hide				uioptions2
 				hide				uioptions3
@@ -846,6 +863,7 @@ itemDef
 				hide				cameramenubutton
 				hide				crosshair2menubutton
 				hide				gameoption2menubutton
+				hide				gameoption3menubutton
 				hide				setup_background
 				hide 				video
 				hide				video2
@@ -859,6 +877,7 @@ itemDef
 				// hide				sound2
 				hide				options2
 				hide				options
+				hide				options3
 				show				uioptions
 				hide				uioptions2
 				hide				uioptions3
@@ -964,6 +983,7 @@ itemDef
 				show				cameramenubutton
 				show				crosshair2menubutton
 				hide				gameoption2menubutton
+				hide				gameoption3menubutton
 				hide				setup_background
 				hide 				video
 				hide				video2
@@ -977,6 +997,7 @@ itemDef
 				// hide				sound2
 				hide				options2
 				hide				options
+				hide				options3
 				hide				uioptions
 				hide				uioptions2
 				hide				uioptions3
@@ -1062,6 +1083,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1126,6 +1148,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1190,6 +1213,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1254,6 +1278,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1318,6 +1343,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1384,6 +1410,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1450,6 +1477,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1514,6 +1542,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1579,6 +1608,7 @@ itemDef
 				// hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1641,6 +1671,7 @@ itemDef
 				show			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1705,6 +1736,7 @@ itemDef
 				hide			sound2
 				show			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1769,6 +1801,7 @@ itemDef
 				hide			sound2
 				hide			options
 				show			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1789,7 +1822,74 @@ itemDef
 				setitemcolor	gameoption2menubutton	forecolor	0.5 0.5 0.5 0.9
 			}
 		}
-		
+
+
+// game options 3 button
+
+		itemDef
+		{
+			name				gameoption3menubutton
+			group				setup_submenu
+			text				"GAME OPTIONS 3"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB2
+			rect				10 154 120 17
+			font				6
+			textscale			0.17
+			textalignx			111
+			textaligny			-5
+			textalign			ITEM_ALIGN_RIGHT
+			forecolor			1 1 1 0.9
+			visible				0
+			descText			@MENUS_CONFIGURE_GAME_OPTIONS
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	10 156 120 17
+			}
+			mouseExit
+			{
+				hide			button_glow 
+			}			
+			action
+			{
+				play			"sound/interface/button1.wav"
+				defer			VideoSetup	videowarningMenu
+				show			setup_background
+				hide 			video
+				hide			video2
+				hide			experimental
+				hide			rd_vulkan
+				hide			rd_rend2
+				hide			applyChanges
+				hide			vidrestart
+				hide			sound
+				hide			sound2
+				hide			options
+				hide			options2
+				show			options3
+				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
+				hide			uioptions4
+				hide			uioptions5
+				hide			langapply
+				hide			visualopt
+				hide			camera
+				hide			trueview
+				hide			connection
+				hide			defaults
+				hide			crosshair
+				hide			crosshair2
+				hide			chat
+				hide			richpresence
+				hide			gamma
+				setitemcolor	setup_submenu			forecolor	1 1 1 0.9
+				setitemcolor	gameoption3menubutton	forecolor	0.5 0.5 0.5 0.9
+			}
+		}
+
+
 // UI Options button
 
 		itemDef
@@ -1834,6 +1934,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				show			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -1897,6 +1998,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				show			uioptions2
 				hide			uioptions3
@@ -1960,6 +2062,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				show			uioptions3
@@ -2023,6 +2126,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2086,6 +2190,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2116,7 +2221,7 @@ itemDef
 			text				"NETWORK OPTIONS"
 			type				ITEM_TYPE_BUTTON
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				10 154 120 17
+			rect				10 176 120 17
 			font				6
 			textscale			0.17
 			textalignx			110
@@ -2129,7 +2234,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	10 156 120 17
+				setitemrect		button_glow	10 178 120 17
 			}
 			mouseExit
 			{
@@ -2151,6 +2256,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2217,6 +2323,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2281,6 +2388,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2345,6 +2453,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2409,6 +2518,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2473,6 +2583,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -2537,6 +2648,7 @@ itemDef
 				hide			sound2
 				hide			options
 				hide			options2
+				hide			options3
 				hide			uioptions
 				hide			uioptions2
 				hide			uioptions3
@@ -3543,67 +3655,69 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"			
-				hide				movementcontrolbutton
-				hide 				attackcontrolbutton
-				hide				weaponscontrolbutton
-				hide				forcecontrolbutton
-				hide				forcecontrolbutton2
-				hide				mousejoystickcontrolbutton
-				hide				mediacontrolbutton
-				hide				othercontrolbutton
-				show				video1menubutton
-				show				video2menubutton
-				show				experimentalmenubutton
-				show				vulkanmenubutton
-				show				rend2menubutton
-				hide				soundmenubutton
-				hide				sound2menubutton
-				hide				gameoptionmenubutton
-				show				visualoptmenubutton
-				hide				trueviewmenubutton
-				hide				connectionoptmenubutton
-				hide				crosshairmenubutton
-				show				gamedefaultsmenubutton
-				hide				chatmenubutton
-				hide				cameramenubutton
-				hide				crosshair2menubutton
-				hide				setup_background
-				show				gammamenubutton
-				hide				gameoption2menubutton
-				show 				video
-				hide				video2
-				hide				experimental
-				hide				rd_vulkan
-				hide				rd_rend2
-				hide				applyChanges
-				hide				vidrestart
-				hide				sound
-				hide				options
-				hide				options2
-				hide				uioptions
-				hide				uioptions2
-				hide				uioptions3
-				hide				uioptions4
-				hide				visualopt
-				hide				camera
-				hide				trueview
-				hide				connection 
-				hide				defaults
-				hide				highlights
-				hide				crosshair
-				hide				crosshair2
-				hide				chat
-				hide				gamma
-				hide				setup_background
-				hide				movecontrols
-				hide				attackcontrols
-				hide				weaponcontrols
-				hide				mbcontrols
-				hide				forcecontrols
-				hide				quickcontrols
-				hide				joycontrols
-				hide				mediacontrols
-				hide				othercontrols
+				hide			movementcontrolbutton
+				hide 			attackcontrolbutton
+				hide			weaponscontrolbutton
+				hide			forcecontrolbutton
+				hide			forcecontrolbutton2
+				hide			mousejoystickcontrolbutton
+				hide			mediacontrolbutton
+				hide			othercontrolbutton
+				show			video1menubutton
+				show			video2menubutton
+				show			experimentalmenubutton
+				show			vulkanmenubutton
+				show			rend2menubutton
+				hide			soundmenubutton
+				hide			sound2menubutton
+				hide			gameoptionmenubutton
+				show			visualoptmenubutton
+				hide			trueviewmenubutton
+				hide			connectionoptmenubutton
+				hide			crosshairmenubutton
+				show			gamedefaultsmenubutton
+				hide			chatmenubutton
+				hide			cameramenubutton
+				hide			crosshair2menubutton
+				hide			setup_background
+				show			gammamenubutton
+				hide			gameoption2menubutton
+				hide			gameoption3menubutton
+				show 			video
+				hide			video2
+				hide			experimental
+				hide			rd_vulkan
+				hide			rd_rend2
+				hide			applyChanges
+				hide			vidrestart
+				hide			sound
+				hide			options
+				hide			options2
+				hide			options3
+				hide			uioptions
+				hide			uioptions2
+				hide			uioptions3
+				hide			uioptions4
+				hide			visualopt
+				hide			camera
+				hide			trueview
+				hide			connection 
+				hide			defaults
+				hide			highlights
+				hide			crosshair
+				hide			crosshair2
+				hide			chat
+				hide			gamma
+				hide			setup_background
+				hide			movecontrols
+				hide			attackcontrols
+				hide			weaponcontrols
+				hide			mbcontrols
+				hide			forcecontrols
+				hide			quickcontrols
+				hide			joycontrols
+				hide			mediacontrols
+				hide			othercontrols
 				setitemcolor	video1menubutton		forecolor 0.5 0.5 0.5 0.9
 				setitemcolor	video2menubutton		forecolor 1 1 1 0.9
 				setitemcolor	experimentalmenubutton		forecolor 1 1 1 0.9
@@ -7832,6 +7946,159 @@ itemDef
 		}
 		
 		
+
+// OPTIONS 3 USER INFO OPTION
+		itemDef
+		{
+			name				predict0
+			group				options3
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Zoom Latch:"
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				predict0
+			group				options3
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"ui_predict00"
+			cvarFloatList		{@MENUS_OFF 0 @MENUS_ON 1}
+			rect				142 110 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Toggle on or off Zoom Latch."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 111 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				predict1
+			group				options3
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"SBD M2 Slap:"
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				predict1
+			group				options3
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"ui_predict01"
+			cvarFloatList		{ @MENUS_OFF 0 @MENUS_ON 1}
+			rect				142 125 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Puts SBD Slap on Mouse2 and Melee key to Zoom."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 126 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+
+		itemDef
+		{
+			name				predict2
+			group				options3
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"No Use Air Kick:"
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+		itemDef
+		{
+			name				predict2
+			group				options3
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"ui_predict02"
+			cvarFloatList		{ @MENUS_OFF 0 @MENUS_ON 1}
+			rect				142 140 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Remove Use key requirement for Air Kicks."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 141 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+
+
+
 // UI OPTIONS FIELDS
 
 		itemDef
@@ -13254,6 +13521,7 @@ itemDef
 				hide				setup_background
 				show				gammamenubutton
 				hide				gameoption2menubutton
+				hide				gameoption3menubutton
 				show 				video
 				hide				applyChanges
 				hide				video2
@@ -15048,22 +15316,22 @@ itemDef
 			decoration
 		}
 
-		itemDef
-		{
-			name				none
-			group				weaponcontrols
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Zoom Latch:"
-			rect				142 305 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
+//		itemDef
+//		{
+//			name				none
+//			group				weaponcontrols
+//			style				WINDOW_STYLE_TEXT_RGB1
+//			text				"Zoom Latch:"
+//			rect				142 305 230 14
+//			textalign			ITEM_ALIGN_LEFT
+//			textalignx			20
+//			textaligny			-5
+//			font				5
+//			textscale			0.15
+//			forecolor			1 1 1 0.9
+//			visible				0
+//			decoration
+//		}
 
 // WEAPON 2 BINDING
 
@@ -15441,39 +15709,39 @@ itemDef
 			}
 		}
 		
-		itemDef
-		{
-			name				none
-			group				weaponcontrols
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_YESNO
-			text				" "
-			cvar				"cg_predictItems"
-			rect				142 305 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			"Toggle on or off Zoom Latch."
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 306 230 15			
-				show			keybindstatus
-			}
-			mouseExit
-			{
-				hide			button_glow			
-				hide			keybindstatus
-			}			
-			action
-			{
-				play			"sound/interface/go.mp3"
-			}
-		}
+//		itemDef
+//		{
+//			name				none
+//			group				weaponcontrols
+//			style				WINDOW_STYLE_TEXT_RGB2
+//			type				ITEM_TYPE_YESNO
+//			text				" "
+//			cvar				"cg_predictItems"
+//			rect				142 305 230 14
+//			textalign			ITEM_ALIGN_RIGHT
+//			textalignx			140
+//			textaligny			-5
+//			font				5
+//			textscale			0.15
+//			forecolor			0.5 0.5 0.5 1
+//			visible				0
+//			descText			"Toggle on or off Zoom Latch."
+//			mouseenter
+//			{
+//				show			button_glow 
+//				setitemrect		button_glow	142 306 230 15			
+//				show			keybindstatus
+//			}
+//			mouseExit
+//			{
+//				hide			button_glow			
+//				hide			keybindstatus
+//			}			
+//			action
+//			{
+//				play			"sound/interface/go.mp3"
+//			}
+//		}
 		
 		
 //	MBII BINDING
@@ -16322,7 +16590,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"use_electrobinoculars;+button9"//"+force_grip"
+			cvar				"use_electrobinoculars"//"+force_grip"
 			rect				142 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -16355,7 +16623,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"use_ammodisp;+button9"//"+force_lightning"
+			cvar				"use_ammodisp"//"+force_lightning"
 			rect				142 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -16421,7 +16689,7 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"use_healthdisp;+button9"//"+force_drain"
+			cvar				"use_healthdisp"//"+force_drain"
 			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
