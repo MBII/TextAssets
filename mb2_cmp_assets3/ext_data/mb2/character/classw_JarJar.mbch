@@ -1,0 +1,204 @@
+//test rework
+//tongue
+
+Classinfo	
+{		  		
+ 
+ 	name				"classw_JarJar"		
+ 	MBClass				MB_CLASS_HERO
+	weapons			WP_MELEE|WP_SABER|WP_T21|WP_FRAG_NADE|WP_PULSE_NADE
+	
+	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,3|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR
+
+	modelScale   1.07			
+	basespeed 	200
+	
+ 	maxhealth	210
+	maxarmor		80
+	
+	saber1 		jarjar_leg
+	saberstyle	SS_TAVION
+	
+	saberMaxChain 	1
+	saberDamage		80 //40
+	APmultiplier 		1
+	BPmultiplier 		1
+	ASmultiplier 		1
+	CSmultiplier 		1
+
+	forcepool	200
+	forceregen 2
+	resource RESOURCE_STAMINA
+
+  	classNumberLimit	99
+	
+  	forceBlocking 	1
+	
+	rateOfFire .15
+	rateOfFire_Melee	0.75
+	damageGiven 0.5
+	knockbackTaken 1.5
+	knockbackGiven 1.5
+	skilltimermod 3
+	special1	EAS_HI_DODGE
+	special2	EAS_HI_DEX
+	special3	EAS_HI_DASH
+	special4 EAS_HI_GRAPPLEHOOK
+	uioverlay "gfx/icons/spec_infantry"
+	
+	classflags CFL_BLOODYMELEE
+	
+ 	model 			"jarjar"					
+ 	skin				"default"	
+	uishader			"models/players/jarjar/mb2_icon_default"
+	
+	WalkForward		BOTH_WALK7
+	WalkBackward 		BOTH_WALK7
+	tauntAnim		BOTH_ENGAGETAUNT
+	gloatAnim       	BOTH_TUSKENTAUNT1
+	flourishAnim		BOTH_FORCEWALLRUNFLIP_START
+	bowAnim 			BOTH_KNOCKDOWN3
+	saberStanceAnim	TORSO_SURRENDER_START
+	
+	WP_MeleeFlags HELD_HIGHDAMAGE
+	WP_SaberFlags HELD_KNOCKDOWN
+	WP_FragNadeFlags HELD_STUN|HELD_PULSE|HELD_HIGHDAMAGE|HELD_DISRUPTIFY|HELD_KNOCKDOWN
+	WP_PulseNadeFlags HELD_DISRUPTIFY|HELD_HIGHDAMAGE
+	WP_T21Flags HELD_LOWDAMAGE
+	
+	respawnCustomTime  	50000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_PULSE_NADE
+	NewWorldModel			"models/weapons2/pw_atlatl/atlatl.glm"
+	NewViewModel			"models/weapons2/pw_atlatl/atlatl.md3"
+	altFlashSound0		"sound/weapons/stone/fire.mp3"
+	altMissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
+	MissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	MissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	MissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	MissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
+	MuzzleEffect				"stone/muzzle1"
+	altMuzzleEffect 			"stone/muzzle1"
+	MissileEffect 			"grenades/glowempb"
+	altMissileEffect 		"grenades/glowempb"
+	primFireEnabled 			0
+	WeaponName				"Atlatl and Boomas"
+	Icon						"gfx/hud/w_icon_atlatl"
+	customAmmo 				4
+		SelectSound	"sound/weapons/wood/spin.mp3"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_PULSE_NADE
+	WeaponBasedOff		WP_PULSE_NADE
+	NewWorldModel			"models/weapons2/thr_booma/booma.glm"
+	NewViewModel			"models/weapons2/thr_booma/booma.md3"
+	altFlashSound0		"sound/weapons/stone/fire.mp3"
+	altMissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
+	altMuzzleEffect 			"stone/muzzle1"
+	altMissileEffect 		"grenades/glowempb"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
+	MissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	MissileMissEffect		"effects/Grenades/EXP_Pulsenade"
+	MissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
+	MissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
+	MuzzleEffect				"stone/muzzle1"
+	altFireEnabled 			0
+	WeaponName				"Hand Boomas"
+	Icon						"gfx/hud/w_icon_booma"
+	customAmmo 				4
+		SelectSound	"sound/weapons/blunt/spin.mp3"	
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_T21
+	WeaponBasedOff		WP_T21
+	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
+	NewViewModel 		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_e5"
+	WeaponName			"Salvaged E-5 Blaster Rifle"	
+	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound1 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound2 		"sound/weapons/blasterMB/fire.mp3"
+	FlashSound3 		"sound/weapons/blasterMB/fire.mp3"
+	AltFlashSound0	   "sound/weapons/blasterMB/fire.mp3"
+	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	MissileEffect		"blaster/Shot01R"
+	altMuzzleEffect		"Blaster/MuzzleFlash01R"
+	altMissileEffect		"blaster/Shot01R"
+	customAmmo 		864
+	clipsize 		144
+}
+
+WeaponInfo3
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Grand Gungan Ticklers"
+	primGore		1
+	altGore			1
+}
+
+description "Jar Jar Binks
+
+Class: Hero
+Brief Overview: A chaos vortex with unreliable firepower, but all the luck in the world.
+
+^2Weaponry:
+- Heavy Melee
+-- 25% faster swings
+- Grand Gungan Ticklers
+-- Based on Lightsaber
+-- Cyan style
+-- Cannot block Sabers/Blasters
+-- Chain Limit: 1
+-- Knocks down targets
+-- 50% more knockback
+-- 30% faster swings
+-- 66% less dmg
+-- 25% shorter reach
+- Salvaged E-5 Blaster Rifle
+-- Based on T-21 (1)
+-- 50% less dmg
+- Atlatl and Boomas (4)
+-- Based on OG Frag Grenades
+-- Electrifies/staggers/knocks down targets
+-- 100% more dmg
+-- Sec. fire only
+- Hand Boomas (4)
+-- Based on Pulse Grenades
+-- 100% more dmg
+-- Prim. fire only
+
+^8Attributes:
+- 200% slower skill cooldown
+- 50% more KB taken/given
+- Bunny Hop (2) + Slow Faller
+- Stamina (3)
+- Dexterity (3)
+- Blast Armor
+- Healing (3)
+- Underwater Breathing
+
+^3Abilities:
+- Toxic Taunt
+- Dodge (3) ^3[CS1]
+- Dex Roll ^3[CS2]
+- Dash Jump (2) ^3[CS3]
+- Flipkick (3)"
