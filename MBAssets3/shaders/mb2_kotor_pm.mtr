@@ -480,16 +480,26 @@ models/players/malak/head
 }
 
 //// Old Republic Soldier ////
-models/players/oldrepsold/helmet_copy
+models/players/oldrepsold/helmet
 {
-    cull twosided
+    cull disable
     {
         map models/players/oldrepsold/helmet
-        rgbGen lightingDiffuseEntity
+        rgbGen lightingDiffuse
     }
     {
-        map models/players/oldrepsold/helmet_copy
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        map models/players/oldrepsold/helmet_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/oldrepsold/helmet_tsf
+{
+    cull disable
+    {
+        map models/players/oldrepsold/helmet_tsf
         rgbGen lightingDiffuse
     }
     {
