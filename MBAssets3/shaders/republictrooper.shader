@@ -1,43 +1,43 @@
 // Default
 
-models/players/tortrooper/helmet
+models/players/republictrooper/helmet
 {
 	{
-		map models/players/tortrooper/helmet
+		map models/players/republictrooper/helmet
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/helmet_spec
+		map models/players/republictrooper/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/legs
+models/players/republictrooper/legs
 {
 	cull	disable
 	{
-		map models/players/tortrooper/legs
+		map models/players/republictrooper/legs
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/legs_spec
+		map models/players/republictrooper/legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/torso
+models/players/republictrooper/torso
 {
 	cull	disable
 	{
-		map models/players/tortrooper/torso
+		map models/players/republictrooper/torso
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/torso_spec
+		map models/players/republictrooper/torso_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -47,44 +47,44 @@ models/players/tortrooper/torso
 
 // Belsavis
 
-models/players/tortrooper/helmet_belsavis
+models/players/republictrooper/helmet_belsavis
 {
 	{
-		map models/players/tortrooper/helmet_belsavis
+		map models/players/republictrooper/helmet_belsavis
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/helmet_spec
+		map models/players/republictrooper/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/legs_belsavis
+models/players/republictrooper/legs_belsavis
 {
 	cull	disable
 	{
-		map models/players/tortrooper/legs_belsavis
+		map models/players/republictrooper/legs_belsavis
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/legs_spec
+		map models/players/republictrooper/legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/torso_belsavis
+models/players/republictrooper/torso_belsavis
 {
 	cull	disable
 	{
-		map models/players/tortrooper/torso_belsavis
+		map models/players/republictrooper/torso_belsavis
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/torso_spec
+		map models/players/republictrooper/torso_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -94,44 +94,44 @@ models/players/tortrooper/torso_belsavis
 
 // Havoc
 
-models/players/tortrooper/helmet_havoc
+models/players/republictrooper/helmet_havoc
 {
 	{
-		map models/players/tortrooper/helmet_havoc
+		map models/players/republictrooper/helmet_havoc
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/helmet_spec
+		map models/players/republictrooper/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/legs_havoc
+models/players/republictrooper/legs_havoc
 {
 	cull	disable
 	{
-		map models/players/tortrooper/legs_havoc
+		map models/players/republictrooper/legs_havoc
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/legs_spec
+		map models/players/republictrooper/legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/torso_havoc
+models/players/republictrooper/torso_havoc
 {
 	cull	disable
 	{
-		map models/players/tortrooper/torso_havoc
+		map models/players/republictrooper/torso_havoc
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/torso_spec
+		map models/players/republictrooper/torso_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -141,44 +141,44 @@ models/players/tortrooper/torso_havoc
 
 // MA35
 
-models/players/tortrooper/helmet_ma35
+models/players/republictrooper/helmet_ma35
 {
 	{
-		map models/players/tortrooper/helmet_ma35
+		map models/players/republictrooper/helmet_ma35
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/helmet_spec
+		map models/players/republictrooper/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/legs_ma35
+models/players/republictrooper/legs_ma35
 {
 	cull	disable
 	{
-		map models/players/tortrooper/legs_ma35
+		map models/players/republictrooper/legs_ma35
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/legs_spec
+		map models/players/republictrooper/legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/torso_ma35
+models/players/republictrooper/torso_ma35
 {
 	cull	disable
 	{
-		map models/players/tortrooper/torso_ma35
+		map models/players/republictrooper/torso_ma35
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/torso_spec
+		map models/players/republictrooper/torso_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -188,62 +188,62 @@ models/players/tortrooper/torso_ma35
 
 // RGB
 
-models/players/tortrooper/helmet_rgb
+models/players/republictrooper/helmet_rgb
 {
 	{
-		map models/players/tortrooper/helmet_rgb
+		map models/players/republictrooper/helmet_rgb
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuseEntity
 	}
 	{
-		map models/players/tortrooper/helmet_rgb
+		map models/players/republictrooper/helmet_rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/helmet_spec
+		map models/players/republictrooper/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/legs_rgb
+models/players/republictrooper/legs_rgb
 {
 	cull	disable
 	{
-		map models/players/tortrooper/legs_rgb
+		map models/players/republictrooper/legs_rgb
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuseEntity
 	}
 	{
-		map models/players/tortrooper/legs_rgb
+		map models/players/republictrooper/legs_rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/legs_spec
+		map models/players/republictrooper/legs_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/tortrooper/torso_rgb
+models/players/republictrooper/torso_rgb
 {
 	cull	disable
 	{
-		map models/players/tortrooper/torso_rgb
+		map models/players/republictrooper/torso_rgb
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuseEntity
 	}
 	{
-		map models/players/tortrooper/torso_rgb
+		map models/players/republictrooper/torso_rgb
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/tortrooper/torso_spec
+		map models/players/republictrooper/torso_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
