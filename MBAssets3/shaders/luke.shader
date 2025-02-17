@@ -491,7 +491,7 @@ models/players/luke_ceremonial/jacket_luke
 
 models/players/luke_de/cape
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/luke_de/cape
 		rgbGen lightingDiffuse
@@ -531,3 +531,13 @@ models/players/luuke/Lukehead_clone
        		 alphaGen lightingSpecular
 	}
 	}
+
+
+models/players/luuke/hips
+{
+	cull	disable
+	{
+		map models/players/luuke/hips
+		rgbGen lightingDiffuse
+	}     
+}
