@@ -240,15 +240,24 @@ models/players/maul_cw/head_solo_hood
 
 models/players/maul_cw/cloth
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/maul_cw/cloth
 		rgbGen lightingDiffuse
 	}
 }
 
+models/players/maul_cw/body_solo_cull
+{
+	cull	disable
+	{
+		map models/players/maul_cw/body_solo
+		rgbGen lightingDiffuse
+	}
+}
 
-// Rebels (by swegmaster)
+
+// Rebels, Solo (by swegmaster, Plasma)
 
 models/players/maul_rebels/legs
 {
