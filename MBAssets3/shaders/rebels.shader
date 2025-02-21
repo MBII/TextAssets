@@ -424,6 +424,21 @@ models/players/rebel_honor/boots_hips_rhg
 	}
 }
 
+models/players/rebel_honor/boots_hips_rhg2
+{	  
+	{
+		map models/players/rebel_honor/boots_hips_rhg2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/boots_hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel_honor/hips_rhg
 {	  
 	{
@@ -439,10 +454,40 @@ models/players/rebel_honor/hips_rhg
 	}
 }
 
+models/players/rebel_honor/hips_rhg2
+{	  
+	{
+		map models/players/rebel_honor/hips_rhg2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel_honor/torso_rhg
 {	  
 	{
 		map models/players/rebel_honor/torso_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/torso_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_honor/torso_rhg2
+{	  
+	{
+		map models/players/rebel_honor/torso_rhg2
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -481,7 +526,7 @@ models/players/rebel_magma/torso
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/poe/torso_resistance_officer_specular
+		map models/players/rebel_magma/torso_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
