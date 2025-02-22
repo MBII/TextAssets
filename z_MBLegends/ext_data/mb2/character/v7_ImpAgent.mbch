@@ -4,11 +4,11 @@ ClassInfo
 {
 	name			"v7_ImpAgent"
 	weapons			WP_MELEE|WP_SABER
-	saber1			legends_Knife
+	saber1			Legends_Knife_Spy
 	sabercolor		0
 	forcepowers     FP_SABER_OFFENSE,3
 	saberstyle		SS_TAVION|SS_FAST
-	attributes		MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,1
+	attributes		MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON
 
 	maxhealth		80
 
@@ -23,7 +23,7 @@ ClassInfo
 	resource			RESOURCE_BATTERY
 	forcepool 100
 
-	BPmultiplier    0.7
+	//BPmultiplier    0.7
 
 	MBClass			MB_CLASS_HERO
 	classNumberLimit	2
@@ -32,16 +32,17 @@ ClassInfo
 	forceregen		2.65
 	
 	special1 EAS_HI_CLOAK
-	special2  EAS_MELEE
+	special2 EAS_MELEE
 	special3 EAS_HI_DASH
 	
 	uioverlay "gfx/icons/tactician"
 	
 	//WalkBackward BOTH_WALK_DUAL
-	WalkForward BOTH_WALK_DUAL
+	//WalkForward BOTH_WALK_DUAL
 	//tauntAnim BOTH_SHOWOFF_MEDIUM
 	gloatAnim TORSO_HANDSIGNAL4
-	flourishAnim BOTH_STAND5TOAIM
+	flourishAnim BOTH_SPINATTACK7
+	saberStanceAnim BOTH_STAND9
 	
 	model		"scouttrooper"
 	skin			"commando"
@@ -173,14 +174,13 @@ WeaponInfo2
 
 WeaponInfo3
 {
-		WeaponToReplace		WP_SABER
-		WeaponBasedOff		WP_SABER
-		NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
-		NewViewModel		"models/weapons2/dummy/dummy.md3"
-		Icon				"gfx/hud/w_icon_prisonknife"
-		WeaponName		"Vibroknife"
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
+	NewWorldModel		"models/weapons2/vibroknife/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_prisonknife"
+	WeaponName		"Jagged Vibroknife"
 }
-
 ForceInfo0
 {
 	ForceToReplace	FP_SEE
@@ -194,15 +194,14 @@ description	"Imperial Agent
 
 Class: Hero
 Brief Overview: 
-A mid-ranged elite soldier who can Disguise himself and Cloak.
+A mid-ranged elite soldier who can Disguise himself and Cloak. Spec options include extra lives, weaponry, and damage protection.
 
 ^2Default Weaponry:
 - Heavy Melee
-- Vibroknife
+- Jagged Vibroknife
 -- Based on Lightsaber 
 -- Blue/Cyan styles
--- Saber Defense (1)
--- Cannot block Blasters
+-- Cannot block Sabers/Blasters
 -- 60% shorter reach
 -- Cannot Saber Throw
 -- Slap ^3[CS2]
@@ -212,6 +211,7 @@ A mid-ranged elite soldier who can Disguise himself and Cloak.
 
 ^8Default Attributes:
 - Force Sense Immunity
+- Tracking Beacon
 
 ^3Default Abilities:
 - Dash (1) ^3[CS3]

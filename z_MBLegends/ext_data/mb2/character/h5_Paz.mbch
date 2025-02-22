@@ -2,41 +2,47 @@
 
 ClassInfo
 {
-	name 				"h5_Paz"
+	name 			"h5_Paz"
+	MBClass 			MB_CLASS_WOOKIE
 	weapons 			WP_MELEE|WP_MINIGUN|WP_SABER
-	attributes 			MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,3|MB_ATT_MINIGUN,3
+	attributes 		MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,3|MB_ATT_MINIGUN,3
+	
+	forcepowers FP_RAGE,3
 	
 	saberstyle	SS_DESANN
-	saber1		legends_Knife
+	saber1		Legends_Knife
 	
 	resource		RESOURCE_FUEL
-	forcepool 120
-	special2 EAS_MELEE
+	forcepool 	120
+	
+	special1 	EAS_FP_RAGE
+	special2 	EAS_MELEE
 
-	maxhealth 			200
-	maxarmor		   	220
+	classflags	CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE
 
-	modelscale		    1.15
-	rateOfFire          0.92
-	speed               0.82
+	maxhealth 		200
+	maxarmor		   	240
+
+	rateOfFire          	0.92
+	speed              	0.82
 	damagegiven			0.95
-	damagetaken			0.9
-	knockbackgiven		0.8
+	damagetaken			0.90
+	knockbackgiven		0.80
 	knockbacktaken		0.75
 	
 	ASmultiplier		1.05
-	APmultiplier 1.20
+	APmultiplier 		1.20
 	
-	uioverlay "gfx/icons/aerial"
-	
-	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE
+	uioverlay "gfx/icons/aerial"	
+
 	model 				"pazvizsla"
 	skin  				"norocket"
 	uishader  			"models/players/pazvizsla/mb2_icon_default"
-
+	modelscale		    1.15
 	respawnCustomTime 	75000
 	classNumberLimit  	1
-	MBClass 			MB_CLASS_WOOKIE
+	
+	flourishAnim BOTH_SPINATTACK7
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 }
@@ -51,17 +57,18 @@ WeaponInfo0
 	NewBarrelModel		"models/weapons2/z6_rotary/rotary_cannon_barrel.md3"
 
 	MuzzleEffect		"Blaster/MuzzleCharge01R"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
+	AltMuzzleEffect	"Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot02r"
-	Missile3Effect		"Blaster/Shot04r"
+	MissileMissEffect	"Blaster/Impact_Wall01R.efx"
+	Missile3Effect	"Blaster/Shot04r"
 	AltMissileEffect	"Blaster/Shot04r"
 	PowerupShotEffect	"Blaster/Shot04r"
 
 	Icon			"gfx/hud/w_icon_rotary_cannon"
-	WeaponName		"Z6 Rotary Blaster Cannon"
-	FlashSound0		"sound/weapons/minigun/fire.wav" 
+	WeaponName		"M-55 Medium Repeating Blaster"
+	FlashSound0		"sound/weapons/e_22/fire.mp3"
 	customAmmo 				999
-
+	isMinigun			1
 	clipSize				400
 	ReloadTimeModifier	1.13
 	altFireEnabled			1
@@ -72,11 +79,11 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
 	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_prisonknife"
+	Icon				"gfx/hud/w_icon_prisonknife"
 	WeaponName		"Vibroknife"
 }
 
@@ -84,7 +91,7 @@ description	"Paz Vizsla
 
 Class: Wookiee
 Brief Overview: 
-A slow, Jetpack-equipped tank with a Minigun and high damage resistance. Cannot be knocked down by Force Push/Pull.
+A slow, Jetpack-equipped tank with a Minigun and high damage/knockback resistance. Cannot be knocked down by Force Push/Pull. Can burn his Fuel for a short movement and attack speed boost.
 
 ^2Weaponry:
 - Wookiee-style Melee
@@ -95,7 +102,7 @@ A slow, Jetpack-equipped tank with a Minigun and high damage resistance. Cannot 
 -- 60% shorter reach
 -- Cannot Saber Throw
 -- Slap ^3[CS2]
-- Z6 Rotary Blaster Cannon
+- M-55 Medium Repeating Blaster
 -- Based on Minigun (3)
 -- 13% slower reload
 -- 10% less FP damage
@@ -112,4 +119,5 @@ A slow, Jetpack-equipped tank with a Minigun and high damage resistance. Cannot 
 -- 20% more Fuel
 
 ^3Abilities:
+- Last Stand (Dark Rage 3) ^3[CS1]
 - Jetpack ^3[Double-tap/hold ^3jump] ['Use' to deactivate]"
