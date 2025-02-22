@@ -3,26 +3,42 @@
 ClassInfo
 {
 	name			"h7_Scavenge"	
-	weapons			WP_MELEE|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_FRAG_NADE|WP_STUN_BATON
-	sabercolor		0
-	saberstyle		SS_MEDIUM
+	MBClass			MB_CLASS_BOUNTY_HUNTER
+	
+	weapons			WP_MELEE|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_FRAG_NADE|WP_STUN_BATON|WP_SABER
+
 	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_BLASTER,1|MB_ATT_DODGE,2|MB_ATT_DASH,1|MB_ATT_TRIP_MINES,2|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,3
+	
 	maxhealth		70
 	maxarmor			35
-	MBClass			MB_CLASS_BOUNTY_HUNTER
+
 	holdables       	HI_SEEKER|HI_MEDPAC|HI_SENTRY_GUN
-	modelscale	0.75
-	rateOfFire      1.4
+	modelscale		0.75
+	
+	rateOfFire     	1.4
 	rateOfFire_Melee	0.5
+	
 	resource			RESOURCE_ENERGY
 	forcepool       	65
+	
 	WP_BlasterFlags 	HELD_PULSE|HELD_ALTRELOAD
 	WP_FragNadeFlags	HELD_KNOCKDOWN|HELD_LOWDAMAGE
 	WP_MeleeFlags		HELD_LOWDAMAGE
+
+	extralives		2
 	classNumberLimit	4
 	speed			1.05
 
-	extralives		2
+	saber1		Jawa_Wrench_Legends
+	sabercolor	0
+	saberstyle	SS_FAST
+	
+	saber1_1		Jawa_Wrench_Legends_2
+	sabercolor1	0
+	saberstyle_1	SS_FAST
+	
+	saberMaxChain 1
+	saberDamage 30
 	
 	special1	EAS_HI_DODGE
 	special2	EAS_HI_DASH
@@ -32,29 +48,27 @@ ClassInfo
 	gloatAnim	TORSO_SURRENDER_START
 	flourishAnim	BOTH_COWER1
 	//tauntAnim	BOTH_SHOWOFF_FAST
-	runForward				BOTH_RUN4
-	runBackward				BOTH_RUNBACK4
-	walkForward				BOTH_RUN4
-	walkBackward			BOTH_RUNBACK4
+	RunForward BOTH_RUN4
+	RunBackward BOTH_RUNBACK4
 	uioverlay "gfx/icons/tactician"
 	
 	model		"jawa"
 	skin			"tfu"
 	uishader		"gfx/hud/fa_icons/mb2_icon_jawa_legends"
 	
-	model_1			"ugnaught"
-	skin_1			"default_nopurse"
-	uishader_1		"models/players/ugnaught/mb2_icon_base3"
+	model_1		"ugnaught"
+	skin_1		"default_nopurse"
+	uishader_1	"models/players/ugnaught/mb2_icon_base3"
 	
-	model_2			"ugnaught"
-	skin_2 			"default_rax"
-	uishader_2 		"models/players/ugnaught/mb2_icon_default_rax"
+	model_2		"ugnaught"
+	skin_2 		"default_rax"
+	uishader_2 	"models/players/ugnaught/mb2_icon_default_rax"
 	
 	model_3		"ugnaught_worker"
 	skin_3  		"tech"
 	uishader_3 	"models/players/ugnaught_worker/mb2_icon_tech"
 
-	model_4		 "uglynaught"
+	model_4		"uglynaught"
 	skin_4 		"base"
 	uishader_4 	"models/players/uglynaught/mb2_icon_base"
 	
@@ -96,6 +110,16 @@ WeaponInfo1
 	CustomAmmo		1
 }
 
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_mwrench"
+	WeaponName			"Wrench"
+}
+
 description	"Scavenger
 
 Class: Bounty Hunter
@@ -105,6 +129,17 @@ Brief Overview:
 ^2Weaponry:
 - Light Melee
 -- 50% faster swings
+- Power Wrench/Spanner Wrench
+-- Based on Lightsaber
+-- Blue style
+-- Cannot block Sabers/Blasters
+-- Chain Limit: 1
+-- 200% more knockback
+-- 75% less damage
+-- 50% shorter reach
+-- 167% wider radius
+-- Cannot Saber Throw
+-- Slap ^3[Gunbash]
 - Ion Blaster
 -- Based on E-11 Rifle (1)
 -- Electrifies targets
