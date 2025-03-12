@@ -21,6 +21,7 @@ jobs:
           deterministic_zip mb2_cmp_assets3.pk3 mb2_cmp_assets3/
           deterministic_zip mb2_um_assets3.pk3 mb2_um_assets3/
           deterministic_zip mb2_pb_assets2.pk3 mb2_pb_assets2/
+          deterministic_zip z_MBLegends.pk3 z_MBLegends/
           
       - name: Upload Files
         shell: powershell
@@ -34,6 +35,7 @@ jobs:
           Move-Item -Force -Path mb2_cmp_assets3.pk3 -Destination $MBII\mb2_cmp_assets3.pk3
           Move-Item -Force -Path mb2_um_assets3.pk3 -Destination $MBII\mb2_um_assets3.pk3
           Move-Item -Force -Path mb2_pb_assets2.pk3 -Destination $MBII\mb2_pb_assets2.pk3
+          Move-Item -Force -Path z_MBLegends.pk3 -Destination $MBII\z_MBLegends.pk3
           $BRANCH = "${{github.ref}}".Split("/")[2]
           $HASH = "${{github.sha}}".Substring(0, 7)
           svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
