@@ -1,0 +1,126 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name  			"YR_r_Spy"
+	weapons			WP_MELEE|WP_SABER|WP_FRAG_NADE|WP_THROWER|WP_BLASTER_PISTOL
+	saber1		legends_Knife
+	sabercolor		0
+	forcepowers     FP_SABER_OFFENSE,3
+	saberstyle		SS_TAVION|SS_FAST
+	attributes  	MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_FRAGS,1|MB_ATT_DASH,2|MB_ATT_THROWER_Flame|MB_ATT_PISTOL,2
+	maxhealth 		80
+	maxarmor  		25
+	mbclass 	MB_CLASS_ARCTROOPER
+	forcepool		100
+	holdables		HI_CLOAK
+	speed           1.03
+	classflags 		CFL_SEEING_STEALTH
+	extralives		1
+	classnumberlimit 2
+	//resource		resource_stamina
+	special1		EAS_HI_SPRINT
+	special2		EAS_HI_DEX
+	special3        EAS_HI_DASH
+	
+	flourishanim BOTH_STAND2TO1
+	WalkBackward BOTH_WALK_DUAL
+	WalkForward BOTH_WALK_DUAL
+	
+    model		"bothan-spy"
+	skin			"default"
+	uishader		"models/players/bothan-spy/mb2_icon_default"
+	
+	respawnCustomTime 10000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_CLONE_RIFLE
+	NewWorldModel			"models/weapons2/CR-1_cannon/rifle_w.glm"
+	NewViewModel			"models/weapons2/CR-1_cannon/rifle.md3"
+	Icon					"gfx/hud/w_icon_cr1_blastcannon"
+	WeaponName				"CR-4I Incinerator"
+	customAmmo		480
+	clipsize		60
+	idleAnim  DC15_READY
+	firingAnim  DC15_FIRE
+	ReloadTimeModifier 	1.4
+}
+
+WeaponInfo1
+{
+	WeaponToReplace	WP_BLASTER_PISTOL
+	WeaponBasedOff	WP_BLASTER
+	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
+	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
+	Icon				"gfx/hud/w_icon_sc-10_holdout" 
+	WeaponName		"Holdout Pistol"
+	FlashSound0		"sound/weapons/spy_pistol/fire.wav"
+	AltFlashSound0	"sound/weapons/spy_pistol/alt_fire.wav"
+	idleAnim			MAND_SPISTOL
+	firingAnim          MAND_SPISTOL_FIRE
+}
+
+WeaponInfo2
+{
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
+	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_prisonknife"
+	WeaponName		"Vibroknife"
+}
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_FRAG_NADE
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	MissileMissEffect			"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	missileHitHumanEffect		"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	missileHitDroidEffect		"Grenades/EXP_Flash"
+	
+	Icon						"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Flashbang Grenades"
+	primFireEnabled			0
+	//needs a different glow
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Radar Scanner"
+}
+
+description	"Bothan Spy
+
+^2Weaponry:
+- Melee
+- CR-4I Incinerator
+- Holdout Pistol (2)
+- Flash Grenade (1)
+- Vibroknife
+- Slap ^3[CS2]
+
+^8Attributes:
+- Stamina (2) ^8[CS1]
+- Dex Roll ^3[CS2]
+- Passive Healing (2)
+- Dash (2) ^8[CS3]
+- Reinforcement (1)
+- Force Sense Immunity
+
+^3Inventory:
+- Cloaking Device ^3[CS1]
+
+Details:
+The Rebel Vanguard is the Rebel Alliance unit built for heavy damage towards tanks, turrets, and other objects with lots of health. "

@@ -1,0 +1,71 @@
+Teams
+{
+	team1 Goodies
+	team2 Baddies
+}
+MBModesAllowed "2" //Space separated list of mode numbers the map may be played on. If the server is not using an allowed mode, it will change to the first mode in the list.
+mapgraphic "gfx/reactor/layout"
+missionname  "Mercenary Reactor Sabotage"
+radartopleft "-3584, 4352"
+radarbottomright "3584, -2816"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/reactor_1"
+		radargraphicfull "gfx/automap/reactor_1_full"
+		height "32"
+	}
+	AutoMap1
+	{
+		radargraphic "gfx/automap/reactor_2"
+		radargraphicfull "gfx/automap/reactor_2_full"
+		height "544"
+	}
+}
+
+Goodies
+{
+	RequiredObjectives 1	
+	Timed 300					
+	UseTeam "PB3_G" 							
+	TeamIcon	"gfx/2d/logos/mb_rebmander"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff	".7 0 0 1"	
+	Objective1
+	{
+		goalname "Destroy the reactor"
+		final 1
+		objdesc "PRIMARY GOAL:
+		Permenantly disable the mercenary reactor."
+		objgfx "gfx/reactor/obj_1"
+  }
+	wonround "EZ + Destroyed + Ratio + Get fucked" 						//Printed to this team if they won the round.
+	lostround "These skill issues are getting out of hand!"						//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/mapsound_pb3/aids.mp3"
+	roundover_sound_welost "sound/mapsound_pb3/mariolose.mp3"
+	roundover_target "siegeend"
+  attackers 1
+}
+Baddies
+{
+	RequiredObjectives 1
+	UseTeam "PB3_B"
+	TeamIcon	"gfx/2d/logos/mb_impmander"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff	"0 0 .7 1"
+  Objective1
+	{
+		goalname "Defend the reactor"
+		final 1
+		objdesc "PRIMARY GOAL:
+    Keep the reactor online."
+    objgfx "gfx/reactor/obj_1"
+	}
+	wonround "EZ + Destroyed + Ratio + Get fucked"
+	lostround "These skill issues are getting out of hand!"
+	roundover_sound_wewon "sound/mapsound_pb3/isen.mp3"
+	roundover_sound_welost "sound/mapsound_pb3/nelul.mp3" 
+	roundover_target "siegeend"
+	attackers 0
+}

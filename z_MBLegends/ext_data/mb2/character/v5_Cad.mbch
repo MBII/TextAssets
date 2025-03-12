@@ -1,0 +1,113 @@
+ClassInfo
+{
+	name				"v5_Cad"
+	weapons				WP_CLONE_PISTOL|WP_MELEE|WP_FRAG_NADE
+	attributes			MB_ATT_FUELREGEN,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,3|MB_ATT_FRAGS,3|MB_ATT_QUICKTHROW,2|MB_ATT_TRACKING_BEACON
+	
+	MBClass		MB_CLASS_ARCTROOPER
+	classNumberLimit	1
+	maxhealth	125
+	maxarmor		125
+	speed		1.05
+	modelscale   1.03
+	rateOfFire   0.90
+	
+	resource RESOURCE_STAMINA
+	forcepool 100
+	
+	WP_FragNadeFlags	HELD_KNOCKDOWN
+	special1	EAS_HI_SPRINT
+	special2	EAS_HI_DEX
+	special3	EAS_HI_DODGE
+	special4 EAS_HI_QUICKTHROW
+	
+	model 		"cadbane"
+	skin  		"default"
+	uishader  	"models/players/cadbane/mb2_icon_default"
+	
+	tauntanim	BOTH_FORCEHEAL_START
+	gloatanim	BOTH_SCEPTER_HOLD
+	flourishAnim BOTH_STAND1_TALK3
+	
+	uioverlay "gfx/icons/aerial"
+	
+	jetpackJetTag		"*r_leg_foot"		//*r_leg_foot"
+	jetpackJet2Tag	"*l_leg_foot"		//"*l_leg_foot"
+	jetpackJetOffset	"0, 0, 10" // 30"
+	jetpackJet2Offset	"0, 0, 10" // 0, 0, 30"
+	jetpackJetAngles	"0, -70, 0"
+	jetpackJet2Angles	"0, 70, 0"
+	
+	//jetpackThrustSound 	"sound/vehicles/tie/loop"
+	//jetpackIdleSound	"sound/vehicles/tie/loop"
+	//jetpackStartSound 	"sound/vehicles/x-wing/flyby"
+	
+	respawnCustomTime 50000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace	WP_CLONE_PISTOL
+	WeaponBasedOff	WP_MANDO_PISTOL
+	NewWorldModel    "models/weapons2/cb_pistol/pistol_w.glm"
+	NewViewModel     "models/weapons2/cb_pistol/pistol_w.md3"
+	Icon            "gfx/hud/w_icon_cadduals"
+	FlashSound0		"sound/chars/cadbane/misc/cadblast" 			
+	AltFlashSound0	"sound/chars/cadbane/misc/cadblast"
+	//ChargeSound		"sound/weapons/bryar/altcharge.mp3"
+	MuzzleEffect		"Blaster/MuzzleCharge01R"
+	AltMuzzleEffect	"Blaster/MuzzleFlash01R"
+	MissileEffect		"Blaster/Shot02r"
+	Missile3Effect	"Blaster/Shot04r"
+	AltMissileEffect	"Blaster/Shot04r"
+	PowerupShotEffect	"Blaster/Shot04r"
+	ChargeEffect		"gfx/effects/bryarfrontflash"
+	WeaponName	"Dual LL-30 Blaster Pistols"
+	customAmmo	800
+	//clipsize	100
+}
+
+WeaponInfo1
+{	WeaponToReplace	WP_FRAG_NADE
+	WeaponBasedOff	WP_THERMAL
+	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
+	Icon				"gfx/hud/w_icon_stungrenade"
+	WeaponName		"Stun Grenades"
+	MissileModel 		"models/weapons/Grenade_Concussion/proj.md3"
+	primFireEnabled	0
+	CustomAmmo		3
+	altMissileMissEffect	"grenades/EXP_alt"
+}
+
+description	"Cad Bane
+
+Class: ARC Trooper
+Brief Overview: 
+A Jetboots-equipped, dexterous dual pistoleer with Quick-Throw Stun Grenades.
+
+^2Weaponry:
+- Melee
+- Dual LL-30 Blaster Pistols
+-- Based on Clone Pistols (3)
+- Stun Grenades (3)
+-- Based on Frag Grenades
+-- Sec. fire only
+-- Detonates upon any contact
+-- Fully cooked nades are auto-thrown
+-- Cooking does not affect det. timer
+
+^8Attributes:
+- Stamina (3)
+- Dexterity (3)
+- Healing (1)
+- Fuel (3)
+- Fuel Regen (3)
+- Tracking Beacon (See Tracked players)
+
+^3Abilities:
+- Jetboots ^3[Double-tap/hold ^3jump] ['Use' to deactivate]
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Dodge (3) ^3[CS3]
+- Quick-Throw (2) ^3[CS4 outside ^3of Grenades]"

@@ -1,0 +1,152 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name			"v6_Tusk"
+	weapons			WP_SABER|WP_MELEE|WP_CLONE_PISTOL|WP_PROJ|WP_CONC_NADE
+	attributes		MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,1
+	forcepowers     FP_SABER_OFFENSE,1
+
+	maxhealth		80
+	maxarmor        	80
+	MBClass			MB_CLASS_WOOKIE
+	speed			1.42
+	WP_ProjFlags 		HELD_ALTRELOAD|HELD_KNOCKBACK
+	WP_ClonePistolFlags    HELD_ALTRELOAD
+	rageSoundOverride 	"sound/chars/tusken/misc/rage.mp3"
+	bargeSoundOverride 	"sound/chars/tusken/misc/anger3.mp3"
+	APmultiplier			1.2
+	rateOfFire          	0.94
+	classNumberLimit		2
+	damageGiven 			0.85
+	saberDamage 	177	//150
+	extralives			1
+	modelscale      		1.03
+	holdables       HI_BINOCULARS
+	
+	saber1		Gaffi_legends
+	saber1_1		Gaffi_legends2
+	saberstyle	SS_MEDIUM|SS_STRONG
+	
+	flourishAnim BOTH_VICTORY_FAST
+	gloatAnim BOTH_TUSKENTAUNT1
+	
+	uioverlay "gfx/icons/scout"
+	
+	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
+	
+	model		"tusken_jk3"
+	skin			"default"
+	uishader		"models/players/tusken_jk3/mb2_icon_default"
+	
+	model_1		"tusken_jk3"
+	skin_1		"chief"
+	uishader_1	"models/players/tusken_jk3/mb2_icon_chief"
+	
+	model_2		"tusken_jk3" 					
+	skin_2		"breather"					
+	uishader_2	"models/players/tusken_jk3/mb2_icon_breather"
+	
+	model_3		"tusken_fem_jk3"
+	skin_3		"default"
+	uishader_3 	"models/players/tusken_fem_jk3/mb2_icon_default"
+	respawnCustomTime 15000
+	
+	//special1 EAS_HI_FURY
+	special2 EAS_MELEE
+	special3 EAS_HI_BINOCULARS
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER	
+	NewWorldModel		"models/weapons2/saber_gaffi/saber_w.glm"
+	NewViewModel		"models/weapons2/saber_gaffi/saber_w.md3"
+	Icon			"models/weapons2/icons/gaffi"
+	WeaponName		"Gaffi Stick"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_CLONE_PISTOL
+	WeaponBasedOff		WP_MANDO_PISTOL
+	NewWorldModel		"models/weapons2/tusken_pistol_sar/tusken_pistol_w.glm"
+	NewViewModel		"models/weapons2/tusken_pistol_sar/tusken_pistol.md3"
+	Icon				"gfx/hud/w_icon_tuskenpistol_dual"
+	altFireEnabled 		0
+	WeaponName			"Dual Projectile Pistols"
+	idleAnim 			DUAL_DRAW 
+	//firingAnim  			DUAL_RUNNING_FIRE_RIGHT
+	primHitscanShot		1
+	altHitscanShot 		1
+	primGore				1
+	altGore				1
+	PrimHitscanTracer 	100
+	AltHitscanTracer 		100
+	CustomAmmo 			"440"
+	CustomClip 			"40"
+	FlashSound0			"sound/weapons/bar/fire.wav" 
+	MuzzleEffect		"halo_pistol/Muzzle_Flash" 	
+	FPMult     			0.9
+	MissileMissEffect "halo_smg/wall_impact"
+	altMissileMissEffect "halo_smg/wall_impact"
+	MissileHitHumanEffect "halo_smg/wall_impact"
+	AltMissileHitHumanEffect "halo_smg/wall_impact"
+	MissileHitDroidEffect "halo_smg/wall_impact"
+	AltMissileHitDroidEffect "halo_smg/wall_impact"
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_PROJ
+	WeaponBasedOff		WP_PROJ	
+	NewWorldModel		"models/weapons2/tusken_sniper/model_w.glm"  	
+	NewViewModel		"models/weapons2/tusken_sniper/model.md3"  	
+	FlashSound0			"sound/weapons/tusken_cycler/fire.wav"  			
+	Icon				"gfx/hud/w_icon_tuskenSniper"
+	WeaponName			"Tusken Cycler Projectile Rifle"  
+	CustomAmmo 	16
+	clipsize    1
+	ReloadTimeModifier 1.35
+}
+
+description	"Tusken Raider
+
+Class: Wookiee
+Brief Overview: 
+A 2-life class with a unique blend of Melee weapons, slug-based guns, and Wookiee characteristics.   
+
+^2Weaponry:
+- Wookiee-style Melee
+- Gaffi Stick
+-- Based on Lightsaber
+-- Yellow/Red styles
+-- 26/65% less damage
+-- Cannot block Sabers/Blasters
+-- Cannot Saber Throw
+-- Slap ^3[CS2]
+> Tusken Gaffi Stick
+-- 14% faster swings
+> Chieftain's Gaffi Stick
+-- 7% slower swings
+-- 30% longer reach
+- Dual Projectile Pistols
+-- Based on Clone Pistols (3)
+-- Hitscan rounds
+-- 10% less FP damage
+-- Fixed-length reload
+-- Prim. fire only
+- Concussion Grenades (2)
+- Tusken Cycler Projectile Rifle
+-- Pushes targets
+-- 35% slower reload
+-- Fixed-length reload
+
+^6Inventory:
+- Electrobinoculars ^3[CS3]
+
+^8Attributes:
+- Reinforcement (1)
+- Strength (1)
+- Healing (1)"

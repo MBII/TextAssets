@@ -1,0 +1,129 @@
+//Legends Mode character file - Created by Frenzy & Leos
+
+ClassInfo
+{
+	name			"v7_Noghri"
+	MBClass				MB_CLASS_ARCTROOPER
+	weapons				WP_MELEE|WP_T21|WP_SABER|WP_BOWCASTER
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DEXTERITY,2|MB_ATT_T21,2|MB_ATT_AMMO,3|MB_ATT_POISON_DART,2|MB_ATT_BOWCASTER,1|MB_ATT_STAMINA,3
+	forcepowers         FP_SABER_DEFENSE,1
+	
+	maxhealth	100
+	maxarmor		60
+	baseSpeed 261.25
+	modelscale    0.97
+	classNumberLimit	2
+	extralives   1
+
+	forcepool  200
+	forceregen 0.1
+	
+	resource 		RESOURCE_RAGE
+	resourceRegenCap 50
+	resourceRegenAmount 3
+	resourceRegenRate 800
+	
+	saber1      vibrokhopesh
+	saberstyle  SS_TAVION	
+	saberdamage 200
+	CSmultiplier   1.1
+	ASmultiplier   1.1
+	APmultiplier   1.3
+	BPmultiplier   1
+	WP_SaberFlags HELD_POISON
+	WP_MeleeFlags HELD_POISON
+	WP_BowcasterFlags  HELD_KNOCKDOWN|HELD_ALTRELOAD|HELD_PULSE|HELD_LOWDAMAGE
+
+	classflags			CFL_ACIDBLOOD|CFL_BLOODYMELEE|CFL_HEAVYMELEE|CFL_SEEING_STEALTH
+
+	holdables HI_CLOAK
+
+	model		"noghri"
+	skin			"deathcomm"					
+	uishader		"gfx/hud/fa_icons/mb2_icon_warnoghri"
+	
+	uioverlay "gfx/icons/tactician"
+	
+	model_1		"noghri"
+	skin_1		"default"
+	uishader_1	"models/players/noghri/mb2_icon_default"
+	
+	special1 EAS_HI_POISON
+	special2	EAS_MELEE
+	special3 EAS_HI_DEX
+	WalkBackward BOTH_WALKBACK_DUAL
+	WalkForward BOTH_WALK_DUAL
+	
+    respawnCustomTime 30000	
+}
+WeaponInfo0
+{
+	WeaponToReplace	WP_SABER	
+	WeaponBasedOff	WP_SABER	
+	NewWorldModel	"models/weapons2/dummy/dummy.glm" 
+	NewViewModel	"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_noghrisword"
+	WeaponName	"Acidic Vibrokhopesh"  
+	SelectSound 		"s/w/v/swish1.wav"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/noghri_stick/noghri_stick_w.glm"
+	NewViewModel		"models/weapons2/noghri_stick/noghri_stick.md3"
+	Icon			"gfx/hud/w_icon_noghri_stick"
+	WeaponName			"Stokhli Spray Stick"
+	MissileMissEffect	"noghri_stick/gas_cloud"
+	MissileEffect		"noghri_stick/shot"				
+	MuzzleEffect		"noghri_stick/muzzle_flash" 	
+	FlashSound0		"sound/weapons/cp-50_repeater/fire.wav"
+	CustomAmmo           10
+	clipsize				2
+	ReloadTimeModifier 	1.2
+	FPMult 2.50
+}
+
+description	"Noghri Death Commando
+
+Class: ARC Trooper
+Brief Overview:
+Fast 2-life Saberist/gunners with Cloak and a disabling firearm. Start with reduced resource which can be 'overcharged' through damage dealt.
+
+^2Weaponry:  
+- Heavy Melee
+-- Poisons targets
+- Acidic Vibrokhopesh
+-- Cyan style
+-- Saber Defense (1)
+-- Cannot block Blasters
+-- Poisons targets
+-- 66% more damage
+-- 18% shorter reach
+-- 33% thinner radius
+-- Slap ^3[CS2]
+- Stokhli Spray Stick
+-- Based on Bowcaster (1)
+-- Electrifies/knocks down targets
+-- 250% more FP damage
+-- 50% less damage
+-- 20% slower reload
+-- Fixed-length reload
+- T-21 Heavy Blaster (2)
+
+^6Inventory:
+- Cloaking Device
+
+^8Attributes:
+- Reinforcement (1)
+- Resource Regen: 3/0.8s up to 50
+- Stamina (3)
+- Dexterity (2)
+- Force Sense Immunity
+- Tracking Beacon
+- Acid Blood (On death, poison nearby enemies)
+
+^3Abilities:
+- Poison Darts (2) ^3[CS1 in ^3Melee]
+- Dex Roll ^3[CS3]"
