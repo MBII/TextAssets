@@ -3,40 +3,55 @@
 ClassInfo
 {
 	name				"h9_JAcrobat"
-	weapons				WP_SABER|WP_MELEE
-	attributes			MB_ATT_SABER_FAST,1|MB_ATT_DEFLECT,1|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,2|MB_ATT_BUNNY_HOP,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,2
-	saberstyle			SS_DUAL
-	forcepowers			FP_SEE,2|FP_LEVITATION,3|FP_PUSH,2|FP_PULL,1|FP_SPEED,3|FP_SABER_OFFENSE,2
-	
-	maxhealth		115
-	
-	forcePool       	100
-	forceregen       1.2
-	//special1			EAS_FP_SABERTHROW
-	special2 EAS_MELEE
-	special3 EAS_FP_PUSH
-	special4 EAS_FP_SPEED
-	classflags CFL_NOPICKUPS|CFL_SEEING_STEALTH
 	MBClass			MB_CLASS_JEDI
-	speed			1.08
 	classNumberLimit	1
 	
-	uioverlay "gfx/icons/frontline"
+	weapons				WP_SABER|WP_MELEE
+	attributes			MB_ATT_SABER_FAST,1|MB_ATT_DEFLECT,1|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,1|MB_ATT_BUNNY_HOP,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_INAIR_FORCE_REGEN|MB_ATT_DEXTERITY,3|MB_ATT_FLIPKICK,1
+
+	forcepowers			FP_SEE,1|FP_LEVITATION,3|FP_PUSH,2|FP_PULL,1|FP_SPEED,3|FP_SABER_OFFENSE,2
+	
+	maxhealth 		115
+	forcepool		110
+	forceregen       1.2
+
+	saberstyle		SS_DUAL
+	BPmultiplier		0.90
+	APmultiplier		1
+	ASmultiplier	    1.15
+	CSmultiplier	    1.10
+
+	speed			1.09
+	damageGiven		0.80
+	rateOfFire_Melee	0.88
+	
+	classflags CFL_NOPICKUPS|CFL_SEEING_STEALTH
 	
 	flourishanim BOTH_JUMPATTACK7
-	//BOTH_A6_SABERPROTECT
 	
-	BPmultiplier		1.2
-	APmultiplier		0.8
-	ASmultiplier	    1.2
-	CSmultiplier	    1.60	
+	//special1	EAS_FP_SABERTHROW
+	special2 EAS_MELEE
+	special3 EAS_HI_DEX
+	special4 EAS_FP_SPEED
+
+	uioverlay "gfx/icons/frontline"
 	
-	damageGiven        0.80
+	model		"ahsoka"
+	skin			"default"
+	uishader		"models/players/ahsoka/mb2_icon_default"
+	
+	model_1		"aayla"
+	skin_1		"default"
+	uishader_1	"models/players/aayla/mb2_icon_default"
+
+	model_2		"serraketo"
+	skin_2		"default"
+	uishader_2	"models/players/serraketo/mb2_icon_default"
 	
 	saber1			saber_ahsoka_legends
 	sabercolor		3
 	saber2			saber_ahsoka2_shoto
-	saber2color		3
+	saber2color		0.265000
 
 	saber1_1			saber_ahsoka_2_legends
 	sabercolor_1		4
@@ -57,20 +72,7 @@ ClassInfo
 	sabercolor_4		3
 	saber2_4			serra_legends
 	saber2color_4		3
-	
-	model		"ahsoka"
-	skin			"default"
-	uishader		"models/players/ahsoka/mb2_icon_default"
-	
-	model_1		"aayla"
-	skin_1		"default"
-	uishader_1	"models/players/aayla/mb2_icon_default"
 
-	model_2		"serraketo"
-	skin_2		"default"
-	uishader_2	"models/players/serraketo/mb2_icon_default"
-
-	
 	respawnCustomTime  50000	
 	
 }
@@ -79,25 +81,34 @@ description	"Jedi Acrobat
 
 Class: Jedi
 Brief Overview: 
-A speedy dual Lightsaber user that excels at flanking and ambushing. 
+A speedy dual Lightsaber user that excels at flanking, ambushing, and aerial combat.
 
 ^2Weaponry:
 - Melee
+-- 12% faster swings
 - Lightsaber
 -- Dual/Blue styles
--- Saber/Blaster Defense (2)
+-- Saber Defense (3)
+-- Blaster Defense (2)
 -- Saber Deflect (1)
 -- Saber Throw ^3[CS1]
 -- Slap ^3[CS2]
 
 ^5Force Powers:
 - Jump (3)
-- Push (2) ^3[CS3]
+- Push (2)
 - Pull (1)
-- Sense (2)
+- Sense (1)
 - Speed (3) ^3[CS4]
 
 ^8Attributes:
 - Bunny Hop (1)
-- Force Block/Focus (2)
-- Force Sense Immunity"
+- Dexterity (3)
+- Force Block (2)
+- Force Focus (1)
+- Aerial Force Regen
+- Force Sense Immunity
+
+^3Abilities:
+- Dex Roll ^3[CS3]
+- Flipkick"
