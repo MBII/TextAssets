@@ -909,6 +909,28 @@ models/players/rebel_pilot/rgb_torso
 }
 
 
+// rebel partisan - jfo
+
+models/players/rebel_partisan/torso_a_c
+{
+	{
+		map models/players/rebel_partisan/torso_a_c
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rebel_partisan/torso_a_c
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/torso_a_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
 // reborn new
 
 models/players/reborn_new/rgb_arms

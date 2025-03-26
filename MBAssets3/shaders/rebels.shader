@@ -424,10 +424,40 @@ models/players/rebel_honor/boots_hips_rhg
 	}
 }
 
+models/players/rebel_honor/boots_hips_rhg2
+{	  
+	{
+		map models/players/rebel_honor/boots_hips_rhg2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/boots_hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel_honor/hips_rhg
 {	  
 	{
 		map models/players/rebel_honor/hips_rhg
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/hips_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_honor/hips_rhg2
+{	  
+	{
+		map models/players/rebel_honor/hips_rhg2
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -454,12 +484,27 @@ models/players/rebel_honor/torso_rhg
 	}
 }
 
+models/players/rebel_honor/torso_rhg2
+{	  
+	{
+		map models/players/rebel_honor/torso_rhg2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_honor/torso_rhg_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 
 // rebel magma trooper
 
 models/players/rebel_magma/helmet
 {
-	cull	twosided
+	cull	disable
 	{
 
 		map models/players/rebel_magma/helmet
@@ -481,7 +526,203 @@ models/players/rebel_magma/torso
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/poe/torso_resistance_officer_specular
+		map models/players/rebel_magma/torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// rebel partisans - jfo
+
+models/players/rebel_partisan/armor_b
+{
+	cull	disable
+	{
+
+		map models/players/rebel_partisan/armor_b
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/armor_b_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_partisan/armor_b_glow
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+}
+
+models/players/rebel_partisan/balaclava_b
+{
+	{
+		map models/players/rebel_partisan/balaclava_b
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/balaclava_b_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/boots_a
+{
+	{
+		map models/players/rebel_partisan/boots_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/boots_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/boots_b
+{
+	{
+		map models/players/rebel_partisan/boots_b
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/boots_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/extras
+{
+	{
+		map models/players/rebel_partisan/extras
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/extras_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/helmet_a
+{
+	cull	disable
+	{
+		map models/players/rebel_partisan/helmet_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/helmet_a_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/helmet_a2
+{
+	cull	disable
+	{
+		map models/players/rebel_partisan/helmet_a2
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/helmet_a_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/helmet_b
+{
+	{
+		map models/players/rebel_partisan/helmet_b
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/helmet_b_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/rebel_partisan/helmet_b_glow
+		blendFunc GL_ONE GL_ONE
+		glow
+	}
+}
+
+models/players/rebel_partisan/legs_a
+{
+	{
+		map models/players/rebel_partisan/legs_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/legs_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/legs_b
+{
+	{
+		map models/players/rebel_partisan/legs_b
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/legs_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/torso_a
+{
+	{
+		map models/players/rebel_partisan/torso_a
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/torso_a_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_partisan/torso_b
+{
+	{
+		map models/players/rebel_partisan/torso_b
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_partisan/torso_a_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular

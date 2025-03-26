@@ -198,7 +198,7 @@ models/players/sith_officer/torsoRepublic_cull
 }
 
 
-// Republic Officer - Male 2 (Saul Karath themed)
+// Republic Officer - Male 2.0
 
 models/players/sith_officer/hipsRepublic2
 {
