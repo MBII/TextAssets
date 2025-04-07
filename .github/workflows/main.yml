@@ -18,6 +18,8 @@ jobs:
         run: |
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
+          $LegendsPk3 = $MBII + "\z_MBLegends.pk3"
+          $LegendsZip = $MBII + "\z_MBLegends.zip"
           ls
           deterministic_zip MBAssets3.pk3 MBAssets3/
           deterministic_zip 03_MovieGameMappack.pk3 03_MovieGameMappack/
@@ -27,10 +29,12 @@ jobs:
           ls
           mkdir .\temp\
           ls
-          Expand-Archive -Path ($MBII + "\z_MBLegends.pk3") -DestinationPath .\temp\
+          Rename-Item -Path LegendsPk3 -NewName LegendsZip
+          Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
+          Rename-Item -Path LegendsZip -NewName LegendsPk3
           #Copy-Item -Path .\z_MBLegends -Destination .\temp\ -Recurse
-          #deterministic_zip z_MBLegends.pk3 temp/
-          #Remove-Item -Recurse -Force .\temp\
+          deterministic_zip z_MBLegends.pk3 temp/
+          Remove-Item -Recurse -Force .\temp\
           
       - name: Upload Files
         shell: powershell
