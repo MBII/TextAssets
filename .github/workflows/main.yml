@@ -20,15 +20,12 @@ jobs:
           $MBII = $GAMEDATA + "\MBIITest"
           $LegendsPk3 = $MBII + "\z_MBLegends.pk3"
           $LegendsZip = $MBII + "\z_MBLegends.zip"
-          ls
           deterministic_zip MBAssets3.pk3 MBAssets3/
           deterministic_zip 03_MovieGameMappack.pk3 03_MovieGameMappack/
           deterministic_zip mb2_cmp_assets3.pk3 mb2_cmp_assets3/
           deterministic_zip mb2_um_assets3.pk3 mb2_um_assets3/
           deterministic_zip mb2_pb_assets2.pk3 mb2_pb_assets2/
-          ls
           mkdir .\temp\
-          ls
           Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
           Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
           Rename-Item -Path $LegendsZip -NewName $LegendsPk3
