@@ -84,9 +84,9 @@ ClassInfo
 	skin_10			"default"				
 	uishader_10		"models/players/bd_c3po/mb2_icon_default"
 	
-	model_11		"battledroid" 				
-	skin_11		"r2d2_rgb"				
-	uishader_11	"models/players/battledroid/mb2_icon_r2d2_rgb"
+	model_11			"battledroid" 				
+	skin_11			"r2d2_rgb"				
+	uishader_11		"models/players/battledroid/mb2_icon_r2d2_rgb"
 	userRGB_11 	1
 	
 	//customred	1
@@ -107,8 +107,8 @@ ClassInfo
 	c_att_ranks_1	1,3,6
 	
 	c_att_skill_2	MB_ATT_WESTARM5
-	c_att_names_2	"E-5s Sniper Rifle:"
-	c_att_ranks_2	8
+	c_att_names_2	"E-5s Sniper Rifle (M5):"
+	c_att_ranks_2	15
 
 	c_att_skill_3	MB_ATT_ARC_RIFLE_SCOPE
 	c_att_names_3	"E-5s Scope Upgrade:"
@@ -163,7 +163,6 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
 	Icon				"gfx/hud/w_icon_e60r_launcher"
 	WeaponName			"E-60R Missile Launcher"
-	//ReloadTimeModifier 	1.5
 }
 
 WeaponInfo1
@@ -173,7 +172,14 @@ WeaponInfo1
 	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
 	NewViewModel 		"models/weapons2/e5/e5.md3"
 	Icon				"gfx/hud/w_icon_e5"
-	WeaponName			"E-5 Blaster Rifle"	
+	WeaponName			"E-5 Blaster Rifle"
+	hasAnimOverrides 1
+	animReady BOTH_STAND3 //upper
+	animReadyWalk BOTH_STAND3
+	animReadyNoAmmo BOTH_ATTACK3 
+	animAttack BOTH_ATTACK3 
+	animAttackWalk BOTH_ATTACK3 
+	animStand BOTH_JET_FORWARD //lower	
 }
 
 WeaponInfo2
@@ -204,16 +210,27 @@ WeaponInfo3
 	MissileEffect		"blaster/Shot01R"
 	altMuzzleEffect		"Blaster/MuzzleFlash01R"
 	altMissileEffect		"blaster/Shot01R"
-	firingAnim	        BOTH_ATTACK4
-	FPMult     			0.9
+	hasAnimOverrides 1
+	animReady BOTH_STAND3 //upper
+	animReadyWalk BOTH_STAND3
+	animReadyNoAmmo BOTH_ATTACK4 
+	animAttack BOTH_ATTACK4 
+	animAttackWalk BOTH_ATTACK4 
+	animStand BOTH_STAND8 //lower
+	rateMod 0.5
+	velocityMod 1.1
+	damageMod 0.75
+	FPMult  0.75
+	reloadTimeModifier 1.6
+	clipsize 28
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
-	StartSound "sound/ambience/fuelpump_03b.mp3"
+	ForceToReplace FP_SEE
+	Icon	"gfx/forcepowers/radar"
+	ForcePowerName "Radar Scanner"
+	StartSound 	"sound/ambience/kotor/consolebeep03.mp3"
 	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
@@ -233,8 +250,12 @@ Fragile combatants with superior reinforcement potential.
 
 ^9Point Buy Info:
 - E-5s Sniper Rifle
--- Based on WESTAR-M5 Blaster
--- 10% less FP damage
+-- Based on WESTAR-M5 Blaster Rifle
+-- 50% faster fire rate
+-- 10% faster projectiles
+-- 25% less damage
+-- 25% less FP damage
+-- 60% slower reload
 - E-60R Missile Launcher
 -- Based on PLX-1
 - Health

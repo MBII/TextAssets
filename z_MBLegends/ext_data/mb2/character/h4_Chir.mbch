@@ -35,7 +35,7 @@ ClassInfo
 	DamageGiven         1.30
 	knockbackgiven 2.25
 
-	WP_T21Flags   HELD_KNOCKBACK
+	WP_T21Flags   HELD_KNOCKBACK|HELD_ALTRELOAD
 	WP_SaberFlags HELD_SPEED
 	WP_MeleeFlags HELD_SPEED
 	
@@ -74,16 +74,22 @@ WeaponInfo1
 	Icon  "gfx/hud/w_icon_bowcaster"
 	FlashSound0 "sound/weapons/dc-17/fire_scope.wav"
 	WeaponName  "Chirrut's Lightbow"
-	customAmmo          336
-	clipsize            48
-	idleAnim  DC15_FIRE
-	firingAnim	        DC15_FIRE
+	customAmmo          320
+	clipsize            64
+ 	hasAnimOverrides 1
+	animReady BOTH_DC15_IDLE
+	animReadyWalk TORSO_WEAPONREADY4
+	animReadyNoAmmo TORSO_WEAPONREADY4
+	animAttack BOTH_ATTACK4
+	animAttackWalk BOTH_ATTACK4
+	animStand TORSO_DROPWEAP4
 	FPmult              2
 	altfireenabled 	0
 	missileMissEffect "effects/Grenades/EXP_BaseThermal"
 	missileHitEffect "effects/Grenades/EXP_BaseThermal"
 	MissileHitHumanEffect "effects/Grenades/EXP_BaseThermal"
 	MissileHitDroidEffect "effects/Grenades/EXP_BaseThermal"
+	reloadTimeModifier 1.5
 }
 
 description	"Chirrut Imwe
@@ -111,6 +117,8 @@ A speedy and dexterous character with strong CQC and a hand cannon. Fast resourc
 -- Based on T-21 Heavy Blaster (1)
 -- Pushes targets
 -- 100% more FP damage
+-- 50% slower reload
+-- Fixed-length reload
 
 ^8Default Attributes:
 - I'm Blind!
