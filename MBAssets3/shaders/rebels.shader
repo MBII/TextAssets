@@ -144,7 +144,7 @@ models/players/rebel/accessories_jk2_helmet
 }
 
 
-// rebel_gag
+// rebel GAG (Galactic Alliance Guard, Rebel Grenadier)
 
 models/players/rebel_gag/interface_dark
 {
@@ -159,68 +159,146 @@ models/players/rebel_gag/interface_dark
     }
 }
 
-models/players/rebel_gag/Armor_D_green
+models/players/rebel_gag/Armor
 {
     {
-        map models/players/rebel_gag/Armor_D_green
+        map models/players/rebel_gag/Armor
         rgbGen lightingDiffuse
     }
+	{
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/rebel_gag/Armor
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
     {
-        map models/players/rebel_gag/Armor_D_spec
+        map models/players/stormie/armor_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 	detail
     }
-    	{
-        	                map models/players/common/spec1
+}
+
+models/players/rebel_gag/Armor_urban
+{
+    {
+        map models/players/rebel_gag/Armor_urban
+        rgbGen lightingDiffuse
+    }
+	{
+		map models/players/phasma/gloss
+		blendfunc GL_ZERO GL_ONE_MINUS_SRC_COLOR
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+	{
+		map models/players/rebel_gag/Armor_urban
+		blendfunc blend
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/stormie/armor_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+	detail
+    }
+}
+
+models/players/rebel_gag/helmet_shine
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_gag/helmet
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		tcGen environment
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
+	{
+		map models/players/nrmarine/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
-models/players/rebel_gag/body
-{
-    {
-        map models/players/rebel_gag/body
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/rebel_gag/body_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
+models/players/rebel_gag/helmet_urban_shine
+{	  
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_gag/helmet_urban
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/nrmarine/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 }
 
-models/players/rebel_gag/body_green
+models/players/rebel_gag/visor
 {
-    {
-        map models/players/rebel_gag/body_green
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/rebel_gag/body_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
+	cull	disable
+	{
+		map models/players/rebel_gag/visor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathwatch/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+ 	{
+        map models/players/deathwatch/visor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
 }
 
-models/players/rebel_gag/body_grey
+models/players/rebel_gag/visor_urban
 {
-    {
-        map models/players/rebel_gag/body_grey
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/rebel_gag/body_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        alphaGen lightingSpecular
-	detail
-    }
+	cull	disable
+	{
+		map models/players/rebel_gag/visor_urban
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/deathwatch/envmap
+		blendfunc add
+		rgbGen lightingDiffuse
+		tcGen environment 
+	}
+ 	{
+        map models/players/deathwatch/visor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
 }
 
 
@@ -827,6 +905,102 @@ models/players/rebel_pathfinder/helmetb
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+
+// rebel_pathfinder2
+
+models/players/rebel_pathfinder2/legs
+{
+	{
+		map models/players/rebel_pathfinder2/legs
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_magma/torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_pathfinder2/legs_desert
+{
+	{
+		map models/players/rebel_pathfinder2/legs_desert
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_magma/torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_pathfinder2/legs_urban
+{
+	{
+		map models/players/rebel_pathfinder2/legs_urban
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_magma/torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/rebel_pathfinder2/torso
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder2/torso
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/cassian/torso_vest_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/rebel_pathfinder2/torso_desert
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder2/torso_desert
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/cassian/torso_vest_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/rebel_pathfinder2/torso_urban
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder2/torso_urban
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/cassian/torso_vest_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
 }
 
 
