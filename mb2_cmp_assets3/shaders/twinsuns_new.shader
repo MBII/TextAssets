@@ -1,52 +1,55 @@
-models/players/twinsuns_new/torso1
+models/players/twinsuns_new/twin01body
 {
 	{
-		map models/players/twinsuns_new/torso1
+		map models/players/twinsuns_new/twin01body
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/twinsuns_new/torso_spec
+		map models/players/twinsuns_new/twin01body_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/twinsuns_new/torso2
+models/players/twinsuns_new/twin02body
 {
 	{
-		map models/players/twinsuns_new/torso2
+		map models/players/twinsuns_new/twin02body
 		rgbGen lightingDiffuse
 	}
 	{	
-		map models/players/twinsuns_new/torso_spec
+		map models/players/twinsuns_new/twin02body_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/twinsuns_new/legs
+models/players/twinsuns_new/twin01head
 {
 	{
-		map models/players/twinsuns_new/legs
+		map models/players/twinsuns_new/twin01head
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/twinsuns_new/legs_spec
+	{	
+		map models/players/twinsuns_new/twin01head_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/twinsuns_new/eyebrow
+models/players/twinsuns_new/twin02head
 {
-	cull	disable
 	{
-		map models/players/twinsuns_new/eyebrow
-                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-                                depthWrite
-                                rgbGen lightingDiffuse
+		map models/players/twinsuns_new/twin02head
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/twinsuns_new/twin02head_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
