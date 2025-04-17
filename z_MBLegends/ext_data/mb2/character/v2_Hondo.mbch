@@ -4,11 +4,18 @@ ClassInfo
 {
 	name				"v2_Hondo"
 	weapons				WP_MELEE|WP_M5|WP_PULSE_NADE|WP_SHOTGUN|WP_SABER
+	
 	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SHOTGUN,2|MB_ATT_PULSE_GRENADES,3|MB_ATT_WESTARM5,1|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ARC_RIFLE_SCOPE,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_GRAPPLE_HOP
 	classflags			CFL_SEEING_STEALTH
+	
 	MBClass				MB_CLASS_ARCTROOPER
-	saber1              Cutlass_legends
-	saberstyle          SS_MEDIUM|SS_TAVION	
+	
+	saber1      	Cutlass_legends
+	saberstyle 	SS_MEDIUM|SS_TAVION
+	saber1_1  	electrostaff_legends
+	saberstyle_1 SS_STAFF
+
+	holdables     HI_EWEB		
 	
 	CSmultiplier      1.1
 	ASmultiplier      1.09
@@ -37,6 +44,17 @@ ClassInfo
 	uioverlay "gfx/icons/spec_infantry"
 	
 	respawnCustomTime 50000
+	
+	isCustomBuild		1
+	mbPoints			2
+	
+	c_att_skill_0	MB_ATT_PISTOL
+	c_att_names_0	"Weequay Blaster Pistol:"
+	c_att_ranks_0	1,1
+	
+	c_att_skill_1	MB_ATT_WESTARM5
+	c_att_names_1	"Modded Blaster Rifle (M5):"
+	c_att_ranks_1	2
 }
 
 WeaponInfo0
@@ -56,8 +74,13 @@ WeaponInfo0
 	customAmmo			768
 	clipsize 96
 	altFireEnabled		1
-	idleAnim			BOTH_MAND_PISTOL_IDLE 
-	firingAnim			MAND_SPISTOL_FIRE
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND3
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_ATTACK3 
+	animStand BOTH_STAND1
 }
 
 WeaponInfo1
@@ -85,36 +108,71 @@ WeaponInfo2
 	NewWorldModel		"models/weapons2/dummy/dummy.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_hondocutlass"
-	WeaponName		"Vibrocutlass"
+	WeaponName		"Ohnaka Gang Melee Armament"
 	SelectSound 		"s/w/v/swish1.wav"
+}
+
+WeaponInfo3
+{
+	WeaponToReplace	WP_BLASTER_PISTOL
+	WeaponBasedOff	WP_BLASTER_PISTOL
+	NewWorldModel    "models/weapons2/cb_pistol/pistol_w.glm"
+	NewViewModel     "models/weapons2/dummy/dummy.md3"
+	Icon            "gfx/hud/w_icon_cb_pistol"
+	FlashSound0		"sound/weapons/han_pistol/fire.mp3"  
+	altFlashSound0	"sound/weapons/han_pistol/alt_fire.mp3"
+	ChargeSound 		"sound/weapons/leia_pistol/altcharge.mp3"
+	MuzzleEffect		"Blaster/MuzzleCharge01R"
+	AltMuzzleEffect	"Blaster/MuzzleFlash01R"
+	MissileEffect		"Blaster/Shot02r"
+	AltMissileEffect	"Blaster/Shot04r"
+	PowerupShotEffect	"Blaster/Shot04r"
+	ChargeEffect		"gfx/effects/bryarfrontflash"
+	WeaponName	"Weequay Blaster Pistol"
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
+	reloadTimeModifier 1
+	damageMod 1.25
+	customAmmo 704
+	clipSize 22
 }
 
 description	"Hondo Ohnaka
 
 Class: ARC Trooper
 Brief Overview: 
-A dexterous, highly mobile gunner with a devastating one-tap Shotgun and a Vibrocutlass. Cannot be spotted by Force Sense.
+A reckless hybrid with a Shotgun and a Grappling Hook.
 
 ^2Weaponry:
 - Melee
-- Vibrocutlass
+- Ohnaka Gang Melee Armament
 -- Based on Lightsaber
--- Yellow/Cyan styles
 -- Saber Defense (1)
 -- Cannot block Blasters
--- 30% less damage
--- 50% shorter reach
--- 67% thinner radius
+-- Cannot Saber Throw
 -- Slap ^3[Gunbash]
+> Vibrocutlass
+-- Yellow/Cyan styles
+-- 20% less damage
+-- 35% shorter reach
+-- 33% thinner radius
+> Electrostaff
+-- Staff style
+-- 65% less damage
 - ACP Array Gun
 -- Based on Shotgun (2)
 -- 100% more damage
 -- 5% faster reload
 -- Fixed-length reload
--- Prim. fire only
-- Modified E-5 Blaster Rifle
--- Based on WESTAR-M5 (1) + Scope
 - Pulse Grenades (3)
+
+^6Inventory:
+- Portable E-Web Cannon
 
 ^8Attributes:
 - Stamina (3)
@@ -127,4 +185,11 @@ A dexterous, highly mobile gunner with a devastating one-tap Shotgun and a Vibro
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
 - Dodge (3) ^3[CS3]
-- Grappling Hook (2) ^3[CS4 in ^3Melee]"
+- Grappling Hook (2) ^3[CS4 in ^3Melee]
+
+^9Point Buy Info:
+- Weequay Blaster Pistol
+-- Based on Blaster Pistol (2)
+-- 25% more damage
+- Modified E-5 Blaster Rifle
+-- Based on WESTAR-M5 Blaster Rifle (1) + Scope"
