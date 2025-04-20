@@ -2,8 +2,9 @@ ClassInfo
 {
 	name  			"h7_Lobot"
 	MBClass 		MB_CLASS_HERO	
-	weapons			WP_MANDO_PISTOL|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_SABER
-	attributes  	MB_ATT_MICRO_GRENADES,2|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,1
+	weapons			WP_MANDO_PISTOL|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_SABER|WP_ROCKET_LAUNCHER
+	
+	attributes  	MB_ATT_MICRO_GRENADES,2|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_ROCKET_LAUNCHER
 	
 	saber1		Wrench_Legends
 	sabercolor	0
@@ -31,6 +32,8 @@ ClassInfo
 	modelscale       0.987
 	damageTaken		0.9
 	damageGiven 		1.15
+	
+	WP_RocketLauncherFlag HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_HIGHDAMAGE
 
 	special1 EAS_HI_DODGE
 	special2 EAS_HI_DASH
@@ -62,10 +65,40 @@ WeaponInfo1
 	NewWorldModel "models/weapons2/Relby-K23/model_w.GLM"
 	NewViewModel  "models/weapons2/Relby-K23/pistol.MD3"
 	Icon  		"gfx/hud/w_icon_relby_k23"
-	WeaponName  	"Relby-K23 'Stinger' Blaster Pistol"	
-	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
+	WeaponName  	"Relby-K23 'Stinger' Blaster Pistol"
+	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"	
 	CustomAmmo		700
+	VelocityMod 		1.15
 	FPMult 			1.15
+}
+
+WeaponInfo2
+{
+	WeaponToReplace WP_ROCKET_LAUNCHER
+	WeaponBasedOff  WP_TRIP_MINE
+	Icon				"gfx/hud/w_thermal_grenade"
+	WeaponName  		"Repulsor Mines"
+	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel		"models/weapons2/thermal/thermal_hand.md3"
+	MissileModel 		"models/weapons2/thermal/thermal_proj.md3"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
+	MissileEffect 	null
+	MissileMissEffect		"effects/tripmine/explosion"
+	MissileHitHumanEffect "effects/tripmine/explosion"
+	MissileHitDroidEffect	"effects/tripmine/explosion"
+	MuzzleEffect				"stone/muzzle1"
+	velocityMod 0.001
+	rateMod 2
+	ClipSize 8
+	CustomAmmo -1
+	AltFireEnabled 0
+	hasAnimOverrides 1
+	animReady BOTH_SHOWOFF_STRONG
+	animReadyWalk BOTH_GESTURE1
+	animReadyNoAmmo BOTH_STAND5TURNRIGHTSTART
+	animAttack BOTH_HUGGERSTOP1
+	animAttackWalk BOTH_HUGGERSTOP1
+	animStand BOTH_STAND1
 }
 
 ForceInfo0
@@ -79,7 +112,7 @@ description	"Lobot
 
 Class: Hero
 Brief Overview: 
-A silent, speedy grenadier sporting a high-launch power bludgeoning weapon.
+A speedy, damage-boosted grenadier sporting a high-launch power bludgeoning weapon and unique mines.
 
 ^2Weaponry:
 - Melee
@@ -96,7 +129,16 @@ A silent, speedy grenadier sporting a high-launch power bludgeoning weapon.
 -- Slap ^3[CS3]
 - Relby-K23 'Stinger' Blaster Pistol
 -- Based on WESTAR Pistol (2)
+-- 15% faster projectile speed
 -- 15% more FP damage
+- Repulsor Mines (8)
+-- Based on Rocket Launcher
+-- 100% more damage
+-- Knocks down targets on direct hit
+-- 99.9% slower projectile speed
+-- 100% slower fire rate
+-- Prim. fire only
+-- Fixed length reload
 - Frag Grenades (3)
 - Concussion Grenades (2)
 
