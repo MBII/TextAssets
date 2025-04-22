@@ -3,11 +3,11 @@
 ClassInfo
 {
 	name					"h5_CloneJet"
-	weapons					WP_CLONE_RIFLE|WP_MELEE|WP_ROCKET_LAUNCHER|WP_PULSE_NADE|WP_CLONE_PISTOL
-	attributes				MB_ATT_CLONERIFLE,2|MB_ATT_QUICKTHROW,1|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_AMMO,3|MB_ATT_RESPAWNS,1|MB_ATT_STRONGBLOBS,3|MB_ATT_FLAMETHROWER,1|MB_ATT_ASSEMBLE,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_CLONEBLOBS,1|MB_ATT_CLONE_PISTOL,2
-	maxhealth				80
-	maxarmor				80
-	forcepool 80
+	weapons					WP_CLONE_RIFLE|WP_MELEE|WP_ROCKET_LAUNCHER|WP_PULSE_NADE|WP_MANDO_PISTOL
+	attributes				MB_ATT_CLONERIFLE,1|MB_ATT_QUICKTHROW,1|MB_ATT_JETPACK,1|MB_ATT_AMMO,3|MB_ATT_RESPAWNS,1|MB_ATT_STRONGBLOBS,3|MB_ATT_FLAMETHROWER,1|MB_ATT_ASSEMBLE,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_CLONEBLOBS,1|MB_ATT_MANDO_PISTOL,3
+	maxhealth		60
+	maxarmor			90
+	forcepool 85
 	MBClass					MB_CLASS_CLONETROOPER
 	resource				resource_fuel
 	classNumberLimit		2
@@ -83,12 +83,34 @@ WeaponInfo0
     WeaponName                   "Electromagnetic Pulse Launcher"
     Icon                         "gfx/hud/w_icon_upl"
     clipSize                     1
-    CustomAmmo                   8
+    CustomAmmo                   9
     ReloadTimeModifier           1.4    
     altfireenabled               0
-    idleAnim                     DC15_READY
-    firingAnim                   DC15_FIRE
+	damageMod 1.15
+	velocityMod 1.15
+}
 
+WeaponInfo1
+{
+	WeaponToReplace	WP_MANDO_PISTOL
+	WeaponBasedOff	WP_MANDO_PISTOL
+	NewWorldModel    "models/weapons2/dc-17/dc-17_w.glm"
+	NewViewModel     "models/weapons2/dc-17/dc-17.md3"
+	NewHandsModel   "models/weapons2/dc-17/dc-17_hand.md3"
+	Icon            "gfx/hud/w_icon_dc-17_dual"
+	MuzzleEffect "Blaster/MuzzleFlash01B"
+	altMuzzleEffect "Blaster/MuzzleFlash01B"
+	FlashSound0 "sound/weapons/demp2/fire.wav"
+	altFlashSound0  "sound/weapons/demp2/altfire.wav"
+	ChargeSound   "sound/weapons/demp2/altCharge.wav"
+	ChargeEffect		"gfx/effects/cloneFrontFlash"
+	OverchargeEffect	"gfx/effects/cloneFrontFlash"
+	missileEffect "Blaster/Shot02B"
+	altMissileEffect "Blaster/Shot02B"
+	Missle3Effect "Blaster/Shot03B"
+	PowerupShotEffect "Blaster/Shot03B"
+	WeaponName	"Dual DC-17 Hand Blasters"
+	customAmmo 500
 }
 
 description	"Clone Jet Trooper
@@ -99,13 +121,17 @@ Brief Overview:
 
 ^2Weaponry:
 - Melee
-- Clone Pistol (2)
-- Clone Rifle (2)
+- Dual DC-17 Hand Blasters
+-- Based on WESTAR Pistols (3)
+- DC-15A Blaster Rifle
+-- Based on Clonetrooper Rifle (1)
 -- Concussion Blobs (1)
 -- Ion Blobs (3)
 - Electromagnetic Pulse Launcher
 -- Based on Rocket Launcher
 -- Electrifies targets on direct hit
+-- 15% faster projectiles
+-- 15% more damage
 -- 15% slower movement
 -- 40% slower reload
 -- Fixed-length reload
@@ -114,8 +140,6 @@ Brief Overview:
 
 ^8Attributes:
 - Reinforcement (1)
-- Fuel (3)
--- 20% less Fuel
 - Assemble (Respawn on Rally allies)
 
 ^3Abilities:
