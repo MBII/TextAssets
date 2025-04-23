@@ -17,7 +17,7 @@ ClassInfo
 	classNumberLimit		1
 	DamageTaken			0.90
 	DamageGiven			1.0
-	
+	knockbackTaken  0.8
 	saberdamage 122
 	
 	armourRegenAmount	4
@@ -37,10 +37,9 @@ ClassInfo
 	
 	saberStanceAnim	BOTH_STAND9
 	tauntAnim		BOTH_ENGAGETAUNT
-	gloatAnim		BOTH_HEADSHAKE
-	flourishAnim		TORSO_HANDSIGNAL3
-	meditateAnim 		both_knockdown4
-	bowAnim 			both_headshake
+	gloatAnim 		BOTH_VICTORY_FAST
+	flourishAnim 		BOTH_STAND5TOAIM
+	meditateAnim 		BOTH_KNOCKDOWN4
 	//WalkBackward BOTH_WALK_DUAL
 	//WalkForward BOTH_WALK_DUAL
 	
@@ -81,9 +80,15 @@ WeaponInfo0
 	WeaponName			"DC-17m Repeating Blaster Rifle"
 	customAmmo 			900
 	clipSize			180
-	primFireEnabled			0
-	firingAnim  		BOTH_ATTACK3
 	ReloadTimeModifier 	1.25
+	primFireEnabled			0
+	hasAnimOverrides 1
+	animReady		TORSO_WEAPONIDLE3
+	animReadyWalk		TORSO_WEAPONREADY3
+	animReadyNoAmmo	BOTH_ATTACK3
+	animAttack     BOTH_ATTACK3
+	animAttackWalk  BOTH_ATTACK3
+	animStand 		BOTH_STAND1
 }
 
 WeaponInfo1
@@ -92,8 +97,8 @@ WeaponInfo1
 	WeaponBasedOff         WP_SABER
 	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	
-	Icon             	"gfx/hud/w_icon_arc_shiv"
-	WeaponName			"Wrist Shiv"
+	Icon             	"gfx/hud/w_icon_arc_shiv_short"
+	WeaponName		"Knuckle Plate Vibroblade"
 }
 
 WeaponInfo2
@@ -108,7 +113,7 @@ WeaponInfo2
 	PrimHitscanShot 	1
 	PrimHitscanTracer 	10
 	clipSize			1
-	customAmmo 			4
+	customAmmo 			5
 	ReloadTimeModifier 	1.2
 	FPmult				1.1
 }
@@ -143,7 +148,8 @@ A speedy, dexterous gunner with a fast overall rate of fire, fast regenerating s
 
 ^2Weaponry:
 - Melee
-- Wrist Shiv
+- Knuckle Plate Vibroblade
+-- Based on Lightsaber
 -- Cyan style
 -- Cannot block Sabers/Blasters
 -- 20% less damage
@@ -153,7 +159,7 @@ A speedy, dexterous gunner with a fast overall rate of fire, fast regenerating s
 -- Slap ^3[Gunbash]
 - DC-15s Side Arm Blaster
 -- Based on Blaster Pistol (1)
--- 50% slower reload
+-- 100% slower reload
 - DC-17m Repeating Blaster Rifle
 -- Based on Blaster Rifle (2)
 -- 25% slower reload
@@ -161,7 +167,7 @@ A speedy, dexterous gunner with a fast overall rate of fire, fast regenerating s
 -- Sec. fire only
 - Frag Grenades (2)
 - Pulse Grenades (2)
-- DC-17M Sniper Attachment
+- DC-17m Sniper Attachment
 -- Based on Projectile Rifle
 -- 10% more FP damage
 -- 20% slower reload
@@ -171,6 +177,7 @@ A speedy, dexterous gunner with a fast overall rate of fire, fast regenerating s
 - Big Bacta (50 HP to self)
 
 ^8Attributes:
+- 20% less knockback taken
 - Stamina (3)
 - Dexterity (1)
 - Blast Armor
