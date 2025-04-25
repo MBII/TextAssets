@@ -1,5 +1,4 @@
 //Legends Mode character file - Created by Frenzy & Leos & Goosto
-//Note for iPod not to modify this
 
 ClassInfo
 {
@@ -16,7 +15,6 @@ ClassInfo
 	modelscale		0.68
 	MBClass			MB_CLASS_HERO
 	classNumberLimit 	4
-	//WP_FragNadeFlags	HELD_KNOCKDOWN|HELD_LOWDAMAGE
 	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
 	WP_RepeaterFlags		HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_KNOCKDOWN
 	WP_MeleeFlags			HELD_LOWDAMAGE
@@ -26,7 +24,7 @@ ClassInfo
 	rateOfFire 		0.85
 	APmultiplier		0.8
 	saberdamage 98
-	gloatanim	 	BOTH_SABERKILLER1
+	gloatanim	 	BOTH_VICTORY_FAST
 	tauntAnim		BOTH_ENGAGETAUNT
 	flourishAnim		BOTH_FORCE_RAGE
 	WalkBackward BOTH_WALKBACK_DUAL
@@ -37,7 +35,6 @@ ClassInfo
 	special1 EAS_HI_DODGE
 	special2 EAS_HI_DASH
 	special3 EAS_MELEE
-	//special3 EAS_HI_QUICKTHROW
 	
 	model		"Jedi_EW"
 	skin			"endor_warrick"
@@ -74,20 +71,6 @@ ClassInfo
 	respawnCustomTime 10000
 }
 
-//WeaponInfo0
-//{	WeaponToReplace		WP_FRAG_NADE
-	//WeaponBasedOff		WP_FRAG_NADE
-	//NewWorldModel			"models/weapons2/stone/thermal_w.glm"
-	//NewViewModel			"models/weapons2/stone/thermal.md3"
-	//Icon					"gfx/hud/w_icon_stone"
-	//WeaponName			"Stones"
-	//altMissileMissEffect	"stone/explosion"
-	//MissileModel 			"models/weapons2/stone/thermal_proj.md3"
-	//MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	//primFireEnabled		0
-	//CustomAmmo		2
-//}
-
 WeaponInfo0
 {
 	WeaponToReplace	WP_SABER
@@ -115,8 +98,16 @@ WeaponInfo1
 	MissileHitDroidEffect	"bow/arrow_humandroid"
 	clipSize			32	
 	customAmmo		184
-	idleAnim  		DC15_READY
-	firingAnim 		DC15_FIRE
+	hasAnimOverrides 1
+
+	animReady BOTH_DC15_IDLE
+	animReadyWalk TORSO_WEAPONREADY4
+	animReadyNoAmmo TORSO_WEAPONREADY4
+
+	animAttack BOTH_ATTACK4
+	animAttackWalk BOTH_ATTACK4
+
+	animStand TORSO_DROPWEAP4
 	altFireEnabled	0
 }
 
@@ -128,10 +119,8 @@ WeaponInfo2
 	NewViewModel		"models/weapons2/stone/thermal.md3"
 	NewHandsModel		"models/weapons2/stone/thermal_hand.md3"
 	NewBarrelModel	"models/weapons2/stone/thermal_hand.md3"
-	
 	primfireenabled 0
 	altfireenabled	1
-	
 	Icon					"gfx/hud/w_icon_stone"
 	WeaponName			"Stones"
 	AltMuzzleEffect		"stone/muzzle1"
@@ -144,16 +133,23 @@ WeaponInfo2
 	MissileMissEffect		"stone/explosion"
 	MissileHitHumanEffect "stone/explosion"
 	MissileHitDroidEffect	"stone/explosion"
-
 	AltMissileModel 		"models/weapons2/stone/thermal.md3"
 	AltFlashSound0		"sound/weapons/stone/fire.mp3"
 	MissileModel 		"models/weapons2/stone/thermal.md3"
 	FlashSound0		"sound/weapons/stone/fire.mp3"
 	clipSize 25
 	customAmmo 125
-	firingAnim	BOTH_THROW1
-	readyAnim
-	idleAnim	 TORSO_WEAPONIDLE10
+	
+	hasAnimOverrides 1
+
+	animReady BOTH_SABERDUAL_STANCE //upper
+	animReadyWalk BOTH_SABERDUAL_STANCE
+	animReadyNoAmmo BOTH_SABERDUAL_STANCE
+
+	animAttack NADE_SECONDARY
+	animAttackWalk NADE_SECONDARY
+
+	animStand BOTH_SABERDUAL_STANCE //lower
 }
 
 description "Ewok
@@ -172,10 +168,10 @@ Brief Overview:
 -- 62% less damage
 -- 53% shorter reach
 -- 33% wider radius
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS3]
 - Stones (6)
--- Based on Imperial Repeater
+-- Based on Imperial Heavy Repeater
 -- Pushes/knocks down targets on direct hit
 -- Fixed-length reload
 -- Sec. fire only

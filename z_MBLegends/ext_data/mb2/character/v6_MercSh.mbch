@@ -2,32 +2,39 @@
 
 ClassInfo
 {
-	  name  		"v6_MercSh"
-	  MBClass 			MB_CLASS_BOUNTY_HUNTER
-	  classNumberLimit  1
-	  weapons    	WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE
+	name  		"v6_MercSh"
+	MBClass 			MB_CLASS_CLONETROOPER
+	classNumberLimit  1
+	weapons    	WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE
 	  
-	  attributes  	MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,3|MB_ATT_THERMALS,1|MB_ATT_DISRUPTOR,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_TRACKING_DART,3|MB_ATT_FP_MIRALUKA
+	attributes  	MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,3|MB_ATT_THERMALS,1|MB_ATT_DISRUPTOR,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_TRACKING_DART,4|MB_ATT_FRAGS,3|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1
 
-	  rateoffire		0.92
-	  speed          	 0.99
-	  modelscale  		0.97
+	rateoffire		0.92
+	basespeed        247.5
+	modelscale  		0.97
 	  
-	  damageTaken 		0.9
+	damageTaken 		0.9
 	  
-	  respawnCustomTime 50000
+	respawnCustomTime 50000
 	  
-	  special2 EAS_HI_TRACKER
-	  special3 EAS_HI_KICK
+	special1 EAS_FP_SEE
+	special2 EAS_HI_TRACKER
+	special3 EAS_HI_KICK
 	  
-	  flourishAnim BOTH_STAND5TOAIM
-	  maxhealth 	100
-	  maxarmor  	80
+	flourishAnim BOTH_STAND5TOAIM
+	maxhealth 	125
+	maxarmor  	100
+	  
+	//WP_FragNadeFlags HELD_LOWDAMAGE
 
-	  forcepowers 	FP_SEE,1
-	  forcepool 	25
-	  resource RESOURCE_FUEL
+	forcepowers 	FP_SEE,3
+	forcepool 	80
+	resourceRegenAmount 80
+	resourceRegenRate 25000
+	//resourceRegenCap 30
+	resource resource_fuel
 	
+	skilltimermod 1
 	  
 	model 		"4lom"
 	skin  		"default"
@@ -59,40 +66,80 @@ WeaponInfo0
 	FlashSound0	"sound/weapons/DLT19/fire.wav"	
 	MuzzleEffect  "Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot01R"
-	customAmmo         850
+	customAmmo         750
 	FPMult     			0.9
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel				"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel				"models/weapons2/thermal/thermal_hand.md3"
+	Icon						"gfx/hud/w_thermal_grenade"
+	MissileModel 				"models/weapons2/thermal/thermal_proj.md3"
+	altMissileModel			"models/weapons2/thermal/thermal_proj.md3"
+	MissileEffect 			"stone/missile1"
+	altMissileEffect 				"stone/missile1"
+	MissileMissEffect			"smokenadeleg/explode_vol"
+	altMissileMissEffect		"smokenadeleg/explode_vol"
+	AltMissileHitHumanEffect	"smokenadeleg/explode_vol"
+	AltMissileHitDroidEffect	"smokenadeleg/explode_vol"
+	FlashSound0		"sound/weapons/smokenade/select.mp3"
+	AltFlashSound0 "sound/weapons/smokenade/select.mp3"
+	WeaponName  				"Smoke Grenades"
+	altFireEnabled 1
+	primFireEnabled 0
+	hasAnimOverrides 1
+	animReady  BOTH_SABERDUAL_STANCE //upper
+	animReadyWalk  BOTH_SABERDUAL_STANCE
+	animReadyNoAmmo  BOTH_SABERDUAL_STANCE
+	animAttack NADE_SECONDARY
+	animAttackWalk NADE_SECONDARY
+	animStand BOTH_STAND1 //lower
+	damageMod 0.01
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
+	ForceToReplace FP_SEE
+	Icon	"gfx/forcepowers/radar"
+	ForcePowerName "Radar Scanner"
+	StartSound 	"sound/ambience/kotor/consolebeep03.mp3"
+	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
 description	"Mercenary Shooter 
 
-Class: Bounty Hunter
+Class: Clone Trooper
 Brief Overview:
-A high speed suppressive fire class with a rifle and area-control tools. 
+A suppressive fire class with rifles and area-control tools.
 
 ^2Weaponry:
 - Melee
+- Disruptor Rifle (2)
 - DLT-19 Heavy Blaster Rifle
 -- Based on Clone Rifle (2)
 -- 10% less FP damage
 -- Concussion Blobs (3)
 -- Ion Blobs (3)
-- Disruptor Rifle (2)
-- Fire Grenade (1)
 - Thermal Detonator (1)
+- Fire Grenade (1)
+- Smoke Grenades (3)
+-- Based on Frag Grenade
+-- Spreads an obscuring cloud on detonation
+-- 99% less damage
+-- Sec. fire only
 
 ^8Attributes:
+- Resource Regen: 80/25s
+- Dexterity (1)
 - Magnetic Plating
 - Blast Armor
 - Armor Regen (1)
-- Radar Scanner (Passive Force Sense 1)
+- Tracking Beacon
 
 ^3Abilities:
-- Tracking Darts (6) ^3[CS2 in ^3Melee]
+- Infrared Motion Sensor (Force Sense 3) ^3[CS1]
+- Tracking Darts (8) ^3[CS2 in ^3Melee]
 - Gun Kick ^3[CS3]"
