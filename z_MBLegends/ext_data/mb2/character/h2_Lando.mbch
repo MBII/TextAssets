@@ -3,9 +3,10 @@ ClassInfo
 	name 				"h2_Lando"
 	weapons 			WP_MELEE|WP_MANDO_PISTOL|WP_EE3|WP_SABER|WP_FRAG_NADE
 	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DODGE,2|MB_ATT_FUELREGEN,3
+	saberMaxChain 3
 	maxhealth 			165
 	maxarmor 			60
-	speed				1.05
+	speed				1.03
 	APmultiplier     	1.1
 	CSmultiplier     	0.95
 	ASmultiplier     	0.95
@@ -58,6 +59,7 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_skiffaxe"
 	WeaponName			"BD-1 Cutter Vibroaxe"
+	selectSound "s/w/t/staffswing4.mp3"
 }
 
 WeaponInfo1
@@ -90,6 +92,7 @@ WeaponInfo2
 	Icon				"gfx/hud/w_icon_s5pistol" 						
 	FlashSound0			"sound/weapons/spy_pistol/fire.wav"
 	AltFlashSound0		"sound/weapons/spy_pistol/fire.wav"
+	ChargeSound 			"sound/weapons/leia_pistol/altcharge.mp3"
 	WeaponName			"S-5 Heavy Blaster Pistol"    					
 	MuzzleEffect		"Blaster/MuzzleFlash01G"	   				
 	AltMuzzleEffect		"Blaster/MuzzleFlash01G" 					
@@ -101,13 +104,21 @@ WeaponInfo2
 	OverchargeEffect	"Blaster/MuzzleCharge01G"
 	FPMult     			1.1
 	ReloadTimeModifier 	0.8
-	firingAnim			MAND_SPISTOL_FIRE
+	velocityMod 1.1
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
 	MissileEffect		"Blaster/Shot01R"
 	customammo 777
 }
 
 WeaponInfo3
-{	WeaponToReplace		WP_FRAG_NADE
+{	
+	WeaponToReplace		WP_FRAG_NADE
 	WeaponBasedOff		WP_THERMAL
 	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
 	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
@@ -118,6 +129,13 @@ WeaponInfo3
 	primFireEnabled		0
 	altFireEnabled        0
 	customammo			4
+	hasAnimOverrides 1
+	animReady BOTH_STAND5TOSTAND8
+	animReadyWalk BOTH_STAND5TOSTAND8
+	animReadyNoAmmo BOTH_STAND5TOSTAND8
+	animAttack BOTH_STAND5TOSTAND8
+	animAttackWalk BOTH_STAND5TOSTAND8
+	animStand BOTH_STAND1
 }
 
 description "Lando Calrissian
@@ -133,13 +151,15 @@ A fast Saber/gunner hybrid that can Disguise himself and move in and out of comb
 -- Yellow/Red styles
 -- Saber Defense (1)
 -- Cannot block Blasters
+-- Chain Limit: 3
 -- 25% less damage
 -- 10% shorter reach
 -- 33% wider radius
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS2]
 - S-5 Heavy Blaster Pistol 
--- Based on WESTAR-34 (2)
+-- Based on WESTAR Pistol (2)
+-- 10% faster projectiles
 -- 10% more FP damage
 -- 20% faster reload
 - Gambler's Palm Grenades (4)

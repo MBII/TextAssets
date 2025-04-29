@@ -99,3 +99,40 @@ models/players/wat_tambor/head_glass
 		rgbGen lightingDiffuse
 	}
 }
+
+models/players/wat_tambor/skirt_armor
+{
+	{
+		map models/players/wat_tambor/skirt_armor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/common/spec1
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		tcGen environment
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/wat_tambor/skirt_armor_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/wat_tambor/skirt
+{
+	cull	disable
+	{
+		map models/players/wat_tambor/skirt
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/wat_tambor/skirt_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}

@@ -49,7 +49,11 @@ WeaponInfo0
 	customAmmo		24
 	clipSize        2
 	ReloadTimeModifier 	0.7
-	idleAnim           DC15_READY   ///TORSO_WEAPONIDLE3
+	hasAnimOverrides 1
+	animReady BOTH_DC15_READY
+	animReadyWalk BOTH_DC15_ATTACK
+	animReadyNoAmmo BOTH_DC15_ATTACK
+	animStand BOTH_STAND1 //lower
 }
 WeaponInfo1
 {
@@ -59,12 +63,20 @@ WeaponInfo1
 	NewViewModel		"models/weapons/KYD-21_Pistol/model.md3"
 	FlashSound0			"sound/weapons/KYD-21/fire.mp3"
 	altFlashSound0		"sound/weapons/KYD-21/fire.mp3"
+	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
 	Icon  				"gfx/hud/w_icon_kyd-21"
 	WeaponName			"KYD-21 Blaster Pistol"
-	idleAnim			BOTH_MAND_PISTOL_IDLE 
-	firingAnim			MAND_SPISTOL_FIRE
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2 //upper
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_STAND4TOATTACK2
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_MAND_PISTOL_ATTACK
+	animStand BOTH_STAND1 //lower
 	CustomAmmo      	480
 	clipSize 21
+	rateMod 1.07
+	damageMod 1.1
 }
 
 description	"Zam Wesell
@@ -75,7 +87,10 @@ A class that can don the appearance of the enemy, who also possesses a double-sh
 
 ^2Weaponry:
 - Melee
-- KYD-21 Blaster Pistol (3)
+- KYD-21 Blaster Pistol
+-- Based on Blaster Pistol (3)
+-- 10% more damage
+-- 7% slower fire rate
 - KiSteer 1284 Projectile Rifle
 -- 2 shots per reload
 -- 30% faster reload
