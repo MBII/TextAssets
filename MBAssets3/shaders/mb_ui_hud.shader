@@ -235,6 +235,17 @@ gfx/hud/alpha/HUD_Score
 	}
 }
 
+gfx/hud/alpha/HUD_Score_Conquest
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_Score_Conquest
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
 gfx/hud/alpha/HUD_Score2
 {
 	nopicmip
@@ -300,6 +311,84 @@ gfx/hud/alpha/HUD_EventTimer
 		rgbGen vertex
 	}
 }
+
+gfx/hud/alpha/HUD_ConquestBar
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_ConquestBar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_ConquestBarR
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_ConquestBar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.953 0.378 0.25 )
+	}
+}
+
+gfx/hud/alpha/HUD_ConquestBarB
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_ConquestBar
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.25 0.5 0.953 )
+	}
+}
+
+gfx/hud/alpha/HUD_ConquestBarSpark
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_ConquestBarSpark
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_ConquestNodesAllied
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_ConquestNodesAllied
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_ConquestNodesEnemy
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_ConquestNodesEnemy
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_ConquestNodesNeutral
+{
+	nopicmip
+	notc
+	{
+		map $whiteimage
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
 
 gfx/hud/alpha/HUD_Radar
 {
