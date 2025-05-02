@@ -7,14 +7,14 @@ ClassInfo
 	extralives 1
 	MBClass	MB_CLASS_WOOKIE
 	weapons 	WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
-	attributes MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_AMMO,1|MB_ATT_PISTOL,1
-	
+	attributes MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_AMMO,1|MB_ATT_PISTOL,1|MB_ATT_GUN_DEFENSE,3
+
 	saber1	wookiee_shield_leg
 	saberDamage 120
 	saberstyle SS_DESANN|SS_STAFF
 	
-	saberMaxChain 1
-	rankSaberMaxChain 2,3,4
+	saberMaxChain 2
+	rankSaberMaxChain 3,4
 	
 	//special1 EAS_HI_FURY
 	//special2 EAS_HI_BARGE
@@ -26,12 +26,12 @@ ClassInfo
 	rateoffire_Melee 1.25
 	rankROFMelee  0.75
 	
-	basespeed	185
+	basespeed	180
 	rankbasespeed	 205
 	
 	resource 	RESOURCE_RAGE
-	forcepool 75
-	rankForcepool 125
+	forcepool 70
+	rankForcepool 130
 	
 	ForceRegen 1
 		
@@ -39,23 +39,17 @@ ClassInfo
 	rankSTM 0.75
 	
 	knockbackTaken 1
-	rankKbTaken 1.5,0.85,0.70
-	
-	knockbackGiven 1
-	rankKbGiven  0.5,1.15,1.30
+	rankKbTaken 1.5,0.5
 	
 	modelscale		1.17
 	//rankModelScale 	1.26,1.36,0.86
 	
 	WP_BowcasterFlags HELD_ALTRELOAD
-	//WP_SaberFlags HELD_SLOW
-	
-	//saberStanceAnim 
 	gloatAnim 		BOTH_TUSKENTAUNT1
-	flourishAnim 		BOTH_HUGGER1
+	flourishAnim 		BOTH_VICTORY_FAST
 	
 	isCustomBuild 1
-	mbPoints 11
+	mbPoints 7
 
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 	uioverlay_l "gfx/icons/heavy"
@@ -107,7 +101,7 @@ c_att_ranks_1	0,1
 
 c_att_skill_2	MB_ATT_PISTOL
 c_att_names_2	"Kashyyyk Side-Arm Pistol:"
-c_att_ranks_2	0,1,1
+c_att_ranks_2	0,1,0
 
 c_att_skill_3	MB_ATT_BOWCASTER
 c_att_names_3	"Bowcaster:"
@@ -122,7 +116,7 @@ c_att_names_5	"Fury/Barge ^3[CS1/2 M]^7:"
 c_att_ranks_5	1
 
 c_att_skill_6	MB_ATT_POWER
-c_att_names_6	"Larger Fury Pool:"
+c_att_names_6	"Extra Fury Pool:"
 c_att_ranks_6	1
 
 c_att_skill_7	MB_ATT_BASESPEED
@@ -137,25 +131,17 @@ c_att_skill_9	MB_ATT_BLAST_ARMOUR
 c_att_names_9	"Blast Armor:"
 c_att_ranks_9	1
 
-c_att_skill_10	MB_ATT_KB_GIVEN_MULTIPLIER
-c_att_names_10	"Knockback Given:"
-c_att_ranks_10	0,1,1
+c_att_skill_10	MB_ATT_KB_TAKEN_MULTIPLIER
+c_att_names_10	"Knockback Taken:"
+c_att_ranks_10	0,1
 
-c_att_skill_11	MB_ATT_KB_TAKEN_MULTIPLIER
-c_att_names_11	"Knockback Taken:"
-c_att_ranks_11	0,1,1
+c_att_skill_11	MB_ATT_FP_SABER_DEFENSE
+c_att_names_11	"Saber Defense:"
+c_att_ranks_11	1,1,1
 
-c_att_skill_12	MB_ATT_FP_SABER_DEFENSE
-c_att_names_12	"Saber Defense:"
-c_att_ranks_12	1,1,1
-
-c_att_skill_13	MB_ATT_GUN_DEFENSE
-c_att_names_13	"Blaster Defense:"
-c_att_ranks_13	1,1,1
-
-c_att_skill_14	MB_ATT_SABER_MAXCHAIN
-c_att_names_14	"Saber Chain Limit:"
-c_att_ranks_14	1,1,1
+c_att_skill_12	MB_ATT_SABER_MAXCHAIN
+c_att_names_12	"Saber Chain Limit:"
+c_att_ranks_12	1,1
 	
 respawnCustomTime 35000
 }
@@ -180,10 +166,17 @@ WeaponInfo1
     NewWorldModel		"models/weapons2/wsidearm/wsidearm.glm"
     NewViewModel		"models/weapons2/wsidearm/wsidearm.md3"
     Icon				"gfx/hud/w_icon_wsidearm" 
-    WeaponName			"Kashyyyk Side-Arm Pistol"
+    WeaponName			"Kashyyyk Side-Arm Blaster Pistol"
 	customAmmo 			420
-	clipsize 21
+	clipsize 24
 	AltFireEnabled 0
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
 }
 
 WeaponInfo2
@@ -196,20 +189,6 @@ WeaponInfo2
 	WeaponName		"Klorri-Clan Shield"
 }
 
-//WeaponInfo2
-{
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
-	NewWorldModel		"models/weapons2/merr_sonn/merr_sonn_w.glm"
-	NewViewModel		"models/weapons2/merr_sonn/merr_sonn.md3"
-	NewBarrelModel	    "models/weapons2/merr_sonn/merr_sonn_barrel.md3"
-	NewHandsModel		"models/weapons2/merr_sonn/merr_sonn_hand.md3"
-	Icon				"gfx/hud/w_icon_merrsonn"
-	WeaponName			"PLX-2M Rocket Launcher"
-	clipSize 			1
-	CustomAmmo 			3
-}
-
 WeaponInfo3
 {    
     WeaponToReplace        WP_DET_PACK
@@ -218,21 +197,24 @@ WeaponInfo3
     NewViewModel        "models/weapons2/detpack/det_pack.md3"
     Icon                "gfx/hud/w_icon_detpack"
     WeaponName            "Det Packs"
-    customAmmo             3
+    customAmmo             4
 }
 
 description	"Wookiee Warrior
 
 Class: Wookiee
 Brief Overview: 
-Tough soldiers who can spec into ranged weapons, brawling, and Saber upgrades.
+Tough soldiers who can spec into ranged weapons, brawling, and Saber upgrades. Uses Rage as Blaster Defense.
 
 ^2Default Weaponry:
 - Wookiee-style Melee
+- Kashyyyk Side-Arm Blaster Pistol (1)
+-- Prim. fire only
 - Klorri-Clan Shield
 -- Based on Lightsaber
 -- Staff/Purple styles
--- Chain Limit: 1
+-- Blaster Defense (3)
+-- Chain Limit: 2
 -- 25% longer Staff reach
 -- 53/70% less damage
 
@@ -245,19 +227,15 @@ Tough soldiers who can spec into ranged weapons, brawling, and Saber upgrades.
 - Bowcaster
 -- No charge shots
 -- Fixed-length reload
-- Kashyyyk Side-Arm Pistol
--- Prim. fire only
 - Det Packs (0)
--- 3
-- Larger Fury Pool (75)
--- 125
-- Movement Speed (185)
+-- 4
+- Larger Fury Pool (70)
+-- 130
+- Movement Speed (180)
 -- 205
 - Faster Skill Cooldown (1.25)
 -- 0.75
-- Knockback Given (1)
--- 0.5, 1.15, 1.3
 - Knockback Taken (1)
--- 1.5, 0.85, 0.7
-- Saber Chain Limit (1)
--- 2, 3, 4"
+-- 1.5, 0.5
+- Saber Chain Limit (2)
+-- 3, 4"
