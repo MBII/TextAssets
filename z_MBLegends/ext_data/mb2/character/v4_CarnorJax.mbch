@@ -7,16 +7,19 @@ ClassInfo
 	classNumberLimit	1
 	weapons 			WP_SABER|WP_MELEE|WP_BLASTER_PISTOL
 	
-	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_DASH,2|MB_ATT_PISTOL,3|MB_ATT_FORCEBLOCK,2|MB_ATT_DEXTERITY,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FORCEFOCUS,1|MB_ATT_KNOCKDOWN_ROLL|MB_ATT_FLIPKICK,1
+	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_DASH,2|MB_ATT_PISTOL,3|MB_ATT_FORCEBLOCK,2|MB_ATT_DEXTERITY,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FORCEFOCUS,1|MB_ATT_KNOCKDOWN_ROLL|MB_ATT_FLIPKICK,1|MB_ATT_GUN_DEFENSE,1
 	
-	forcepowers		FP_SABER_OFFENSE,3|FP_PULL,1|FP_SEE,1|FP_PUSH,2
+	forcepowers		FP_SABER_OFFENSE,3|FP_SEE,1|FP_GRIP,1|FP_PUSH,2|FP_PULL,1
 	
 	maxhealth 		125
 	maxarmor  		125
 
 	resource		resource_force
-	forcepool		150
-	forceregen		1.20
+	forcepool		100
+	rankForcepool 150
+	
+	forceregen		1.04
+	rankForceRegen 1.2
 	
 	model		"carnor_jax"
 	skin			"default"
@@ -30,12 +33,11 @@ ClassInfo
 	speed 			1.03
 	modelscale       1.02
 	
-	saberDamage 215 //247
 	saberMaxChain 3
 	saber1		ispdvba
 	saberstyle  	SS_STAFF|SS_DESANN
 	APmultiplier			1.05
-	BPmultiplier        0.95
+	BPmultiplier        1
 	ASmultiplier        1.15
 	CSmultiplier        1.10
 
@@ -51,7 +53,22 @@ ClassInfo
 	special2		EAS_MELEE
 	special3		EAS_HI_DEX
 	special4 	EAS_HI_DASH
-	respawnCustomTime  50000	
+	respawnCustomTime  50000
+
+	isCustomBuild		1
+	mbPoints			2
+	
+	c_att_skill_0	MB_ATT_FP_PUSH
+	c_att_names_0	"Force Speed:"
+	c_att_ranks_0	2
+	
+	c_att_skill_1 MB_ATT_POWER
+	c_att_names_1	"Extra Force Pool:"
+	c_att_ranks_1	1
+	
+	c_att_skill_2 MB_ATT_REGEN
+	c_att_names_2	"Faster Force Regen:"
+	c_att_ranks_2	1
 }
 
 WeaponInfo0
@@ -91,18 +108,17 @@ description	"Carnor Jax
 
 Class: Sith
 Brief Overview: 
-A well-rounded gunner/Saberist hybrid who combines martial arts and Force usage.
+A well-rounded gunner/Saberist who combines martial arts and Force usage.
 
-^2Weaponry:
+^2Default Weaponry:
 - Melee
 -- 10% faster swings
 - ISP Double-Vibroblade A
 -- Based on Lightsaber
 -- Staff/Purple styles
 -- Saber Defense (2)
--- Cannot block Blasters
+-- Blaster Defense (1)
 -- Chain Limit: 3
--- 17/46% less damage
 -- 21/37% shorter reach
 -- 66% thicker radius
 -- No Saber Throw
@@ -113,21 +129,28 @@ A well-rounded gunner/Saberist hybrid who combines martial arts and Force usage.
 -- Prim. fire only
 -- Fixed-length reload
 
-^5Force Powers:
-- Push (2) 
-- Pull (1) ^3[CS1]
+^5Default Force Powers:
+- Push (2) ^3[CS1]
+- Pull (1)
 - Sense (1)
+- Grip (1)
 
-^8Attributes:
+^8Default Attributes:
 - 20% less knockback taken
 - Dexterity (2)
-- Magnetic Plating
 - Knockdown Roll
+- Magnetic Plating
 - Armor Regen (1)
 - Force Block (2)
 - Force Focus (1)
 
-^3Abilities:
+^3Default Abilities:
 - Dex Roll ^3[CS3]
 - Dash (2) ^3[CS4]
-- Flipkick (1)"
+- Flipkick (1)
+
+^9Point Buy Info:
+- Extra Force Pool (100)
+-- 150
+- Faster Force Regen (1.04)
+-- 1.2"
