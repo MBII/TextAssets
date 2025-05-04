@@ -15,7 +15,7 @@ ClassInfo
 	classflags			CFL_HEAVYMELEE|CFL_SEEING_STEALTH|CFL_AKIMBOPISTOL3
 	saber1 				droidmelee_legends
 	saberstyle			SS_STRONG
-	WP_AmbanFlags			HELD_DISRUPTIFY|HELD_FLAME
+	WP_AmbanFlags			HELD_DISRUPTIFY|HELD_FLAME|HELD_SONIC
 	WP_MeleeFlags			HELD_SLOW
 	forcepool			100
 	forcepowers        	FP_SEE,1
@@ -25,7 +25,7 @@ ClassInfo
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 	
-	saberStanceAnim	BOTH_RAGESTAND
+	saberStanceAnim	BOTH_SABERDUAL_STANCE
 	flourishAnim 		BOTH_PAIN10
 	gloatAnim		BOTH_STAND5TOAIM
 	tauntAnim		BOTH_ENGAGETAUNT
@@ -56,11 +56,11 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace 	WP_SABER
-	WeaponBasedOff  	WP_SABER
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
 	NewWorldModel		"models/weapons2/dummy/dummy.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"models/weapons2/halo_melee/icon.png"
+	Icon			"models/weapons2/halo_melee/icon.png"
 	WeaponName		"Droid Melee"
 	primGore			1
 	altGore			1
@@ -73,8 +73,9 @@ WeaponInfo1
 	NewWorldModel			"models/weapons2/blaster_r/blaster_w.glm"
 	CorrectedWorldModel 	"models/weapons2/dlt20a/dlt20a_w.glm"
 	NewViewModel			"models/weapons2/noweap/noweap.md3"
-	FlashSound0			"sound/weapons/blasterMB/fire.mp3"
-	altFlashSound0		"sound/weapons/blasterMB/alt_fire.mp3"
+	ChargeSound				"sound/weapons/leia_pistol/altcharge.mp3"
+	FlashSound0			"sound/weapsup/sup/pistol_fire.mp3"
+	altFlashSound0		"sound/weapsup/sup/pistol3_fire.mp3"
 	altFireEnabled 		1
 	Icon					"gfx/hud/w_icon_ig88blasters"
 	WeaponName			"Dual Blaster Rifles"	
@@ -82,7 +83,16 @@ WeaponInfo1
 	clipsize 			80
 	MissileEffect			"Blaster/Shot01R"
 	FPMult				0.85
-	
+	hasAnimOverrides 1
+	animReady 	DUAL_PISTOLS_READY
+	animReadyWalk DUAL_PISTOLS_READY
+	animStand 	BOTH_STAND8
+	typeCharge 	DUAL_PISTOLS_READY
+	animRunAttackR DUAL_RUNNING_FIRE_RIGHT
+	animRunAttackL DUAL_RUNNING_FIRE_LEFT
+	animWalkAttackR BOTH_ALORA_SPIN
+	animWalkAttackL BOTH_ALORA_SPIN
+	selectSound "sound/movers/objects/place_object.mp3"
 }
 
 WeaponInfo2
@@ -96,10 +106,13 @@ WeaponInfo2
 	AltFlashSound0		"sound/weapons/pulse_cannon/fire.wav"  			
 	Icon					"gfx/hud/w_icon_DLT20a"
 	WeaponName			"Pulse Cannon" 
-	CustomAmmo			20
+	CustomAmmo			21
 	clipSize 			1
-	//ReloadTimeModifier  1.3
 	FPMult     			1.5
+	velocityMod 1.2
+	hasAnimOverrides 1
+	animStand 	BOTH_STAND8
+	selectSound "sound/movers/objects/place_object.mp3"
 }
 
 ForceInfo0
@@ -130,13 +143,14 @@ A heavily armored dual pistol wielder with an incendiary sniper rifle.
 -- 300% wider radius
 -- Slap ^3[CS2]
 - Dual Blaster Rifles
--- Based on WESTAR Pistols (4)
+-- Based on WESTAR-34 Pistols (4)
 -- 15% less FP damage
 - Thermal Detonator (1)
-- Sonic Grenades (2)
+- Sonic Detonators (2)
 - Pulse Cannon
 -- Based on Amban Rifle (1)
--- Ignites targets
+-- Ignites/stuns targets
+-- 20% faster projectiles
 -- 50% more FP damage
 
 ^8Attributes:
