@@ -202,6 +202,30 @@ gfx/hud/alpha/HUD_StatusEmplacedV
 	}
 }
 
+gfx/hud/alpha/HUD_StatusEmplacedFlipped
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusEmplaced
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		tcMod scale -1.0 1.0
+	}
+}
+
+gfx/hud/alpha/HUD_StatusEmplacedVFlipped
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusEmplacedV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		tcMod scale -1.0 1.0
+	}
+}
+
 gfx/hud/alpha/HUD_StatusEmplacedBar
 {
 	nopicmip
@@ -221,6 +245,18 @@ gfx/hud/alpha/HUD_StatusEmplacedBarV
 		map gfx/hud/alpha/HUD_StatusEmplacedBarV
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_StatusEmplacedBarVFlipped
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_StatusEmplacedBarV
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		tcMod scale 1.0 -1.0
 	}
 }
 
@@ -704,3 +740,191 @@ gfx/hud/alpha/HUD_Icon_ReadyCheck
 		rgbGen vertex
 	}
 }
+
+gfx/hud/classic/mb_acmglow0
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow0
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow1
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow1
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow2
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow3
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow3
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow4
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow4
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow5
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow5
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow6
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow6
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow7
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow7
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow8
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow8
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow9
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow9
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow10
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow10
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow11
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow11
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow12
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow12
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow13
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow13
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow14
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow14
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow15
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow15
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
+gfx/hud/classic/mb_acmglow16
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/classic/mb_acmglow16
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+	}
+}
+
