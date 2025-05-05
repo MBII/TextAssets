@@ -16,12 +16,12 @@ ClassInfo
 	MBClass			MB_CLASS_HERO
 	classNumberLimit 	4
 	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
-	WP_RepeaterFlags		HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_KNOCKDOWN
+	WP_RepeaterFlags		HELD_KNOCKBACK|HELD_KNOCKDOWN
 	WP_MeleeFlags			HELD_LOWDAMAGE
 	rateOfFire_Melee	.5
 	classFlags 			CFL_BLOODYMELEE
 	
-	rateOfFire 		0.85
+	rateOfFire 		1
 	APmultiplier		0.8
 	saberdamage 98
 	gloatanim	 	BOTH_VICTORY_FAST
@@ -29,6 +29,7 @@ ClassInfo
 	flourishAnim		BOTH_FORCE_RAGE
 	WalkBackward BOTH_WALKBACK_DUAL
 	WalkForward BOTH_WALK_DUAL
+	saberStanceAnim BOTH_TAVION_STANCE
 	
 	uioverlay "gfx/icons/hybrid"
 	
@@ -89,13 +90,16 @@ WeaponInfo1
 	NewViewModel 		"models/weapons2/bow/bowcaster.md3"
 	Icon 			"gfx/hud/w_icon_bow"
 	WeaponName 		"Bow and Arrows"
-	FlashSound0 		"sound/weapons/crossbow_if/xbow_alt1.wav"
+	FlashSound0 		"sound/300/wpn_bow_fire_01.wav"
+	FlashSound1 		"sound/300/wpn_bow_fire_02.wav"
+	FlashSound2 		"sound/300/wpn_bow_fire_03.wav"
 	MuzzleEffect  	"null"
 	MissileModel  	"models/weapons2/dc_gabow/greenarrow_arrow.md3"
 	MissileEffect 	"bow/whoosh"
 	MissileMissEffect	"dc/explosion"
 	MissileHitHumanEffect "bow/arrow_humandroid"
 	MissileHitDroidEffect	"bow/arrow_humandroid"
+	rateMod 0.85
 	clipSize			32	
 	customAmmo		184
 	hasAnimOverrides 1
@@ -137,19 +141,16 @@ WeaponInfo2
 	AltFlashSound0		"sound/weapons/stone/fire.mp3"
 	MissileModel 		"models/weapons2/stone/thermal.md3"
 	FlashSound0		"sound/weapons/stone/fire.mp3"
-	clipSize 25
-	customAmmo 125
-	
+	clipSize 150
+	customAmmo 1
 	hasAnimOverrides 1
-
 	animReady BOTH_SABERDUAL_STANCE //upper
 	animReadyWalk BOTH_SABERDUAL_STANCE
 	animReadyNoAmmo BOTH_SABERDUAL_STANCE
-
 	animAttack NADE_SECONDARY
 	animAttackWalk NADE_SECONDARY
-
 	animStand BOTH_SABERDUAL_STANCE //lower
+	rateMod 1.45
 }
 
 description "Ewok
@@ -173,11 +174,12 @@ Brief Overview:
 - Stones (6)
 -- Based on Imperial Heavy Repeater
 -- Pushes/knocks down targets on direct hit
--- Fixed-length reload
+-- 45% slower fire rate
 -- Sec. fire only
 - Bow and Arrows
 -- Based on T-21 Heavy Blaster (1)
 -- Staggers/knocks back targets
+-- 15% faster fire rate
 -- 50% less damage
 -- Fixed-length reload
 
