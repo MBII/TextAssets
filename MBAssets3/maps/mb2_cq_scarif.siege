@@ -1,0 +1,132 @@
+Teams
+{
+	team1 Rebels
+	team2 Imperials
+}
+
+mapgraphic "gfx/mplevels/mb2_cq_scarif/map"
+missionname "Scarif Conquest"
+MBModesAllowed "0 1 2" //Not to be changed.
+radartopleft "-2944, 5760"
+radarbottomright "5312, -2496"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cq_scarif"
+		radargraphicfull "gfx/automap/mb2_cq_scariffull"
+	}
+}
+
+HelpIcons
+{
+	//Resupply cap neutral
+    HelpIcon0
+    {
+		dynamic 1
+        redicon    HLP_CAPTURE_SUB
+		blueicon   HLP_CAPTURE_SUB
+		specicon   HLP_CAPTURE_SUB
+		sideobjective 1
+    }
+	//Resupply cap red
+    HelpIcon1
+    {
+        dynamic 1
+        redicon    HLP_DEFEND_SUB
+		blueicon   HLP_CAPTURE_SUB
+		specicon   HLP_CAPTURE_SUB
+		sideobjective 1
+    }
+	//Resupply cap blue
+    HelpIcon2
+    {
+        dynamic 1
+        redicon    HLP_CAPTURE_SUB
+		blueicon   HLP_DEFEND_SUB
+		specicon   HLP_DEFEND_SUB
+		sideobjective 1
+    }
+	
+	HelpIcon3
+	{
+		dynamic 1
+		redicon HLP_AMMO
+		blueicon HLP_AMMO
+		specicon HLP_NONE
+		sideobjective 1
+		radius 1000
+	}
+	
+	HelpIcon4
+	{
+		dynamic 1
+		redicon HLP_HEALTH
+		blueicon HLP_HEALTH
+		specicon HLP_NONE
+		sideobjective 1
+		radius 1000
+	}
+}
+
+roundbegin_target ""
+
+countin_time 0
+
+Rebels
+{
+	RequiredObjectives 1
+	Timed 900
+	UseTeam "scarif_reb" 							
+	TeamIcon "gfx/2d/logos/mb_rebel"
+	TeamColorOn "0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname ""
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Attack and control the most locations."
+		objgfx "gfx/mplevels/mb2_cq_scarif/obj"
+	}
+	
+	wonround "We still have hope!"
+	lostround "We failed the Empire has won"
+	roundover_sound_wewon "sound/sc_rone/reb_win.wav"
+	roundover_sound_welost "sound/sc_rone/reb_lose.wav"
+	roundover_target "roundover"
+	attackers 1
+
+	briefing "Attack and control the most locations."
+}
+
+Imperials
+{
+	RequiredObjectives 1
+	Timed 900
+	UseTeam "scarif_imp"
+	TeamIcon "gfx/2d/logos/mb_empire"
+	TeamColorOn "1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname ""
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Attack and control the most locations."
+		objgfx "gfx/mplevels/mb2_cq_scarif/obj"
+	}
+	
+	wonround "We crushed the Rebels"
+	lostround "Are we blind!?"
+	roundover_sound_wewon "sound/sc_rone/imp_win.wav"
+	roundover_sound_welost "sound/sc_rone/imp_lose.wav"
+	roundover_target "roundoverimp"
+	attackers 1
+
+	briefing "Attack and control the most locations."
+}
