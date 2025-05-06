@@ -15,6 +15,7 @@
 		descAlignment			ITEM_ALIGN_CENTER
 		onOpen
 		{
+			hide 				button_glow
 			show				VIDEOBTN
 			show				CONTROLSBTN
 			show				GAMEPLAYBTN
@@ -6653,6 +6654,22 @@ itemDef
 			visible				0
 			decoration
 		}
+				itemDef
+		{
+			name				sound_server
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Server Sounds:"
+			rect				142 265 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
 
 // SOUND FIELDS 2
 
@@ -7055,6 +7072,43 @@ itemDef
 			{
 				show			button_glow 
 				setitemrect		button_glow	142 251 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+				itemDef
+		{
+			name				sound_server
+			group				sound
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cl_serversounds"
+			cvarFloatList
+			{
+				@MENUS_OFF		0
+				@MENUS_ON		1
+			}
+			rect				142 265 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Allow server to send you sounds via RCON"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 266 230 15			
 			}
 			mouseExit
 			{
@@ -7919,7 +7973,7 @@ itemDef
 				English				english
 				@MENUS_LANG_FRENCH	francais
 				Deutsch				deutsch
-				"Español"			espanol
+				"Espaï¿½ol"			espanol
 			}
 			rect				142 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
@@ -8063,6 +8117,7 @@ itemDef
 			visible				0
 			decoration
 		}
+
 		itemDef
 		{
 			name				predict2
@@ -8096,18 +8151,13 @@ itemDef
 			}
 		}
 
-
-
-
-// UI OPTIONS FIELDS
-
-		itemDef
+						itemDef
 		{
-			name				oldfuelbar
-			group				uioptions
+			name				visualdamage
+			group				options3
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Draw Old Class Bar:"
-			rect				142 110 230 14
+			text				"Draw Block Points Damage:"
+			rect				142 155 230 14
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			20
 			textaligny			-5
@@ -8117,6 +8167,46 @@ itemDef
 			visible				0
 			decoration
 		}
+
+				itemDef
+		{
+			name				visualdamage
+			group				options3
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cg_visualdamage"
+			cvarFloatList		{ @MENUS_OFF 0 @MENUS_ON 1}
+			rect				142 155 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"See dealt block points damage in private duels"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 156 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+
+
+
+
+// UI OPTIONS FIELDS
+
 		
 		itemDef
 		{
@@ -8322,45 +8412,26 @@ itemDef
 			visible				1
 			decoration
 		}
-		
-// UI OPTIONS FIELDS 2
 
-		itemDef
+				itemDef
 		{
-			name				oldfuelbar
+			name				consolealpha
 			group				uioptions
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_MULTI
-			text				" "
-			cvar				"cg_drawOldFuelBar"
-			cvarFloatList
-			{
-				@MENUS_NO		0
-				@MENUS_YES		1
-			}
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Console Opacity:"
 			rect				142 110 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
 			textaligny			-5
 			font				5
 			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
+			forecolor			1 1 1 0.9
 			visible				0
-			descText			"Overlays the old class bar ontop of the right corner HUD"
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 111 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}	
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
+			decoration
 		}
+		
+// UI OPTIONS FIELDS 2
+
 		
 		itemDef
 		{
@@ -8826,6 +8897,62 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
+			}
+		}
+
+				itemDef
+		{
+			name				consolealpha
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_SLIDER
+			text				" "
+			cvarfloat			"con_opacity" 1 0 1
+			rect				152 110 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			90
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Opacity of console."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 109 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+		
+		itemDef
+		{
+			name				minimapalphaNum
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			descText			"Opacity of console."
+			cvarfloat			"con_opacity" 1 0 1
+			rect				380 110 230 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			5
+			maxPaintChars		5
+			visible				0
+			action
+			{
+				play			"sound/interface/button1.wav" 
 			}
 		}
 
@@ -10246,6 +10373,42 @@ itemDef
 			mouseExit
 			{
 				setitemcolor	forcehudreload			backcolor	1 1 1 0.05
+			}
+		}
+
+				itemDef
+		{
+			name				centerhud
+			group				uioptions5
+			text				"CENTER / UNCENTER"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Btn2_Bg"
+			rect				297 166 145 32
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			72
+			textaligny			-2
+			font				6
+			textscale			0.2
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			descText			"Will either center or uncenter the HUD. Works only for officially supported HUDs."
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				//exec			cg_loadui
+				uiScript 	centerhud
+				setitemcolor	centerhud			backcolor	1 1 1 0.5
+			}
+			mouseenter
+			{
+				setitemcolor	centerhud			backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	centerhud			backcolor	1 1 1 0.05
 			}
 		}
 
