@@ -1,0 +1,571 @@
+{
+	menuDef
+	{
+		name					"ingame_saber_duel"
+		fullScreen				0
+		visible					0
+		rect					430 101 113 323
+		style					1
+		descX					320
+		descY					443
+		descScale				1
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		focusColor				1 1 1 1
+		backColor				0 0 0 0
+		disablecolor			1 1 1 1
+		stayopen
+
+//SABER MODELS
+		//FIRST SABER
+		itemDef
+		{
+			name				saber
+			group				hiltmodels
+			type				ITEM_TYPE_MODEL
+			rect 0 -34 113 357
+			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
+			isSaber				1
+			model_angle			180
+			model_rotation		20
+			model_g2mins		10 -10 -12
+			model_g2maxs		10 10 15
+			model_fovx			14
+			model_fovy			31
+			visible				1
+			decoration
+			cvarTest			ui_saber_type
+			hideCvar			{ "staff"; "dual" }
+		}
+
+		//STAFF SABER
+		itemDef
+		{
+			name				saber4
+			group				hiltmodels
+			type				ITEM_TYPE_MODEL
+			rect 0 -34 113 357
+			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
+			isSaber				1
+			model_angle			180
+			model_rotation		20
+			model_g2mins		10 -10 -14
+			model_g2maxs		10 10 20
+			model_fovx			14
+			model_fovy			34
+			visible				1
+			decoration
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "dual" }
+		}
+
+		//DUAL SABER NUMBER 1
+		itemDef
+		{
+			name				saber3
+			group				hiltmodels
+			type				ITEM_TYPE_MODEL
+			rect 0 -34 113 357
+			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
+			isSaber				1
+			model_angle			180
+			model_rotation		20
+			model_g2mins		10 -6 -12
+			model_g2maxs		10 10 15
+			model_fovx			14
+			model_fovy			31
+			visible				1
+			decoration
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+		}
+
+		//SECOND SABER
+		itemDef
+		{
+			name				saber2
+			group				hiltmodels
+			type				ITEM_TYPE_MODEL
+			rect 0 -34 113 357
+			asset_model			"models/weapons2/saber_reborn/saber_w.glm"
+			isSaber2			1
+			model_angle			180
+			model_rotation		20
+			model_g2mins		10 -14 -12
+			model_g2maxs		10 10 15
+			model_fovx			14
+			model_fovy			31
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			decoration
+		}
+		
+		// HILT COLOR PRESETS
+		itemDef
+		{
+			name				blueicon
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 3 10 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Blue"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	blueicon forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	blueicon forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	blueicon forecolor 1 1 1 1
+				setcvar			ui_saber1_hue 0.6277f
+			}
+		}
+		
+		itemDef
+		{
+			name				blueicon2
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 89 10 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Blue"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			mouseenter
+			{
+				setitemcolor	blueicon2 forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	blueicon2 forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	blueicon2 forecolor 1 1 1 1
+				setcvar			ui_saber2_hue 0.6277f
+			}
+		}
+
+		itemDef
+		{
+			name				greenicon
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 3 37 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Green"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	greenicon forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	greenicon forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	greenicon forecolor 1 1 1 1
+				setcvar			ui_saber1_hue 0.3333
+			}
+		}
+
+		itemDef
+		{
+			name				greenicon2
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 89 37 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Green"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			mouseenter
+			{
+				setitemcolor	greenicon2 forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	greenicon2 forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	greenicon2 forecolor 1 1 1 1
+				setcvar			ui_saber2_hue 0.3333
+			}
+		}
+
+		itemDef
+		{
+			name				orangeicon
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 3 64 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Orange"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	orangeicon forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	orangeicon forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	orangeicon forecolor 1 1 1 1
+				setcvar			ui_saber1_hue 0.0722
+			}
+		}
+
+		itemDef
+		{
+			name				orangeicon2
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 89 64 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Orange"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			mouseenter
+			{
+				setitemcolor	orangeicon2 forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	orangeicon2 forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	orangeicon2 forecolor 1 1 1 1
+				setcvar			ui_saber2_hue 0.0722
+			}
+		}
+
+		itemDef
+		{
+			name				yellowicon
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 3 91 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Yellow"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	yellowicon forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	yellowicon forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	yellowicon forecolor 1 1 1 1
+				setcvar			ui_saber1_hue 0.166666
+			}
+		}
+
+		itemDef
+		{
+			name				yellowicon2
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 89 91 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Yellow"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			mouseenter
+			{
+				setitemcolor	yellowicon2 forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	yellowicon2 forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	yellowicon2 forecolor 1 1 1 1
+				setcvar			ui_saber2_hue 0.166666
+			}
+		}
+
+		itemDef
+		{
+			name				purpleicon
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 3 118 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Purple"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	purpleicon forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	purpleicon forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	purpleicon forecolor 1 1 1 1
+				setcvar			ui_saber1_hue 0.8138
+			}
+		}
+
+		itemDef
+		{
+			name				purpleicon2
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				89 118 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Purple"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			mouseenter
+			{
+				setitemcolor	purpleicon2 forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	purpleicon2 forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	purpleicon2 forecolor 1 1 1 1
+				setcvar			ui_saber2_hue 0.8138
+			}
+		}
+
+				itemDef
+		{
+			name				redicon
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect 3 145 21 25
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	redicon forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	redicon forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	redicon forecolor 1 1 1 1
+				setcvar			ui_saber1_hue 1.0f
+			}
+		}
+
+		itemDef
+		{
+			name				redicon2
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				89 145 21 25	
+			background			"gfx/menus/alpha/Icon_SaberCrystal_Red"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_BLADE_COLOR_DESC
+			visible				1
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			mouseenter
+			{
+				setitemcolor	redicon2 forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	redicon2 forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	redicon2 forecolor 1 1 1 1
+				setcvar			ui_saber2_hue 1.0f
+			}
+		}
+		
+		itemDef
+		{
+			name				slider_saber_rgb_1_jedi
+			group				hiltmodelsduel
+			type				ITEM_TYPE_SLIDER_VERT
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarFloat			"ui_saber1_hue" 0.6277 0.07 1.02
+			rect				6 178 16 100
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale 			1 
+			forecolor			0.1 0.7 1 1
+			visible				1
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setfocus		slider_saber_rgb_1_jedi
+			}
+		}
+
+		itemDef
+		{
+			name				saber_rgb_text_1
+			group				hiltmodelsduel
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarFloat			"ui_saber1_hue" 0.6277 0.07 1.02
+			maxchars			8
+			maxPaintChars		8
+			rect				3 276 20 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			-8
+			textaligny			-7
+			font				6
+			textscale			0.15
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			visible				1
+			descText			"Saber Hue"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				slider_saber_rgb_2_jedi
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			group				hiltmodelsduel
+			type				ITEM_TYPE_SLIDER_VERT
+			style				WINDOW_STYLE_TEXT_RGB2
+			cvarFloat			"ui_saber2_hue" 0.6277 0.07 1.02
+			rect				92 178 16 100
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			70
+			textaligny			0
+			font				4
+			textscale 			1 
+			forecolor			0.1 0.7 1 1
+			visible				1
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setfocus		slider_saber_rgb_2_jedi
+			}
+		}
+
+		itemDef
+		{
+			name				saber_rgb_text_2
+			cvarTest			ui_saber_type
+			hideCvar			{ "single"; "staff" }
+			group				hiltmodelsduel
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				" "
+			cvarFloat			"ui_saber2_hue" 0.6277 0.07 1.02
+			maxchars			8
+			maxPaintChars		8
+			rect				89 276 20 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			-8
+			textaligny			-7
+			font				6
+			textscale			0.15
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			visible				1
+			descText			"Saber Hue"
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				AuthenticSaber
+			group				hiltmodelsduel
+			style				WINDOW_STYLE_SHADER
+			type				ITEM_TYPE_BUTTON
+			rect				2 294 22 27
+			background			"gfx/menus/alpha/Icon_SaberAuth"
+			forecolor			1 1 1 0.5
+			descText			@MENUS_AUTHENTIC_BTN_DESC
+			visible				1
+			mouseenter
+			{
+				setitemcolor	AuthenticSaber forecolor 1 1 1 0.8
+			}
+			mouseExit
+			{
+				setitemcolor	AuthenticSaber forecolor 1 1 1 0.5
+			}
+			action
+			{
+				play			"sound/interface/choose_blade.wav"
+				setitemcolor	AuthenticSaber forecolor 1 1 1 1
+				uiScript        "saber_type"
+                //uiScript        mb_rgb_saber
+                uiScript        mb_auth_saber
+                uiScript        updatesabercvars
+			}
+		}
+	}
+}
