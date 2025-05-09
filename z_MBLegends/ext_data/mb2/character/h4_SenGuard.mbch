@@ -14,10 +14,10 @@ ClassInfo
 
 	extralives		1
 
-	special1			EAS_HI_SPRINT
+	special1	EAS_HI_SPRINT
 	special2 EAS_MELEE
-	special3			EAS_HI_DEX
-	special4			EAS_HI_GRAPPLEHOOK
+	special3	EAS_HI_DEX
+	special4	EAS_HI_GRAPPLEHOOK
 	MBClass			MB_CLASS_CLONETROOPER
 	classNumberLimit	4
 
@@ -27,13 +27,16 @@ ClassInfo
 	CSmultiplier	1.1
 	speed		1
 	
-	WP_CloneRifleFlags	HELD_SLOW
+	WP_CloneRifleFlags	HELD_SLOW|HELD_ALTRELOAD
 
 	modelscale       1.01
 
 	damageGiven 		1.1
 	damageTaken			0.9
 	Rateoffire		1.2
+	
+	knockbackTaken 0.90
+	knockbackGiven 1.10
 	
 	uioverlay "gfx/icons/hybrid"
 
@@ -64,13 +67,31 @@ ClassInfo
 
 WeaponInfo0
 {
+	WeaponToReplace		WP_CLONE_RIFLE
+	WeaponBasedOff		WP_CLONE_RIFLE
+	NewWorldModel		"models/weapons2/dc-15a/dc-15a_w.glm"
+	NewViewModel		"models/weapons2/dc-15a/dc-15a.md3"
+	NewHandsModel "models/weapons2/dc-15a/dc-15a_hand.md3"
+	MuzzleEffect			"Blaster/MuzzleFlash01C"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01C"
+	MissileEffect			"Blaster/Shot02C"
+	FlashSound0			"sound/weapons/repeater/fire.mp3"
+	Icon				"gfx/hud/w_icon_clonerifle"
+	WeaponName			"Mk. II 'Paladin' Blaster Rifle"
+	altfireenabled		1
+	FPMult 			1.25
+	damageMod 1.15
+}
+
+WeaponInfo1
+{
 	WeaponToReplace		WP_SABER					
 	WeaponBasedOff		WP_SABER					
 	NewWorldModel		"models/weapons2/saber_forcepike/saber_forcepike.glm"  	
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	
 	Icon				"gfx/hud/w_icon_forcepike" 	
 	WeaponName		"Force Pike"   
-	SelectSound "sound/weapons/blade/slash2.mp3"	
+	selectSound 	"s/w/t/staffswing4.mp3"
 }
 
 description	"Senate Guard
@@ -89,19 +110,24 @@ A 2-life anti-Sith fighter with both a Saber and a ranged gun, Force Block, and 
 -- 7% faster swings
 -- 30% shorter reach
 -- 167% wider radius
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS2]
-- Mk. II 'Paladin' Blaster Rifle (2)
--- 15% slower movement
+- Mk. II 'Paladin' Blaster Rifle
+-- Based on Clone Rifle (2)
 -- Concussion Blobs (4)
+-- 15% more damage
+-- 25% more FP damage
+-- 15% slower movement
+-- Fixed-length reload
 
 ^8Attributes:
 - Reinforcement (1)
+- 10% more/less knockback given/taken
 - Stamina (2)
 - Dexterity (1)
 - Armor Regen (1)
 - Force Block (2)
-- Assemble (Respawn on Rally allies)
+- Assemble
 
 ^3Abilities:
 - Sprint ^3[CS1]

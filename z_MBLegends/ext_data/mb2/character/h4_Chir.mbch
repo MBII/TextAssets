@@ -1,13 +1,13 @@
 ClassInfo
 {
 	name  			"h4_Chir"
-	MBClass 		MB_CLASS_HERO
+	MBClass 		MB_CLASS_JEDI
 	classNumberLimit	1
 	weapons 		WP_SABER|WP_MELEE|WP_T21
 	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_ANTI_MT,2|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,3|MB_ATT_DEXTERITY,3
 	
 	saberdamage 108 //140
-	saberMaxChain 4
+
 	saber1  		chirrut_stick_legends
 	saberstyle  	SS_STAFF|SS_MEDIUM
 	APmultiplier 1
@@ -18,37 +18,38 @@ ClassInfo
 	forcepowers		FP_SEE,2|FP_SABER_OFFENSE,3
 
 	maxhealth 		230
-	maxarmor  		30
 	
 	resource		resource_force
-	forcepool		165
-	forceregen		1.15
+	forcepool		150
+	forceregen		1.35
 	
 	model 			"chirrut"
 	skin  			"default"
 	uishader  		"models/players/chirrut/mb2_icon_default"
 	modelscale      	0.98
 	
-	rateOfFire       0.9
+	rateOfFire       1
 	rateOfFire_Melee	0.80
-	speed 			1.04
+	basespeed 		230
 
 	DamageGiven         1.30
-	knockbackgiven 2.5
+	knockbackgiven 2.25
 
-	WP_T21Flags   HELD_KNOCKBACK
+	WP_T21Flags   HELD_KNOCKBACK|HELD_ALTRELOAD
 	WP_SaberFlags HELD_SPEED
 	WP_MeleeFlags HELD_SPEED
 	
 	tauntAnim		BOTH_ENGAGETAUNT
-	gloatAnim      	 BOTH_BOW
-	flourishAnim   	 BOTH_STAFF_TAUNT
-	walkForward BOTH_WALK2
+	gloatAnim     	BOTH_BOW
+	flourishAnim   	BOTH_STAFF_TAUNT
+	walkForward 		BOTH_WALK2
 		
 	special1		EAS_HI_DODGE
 	special2		EAS_MELEE
 	special3		EAS_HI_DEX
 	special4 	EAS_HI_DASH
+	
+	skilltimermod 0.90
 	
 	respawnCustomTime  50000	
 	
@@ -69,21 +70,31 @@ WeaponInfo1
 	WeaponToReplace WP_T21
 	WeaponBasedOff  WP_BOWCASTER
 	NewWorldModel "models/weapons2/bowcaster/bowcaster_w.glm"
-	NewViewModel  "models/weapons2/bowcaster/bowcaster.md3"
+	NewViewModel  "models/weapons2/ICANTSEE/ICANTSEE.md3"
 	Icon  "gfx/hud/w_icon_bowcaster"
 	FlashSound0 "sound/weapons/dc-17/fire_scope.wav"
 	WeaponName  "Chirrut's Lightbow"
-	customAmmo          336
-	clipsize            48
-	idleAnim  DC15_FIRE
-	firingAnim	        DC15_FIRE
+	customAmmo          320
+	clipsize            64
+ 	hasAnimOverrides 1
+	animReady BOTH_DC15_IDLE
+	animReadyWalk TORSO_WEAPONREADY4
+	animReadyNoAmmo TORSO_WEAPONREADY4
+	animAttack BOTH_ATTACK4
+	animAttackWalk BOTH_ATTACK4
+	animStand TORSO_DROPWEAP4
 	FPmult              2
 	altfireenabled 	0
+	missileMissEffect "effects/Grenades/EXP_BaseThermal"
+	missileHitEffect "effects/Grenades/EXP_BaseThermal"
+	MissileHitHumanEffect "effects/Grenades/EXP_BaseThermal"
+	MissileHitDroidEffect "effects/Grenades/EXP_BaseThermal"
+	reloadTimeModifier 1.5
 }
 
 description	"Chirrut Imwe
 
-Class: Hero
+Class: Jedi
 Brief Overview: 
 A speedy and dexterous character with strong CQC and a hand cannon. Fast resource regen, many evasive options and heightened spiritual abilities.
 
@@ -96,20 +107,23 @@ A speedy and dexterous character with strong CQC and a hand cannon. Fast resourc
 -- Staff/Yellow styles
 -- Saber Defense (1)
 -- Cannot block Blasters
--- Chain Limit: 4
 -- 25% longer Staff reach
 -- 15% faster movement
 -- 46/41% less damage
 -- 33% wider radius
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS2]
 - Chirrut's Lightbow
 -- Based on T-21 Heavy Blaster (1)
 -- Pushes targets
 -- 100% more FP damage
+-- 50% slower reload
+-- Fixed-length reload
 
 ^8Default Attributes:
-- 150% more knockback given
+- I'm Blind!
+- 10% faster skill cooldown
+- 125% more knockback given
 - Dexterity (3)
 - Healing (3)
 - Force Block (3)

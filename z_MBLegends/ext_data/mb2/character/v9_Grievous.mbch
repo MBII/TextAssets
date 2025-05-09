@@ -1,5 +1,5 @@
 //Legends Mode character file - Created by Frenzy & Leos
-//test
+
 Classinfo
 {
 	name				"v9_Grievous"
@@ -7,6 +7,7 @@ Classinfo
 	weapons				WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
 	saberstyle			SS_DUAL
 	attributes			MB_ATT_DASH,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_PISTOL,2|MB_ATT_FORCEBLOCK,3|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_BLAST_ARMOUR|MB_ATT_STAMINA,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_GUN_DEFENSE,1
+	
 	forcepowers			FP_SABER_OFFENSE,2|FP_LEVITATION,1
 	
 	saber1				grievb4
@@ -41,10 +42,12 @@ Classinfo
 	maxarmor            90
 	modelscale			1.2
 	speed				1.14
-	forcepool			100
-	forceregen			1.1
+	resource				RESOURCE_STAMINA
+	forcepool			115
+	forceregen			1.15
 	
 	runForward BOTH_RAGERUN
+	bowAnim  BOTH_REACHFORSABER1
 	//runBackward BOTH_RUNBACK_DUAL
 	//WalkBackward BOTH_WALK_DUAL
 	//WalkForward  BOTH_RAGERUN
@@ -55,8 +58,6 @@ Classinfo
 	Classflags			CFL_BLOODYMELEE|CFL_HEAVYMELEE|CFL_STRONGAGAINSTPHYSICAL
 
 	respawnCustomTime 50000
-	
-	resource				RESOURCE_STAMINA
 	
 	special1	EAS_HI_SPRINT
 	special2 	EAS_MELEE
@@ -72,8 +73,13 @@ WeaponInfo0
 	NewViewModel			"models/weapons2/e5/e5.md3"
 	Icon					"gfx/hud/w_icon_e5.tga"
 	WeaponName				"DT-57 'Annihilator' Blaster"
-	idleAnim				BOTH_MAND_PISTOL_IDLE 
-	firingAnim				MAND_SPISTOL_FIRE
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
 	Customammo				120
 }
 
@@ -88,10 +94,10 @@ A speedy, resilient commander with 4 Lightsabers and increased power and speed o
 - Grievous' Lightsabers
 -- Dual style
 -- Saber/Blaster Defense (1)
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS2]
 - DT-57 'Annihilator' Blaster
--- Based on DL-44 Pistol (2)
+-- Based on Blaster Pistol (2)
 
 ^8Attributes:
 - Cybernetic Skeleton
