@@ -44,6 +44,26 @@ models/players/republictrooper/torso
 	}
 }
 
+models/players/republictrooper/addons
+{
+	cull	disable
+	{
+		map models/players/republictrooper/addons
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/republictrooper/addons_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
+		map models/players/republictrooper/addons_g
+		blendfunc gl_one gl_one
+		glow
+	}
+}
+
 
 // Belsavis
 
@@ -88,6 +108,26 @@ models/players/republictrooper/torso_belsavis
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
+	}
+}
+
+models/players/republictrooper/addons_belsavis
+{
+	cull	disable
+	{
+		map models/players/republictrooper/addons_belsavis
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/republictrooper/addons_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
+		map models/players/republictrooper/addons_g
+		blendfunc gl_one gl_one
+		glow
 	}
 }
 
@@ -138,6 +178,26 @@ models/players/republictrooper/torso_havoc
 	}
 }
 
+models/players/republictrooper/addons_havoc
+{
+	cull	disable
+	{
+		map models/players/republictrooper/addons_havoc
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/republictrooper/addons_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
+		map models/players/republictrooper/addons_g
+		blendfunc gl_one gl_one
+		glow
+	}
+}
+
 
 // MA35
 
@@ -182,6 +242,26 @@ models/players/republictrooper/torso_ma35
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
+	}
+}
+
+models/players/republictrooper/addons_ma35
+{
+	cull	disable
+	{
+		map models/players/republictrooper/addons_ma35
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/republictrooper/addons_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+	{
+		map models/players/republictrooper/addons_g
+		blendfunc gl_one gl_one
+		glow
 	}
 }
 
