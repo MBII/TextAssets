@@ -7,28 +7,32 @@ ClassInfo
 	classNumberLimit	2
 	extralives	1
 	weapons		WP_SABER|WP_MELEE|WP_SHOTGUN|WP_BLASTER_PISTOL
+	
+	WP_MeleeFlags HELD_SPEED
+	WP_SaberFlags HELD_STUN
 	WP_BlasterPistolFlags HELD_ALTRELOAD
 	WP_ShotgunFlags   HELD_PULSE|HELD_ALTRELOAD|HELD_SLOWPROJ
 	
 	attributes	MB_ATT_FORCEBLOCK,2|MB_ATT_SHOTGUN,1|MB_ATT_HEALING,1|MB_ATT_ASSEMBLE|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DEXTERITY,2|MB_ATT_PISTOL,1
 
-	forcepowers	FP_SABER_OFFENSE,3|FP_SPEED,1
+	forcepowers	FP_SABER_OFFENSE,3
 	resource RESOURCE_FORCE
 	forcepool	100
 	forceregen 	1.04
 	
 	maxhealth	80
 	maxarmor		80
-	speed		0.99
+	speed		1
 	
 	special2 EAS_MELEE
-	special4 EAS_FP_SPEED
+	special3 EAS_HI_DEX
 
-	saberstyle	SS_DESANN
-	saber1		Guard_pike_legends
-	sabercolor 0
-	BPmultiplier     1.3
-	CSmultiplier 		1.20
+	saberDamage 110
+	saberMaxChain 2
+	saberstyle	SS_MEDIUM|SS_DESANN
+	saber1		royal_pike_legends
+	BPmultiplier 1.3
+	CSmultiplier 	1.0
 	
 	modelscale        1.01
 	uioverlay 		"gfx/icons/hybrid"
@@ -51,7 +55,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/saber_forcepike/saber_forcepike.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_forcepike" 	
-	WeaponName			"Force Pike"
+	WeaponName			"Imperial Force Pike"
 	selectSound 	"s/w/t/staffswing4.mp3"
 }
 
@@ -62,7 +66,7 @@ WeaponInfo1
 	NewWorldModel		"models/weapons2/arc_caster/arc_caster_w.glm"  	
 	NewViewModel		"models/weapons2/arc_caster/model.md3" 
 	Icon				"gfx/hud/w_icon_arc_caster" 
-	WeaponName			"Arc Caster"
+	WeaponName			"ARC Caster"
 	hasAnimOverrides 1
 	animReady BOTH_DC15_IDLE
 	animReadyWalk TORSO_WEAPONREADY4
@@ -94,29 +98,28 @@ WeaponInfo2
 	customAmmo          420
 	clipsize            21
 	hasAnimOverrides 1
-	animReady BOTH_STAND4TOATTACK2
-	animReadyWalk BOTH_STAND4TOATTACK2
-	animReadyNoAmmo BOTH_PISTOL_ATTACK 
-	animAttack BOTH_PISTOL_ATTACK 
-	animAttackWalk BOTH_PISTOL_ATTACK 
 	animStand 		BOTH_STAND5
 	altfireenabled 	0
 }
 
-description	"Imperial Royal Guard
+description	"Emperor's Royal Guard
 
 Class: Sith
 Brief Overview:
-A mobile 2-life with an electric shotgun.
+Mobile 2-lifes with a Force Pike and electric shotgun.
 
 ^2Weaponry:
 - Melee
-- Force Pike
+-- 15% faster movement
+- Imperial Force Pike
 -- Based on Lightsaber
--- Purple style
+-- Yellow/Purple styles
 -- Saber/Blaster Defense (1)
+-- Chain Limit: 2
+-- Staggers targets
 -- 7% faster swings
--- 15% less damage
+-- 15% more knockback
+-- 54/8% less damage
 -- 30% shorter reach
 -- 167% wider radius
 -- No Saber Throw
@@ -124,19 +127,19 @@ A mobile 2-life with an electric shotgun.
 - Guardsmen Blaster Pistol
 -- Based on Blaster Pistol (1)
 -- Fixed-length reload
-- Arc Caster
+- ARC Caster
 -- Based on Shotgun (1)
 -- Electrifies targets
 -- 75% slower projectiles
 -- 75% slower reload
 -- Fixed-length reload
 
-^5Force Powers:
-- Speed (1) ^3[CS4]
-
 ^8Attributes:
 - Reinforcement (1)
 - Dexterity (2)
 - Healing (1)
 - Force Block (2)
-- Assemble"
+- Assemble
+
+^3Abilities:
+- Dex Roll ^3[CS3]"
