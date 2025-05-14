@@ -8151,57 +8151,6 @@ itemDef
 			}
 		}
 
-						itemDef
-		{
-			name				visualdamage
-			group				options3
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Draw Block Points Damage:"
-			rect				142 155 230 14
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			20
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			1 1 1 0.9
-			visible				0
-			decoration
-		}
-
-				itemDef
-		{
-			name				visualdamage
-			group				options3
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_MULTI
-			text				" "
-			cvar				"cg_visualdamage"
-			cvarFloatList		{ @MENUS_OFF 0 @MENUS_ON 1}
-			rect				142 155 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			"See dealt block points damage in private duels"
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 156 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}	
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}
-
-
 
 
 
@@ -8412,6 +8361,24 @@ itemDef
 			visible				1
 			decoration
 		}
+
+								itemDef
+		{
+			name				visualdamage
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Draw Block Points Damage:"
+			rect				142 305 230 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			20
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			decoration
+		}
+
 
 				itemDef
 		{
@@ -8889,6 +8856,39 @@ itemDef
 			{
 				show			button_glow 
 				setitemrect		button_glow	142 291 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				visualdamage
+			group				uioptions
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			cvar				"cg_visualdamage"
+			cvarFloatList		{ @MENUS_OFF 0 @MENUS_ON 1}
+			rect				142 305 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				1
+			descText			"See dealt block points damage in private duels"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 306 230 15			
 			}
 			mouseExit
 			{
@@ -10398,7 +10398,6 @@ itemDef
 			action
 			{
 				play			"sound/interface/button1.wav"
-				//exec			cg_loadui
 				uiScript 	centerhud
 				setitemcolor	centerhud			backcolor	1 1 1 0.5
 			}
@@ -10408,7 +10407,7 @@ itemDef
 			}
 			mouseExit
 			{
-				setitemcolor	centerhud			backcolor	1 1 1 0.05
+				setitemcolor	centerhud			backcolor	1 1 1 0.5
 			}
 		}
 
