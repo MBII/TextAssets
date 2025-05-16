@@ -16,7 +16,6 @@ jobs:
       - name: Package Files
         shell: powershell
         run: |
-          Remove-Item -Recurse -Force .\temp\
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
           svn cleanup --vacuum-pristines $GAMEDATA
@@ -31,15 +30,15 @@ jobs:
           mkdir .\temp\
           Write-Host "Pre Extract temp dir contents"
           dir .\temp\
-          Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
-          Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
-          Rename-Item -Path $LegendsZip -NewName $LegendsPk3
-          Write-Host "Post Extract temp dir contents"
-          dir .\temp\
-          Copy-Item -Path .\z_MBLegends -Destination .\temp\ -Recurse
-          dir .\temp\
-          deterministic_zip z_MBLegends.pk3 temp/z_MBLegends
-          Remove-Item -Recurse -Force .\temp\
+          #Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
+          #Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
+          #Rename-Item -Path $LegendsZip -NewName $LegendsPk3
+          #Write-Host "Post Extract temp dir contents"
+          #dir .\temp\
+          #Copy-Item -Path .\z_MBLegends -Destination .\temp\ -Recurse
+          #dir .\temp\
+          #deterministic_zip z_MBLegends.pk3 temp/z_MBLegends
+          #Remove-Item -Recurse -Force .\temp\
           
       - name: Upload Files
         shell: powershell
