@@ -16,6 +16,7 @@ jobs:
       - name: Package Files
         shell: powershell
         run: |
+          Remove-Item -Recurse -Force .\temp\
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
           svn cleanup --vacuum-pristines $GAMEDATA
