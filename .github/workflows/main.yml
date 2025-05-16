@@ -28,9 +28,12 @@ jobs:
           deterministic_zip mb2_um_assets3.pk3 mb2_um_assets3/
           deterministic_zip mb2_pb_assets2.pk3 mb2_pb_assets2/
           mkdir .\temp\
+          Write-Host "Pre Extract temp dir contents"
+          dir .\temp\
           Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
           Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
           Rename-Item -Path $LegendsZip -NewName $LegendsPk3
+          Write-Host "Post Extract temp dir contents"
           dir .\temp\
           Copy-Item -Path .\z_MBLegends -Destination .\temp\ -Recurse
           dir .\temp\
