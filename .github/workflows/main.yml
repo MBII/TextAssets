@@ -27,23 +27,13 @@ jobs:
           deterministic_zip mb2_cmp_assets3.pk3 mb2_cmp_assets3/
           deterministic_zip mb2_um_assets3.pk3 mb2_um_assets3/
           deterministic_zip mb2_pb_assets2.pk3 mb2_pb_assets2/
-          Write-Host "1"
           mkdir .\temp\
-          Write-Host "2"
-          Start-Sleep -Seconds 5
-          Write-Host "3"
           Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
-          Write-Host "4"
           Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
-          Write-Host "5"
           Rename-Item -Path $LegendsZip -NewName $LegendsPk3
-          Write-Host "6"
           Copy-Item -Path .\z_MBLegends\* -Destination .\temp\ -Recurse -Force
-          Write-Host "7"
           deterministic_zip z_MBLegends.pk3 temp/
-          Write-Host "8"
           Remove-Item -Recurse -Force .\temp\
-          Write-Host "9"
           
       - name: Upload Files
         shell: powershell
