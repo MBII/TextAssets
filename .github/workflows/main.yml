@@ -38,7 +38,7 @@ jobs:
           #Copy-Item -Path .\z_MBLegends -Destination .\temp\ -Recurse
           #dir .\temp\
           #deterministic_zip z_MBLegends.pk3 temp/z_MBLegends
-          #Remove-Item -Recurse -Force .\temp\
+          Remove-Item -Recurse -Force .\temp\
           
       - name: Upload Files
         shell: powershell
@@ -52,7 +52,7 @@ jobs:
           Move-Item -Force -Path mb2_cmp_assets3.pk3 -Destination $MBII\mb2_cmp_assets3.pk3
           Move-Item -Force -Path mb2_um_assets3.pk3 -Destination $MBII\mb2_um_assets3.pk3
           Move-Item -Force -Path mb2_pb_assets2.pk3 -Destination $MBII\mb2_pb_assets2.pk3
-          Move-Item -Force -Path z_MBLegends.pk3 -Destination $MBII\z_MBLegends.pk3
+          #Move-Item -Force -Path z_MBLegends.pk3 -Destination $MBII\z_MBLegends.pk3
           $BRANCH = "${{github.ref}}".Split("/")[2]
           $HASH = "${{github.sha}}".Substring(0, 7)
           svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
