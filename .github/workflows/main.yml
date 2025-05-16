@@ -32,7 +32,8 @@ jobs:
           dir .\temp\
           Start-Sleep -Seconds 5
           Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
-          Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
+          $job = Start-Job -ScriptBlock { Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\ }
+          Wait-Job -Id $job.Id          
           Rename-Item -Path $LegendsZip -NewName $LegendsPk3
           Write-Host "Post Extract temp dir contents"
           dir .\temp\
