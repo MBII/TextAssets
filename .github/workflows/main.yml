@@ -31,7 +31,7 @@ jobs:
           Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
           Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
           Rename-Item -Path $LegendsZip -NewName $LegendsPk3
-          Copy-Item -Path .\z_MBLegends\* -Destination .\temp\ -Recurse -Force
+          robocopy .\z_MBLegends\ext_data .\temp\ext_data /MIR /R:0 /W:0
           deterministic_zip z_MBLegends.pk3 temp/
           Remove-Item -Recurse -Force .\temp\
           
