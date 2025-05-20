@@ -533,18 +533,45 @@ gfx/effects/sabers_more/glow/purple
 
 //stun and sonic pistol
 
-gfx/effects/stun_projectile
+gfx/stun_blaster/stun_projectile
 {
-    surfaceparm nonsolid
-    surfaceparm nonopaque
-    surfaceparm trans
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
     surfaceparm nomarks
     surfaceparm nonsolid
     cull twosided
     {
-        map gfx/effects/stun_projectile
+        map gfx/stun_blaster/stun_projectile
         blendFunc GL_ONE GL_ONE
         glow
+        rgbGen vertex
+    }
+}
+
+gfx/stun_blaster/stunfrontflash
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	cull	twosided
+    {
+        map gfx/stun_blaster/stunfrontflash
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/stun_blaster/stunsideflash
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	cull	twosided
+    {
+        map gfx/stun_blaster/stunsideflash
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
     }
 }
 

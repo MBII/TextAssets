@@ -1,3 +1,5 @@
+// The Phantom Menace (by DT)
+
 models/players/DarthMaul/body
 {
 	{
@@ -85,6 +87,7 @@ models/players/DarthMaul/caps
     }
 }
 
+
 // Shirtless (by Noob)
 models/players/darthmaul/body_shirtless
 {
@@ -113,6 +116,7 @@ models/players/darthmaul/hands_shirtless
 		detail
     }
 }
+
 
 // TCW Cybernetic (by Leaversa & Noob)
 
@@ -145,7 +149,8 @@ models/players/maul_cyber/legs
     }
 }
 
-// TCW (Season 5-Season 7)
+
+// TCW (Season 5-7)
 
 models/players/maul_cw/body
 {
@@ -165,7 +170,7 @@ models/players/maul_cw/body_solo
 {
     {
         map models/players/maul_cw/body_solo
-		alphaFunc GE128
+        alphaFunc GE128
         rgbGen lightingDiffuse
     }
     {
@@ -212,7 +217,7 @@ models/players/maul_cw/head_solo
         rgbGen lightingDiffuse
     }
     {
-        map models/players/maul_cw/head_s
+        map models/players/darthmaul/head_s
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
@@ -224,10 +229,9 @@ models/players/maul_cw/head_solo_hood
     {
         map models/players/maul_cw/head_solo_hood
         rgbGen lightingDiffuse
-        //alphaFunc GE128
     }
     {
-        map models/players/maul_cw/head_s
+        map models/players/darthmaul/head_s
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 	detail
@@ -236,14 +240,24 @@ models/players/maul_cw/head_solo_hood
 
 models/players/maul_cw/cloth
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/maul_cw/cloth
 		rgbGen lightingDiffuse
 	}
 }
 
-// Rebels (by swegmaster)
+models/players/maul_cw/body_solo_cull
+{
+	cull	disable
+	{
+		map models/players/maul_cw/body_solo
+		rgbGen lightingDiffuse
+	}
+}
+
+
+// Rebels, Solo (by swegmaster, Plasma)
 
 models/players/maul_rebels/legs
 {
@@ -415,7 +429,7 @@ models/players/maul_rebels/head_twinsuns
 
 models/players/maul_rebels/hood
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/maul_rebels/hood
 		rgbGen lightingDiffuse
@@ -424,7 +438,7 @@ models/players/maul_rebels/hood
 
 models/players/maul_rebels/hood_desert
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/maul_rebels/hood
 		rgbGen lightingDiffuse

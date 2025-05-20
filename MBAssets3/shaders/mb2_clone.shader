@@ -119,6 +119,21 @@ models/players/MB2_Clones/helmet_keeli
     }
 }
 
+models/players/MB2_Clones/helmet_ep2_cody
+{
+    {
+        map models/players/MB2_Clones/helmet_ep2_cody
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/MB2_Clones/helmet_ep2_clean_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 models/players/MB2_Clones/helmet_rexp1
 {
     {
@@ -758,6 +773,21 @@ models/players/MB2_Clones/helmet_fordo
     }
     {
         map models/players/MB2_Clones/helmet_neyo_specular
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/MB2_Clones/helmet_grey
+{
+    {
+        map models/players/MB2_Clones/helmet_grey
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/MB2_Clones/helmet_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         alphaGen lightingSpecular
 		detail
@@ -2270,6 +2300,20 @@ models/players/MB2_Clones/body_para
     }
 }
 
+models/players/MB2_Clones/body_codyp1
+{
+    {
+        map models/players/MB2_Clones/body_codyp1
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/MB2_Clones/body_clean_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
 models/players/MB2_Clones/body_cody
 {
     {
@@ -3072,6 +3116,21 @@ models/players/MB2_Clones/commander_parts_thorn
     }
 }
 
+models/players/MB2_Clones/commander_parts_grey
+{
+    {
+        map models/players/MB2_Clones/commander_parts_grey
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/MB2_Clones/commander_parts_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 models/players/MB2_Clones/commander_parts_kamsec
 {
     {
@@ -3826,6 +3885,22 @@ models/players/MB2_clones/body_dogma
 	cull	disable
     {
         map models/players/MB2_clones/body_dogma
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/MB2_Clones/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/MB2_clones/body_grey
+{
+	cull	disable
+    {
+        map models/players/MB2_clones/body_grey
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
