@@ -65,6 +65,124 @@
 			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
 		}
 	}
+	
+	// Main Conquest Timer
+	/*menuDef
+	{
+		name					"mp_timer_conquest"
+		rect					320 10 143 39
+		focusColor				1 1 1 1
+
+		// Timer Background
+		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score_Conquest"
+			rect				0 0 143 39
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"timerframe"
+			forecolor			0 0 0 0.5
+			background			"gfx/hud/alpha/HUD_Timer"
+			rect				0 6 59 20
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		// Blue time win indicator
+		itemDef
+		{
+			name				"WinnerBlue"
+			forecolor			0.75 0.75 0.75 1 // Active Color
+			backcolor			0.25 0.25 0.25 1 // Inactive Color
+			background			"gfx/hud/alpha/HUD_TimerSideR"
+			rect				0 9.5 7 13
+			textalignx			25
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		// Red time win indicator
+		itemDef
+		{
+			name				"WinnerRed"
+			forecolor			0.75 0.75 0.75 1 // Active Color
+			backcolor			0.25 0.25 0.25 1 // Inactive Color
+			background			"gfx/hud/alpha/HUD_TimerSideL"
+			rect				0 9.5 7 13
+			textalignx			-25
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		// Actual Numbers
+		itemDef
+		{
+			name				"timer"
+			forecolor			0.1 0.8 1 0.9
+			rect				0 6 0 0
+			textscale			0.2
+			textalignx			0
+			textaligny			-8
+			font				7
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+		
+		// Conquest Bar Background
+//		itemDef
+//		{
+//			name				"ConquestBarFrame"
+//			forecolor			0 0 0 0.75 // Only used if useHUDTint is false
+//			useHUDTint			1 // Use global HUD background tint color.
+//			background			"gfx/hud/alpha/HUD_ConquestBar"
+//			rect				0 0 143 39
+//			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+//		}
+
+		
+		// Conquest Bar
+		itemDef
+		{
+			name				"ConquestBar"
+			background			"gfx/hud/alpha/HUD_ConquestBar" // Neutral Bar
+			background2			"gfx/hud/alpha/HUD_ConquestBarR" // Red Bar
+			background3			"gfx/hud/alpha/HUD_ConquestBarB" // Blue Bar
+			rect				0 3.5 136 24 // Conquest bar 
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+		
+		// Conquest Bar Spark
+		itemDef
+		{
+			name				"ConquestBarSpark"
+			background			"gfx/hud/alpha/HUD_ConquestBarSpark" // Meeting Spark
+			rect				0 0 2 31 // Spark Size (Y, W and H only)
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+		
+		// Conquest Nodes
+		itemDef
+		{
+			name				"ConquestNodes"
+			background			"gfx/hud/alpha/HUD_ConquestNodesNeutral" // Neutral Node
+			background2			"gfx/hud/alpha/HUD_ConquestNodesAllied" // Allied Node
+			background3			"gfx/hud/alpha/HUD_ConquestNodesEnemy" // Enemy Node
+			foreColor			0.9 0.9 0.9 1 // Neutral
+			backColor			0.953 0.378 0.25 1 // Red Team Owned
+			borderColor			0.25 0.5 0.953 1 // Blue Team Owned
+			outlineColor		0 0 0 1 // Font Color (Red Team & Neutral)
+			disablebackcolor	0.9 0.9 0.9 1 // Font Color (Blue Team)
+			rect				0 28.5 6 6 // Icon Size
+			textalignx			40 // Total Width
+			xoffset				1.25 // Letter Offset
+			yoffset				-2.3 // Letter Offset
+			textscale			0.06
+			font				7
+			bordersize			8 // Max nodes this UI suppoorts (Up to 15)
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	} */
     
 	// CTF Flag Status Indicators
 	menuDef
@@ -188,6 +306,53 @@
 			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
 		}
 	}
+	
+	// Blue Team Conquest Score
+	menuDef
+	{
+		name					"gm_info_blue_conquest"
+		rect					320 10 0 32
+
+/* 		itemDef
+		{
+			name				"frame_score"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+ 
+ 		itemDef
+		{
+			name				"frame_nodes"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+ */
+		itemDef
+		{
+			name				"elem_score"
+			rect				0 -2 0 20
+			forecolor			0.25 0.5 0.953 1
+			textscale			0.2
+			font				6
+			textalignx			43
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+		
+		itemDef
+		{
+			name				"elem_nodes"
+			rect				0 22.5 0 20
+			forecolor			0.25 0.5 0.953 1
+			textscale			0.1
+			font				6
+			textalignx			31
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
 
 	// Red Team Score
 	menuDef
@@ -213,6 +378,54 @@
 			textscale			0.2
 			font				6
 			textalignx			-44
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
+	
+	// Red Team Score
+	menuDef
+	{
+		name					"gm_info_red_conquest"
+		rect					320 10 0 30
+
+/* 		itemDef
+		{
+			name				"frame_score"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+			align				0 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+ 		itemDef
+		{
+			name				"frame_nodes"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+			align				0 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+ */
+
+		itemDef
+		{
+			name				"elem_score"
+			rect				0 -2 0 20
+			forecolor			0.953 0.378 0.25 1
+			textscale			0.2
+			font				6
+			textalignx			-50
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+		
+		itemDef
+		{
+			name				"elem_nodes"
+			rect				0 22.5 0 20
+			forecolor			0.953 0.378 0.25 1
+			textscale			0.1
+			font				6
+			textalignx			-31
 			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
 		}
 	}

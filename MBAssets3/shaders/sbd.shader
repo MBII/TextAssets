@@ -452,33 +452,6 @@ models/players/sbd/body_beskar
         rgbGen lightingDiffuse
     }    
     {
-        map models/players/sbd/body_beskar_s
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/players/sbd/chrome
-        blendFunc GL_DST_COLOR GL_ZERO
-        detail
-        tcGen environment
-    }
-    {
-        map models/players/SBD/body_e
-        blendFunc GL_ONE GL_ONE
-        glow
-        detail
-        rgbGen identity
-    }
-}
-
-models/players/sbd/body_beskar
-{
-    {
-        map models/players/sbd/body_beskar
-        rgbGen lightingDiffuse
-    }    
-    {
         map models/players/sbd/body_s
         blendFunc GL_SRC_ALPHA GL_SRC_COLOR
         detail
@@ -526,6 +499,33 @@ models/players/sbd/body_dolovite
         tcGen environment
     }
 {
+        map models/players/sbd/chrome
+        blendFunc GL_DST_COLOR GL_ZERO
+        detail
+        tcGen environment
+    }
+    {
+        map models/players/SBD/body_e
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}
+
+models/players/sbd/body_bedlam
+{
+    {
+        map models/players/sbd/body_bedlam
+        rgbGen lightingDiffuse
+    }    
+    {
+        map models/players/sbd/body_bedlam_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
         map models/players/sbd/chrome
         blendFunc GL_DST_COLOR GL_ZERO
         detail

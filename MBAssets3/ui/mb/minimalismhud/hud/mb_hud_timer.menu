@@ -1,0 +1,350 @@
+// In Game HUD - defines from ui_shared.h
+
+// align parameter sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned. Only works on items with it already specified.
+{
+	// Main Timer
+	menuDef
+	{
+		name					"mp_timer"
+		rect					320 10 133 32
+		focusColor				1 1 1 1
+
+		// Timer Background
+		itemDef
+		{
+			name				"frame"
+			forecolor			1 1 1 1
+			background			"gfx/hud/modernhud/HUD_Score"
+			rect				0 -3 125 40
+			textalignx			-100
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"timerframe"
+			forecolor			1 1 1 1
+			background			"gfx/hud/alpha/HUD_Timer"
+			rect				0 0 0 0
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+
+
+		// Actual Numbers
+		itemDef
+		{
+			name				"timer"
+			forecolor			1 1 1 1
+			rect				-15 9 0 0
+			textscale			0.2
+			textalignx			15
+			textaligny			-8
+			font				9
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
+    
+	// CTF Flag Status Indicators
+	menuDef
+	{
+        name                    "ctf_flag_status"
+        rect                    320 10 133 32
+        
+        // Blue Flag - left of timer
+		itemDef
+		{
+			name                "blue_flag"
+            forecolor           1 1 1 1 //not implemented
+            background          "gfx/hud/mpi_bflag"
+			rect                0 0 32 32 // X pos Y pos Width Height
+			textalignx          -90 //X pos offset
+			align               4
+		}
+        
+        // Red Flag - right of timer
+		itemDef
+		{
+			name                "red_flag"
+            forecolor           1 1 1 1 //not implemented
+            background          "gfx/hud/mpi_rflag"
+			rect                0 0 32 32 // X pos Y pos Width Height
+			textalignx          90 //X pos offset
+			align               4
+		}
+        
+        // Neutral Flag - icon only
+        itemDef
+		{
+			name                "neutral_flag"
+            background          "gfx/hud/mpi_nflag"
+		}
+        
+        // Lost flag overlay
+        itemDef
+		{
+			name                "lost_flag_overlay"
+            background          "gfx/hud/mpi_flag_x" //drawn over your team's flag if stolen
+		}
+        
+        // Held flag overlay
+        itemDef
+		{
+			name                "held_flag_overlay"
+            background          "gfx/hud/mpi_flag_held" //drawn over flag if you are carrying it
+		}
+	}
+
+	// Progressive Siege UI
+	menuDef
+	{
+		name "prog_siege"
+		rect 320 34 50 3
+
+		//Current round (Big circle)
+		itemDef
+		{
+			name "circle_elem"
+			rect -1 -1.5 6 6
+			background "gfx/hud/Alpha/HUD_ProgSiegeCircle"
+			forecolor 1 1 1 1
+		}
+
+		//Other rounds (Small circle)
+		itemDef
+		{
+			name "small_circle_elem"
+			rect -14 0 3 3
+			background "gfx/hud/Alpha/HUD_ProgSiegeCircle"
+			forecolor 0.8 0.8 0.8 1
+		}
+
+		//Line behind circles that connects them
+		itemDef
+		{
+			name "line_elem"
+			rect -2 0 0 0 // Offset
+			background "gfx/hud/Alpha/HUD_ProgSiegeBar"
+			forecolor 0.75 0.75 0.75 1
+			//align 1
+		}
+
+		//Current round number
+		itemDef
+		{
+			name "number_data"
+			rect 1.5 -3.5 0 0 // Offset
+			forecolor 0 0 0 1
+			font 7
+			textscale 0.075
+			textstyle 0
+		}
+	}
+
+	// Blue Team Score
+	menuDef
+	{
+		name					"gm_info_blue"
+		rect					320 10 0 32
+
+/* 		itemDef
+		{
+			name				"frame_score"
+			forecolor			1 1 1 1
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+			align				1 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+ */
+		itemDef
+		{
+			name				"elem_score"
+			rect				-3 1 0 20
+			forecolor			1 1 1 1
+			textscale			0.2
+			font				9
+			textalignx			51
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
+
+	// Red Team Score
+	menuDef
+	{
+		name					"gm_info_red"
+		rect					320 10 0 30
+
+/* 		itemDef
+		{
+			name				"frame_score"
+			forecolor			1 1 1 1
+			background			"gfx/hud/alpha/HUD_Score"
+			rect				0 0 100 32
+			align				0 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+ */
+
+		itemDef
+		{
+			name				"elem_score"
+			rect				-6.5 1 0 20
+			forecolor			1 1 1 1
+			textscale			0.2
+			font				9
+			textalignx			-42
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
+
+	// Map Event Timer 1
+	menuDef
+	{
+		name 					"delay_timer0"
+		rect					300 45 120 20
+		focusColor				1 1 1 1
+
+		// Message background
+		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0
+			background			"gfx/hud/alpha/HUD_Lagometer"
+			rect				17 -31 120 25
+			textalignx			-62
+			align				5 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		// Timer Background
+		itemDef
+		{
+			name				"timerframe"
+			forecolor			0 0 0 0.5
+			background			"gfx/hud/alpha/HUD_Lagometer"
+			rect				19 -5 34 16
+			textalignx			-16
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+        
+        itemDef
+		{
+			name				"timerframe_nomsg"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Lagometer"
+			rect				20 -5 34 16
+			textalignx			-10
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"message"
+			forecolor			1 1 1 1
+			rect				10 -34 80 20
+			font				5
+			textscale			0.15
+			textalignx			-170
+			textaligny			0
+			align				3 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"timer"
+			forecolor			1 1 1 1
+			rect				8.5 -3.5 36 16
+			font				9
+			textscale			0.15
+			textalignx			-5
+			textaligny			-5
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"timer_nomsg"
+			forecolor			1 1 1 1
+			rect				0 150 36 16
+			font				6
+			textscale			0.15
+			textalignx			0
+			textaligny			-5
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
+
+	// Map Event Timer 2
+	menuDef
+	{
+		name 					"delay_timer1"
+		rect					300 70 120 20
+		focusColor				1 1 1 1
+
+		// Message background
+		itemDef
+		{
+			name				"frame"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Lagometer"
+			rect				24 -56 120 25
+			textalignx			180
+			align				5 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		// Timer Background
+		itemDef
+		{
+			name				"timerframe"
+			forecolor			0 0 0 0.5
+			background			"gfx/hud/alpha/HUD_Lagometer"
+			rect				21 -30 34 16
+			textalignx			16
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+        
+        itemDef
+		{
+			name				"timerframe_nomsg"
+			forecolor			0 0 0 0.75
+			background			"gfx/hud/alpha/HUD_Lagometer"
+			rect				21 -30 34 16
+			textalignx			16
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"message"
+			forecolor			1 1 1 1
+			rect				-56 -58.5 80 20
+			font				5
+			textscale			0.15
+			textalignx			254
+			textaligny			0
+			align				5 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"timer"
+			forecolor			1 1 1 1
+			rect				14.75 -28.5 36 16
+			font				9
+			textscale			0.15
+			textalignx			22
+			textaligny			-5
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+
+		itemDef
+		{
+			name				"timer_nomsg"
+			forecolor			1 1 1 1
+			rect				0 2 36 16
+			font				6
+			textscale			0.15
+			textalignx			0
+			textaligny			-5
+			align				4 // Sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned.
+		}
+	}
+}
