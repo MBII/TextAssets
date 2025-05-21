@@ -160,6 +160,21 @@ models/players/mudtrooper/cloth_andor
 	}
 }
 
+models/players/mudtrooper/newparts_andor
+{
+	q3map_nolightmap
+	{
+		map models/players/mudtrooper/newparts_andor
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/mudtrooper/newparts_clean_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 
 // Andor - Garrison
 
