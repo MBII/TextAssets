@@ -233,3 +233,45 @@ models/weapons2/praetorian_guards/electro-plasma_blade
         rgbGen wave sin 0.65 0.35 0 32
     }
 }
+
+
+/// Kitsu's spanner wrench ///
+
+models/weapons2/spanner_w/spanner_w
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/spanner_w/spanner_w
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/spanner_w/spanner_w_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+
+/// Kitsu's vibroknife ///
+
+models/weapons2/vibroknife/body
+{
+    {
+        map models/weapons2/vibroknife/body
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/vibroknife/body_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/vibroknife/body_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen identity
+    }
+}

@@ -17,7 +17,6 @@ ClassInfo
 	customred		1
 	customgreen		1
 	customblue		1
-	rateOfFire      0.425
 	modelscale    1.01
 	speed         1.08
 	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_SLOW|HELD_HIGHDAMAGE|HELD_KNOCKDOWN
@@ -25,8 +24,6 @@ ClassInfo
 	jetpackJet2Tag		*jet2
 	jetpackJetOffset		"0, 0, 0" 
 	jetpackJet2Offset		"0, 0, 0"
-
-	damageGiven		    0.85
 	
 	forcepool			30
 		
@@ -51,7 +48,7 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_blaster_pistol_2"
 	WeaponName			"Dash's DL-44 Blaster Pistol"    					
 	clipSize 			18
-	customAmmo 378
+	customAmmo 630
 	MissileEffect		"blaster/dash_bolt"
 	AltMissileEffect		"blaster/dash_bolt"
 	MuzzleEffect "null"
@@ -62,6 +59,15 @@ WeaponInfo0
 	MissileHitDroidEffect "blaster/dash_impact"
 	MissileMissEffect "blaster/dash_impact"
 	altFireEnabled 0
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_ATTACK3 
+	animAttack BOTH_PISTOL_ATTACK
+	animAttackWalk  BOTH_ATTACK3 
+	animStand BOTH_JET_FORWARD
+	damageMod .85
+	rateMod 0.43
 }
 
 WeaponInfo1
@@ -83,12 +89,15 @@ description	"Dash Rendar
 
 Class: Mandalorian
 Brief Overview: 
-A Pistoleer equipped with a regenerating Jetpack and a Rocket Launcher. Sports an extremely fast base fire rate.
+A highly mobile Jetpacker with regenerating Fuel and a rapid-fire, low damage Pistol.
 
 ^2Weaponry:
 - Heavy Melee
 -- 5% slower swings
-- Dash's DL-44 Blaster Pistol (1)
+- Dash's DL-44 Blaster Pistol
+-- Based on Blaster Pistol (1)
+-- 57% faster fire rate
+-- 15% less damage
 - PLX-2M Rocket Launcher
 -- 100% more damage
 -- Knocks down targets on direct hit
@@ -99,6 +108,7 @@ A Pistoleer equipped with a regenerating Jetpack and a Rocket Launcher. Sports a
 - Frag Grenades (3)
 
 ^8Attributes:
+- Dash Jump
 - Bunny Hop (1)
 - Slow Faller
 - 50% slower skill cooldown
@@ -111,5 +121,4 @@ A Pistoleer equipped with a regenerating Jetpack and a Rocket Launcher. Sports a
 ^3Abilities:
 - Jetpack ^3[Double-tap/hold ^3jump] ['Use' to deactivate]
 - Wrist Flamethrower ^3[CS2]
-- Dash (2) ^3[CS3]
--- Can jump while Dashing"
+- Dash (2) ^3[CS3]"

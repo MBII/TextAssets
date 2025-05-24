@@ -3,12 +3,23 @@ ClassInfo
 	name  			"h7_Lobot"
 	MBClass 		MB_CLASS_HERO	
 	weapons			WP_MANDO_PISTOL|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_SABER
-	attributes  	MB_ATT_MICRO_GRENADES,2|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1
-	saber1			Wrench_Legends
-	sabercolor		0
-	saberstyle		SS_MEDIUM|SS_STRONG
+	
+	attributes  	MB_ATT_MICRO_GRENADES,2|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,1
+	
+	saber1		Wrench_Legends
+	sabercolor	0
+	saberstyle	SS_MEDIUM|SS_STRONG
+	
+	saber1_1     Wrench_Legends_2
+	sabercolor	0
+	saberstyle_1 	SS_MEDIUM|SS_STRONG
+	
 	forcepowers		FP_SEE,1
-	ASMultiplier 		1.2
+	forcepool 			75
+	forceregen			1.2
+	resource			RESOURCE_ENERGY
+	APMultiplier     1.2
+	ASMultiplier 		1.1
 	CSMultiplier 		1.2
 	speed         	1.04
 	maxhealth 		140
@@ -22,6 +33,8 @@ ClassInfo
 	modelscale       0.987
 	damageTaken		0.9
 	damageGiven 		1.15
+
+	//WP_RocketLauncherFlag HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_HIGHDAMAGE
 
 	special1 EAS_HI_DODGE
 	special2 EAS_HI_DASH
@@ -53,50 +66,84 @@ WeaponInfo1
 	NewWorldModel "models/weapons2/Relby-K23/model_w.GLM"
 	NewViewModel  "models/weapons2/Relby-K23/pistol.MD3"
 	Icon  		"gfx/hud/w_icon_relby_k23"
-	WeaponName  	"Relby-K23 'Stinger' Pistol"	
+	WeaponName  	"Relby-K23 'Stinger' Blaster Pistol"
+	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"	
 	CustomAmmo		700
+	VelocityMod 		1.15
 	FPMult 			1.15
 }
+
+/* WeaponInfo2
+{
+	WeaponToReplace WP_ROCKET_LAUNCHER
+	WeaponBasedOff  WP_TRIP_MINE
+	Icon				"gfx/hud/w_thermal_grenade"
+	WeaponName  		"Repulsor Mines"
+	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel		"models/weapons2/thermal/thermal_hand.md3"
+	MissileModel 		"models/weapons2/thermal/thermal_proj.md3"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
+	MissileEffect 	null
+	MissileMissEffect		"effects/tripmine/explosion"
+	MissileHitHumanEffect "effects/tripmine/explosion"
+	MissileHitDroidEffect	"effects/tripmine/explosion"
+	MuzzleEffect				"stone/muzzle1"
+	velocityMod 0.001
+	rateMod 2
+	ClipSize 8
+	CustomAmmo -1
+	AltFireEnabled 0
+	hasAnimOverrides 1
+	animReady BOTH_SHOWOFF_STRONG
+	animReadyWalk BOTH_GESTURE1
+	animReadyNoAmmo BOTH_STAND5TURNRIGHTSTART
+	animAttack BOTH_HUGGERSTOP1
+	animAttackWalk BOTH_HUGGERSTOP1
+	animStand BOTH_STAND1
+} */
 
 ForceInfo0
 {
 	ForceToReplace	FP_SEE
 	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
+	ForcePowerName	"Passive Radar Scanner"
 }
 
 description	"Lobot
 
 Class: Hero
 Brief Overview: 
-A silent, speedy grenadier sporting a high-launch power bludgeoning weapon.
+A speedy, damage-boosted pistoleer with grenades.
 
 ^2Weaponry:
 - Melee
-- Wrench
+- Power Wrench/Spanner Wrench
 -- Based on Lightsaber
 -- Yellow/Red styles
 -- Cannot block Sabers/Blasters
+-- Blocking resists Force Powers
 -- 25% more knockback
 -- 40% less damage
 -- 50% shorter reach
 -- 167% wider radius
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS3]
-- Relby-K23 'Stinger' Pistol
--- Based on WESTAR-34 (2)
+- Relby-K23 'Stinger' Blaster Pistol
+-- Based on WESTAR Pistol (2)
+-- 15% faster projectiles
 -- 15% more FP damage
 - Frag Grenades (3)
 - Concussion Grenades (2)
 
 ^6Inventory:
-- Portable Assault Sentry ^3[CS4]
+- Assault Sentry ^3[CS4]
 
 ^8Attributes:
 - Blast Armor
 - Armor Regen (1)
 - Healing (2)
-- Radar Scanner (Passive Force Sense 1)
+- Passive Radar Scanner (Miraluka Vision 1)
+- Force Block (1)
 - Lobotomized
 
 ^3Abilities:

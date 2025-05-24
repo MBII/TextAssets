@@ -8,16 +8,18 @@ ClassInfo
 	attributes 	MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BOWCASTER,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,3
 	
 	maxhealth 		200
-	maxarmor			220
+	maxarmor			225
 
 	modelscale 			1.17
-	rateOfFire    		0.95
 	damageTaken   		0.9
 	speed               0.9
 	
+	knockbackgiven		1.1
+	knockbacktaken		0.9
+	
 	classflags	CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE|CFL_NOLOCATIONALDAMAGE
 	
-	WP_RocketLauncherFlags 	HELD_ALTRELOAD|HELD_SLOW|HELD_HIGHDAMAGE|HELD_KNOCKDOWN
+	WP_RocketLauncherFlags 	HELD_ALTRELOAD
 
 	resource	RESOURCE_FUEL
 	forcepool 110
@@ -61,6 +63,8 @@ WeaponInfo0
 	MissileEffect			"demp2/projectile"
 	AltMissileEffect			"demp2/projectile"
     MissileMissEffect 		"effects/blaster/Impact_Wall01B"	
+	damageMod 1.1
+	rateMod 0.95
 }
 
 WeaponInfo1
@@ -73,9 +77,11 @@ WeaponInfo1
 	WeaponName			"Assault Cannon Rocket Attachment"
 	idleanim			DC15_FIRE
 	firinganim			DC15_FIRE
-	CustomAmmo 			4
-	clipSize 			1
-	ReloadTimeModifier 	1.5
+	CustomAmmo 			8
+	clipSize 			4
+	ReloadTimeModifier 	1.6
+	velocityMod 1.25
+	rateMod 1.25
 }
 
 description	"Dark Trooper
@@ -88,21 +94,23 @@ A Jetpack-equipped tank with a high-powered Assault Cannon and Rocket Launcher.
 - Wookiee-style Melee
 - Assault Cannon
 -- Based on Bowcaster (3)
+-- 5% faster fire rate
+-- 10% more damage
 - Assault Cannon Rocket Attachment
 -- Based on Rocket Launcher
--- 100% more damage
--- Knocks down targets on direct hit
--- 15% slower movement
--- 50% slower reload
+-- 25% slower fire rate
+-- 25% faster projectiles
+-- 60% slower reload
 -- Fixed-length reload
 -- Homing Rockets ^3[Hold Sec. ^3fire]
 
 ^8Attributes:
 - Next Generation Armor
+-- 10% more/less knockback given/taken
 -- Beskar (3) 
 -- Strength (2)
 -- 50% Melee damage resist.
--- Damage taken ignores locational differences
+-- Damage taken is non-locational
 -- Blast Armor
 - Fuel (3)
 -- 10% more Fuel

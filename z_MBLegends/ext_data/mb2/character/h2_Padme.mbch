@@ -4,9 +4,12 @@ ClassInfo
 {
 	name					"h2_Padme"
 	weapons					WP_A280|WP_MELEE|WP_PULSE_NADE|WP_CONC_NADE|WP_BLASTER_PISTOL
-	attributes				MB_ATT_HEALING,1|MB_ATT_DASH,2|MB_ATT_A280,1|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_PULSE_GRENADES,4|MB_ATT_MICRO_GRENADES,3|MB_ATT_DODGE,3|MB_ATT_PISTOL,3|MB_ATT_QUICKTHROW,1|MB_ATT_DEXTERITY,1
+	attributes				MB_ATT_HEALING,1|MB_ATT_DASH,2|MB_ATT_A280,1|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_PULSE_GRENADES,4|MB_ATT_MICRO_GRENADES,3|MB_ATT_DODGE,3|MB_ATT_PISTOL,3|MB_ATT_QUICKTHROW,1|MB_ATT_DEXTERITY,1|MB_ATT_ANTI_MT,2
 	maxhealth				160
 	maxarmor				60
+	
+	resource RESOURCE_ENERGY
+	forcepool 120
 	MBClass					MB_CLASS_HERO
 	modelscale 				0.933
 	speed					1
@@ -14,7 +17,9 @@ ClassInfo
 	classNumberLimit 		1
 	holdables       		HI_MEDPAC_BIG|HI_MEDPAC
 	
-	forceregen			1.25
+	forceregen			1.5
+	
+	skilltimermod 0.9
 		
 	model		"padme_e2" 				
 	skin			"default"					
@@ -36,7 +41,8 @@ ClassInfo
 	skin_4		"default"
 	uishader_4	"models/players/sabe/mb2_icon_default"
 	
-	respawnCustomTime  50000	
+	respawnCustomTime  50000
+	
 	special1		EAS_HI_DODGE
 	special2 	EAS_HI_DASH
 	special3		EAS_HI_QUICKTHROW
@@ -49,19 +55,24 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_A280       					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER   						//Required: For future use, should be the same as WeaponToReplace
+	WeaponToReplace		WP_A280
+	WeaponBasedOff		WP_BLASTER
 	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
 	NewViewModel 		"models/weapons2/e5/e5.md3"
 	Icon				"gfx/hud/w_icon_e5"
 	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
 	AltFlashSound0 		"sound/weapons/ee3/sniperfire.mp3"
-	WeaponName			"Stolen E-5 Blaster Rifle"
+	WeaponName				"Looted E-5 Blaster Rifle"
 	customAmmo			720
 	clipsize            80
 	altFireEnabled		0
-	firingAnim	        BOTH_ATTACK2
-	idleAnim			heropistolfire
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_STAND4TOATTACK2 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
 }
 
 WeaponInfo1
@@ -75,27 +86,36 @@ WeaponInfo1
 	MuzzleEffect		"Blaster/MuzzleFlash01G"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01G"
 	MissileEffect		"Blaster/Shot11G"
-	Missile3Effect		"Blaster/Shot03G"
-	AltMissileEffect	"Blaster/Shot11G"
+	Missile3Effect	"Blaster/Shot03G"
+	AltMissileEffect	"Blaster/Shot03G"
 	PowerupShotEffect	"Blaster/Shot04G"
 	ChargeEffect		"gfx/effects/greenFrontFlash"
 	OverchargeEffect	"Blaster/MuzzleCharge01G"
 	FlashSound0			"sound/weapons/spy_pistol/fire.wav"
 	AltFlashSound0		"sound/weapons/spy_pistol/fire.wav"
+	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
 	clipsize 			24
 	CustomAmmo 408
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_STAND4TOATTACK2
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
 }
 
 description	"Padme Naberrie Amidala Skywalker
 
 Class: Hero
 Brief Overview: 
-A quick in-and-out gunner with powerful rapid fire blasters and self-healing items.
+A quick in-and-out gunner with powerful rapid-fire blasters and self-healing items.
 
 ^2Weaponry:
 - Melee
-- ELG-3A Diplomat's Pistol (3)
-- Stolen E-5 Blaster Rifle
+- ELG-3A Diplomat's Pistol
+-- Based on Blaster Pistol (3)
+- Looted E-5 Blaster Rifle
 -- Based on A280 (1)
 - Pulse Grenades (4)
 - Concussion Grenades (3)
@@ -105,9 +125,11 @@ A quick in-and-out gunner with powerful rapid fire blasters and self-healing ite
 - Big Bacta (50 HP to self)
 
 ^8Attributes:
+- 10% faster skill cooldown
 - Dexterity (1)
 - Healing (1)
-- Rally (Assemble allies spawn on you)
+- Rally
+- Mind Trick Immunity
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]

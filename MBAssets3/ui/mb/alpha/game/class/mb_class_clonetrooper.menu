@@ -50,7 +50,7 @@
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POINTS_REMAINING
 			ownerdraw			UI_FORCE_POINTS
-			rect 8 10 147 15
+			rect 				8 10 147 15
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			64
 			textaligny			-5
@@ -69,7 +69,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POWER
-			rect 8 25 0 0
+			rect 				8 25 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -86,7 +86,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_1_2_3
-			rect 113 25 0 0
+			rect 				113 25 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			1
 			textaligny			-5
@@ -105,7 +105,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Clone Pistol"
-			rect 8 45 147 18
+			rect 				8 45 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -167,7 +167,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LEVITATION
-			rect 8 45 147 18
+			rect 				8 45 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -192,6 +192,59 @@
 			}
 		}
 
+		// Clone Carbine title
+		itemDef
+		{
+			name				setfp_speed
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Clone Carbine"
+			rect 				8 65 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+		
+		// Clone Carbine assign
+		itemDef
+		{
+			name				setfp_speed
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_SPEED
+			rect 				8 65 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Adds secondary fire and makes primary more ammo efficient"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 64 147 20
+				setitemcolor	setfp_speed forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_speed forecolor 1 1 1 0.8
+			}
+		}
+
+		// Minigun title 85
+		// Minigun assign 85
+
 		// Clone Rifle title
 		itemDef
 		{
@@ -199,7 +252,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Clone Rifle"
-			rect 8 65 147 18
+			rect 				8 85 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -214,7 +267,7 @@
 		{
 			name				Info_CloneRifle_1
 			group				pointssetup
-			rect				113 65 14 19
+			rect				113 85 14 19
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -236,7 +289,7 @@
 		{
 			name				Info_CloneRifle_2
 			group				pointssetup
-			rect				127 65 14 19
+			rect				127 85 14 19
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -258,7 +311,7 @@
 		{
 			name				Info_CloneRifle_3
 			group				pointssetup
-			rect				141 65 13 19
+			rect				141 85 13 19
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -283,7 +336,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
-			rect 8 65 147 18
+			rect 				8 85 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -298,7 +351,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 64 147 20
+				setitemrect		button_glow	8 85 147 20
 				setitemcolor	setfp_push forecolor 1 1 1 1
 			}
 			mouseExit
@@ -316,7 +369,7 @@
 			name 				setfp_protect
 			group				pointssetup
 			style				WINDOW_STYLE_FILLED
-			rect 11 81 3 34
+			rect 				11 101 3 34
 			backcolor			1 1 1 0.8
 			visible				1
 		}
@@ -327,7 +380,7 @@
 			name 				setfp_protect
 			group				pointssetup
 			style				WINDOW_STYLE_FILLED
-			rect 14 91 4 4
+			rect 				14 111 4 4
 			backcolor			1 1 1 0.8
 			visible				1
 		}
@@ -338,7 +391,7 @@
 			name 				setfp_teamheal
 			group				pointssetup
 			style				WINDOW_STYLE_FILLED
-			rect 14 111 4 4
+			rect 				14 131 4 4
 			backcolor			1 1 1 0.8
 			visible				1
 		}
@@ -351,7 +404,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Concussive blasts"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 20 85 135 18
+			rect 				20 105 135 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -366,7 +419,7 @@
 		{
 			name				Info_ConcBlob
 			group				pointssetup
-			rect				113 85 41 18
+			rect				113 105 41 18
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -389,7 +442,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PROTECT
-			rect 8 85 147 18
+			rect 				8 105 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -404,7 +457,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 84 147 20
+				setitemrect		button_glow	8 104 147 20
 				setitemcolor	setfp_protect forecolor 1 1 1 1
 			}
 			mouseExit
@@ -421,7 +474,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Ion blasts"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 20 105 135 18
+			rect 				20 125 135 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -436,7 +489,7 @@
 		{
 			name				Info_IonBlob
 			group				pointssetup
-			rect				113 105 41 18
+			rect				113 125 41 18
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -459,7 +512,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TEAM_HEAL
-			rect 8 105 147 18
+			rect 				8 125 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -474,7 +527,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 104 147 20
+				setitemrect		button_glow	8 124 147 20
 				setitemcolor	setfp_teamheal forecolor 1 1 1 1
 			}
 			mouseExit
@@ -491,7 +544,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Reinforcement"
-			rect 8 135 147 18
+			rect 				8 155 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -509,7 +562,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_ABSORB
-			rect 8 135 147 18
+			rect 				8 155 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -523,7 +576,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 134 147 20
+				setitemrect		button_glow	8 154 147 20
 				setitemcolor	setfp_absorb forecolor 1 1 1 1
 			}
 			mouseExit
@@ -539,9 +592,9 @@
 			name				setfp_healself
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Stamina"
+			text				"Stamina [CS1]"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 155 147 18
+			rect 				8 175 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -559,7 +612,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_HEAL
-			rect 8 155 147 18
+			rect 				8 175 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -574,7 +627,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 154 147 20
+				setitemrect		button_glow	8 174 147 20
 				setitemcolor	setfp_healself forecolor 1 1 1 1
 			}
 			mouseExit
@@ -592,7 +645,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Armour"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 185 147 18
+			rect 				8 205 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -610,7 +663,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect 8 185 147 18
+			rect 				8 205 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -625,7 +678,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 184 147 20
+				setitemrect		button_glow	8 204 147 20
 				setitemcolor	setfp_saberattack forecolor 1 1 1 1
 			}
 			mouseExit
@@ -643,7 +696,7 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Ammo"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 205 147 18
+			rect 				8 225 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
 			textaligny			-5
@@ -661,7 +714,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect 8 205 147 18
+			rect 				8 225 147 18
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			105
 			textaligny			-5
@@ -676,7 +729,7 @@
 			mouseenter
 			{
 				show			button_glow
-				setitemrect		button_glow	8 204 147 20
+				setitemrect		button_glow	8 224 147 20
 				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
 			}
 			mouseExit

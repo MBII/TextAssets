@@ -2,13 +2,18 @@
 ClassInfo
 {
 	name			"h6_Nien"
-	model			"niennunb"
+	model		"niennunb"
 	skin			"default"
 	uishader		"models/players/niennunb/mb2_icon_default"
-	MBClass				MB_CLASS_HERO
-	saber1				Wrench_Legends
-	sabercolor			0
-	saberstyle			SS_MEDIUM
+	MBClass		MB_CLASS_HERO
+	saber1		Wrench_Legends
+	sabercolor	0
+	saberstyle	SS_MEDIUM
+	
+	saber1_1     Wrench_Legends_2
+	sabercolor	0
+	saberstyle_1 	SS_MEDIUM
+	
 	weapons				WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_DISRUPTOR|WP_SABER|WP_TRIP_MINE|WP_PULSE_NADE
 	attributes			MB_ATT_BLASTER,2|MB_ATT_DISRUPTOR,2|MB_ATT_MICRO_GRENADES,3|MB_ATT_FRAGS,4|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_TRIP_MINES,3|MB_ATT_QUICKTHROW,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_HEALING,3
 	
@@ -54,6 +59,7 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_mwrench"
 	WeaponName			"Wrench"
+	SelectSound "sound/weapons/blade/slash2.mp3"
 }
 
 WeaponInfo1
@@ -75,8 +81,13 @@ WeaponInfo2
 	NewViewModel		"models/weapons2/dh-17/dh-17_FA.md3" 
 	Icon				"gfx/hud/w_icon_dh-17"
 	WeaponName			"DH-17 Blaster Pistol"
-	firingAnim	        BOTH_ATTACK2
-	idleAnim			heropistolfire
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
 }
 
 description	"Nien Nunb
@@ -87,7 +98,7 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 
 ^2Weaponry:
 - Melee
-- Wrench
+- Power Wrench/Spanner Wrench
 -- Based on Lightsaber
 -- Yellow style
 -- Cannot block Sabers/Blasters
@@ -95,10 +106,10 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 -- 40% less damage
 -- 50% shorter reach
 -- 167% wider radius
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[Gunbash]
 - DH-17 Blaster Pistol
--- Based on E-11 Rifle (2)
+-- Based on Blaster Rifle (2)
 - Modified Pulse Cannon
 -- Based on Disruptor Rifle (2)
 -- 10% faster reload
@@ -109,7 +120,7 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 
 ^6Inventory:
 - Cloaking Device ^3[CS4]
-- Portable Assault Sentry
+- Assault Sentry
 
 ^8Attributes:
 - Blast Armor

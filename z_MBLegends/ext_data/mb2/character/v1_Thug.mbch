@@ -6,39 +6,46 @@ ClassInfo
 	
 	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_BLASTER,3|MB_ATT_BOWCASTER,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_BASE_TD,3|MB_ATT_ASSEMBLE,1|MB_ATT_TRIP_MINES,1|MB_ATT_DODGE,2|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_DET_PACK,1|MB_ATT_FRAGS,1
 	
+	saberMaxChain 2
+	saberDamage 115
 	maxhealth		60
 	maxarmor			60
 	extralives		2
 	
+	special1	EAS_HI_SPRINT
+	special2	EAS_MELEE
+	special3	EAS_HI_DODGE
+	special4 EAS_HI_GRAPPLEHOOK
+	
+	resource RESOURCE_STAMINA
+	forcepool 50
+	
 	MBClass			MB_CLASS_CLONETROOPER
 	classNumberLimit	4
 	modelscale       1.035
-	speed            1.02
+	speed           1.02
 	
-	APmultiplier		.9	
-	BPmultiplier		.8
+	APmultiplier		.90
+	BPmultiplier		.80
 	saberstyle  		SS_MEDIUM|SS_STRONG
 	forcepowers		FP_SABER_OFFENSE,3
 	saber1			vibroaxe_new_legends 
 	saber1_1			short_vibroaxe_legends
 	
 	uioverlay "gfx/icons/infantry"
-	
-	//WP_THERMALFlags HELD_SPEED
+
 	WP_FragNadeFlags HELD_LOWDAMAGE
-	WP_SaberFlags HELD_POISON
+	WP_SaberFlags HELD_POISON|HELD_SPEED
 	WP_BowcasterFlags HELD_HIGHDAMAGE|HELD_ALTRELOAD
-	//WP_TripMineFlags HELD_HIGHDAMAGE
-	//WP_DetPackFLAGS HELD_HIGHDAMAGE
-	
+
 	gloatAnim       BOTH_VICTORY_FAST
 	flourishAnim BOTH_STAND5TOAIM
 	WalkBackward BOTH_WALKBACK_DUAL
 	WalkForward BOTH_WALK_DUAL
 	
-	model	"gran"
-	skin		"default"
-	uishader	"models/players/gran/mb2_icon_default"
+	model		"gran"
+	skin			"default"
+	uishader		"models/players/gran/mb2_icon_default"
 	
 	model_1		"weequay" 				
 	skin_1		"default"					
@@ -68,24 +75,19 @@ ClassInfo
 	skin_7		"default3"
 	uishader_7	"models/players/pyke2/mb2_icon_default3"
 	
-	model_8	"ponda_baba"
-	skin_8	"default"
+	model_8		"ponda_baba"
+	skin_8		"default"
 	uishader_8	"models/players/ponda_baba/mb2_icon_default"
 
-	model_9	 "barada"
-	skin_9 	"default"
-	uishader_9 "models/players/barada/mb2_icon_default"
+	model_9	 	"barada"
+	skin_9 		"default"
+	uishader_9 	"models/players/barada/mb2_icon_default"
+	
+	model_10	 	"human_merc"
+	skin_10 		"arcona"
+	uishader_10 	"models/players/human_merc/mb2_icon_arcona"
 		
 	respawnCustomTime 15000
-	
-	resource		RESOURCE_STAMINA
-	
-	resourceRegenCap	80
-	
-	special1	EAS_HI_SPRINT
-	special2	EAS_MELEE
-	special3	EAS_HI_DODGE
-	special4 EAS_HI_GRAPPLEHOOK
 }
 
 WeaponInfo0
@@ -105,12 +107,13 @@ WeaponInfo0
 	
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_thugblades" 	//Required: Weapon change icon
-	WeaponName			"Acidic Vibroaxe"    					//Required: Weapon change display name
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER	
+	NewWorldModel		"models/weapons2/vibroaxe/vibroaxe.glm" 
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_thugblades" 
+	WeaponName			"Acidic Vibroaxe"
+	selectSound 	"s/w/t/staffswing4.mp3"
 }
 
 WeaponInfo2
@@ -129,7 +132,7 @@ WeaponInfo2
 	missileHitDroidEffect		"Grenades/EXP_Explosion"
 	
 	Icon						"gfx/hud/w_icon_fraggrenade"
-	WeaponName					"Frag Grenade"
+	WeaponName					"Cheap Frag Grenade"
 	altFireEnabled				0
 }
 
@@ -146,10 +149,12 @@ A 3-life hybrid Melee class with a powerful two-shot Bowcaster and explosives.
 -- Yellow/Red styles
 -- Saber Defense (1)
 -- Cannot block Blasters
+-- Chain Limit: 2
 -- Poisons targets
--- 25% less damage
+-- 15% faster movement
+-- 45/75% less damage
 -- 33% wider radius
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS2]
 > BD-1 Cutter Vibroaxe
 -- 10% shorter reach
@@ -161,7 +166,7 @@ A 3-life hybrid Melee class with a powerful two-shot Bowcaster and explosives.
 -- 100% more damage
 -- Fixed-length reload
 - Thermal Grenades (3)
-- Frag Grenade (1)
+- Cheap Frag Grenade (1)
 -- 50% less damage
 -- Prim. fire only
 - Trip Mine (1)

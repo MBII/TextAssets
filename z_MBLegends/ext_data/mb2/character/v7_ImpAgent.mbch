@@ -4,16 +4,17 @@ ClassInfo
 {
 	name			"v7_ImpAgent"
 	weapons			WP_MELEE|WP_SABER
-	saber1			legends_Knife
+	saber1			Legends_Knife_Spy
 	sabercolor		0
 	forcepowers     FP_SABER_OFFENSE,3
 	saberstyle		SS_TAVION|SS_FAST
-	attributes		MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,1
+	attributes		MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON
 
 	maxhealth		80
 
 	MaxArmor		5
-	rankArmor		10,20,40
+	rankArmor		10,20,50
+	
 	
 	//ArmourRegenCap 40
 	ArmourRegenRate	1000
@@ -21,8 +22,9 @@ ClassInfo
 	rankArmourRegenAmount 1,2
 
 	resource			RESOURCE_BATTERY
+	forcepool 65
 
-	BPmultiplier    0.7
+	//BPmultiplier    0.7
 
 	MBClass			MB_CLASS_HERO
 	classNumberLimit	2
@@ -30,17 +32,20 @@ ClassInfo
 	holdables		HI_CLOAK
 	forceregen		2.65
 	
+	extralives			1
+	
 	special1 EAS_HI_CLOAK
-	special2  EAS_MELEE
+	special2 EAS_MELEE
 	special3 EAS_HI_DASH
 	
 	uioverlay "gfx/icons/tactician"
 	
 	//WalkBackward BOTH_WALK_DUAL
-	WalkForward BOTH_WALK_DUAL
+	//WalkForward BOTH_WALK_DUAL
 	//tauntAnim BOTH_SHOWOFF_MEDIUM
 	gloatAnim TORSO_HANDSIGNAL4
-	flourishAnim BOTH_STAND5TOAIM
+	flourishAnim BOTH_SPINATTACK7
+	saberStanceAnim BOTH_STAND9
 	
 	model		"scouttrooper"
 	skin			"commando"
@@ -79,7 +84,7 @@ ClassInfo
 	
 	c_att_skill_1	MB_ATT_PISTOL
 	c_att_names_1	"Scout Blaster Pistol:"
-	c_att_ranks_1	1,1,6
+	c_att_ranks_1	0,1,6
 	
 	c_att_skill_2	MB_ATT_BLASTER
 	c_att_names_2	"E-11 Blaster Rifle:"
@@ -87,7 +92,7 @@ ClassInfo
 	
 	c_att_skill_3	MB_ATT_DISRUPTOR
 	c_att_names_3	"Disruptor Rifle:"
-	c_att_ranks_3	4,5
+	c_att_ranks_3	2,6
 	
 	c_att_skill_4	MB_ATT_MICRO_GRENADES
 	c_att_names_4	"Concussion Grenades:"
@@ -102,16 +107,16 @@ ClassInfo
 	c_att_ranks_6	-1
 	
 	c_att_skill_7	MB_ATT_RESPAWNS
-	c_att_names_7	"Reinforcements:"
-	c_att_ranks_7	10,15
+	c_att_names_7	"Reinforcement:"
+	c_att_ranks_7	25
 	
 	c_att_skill_8	MB_ATT_ARMOUR
 	c_att_names_8	"Armor:"
-	c_att_ranks_8	2,4,8
+	c_att_ranks_8	2,4,12
 	
 	c_att_skill_9	MB_ATT_ARMOUR_REGEN_AMOUNT
 	c_att_names_9	"Armor Regen:"
-	c_att_ranks_9	5,5
+	c_att_ranks_9	4,8
 	
 	c_att_skill_10	MB_ATT_FP_SEE
 	c_att_names_10	"Radar Scanner (Sense):"
@@ -122,12 +127,14 @@ ClassInfo
 	c_att_ranks_11 	2,2,6
 	
 	c_att_skill_12	MB_ATT_SPY_DISGUISE
-	c_att_names_12	"Disguise:"
+	c_att_names_12	"^3Disguise^7:"
 	c_att_ranks_12	3,3,3
 	
 	c_att_skill_13	MB_ATT_DASH
 	c_att_names_13	"Dash ^3[CS3]^7:"
 	c_att_ranks_13	0,2
+	
+		
 }
 
 WeaponInfo0
@@ -137,6 +144,7 @@ WeaponInfo0
 		NewWorldModel		"models/weapons2/scout_pistol/blaster_pistol_w.glm"
 		NewViewModel		"models/weapons2/scout_pistol/blaster_pistol.md3"
 		Icon				"gfx/kejim_wpicons/w_icon_scout_pistol"
+			ChargeSound			"sound/weapons/leia_pistol/altcharge.mp3"
 		WeaponName			"Scout Blaster Pistol"
 		altfireenabled		1
 		firingAnim			BOTH_ATTACK2
@@ -159,33 +167,20 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_DISRUPTOR				 
-	WeaponBasedOff      WP_DISRUPTOR
-	NewWorldModel 		"models/weapons2/hk47_disruptor/hk47_disruptor_w.glm"
-	NewViewModel  		"models/weapons2/hk47_disruptor/hk47_disruptor.md3"
-	Icon            	"gfx/hud/w_icon_hkruptor"
-	FlashSound0  		"sound/weapons/Glie-44/alt_fire.wav"		
-	WeaponName			"Disruptor Rifle"    					 	
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot10B"
-}
-
-WeaponInfo3
-{
-		WeaponToReplace		WP_SABER
-		WeaponBasedOff		WP_SABER
-		NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
-		NewViewModel		"models/weapons2/dummy/dummy.md3"
-		Icon				"gfx/hud/w_icon_prisonknife"
-		WeaponName		"Vibroknife"
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
+	NewWorldModel		"models/weapons2/vibroknife/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_prisonknife"
+	WeaponName		"Jagged Vibroknife"
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
-	StartSound "sound/ambience/fuelpump_03b.mp3"
+	ForceToReplace FP_SEE
+	Icon	"gfx/forcepowers/radar"
+	ForcePowerName "Radar Scanner"
+	StartSound 	"sound/ambience/kotor/consolebeep03.mp3"
 	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
@@ -193,24 +188,25 @@ description	"Imperial Agent
 
 Class: Hero
 Brief Overview: 
-A mid-ranged elite soldier who can Disguise himself and Cloak.
+A mid-ranged elite soldier who can Disguise himself and Cloak. Spec options include extra lives, weaponry, and damage protection.
 
 ^2Default Weaponry:
 - Heavy Melee
-- Vibroknife
+- Jagged Vibroknife
 -- Based on Lightsaber 
 -- Blue/Cyan styles
--- Saber Defense (1)
--- Cannot block Blasters
+-- Cannot block Sabers/Blasters
 -- 60% shorter reach
--- Cannot Saber Throw
+-- No Saber Throw
 -- Slap ^3[CS2]
 
 ^6Default Inventory:
 - Cloaking Device ^3[CS1]
 
 ^8Default Attributes:
+- Reinforcement (1)
 - Force Sense Immunity
+- Tracking Beacon
 
 ^3Default Abilities:
 - Dash (1) ^3[CS3]

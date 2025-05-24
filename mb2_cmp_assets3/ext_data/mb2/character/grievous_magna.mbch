@@ -5,20 +5,25 @@ ClassInfo
 	saber1					electrostaff_grievousfa
 	sabercolor				5
 	saberstyle				SS_STAFF
-	weapons					WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
-	attributes				MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,3|MB_ATT_BLASTER_PISTOL,3|MB_ATT_AMMO,2|MB_ATT_ASSEMBLE,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ANTI_MT,2
+	weapons					WP_MELEE|WP_SABER|WP_BOWCASTER
+	attributes				MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_BOWCASTER,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,3|MB_ATT_AMMO,2|MB_ATT_ASSEMBLE,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ANTI_MT,2
 	forcepowers				FP_LEVITATION,3
+	holdables				HI_SEEKER
 	maxhealth				100
 	maxarmor            	50
  	speed 		       	 	1.05
+	APmultiplier			0.5
+	BPmultiplier			0.8
 	MBClass					MB_CLASS_JEDI
 	classNumberLimit		2
 	rateOfFire          	0.8
 	modelscale				1.13
 	forcepool				80
 	classflags				CFL_BPFREEJUMPS
-	extralives	1
 	
+	WP_BowcasterFlags   HELD_KNOCKBACK|HELD_PULSE|HELD_STUN|HELD_SONIC|HELD_ALTRELOAD
+	WP_SaberFlags		HELD_PULSE|HELD_LOWDAMAGE
+
 	special1 EAS_NONE
 	
 	//meditateAnim SBD_DEAD
@@ -53,16 +58,27 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace			WP_BLASTER_PISTOL
-	WeaponBasedOff			WP_FLECHETTE
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
 	NewWorldModel			"models/weapons2/e5/e5_w.glm"
 	NewViewModel			"models/weapons2/e5/e5.md3"
-	Icon					"gfx/hud/w_icon_e5.tga"
-	WeaponName				"Droid Pistol"
-	idleAnim				BOTH_MAND_PISTOL_IDLE 
-	firingAnim				MAND_SPISTOL_FIRE
-	FlashSound0				"sound/weapons/lvl3pistol/fire.mp3" 			
-	AltFlashSound0			"sound/weapons/lvl3pistol/fire.mp3"
+	Icon					"gfx/hud/w_icon_e5.tga"			
+	WeaponName			"IG-100 Pulse Shock Blaster"
+
+	idleAnim		MAND_SPISTOL 
+	firingAnim		MAND_SPISTOL_FIRE  			
+	
+	MissileHitHumanEffect "effects/geonosian/altdetonate"
+	MissileHitDroid 	"effects/geonosian/altdetonate"
+	MissileMissEffect 	"effects/sonic_pistol/wall_impact"
+	MissileEffect		"effects/sonic_pistol/projectile"  					
+	MuzzleEffect		"effects/geonosian/muzzle_flash"   	
+	FlashSound0		"sound/weapons/E-5s/alt_fire.mp3"
+
+	CustomAmmo 	300
+	ClipSize 		6
+	FPmult              1.25
+	AltFireEnabled 0
 }
 
 description 	"IG-100 MagnaGuard

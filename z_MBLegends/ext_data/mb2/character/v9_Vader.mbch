@@ -3,15 +3,15 @@
 ClassInfo
 {
 	name				"v9_Vader"
-	weapons				WP_SABER|WP_MELEE
-	attributes			MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_FORCEFOCUS,3|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR|MB_ATT_WOOKIE_STRENGTH,1
+	weapons				WP_SABER|WP_MELEE|WP_SBD
+	attributes			MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_HEALING,1|MB_ATT_FORCEFOCUS,3|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR|MB_ATT_STRENGTH,1
 	saberstyle			SS_DESANN|SS_STRONG
 	forcepowers			FP_SABER_OFFENSE,3|FP_PUSH,2|FP_PULL,2|FP_GRIP,3|FP_SEE,2|FP_SABERTHROW,3
 	APmultiplier		1.35
 	BPmultiplier		1.2
-	ASMultiplier		1.12
-	CSMultiplier		0.8
-	maxhealth			70
+	ASMultiplier		1.1
+	CSMultiplier		1
+	maxhealth		80
 	maxarmor			40
 	forcepool			125
 	modelscale			1.09
@@ -28,10 +28,10 @@ ClassInfo
 	//RunForward BOTH_WALK1
 	//RunBackward BOTH_WALK1
 	gloatAnim BOTH_FORCEGRIP3
-	flourishAnim BOTH_FORCEGRIP3
+	flourishAnim BOTH_STAND5TOSTAND8
 	bowAnim BOTH_CROUCH3
 	
-	classflags			CFL_HASQ3|CFL_NOPICKUPS
+	classflags			CFL_HASQ3|CFL_NOPICKUPS|CFL_STRONGAGAINSTPHYSICAL
 	MBClass				MB_CLASS_JEDI
 	classNumberLimit  	1
 	
@@ -48,12 +48,12 @@ ClassInfo
 	sabercolor_3			0
 		
 	model			"darthvader"
-	skin			"legends"
+	skin				"legends"
 	uishader			"models/players/darthvader/mb2_icon_default"
 	
 	model_1			"darthvader"
 	skin_1			"breather"
-	uishader_1		                "models/players/darthvader/mb2_icon_breather"
+	uishader_1		"models/players/darthvader/mb2_icon_breather"
 	
 	model_2			"darthvader"
 	skin_2			"tv"
@@ -65,9 +65,27 @@ ClassInfo
 	
 	//model_4 		"darthvader"
 	//skin_4 		"infinities"
-	//uishader_4 	"models/players/darthvader/mb2_icon_infinities"
+	//uishader_4 		"models/players/darthvader/mb2_icon_infinities"
 		
 	respawnCustomTime 	50000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace	WP_SBD
+	WeaponBasedOff	WP_SBD
+	NewWorldModel		"models/weapons2/noweap/noweap.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName	"Dark Lord of the Sith"
+	primFireEnabled 0
+	hasAnimOverrides 1
+	clipsize -1
+	customammo 0
+	animReady  BOTH_STAND10
+	animReadyWalk  BOTH_STAND10
+	animReadyNoAmmo  BOTH_STAND10
+	animStand BOTH_STAND5
 }
 
 description "Darth Vader
@@ -79,12 +97,11 @@ A tanky saberist able to block blaster fire while swinging. Strong offense comes
 ^2Weaponry:
 - Melee
 - Lightsaber
--- Red/Purple styles
+-- Purple/Red styles
 -- Saber/Blaster Defense (3)
 -- Saber Deflect (3)
 -- Swings deflect blasters (Q3)
 -- 10% longer reach
--- 10% thinner radius
 -- Enhanced Saber Throw (3) ^3[CS1]
 -- Slap ^3[CS2]
 
@@ -96,10 +113,11 @@ A tanky saberist able to block blaster fire while swinging. Strong offense comes
 
 ^8Attributes:
 - Armor and Life-Support System
+-- Strength (1)
 -- Blast Armor
 -- Magnetic Plating 
 -- Cortosis (1)
--- Strength (1)
+-- 50% Melee damage resist.
 -- Healing (1)
 - Force Block (2)
 - Force Focus (3)"

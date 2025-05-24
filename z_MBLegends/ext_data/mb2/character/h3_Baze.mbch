@@ -3,84 +3,94 @@
 ClassInfo
 {
 	name  				"h3_Baze"
-	weapons 			WP_MELEE|WP_EE4|WP_SONIC_NADE|WP_FRAG_NADE
-	attributes  		MB_ATT_AMMO,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_EE4,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_QUICKTHROW,1|MB_ATT_FRAGS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_DASH,1
+	weapons 			WP_MELEE|WP_EE4|WP_SONIC_NADE|WP_FRAG_NADE|WP_PLX1
+	attributes  		MB_ATT_AMMO,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_EE4,2|MB_ATT_QUICKTHROW,1|MB_ATT_FRAGS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PLX1,1|MB_ATT_SHIELD_RECHARGE,1
 	maxhealth 			100
 	maxarmor  			125
+	resource 			RESOURCE_ENERGY
+	forcepool 			100
 	model 				"Baze"
 	skin  				"default"
 	uishader  			"models/players/baze/mb2_icon_default"
-	MBClass 			MB_CLASS_HERO
+	MBClass 				MB_CLASS_HERO
 	classNumberLimit  	1
-	rateoffire			.65
+	rateoffire			1
 	damagegiven			1.05
-	speed       		0.92
+	speed       			0.92
 	WP_EE4Flags			HELD_SLOW|HELD_AMMOREGEN
+	WP_PLX1Flags 			HELD_HIGHDAMAGE|HELD_SLOW
 		
 	modelscale    		1.01
-	//WP_FragNadeFlags	HELD_KNOCKDOWN
-	classflags		CFL_STRONGAGAINSTPHYSICAL|
-	skilltimermod 1.1
-	//special1	
+
+	classflags			CFL_STRONGAGAINSTPHYSICAL|
+	skilltimermod 		2
+	//special1
 	special2 EAS_HI_DASH
 	special3 EAS_HI_QUICKTHROW
-	respawnCustomTime 50000	
+	respawnCustomTime 	50000	
 	
 	uioverlay "gfx/icons/heavy"
 	
 	damageTaken 		0.95
+	
+	flourishAnim BOTH_THROW1
 }
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_EE4
-	WeaponBasedOff  	WP_T21
+	WeaponBasedOff  		WP_T21
 	NewWorldModel 		"models/weapons2/mwc-35c/model_w.glm"
-	NewViewModel		"models/weapons2/mwc-35c/model.md3"
+	NewViewModel			"models/weapons2/mwc-35c/model.md3"
 	Icon  				"gfx/hud/w_icon_mwc-35c"
-	WeaponName  		"MWC-35c Repeating Cannon"
-	FlashSound0 		 "sound/weapons/MWC-35c/alt_fire.mp3"
+	WeaponName  			"MWC-35c 'Staccato Lightning' Repeating Cannon"
+	FlashSound0 		 	"sound/weapons/MWC-35c/alt_fire.mp3"
 	AltFlashSound0	    "sound/weapons/MWC-35c/fire.mp3"
 	customammo			900
-	ClipSize    		240
-	FPMult 				1.0
-	MissileEffect		"Blaster/Shot01R"
+	ClipSize    			240
+	FPMult 				0.75
+	rateMod 0.65
+	MissileEffect			"Blaster/Shot01R"
 }
 
-
-//WeaponInfo1
-//{	//WeaponToReplace		WP_FRAG_NADE
-	//WeaponBasedOff		WP_THERMAL
-	//NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
-	//NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
-	//Icon					"gfx/hud/w_icon_stungrenade"
-	//WeaponName			"Stun Grenades"
-	//MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
-	//primFireEnabled		0
-	//CustomAmmo			3
-	//altMissileMissEffect	"grenades/EXP_alt"
-//}
+WeaponInfo1
+{
+	WeaponToReplace		WP_PLX1
+	WeaponBasedOff		WP_PLX1
+	NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon				"gfx/hud/w_icon_e60r_launcher"
+	WeaponName			"HH-12 Rocket Launcher"
+	FlashSound0 		 	"sound/weapons/halo_rocket/fire.wav"
+	ReloadTimeModifier 	1
+}
 
 description	"Baze Malbus
 
 Class: Hero
-Brief Overview: 
-A heavy gunner equipped with regenerating armor and a massively powerful Repeating Cannon with regenerating ammo.
+Brief Overview:
+A heavy gunner equipped with a massively powerful Repeating Cannon that regenerates ammo, and explosives.
 
 ^2Weaponry:
 - Melee
+- HH-12 Rocket Launcher (1)
+-- Based on PLX-1
+-- 100% more damage
+-- 15% slower movement
 - Frag Grenade (1)
 - Sonic Detonators (2)
-- MWC-35c Repeating Cannon
+- MWC-35c 'Staccato Lightning' Repeating Cannon
 -- Based on EE-4 Carbine Rifle (2)
 -- Passive ammo regen
+-- 35% faster fire rate
+-- 25% less FP damage
 -- 15% slower movement
 
 ^8Attributes:
-- 10% slower skill cooldown
-- Magnetic Plating
-- 50% Melee damage resist. 
+- 100% slower skill cooldown
 - Armor Regen (1)
+- Magnetic Plating
+- 50% Melee damage resist.
 
 ^3Abilities:
 - Dash (1) ^3[CS2]

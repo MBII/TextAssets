@@ -1,0 +1,203 @@
+Teams
+{
+	team1 Jedi
+	team2 BountyHunters
+}
+
+LevelshotDesc
+{
+    desc1
+    {   
+        text "The Jedi have captured Zam Wesell. If they interrogate her, the trail will lead back to our employer. She knew the risks when she took the contract. Eleminate her before she gives them any information.
+
+There can be no mistakes this time."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "We have captured the bounty hunter who attempted to assassinate Senator Amidala. We need to keep her safe until we can interrogate her about any conspirators. Transport to the temple is on the way.
+
+This is going to be easy."
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
+
+mapgraphic "gfx/mplevels/mb2_coruscant/map"
+missionname "Coruscant Chase"
+radargraphic "gfx/automap/mb2_Coruscant_Chase"
+radartopleft "-3879, 4058"
+radarbottomright "5889, -5710"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_Coruscant_chase1"
+		radargraphicfull "gfx/automap/mb2_Coruscant_chasefull"
+		height "550"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_Coruscant_chase3"
+		radargraphicfull "gfx/automap/mb2_Coruscant_chase3full"
+		height "620"
+	}
+
+	AutoMap2
+	{
+		radargraphic "gfx/automap/mb2_Coruscant_chase4"
+		radargraphicfull "gfx/automap/mb2_Coruscant_chase4full"
+		height "2176"
+	}
+}
+
+HelpIcons
+{
+	//Zam
+	HelpIcon0
+	{
+		start0 "imptoofficetriggeractivate"
+		end0 "zamdead"
+		origin "951 1270 252"
+		redicon HLP_DEFEND
+		blueicon HLP_DESTROY
+		specicon HLP_DEFEND
+	}
+	//Alley Zam Door Hack
+	HelpIcon1
+	{
+		end0 "tocounteralley"
+		origin "652 1492 70"
+		redicon HLP_DEFEND
+		blueicon HLP_HACK
+		specicon HLP_DEFEND
+	}
+	//Back Zam Door Hack
+	HelpIcon2
+	{
+		end0 "tocounterback"
+		origin "1780 1364 70"
+		redicon HLP_DEFEND
+		blueicon HLP_HACK
+		specicon HLP_DEFEND
+	}
+	//Back Door
+	HelpIcon3
+	{
+		end0 "backdoordoorhack"
+		origin "70 -198 658"
+		redicon HLP_NONE
+		blueicon HLP_DESTROY
+		specicon HLP_NONE
+		sideobjective 1
+		needvisible 1
+	}
+	//Alley Door
+	HelpIcon4
+	{
+		end0 "t1030"
+		origin "888 1466 78"
+		redicon HLP_NONE
+		blueicon HLP_DESTROY
+		specicon HLP_NONE
+		sideobjective 1
+		needvisible 1
+	}
+	//Alley Door Inner
+	HelpIcon5
+	{
+		end0 "t1030"
+		origin "898 1452 78"
+		redicon HLP_NONE
+		blueicon HLP_DESTROY
+		specicon HLP_NONE
+		sideobjective 1
+		needvisible 1
+	}
+	//Main Door
+	HelpIcon6
+	{
+		end0 "t1027"
+		origin "-38 632 50"
+		redicon HLP_NONE
+		blueicon HLP_DESTROY
+		specicon HLP_NONE
+		sideobjective 1
+		needvisible 1
+	}
+	//Main Door Inner
+	HelpIcon7
+	{
+		end0 "t1027"
+		origin "0 624 50"
+		redicon HLP_NONE
+		blueicon HLP_DESTROY
+		specicon HLP_NONE
+		sideobjective 1
+		needvisible 1
+	}
+}
+
+roundbegin_target ""
+
+Jedi
+{
+	RequiredObjectives 1
+	UseTeam "PB3_G"
+	TeamIcon "gfx/2d/logos/mb_jediorder"
+	TeamColorOn	"1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname "Guard The Bounty Hunter, we need her alive."
+		final -1
+		message_team1 ""
+		message_team2 ""
+		target ""
+		objdesc "SECONDARY GOAL:
+		Guard the Bounty Hunter."
+		objgfx "gfx/mplevels/mb2_coruscant/obj"
+	}
+
+	wonround "EZ + Destroyed + Ratio + Get fucked" 						//Printed to this team if they won the round.
+	lostround "These skill issues are getting out of hand!"						//Printed to this team if they lost the round.
+	roundover_sound_wewon "sound/vjun/aids.mp3"
+	roundover_sound_welost "sound/vjun/mariolose.mp3"
+	roundover_target ""
+	attackers 0
+	briefing "Guard the Bounty Hunter."
+}
+
+BountyHunters
+{
+	RequiredObjectives 1
+	Timed 300
+	UseTeam "PB3_B"
+	TeamIcon "gfx/2d/logos/mb_bountyhunters"
+	TeamColorOn	"0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname "Kill Zam so she cannot betray us!"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "PRIMARY GOAL:
+		Kill Zam Wesell and those who guard her."
+		objgfx "gfx/mplevels/mb2_coruscant/obj"
+	}
+	
+	wonround "EZ + Destroyed + Ratio + Get fucked"
+	lostround "These skill issues are getting out of hand!"
+	roundover_sound_wewon "sound/vjun/isen.mp3"
+	roundover_sound_welost "sound/vjun/nelul.mp3" 
+	roundover_target "siegeend"
+	attackers 1
+	briefing "Kill Zam Wesell."
+}

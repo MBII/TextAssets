@@ -1,0 +1,557 @@
+// In Game HUD - defines from ui_shared.h
+
+// align parameter sets the horizontal anchor for aspect ratio scaling. 0 is Left aligned, 1 is center aligned, 2 is right aligned. Only works on items with it already specified.
+
+assetGlobalDef
+{
+	bigFont					"fonts/reallybigfont" 12	// font
+	small2Font				"arialnb" 	13
+	lightFont				"mainlight"	48
+	regularFont				"main"		48
+	boldFont				"mainbold"	48
+	blackFont				"mainblack"	48
+	regular2Font			"secondary"	48
+}
+
+{
+	menuDef
+	{
+		name					"mainhud"
+		fullScreen				0						// MENU_FALSE
+		rect					0 0 640 480				// Size and position of the menu
+		visible					1						// Visible on open
+		focusColor				1 1 1 1					// Focus color for text and items
+		descX					320
+		descY					434
+		descColor				.96 .933 .40 1			// Focus color for text and items
+	}
+
+	//	LEFT SIDE HUD - contains the armor and health
+	menuDef 
+	{
+		name					"lefthud"
+		fullScreen				0						// MENU_FALSE
+		rect					120 368 128 128			// Size and position of the menu
+		visible					1						// Visible on open
+
+		// Metal Frame
+		itemDef
+		{
+			name				"frame"
+			forecolor			1 1 1 1
+			background			"gfx/hud/new_hud_l"
+			rect				0 -20 128 128			// (these positions are relative to the initial position of the menu) // X pos, Y pos, char size, char height
+			style				2 // Determines whether Player Status HUD is Horizontal (0), Vertical (1), Circular (2)
+		}
+		
+		//Player Mode Icon
+		itemDef
+		{
+			name				BodyMode
+			rect				0 21 44 46
+			align				3
+			textalignx			42
+		}
+
+		// Left HUD tics
+		itemDef
+		{
+			name				player_tic_f_l
+			background			"gfx/hud/player_tic_f"
+			rect				63.5 44.5 128 128
+		}
+		
+		itemDef
+		{
+			name				player_tic_i_l
+			background			"gfx/hud/player_tic_i"
+			rect				63.5 44.5 128 128
+		}
+		
+		itemDef
+		{
+			name				player_tic_o_l
+			background			"gfx/hud/player_tic_o"
+			rect				63.5 44.5 128 128
+		}
+
+		// Body icon
+		itemDef 
+		{
+			name				body
+			background			"gfx/hud/HUD_body_blue"
+		}
+		
+		// Body rally icon
+		itemDef
+		{
+			name				bodyrally
+			background			"gfx/hud/HUD_body_rally"
+		}
+		
+		// Body assemble icon
+		itemDef
+		{
+			name				bodyassemble
+			background			"gfx/hud/HUD_body_assemble"
+		}
+		
+		// Body rally+assemble icon
+		itemDef
+		{
+			name				bodyrallyassemble
+			background			"gfx/hud/HUD_body_rallyassemble"
+		}
+
+		// Body poisoned icon
+		itemDef
+		{
+			name				body_poisoned
+			background			"gfx/hud/HUD_body_poison"
+		}
+		
+		// Body rally poisoned icon
+		itemDef
+		{
+			name				bodyrally_poisoned
+			background			"gfx/hud/HUD_body_rally_poison"
+		}
+
+		// Body assemble poisoned icon
+		itemDef
+		{
+			name				bodyassemble_poisoned
+			background			"gfx/hud/HUD_body_assemble_poison"
+		}
+		
+		// DEKA STUFF
+		itemDef
+		{
+			name				deka_body
+			background			"gfx/hud/HUD_deka_body"
+		}
+		
+		itemDef
+		{
+			name				deka_body_shield
+			background			"gfx/hud/HUD_deka_shielded_body"
+		}
+		
+		// Body rally+assemble poisoned icon
+		itemDef
+		{
+			name				bodyrallyassemble_poisoned
+			background			"gfx/hud/HUD_body_rallyassemble_poison"
+		}
+
+		// Numeric counter for armor
+		itemDef
+		{
+			name				armoramount
+			group				none
+			forecolor			0.0 .613 .097 0.8
+			rect				0 2 4 9
+			align				4
+			textalignx			61.5
+			font				2
+		}		
+
+		// Numeric counter for health
+		itemDef
+		{
+			name				healthamount
+			group				none
+			forecolor			.835 .015 .015 0.8
+			rect				0 71 4 9
+			align				4
+			textalignx			61.5
+			font				2
+		}
+
+		// Vehicle HUD (Swoop bike)
+		itemDef
+		{
+			name				vehicleHUD
+			group				none
+			rect				0 -145 60 120
+		}		
+
+		// Vehicle HUD (Swoop bike)
+		itemDef
+		{
+			name				vehicleHUDbackground
+			group				none
+			rect				20 -135 30 90
+		}		
+
+		// Vehicle HUD (Swoop bike)
+		itemDef
+		{
+			name				vehicleHUDhealthbar
+			group				none
+			rect				20 15 30 74
+		}		
+
+	}
+
+	//	RIGHT SIDE HUD - contains force and ammo amounts
+	menuDef
+	{
+		name					"righthud"
+		fullScreen				0						// MENU_FALSE
+		rect					520 368 -128 128		// Size and position of the menu
+		visible					1						// Visible on open
+		focusColor				1 1 1 1					// Focus color for text and items
+		appearanceIncrement		75						// In miliseconds
+		descX					320
+		descY					434
+		descColor				.96 .933 .40 1			// Focus color for text and items	
+
+		// Metal Frame
+		itemDef
+		{
+			name				"frame"
+			forecolor			1 1 1 1
+			background			"gfx/hud/new_Hud_r"
+			rect				0 -20 -128 128
+			style				2 // Determines whether Player Status HUD is Horizontal (0), Vertical (1), Circular (2)
+			align				3
+		}
+		
+		// Item Count Frame
+		itemDef
+		{
+			name				"ItemCountFrame"
+			forecolor			1 1 1 1
+			background			"gfx/hud/HUD_extra"
+			rect				0 -20 -128 128
+			align				3
+		}
+		
+		//Weapon Mode Frame
+		itemDef
+		{
+			name				WepMode
+			rect				0 23 42 43
+			align				5
+			textalignx			-42.5
+		}
+		
+		// Weapon Mode icons
+		itemDef
+		{
+			name				weaponmodenone
+			background			"gfx/hud/alpha/HUD_StatusMode_None"
+			forecolor			0.32 0.72 0.8 0.75
+		}
+		
+		itemDef
+		{
+			name				weaponmodeprimary
+			background			"gfx/hud/alpha/HUD_StatusMode_Primary"
+			forecolor			0.32 0.72 0.8 0.75
+		}
+
+		itemDef
+		{
+			name				weaponmodesecondary
+			background			"gfx/hud/alpha/HUD_StatusMode_Secondary"
+			forecolor			1 1 1 0.75
+		}
+		
+		itemDef
+		{
+			name				weaponmodedisabled
+			background			"gfx/hud/alpha/HUD_StatusMode_Disabled"
+			forecolor			0.32 0.72 0.8 0.75
+		}
+		
+		// Current in-use Weapon Icon
+		itemDef
+		{
+			name				currentweaponicon
+			rect				27 27 35 35
+			align				5
+			textalignx			-73
+		}
+		
+		// Right HUD tics
+		itemDef
+		{
+			name				player_tic_f_r
+			background			"gfx/hud/player_tic_f"
+			rect				-63.5 44.5 -128 128
+		}
+
+		// Deka quick deploy
+		itemDef
+		{
+			name				deka_qdeploy
+			background			"gfx/hud/qdeploy"
+		}
+		// Deka discharge
+		itemDef
+		{
+			name				deka_discharge
+			background			"gfx/hud/discharge"
+		}
+		// Deka powermanagement ammo
+		itemDef
+		{
+			name				deka_pm_ammo
+			background			"gfx/hud/pm_ammo"
+		}
+		// Deka powermanagement shield
+		itemDef
+		{
+			name				deka_pm_shield
+			background			"gfx/hud/pm_shield"
+		}
+		
+		// Deka weapon
+		itemDef
+		{
+			name				deka_weapon
+			background			"gfx/hud/w_icon_dekaarm"
+			forecolor			1 1 1 0.8
+			rect				-40 25 -40 40
+		}
+		
+		// Deka weapon with shield
+		itemDef
+		{
+			name				deka_weapon_shield
+			background			"gfx/hud/w_icon_dekaarm_na"
+			forecolor			1 1 1 0.8
+			rect				-40 25 -40 40
+		}
+
+		itemDef
+		{
+			name				player_tic_i_r
+			background			"gfx/hud/player_tic_i"
+			rect				-63.5 44.5 -128 128
+		}
+
+		itemDef
+		{
+			name				player_tic_o_r
+			background			"gfx/hud/player_tic_o"
+			rect				-63.5 44.5 -128 128
+		}
+
+		// Numeric counter for force
+		itemDef
+		{
+			name				forceamount
+			group				none
+			rect				0 71 4 9
+			forecolor			.359 .524 .722 0.8
+			align				4
+			textalignx			-65
+			font				2
+		}		
+
+		// Numeric counter for ammo
+		itemDef
+		{
+			name				ammoamount
+			group				none
+			rect				0 2 4 9
+			forecolor			1.0 .658 .062 0.8
+			align				4
+			textalignx			-65
+			font				2
+		}		
+
+		// Numeric counter for additional class info (blobs, wrist shots, etc)
+		itemDef
+		{
+			name				class1amount
+			group				none
+			rect				0 89 4 9
+			forecolor			0.1 0.7 1 0.8
+			align				4
+			textalignx			-22
+			font				2
+		}
+
+		// 2nd Numeric counter for additional class info (blobs, wrist shots, etc)
+		itemDef
+		{
+			name				class2amount
+			group				none
+			rect				0 89 4 9
+			forecolor			0.1 0.7 1 0.8
+			align				4
+			textalignx			-11
+			font				2
+		}
+		itemDef
+		{
+			name				emplaced2amount // ACM
+			rect				-9 11.5 0 0
+			font				7
+			textscale			0.1
+			textalignx			-55
+			textaligny			0
+			align				4
+		}
+
+
+		// When ammo is infinite (used in MP)
+		itemDef
+		{
+			name				ammoinfinite
+			group				none
+			rect				200 -3 4 5
+			forecolor			1.0 .658 .062 0.8
+		}
+		
+		// Saber style graphics
+		itemDef
+		{
+			name				stylehilt_single
+			background			"gfx/hud/alpha/mb_stylehilt_single"
+		}		
+
+		itemDef
+		{
+			name				stylehilt_staff
+			background			"gfx/hud/alpha/mb_stylehilt_staff"
+		}		
+
+		itemDef
+		{
+			name				stylehilt_dual
+			background			"gfx/hud/alpha/mb_stylehilt_dual"
+		}
+		
+				itemDef
+		{
+			name				acmglow
+			rect				1 13 -64 64
+			align				5
+			textalignx			-96.5
+		}
+		
+		itemDef
+		{
+			name				acmglow0
+			background			"gfx/hud/classic/mb_acmglow0"
+		}
+		
+		itemDef
+		{
+			name				acmglow1
+			background			"gfx/hud/classic/mb_acmglow1"
+		}		
+		
+		itemDef
+		{
+			name				acmglow2
+			background			"gfx/hud/classic/mb_acmglow2"
+		}		
+
+		itemDef
+		{
+			name				acmglow3
+			background			"gfx/hud/classic/mb_acmglow3"
+		}		
+
+		itemDef
+		{
+			name				acmglow4
+			background			"gfx/hud/classic/mb_acmglow4"
+		}		
+
+		itemDef
+		{
+			name				acmglow5
+			background			"gfx/hud/classic/mb_acmglow5"
+		}		
+
+		itemDef
+		{
+			name				acmglow6
+			background			"gfx/hud/classic/mb_acmglow6"
+		}		
+
+		itemDef
+		{
+			name				acmglow7
+			background			"gfx/hud/classic/mb_acmglow7"
+		}		
+
+		itemDef
+		{
+			name				acmglow8
+			background			"gfx/hud/classic/mb_acmglow8"
+		}		
+
+		itemDef
+		{
+			name				acmglow9
+			background			"gfx/hud/classic/mb_acmglow9"
+		}
+
+		itemDef
+		{
+			name				acmglow10
+			background			"gfx/hud/classic/mb_acmglow10"
+		}	
+
+		itemDef
+		{
+			name				acmglow11
+			background			"gfx/hud/classic/mb_acmglow11"
+		}	
+
+		itemDef
+		{
+			name				acmglow12
+			background			"gfx/hud/classic/mb_acmglow12"
+		}	
+
+		itemDef
+		{
+			name				acmglow13
+			background			"gfx/hud/classic/mb_acmglow13"
+		}	
+
+		itemDef
+		{
+			name				acmglow14
+			background			"gfx/hud/classic/mb_acmglow14"
+		}	
+
+		itemDef
+		{
+			name				acmglow15
+			background			"gfx/hud/classic/mb_acmglow15"
+		}	
+
+		itemDef
+		{
+			name				acmglow16
+			background			"gfx/hud/classic/mb_acmglow16"
+		}	
+	}
+	
+	// Active Force Power Indicator
+	menuDef
+	{
+		name					"ActivePowers"
+		rect					30 420 0 0
+
+		itemDef
+		{
+			name				"PowerBase"
+			rect				0 0 40 40
+			align				3
+			textalignx			75
+			xoffset				42 // Horizontal offset between instances
+			yoffset				0 // Vertical offset between instances
+		}
+	}
+}

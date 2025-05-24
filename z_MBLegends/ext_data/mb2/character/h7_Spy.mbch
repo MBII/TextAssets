@@ -4,7 +4,7 @@ ClassInfo
 {
 	name			"h7_Spy"
 	weapons			WP_MELEE|WP_SABER
-	saber1		legends_Knife
+	saber1		Legends_Knife_Spy
 	sabercolor		0
 	forcepowers     FP_SABER_OFFENSE,3
 	saberstyle		SS_TAVION|SS_FAST
@@ -27,34 +27,40 @@ ClassInfo
 
 	classNumberLimit	2
 	
+	extralives			1
+	
 	uioverlay "gfx/icons/tactician"
 
 	tauntAnim	BOTH_SABERKILLER1
 	//saberStanceAnim BOTH_DEAD23
 	//bowanim BOTH_DEATH10
 	//meditateanim BOTH_DEATH14
-	flourishanim BOTH_STAND2TO1
-	//WalkBackward BOTH_WALK_DUAL
-	WalkForward BOTH_WALK_DUAL
+	flourishAnim BOTH_SPINATTACK7
+	saberStanceAnim BOTH_STAND9
+	//WalkForward BOTH_WALK_DUAL
 	
 	model		"bothan-spy"
 	skin			"default"
 	uishader		"models/players/bothan-spy/mb2_icon_default"
 
+	model_1		"rebel_partisan"
+	skin_1			"cyber"
+	uishader_1		"models/players/rebel_partisan/mb2_icon_cyber"
+
 	special1		EAS_HI_SPRINT
 	special2		EAS_HI_DEX
-	special3		EAS_HI_DODGE
+	special3		EAS_HI_TRACKER
 	special4		EAS_HI_GRAPPLEHOOK
 
    	isCustomBuild	1
-	mbPoints	65
+	mbPoints	60
 
 	c_att_skill_0	MB_ATT_INVALID
 	c_att_names_0	"^2Loadout"
 	c_att_ranks_0	-1
 	
 	c_att_skill_1	MB_ATT_PISTOL
-	c_att_names_1	"Holdout Pistol:"
+	c_att_names_1	"Hold-out Pistol:"
 	c_att_ranks_1	1,1,6
 	
 	c_att_skill_2	MB_ATT_FRAGS
@@ -74,8 +80,8 @@ ClassInfo
 	c_att_ranks_5	8
 
 	c_att_skill_6	MB_ATT_RESPAWNS
-	c_att_names_6	"Reinforcements:"
-	c_att_ranks_6	10,15
+	c_att_names_6	"Reinforcement:"
+	c_att_ranks_6	25
 	
 	c_att_skill_7	MB_ATT_ARMOUR
 	c_att_names_7	"Armor:"
@@ -86,7 +92,7 @@ ClassInfo
 	c_att_ranks_8	5
 	
 	c_att_skill_9	MB_ATT_SPY_DISGUISE
-	c_att_names_9	"Disguise:"
+	c_att_names_9	"^3Disguise^7:"
 	c_att_ranks_9	3,3,3
 		
 	c_att_skill_10	MB_ATT_FLIPKICK
@@ -101,9 +107,9 @@ ClassInfo
 	c_att_names_12	"Dexterity ^3[CS2]^7:"
 	c_att_ranks_12	2,2,3
 
-	c_att_skill_13	MB_ATT_DODGE
-	c_att_names_13	"Dodge ^3[CS3]^7:"
-	c_att_ranks_13	1,2,3
+	c_att_skill_13	MB_ATT_TRACKING_DART
+	c_att_names_13	"Tracking Darts ^3[CS3]^7:"
+	c_att_ranks_13	2,2,2
 	
 	c_att_skill_14	MB_ATT_GRAPPLE_HOOK
 	c_att_names_14	"Grap. Hook/Hop ^3[CS4 M]^7:"
@@ -119,7 +125,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
 	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
 	Icon				"gfx/hud/w_icon_sc-10_holdout" 
-	WeaponName		"Holdout Pistol"
+	WeaponName		"Hold-out Pistol"
 	FlashSound0		"sound/weapons/spy_pistol/fire.wav"
 	AltFlashSound0	"sound/weapons/spy_pistol/alt_fire.wav"
 	CustomAmmo 460
@@ -129,10 +135,10 @@ WeaponInfo1
 {
 	WeaponToReplace	WP_SABER
 	WeaponBasedOff	WP_SABER
-	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
+	NewWorldModel		"models/weapons2/vibroknife/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_prisonknife"
-	WeaponName		"Vibroknife"
+	WeaponName		"Jagged Vibroknife"
 }
 
 WeaponInfo2
@@ -153,7 +159,9 @@ WeaponInfo3
 	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
 	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
 	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
-	
+	altMissileModel "models/weapons/Grenade_Concussion/proj.md3"
+	//MissileEffect 
+	//AltMissileEffect
 	altMissileMissEffect		"Grenades/EXP_Flash"
 	MissileMissEffect			"Grenades/EXP_Flash"
 	altMissileHitHumanEffect	"Grenades/EXP_Flash"
@@ -169,24 +177,24 @@ WeaponInfo3
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
-	StartSound "sound/ambience/fuelpump_03b.mp3"
+	ForceToReplace FP_SEE
+	Icon	"gfx/forcepowers/radar"
+	ForcePowerName "Radar Scanner"
+	StartSound 	"sound/ambience/kotor/consolebeep03.mp3"
 	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
-description	"Bothan Spy
+description	"Rebel Spy
 
 Class: ARC Trooper
 Brief Overview: 
-A highly mobile custom class focused on cloak-and-dagger tactics. Can spec into an extra life, Disguises, explosive traps, advanced mobility options, and more.
+A 2-life custom class focused on cloak-and-dagger tactics. Can spec into an extra life, Disguises, explosives, mobility, and more.
 
 ^2Default Weaponry:
 - Heavy Melee
-- Vibroknife
+- Jagged Vibroknife
 -- Based on Lightsaber 
--- Blue/Cyan styles
+-- Cyan/Blue styles
 -- Cannot block Sabers/Blasters
 -- 60% shorter reach
 
@@ -195,6 +203,7 @@ A highly mobile custom class focused on cloak-and-dagger tactics. Can spec into 
 - Cloaking Device
 
 ^8Default Attributes:
+- Reinforcement (1)
 - Bunny Hop (1)
 - Slow Faller
 - Grapple Hop
@@ -214,6 +223,6 @@ A highly mobile custom class focused on cloak-and-dagger tactics. Can spec into 
 - Armor
 -- 20, 40, 80
 - Disguise ^3[In Melee, swap ^3mode]
-- Flipkick ^3[Single/double-jump ^3off players & surfaces ^3sideways/forwards]
+- Flipkick
 - Grappling Hook/Hop 
 -- Allows first jump of Grapple to Bunny Hop"
