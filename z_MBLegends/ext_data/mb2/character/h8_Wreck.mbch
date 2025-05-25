@@ -2,29 +2,29 @@
 
 ClassInfo
 {
-	name				"h8_Wreck"
-	weapons				WP_MELEE|WP_BLASTER|WP_DET_PACK|WP_TRIP_MINE|WP_THERMAL|WP_REAL_TD
-	attributes			MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_HEALING,2|MB_ATT_BLASTER,2|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DET_PACK,4|MB_ATT_TRIP_MINES,4|MB_ATT_BASE_TD,6|MB_ATT_THERMALS,1
-	
-	forcepool 			100
-	resource			resource_rage
-	
-	maxhealth		275
-	maxarmor			180
-		
-	MBClass			MB_CLASS_WOOKIE
-	speed           	.98
+	name			"h8_Wreck"
+	MBClass		MB_CLASS_WOOKIE
 	classNumberLimit  1
+	weapons		WP_MELEE|WP_BLASTER|WP_DET_PACK|WP_TRIP_MINE|WP_THERMAL|WP_REAL_TD|WP_FRAG_NADE
+	attributes	MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_HEALING,2|MB_ATT_BLASTER,2|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DET_PACK,4|MB_ATT_TRIP_MINES,4|MB_ATT_BASE_TD,6|MB_ATT_THERMALS,1|MB_ATT_FRAGS,2
 	
+	forcepool 	100
+	resource		resource_rage
+	
+	maxhealth	275
+	maxarmor		180
+	rateoffire_melee 1.10
+	rateoffire		0.75	
+	skilltimermod 	0.90
+	speed           .98
+
 	rageSoundOverride		"sound/chars/wrecker/misc/anger1.mp3"
 	bargeSoundOverride	"sound/chars/wrecker/misc/taunt3.mp3"
 
-	modelscale      	1.13
-	ASmultiplier		0.8
-
-	damageTaken			0.9
-	knockbackGiven 1.1
-	knockbackTaken 0.9
+	damageGiven 1.15
+	damageTaken	0.9
+	knockbackGiven 1.15
+	knockbackTaken 0.65
 	
 	saberStanceAnim	BOTH_STAND9
 	flourishAnim BOTH_STABDOWN_DUAL
@@ -34,17 +34,10 @@ ClassInfo
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 	
-	skilltimermod 		0.90
-	
-	model				"clonerc2"
-	skin				"wrecker"
-	uishader			"models/players/clonerc2/mb2_icon_wrecker"
-	
-	rateoffire			0.75
-	
-	resource			resource_rage
-	modelscale			1.07
-	
+	modelscale      	1.13
+	model	"clonerc2"
+	skin		"wrecker"
+	uishader	"models/players/clonerc2/mb2_icon_wrecker"
 	uioverlay "gfx/icons/brawler"
 }
 
@@ -65,34 +58,62 @@ WeaponInfo0
 	customAmmo 			600
 	clipSize			180
 	primFireEnabled			0
-	firingAnim  		BOTH_ATTACK3
+	hasAnimOverrides 1
+	animReady BOTH_DC15_IDLE
+	animReadyWalk BOTH_DC15_IDLE
+	animReadyNoAmmo BOTH_ATTACK3
+	animAttack 		BOTH_ATTACK3
+	animAttackWalk 		BOTH_ATTACK3
 	ReloadTimeModifier 	1.5
+}
+
+WeaponInfo1
+{
+	WeaponToReplace	WP_FRAG_NADE
+	WeaponBasedOff	WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/fraggrenade/thermal_w.glm"
+	NewViewModel			"models/weapons2/fraggrenade/thermal_hand.md3"
+	MissileModel 			"models/weapons2/fraggrenade/thermal_proj.md3"
+	
+	altMissileMissEffect		"Grenades/EXP_Explosion"
+	MissileMissEffect			"Grenades/EXP_Explosion"
+	altMissileHitHumanEffect	"Grenades/EXP_Explosion"
+	missileHitHumanEffect		"Grenades/EXP_Explosion"
+	altMissileHitDroidEffect	"Grenades/EXP_Explosion"
+	missileHitDroidEffect		"Grenades/EXP_Explosion"
+	
+	Icon				"gfx/hud/w_icon_fraggrenade"
+	WeaponName		"Frag Grenades"
+	altFireEnabled	0
 }
 
 description	"CT-9903 aka 'Wrecker'
 
 Class: Wookiee
 Brief Overview:
-A high-armor and high-health class with armable explosives, Fury, and a fast rate of fire.
+A high-armor and high-health Wookiee/gunner hybrid who specializes in mass destruction.
 
 ^2Weaponry:
 - Wookiee-style Melee
+-- 10% slower swings
 - DC-17m Repeating Blaster Rifle
 -- Based on Blaster Rifle (2)
 -- 50% slower reload
 -- Fixed-length reload
 -- Sec. fire only
 - Thermal Grenades (6)
+- Frag Grenades (2)
+-- Prim. fire only
 - Thermal Detonator (1)
 - Trip Mines (4)
 - Det Packs (4)
 
 ^8Attributes:
 - 10% faster skill cooldown
-- 10% more knockback given
-- 10% less knockback taken
-- Fury (1)
+- 15% more knockback given
+- 35% less knockback taken
 - Strength (2)
+- Fury (1)
 - 50% Melee damage resist.
 - Blast Armor
 - Healing (2)
