@@ -175,3 +175,61 @@ gfx/mp/symbols/mb_oldrep2sithemp
 		alphagen vertex
     }
 }
+
+gfx/mp/symbols/mb_ebonhawk
+{
+	qer_editorimage	gfx/mp/symbols/mb_ebonhawk
+	nopicmip
+    {
+        clampmap gfx/mp/symbols/mb_ebonhawk
+		blendFunc blend
+		alphagen vertex
+		rgbgen const ( 0.953 0.378 0.25 )
+    }
+}
+
+gfx/mp/symbols/mb_mand
+{
+	qer_editorimage	gfx/mp/symbols/mb_mand
+	nopicmip
+    {
+        clampmap gfx/mp/symbols/mb_mand
+		blendFunc blend
+		alphagen vertex
+		rgbgen const ( 0.25 0.5 0.953  )
+    }
+}
+
+gfx/mp/symbols/mb_ebonmand
+{
+	qer_editorimage	gfx/mp/symbols/mb_ebonmand
+	nopicmip
+    {
+        clampmap gfx/mp/symbols/mb_ebonmand
+        blendFunc blend
+		alphagen vertex
+    }
+}
+
+gfx/mp/symbols/mb_czerka
+{
+	qer_editorimage	gfx/mp/symbols/mb_czerka
+	nopicmip
+    {
+        clampmap gfx/mp/symbols/mb_czerka
+		blendFunc blend
+		alphagen vertex
+		rgbgen const ( 0.953 0.378 0.25 )
+    }
+}
+
+gfx/mp/symbols/mb_czerkamand
+{
+	qer_editorimage	gfx/mp/symbols/mb_czerkamand
+	nopicmip
+    {
+        clampmap gfx/mp/symbols/mb_czerkamand
+        blendFunc blend
+		alphagen vertex
+    }
+}
