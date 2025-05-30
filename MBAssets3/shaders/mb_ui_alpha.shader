@@ -707,6 +707,18 @@ gfx/menus/alpha/Menu_ClassSelect
 	}
 }
 
+gfx/menus/alpha/Menu_ClassSelect_FA
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_ClassSelect_FA
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+}
+
 gfx/menus/alpha/Menu_ClassSelect1a
 {
 	nopicmip
@@ -719,6 +731,23 @@ gfx/menus/alpha/Menu_ClassSelect1a
 	}
 	{
 		map gfx/menus/alpha/Menu_ClassSelect1a
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen const ( 0.15 0.15 0.15 )
+	}
+}
+
+gfx/menus/alpha/Menu_ClassSelect_FA1a
+{
+	nopicmip
+	nomipmaps
+	notc
+	{
+		map gfx/menus/alpha/Menu_ClassSelect_FA
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+	}
+	{
+		map gfx/menus/alpha/Menu_ClassSelect_FA1a
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen const ( 0.15 0.15 0.15 )
 	}
