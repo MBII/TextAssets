@@ -4,7 +4,7 @@
 	{
 		name					"ingame_about"
 		fullScreen				0// MENU_TRUE
-		rect					93 50 554 418//454 418
+		rect					93 50 454 418
 		visible					0
 		focusColor				1 1 1 0.6
 		appearanceIncrement		75
@@ -42,6 +42,8 @@
 			show					obj_minidesc
 			show					obj_longdesc
 			show					objective_pic
+			hide					nodelist
+			hide					SpawnListButton_Expanded
 			// change color and stext of mini desc
 			setitemtext				obj_minidesc @MENUS_OBJECTIVE_1
 			//change text of long desc
@@ -50,12 +52,16 @@
 			setitembackground		objective_pic	"*team1_objective1_gfx"
 			// Show new map icon
 			setitembackground		tm1_icon1	"*team1_objective1_mapicon"
+			// Reset backgrounds
+			setitembackground		SpawnExpand	"gfx/menus/alpha/Icon_Expand"
 			// Reset all buttons to their normal colors
 			setitemcolor			team1obj_buttons forecolor .75 .75 .75 1
 			setitemcolor			team1obj_buttons backcolor 1 1 1 0.1
 			setitemcolor			team2obj_buttons forecolor .75 .75 .75 1
 			setitemcolor			team2obj_buttons backcolor 1 1 1 0.1
-			setitemcolor			mapicons	bordercolor	0 0 0 0 
+			setitemcolor			mapicons	bordercolor	0 0 0 0
+			// Reset all rects
+			setitemrect				SpawnExpand 11 208 10 15
 			// Disable current button and give it a border
 			setitemcolor			team1obj1_button	bordercolor 1 1 1 1
 			setitemcolor			team1obj1_button	backcolor 1 1 1 0.25
@@ -179,6 +185,8 @@
 				"Semi-Authentic"		1
 				"Full Authentic"		2
 				"Duel Mode"				3
+				"Legends"				4
+				"Supremacy"				5
 			}
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			30
@@ -1244,7 +1252,7 @@
 			name				mappic
 			group				none
 			style				WINDOW_STYLE_MAP_RGB1
-			rect				9 109 423 212//9 117 423 212//
+			rect				9 109 423 212
 			forecolor			1 1 1 1
 			visible				1
 			decoration
@@ -1254,7 +1262,7 @@
 		itemDef
 		{
 			name				mappic_zoomin
-			rect				398 114 15 20//398 122 15 20//
+			rect				398 114 15 20
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Icon_ZoomIn"
 			forecolor			1 1 1 0.6
@@ -1265,7 +1273,7 @@
 		itemDef
 		{
 			name				mappic_zoomout
-			rect				415 114 15 20//415 122 15 20//
+			rect				415 114 15 20
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Icon_ZoomOut"
 			forecolor			1 1 1 0.6
@@ -1310,7 +1318,7 @@
 			name				legend
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect				9 334 243 71
+			rect				9 338 243 71
 			forecolor			1 1 1 1
 			backcolor			1 1 1 1
 			visible				1
@@ -1321,7 +1329,7 @@
 		itemDef
 		{
 			name				aboutserver
-			rect				257 334 188 10
+			rect				257 338 188 10
 			style 				WINDOW_STYLE_TEXT_RGB1
 			type				4
 			text				""
@@ -1340,7 +1348,7 @@
 		itemDef
 		{
 			name				aboutserver
-			rect				257 344 188 10
+			rect				257 348 188 10
 			style 				WINDOW_STYLE_TEXT_RGB1
 			type				4
 			text				""
@@ -1359,7 +1367,7 @@
 		itemDef
 		{
 			name				aboutserver
-			rect				257 360 188 10
+			rect				257 364 188 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_MAP_NAME
@@ -1377,7 +1385,7 @@
 		itemDef
 		{
 			name				about
-			rect				257 370 188 10
+			rect				257 374 188 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_MAXIMUM_PLAYERS
@@ -1395,7 +1403,7 @@
 		itemDef
 		{
 			name				about
-			rect				257 380 94 10
+			rect				257 384 94 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				"Round Limit:"
@@ -1415,7 +1423,7 @@
 		itemDef
 		{
 			name				about
-			rect				351 380 94 10
+			rect				351 384 94 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_FRAG_LIMIT
@@ -1435,7 +1443,7 @@
 		itemDef
 		{
 			name				about
-			rect				257 390 188 15
+			rect				257 394 188 15
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				""
@@ -1451,27 +1459,93 @@
 			decoration
 		}
 		
+		itemDef
+		{
+			name		SpawnExpand
+			group		conquest
+			style		WINDOW_STYLE_FILLED
+			background	"gfx/menus/alpha/Icon_Expand"
+			rect		11 208 10 15
+			backcolor	1 1 1 1
+			descText	""
+			visible		0
+		}
 		
-		
+		itemDef
+		{
+			name		SpawnListButton_Collapsed
+			group		conquest
+			type		ITEM_TYPE_BUTTON
+			style		WINDOW_STYLE_FILLED
+			rect		9 109 13 212
+			backcolor	1 1 1 0.1
+			descText	""
+			visible		0
+			action
+			{
+				play			"sound/interface/button1.wav"
+				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.5
+				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.1
+				show			SpawnListButton_Expanded
+				show			nodelist
+				hide			SpawnListButton_Collapsed
+				setitemrect		SpawnExpand 111 208 10 15
+				setitembackground SpawnExpand	"gfx/menus/alpha/Icon_Contract"
+			}
+			mouseenter
+			{
+				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.1
+			}
+		}
+
+		itemDef
+		{
+			name		SpawnListButton_Expanded
+			group		conquest
+			type		ITEM_TYPE_BUTTON
+			style		WINDOW_STYLE_FILLED
+			rect		109 109 13 212
+			backcolor	1 1 1 0.1
+			descText	""
+			visible		0
+			action
+			{
+				play			"sound/interface/back.mp3"
+				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.5
+				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.1
+				hide			SpawnListButton_Expanded
+				hide			nodelist
+				show			SpawnListButton_Collapsed
+				setitemrect		SpawnExpand 11 208 10 15
+				setitembackground SpawnExpand	"gfx/menus/alpha/Icon_Expand"
+			}
+			mouseenter
+			{
+				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.1
+			}
+		}
 		
 		itemDef
 		{
 			name			nodelist
 			group			conquest
-			rect			10 323 150 85//76
+			rect			9 109 100 212
 			type			ITEM_TYPE_LISTBOX
-			//style			WINDOW_STYLE_LISTBOX_RGB1
-			elementwidth	120
+			elementwidth	80
 			elementheight	16
 			font			6
-			textaligny		12
-			textscale		0.15
-			border			1
-			bordersize		1
-			bordercolor		1 1 1 1
+			textaligny		16
+			textscale		.125
 			forecolor		0.9 0.9 0.9 1
-			backcolor		0 0 .5 .25
-			outlinecolor	.5 .5 .5 .5
+			backcolor		0 0 0 .5
 			elementtype		LISTBOX_TEXT
 			feeder			FEEDER_CONQUEST
 			//descText		"Select a spawn point."
@@ -1481,30 +1555,24 @@
 			{
 				play		"sound/interface/button1.wav"
 			}
-			mouseEnter
-			{
-				setitemcolor	nodelist bordercolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	nodelist bordercolor1 0.1 0.7 1 0.9
-			}
 		}
-
 		
 		itemDef
 		{
 			name		selectSpawn
 			group		conquest
-			text		"Select Spawn" //@MENUS_FORCE_TEMPLATES
-			type		1
-			style		WINDOW_STYLE_TEXT_RGB2
-			rect		165 340 75 20
-			textalign	ITEM_ALIGN_LEFT
-			textalignx	0
-			textaligny	-4
+			text		"Set Spawn" //@MENUS_FORCE_TEMPLATES
+			type		ITEM_TYPE_BUTTON
+			style		WINDOW_STYLE_FILLED
+			textstyle	WINDOW_STYLE_TEXT_RGB2
+			background	"gfx/menus/alpha/Btn2_Bg"
+			rect		135 320 80 15
+			textalign	ITEM_ALIGN_CENTER
+			textalignx	40
+			textaligny	-7
 			font		7
 			textscale	.15
+			backcolor	1 1 1 0.1
 			forecolor	1 1 1 1
 			descText	""
 			visible		0
@@ -1512,6 +1580,15 @@
 			{
 				play	"sound/interface/button1.wav"
 				uiscript setCqtSpawn
+				setitemcolor	selectSpawn			backcolor	1 1 1 0.5
+			}
+			mouseenter
+			{
+				setitemcolor	selectSpawn			backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	selectSpawn			backcolor	1 1 1 0.1
 			}
 		}
 		
@@ -1520,14 +1597,17 @@
 			name		removeSpawn
 			group		conquest
 			text		"Remove Spawn" //@MENUS_FORCE_TEMPLATES
-			type		1
-			style		WINDOW_STYLE_TEXT_RGB2
-			rect		165 370 75 20
-			textalign	ITEM_ALIGN_LEFT
-			textalignx	0
-			textaligny	-4
+			type		ITEM_TYPE_BUTTON
+			style		WINDOW_STYLE_FILLED
+			textstyle	WINDOW_STYLE_TEXT_RGB2
+			background	"gfx/menus/alpha/Btn2_Bg"
+			rect		225 320 80 15
+			textalign	ITEM_ALIGN_CENTER
+			textalignx	40
+			textaligny	-7
 			font		7
 			textscale	.15
+			backcolor	1 1 1 0.1
 			forecolor	1 1 1 1
 			descText	""
 			visible		0
@@ -1535,22 +1615,16 @@
 			{
 				play	"sound/interface/button1.wav"
 				uiscript rmCqtSpawn
+				setitemcolor	removeSpawn			backcolor	1 1 1 0.5
 			}
-		}
-		
-		
-		// Legend
-		itemDef
-		{
-			name				legendCqt
-			group				conquest
-			style				WINDOW_STYLE_FILLED
-			rect				300 54 180 51//9 334 243 71
-			forecolor			1 1 1 1
-			backcolor			1 1 1 1
-			visible				0
-			decoration
-			background			"gfx/menus/mission_legend"
+			mouseenter
+			{
+				setitemcolor	removeSpawn			backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setitemcolor	removeSpawn			backcolor	1 1 1 0.1
+			}
 		}
 		
 		// Conquest Nodes
