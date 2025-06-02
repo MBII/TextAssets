@@ -10,7 +10,7 @@ ClassInfo
 	attributes  MB_ATT_A280,2|MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ANTI_MT,2|MB_ATT_WOOKIEE_FURY,2
 	
 	maxhealth   		250
-	maxarmor   	 	200
+	maxarmor   	 	250
 	basespeed 		175
 	resource 		RESOURCE_RAGE
 	forcepool		85
@@ -23,7 +23,7 @@ ClassInfo
 
 	meleeknockback_flat 150
 
-	classflags          	CFL_SEEING_STEALTH|CFL_STRONGAGAINSTPHYSICAL
+	classflags          	CFL_SEEING_STEALTH|CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE
 	rageSoundOverride 		"sound/chars/k2so/misc/taunt2.mp3"
 	bargeSoundOverride 		"sound/chars/k2so/misc/death2.mp3"
 	
@@ -31,19 +31,18 @@ ClassInfo
 	damageTaken			0.80
 	
 	rateOfFire          	1
-	rateoffire_melee		1.35
+	rateoffire_melee		1.15
 	
 	knockbackGiven 1.1
-	knockbackTaken 0.7
+	knockbackTaken 0.5
 	
 	saber1 				k2melee_legends
 	saberstyle			SS_TAVION
 	saberDamage 87 //100
 	saberMaxChain 1
-	APmultiplier		1.15
+	APmultiplier		1.5
 	ASmultiplier 		0.7
 	BPmultiplier 0
-	WP_MeleeFlags HELD_KNOCKDOWN|HELD_SLOW
 	WP_SaberFlags HELD_STUN|HELD_KNOCKDOWN
 	WP_A280Flags HELD_KNOCKBACK
 	
@@ -61,6 +60,8 @@ ClassInfo
 	skin  		"default"
 	uishader  "models/players/k2so/mb2_icon_default"
 	uioverlay "gfx/icons/brawler"
+	
+	saberstanceAnim BOTH_SABERDUAL_STANCE
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 }
@@ -106,11 +107,9 @@ Brief Overview:
 A sturdy tank with protection against multiple Force powers and damage types. Deals massive knockback. 
 
 ^2Weaponry:
-- Wookiee-style Melee 
+- Wookiee-style Melee
 -- Flat knockback: 150
--- Knocks down targets
--- 35% slower swings
--- 15% slower movement
+-- 15% slower swings
 - Droid Melee
 -- Based on Lightsaber
 -- Cyan style
@@ -129,8 +128,9 @@ A sturdy tank with protection against multiple Force powers and damage types. De
 
 ^8Attributes:
 - 10% more knockback given
-- 30% less knockback taken
+- 50% less knockback taken
 - 50% slower resource decay
+- Fury (2)
 - Strength (3)
 - Cortosis (1)
 - Blast Armor
