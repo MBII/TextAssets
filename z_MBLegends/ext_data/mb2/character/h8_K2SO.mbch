@@ -3,47 +3,63 @@
 ClassInfo
 {
 	name			"h8_K2SO"
-	weapons 	WP_A280|WP_MELEE|WP_SABER
-	attributes  MB_ATT_A280,2|MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_WOOKIEE_FURY,1|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ANTI_MT,2
-	maxhealth   		250
-	maxarmor   	 	150
-	modelscale 		1.16
-	resource 		RESOURCE_RAGE
-	forcepool		100
-	forceregen 		1.5
-	skilltimermod 	1.5
-	model 			"k2so"
-	speed 			1
-	skin  			"default"
-	uishader  		"models/players/k2so/mb2_icon_default"
 	MBClass 			MB_CLASS_WOOKIE
 	classNumberLimit		1
+	weapons 	WP_A280|WP_MELEE|WP_SABER
+	
+	attributes  MB_ATT_A280,2|MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ANTI_MT,2|MB_ATT_WOOKIEE_FURY,2
+	
+	maxhealth   		250
+	maxarmor   	 	200
+	basespeed 		175
+	resource 		RESOURCE_RAGE
+	forcepool		85
+	forceregen 		0.5
+	
+	forcepowers FP_RAGE,3
+	
+	special1 EAS_FP_RAGE
+	special2 EAS_NONE
+
+	meleeknockback_flat 150
+
 	classflags          	CFL_SEEING_STEALTH|CFL_STRONGAGAINSTPHYSICAL
 	rageSoundOverride 		"sound/chars/k2so/misc/taunt2.mp3"
 	bargeSoundOverride 		"sound/chars/k2so/misc/death2.mp3"
+	
 	DamageGiven         	1.15
 	damageTaken			0.80
-	rateOfFire          	1.15
-	rateoffire_melee		1.15
+	
+	rateOfFire          	1
+	rateoffire_melee		1.35
 	
 	knockbackGiven 1.1
-	knockbackTaken 0.9
+	knockbackTaken 0.7
+	
 	saber1 				k2melee_legends
-	saberstyle			SS_DESANN
-	WP_SaberFlags HELD_STUN|HELD_KNOCKDOWN
-	saberDamage 100
+	saberstyle			SS_TAVION
+	saberDamage 87 //100
 	saberMaxChain 1
 	APmultiplier		1.15
-	ASmultiplier 		0.9
-
+	ASmultiplier 		0.7
+	BPmultiplier 0
+	WP_MeleeFlags HELD_KNOCKDOWN|HELD_SLOW
+	WP_SaberFlags HELD_STUN|HELD_KNOCKDOWN
+	WP_A280Flags HELD_KNOCKBACK
+	
 	respawnCustomTime 	75000
 
 	flourishAnim BOTH_STEADYSELF1
 	deathAnim SBD_DEATH
 	gloatAnim BOTH_STAND5TOAIM
 	tauntAnim BOTH_STAND1_TALK1
-	//bowAnim BOTH_HIT1
+	RunForward 	BOTH_WALK1
+	RunBackward	BOTH_WALK1
 	
+	modelscale 		1.16
+	model 		"k2so"
+	skin  		"default"
+	uishader  "models/players/k2so/mb2_icon_default"
 	uioverlay "gfx/icons/brawler"
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
@@ -68,6 +84,7 @@ WeaponInfo0
 	animStand BOTH_STAND1
 	//FPMult			1.0
 	clipsize 			20
+	rateMod 1.2
 }
 
 WeaponInfo1
@@ -86,31 +103,35 @@ description	"K-2SO
 
 Class: Wookiee
 Brief Overview: 
-A tanky brawler class with protection against multiple Force powers and damage types.
+A sturdy tank with protection against multiple Force powers and damage types. Deals massive knockback. 
 
 ^2Weaponry:
 - Wookiee-style Melee 
--- 15% slower swings
+-- Flat knockback: 150
+-- Knocks down targets
+-- 35% slower swings
+-- 15% slower movement
 - Droid Melee
 -- Based on Lightsaber
--- Purple style
+-- Cyan style
 -- Chain Limit: 1
--- staggers/knocks down targets
 -- Cannot block Sabers/Blasters
--- Deals knockback
--- 40% less damage * please fix this number, it has 100 damage
+-- Staggers/knocks down targets
+-- 50% more knockback
+-- 78% less damage
 -- 35% shorter reach
 -- 300% wider radius
 -- Slap ^3[CS2]
 - SE-14r Light Repeating Blaster
 -- Based on A280 Rifle (2)
+-- Pushes targets
+-- 20% slower fire rate
 
 ^8Attributes:
-- 10% more/less knockback given/taken
-- 50% slower skill cooldown
-- 50% faster resource decay
+- 10% more knockback given
+- 30% less knockback taken
+- 50% slower resource decay
 - Strength (3)
-- Fury (1)
 - Cortosis (1)
 - Blast Armor
 - Magnetic Plating
@@ -119,5 +140,4 @@ A tanky brawler class with protection against multiple Force powers and damage t
 - Mind Trick Immunity
 
 ^3Abilities:
-- Rage ^3[CS1 in Melee]
-- Shoulder Barge ^3[CS2 in Melee]"
+- Dark Rage (3) ^3[CS1]"
