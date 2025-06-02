@@ -3,7 +3,7 @@
 ClassInfo
 {
 	name			"h8_K2SO"
-	weapons 	WP_A280|WP_MELEE
+	weapons 	WP_A280|WP_MELEE|WP_SABER
 	attributes  MB_ATT_A280,2|MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_WOOKIEE_FURY,1|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ANTI_MT,2
 	maxhealth   		250
 	maxarmor   	 	150
@@ -25,6 +25,16 @@ ClassInfo
 	damageTaken			0.80
 	rateOfFire          	1.15
 	rateoffire_melee		1.15
+	
+	knockbackGiven 1.1
+	knockbackTaken 0.9
+	saber1 				k2melee_legends
+	saberstyle			SS_DESANN
+	WP_SaberFlags HELD_STUN|HELD_KNOCKDOWN
+	saberDamage 100
+	saberMaxChain 1
+	APmultiplier		1.15
+	ASmultiplier 		0.9
 
 	respawnCustomTime 	75000
 
@@ -60,6 +70,18 @@ WeaponInfo0
 	clipsize 			20
 }
 
+WeaponInfo1
+{
+	WeaponToReplace WP_SABER
+	WeaponBasedOff  WP_SABER
+	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Droid Melee"
+	primGore			1
+	altGore			1
+}
+
 description	"K-2SO
 
 Class: Wookiee
@@ -69,10 +91,22 @@ A tanky brawler class with protection against multiple Force powers and damage t
 ^2Weaponry:
 - Wookiee-style Melee 
 -- 15% slower swings
+- Droid Melee
+-- Based on Lightsaber
+-- Purple style
+-- Chain Limit: 1
+-- staggers/knocks down targets
+-- Cannot block Sabers/Blasters
+-- Deals knockback
+-- 40% less damage * please fix this number, it has 100 damage
+-- 35% shorter reach
+-- 300% wider radius
+-- Slap ^3[CS2]
 - SE-14r Light Repeating Blaster
 -- Based on A280 Rifle (2)
 
 ^8Attributes:
+- 10% more/less knockback given/taken
 - 50% slower skill cooldown
 - 50% faster resource decay
 - Strength (3)
