@@ -3,7 +3,7 @@
 models/players/mudtrooper/armor
 {
 	q3map_nolightmap
-	cull	twosided
+	cull	disable
 	{
 		map models/players/mudtrooper/armor
 		rgbGen lightingDiffuse
@@ -19,7 +19,7 @@ models/players/mudtrooper/armor
 models/players/mudtrooper/armor_clean
 {
 	q3map_nolightmap
-	cull	twosided
+	cull	disable
 	{
 		map models/players/mudtrooper/armor_clean
 		rgbGen lightingDiffuse
@@ -35,6 +35,7 @@ models/players/mudtrooper/armor_clean
 models/players/mudtrooper/cloth
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/mudtrooper/cloth
 		rgbGen lightingDiffuse
@@ -50,6 +51,7 @@ models/players/mudtrooper/cloth
 models/players/mudtrooper/cloth_clean
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/mudtrooper/cloth_clean
 		rgbGen lightingDiffuse
@@ -113,7 +115,7 @@ models/players/mudtrooper/head_jug
 models/players/mudtrooper/head_jug_cull
 {
 	q3map_nolightmap
-	cull twosided
+	cull	disable
 	{
 		map models/players/mudtrooper/head_jug
 		rgbGen lightingDiffuse
@@ -132,7 +134,7 @@ models/players/mudtrooper/head_jug_cull
 models/players/mudtrooper/armor_andor
 {
 	q3map_nolightmap
-	cull	twosided
+	cull	disable
 	{
 		map models/players/mudtrooper/armor_andor
 		rgbGen lightingDiffuse
@@ -148,6 +150,7 @@ models/players/mudtrooper/armor_andor
 models/players/mudtrooper/cloth_andor
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/mudtrooper/cloth_andor
 		rgbGen lightingDiffuse
@@ -181,7 +184,7 @@ models/players/mudtrooper/newparts_andor
 models/players/imperial_garrison/armor_sergeant
 {
 	q3map_nolightmap
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_garrison/armor_sergeant
 		rgbGen lightingDiffuse
@@ -197,7 +200,7 @@ models/players/imperial_garrison/armor_sergeant
 models/players/imperial_garrison/cloth
 {
 	q3map_nolightmap
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_garrison/cloth
 		rgbGen lightingDiffuse
