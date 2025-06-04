@@ -136,6 +136,7 @@ models/players/imperial/hips_legs_black
 models/players/imperial/hips_legs_black_cull
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/imperial/hips_legs_black
 		rgbGen lightingDiffuse
@@ -166,6 +167,7 @@ models/players/imperial/hips_legs_brown
 models/players/imperial/hips_legs_brown_cull
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/imperial/hips_legs_brown
 		rgbGen lightingDiffuse
@@ -196,6 +198,7 @@ models/players/imperial/hips_legs_gray
 models/players/imperial/hips_legs_gray_cull
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/imperial/hips_legs_gray
 		rgbGen lightingDiffuse
@@ -226,6 +229,7 @@ models/players/imperial/hips_legs_olive
 models/players/imperial/hips_legs_olive_cull
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/imperial/hips_legs_olive
 		rgbGen lightingDiffuse
@@ -256,6 +260,7 @@ models/players/imperial/hips_legs_veers
 models/players/imperial/hips_legs_veers_cull
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/imperial/hips_legs_veers
 		rgbGen lightingDiffuse

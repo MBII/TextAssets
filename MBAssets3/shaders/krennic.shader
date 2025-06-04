@@ -16,7 +16,7 @@ models/players/Krennic/torso
 models/players/Krennic/torso_cape
 {
 	q3map_nolightmap
-	cull twosided
+	cull	disable
 	{
 		map models/players/Krennic/torso_cape
 		rgbGen lightingDiffuse
@@ -47,6 +47,7 @@ models/players/Krennic/hips_legs
 models/players/Krennic/hips_legs_cull
 {
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/Krennic/hips_legs
 		rgbGen lightingDiffuse
