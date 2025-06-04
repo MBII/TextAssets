@@ -103,7 +103,37 @@ models/players/imperial/torso_veers
 	}
 }
 
+models/players/imperial_fml/torso
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial_fml/torso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/imperial/hips_legs_black
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/hips_legs_black
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/imperial/hips_legs_black_cull
 {
 	q3map_nolightmap
 	{
@@ -133,7 +163,37 @@ models/players/imperial/hips_legs_brown
 	}
 }
 
+models/players/imperial/hips_legs_brown_cull
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/hips_legs_brown
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/imperial/hips_legs_gray
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/hips_legs_gray
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/imperial/hips_legs_gray_cull
 {
 	q3map_nolightmap
 	{
@@ -163,7 +223,37 @@ models/players/imperial/hips_legs_olive
 	}
 }
 
+models/players/imperial/hips_legs_olive_cull
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/hips_legs_olive
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/imperial/hips_legs_veers
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/hips_legs_veers
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/imperial/hips_legs_veers_cull
 {
 	q3map_nolightmap
 	{

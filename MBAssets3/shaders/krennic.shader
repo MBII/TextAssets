@@ -43,3 +43,18 @@ models/players/Krennic/hips_legs
 		alphaGen lightingSpecular
 	}
 }
+
+models/players/Krennic/hips_legs_cull
+{
+	q3map_nolightmap
+	{
+		map models/players/Krennic/hips_legs
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
