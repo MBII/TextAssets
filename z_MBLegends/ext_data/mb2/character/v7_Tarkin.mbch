@@ -1,0 +1,139 @@
+ClassInfo
+{
+	name				"v7_Tarkin"
+	weapons 			WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_PLX1
+	attributes 			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_WOOKIEE_FURY,2|MB_ATT_PLX1,1|MB_ATT_LIGHTS_BEACON
+	maxhealth 			160
+	maxarmor  			90
+	damageGiven		    1.15
+	basespeed			195
+	
+	resource	resource_rage
+	forcepool 250
+	
+	forcepowers FP_PROTECT,3|FP_TEAM_FORCE,3
+	
+	MBClass 				MB_CLASS_COMMANDER
+	classNumberLimit  	1
+	holdables 			HI_SHIELD|HI_SEEKER|HI_SENTRY|HI_MEDPAC_BIG
+	
+	WP_PLX1Flags HELD_DISRUPTIFY|HELD_SLOW
+	WP_BlasterPistolFlags	HELD_KNOCKBACK	
+	modelscale          1.015
+	model		"tarkin"
+	skin  		"default"
+	uishader  	"models/players/tarkin/mb2_icon_default"
+	
+	//respawncustomtime 50000
+	
+	uioverlay_r "gfx/icons/tactician"
+	uioverlay_l "gfx/icons/spec_infantry"
+	
+	special1		EAS_HI_DODGE
+	//special2	
+	//special3		
+	//special4 	
+	
+	WalkForward BOTH_WALK6
+	WalkBackward BOTH_WALK6
+	gloatAnim  BOTH_TALKCOMM1START
+	flourishanim	TORSO_HANDSIGNAL4
+}
+
+WeaponInfo0
+{
+	WeaponToReplace	WP_BLASTER_PISTOL
+	WeaponBasedOff	WP_BLASTER_PISTOL
+	NewWorldModel	"models/weapons2/imp_pistol/pistol_w.glm"
+	NewViewModel	"models/weapons2/imp_pistol/pistol_fpv.md3"
+	Icon		"gfx/hud/w_icon_imp_pistol"
+	WeaponName	"Tarkin's Blaster Pistol"
+	customAmmo 840
+	clipSize 24
+	rateMod 1.15
+	FlashSound0		"sound/weapsup/r/wpn_imp_pistol_fire.wav"
+	altFlashSound0	"sound/weapsup/r/wpn_imp_pistol_fire.wav"
+	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animReadyZoom BOTH_ATTACK2
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK
+	animReadyAttackZoom	BOTH_ATTACK2
+	animStand BOTH_STAND1
+
+}
+
+WeaponInfo1
+{
+	WeaponToReplace	WP_PLX1
+	WeaponBasedOff	WP_PLX1
+	NewWorldModel	"models/weapons2/dummy/dummy.glm"
+	NewViewModel	"models/weapons2/dummy/dummy.md3"
+	Icon		"gfx/hud/w_icon_realTD"
+	WeaponName	"Test Fire"
+	customAmmo 4
+	clipSize 3
+	FlashSound0	null
+	altFlashSound0	null
+	altmissileMissEffect "effects/tarkin/explosion"
+	altmissileHitEffect "effects/tarkin/explosion"
+	altMissileHitHumanEffect "effects/tarkin/explosion"
+	altMissileHitDroidEffect "effects/tarkin/explosion"
+	missileMissEffect "effects/tarkin/explosion"
+	missileHitEffect "effects/tarkin/explosion"
+	MissileHitHumanEffect "effects/tarkin/explosion"
+	MissileHitDroidEffect "effects/tarkin/explosion"
+	missileModel null
+	altMissileModel null
+	missileEffect "effects/tarkin/ds_shot" 
+	altMissileEffect  "effects/tarkin/ds_shot"
+	hasAnimOverrides 1
+	animReady BOTH_TALKCOMM1START
+	animReadyWalk BOTH_WALK6
+	animReadyNoAmmo BOTH_TALKCOMM1START
+	animAttack BOTH_COWER1_STOP
+	animAttackWalk BOTH_COWER1_STOP
+	animStand BOTH_STAND1
+	velocityMod 2
+	damagemod 2
+	reloadTimeModifier 6
+	SelectSound "sound/chars/Tarkin/misc/gloat1.mp3"
+}
+
+description	"Grand Moff Wilhuff Tarkin [Commander]
+
+A commander class who can build resource through damage to bolster his allies and himself.
+
+^2Weaponry:
+- Melee
+- Tarkin's Blaster Pistol (3)
+-- Knocks back targets on hit 
+-- 15% slower fire rate
+- Test Fire (1)
+-- Based on PLX-1
+-- 100% more damage
+-- 100% faster projectiles
+-- 500% slower reload
+-- 15% slower movement
+
+^5Powers:
+- Team Energize (3)
+- Protect (3)^3*
+
+^6Inventory:
+- Seeker Drone
+- Assault Sentry
+- Forcefield
+
+^8Attributes:
+^7- ^3*^7Light's Beacon
+-- Shares Protect with a targeted/nearby ally
+- Fury (2)
+- Healing (3)
+- Rally
+
+^3Abilities:
+-- Dodge (3) ^3[CS1]"
