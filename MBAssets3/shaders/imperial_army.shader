@@ -119,7 +119,8 @@ models/players/imperial_army/helmet_cockade_red
 }
 
 models/players/imperial_army/helmet_comm
-{	  
+{
+	cull	disable	  
 	{
 		map models/players/imperial_army/helmet_comm
 		blendFunc GL_ONE GL_ZERO
@@ -252,6 +253,15 @@ models/players/imperial_army/helmet_lower
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+models/players/imperial_army/helmet_lower_a
+{
+	cull	disable
+	{
+		map models/players/imperial_army/helmet_lower_a
+		rgbGen lightingDiffuse
 	}
 }
 
