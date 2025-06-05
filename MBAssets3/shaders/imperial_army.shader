@@ -91,7 +91,6 @@ models/players/imperial_army/goggles_lens
 
 models/players/imperial_army/helmet
 {
-	cull	twosided
 	{
 		map models/players/imperial_army/helmet
 		rgbGen lightingDiffuse
@@ -106,7 +105,7 @@ models/players/imperial_army/helmet
 
 models/players/imperial_army/helmet_cockade_red
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/helmet_cockade_red
 		rgbGen lightingDiffuse
@@ -144,7 +143,7 @@ models/players/imperial_army/helmet_comm
 
 models/players/imperial_army/helmet_forehead
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/helmet_forehead
 		rgbGen lightingDiffuse
@@ -159,7 +158,7 @@ models/players/imperial_army/helmet_forehead
 
 models/players/imperial_army/helmet_mask
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/helmet_mask
 		rgbGen lightingDiffuse
@@ -174,7 +173,7 @@ models/players/imperial_army/helmet_mask
 
 models/players/imperial_army/helmet_mask_lens
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/helmet_mask_lens
 		rgbGen lightingDiffuse
@@ -189,7 +188,6 @@ models/players/imperial_army/helmet_mask_lens
 
 models/players/imperial_army/helmet_green
 {
-	cull	twosided
 	{
 		map models/players/imperial_army/helmet_green
 		rgbGen lightingDiffuse
@@ -244,7 +242,7 @@ models/players/imperial_army/helmet_thing
 
 models/players/imperial_army/helmet_lower
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/helmet_lower
 		rgbGen lightingDiffuse
@@ -259,7 +257,7 @@ models/players/imperial_army/helmet_lower
 
 models/players/imperial_army/holster_gun
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/holster_gun
 		rgbGen lightingDiffuse
@@ -302,7 +300,7 @@ models/players/imperial_army/interface
 
 models/players/imperial_army/armor_grey
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/armor_grey
 		rgbGen lightingDiffuse
@@ -322,7 +320,6 @@ models/players/imperial_army/armor_grey
 
 models/players/imperial_army/armor_heavy
 {
-	cull	twosided
 	{
 		map models/players/imperial_army/armor_heavy
 		rgbGen lightingDiffuse
@@ -342,7 +339,7 @@ models/players/imperial_army/armor_heavy
 
 models/players/imperial_army/armor_hips
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/armor_hips
 		rgbGen lightingDiffuse
@@ -357,7 +354,7 @@ models/players/imperial_army/armor_hips
 
 models/players/imperial_army/shoulder_green
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/shoulder_green
 		rgbGen lightingDiffuse
@@ -373,7 +370,7 @@ models/players/imperial_army/shoulder_green
 
 models/players/imperial_army/shoulder_grey
 {
-	cull	twosided
+	cull	disable
 	{
 		map models/players/imperial_army/shoulder_grey
 		rgbGen lightingDiffuse
@@ -388,7 +385,6 @@ models/players/imperial_army/shoulder_grey
 
 models/players/imperial_army/armor_heavy_augment
 {
-	cull	twosided
 	{
 		map models/players/imperial_army/armor_heavy_augment
 		rgbGen lightingDiffuse
@@ -397,7 +393,6 @@ models/players/imperial_army/armor_heavy_augment
 
 models/players/imperial_army/armor_augment_dark
 {
-	cull	twosided
 	{
 		map models/players/imperial_army/armor_augment_dark
 		rgbGen lightingDiffuse
@@ -406,7 +401,6 @@ models/players/imperial_army/armor_augment_dark
 
 models/players/imperial_army/neck
 {
-	cull	twosided
 	{
 		map models/players/imperial_army/neck
 		rgbGen lightingDiffuse
