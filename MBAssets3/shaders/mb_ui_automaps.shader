@@ -134,6 +134,162 @@ gfx/mplevels/mb2_corellia/layout_duel
 }
 
 //####################
+//##### CQ BACKSTREETS
+//####################
+gfx/automap/mb2_cq_backstreets
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_cq_backstreets
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_cq_backstreetsfull
+{
+	nopicmip
+    {
+		map gfx/automap/mb2_cq_backstreetsfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_cq_backstreets/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_cq_backstreets/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_cq_backstreets/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### CQD BACKSTREETS
+//####################
+gfx/automap/mb2_cqd_backstreets
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_cqd_backstreets
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_cqd_backstreetsfull
+{
+	nopicmip
+    {
+		map gfx/automap/mb2_cqd_backstreetsfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_cqd_backstreets/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_cq_backstreets/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_cqd_backstreets/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### CQ ENCLAVE
+//####################
+gfx/automap/mb2_cq_enclave
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_cq_enclave
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_cq_enclavefull
+{
+	nopicmip
+    {
+		map gfx/automap/mb2_cq_enclavefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_cq_enclave/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_cq_enclave/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_cq_enclave/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
+//##### CQ SCARIF
+//####################
+gfx/automap/mb2_cq_scarif
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_cq_scarif
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_cq_scariffull
+{
+	nopicmip
+    {
+		map gfx/automap/mb2_cq_scariffull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_cq_scarif/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_cq_scarif/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_cq_scarif/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
+}
+
+//####################
 //##### CTF BACKSTREETS
 //####################
 
@@ -484,6 +640,40 @@ gfx/mp/mplevels/mb2_deathstar/DeathStarLayout3
 }
 
 //####################
+//##### DUEL DANTOOINE
+//####################
+gfx/automap/mb2_duel_dantooine
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_duel_dantooine
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_duel_dantooinefull
+{
+	nopicmip
+    {
+		map gfx/automap/mb2_duel_dantooinefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_duel_dantooine/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_duel_dantooine/map
+        blendfunc blend
+        rgbGen vertex
+    }
+}
+
+//####################
 //##### DUEL RAVAGER
 //####################
 gfx/automap/mb2_duel_ravager
@@ -664,6 +854,45 @@ gfx/mplevels/mb2_echobase/map
         map gfx/mplevels/mb2_echobase/map
         blendfunc blend
         rgbGen vertex
+    }
+}
+
+//####################
+//##### ENCLAVE
+//####################
+gfx/automap/mb2_enclave
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_enclave
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_enclavefull
+{
+	nopicmip
+    {
+		map gfx/automap/mb2_enclavefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_enclave/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_enclave/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_enclave/map_overlay
+		blendfunc blend
+		rgbGen identity
     }
 }
 

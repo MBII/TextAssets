@@ -5,24 +5,22 @@ ClassInfo
 	name  		"v6_MercSh"
 	MBClass 			MB_CLASS_CLONETROOPER
 	classNumberLimit  1
-	weapons    	WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE
+	weapons    	WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE|WP_CONC_NADE
 	  
-	attributes  	MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,3|MB_ATT_THERMALS,1|MB_ATT_DISRUPTOR,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_TRACKING_DART,4|MB_ATT_FRAGS,3|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1
+	attributes  	MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,3|MB_ATT_THERMALS,1|MB_ATT_DISRUPTOR,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_TRACKING_DART,4|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_MICRO_GRENADES,3
 
-	rateoffire		0.92
+	rateoffire		1
 	basespeed        247.5
 	modelscale  		0.97
 	  
-	damageTaken 		0.9
-	  
-	respawnCustomTime 50000
+	//respawncustomtime 50000
 	  
 	special1 EAS_FP_SEE
 	special2 EAS_HI_TRACKER
 	special3 EAS_HI_KICK
 	  
 	flourishAnim BOTH_STAND5TOAIM
-	maxhealth 	125
+	maxhealth 	150
 	maxarmor  	100
 	  
 	WP_CloneRifleFlags HELD_ALTRELOAD
@@ -33,17 +31,15 @@ ClassInfo
 	resourceRegenRate 25000
 	//resourceRegenCap 30
 	resource resource_fuel
-	
-	skilltimermod 1
-	  
-	model 		"4lom"
-	skin  		"default"
-	uishader  	"models/players/4lom/mb2_icon_default"
-	  
-	model_1		"dengar"
-	skin_1		"default"
-	uishader_1	"models/players/dengar/mb2_icon_default"
 
+	model	"dengar"
+	skin		"default"
+	uishader	"models/players/dengar/mb2_icon_default"
+	  
+	model_1 		"4lom"
+	skin_1  		"default"
+	uishader_1  	"models/players/4lom/mb2_icon_default"
+	
 	model_2		"bounty_hunter"
 	skin_2		"default"
 	uishader_2	"models/players/bounty_hunter/mb2_icon_default"
@@ -52,7 +48,8 @@ ClassInfo
 	skin_3		"default"						
 	uishader_3	"models/players/mayfeld/mb2_icon_default"
 	
-	uioverlay "gfx/icons/scout"
+	uioverlay_l "gfx/icons/scout"
+	uioverlay_r "gfx/icons/spec_infantry"
 }
 
 WeaponInfo0
@@ -69,12 +66,13 @@ WeaponInfo0
 	customAmmo         750
 	damageMod 1.10
 	clipsize 85
+	rateMod 0.92
 }
 
 WeaponInfo1
 {
-	WeaponToReplace			WP_FRAG_NADE
-	WeaponBasedOff			WP_FRAG_NADE
+	WeaponToReplace			WP_CONC_NADE
+	WeaponBasedOff			WP_CONC_NADE
 	NewWorldModel				"models/weapons2/thermal/thermal_w.glm"
 	NewViewModel				"models/weapons2/thermal/thermal_hand.md3"
 	Icon						"gfx/hud/w_thermal_grenade"
@@ -91,7 +89,7 @@ WeaponInfo1
 	FlashSound0		"sound/weapons/smokenade/select.mp3"
 	AltFlashSound0 	"sound/weapons/smokenade/select.mp3"
 	WeaponName  				"Smoke Grenades"
-	primFireEnabled 0
+	primFireEnabled 1
 	hasAnimOverrides 1
 	animReady  BOTH_SABERDUAL_STANCE //upper
 	animReadyWalk  BOTH_SABERDUAL_STANCE
@@ -123,16 +121,16 @@ A suppressive fire class with rifles and area-control tools.
 - DLT-19 Heavy Blaster Rifle
 -- Based on Clone Rifle (2)
 -- 10% more damage
+-- 8% faster fire rate
 -- Fixed-length reload
 -- Concussion Blobs (3)
 -- Ion Blobs (3)
 - Thermal Detonator (1)
 - Fire Grenade (1)
 - Smoke Grenades (3)
--- Based on Frag Grenades
+-- Based on Concussion Grenades
 -- Spreads an obscuring cloud on detonation
 -- 99.9% less damage
--- Sec. fire only
 
 ^8Attributes:
 - Resource Regen: 80/25s

@@ -1,8 +1,8 @@
 ClassInfo
 {
 	name 				"h2_Lando"
-	weapons 			WP_MELEE|WP_MANDO_PISTOL|WP_EE3|WP_SABER|WP_FRAG_NADE
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DODGE,2|MB_ATT_FUELREGEN,3
+	weapons 			WP_MELEE|WP_MANDO_PISTOL|WP_EE3|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DODGE,2|MB_ATT_FUELREGEN,3|MB_ATT_MICRO_GRENADES,3
 	saberMaxChain 3
 	maxhealth 			165
 	maxarmor 			60
@@ -12,14 +12,14 @@ ClassInfo
 	ASmultiplier     	0.95
 	forcepool			150
 	forceregen			1.5
-	saberstyle			SS_MEDIUM|SS_STRONG
+	saberstyle			SS_MEDIUM
 	forcepowers      	FP_SABER_OFFENSE,1
 	saber1				vibroaxe_new_legends
 	MBClass 			MB_CLASS_HERO
 	classNumberLimit 	1
 	modelscale      	1.02
 	//WP_FragNadeFlags	HELD_KNOCKDOWN
-	rateoffire			0.75
+	rateoffire			1
 	
 	damageGiven 		1.10
 
@@ -30,7 +30,9 @@ ClassInfo
 	special3 EAS_HI_DASH
 	special4 EAS_HI_QUICKTOSS
 	
-	uioverlay "gfx/icons/spec_infantry"
+	uioverlay_r "gfx/icons/spec_infantry"
+	uioverlay_l "gfx/icons/tactician"
+	uioverlay_c "gfx/icons/hybrid"
 	
 	model			"lando" 				
 	skin				"default"					
@@ -48,7 +50,7 @@ ClassInfo
 	skin_3			"default"					
 	uishader_3		"models/players/landoskiff/mb2_icon_default"
 	
-	respawnCustomTime  50000	
+	//respawncustomtime  50000	
 }
 
 WeaponInfo0
@@ -81,6 +83,7 @@ WeaponInfo1
 	MissileEffect		"Blaster/Shot01R"
 	AltMissileEffect	"Blaster/Shot01R"
 	customammo 777
+	rateMod 0.75
 }
 
 WeaponInfo2
@@ -104,16 +107,17 @@ WeaponInfo2
 	OverchargeEffect	"Blaster/MuzzleCharge01G"
 	FPMult     			1.1
 	ReloadTimeModifier 	0.8
-	velocityMod 1.1
+	velocityMod 1.25
 	hasAnimOverrides 1
 	animReady BOTH_STAND4TOATTACK2
 	animReadyWalk BOTH_STAND4TOATTACK2
 	animReadyNoAmmo BOTH_PISTOL_ATTACK 
-	animAttack BOTH_PISTOL_ATTACK 
-	animAttackWalk BOTH_PISTOL_ATTACK 
+	animAttack BOTH_SABERSTAFF_STANCE 
+	animAttackWalk BOTH_SABERSTAFF_STANCE
 	animStand BOTH_STAND1
 	MissileEffect		"Blaster/Shot01R"
 	customammo 777
+	rateMod 0.75
 }
 
 WeaponInfo3
@@ -138,35 +142,71 @@ WeaponInfo3
 	animStand BOTH_STAND1
 }
 
+WeaponInfo4
+{
+	WeaponToReplace			WP_CONC_NADE
+	WeaponBasedOff			WP_CONC_NADE
+	NewWorldModel				"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel				"models/weapons2/thermal/thermal_hand.md3"
+	Icon						"gfx/hud/w_thermal_grenade"
+	MissileModel 				"models/weapons2/thermal/thermal_proj.md3"
+	AltMissileModel			"models/weapons2/thermal/thermal_proj.md3"
+	MissileEffect 			"stone/missile1"
+	AltMissileEffect 			"stone/missile1"
+	MissileMissEffect			"smokenadeleg/explode_vol"
+	MissileHitHumanEffect	"smokenadeleg/explode_vol"
+	MissileHitDroidEffect	"smokenadeleg/explode_vol"
+	AltMissileMissEffect		"smokenadeleg/explode_vol"
+	AltMissileHitHumanEffect	"smokenadeleg/explode_vol"
+	AltMissileHitDroidEffect	"smokenadeleg/explode_vol"
+	FlashSound0		"sound/weapons/smokenade/select.mp3"
+	AltFlashSound0 	"sound/weapons/smokenade/select.mp3"
+	WeaponName  				"Smoke Grenades"
+	primFireEnabled 1
+	hasAnimOverrides 1
+	animReady  BOTH_SABERDUAL_STANCE //upper
+	animReadyWalk  BOTH_SABERDUAL_STANCE
+	animReadyNoAmmo  BOTH_SABERDUAL_STANCE
+	animAttack NADE_SECONDARY
+	animAttackWalk NADE_SECONDARY
+	animStand BOTH_STAND1 //lower
+	damagemod 0.001
+}
+
 description "Lando Calrissian
 
 Class: Hero
 Brief Overview: 
-A fast Saber/gunner hybrid that can Disguise himself and move in and out of combat with ease. Carries powerful Blasters and Quick-Throw Grenades.
+A fast gunner/saberist with stealth abilities.
 
 ^2Weaponry:
 - Melee
 - BD-1 Cutter Vibroaxe
 -- Based on Lightsaber
--- Yellow/Red styles
+-- Yellow style
 -- Saber Defense (1)
 -- Cannot block Blasters
 -- Chain Limit: 3
 -- 25% less damage
 -- 10% shorter reach
 -- 33% wider radius
--- No Saber Throw
 -- Slap ^3[CS2]
 - S-5 Heavy Blaster Pistol 
 -- Based on WESTAR Pistol (2)
--- 10% faster projectiles
+-- 25% faster fire rate
+-- 25% faster projectiles
 -- 10% more FP damage
 -- 20% faster reload
 - Gambler's Palm Grenades (4)
 -- Based on Frag Grenades
 -- Quick-Throw only
+- Smoke Grenades (3)
+-- Based on Concussion Grenades
+-- Spreads an obscuring cloud on detonation
+-- 99.9% less damage
 - Lando's E-11 Blaster Rifle
 -- Based on EE-3 Carbine (3)
+-- 25% faster fire rate
 
 ^8Attributes:
 - Armor Regen (1)
