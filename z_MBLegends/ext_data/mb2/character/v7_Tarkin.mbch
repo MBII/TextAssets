@@ -1,8 +1,8 @@
 ClassInfo
 {
 	name				"v7_Tarkin"
-	weapons 			WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_PLX1
-	attributes 			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_WOOKIEE_FURY,2|MB_ATT_PLX1,1|MB_ATT_LIGHTS_BEACON
+	weapons 			WP_BLASTER_PISTOL|WP_MELEE|WP_FIRE_NADE|WP_PLX1|WP_CONC_NADE
+	attributes 			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_WOOKIEE_FURY,2|MB_ATT_PLX1,1|MB_ATT_LIGHTS_BEACON|MB_ATT_FIRE_GRENADES,2|MB_ATT_MICRO_GRENADES,2
 	maxhealth 			160
 	maxarmor  			90
 	damageGiven		    1.15
@@ -10,12 +10,13 @@ ClassInfo
 	
 	resource	resource_rage
 	forcepool 250
-	
+	forceregen 0.5
+	skilltimermod 1.5
 	forcepowers FP_PROTECT,3|FP_TEAM_FORCE,3
 	
 	MBClass 				MB_CLASS_COMMANDER
 	classNumberLimit  	1
-	holdables 			HI_SHIELD|HI_SEEKER|HI_SENTRY_GUN|HI_MEDPAC_BIG
+	holdables 			HI_SHIELD|HI_SEEKER|HI_MEDPAC_BIG
 	
 	WP_PLX1Flags HELD_DISRUPTIFY|HELD_SLOW
 	WP_BlasterPistolFlags	HELD_KNOCKBACK	
@@ -110,12 +111,13 @@ A commander class who can build resource through damage to bolster his allies an
 - Tarkin's Blaster Pistol (3)
 -- Knocks back targets on hit 
 -- 15% slower fire rate
-- Test Fire (1)
--- Based on PLX-1
+- Test Fire (PLX-1 1)
 -- 100% more damage
 -- 100% faster projectiles
 -- 500% slower reload
 -- 15% slower movement
+- Fire Grenades (2)
+- Concussion Grenades (2)
 
 ^5Powers:
 - Team Energize (3)
@@ -123,11 +125,12 @@ A commander class who can build resource through damage to bolster his allies an
 
 ^6Inventory:
 - Seeker Drone
-- Assault Sentry
 - Forcefield
 - Big Bacta (50 HP to self)
 
 ^8Attributes:
+- 50% slower skill cooldown
+- 50% slower resource decay
 ^7- ^3*^7Light's Beacon
 -- Shares Protect with a targeted/nearby ally
 - Fury (2)
