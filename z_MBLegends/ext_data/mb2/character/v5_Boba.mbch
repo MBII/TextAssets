@@ -55,14 +55,19 @@ ClassInfo
 WeaponInfo0
 {
 	WeaponToReplace 	WP_SHOTGUN
-	WeaponBasedOff      WP_BOWCASTER
+	WeaponBasedOff      WP_BLASTER_PISTOL
 	NewWorldModel 		"models/weapons/FWG-5_FlechettePistol/model.glm"
 	NewViewModel		"models/weapons/FWG-5_FlechettePistol/model.md3"
 	Icon				"gfx/hud/w_icon_flechettepistol"
     FlashSound0			"sound/weapons/flechette/fire.mp3"  			
 	WeaponName 			"FWG-5 Flechette Pistol"
-	idleAnim 		    BOTH_MAND_PISTOL_IDLE
-	firingAnim          	MAND_SPISTOL_FIRE
+	hasAnimOverrides 1
+	animReady BOTH_STAND4TOATTACK2
+	animReadyWalk BOTH_STAND4TOATTACK2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
 	clipsize           	24
 	customAmmo         	84
 	AltFireEnabled 		0
@@ -75,9 +80,7 @@ WeaponInfo0
 WeaponInfo1
 {
 	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_CLONE_PISTOL
-	idleAnim			JET_FORWARD
-	firingAnim          MAND_FLAME
+	WeaponBasedOff		WP_SBD
 	MissileMissEffect        "Grenades/EXP_Alt"
     MissileHitHumanEffect    "Grenades/EXP_Alt"
     MissileHitDroidEffect    "Grenades/EXP_Alt"
@@ -89,13 +92,20 @@ WeaponInfo1
 	WeaponName		"Wrist Rockets"
 	clipSize 2
 	CustomAmmo 6
+	hasAnimOverrides 1
+	animReady BOTH_JET_FORWARD //upper
+	animReadyWalk BOTH_MAND_FLAME_READY 
+	animReadyNoAmmo BOTH_JET_FORWARD
+	animAttack BOTH_MAND_FLAME_READY 
+	animAttackWalk BOTH_MAND_FLAME_READY 
+	animStand BOTH_STAND1 //lower
 }
 
 description	"Boba Fett
 
 Class: Mandalorian
 Brief Overview: 
-A versatile Jetpack gunner class with an arsenal of Mandalorian abilities, a powerful Flechette Pistol and multiple explosives including Wrist Rockets.
+A versatile Jetpack gunner with an arsenal of Mandalorian abilities, a powerful Flechette Pistol and multiple explosives including Wrist Rockets.
 
 ^2Weaponry:
 - Melee

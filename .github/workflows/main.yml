@@ -18,6 +18,8 @@ jobs:
         run: |
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
+          svn cleanup --vacuum-pristines $GAMEDATA
+          svn update $MBII
           $LegendsPk3 = $MBII + "\z_MBLegends.pk3"
           $LegendsZip = $MBII + "\z_MBLegends.zip"
           deterministic_zip MBAssets3.pk3 MBAssets3/
@@ -29,7 +31,7 @@ jobs:
           Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
           Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\
           Rename-Item -Path $LegendsZip -NewName $LegendsPk3
-          #Copy-Item -Path .\z_MBLegends -Destination .\temp\ -Recurse
+          robocopy .\z_MBLegends\ext_data .\temp\ext_data /MIR /R:0 /W:0
           deterministic_zip z_MBLegends.pk3 temp/
           Remove-Item -Recurse -Force .\temp\
           
