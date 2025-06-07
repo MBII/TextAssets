@@ -4,34 +4,38 @@ ClassInfo
 {
 	name			"v6_Tusk"
 	weapons			WP_SABER|WP_MELEE|WP_CLONE_PISTOL|WP_PROJ|WP_CONC_NADE
-	attributes		MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,1
+	attributes		MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,1|MB_ATT_WOOKIEE_FURY,2
 	forcepowers     FP_SABER_OFFENSE,1
-
+forcepool 100
+resource RESOURCE_RAGE
 	maxhealth		80
 	maxarmor        	80
 	MBClass			MB_CLASS_WOOKIE
-	speed			1.42
+	basespeed		232
 	WP_ProjFlags 		HELD_ALTRELOAD|HELD_KNOCKBACK
 	WP_ClonePistolFlags    HELD_ALTRELOAD
+	WP_SaberFlags HELD_SPEED
 	rageSoundOverride 	"sound/chars/tusken/misc/rage.mp3"
 	bargeSoundOverride 	"sound/chars/tusken/misc/anger3.mp3"
 	APmultiplier			1.2
-	rateOfFire          	0.94
-	classNumberLimit		2
-	damageGiven 			0.85
-	saberDamage 	177	//150
+	rateOfFire          	1
+	classNumberLimit		3
+	damageGiven 			1
+	saberDamage 	150
 	extralives			1
 	modelscale      		1.03
-	holdables       HI_BINOCULARS
+	//holdables       HI_BINOCULARS
 	
 	saber1		Gaffi_legends
 	saber1_1		Gaffi_legends2
-	saberstyle	SS_MEDIUM|SS_STRONG
+	saberstyle	SS_MEDIUM|SS_STAFF
 	
 	flourishAnim BOTH_VICTORY_FAST
 	gloatAnim BOTH_TUSKENTAUNT1
 	
-	uioverlay "gfx/icons/scout"
+	uioverlay_l "gfx/icons/scout"
+	uioverlay_c "gfx/icons/brawler"
+	uioverlay_r "gfx/icons/infantry"
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 	
@@ -50,11 +54,11 @@ ClassInfo
 	model_3		"tusken_fem_jk3"
 	skin_3		"default"
 	uishader_3 	"models/players/tusken_fem_jk3/mb2_icon_default"
-	respawnCustomTime 15000
+	//respawnCustomTime 15000
 	
-	//special1 EAS_HI_FURY
+	special1 EAS_NONE
 	special2 EAS_MELEE
-	special3 EAS_HI_BINOCULARS
+	//special3 EAS_HI_BINOCULARS
 }
 
 WeaponInfo0
@@ -76,25 +80,32 @@ WeaponInfo1
 	Icon				"gfx/hud/w_icon_tuskenpistol_dual"
 	altFireEnabled 		0
 	WeaponName			"Dual Projectile Pistols"
-	idleAnim 			DUAL_DRAW 
-	//firingAnim  			DUAL_RUNNING_FIRE_RIGHT
 	primHitscanShot		1
 	altHitscanShot 		1
 	primGore				1
 	altGore				1
 	PrimHitscanTracer 	100
 	AltHitscanTracer 		100
-	CustomAmmo 			"440"
-	CustomClip 			"40"
-	FlashSound0			"sound/weapons/bar/fire.wav" 
-	MuzzleEffect		"halo_pistol/Muzzle_Flash" 	
 	FPMult     			0.9
+	CustomAmmo 			520
+	clipsize				40
+	FlashSound0			"sound/weapons/bar/fire.wav" 
+	MuzzleEffect		"halo_pistol/Muzzle_Flash"
 	MissileMissEffect "halo_smg/wall_impact"
 	altMissileMissEffect "halo_smg/wall_impact"
 	MissileHitHumanEffect "halo_smg/wall_impact"
 	AltMissileHitHumanEffect "halo_smg/wall_impact"
 	MissileHitDroidEffect "halo_smg/wall_impact"
 	AltMissileHitDroidEffect "halo_smg/wall_impact"
+		damageMod .85
+		ratemod 0.94
+	hasAnimOverrides 1
+	animReady BOTH_SABERDUAL_STANCE
+	animReadyWalk BOTH_SABERDUAL_STANCE
+	animRunAttackR    DUAL_RUNNING_FIRE_RIGHT
+    animRunAttackL    DUAL_RUNNING_FIRE_LEFT
+    animWalkAttackR   DUAL_RUNNING_FIRE_RIGHT
+    animWalkAttackL   DUAL_RUNNING_FIRE_LEFT
 }
 
 WeaponInfo2
@@ -106,9 +117,10 @@ WeaponInfo2
 	FlashSound0			"sound/weapons/tusken_cycler/fire.wav"  			
 	Icon				"gfx/hud/w_icon_tuskenSniper"
 	WeaponName			"Tusken Cycler Projectile Rifle"  
-	CustomAmmo 	16
+	CustomAmmo 	14
 	clipsize    1
 	ReloadTimeModifier 1.35
+	damageMod .85
 }
 
 description	"Tusken Raider
@@ -121,9 +133,10 @@ A 2-life class with a unique blend of Melee weapons, slug-based guns, and Wookie
 - Wookiee-style Melee
 - Gaffi Stick
 -- Based on Lightsaber
--- Yellow/Red styles
--- 26/65% less damage
+-- Staff/Yellow styles
 -- Cannot block Sabers/Blasters
+-- 15% faster movement
+-- 42/37% less damage
 -- No Saber Throw
 -- Slap ^3[CS2]
 > Tusken Gaffi Stick
@@ -134,19 +147,20 @@ A 2-life class with a unique blend of Melee weapons, slug-based guns, and Wookie
 - Dual Projectile Pistols
 -- Based on Clone Pistols (3)
 -- Hitscan rounds
+-- 6% faster fire rate
+-- 15% less damage
 -- 10% less FP damage
 -- Fixed-length reload
 -- Prim. fire only
 - Concussion Grenades (2)
 - Tusken Cycler Projectile Rifle
 -- Pushes targets
+-- 15% less damage
 -- 35% slower reload
 -- Fixed-length reload
-
-^6Inventory:
-- Electrobinoculars ^3[CS3]
 
 ^8Attributes:
 - Reinforcement (1)
 - Strength (1)
+- Fury (2)
 - Healing (1)"
