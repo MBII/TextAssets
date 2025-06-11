@@ -15,15 +15,15 @@ ClassInfo
 	skin				"default"
 	uishader			"models/players/bossnass/mb2_icon_default"
 	MBClass				MB_CLASS_JEDI
-	classflags			CFL_BLOODYMELEE
+	classflags			CFL_BLOODYMELEE|CFL_STRONGAGAINSTPHYSICAL
 	WP_ThrowerFlags 	HELD_ALTRELOAD
 	WP_PulseNadeFlags HELD_HIGHDAMAGE
 	//WP_SaberFlags 	HELD_KNOCKDOWNRESISTANCE
 	WP_ConcussionFlags	HELD_ALTRELOAD
-	rateOfFire      	0.92
+	rateOfFire      1
 	speed			0.97
-	damageGiven 			0.95
-	
+	damageGiven 		1
+	skilltimermod 1.25
 	forcepool			115
 	modelScale      	1.10	
 	
@@ -56,12 +56,12 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_THROWER			//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_CLONE_RIFLE					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/CR-24_flamerifle/rifle_w.glm"  	//Required: New 3rd person/dropped weapon model
+	WeaponToReplace		WP_THROWER
+	WeaponBasedOff		WP_CLONE_RIFLE
+	NewWorldModel		"models/weapons2/CR-24_flamerifle/rifle_w.glm"
 	NewViewModel		"models/weapons2/CR-24_flamerifle/rifle.md3"		
-	Icon				"gfx/hud/w_icon_cr-24_flamerifle" 				//Required: Weapon change icon
-	WeaponName			"Repaired CR-24 Flame Rifle"    					//Required: Weapon change display name
+	Icon				"gfx/hud/w_icon_cr-24_flamerifle"
+	WeaponName			"Repaired CR-24 Flame Rifle" 
 	customAmmo			480
 	clipsize			90
 	ReloadTimeModifier 	1.4
@@ -74,7 +74,7 @@ WeaponInfo2
 	NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
 	NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
 	Icon				"gfx/hud/w_icon_e60r_launcher"
-	WeaponName			"E-60R Missile Launcher"
+	WeaponName			"Salvaged E-60R Missile Launcher"
 	customAmmo       	3
 }
 
@@ -122,6 +122,18 @@ WeaponInfo4
 	SelectSound	"sound/weapons/blunt/spin.mp3"	
 }
 
+WeaponInfo5
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BLASTER
+	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
+	NewViewModel 		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_e5"
+	WeaponName		"Salvaged E-5 Blaster Rifle"
+	rateMod .92
+	damageMod .95
+}
+
 description	"Boss Rugor Nass
 
 Class: Jedi
@@ -133,11 +145,13 @@ A tanky rocketeer with a large protective Energy Shield and inherent aquatic res
 - Gungan Personal Energy Shield
 -- Saber/Blaster Defense (1)
 -- Block only
-- E-11 Blaster Rifle (2)
+- Salvaged E-5 Blaster Rifle (2)
+-- 8% faster fire rate
+-- 5% less damage
 - Repaired CR-24 Flame Rifle
 -- 40% slower reload
 -- Fixed-length reload
-- E-60R Missile Launcher (3)
+- Salvaged E-60R Missile Launcher (3)
 -- Based on PLX-1
 - Boss's Big Blue Boomas (2)
 -- Based on Pulse Grenades
@@ -148,11 +162,13 @@ A tanky rocketeer with a large protective Energy Shield and inherent aquatic res
 -- Sec. fire only
 
 ^8Attributes:
+- 25% slower skill cooldown
 - Stamina (2)
 - Strength (2)
+- 50% Melee damage resist.
 - Blast Armor
 - Healing (2)
-- Rally (Assemble allies spawn on you)
+- Rally
 - Underwater Breathing
 
 ^3Abilities:
