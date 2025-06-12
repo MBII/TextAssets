@@ -2900,3 +2900,142 @@ gfx/mplevels/mb2_mustafar/map_duel
         rgbGen vertex
     }
 }
+
+//####################
+//##### Tutorial Maps
+//####################
+
+gfx/tutorial/Tut0_Map
+{
+	nopicmip
+    {
+		map gfx/tutorial/Tut0_Map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+gfx/tutorial/Tut1_Map
+{
+	nopicmip
+    {
+		map gfx/tutorial/Tut1_Map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+gfx/tutorial/Tut2_Map
+{
+	nopicmip
+    {
+		map gfx/tutorial/Tut2_Map
+		blendfunc blend
+		rgbGen vertex
+    }
+}
+
+gfx/automap/Tut0Minimap
+{
+	nopicmip
+    {
+		clampmap gfx/automap/Tut0Minimap
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/Tut0Minimapfull
+{
+	nomipmaps
+    {
+		map gfx/automap/Tut0Minimapfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/Tut1Minimap1
+{
+	nopicmip
+    {
+		clampmap gfx/automap/Tut1Minimap1
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/Tut1Minimap1full
+{
+	nomipmaps
+    {
+		map gfx/automap/Tut1Minimap1full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/Tut1Minimap2
+{
+	nopicmip
+    {
+		clampmap gfx/automap/Tut1Minimap2
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/Tut1Minimap2full
+{
+	nomipmaps
+    {
+		map gfx/automap/Tut1Minimap2full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/Tut1Minimap3
+{
+	nopicmip
+    {
+		clampmap gfx/automap/Tut1Minimap3
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/Tut1Minimap3full
+{
+	nomipmaps
+    {
+		map gfx/automap/Tut1Minimap3full
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/automap/Tut2Minimap
+{
+	nopicmip
+    {
+		clampmap gfx/automap/Tut2Minimap
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/Tut2Minimapfull
+{
+	nomipmaps
+    {
+		map gfx/automap/Tut2Minimapfull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
