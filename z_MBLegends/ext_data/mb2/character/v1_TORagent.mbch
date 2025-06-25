@@ -21,7 +21,7 @@ ClassInfo
 	rankROF 0.85
 	rateOfFire_Melee	0.92
 	KnockbackGiven	1
-	rankKbGiven 1.25
+	rankKbGiven 1.3
 	basespeed	220
 	rankbasespeed	235
 	WP_SaberFlags	HELD_PULSE|HELD_POISON
@@ -34,11 +34,11 @@ ClassInfo
 	holdables HI_MEDPAC|HI_SEEKER|HI_CLOAK
 	saber1	Legends_Knife_Spy
 	saberstyle	SS_TAVION
-	saberdamage	120
-	rankSaberDamage	150
-	ArmourRegenCap 20
-	ArmourRegenRate	10000
-	rankArmourRegenAmount 20
+	saberdamage	115
+	rankSaberDamage	144
+	ArmourRegenCap 25
+	ArmourRegenRate	1000
+	rankArmourRegenAmount 2
 	special1 EAS_HI_SPRINT
 	special2 EAS_HI_DEX
 	special3 EAS_HI_DODGE
@@ -88,7 +88,7 @@ ClassInfo
 	c_att_names_4	"Fire Rate (+15%):"
 	c_att_ranks_4 5
 	c_att_skill_5	MB_ATT_KB_GIVEN_MULTIPLIER
-	c_att_names_5	"Knockback Given (+25%):"
+	c_att_names_5	"Knockback Given (+30%):"
 	c_att_ranks_5 5
 	c_att_skill_15 MB_ATT_RESPAWNS
 	c_att_names_15 "Reinforcement:"
@@ -147,50 +147,51 @@ ClassInfo
 }
 WeaponInfo0
 {
-	WeaponToReplace WP_SABER
-	WeaponBasedOff WP_SABER
-	NewWorldModel	"models/weapons2/vibroknife/model.glm"
-	NewViewModel	"models/weapons2/dummy/dummy.md3"
-	Icon	"gfx/hud/w_icon_prisonknife"
-	WeaponName	"Acidic Vibroknife"
+WeaponToReplace WP_SABER
+WeaponBasedOff WP_SABER
+NewWorldModel	"models/weapons2/vibroknife/model.glm"
+NewViewModel	"models/weapons2/dummy/dummy.md3"
+Icon	"gfx/hud/w_icon_prisonknife"
+WeaponName	"Acidic Vibroknife"
 }
 WeaponInfo1
 {
-	WeaponToReplace	WP_DLT20A
-	WeaponBasedOff	WP_DLT20A
-	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
-	NewViewModel "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
-	Icon "gfx/hud/w_icon_dlt-18"
-	WeaponName	"Electrified Railgun"
-	MuzzleEffect	"Blaster/MuzzleFlash01B"
-	MissileEffect	"halo_smg/projectile"
-	MissileMissEffect "halo_smg/wall_impact"
-	AltMuzzleEffect "Blaster/MuzzleFlash01B"
-	AltMissileEffect "Blaster/Shot02B"
-	FlashSound0 "sound/weapons/EL-16/fire.wav"
-	AltFlashSound0	"sound/weapons/EL-16/alt_fire.wav"
-	customAmmo	350
-	primHitscanShot	1
-	primHitscanTracer	10
-	primGore	1
-	clipSize 20
-	FPMult 1.1
-	ratemod	1.2
-	ReloadTimeModifier 1.7
+WeaponToReplace	WP_DLT20A
+WeaponBasedOff	WP_DLT20A
+NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+NewViewModel "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+Icon "gfx/hud/w_icon_dlt-18"
+WeaponName	"Electrified Railgun"
+MuzzleEffect	"Blaster/MuzzleFlash01B"
+MissileEffect	"halo_smg/projectile"
+MissileMissEffect "halo_smg/wall_impact"
+AltMuzzleEffect "Blaster/MuzzleFlash01B"
+AltMissileEffect "Blaster/Shot02B"
+FlashSound0 "sound/weapons/EL-16/fire.wav"
+AltFlashSound0	"sound/weapons/EL-16/alt_fire.wav"
+customAmmo	350
+primHitscanShot	1
+primHitscanTracer	10
+primGore	1
+clipSize 20
+FPMult 1.1
+ratemod	1.2
+damageMod	1.1
+ReloadTimeModifier 1.7
 }
 WeaponInfo2
 {
-	WeaponToReplace	WP_A280
-	WeaponBasedOff	WP_BLASTER
-	NewWorldModel	"models/weapons2/relby_v10/model_w.glm"
-	NewViewModel	"models/weapons2/dummy/dummy.md3"
-	Icon	"gfx/hud/w_icon_relby_v10"
-	WeaponName	"Sith Blaster Rifle"
-	customAmmo 625
-	FPMult 0.75
-	ratemod	0.75
-	damageMod	0.75
-	clipsize 40
+WeaponToReplace	WP_A280
+WeaponBasedOff	WP_BLASTER
+NewWorldModel	"models/weapons2/relby_v10/model_w.glm"
+NewViewModel	"models/weapons2/dummy/dummy.md3"
+Icon	"gfx/hud/w_icon_relby_v10"
+WeaponName	"Sith Blaster Rifle"
+customAmmo 625
+FPMult 0.75
+ratemod	0.75
+damageMod	0.75
+clipsize 40
 }
 WeaponInfo3
 {
@@ -210,6 +211,8 @@ FPMult	1.25
 clipSize 10
 damageMod 1.25
 customammo 50
+ratemod 0.2
+velocityMod 1.5
 AltFireEnabled 0
 }
 WeaponInfo4
@@ -237,7 +240,6 @@ ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
 WeaponName "Sith Blaster Pistol"
 clipSize 20
 }
-
 description	"Sith Operative [Bounty Hunter]
 
 Multi-life elite troopers.
@@ -256,7 +258,6 @@ Multi-life elite troopers.
 
 ^8Default Attributes:
 - Reinforcement (1)
-- Dexterity (3)
 - Healing (1)
 - Force Block (1)
 - Assemble
@@ -265,12 +266,14 @@ Multi-life elite troopers.
 - Electrified Railgun (DLT20A)
 -- Prim. fire: Hitscan rounds
 -- Alt. fire: Electrifies targets
--- 10% more FP damage
 -- 20% slower fire rate
+-- 10% more damage/FP damage
 -- 70% slower reload
 -- 15% slower movement
 - Poison Launcher (DEMP2)
 -- Poisons/staggers targets
+-- 50% faster projectiles
+-- 80% faster fire rate
 -- 25% more damage/FP damage
 - Sith Blaster Rifle (A280)
 -- 25% faster fire rate
@@ -278,5 +281,4 @@ Multi-life elite troopers.
 - Corrosive Stun Grenade (Frag Grenade)
 -- Sec. fire electrifies/poisons/knocks down on direct hit
 -- 50% less damage
--- 50% slower fire rate
-- Armor Regen (20/10s up to 20)"
+- Armor Regen (2/1s up to 25)"
