@@ -2,12 +2,11 @@
 ClassInfo
 {
 	name  			"v7_Zuck"
-	weapons 		WP_SABER|WP_MELEE|WP_T21|WP_DEMP2
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_FP_MIRALUKA|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT,2|MB_ATT_DEMP2,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_BEACON
+	weapons 		WP_SABER|WP_MELEE|WP_T21|WP_DEMP2|WP_FLECHETTE
+	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_FP_MIRALUKA|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT,2|MB_ATT_DEMP2,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_BEACON|MB_ATT_FLECHETTE,1
 	saber1  		qstaff_legends
 	saberstyle  	SS_DESANN|SS_STAFF|SS_MEDIUM
 	forcepowers		FP_SEE,1|FP_SABER_OFFENSE,3
-	saberMaxChain 1
 	maxhealth 		125
 	maxarmor  		125
 	forcepool		150
@@ -19,22 +18,21 @@ ClassInfo
 	speed 			1.04
 	modelscale      0.93
 	classNumberLimit	1
-	APmultiplier		1.1
-	BPmultiplier        1.1
-	ASmultiplier        1
-	CSmultiplier        1.125
+	APmultiplier	1.1
+	BPmultiplier   1.1
+	ASmultiplier   1
+	CSmultiplier   1
 	damageGiven        1
-	rateOfFire        .7
-	SaberDamage 120
+	SaberDamage 90
 	gloatAnim       BOTH_TUSKENATTACK2
 	flourishAnim    BOTH_TUSKENTAUNT1
 	saberStanceAnim	BOTH_TRIPLE3_STAFFSTANCE
 	WP_T21Flags   HELD_KNOCKBACK
 	//WP_T21Flags   HELD_KNOCKBACK|HELD_SLOWPROJ|HELD_SLOW|HELD_ALTRELOAD|HELD_EXPLOSIVE|HELD_LOWDAMAGE
-	WP_SaberFlags HELD_PULSE|HELD_STUN|HELD_KNOCKDOWN
+	WP_SaberFlags HELD_PULSE|HELD_STUN
 	WP_Demp2Flags HELD_LOWDAMAGE|HELD_FREEZE|HELD_STUN|HELD_PULSE
 	//respawncustomtime  50000	
-	
+	WP_FlechetteFlags HELD_EXPLOSIVE|HELD_POISON|HELD_ALTRELOAD
 	special1 EAS_HI_SPRINT
 	special2 EAS_MELEE
 	special3 EAS_HI_DEX
@@ -73,6 +71,7 @@ WeaponInfo1
 	WeaponName			"W-90 Concussion Rifle"
 	customAmmo          384
 	clipsize            64
+	rateMod 0.7
  	hasAnimOverrides 1
 	animReady BOTH_DC15_IDLE
 	animReadyWalk TORSO_WEAPONREADY4
@@ -100,6 +99,7 @@ WeaponInfo2
 	clipsize				2
 	ReloadTimeModifier 	45
 	FPMult 3.5
+	rateMod 0.5
 	hasAnimOverrides 1
 	animReady BOTH_DC15_IDLE
 	animReadyWalk TORSO_WEAPONREADY4
@@ -109,7 +109,40 @@ WeaponInfo2
 	animStand TORSO_DROPWEAP4
 	altfireenabled 0
 }
-
+WeaponInfo3
+{
+	WeaponToReplace	WP_FLECHETTE
+	WeaponBasedOff	WP_FLECHETTE
+	WeaponName		"Ammonia Bombs"
+	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel		"models/weapons2/thermal/thermal_hand.md3"
+	Icon				"gfx/hud/w_thermal_grenade"
+	AltMissileModel	"models/weapons2/thermal/thermal_proj.md3"
+	altMissileMissEffect	"noghri_stick/flesh_impact"
+	altMissileHitDroidEffect	"noghri_stick/flesh_impact"
+	altMissileHitHumanEffect	"noghri_stick/flesh_impact"
+	altMissileEffect		"hutt/toxic_breath"
+	altMuzzleEffect null
+	altFlashSound "sound/weapons/stone/fire.mp3"
+	FlashSound "sound/weapons/stone/fire.mp3"
+	MissileModel	"models/weapons2/thermal/thermal_proj.md3"
+	MissileMissEffect	"noghri_stick/flesh_impact"
+	MissileHitDroidEffect	"noghri_stick/flesh_impact"
+	MissileHitHumanEffect	"noghri_stick/flesh_impact"
+	MissileEffect		"hutt/toxic_breath"
+	MuzzleEffect null
+	primFireEnabled  0
+	clipSize 15
+	customAmmo 30
+	reloadTimeModifier 2
+	hasAnimOverrides 1
+	animReady BOTH_WALK6
+	animReadyWalk BOTH_WALK6
+	animReadyNoAmmo BOTH_A6_LR
+	animAttack BOTH_A6_LR
+	animAttackWalk BOTH_A6_LR
+	animStand BOTH_STAND1
+}
 ForceInfo0
 {
 	ForceToReplace	FP_SEE
@@ -117,36 +150,37 @@ ForceInfo0
 	ForcePowerName	"Findsman Precognition"
 }
 
-description	"Zuckuss
+description	"Zuckuss (ARC Trooper)
 
-Class: ARC Trooper
-Brief Overview: 
-A dexterous hunter with disruptive weaponry. Gifted with passive Sense.
+A hunter focused on disruption.
 
 ^2Weaponry:
 - Melee
-- Gand Shockprod Staff
--- Based on Lightsaber
--- Staff/Yellow/Purple styles
+- Gand Shockprod Staff (S/Y/P Lightsaber)
 -- Saber Defense (1)
 -- Cannot block Blasters
--- Chain Limit: 1
--- Electrifies/staggers/knocks down targets
+-- No combos
+-- Electrifies/staggers targets
 -- 5% more knockback
--- 30% faster swings
--- 53/50/62% less damage
+-- 61/58/75% less damage
 -- 16/33% shorter reach
 -- Slap ^3[CS2]
-- GRS-1 Snare Rifle
--- Based on DEMP 2 (1)
+- GRS-1 Snare Rifle (DEMP2 1)
 -- Electrifies/freezes/staggers targets
 -- 350% more FP damage
+-- 65% faster weapon switch
 -- 50% less damage
 -- 4500% slower reload
 -- Prim. fire only
-- W-90 Concussion Rifle
--- Based on T-21 Heavy Blaster (1)
+- Ammonia Bombs (3) (Flechette 1)
+-- Deals AoE damage while traveling
+-- Poisons targets on hit
+-- 100% slower reload
+-- Fixed-length reload
+-- Sec. fire only
+- W-90 Concussion Rifle (T-21 1)
 -- Pushes targets
+-- 35% faster fire rate
 -- 100% more FP damage
 
 ^8Attributes:
@@ -154,7 +188,7 @@ A dexterous hunter with disruptive weaponry. Gifted with passive Sense.
 - Dexterity (3)
 - Armor Regen (1)
 - Healing (2)
-- Findsman Precognition (Miraluka Vision 1)
+- Findsman Precognition (Miraluka 1)
 - Mind Trick Immunity
 - Tracking Beacon
 - Force Block (3)

@@ -3,32 +3,38 @@
 ClassInfo
 {
 	name					"h3_Delta"
-	weapons					WP_SABER|WP_MELEE|WP_BLASTER|WP_PROJ|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_FRAG_NADE
-	attributes				MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_DASH,1|MB_ATT_PISTOL,1
-	maxhealth			80
-	maxarmor				50
-	saber1 				"arc_shiv_legends"
-	saberstyle			SS_TAVION
 	MBClass				MB_CLASS_CLONETROOPER
-	speed				1.08
-	rateoffire			1
-	APmultiplier			1.1
-	BPmultiplier		0
-	modelscale      		1.02
 	classNumberLimit		1
-	DamageTaken			0.90
-	DamageGiven			1.0
-	knockbackTaken  0.8
-	saberdamage 124
 	
+	weapons		WP_SABER|WP_MELEE|WP_BLASTER|WP_DISRUPTOR|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_FRAG_NADE
+	attributes	MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_DASH,1|MB_ATT_PISTOL,1|MB_ATT_DISRUPTOR,1
+	
+	DamageTaken	0.90
+
+	maxhealth	80
+	maxarmor		50
 	armourRegenAmount	4
-	armourRegenRate		1000
+	armourRegenRate	1000
+	knockbackTaken  0.8
+	
+	saber1 		arc_shiv_legends
+	saberstyle	SS_TAVION
+	APmultiplier	1.15
+	ASmultiplier 	1.18
+	BPmultiplier	0
+	
+	speed		1.08
+	rateoffire	1
+	
+	saberdamage 90
+	saberMaxChain 1
 
 	WP_BlasterFlags		HELD_ALTRELOAD	
+	WP_DisruptorFlags HELD_ALTRELOAD
 	
 	resource		RESOURCE_STAMINA
 	forcepool	110
-	forceregen 1.1
+	
 	holdables	HI_MEDPAC_BIG|HI_MEDPAC
 
 	special1	EAS_HI_SPRINT
@@ -44,23 +50,24 @@ ClassInfo
 	//WalkBackward BOTH_WALK_DUAL
 	//WalkForward BOTH_WALK_DUAL
 	
+	modelscale      		1.02
 	uioverlay "gfx/icons/heavy"
 	
-	model			"clonerc2"
-	skin				"boss_legends"
-	uishader			"models/players/clonerc2/mb2_icon_boss"
+	model		"clonerc2"
+	skin			"boss_legends"
+	uishader		"models/players/clonerc2/mb2_icon_boss"
 	
-	model_1			"clonerc2"
-	skin_1			"fixer_legends"
-	uishader_1		"models/players/clonerc2/mb2_icon_fixer"
+	model_1		"clonerc2"
+	skin_1		"fixer_legends"
+	uishader_1	"models/players/clonerc2/mb2_icon_fixer"
 	
-	model_2			"clonerc2"
-	skin_2			"sev_legends"
-	uishader_2		"models/players/clonerc2/mb2_icon_sev"
+	model_2		"clonerc2"
+	skin_2		"sev_legends"
+	uishader_2	"models/players/clonerc2/mb2_icon_sev"
 	
-	model_3			"clonerc2"
-	skin_3			"scorch_legends"
-	uishader_3		"models/players/clonerc2/mb2_icon_scorch"
+	model_3		"clonerc2"
+	skin_3		"scorch_legends"
+	uishader_3	"models/players/clonerc2/mb2_icon_scorch"
 	
 	//respawncustomtime  50000	
 }
@@ -105,19 +112,21 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_PROJ
-	WeaponBasedOff		WP_BOWCASTER
+	WeaponToReplace		WP_DISRUPTOR
+	WeaponBasedOff		WP_DISRUPTOR
 	NewWorldModel		"models/weapons2/DC-17m/sniper.glm"
 	NewViewModel		"models/weapons2/DC-17m/sniper.md3"
 	Icon				"gfx/hud/w_icon_dc-17mS"
 	FlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	altMuzzleEffect "Blaster/MuzzleFlash01B"
 	WeaponName			"DC-17m Sniper Attachment"
-	PrimHitscanShot 	1
-	PrimHitscanTracer 	10
-	clipSize			1
-	customAmmo 			7
-	ReloadTimeModifier 	1.2
-	FPmult				1.1
+	clipSize			25
+	customAmmo 		75
+	damageMod 1.5
+	ReloadTimeModifier 	1.9
+	FPmult				1.25
+	rateMod 1.15
 }
 
 WeaponInfo3
@@ -143,38 +152,36 @@ WeaponInfo3
 	rateMod 0.6
 }
 
-description	"Delta Squad Clone Commando
+description	"Delta Squad Clone Commando [Clone Trooper]
 
-Class: Clone Trooper
-Brief Overview: 
 Mobile armor-regenning gunner.
 
 ^2Weaponry:
 - Melee
-- Knuckle Plate Vibroblade
--- Based on Lightsaber
--- Cyan style
+- Knuckle Plate Vibroblade (Cyan Lightsaber)
 -- Cannot block Sabers/Blasters
--- 3% more damage
+-- Chain Limit: 1
+-- 5% more knockback
+-- 25% less damage
 -- 57% shorter reach
 -- 33% wider radius
 -- Slap ^3[Gunbash]
-- DC-15s Side Arm Blaster
--- Based on Blaster Pistol (1)
+- DC-15s Side Arm Blaster (Pistol 1)
 -- 40% faster fire rate
 -- 100% slower reload
-- DC-17m Repeating Blaster Rifle
--- Based on Blaster Rifle (2)
+- DC-17m Repeating Blaster Rifle (2)
 -- 40% faster fire rate
 -- 25% slower reload
 -- Fixed-length reload
 -- Sec. fire only
 - Frag Grenades (2)
 - Pulse Grenades (2)
-- DC-17m Sniper Attachment
--- Based on Projectile Rifle
--- 10% more FP damage
--- 20% slower reload
+- DC-17m Sniper Attachment (Disruptor 1)
+-- 50% more damage
+-- 25% more FP damage
+-- 15% slower fire rate
+-- 90% slower reload
+-- Fixed-length reload
 
 ^6Inventory:
 - Bacta (25 HP to self)
