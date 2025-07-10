@@ -6,19 +6,21 @@ ClassInfo
 	skin			"default"
 	uishader		"models/players/niennunb/mb2_icon_default"
 	MBClass		MB_CLASS_HERO
-	saber1		Wrench_Legends
+	saber1		nien_leg_p
 	sabercolor	0
 	saberstyle	SS_MEDIUM
 	
-	saber1_1     Wrench_Legends_2
+	saber1_1    nien_leg_s
 	sabercolor	0
 	saberstyle_1 	SS_MEDIUM
 	
 	weapons				WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_DISRUPTOR|WP_SABER|WP_TRIP_MINE|WP_PULSE_NADE
-	attributes			MB_ATT_BLASTER,2|MB_ATT_DISRUPTOR,2|MB_ATT_MICRO_GRENADES,3|MB_ATT_FRAGS,4|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_TRIP_MINES,3|MB_ATT_QUICKTHROW,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_HEALING,3
+	attributes			MB_ATT_BLASTER,2|MB_ATT_DISRUPTOR,2|MB_ATT_MICRO_GRENADES,3|MB_ATT_FRAGS,4|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_TRIP_MINES,3|MB_ATT_QUICKTHROW,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_HEALING,3|MB_ATT_SABER_COMBO_NONE
+	
+	forcepowers FP_SABERTHROW,0
 	
 	maxhealth		130
-	maxarmor			80
+	maxarmor			90
    
 	classNumberLimit	1
 
@@ -26,10 +28,11 @@ ClassInfo
 	rateOfFire		0.8
 	damageGiven 		0.8
 	damageTaken		0.9
-
+	ASmultiplier     1.15
 	APmultiplier		1.2
 	BPmultiplier		0
-	
+	saberDamage 150 //120
+	saberThrowDamage 87 //69
 	holdables		HI_CLOAK|HI_SENTRY_GUN
 	classflags       CFL_SEEING_STEALTH
 	modelscale       0.93
@@ -43,10 +46,10 @@ ClassInfo
 	
 	//respawncustomtime  50000
 	
-	special1			EAS_HI_DODGE
+	special1			EAS_FP_SABERTHROW
 	special2			EAS_HI_DASH
-	special3			EAS_HI_QUICKTHROW	
-	special4			EAS_HI_CLOAK
+	special3			EAS_HI_DODGE
+	special4			EAS_HI_QUICKTHROW
 	
 	resource			resource_energy
 	forcepool	100
@@ -59,7 +62,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_mwrench"
-	WeaponName			"Wrench"
+	WeaponName		"Wrench + Magna-Gloves"
 	SelectSound "sound/weapons/blade/slash2.mp3"
 }
 
@@ -83,32 +86,32 @@ WeaponInfo2
 	Icon				"gfx/hud/w_icon_dh-17"
 	WeaponName			"DH-17 Blaster Pistol"
 	hasAnimOverrides 1
-	animReady BOTH_STAND4TOATTACK2
-	animReadyWalk BOTH_STAND4TOATTACK2
-	animReadyNoAmmo BOTH_PISTOL_ATTACK 
-	animAttack BOTH_PISTOL_ATTACK 
-	animAttackWalk BOTH_PISTOL_ATTACK 
+	animReady BOTH_MAND_PISTOL_READY
+	animReadyWalk BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo BOTH_MAND_PISTOL_ATTACK
+	animAttack BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk BOTH_MAND_PISTOL_ATTACK
 	animStand BOTH_STAND1
 	customammo 500
 }
 
-description	"Nien Nunb
+description	"Nien Nunb [Hero]
 
-Class: Hero
-Brief Overview: 
 A scrappy, evasive class with many explosives, a melee weapon with high knockback, and gadgets.
 
 ^2Weaponry:
 - Melee
-- Power Wrench/Spanner Wrench
+- Wrench + Magna-Gloves
 -- Based on Lightsaber
 -- Yellow style
 -- Cannot block Sabers/Blasters
+-- No combos
 -- 25% more knockback
--- 40% less damage
+-- 37% less damage
 -- 50% shorter reach
 -- 167% wider radius
--- No Saber Throw
+-- Saber Throw ^3[CS1]
+--- 200% more damage
 -- Slap ^3[Gunbash]
 - DH-17 Blaster Pistol
 -- Based on Blaster Rifle (2)
@@ -121,7 +124,7 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 - Concussion Grenades (3)
 
 ^6Inventory:
-- Cloaking Device ^3[CS4]
+- Cloaking Device
 - Assault Sentry
 
 ^8Attributes:
@@ -130,6 +133,6 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 - Huehuehue (Force Sense Immunity)
 
 ^3Abilities:
-- Dodge (3) ^3[CS1]
 - Dash (2) ^3[CS2]
-- Quick-Throw (2) ^3[CS3 outside ^3of Grenades]"
+- Dodge (3) ^3[CS3]
+- Quick-Throw (2) ^3[CS4 outside ^3of Grenades]"
