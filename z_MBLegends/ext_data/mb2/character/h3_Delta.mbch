@@ -34,7 +34,7 @@ ClassInfo
 	
 	resource		RESOURCE_STAMINA
 	forcepool	110
-	
+	forceregen 1.1
 	holdables	HI_MEDPAC_BIG|HI_MEDPAC
 
 	special1	EAS_HI_SPRINT
@@ -80,10 +80,10 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
 	FlashSound0			"sound/weapons/dc17m/fire.wav"
 	AltFlashSound0 		"sound/weapons/dc17m/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"blaster/Shot01B"
-	AltMissileEffect 	"blaster/Shot01B"
+	MuzzleEffect		"Blaster/MuzzleFlash01C"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01C"
+	MissileEffect		"blaster/Shot01C"
+	AltMissileEffect 	"blaster/Shot01C"
 	Icon				"gfx/hud/w_icon_dc-17mB"
 	WeaponName			"DC-17m Repeating Blaster Rifle"
 	customAmmo 			1260
@@ -118,15 +118,20 @@ WeaponInfo2
 	NewViewModel		"models/weapons2/DC-17m/sniper.md3"
 	Icon				"gfx/hud/w_icon_dc-17mS"
 	FlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	altMuzzleEffect "Blaster/MuzzleFlash01B"
+	altFlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
+	MuzzleEffect		"Blaster/MuzzleFlash01C"
+	altMuzzleEffect "Blaster/MuzzleFlash01C"
+	MissileEffect		"Blaster/Shot03C"
+	AltMissileEffect	"Blaster/Shot02C"
 	WeaponName			"DC-17m Sniper Attachment"
 	clipSize			25
 	customAmmo 		75
 	damageMod 1.5
 	ReloadTimeModifier 	1.9
-	FPmult				1.25
+	FPmult				1.5
 	rateMod 1.15
+	disruptorBeam1 "gfx/effects/disrupt_beam_blue"
+	disruptorBeam2 "gfx/effects/disrupt_beam_blue"
 }
 
 WeaponInfo3
@@ -139,17 +144,23 @@ WeaponInfo3
 	WeaponName			"DC-15s Side Arm Blaster"	
 	FlashSound0			"sound/weapons/demp2/fire.mp3"
 	AltFlashSound0 		"sound/weapons/demp2/altfire.mp3"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot01B"
-	Missile3Effect		"Blaster/Shot04B"
-	AltMissileEffect	"Blaster/Shot04B"
-	PowerupShotEffect	"Blaster/Shot04B"
+	MuzzleEffect		"Blaster/MuzzleFlash01C"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01C"
+	MissileEffect		"Blaster/Shot01C"
+	Missile3Effect		"Blaster/Shot04C"
+	AltMissileEffect	"Blaster/Shot04C"
+	PowerupShotEffect	"Blaster/Shot04C"
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
 	clipSize			15
 	ReloadTimeModifier 	2
 	customammo 			435
 	rateMod 0.6
+	hasAnimOverrides 1
+	animReady		BOTH_PISTOL_READY
+	animReadyWalk		BOTH_PISTOL_READY
+	animReadyNoAmmo	BOTH_PISTOL_ATTACK
+	animAttack    BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk  BOTH_MAND_PISTOL_ATTACK
 }
 
 description	"Delta Squad Clone Commando [Clone Trooper]
@@ -161,34 +172,33 @@ Mobile armor-regenning gunner.
 - Knuckle Plate Vibroblade (Cyan Lightsaber)
 -- Cannot block Sabers/Blasters
 -- Chain Limit: 1
--- 5% more knockback
--- 25% less damage
+-- 5% more KB
+-- 25% less DMG
 -- 57% shorter reach
 -- 33% wider radius
 -- Slap ^3[Gunbash]
 - DC-15s Side Arm Blaster (Pistol 1)
--- 40% faster fire rate
+-- 40% faster RoF
 -- 100% slower reload
 - DC-17m Repeating Blaster Rifle (2)
--- 40% faster fire rate
+-- 40% faster RoF
 -- 25% slower reload
 -- Fixed-length reload
 -- Sec. fire only
 - Frag Grenades (2)
 - Pulse Grenades (2)
 - DC-17m Sniper Attachment (Disruptor 1)
--- 50% more damage
--- 25% more FP damage
--- 15% slower fire rate
+-- 50% more DMG/FP DMG
+-- 15% slower RoF
 -- 90% slower reload
 -- Fixed-length reload
 
 ^6Inventory:
-- Bacta (25 HP to self)
-- Big Bacta (50 HP to self)
+- Bacta (25 HP)
+- Big Bacta (50 HP)
 
 ^8Attributes:
-- 20% less knockback taken
+- 20% less KB taken
 - Stamina (3)
 - Dexterity (1)
 - Blast Armor
