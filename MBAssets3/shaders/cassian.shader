@@ -78,27 +78,10 @@ models/players/cassian/torso_parka
     }
 }
 
-models/players/cassian/torso_parka_cull
-{
-	q3map_nolightmap
-	cull	disable
-    {
-        map models/players/cassian/torso_parka
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/cassian/torso_parka_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
 models/players/cassian/torso_parka_fur
 {
 	q3map_nolightmap
-	cull	disable
+	cull	twosided
     {
         map models/players/cassian/torso_parka_fur
         alphaFunc GE192
