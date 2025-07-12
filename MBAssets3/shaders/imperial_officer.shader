@@ -1,274 +1,127 @@
-models/players/imperial/torso_black
+models/players/hs_imperial/boots_hips
 {
-	q3map_nolightmap
 	{
-		map models/players/imperial/torso_black
+		map models/players/hs_imperial/boots_hips
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/Krennic/torso_specular
+	{	
+		map models/players/hs_imperial/boots_hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/imperial/torso_blue
+models/players/hs_imperial/boots_hips-black
 {
-	q3map_nolightmap
 	{
-		map models/players/imperial/torso_blue
+		map models/players/hs_imperial/boots_hips-black
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/Krennic/torso_specular
+	{	
+		map models/players/hs_imperial/boots_hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/imperial/torso_brown
+models/players/hs_imperial/boots_hips-black2
 {
-	q3map_nolightmap
 	{
-		map models/players/imperial/torso_brown
+		map models/players/hs_imperial/boots_hips-black2
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/Krennic/torso_specular
+	{	
+		map models/players/hs_imperial/boots_hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/imperial/torso_gray
+models/players/hs_imperial/boots_hips-brown
 {
-	q3map_nolightmap
 	{
-		map models/players/imperial/torso_gray
+		map models/players/hs_imperial/boots_hips-brown
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/Krennic/torso_specular
+	{	
+		map models/players/hs_imperial/boots_hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/imperial/torso_olive
+models/players/hs_imperial/boots_hips-olive
 {
-	q3map_nolightmap
 	{
-		map models/players/imperial/torso_olive
+		map models/players/hs_imperial/boots_hips-olive
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/Krennic/torso_specular
+	{	
+		map models/players/hs_imperial/boots_hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/imperial/torso_red
+
+// Galak
+models/players/hs_imperial/galak_boots_hips
 {
-	q3map_nolightmap
 	{
-		map models/players/imperial/torso_red
+		map models/players/hs_imperial/galak_boots_hips
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/Krennic/torso_specular
+	{	
+		map models/players/hs_imperial/boots_hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/imperial/torso_veers
+
+// Female
+models/players/imperial_fml/boots_hips
 {
-	q3map_nolightmap
 	{
-		map models/players/imperial/torso_veers
+		map models/players/imperial_fml/boots_hips
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/Krennic/torso_specular
+	{	
+		map models/players/hs_imperial/boots_hips_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
 	}
 }
 
-models/players/imperial_fml/torso
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial_fml/torso
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
 
-models/players/imperial/hips_legs_black
+// Daala
+models/players/imperial_fml/hair_daala
 {
-	q3map_nolightmap
-	{
-		map models/players/imperial/hips_legs_black
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_black_cull
-{
-	q3map_nolightmap
 	cull	disable
 	{
-		map models/players/imperial/hips_legs_black
+		map models/players/imperial_fml/hair_daala
+		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_brown
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/hips_legs_brown
+		map models/players/sabine/env
+		blendFunc GL_ONE GL_ONE
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen const 1
+		tcGen environment
 		detail
-		alphaGen lightingSpecular
 	}
-}
-
-models/players/imperial/hips_legs_brown_cull
-{
-	q3map_nolightmap
-	cull	disable
 	{
-		map models/players/imperial/hips_legs_brown
+		map models/players/imperial_fml/hair_daala
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_gray
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/hips_legs_gray
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_gray_cull
-{
-	q3map_nolightmap
-	cull	disable
-	{
-		map models/players/imperial/hips_legs_gray
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_olive
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/hips_legs_olive
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_olive_cull
-{
-	q3map_nolightmap
-	cull	disable
-	{
-		map models/players/imperial/hips_legs_olive
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_veers
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/hips_legs_veers
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/hips_legs_veers_cull
-{
-	q3map_nolightmap
-	cull	disable
-	{
-		map models/players/imperial/hips_legs_veers
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/hips_legs_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
 	}
 }

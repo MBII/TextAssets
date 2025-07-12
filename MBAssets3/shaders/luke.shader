@@ -487,52 +487,6 @@ models/players/luke_ceremonial/jacket_luke
 
 // EXPANDED UNIVERSE
 
-// shadows of the empire luke
-
-models/players/luke_sote/jackets
-	{
-		cull twosided
-	{
-		map models/players/luke_sote/jackets
-		rgbGen lightingDiffuse
-	}
- 	{
-        		map models/players/han_solo/jackets_s
-       		 blendFunc GL_SRC_ALPHA GL_ONE
-      		  detail
-       		 alphaGen lightingSpecular
-	}
-	}
-
-models/players/luke_sote/clothes
-	{
-	{
-		map models/players/luke_sote/clothes
-		rgbGen lightingDiffuse
-	}
- 	{
-        		map models/players/han_solo/clothes_s
-       		 blendFunc GL_SRC_ALPHA GL_ONE
-      		  detail
-       		 alphaGen lightingSpecular
-	}
-	}
-
-models/players/luke_sote/hanbelt
-	{
-	{
-		map models/players/luke_sote/hanbelt
-		rgbGen lightingDiffuse
-	}
- 	{
-        		map models/players/han_solo/hanbelt_s
-       		 blendFunc GL_SRC_ALPHA GL_ONE
-      		  detail
-       		 alphaGen lightingSpecular
-	}
-	}
-
-
 // dark empire luke
 
 models/players/luke_de/cape
