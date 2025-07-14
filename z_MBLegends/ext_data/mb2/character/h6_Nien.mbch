@@ -2,57 +2,59 @@
 ClassInfo
 {
 	name			"h6_Nien"
-	model		"niennunb"
-	skin			"default"
-	uishader		"models/players/niennunb/mb2_icon_default"
+	classNumberLimit	1
 	MBClass		MB_CLASS_HERO
+	
+	weapons		WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_DISRUPTOR|WP_SABER|WP_TRIP_MINE|WP_PULSE_NADE
+
+	attributes	MB_ATT_BLASTER,2|MB_ATT_DISRUPTOR,2|MB_ATT_MICRO_GRENADES,3|MB_ATT_FRAGS,4|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_TRIP_MINES,3|MB_ATT_QUICKTHROW,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_HEALING,3|MB_ATT_SABER_COMBO_NONE
+	
+	forcepowers FP_SABERTHROW,0
+	
+	resource		RESOURCE_ENERGY
+
+	maxhealth	135
+	maxarmor		90
+	
+	speed		1.06
+	rateOfFire	0.8
+	
+	damageGiven 	0.8
+	damageTaken	0.9
+	
+	ASmultiplier 1.15
+	APmultiplier	1.2
+	BPmultiplier	0
+	saberDamage 	150 //120
+	saberThrowDamage 	87 //69
+	
 	saber1		nien_leg_p
 	sabercolor	0
 	saberstyle	SS_MEDIUM
 	
-	saber1_1    nien_leg_s
+	saber1_1    	nien_leg_s
 	sabercolor	0
 	saberstyle_1 	SS_MEDIUM
 	
-	weapons				WP_BLASTER|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_DISRUPTOR|WP_SABER|WP_TRIP_MINE|WP_PULSE_NADE
-	attributes			MB_ATT_BLASTER,2|MB_ATT_DISRUPTOR,2|MB_ATT_MICRO_GRENADES,3|MB_ATT_FRAGS,4|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_TRIP_MINES,3|MB_ATT_QUICKTHROW,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_HEALING,3|MB_ATT_SABER_COMBO_NONE
-	
-	forcepowers FP_SABERTHROW,0
-	
-	maxhealth		130
-	maxarmor			90
-   
-	classNumberLimit	1
-
-	speed           	1.06
-	rateOfFire		0.8
-	damageGiven 		0.8
-	damageTaken		0.9
-	ASmultiplier     1.15
-	APmultiplier		1.2
-	BPmultiplier		0
-	saberDamage 150 //120
-	saberThrowDamage 87 //69
 	holdables		HI_CLOAK|HI_SENTRY_GUN
 	classflags       CFL_SEEING_STEALTH
-	modelscale       0.93
 
 	saberStanceAnim	TORSO_SURRENDER_START
 	flourishAnim		BOTH_COWER1
 	gloatAnim		BOTH_COME_ON1
 	bowAnim	BOTH_STAND5STARTLEDLOOKLEFT
 	
+	modelscale       0.93
 	uioverlay "gfx/icons/scout"
-	
+	model		"niennunb"
+	skin			"default"
+	uishader		"models/players/niennunb/mb2_icon_default"
 	//respawncustomtime  50000
 	
 	special1			EAS_FP_SABERTHROW
 	special2			EAS_HI_DASH
 	special3			EAS_HI_DODGE
 	special4			EAS_HI_QUICKTHROW
-	
-	resource			resource_energy
-	forcepool	100
 }
 
 WeaponInfo0
@@ -62,19 +64,33 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_mwrench"
-	WeaponName		"Wrench + Magna-Gloves"
+	WeaponName		"Wrench/Magna-Gloves"
 	SelectSound "sound/weapons/blade/slash2.mp3"
 }
 
 WeaponInfo1
 {
 	WeaponToReplace		WP_DISRUPTOR				
-	WeaponBasedOff		WP_CONCUSSION				
+	WeaponBasedOff		WP_DISRUPTOR				
 	NewWorldModel		"models/weapons2/dlt20a/dlt20a_w.glm"
-	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"											
+	NewViewModel		"models/weapons2/dlt20a/dlt20a.md3"
 	Icon				"gfx/hud/w_icon_DLT20a"
-	WeaponName			"Modified Pulse Cannon"    					
+	WeaponName			"Pulse Cannon"   
+	DisruptorBeam1 "gfx/beam/superlaserpulse"
+	DisruptorBeam2 "gfx/beam/superlaserpulse"
+	muzzleEffect "gfx/effects/greenfrontflash"
+	altMuzzleEffect "gfx/effects/greenfrontflash"
+	MissileMissEffect "gfx/effects/greenfrontflash"
+	MissileHitHumanEffect "gfx/effects/greenfrontflash"
+	MissileHitDroidEffect "gfx/effects/greenfrontflash"
 	ReloadTimeModifier  0.9
+	damageMod 1.1
+	hasAnimOverrides 1
+	animReady BOTH_DC15_IDLE
+	animReadyWalk BOTH_AMBAN_AIM_READY
+	animReadyNoAmmo BOTH_AMBAN_AIM_ATTACK
+	animAttack BOTH_AMBAN_AIM_ATTACK
+	animAttackWalk BOTH_AMBAN_AIM_ATTACK
 }
 
 WeaponInfo2
@@ -101,22 +117,19 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 
 ^2Weaponry:
 - Melee
-- Wrench + Magna-Gloves
--- Based on Lightsaber
--- Yellow style
+- Wrench/Magna-Gloves (Yellow Lightsaber)
 -- Cannot block Sabers/Blasters
 -- No Saber Training
--- 25% more knockback
--- 37% less damage
+-- 25% more KB
+-- 37% less DMG
 -- 50% shorter reach
 -- 167% wider radius
 -- Saber Throw ^3[CS1]
---- 200% more damage
+--- 200% more DMG
 -- Slap ^3[Gunbash]
-- DH-17 Blaster Pistol
--- Based on Blaster Rifle (2)
-- Modified Pulse Cannon
--- Based on Disruptor Rifle (2)
+- DH-17 Blaster Pistol (Blaster Rifle 2)
+- Pulse Cannon (Disruptor 2)
+-- 10% more DMG
 -- 10% faster reload
 - Frag Grenades (4)
 - Trip Mines (3)
