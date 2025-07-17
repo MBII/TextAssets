@@ -5,7 +5,7 @@ ClassInfo
 	MBClass	MB_CLASS_HERO
 	weapons	WP_MELEE|WP_SABER
 	WP_MandoPistolFlags	HELD_DISRUPTIFY|HELD_SLOW|HELD_ALTRELOAD
-	WP_ClonePistolFlags	HELD_PULSE
+	WP_ClonePistolFlags	HELD_PULSE|HELD_ALTRELOAD
 	WP_EE4Flags	HELD_FLAME|HELD_POISON|HELD_KNOCKBACK|HELD_ALTRELOAD
 	attributes	MB_ATT_POISON_DART,2|MB_ATT_AMMO,3|MB_ATT_DEFLECT,1|MB_ATT_HEALING,2|MB_ATT_FORCEBLOCK,1|MB_ATT_FP_MIRALUKA
 	classflags	CFL_SEEING_STEALTH|CFL_HEAVYMELEE|CFL_BPFREEJUMPS|CFL_AKIMBOPISTOL3
@@ -32,7 +32,7 @@ ClassInfo
 	saberstyle_1	SS_DUAL|SS_TAVION
 	saberDMG 	120
 	rankSaberDMG 240
-	forcepowers	FP_PROTECT,2|FP_ABSORB,1|FP_SPEED,1|FP_LEVITATION,2|FP_SEE,1
+	forcepowers	FP_PROTECT,2|FP_ABSORB,1|FP_LEVITATION,2|FP_SEE,1
 	BPMultiplier	0
 	rankBP	1,1.2
 	ASMultiplier	1
@@ -65,10 +65,10 @@ ClassInfo
 	customSpecIcon_3 "gfx/icons/hybrid"
 	customSpecDesc_3 "CQC proficiency"
 	c_att_skill_0	MB_ATT_CLONE_PISTOL
-	c_att_names_0	"Prototype Verpine Ion Pistols:"
+	c_att_names_0	"Verpine Ion (Clone) Pistols:"
 	c_att_ranks_0	3,0,0
 	c_att_skill_1	MB_ATT_MANDO_PISTOL
-	c_att_names_1	"Mandalorian Disintegrators:"
+	c_att_names_1	"Mando Disintegrators (WESTAR):"
 	c_att_ranks_1	3,0,0
 	c_att_skill_2	MB_ATT_SONIC_DETONATOR
 	c_att_names_2	"Sonic Detonators:"
@@ -84,7 +84,7 @@ ClassInfo
 	c_att_ranks_5	0
 	c_att_skill_6	MB_ATT_DASH
 	c_att_names_6	"Dash ^3[CS2]:"
-	c_att_ranks_6	1,2
+	c_att_ranks_6	2,0
 	c_att_skill_7	MB_ATT_DEXTERITY
 	c_att_names_7	"Dexterity ^3[CS3]:"
 	c_att_ranks_7	0,0
@@ -121,12 +121,15 @@ ClassInfo
 	c_att_skill_25 MB_ATT_FP_TELEPATHY
 	c_att_names_25 "Force Mind Trick:"
 	c_att_ranks_25 1
-	c_att_skill_26 MB_ATT_POWER
-	c_att_names_26 "Energy Pool (100, 120):"
-	c_att_ranks_26 0,1
-	c_att_skill_27 MB_ATT_REGEN
-	c_att_names_27 "Energy Regen (134%):"
-	c_att_ranks_27 1
+	c_att_skill_26 MB_ATT_FP_SPEED
+	c_att_names_26 "Force Speed:"
+	c_att_ranks_26 1
+	c_att_skill_27 MB_ATT_POWER
+	c_att_names_27 "Energy Pool (100, 120):"
+	c_att_ranks_27 0,1
+	c_att_skill_28 MB_ATT_REGEN
+	c_att_names_28 "Energy Regen (134%):"
+	c_att_ranks_28 1
 	c_att_skill_30	MB_ATT_DMG_GIVEN_MULTIPLIER
 	c_att_names_30	"Damage Given (125%):"
 	c_att_ranks_30	2
@@ -150,27 +153,32 @@ ClassInfo
 	c_att_ranks_36	0,2
 	c_att_skill_37	MB_ATT_FLIPKICK
 	c_att_names_37	"Flipkick:"
-	c_att_ranks_37	0,3
+	c_att_ranks_37	1,2
 	c_att_skill_38	MB_ATT_DEXTERITY
 	c_att_names_38	"Dexterity ^3[CS3]:"
 	c_att_ranks_38	0,0,2
 }
 WeaponInfo0
 {
-	WeaponToReplace	WP_CLONE_PISTOL
-	WeaponBasedOff	WP_BLASTER_PISTOL					
-	NewWorldModel	"models/weapons2/kotor_ionpistol/kotor_ionpistol_w.glm"
-	NewViewModel	"models/weapons2/kotor_ionpistol/kotor_ionpistol.md3"
-	Icon	"gfx/hud/w_icon_kotor_ionpistol"
-	WeaponName	"Prototype Verpine Ion Pistols"
-	FlashSound0	"sound/weapons/LPA_NN-14/fire.wav"
-	AltFlashSound0	"sound/weapons/demp2/altfire_old.mp3"
-	ChargeSound	"sound/weapons/LPA_NN-14/charge.wav"
-	MissileHitHumanEffect	"SBD/Cortosis_blue"
-	MissileHitDroidEffect	"SBD/Cortosis_blue"
-	ChargeEffect	"gfx/effects/cloneFrontFlash"
-	Clipsize	36
-	FPChargeMult	1.35
+WeaponToReplace	WP_CLONE_PISTOL
+WeaponBasedOff	WP_CLONE_PISTOL				
+NewWorldModel	"models/weapons2/kotor_ionpistol/kotor_ionpistol_w.glm"
+NewViewModel	"models/weapons2/kotor_ionpistol/kotor_ionpistol.md3"
+Icon	"gfx/hud/w_icon_kotor_ionpistol"
+WeaponName	"Prototype Verpine Ion Pistols"
+FlashSound0	"sound/weapons/LPA_NN-14/fire.wav"
+AltFlashSound0	"sound/weapons/demp2/altfire_old.mp3"
+ChargeSound	"sound/weapons/LPA_NN-14/charge.wav"
+altMissileHitHumanEffect	"SBD/Cortosis_blue"
+altMissileHitDroidEffect	"SBD/Cortosis_blue"
+ChargeEffect	"gfx/effects/cloneFrontFlash"
+Clipsize	36
+customAmmo 360
+FPChargeMult	1.5
+reloadTimeModifier 2
+rateMod 1.25
+damageMod 0.5
+primFireEnabled 0
 }
 WeaponInfo1
 {
@@ -180,21 +188,17 @@ NewWorldModel	"models/weapons2/kotor_pistol1/pistol_w.GLM"
 NewViewModel	"models/weapons2/kotor_pistol1/model.md3"
 Icon	"gfx/hud/w_icon_disruptorpistols_dual"
 WeaponName	"Twin Mandalorian Disintegrators"
-Clipsize	60
+Clipsize	48
 velocityMod 1.25
+reloadtimeModifier 1.8
 altfireenabled 	0
 MuzzleEffect	"Blaster/MuzzleFlash01Y"
 Missile3Effect	"Blaster/Shot02Y"
+MissileEffect "blaster/Shot03Y"
+altMissileEffect "Blaster/Shot04Y"
+PowerUpShotEffect "Blaster/Shot09Y"
 ChargeEffect	"gfx/effects/yellow_bryarFrontFlash"
 FlashSound0	"sound/weapons/kotor/fire_power1.mp3"
-hasAnimOverrides 1
-animReady 	DUAL_PISTOLS_READY
-animReadyWalk DUAL_PISTOLS_READY
-animStand 	BOTH_STAND8
-animRunAttackR DUAL_PISTOLS_FIRE_RIGHT
-animRunAttackL DUAL_PISTOLS_FIRE_LEFT
-animWalkAttackR DUAL_PISTOLS_FIRE_RIGHT
-animWalkAttackL DUAL_PISTOLS_FIRE_LEFT
 }
 WeaponInfo2
 {
@@ -226,7 +230,7 @@ WeaponName	"Blaster Pistol"
 }
 description	"Atton 'Jaq' Rand [Hero]
 
-An Echani-trained survivor and elite Jedi hunter.
+An Echani master/Jedi hunter.
 
 ^2Default Weaponry:
 - Heavy Melee
@@ -241,7 +245,6 @@ An Echani-trained survivor and elite Jedi hunter.
 - Jump (2)
 - Absorb (1)
 - Protect (2)
-- Speed (1)
 
 ^8Default Attributes:
 - Healing (2)
@@ -255,15 +258,18 @@ An Echani-trained survivor and elite Jedi hunter.
 - Limited Dex Roll ^3[CS3]
 
 ^9Point Buy Info:
-- Prototype Verpine Ion Pistols (Clone Pistol 4)
+- Verpine Prototype Ion Pistol (C. Pistols 4)
 -- Electrifies targets
--- 35% more charged FP DMG
-- Mandalorian Disintegrators (WESTAR-34 4)
+-- 50% more/less charged FP DMG/DMG
+-- 20% slower RoF
+-- 100% slower reload
+-- Sec. only
+- Mandalorian Disintegrators (WESTAR 4)
 -- 25% faster velocity
+-- 80% slower reload
 -- 15% slower movement
--- Mag reload
 -- Prim. only
-- The Charric (EE-4 3)
+- The Charric (EE-4)
 -- Ignites/poisons/pushes targets
 -- 20/50% more DMG/FP DMG
--- Mag reload"
+- Heroic Resolve (Rapid Heal <50 HP)"
