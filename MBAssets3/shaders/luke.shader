@@ -243,6 +243,18 @@ models/players/luke_esb/belt
 	}
 
 
+// hoth luke
+
+models/players/luke_hoth/extras_d
+{
+	cull	disable
+	{
+		map models/players/luke_hoth/extras_d
+		rgbGen lightingDiffuse
+	}
+}
+
+
 // rotj luke
 
 models/players/luke_rotj/body
