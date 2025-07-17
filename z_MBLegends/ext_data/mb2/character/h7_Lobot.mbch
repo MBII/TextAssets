@@ -3,8 +3,8 @@ ClassInfo
 	name  			"h7_Lobot"
 	MBClass 		MB_CLASS_HERO	
 	weapons			WP_MANDO_PISTOL|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_SABER
-	
-	attributes  	MB_ATT_MICRO_GRENADES,2|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,1
+
+	attributes  	MB_ATT_MICRO_GRENADES,2|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_SABER_COMBO_NONE
 	
 	saber1		Wrench_Legends
 	sabercolor	0
@@ -13,17 +13,17 @@ ClassInfo
 	saber1_1     Wrench_Legends_2
 	sabercolor	0
 	saberstyle_1 	SS_MEDIUM|SS_STRONG
-	
+	saberDamage 105 //120
 	forcepowers		FP_SEE,1
 	forcepool 			75
 	forceregen			1.2
 	resource			RESOURCE_ENERGY
 	APMultiplier     1.2
-	ASMultiplier 		1.1
+	ASMultiplier 		1.15
 	CSMultiplier 		1.2
 	BPmultiplier		0
 	speed         	1.04
-	maxhealth 		140
+	maxhealth 		150
 	maxarmor     	80
 	model 			"lobot"
 	skin  			"default"
@@ -34,12 +34,12 @@ ClassInfo
 	modelscale       0.987
 	damageTaken		0.9
 	damageGiven 		1.15
-
+	hackMod 0.9
 	//WP_RocketLauncherFlag HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_HIGHDAMAGE
 
 	special1 EAS_HI_DODGE
-	special2 EAS_HI_DASH
-	special3 EAS_MELEE
+	special2 EAS_MELEE
+	special3 EAS_HI_DASH
 	special4	EAS_HI_SENTRY_GUN
 	
 	uioverlay "gfx/icons/tactician"
@@ -72,6 +72,7 @@ WeaponInfo1
 	CustomAmmo		700
 	VelocityMod 		1.15
 	FPMult 			1.15
+	rateMod 0.9
 }
 
 ForceInfo0
@@ -110,29 +111,25 @@ ForceInfo0
 	animStand BOTH_STAND1
 } */
 
-description	"Lobot
+description	"Lobot [Hero]
 
-Class: Hero
-Brief Overview: 
 A speedy, damage-boosted pistoleer with grenades.
 
 ^2Weaponry:
 - Melee
-- Power Wrench/Spanner Wrench
--- Based on Lightsaber
--- Yellow/Red styles
+- Wrench (Yellow/Red Saber)
 -- Cannot block Sabers/Blasters
 -- Blocking resists Force Powers
--- 25% more knockback
--- 40% less damage
+-- No Saber Training
+-- 25% more KB
+-- 56/79% less DMG
 -- 50% shorter reach
 -- 167% wider radius
--- No Saber Throw
--- Slap ^3[CS3]
-- Relby-K23 'Stinger' Blaster Pistol
--- Based on WESTAR Pistol (2)
--- 15% faster projectiles
--- 15% more FP damage
+-- Slap ^3[CS2]
+- Relby-K23 'Stinger' Blaster Pistol (WESTAR 2)
+-- 10% faster RoF
+-- 15% faster velocity
+-- 15% more FP DMG
 - Frag Grenades (3)
 - Concussion Grenades (2)
 
@@ -140,13 +137,14 @@ A speedy, damage-boosted pistoleer with grenades.
 - Assault Sentry ^3[CS4]
 
 ^8Attributes:
+- 10% faster Hacking
 - Blast Armor
 - Armor Regen (1)
 - Healing (2)
-- Passive Radar Scanner (Miraluka Vision 1)
 - Force Block (1)
+- Passive Radar Scanner (Miraluka Vision 1)
 - Lobotomized
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
-- Dash (2) ^3[CS2]"
+- Dash (2) ^3[CS3]"

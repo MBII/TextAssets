@@ -4,22 +4,20 @@ ClassInfo
 {
 	name					"v3_IG88"
 	weapons					WP_SABER|WP_MANDO_PISTOL|WP_THERMAL|WP_AMBAN|WP_SONIC_NADE|WP_MELEE
-	attributes				MB_ATT_AMBAN,1|MB_ATT_RECHARGE,3|MB_ATT_THERMALS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_ANTI_MT,2|MB_ATT_TRACKING_BEACON
+	attributes				MB_ATT_AMBAN,1|MB_ATT_RECHARGE,3|MB_ATT_THERMALS,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_ANTI_MT,2|MB_ATT_TRACKING_BEACON|MB_ATT_SABER_COMBO_NONE
 	maxhealth				80
 	maxarmor					80
 	MBClass					MB_CLASS_WOOKIE
-	rateOfFire             	1.35
-	damagegiven				0.9
 	classNumberLimit		1
 	modelscale  			1.09
-	classflags			CFL_HEAVYMELEE|CFL_SEEING_STEALTH|CFL_AKIMBOPISTOL3
+	classflags			CFL_SEEING_STEALTH|CFL_AKIMBOPISTOL3|CFL_STRONGAGAINSTPHYSICAL
 	saber1 				droidmelee_legends
 	saberstyle			SS_STRONG
 	WP_AmbanFlags			HELD_DISRUPTIFY|HELD_FLAME|HELD_SONIC
 	WP_MeleeFlags			HELD_SLOW
 	forcepool			100
 	forcepowers        	FP_SEE,1
-
+	saberDamage 260
 	speed 	1.16
 	knockbacktaken 0.80
 	BPmultiplier		0
@@ -59,7 +57,7 @@ WeaponInfo0
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon			"models/weapons2/halo_melee/icon.png"
 	WeaponName		"Droid Melee"
@@ -84,6 +82,8 @@ WeaponInfo1
 	clipsize 			80
 	MissileEffect			"Blaster/Shot01R"
 	FPMult				0.85
+	rateMod 1.35
+	damageMod 0.9
 	hasAnimOverrides 1
 	animReady 	DUAL_PISTOLS_READY
 	animReadyWalk DUAL_PISTOLS_READY
@@ -125,45 +125,43 @@ ForceInfo0
 	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
-description "IG-series Assassin Droid
+description "IG-series Assassin Droid [Wookiee]
 
-Class: Wookiee
-Brief Overview: 
-A heavily armored dual pistol wielder with an incendiary sniper rifle. 
+A sturdy and heavily armored gunner class. 
 
 ^2Weaponry:
-- Wookiee-style Heavy Melee
+- Wookiee-style Melee
 -- 15% slower movement
-- Droid Melee
--- Based on Lightsaber
--- Red style
+- Droid Melee (Red Saber)
 -- Cannot block Sabers/Blasters
--- 15% more knockback
--- 40% less damage
+-- No Saber Training
+-- 15% more KB
+-- 50% less DMG
 -- 35% shorter reach
 -- 300% wider radius
 -- Slap ^3[CS2]
-- Dual Blaster Rifles
--- Based on WESTAR-34 Pistols (4)
--- 15% less FP damage
+- Dual Blaster Rifles (WESTAR-34 Pistols 4)
+-- 35% slower RoF
+-- 10% less DMG
+-- 15% less FP DMG
 - Thermal Detonator (1)
 - Sonic Detonators (2)
-- Pulse Cannon
--- Based on Amban Rifle (1)
+- Pulse Cannon (Amban Rifle 1)
 -- Ignites/stuns targets
--- 20% faster projectiles
--- 50% more FP damage
+-- 20% faster velocity
+-- 50% more FP DMG
 
 ^8Attributes:
 - Strength (2)
-- 20% less knockback taken
+- 20% less KB taken
 - Magnetic Plating
 - Cortosis (1)
 - Blast Armor
+- Physical Resistance
 - Armor Regen (1)
 - Force Sense Immunity
 - Mind Trick Immunity
-- Tracking Beacon (See Tracked players)
+- Tracking Beacon
 
 ^3Abilities:
 - Radar Scanner (Force Sense 1) ^3[CS3]"
