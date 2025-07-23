@@ -6,8 +6,8 @@ ClassInfo
 	MBClass				MB_CLASS_CLONETROOPER
 	classNumberLimit		1
 	
-	weapons		WP_SABER|WP_MELEE|WP_BLASTER|WP_DISRUPTOR|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_FRAG_NADE
-	attributes	MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_DASH,1|MB_ATT_PISTOL,1|MB_ATT_DISRUPTOR,1
+	weapons		WP_SABER|WP_MELEE|WP_DC_CARBINE|WP_DISRUPTOR|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_FRAG_NADE
+	attributes	MB_ATT_DC_CARBINE,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_DASH,1|MB_ATT_PISTOL,1|MB_ATT_DISRUPTOR,1
 	
 	DamageTaken	0.90
 
@@ -23,15 +23,15 @@ ClassInfo
 	ASmultiplier 	1.2
 	BPmultiplier	0
 	
-	speed		1.08
+	basespeed	202.5
 	rateoffire	1
 	
 	saberDamage 90
 	saberMaxChain 1
 
-	WP_BlasterFlags		HELD_ALTRELOAD	
+	WP_DCCarbineFlags		HELD_ALTRELOAD	
 	WP_DisruptorFlags HELD_ALTRELOAD
-	
+
 	resource		RESOURCE_STAMINA
 	forcepool	110
 	forceregen 1.1
@@ -74,11 +74,14 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_BOWCASTER
+	WeaponToReplace		WP_DC_CARBINE
+	WeaponBasedOff		WP_DC_CARBINE
 	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
-	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
+	NewViewModel	"models/weapons2/dummy/dummy.md3"
 	FlashSound0			"sound/weapons/dc17m/fire.wav"
+	FlashSound1			"sound/weapons/dc17m/fire.wav"
+	FlashSound2			"sound/weapons/dc17m/fire.wav"
+	FlashSound3			"sound/weapons/dc17m/fire.wav"
 	AltFlashSound0 		"sound/weapons/dc17m/fire.wav"
 	MuzzleEffect		"Blaster/MuzzleFlash01C"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01C"
@@ -87,9 +90,9 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_dc-17mB"
 	WeaponName			"DC-17m Repeating Blaster Rifle"
 	customAmmo 			1260
-	clipSize			180
+	clipSize			120
 	ReloadTimeModifier 	1.25
-	primFireEnabled			0
+	altFireEnabled			0
 	hasAnimOverrides 1
 	animReady		TORSO_WEAPONIDLE3
 	animReadyWalk		TORSO_WEAPONREADY3
@@ -126,9 +129,9 @@ WeaponInfo2
 	WeaponName			"DC-17m Sniper Attachment"
 	clipSize			25
 	customAmmo 		75
-	damageMod 1.5
+	damageMod 1.7
 	ReloadTimeModifier 	1.9
-	FPmult				1.5
+	FPmult				1.7
 	rateMod 1.15
 	disruptorBeam1 "gfx/effects/disrupt_beam_blue"
 	disruptorBeam2 "gfx/effects/disrupt_beam_blue"
@@ -155,12 +158,6 @@ WeaponInfo3
 	ReloadTimeModifier 	2
 	customammo 			435
 	rateMod 0.6
-	hasAnimOverrides 1
-	animReady		BOTH_PISTOL_READY
-	animReadyWalk		BOTH_PISTOL_READY
-	animReadyNoAmmo	BOTH_PISTOL_ATTACK
-	animAttack    BOTH_PISTOL_ATTACK
-	animAttackWalk  BOTH_PISTOL_ATTACK
 }
 
 description	"Delta Squad Clone Commando [Clone Trooper]
@@ -180,18 +177,15 @@ Mobile armor-regenning gunner.
 - DC-15s Side Arm Blaster (Pistol 1)
 -- 40% faster RoF
 -- 100% slower reload
-- DC-17m Repeating Blaster Rifle (2)
+- DC-17m Repeating Blaster Rifle (C. Carbine 1)
 -- 40% faster RoF
--- 25% slower reload
--- Mag reload
--- Sec. only
+-- 25% slower mag reload
 - Frag Grenades (2)
 - Pulse Grenades (2)
 - DC-17m Sniper Attachment (Disruptor 1)
--- 50% more DMG/FP DMG
+-- 70% more DMG/FP DMG
 -- 15% slower RoF
--- 90% slower reload
--- Mag reload
+-- 90% slower mag reload
 
 ^6Inventory:
 - Bacta (25 HP)
