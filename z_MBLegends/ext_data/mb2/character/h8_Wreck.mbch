@@ -5,18 +5,21 @@ ClassInfo
 	name			"h8_Wreck"
 	MBClass		MB_CLASS_WOOKIE
 	classNumberLimit  1
-	weapons		WP_MELEE|WP_BLASTER|WP_DET_PACK|WP_TRIP_MINE|WP_THERMAL|WP_REAL_TD|WP_FRAG_NADE
-	attributes	MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_HEALING,2|MB_ATT_BLASTER,2|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DET_PACK,4|MB_ATT_TRIP_MINES,4|MB_ATT_BASE_TD,6|MB_ATT_THERMALS,1|MB_ATT_FRAGS,2
+	weapons		WP_MELEE|WP_DC_CARBINE|WP_DET_PACK|WP_TRIP_MINE|WP_THERMAL|WP_REAL_TD|WP_FRAG_NADE
+	attributes	MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_HEALING,2|MB_ATT_DC_CARBINE,1|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DET_PACK,4|MB_ATT_TRIP_MINES,4|MB_ATT_BASE_TD,6|MB_ATT_THERMALS,1|MB_ATT_FRAGS,2
 	
 	forcepool 	100
-	resource		resource_rage
+	resource	resource_rage
 	
 	maxhealth	275
-	maxarmor		180
+	maxarmor	180
+	
 	rateoffire_melee 1.10
-	rateoffire		0.75	
+	rateoffire		0.75
+	
 	skilltimermod 	0.90
-	speed           .98
+	
+	basespeed 183.8
 
 	rageSoundOverride		"sound/chars/wrecker/misc/anger1.mp3"
 	bargeSoundOverride	"sound/chars/wrecker/misc/taunt3.mp3"
@@ -29,8 +32,8 @@ ClassInfo
 	saberStanceAnim	BOTH_STAND9
 	flourishAnim BOTH_STABDOWN_DUAL
 	
-	WP_BlasterFlags	HELD_ALTRELOAD
-	classflags CFL_STRONGAGAINSTPHYSICAL|
+	WP_DCCarbineFlags	HELD_ALTRELOAD
+	classflags CFL_STRONGAGAINSTPHYSICAL
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 	
@@ -43,8 +46,8 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_BOWCASTER
+	WeaponToReplace		WP_DC_CARBINE
+	WeaponBasedOff		WP_DC_CARBINE
 	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
 	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
 	FlashSound0			"sound/weapons/dc17m/fire.wav"
@@ -56,8 +59,8 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_dc-17mB"
 	WeaponName			"DC-17m Repeating Blaster Rifle"
 	customAmmo 			600
-	clipSize			180
-	primFireEnabled			0
+	clipSize			120
+	altFireEnabled			0
 	hasAnimOverrides 1
 	animReady BOTH_DC15_IDLE
 	animReadyWalk BOTH_DC15_IDLE
@@ -89,14 +92,13 @@ WeaponInfo1
 
 description	"CT-9903 aka 'Wrecker' [Wookiee]
 
-A high-armor and high-health Wookiee/gunner hybrid who specializes in mass destruction.
+A tanky Wookiee/gunner hybrid who specializes in mass destruction.
 
 ^2Weaponry:
 - Wookiee-style Melee
 -- 10% slower swings
-- DC-17m Repeating Blaster Rifle (2)
+- DC-17m Repeating Blaster Rifle (C. Carbine 1)
 -- 50% slower mag reload
--- Sec. only
 - Thermal Grenades (6)
 - Frag Grenades (2)
 -- Prim. only
