@@ -2053,7 +2053,7 @@ models/weapons2/energyshield/energyshield
 }
 
 
-// FC F187
+// Fusion Cutter - F187
 
 models/weapons2/fc_f187/fca
 {
@@ -2177,6 +2177,41 @@ models/weapons2/fc_f187/fcr
         animMap 5 models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g3.jpg 
         blendFunc GL_ONE GL_ONE
         rgbGen wave sin 0.9 0.1 0 1
+    }
+}
+
+
+// Imperial Sovereign Protector Double Vibrosword
+
+models/weapons2/sab_hilts/ispdvb/blades
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sab_hilts/ispdvb/blades
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sab_hilts/ispdvb/blades_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/sab_hilts/ispdvb/base
+{
+	q3map_nolightmap
+    {
+        map models/weapons2/sab_hilts/ispdvb/base
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/sab_hilts/ispdvb/base_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
     }
 }
 
