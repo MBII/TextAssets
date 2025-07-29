@@ -609,6 +609,109 @@
 //		}
 
 //--------------------------------------------------
+// TAB BUTTONS (for custom build characters)
+//--------------------------------------------------
+		// Stats Tab
+		itemDef
+		{
+			name				tab_stats
+			text				"STATS"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				358 50 30 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			15
+			textaligny			-4
+			font				6
+			textscale			0.125
+			forecolor			1 1 1 1
+			visible				0
+			// Only show for custom build characters
+			cvarTest			"ui_fa_is_custom_build"
+			showCvar			{ "1" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			faSpecs
+				hide			faBuilds
+				hide			pointstemplatesdelete_fa
+				show			stats
+				show			model_rgb
+				// Update tab colors
+				setitemcolor	tab_stats forecolor 1 1 1 1
+				setitemcolor	tab_spec forecolor 1 1 1 0.5
+				setitemcolor	tab_builds forecolor 1 1 1 0.5
+			}
+		}
+		
+		// Spec Tab
+		itemDef
+		{
+			name				tab_spec
+			text				"SPEC"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				390 50 30 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			15
+			textaligny			-4
+			font				6
+			textscale			0.125
+			forecolor			1 1 1 0.5
+			visible				0
+			// Only show for custom build characters
+			cvarTest			"ui_fa_is_custom_build"
+			showCvar			{ "1" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			stats
+				hide			model_rgb
+				hide			faBuilds
+				hide			pointstemplatesdelete_fa
+				show			faSpecs
+				// Update tab colors
+				setitemcolor	tab_stats forecolor 1 1 1 0.5
+				setitemcolor	tab_spec forecolor 1 1 1 1
+				setitemcolor	tab_builds forecolor 1 1 1 0.5
+			}
+		}
+		
+		// Builds Tab
+		itemDef
+		{
+			name				tab_builds
+			text				"BUILDS"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				422 50 35 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			17
+			textaligny			-4
+			font				6
+			textscale			0.125
+			forecolor			1 1 1 0.5
+			visible				0
+			// Only show for custom build characters
+			cvarTest			"ui_fa_is_custom_build"
+			showCvar			{ "1" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			stats
+				hide			model_rgb
+				hide			faSpecs
+				show			faBuilds
+				hide			pointstemplatesdelete_fa
+				uiScript		mb_refresh_templates
+				// Update tab colors
+				setitemcolor	tab_stats forecolor 1 1 1 0.5
+				setitemcolor	tab_spec forecolor 1 1 1 0.5
+				setitemcolor	tab_builds forecolor 1 1 1 1
+			}
+		}
+
+//--------------------------------------------------
 // STATS
 //--------------------------------------------------
 		itemDef
@@ -626,6 +729,9 @@
 			forecolor			1 1 1 1
 			visible 			0
 			decoration
+			// Hide for custom build characters (using tabs instead)
+			cvarTest			"ui_fa_is_custom_build"
+			hideCvar			{ "1" }
 		}
 
 		itemDef
@@ -915,6 +1021,7 @@
 		decoration
 	}
 	
+	// Original toggle for non-custom build characters
 	itemDef
 	{
 		name				specTitle
@@ -931,6 +1038,9 @@
 		textstyle			0
 		forecolor			1 1 1 0.1
 		visible				0
+		// Only show for non-custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		hideCvar			{ "1" }
 		action 
 		{
 			play			"sound/interface/go.mp3" ;
@@ -3417,6 +3527,303 @@
 		}
 	}
 
+//--------------------------------------------------
+// BUILDS TAB CONTENT (for custom FA characters)
+//--------------------------------------------------
+	// Builds title
+	itemDef
+	{
+		name 				builds_title
+		group				faBuilds
+		rect 				402 66 10 15
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				"BUILDS"
+		font				7
+		textscale			0.2
+		textalign 			ITEM_ALIGN_CENTER
+		textalignx 			0
+		textaligny 			-10
+		forecolor			1 1 1 1
+		visible 			0
+		decoration
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+	}
+
+	// Template list
+	itemDef
+	{
+		name				fcfpicker
+		group				faBuilds
+		rect				360 87 100 180
+		type				ITEM_TYPE_LISTBOX
+		style				WINDOW_STYLE_LISTBOX_RGB1
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		elementwidth		100
+		elementheight		15
+		font				6
+		textscale			.15
+		maxLineChars		20
+		elementtype			LISTBOX_TEXT
+		feeder				FEEDER_MBCFG
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			4
+		textaligny			-4
+		forecolor			1 1 1 1
+		backcolor			1 1 1 0.05
+		outlinecolor		1 1 1 .35
+		descText			"Choose a build template to load"
+		visible				0
+		columns				1 4 96 96
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	fcfpicker bordercolor 1 0 0 1
+		}
+		mouseExit
+		{
+			setitemcolor	fcfpicker bordercolor .5 .5 .5 1
+		}
+		action
+		{
+			play			"sound/interface/button1.wav"
+			// Load the selected build
+			uiScript		mb_load_template
+		}
+	}
+
+	// Save template name input
+	itemDef
+	{
+		name				saveFCF
+		group				faBuilds
+		type				ITEM_TYPE_EDITFIELD
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				""
+		cvar				"ui_SaveFCF"
+		maxChars			15
+		maxPaintChars		15
+		rect				360 273 100 15
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			2
+		textaligny			11
+		font				4
+		textscale			0.15
+		forecolor			1 1 1 1
+		backcolor			0 0 0 .25
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+	}
+
+	// Save button
+	itemDef
+	{
+		name				btn_save_fa
+		group				faBuilds
+		descText			"Save current points into a build template."
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		rect				360 293 24 24
+		background			"gfx/menus/Alpha/Btn_Template"
+		forecolor			1 1 1 0.5
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	btn_save_fa forecolor	1 1 1 1
+		}
+		mouseExit
+		{
+			setitemcolor	btn_save_fa forecolor	1 1 1 0.5
+		}			
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_savetemplate
+			// Clear the name field
+			setcvar			ui_SaveFCF ""
+		}
+	}
+
+	// Save with cosmetics button
+	itemDef
+	{
+		name				btn_save_all_fa
+		group				faBuilds
+		descText			"Save cosmetic settings and current points into a build template."
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		rect				388 293 24 24
+		background			"gfx/menus/Alpha/Btn_TemplateCosmetic"
+		forecolor			1 1 1 0.5
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	btn_save_all_fa forecolor	1 1 1 1
+		}
+		mouseExit
+		{
+			setitemcolor	btn_save_all_fa forecolor	1 1 1 0.5
+		}	
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_savetemplate_all
+			// Clear the name field
+			setcvar			ui_SaveFCF ""
+		}
+	}
+
+	// Toggle favorite button
+	itemDef
+	{
+		name				btn_favorite_fa
+		group				faBuilds
+		descText			"Toggle selected build as a favorite."
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		rect				416 293 24 24
+		background			"gfx/menus/Alpha/Btn_ToggleFavorite"
+		forecolor			1 1 1 0.5
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	btn_favorite_fa forecolor	1 1 1 1
+		}
+		mouseExit
+		{
+			setitemcolor	btn_favorite_fa forecolor	1 1 1 0.5
+		}	
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_fav_toggle
+			// Refresh both lists
+			uiScript		mb_refresh_templates
+		}
+	}
+
+	// Delete template button
+	itemDef
+	{
+		name				templatedelete_fa
+		group				faBuilds
+		text				@MENUS_DELETE_FILE
+		type				1
+		style				WINDOW_STYLE_FILLED
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		rect				360 323 100 15
+		textaligny			11
+		font				4
+		textscale			0.15
+		textalign			ITEM_ALIGN_CENTER
+		forecolor			1 1 1 0.5
+		backcolor			1 0 0 0.075
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		// Don't allow deletion of default templates
+		cvarTest 			"ui_SaveFCF"
+		hideCvar	 		{ "Default", "Custom" }	
+		action
+		{
+			play			"sound/interface/button1.wav"
+			hide			templatedelete_fa
+			show			pointstemplatesdelete_fa
+		}
+		mouseenter
+		{
+			setitemcolor	templatedelete_fa			forecolor	1 1 1 1
+			setitemcolor	templatedelete_fa			backcolor	1 0 0 0.3
+		}
+		mouseExit
+		{
+			setitemcolor	templatedelete_fa			forecolor	1 1 1 0.5
+			setitemcolor	templatedelete_fa			backcolor	1 0 0 0.075
+		}
+	}
+
+	// Delete confirmation buttons
+	itemDef
+	{
+		name				templatedeleteconfirm_fa
+		group				pointstemplatesdelete_fa
+		text				@MENUS_CONFIRM_DELETE_FILE
+		type				1
+		style				WINDOW_STYLE_FILLED
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		rect				360 323 49 15
+		textaligny			11
+		font				4
+		textscale			0.15
+		textalign			ITEM_ALIGN_CENTER
+		forecolor			1 1 1 1
+		backcolor			1 0 0 0.075
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_deletetemplate
+			hide			pointstemplatesdelete_fa
+			// Refresh the list after deletion
+			uiScript		mb_refresh_templates
+		}
+		mouseenter
+		{
+			setitemcolor	templatedeleteconfirm_fa	backcolor	1 0 0 0.3
+		}
+		mouseExit
+		{
+			setitemcolor	templatedeleteconfirm_fa	backcolor	1 0 0 0.075
+		}
+	}
+	
+	itemDef
+	{
+		name				templatedeletecancel_fa
+		group				pointstemplatesdelete_fa
+		text				@MENUS_CANCEL_DELETE_FILE
+		type				1
+		style				WINDOW_STYLE_FILLED
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		rect				411 323 49 15
+		textaligny			11
+		font				4
+		textscale			0.15
+		textalign			ITEM_ALIGN_CENTER
+		forecolor			1 1 1 1
+		backcolor			1 1 1 0.05
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+			hide			pointstemplatesdelete_fa
+			show			templatedelete_fa
+		}
+		mouseenter
+		{
+			setitemcolor	templatedeletecancel_fa	backcolor	1 1 1 0.3
+		}
+		mouseExit
+		{
+			setitemcolor	templatedeletecancel_fa	backcolor	1 1 1 0.05
+		}
+	}
+
 
 
 // RGB SLIDERS
@@ -3680,6 +4087,7 @@
 			decoration
 		}
 
+	
 		itemDef
 		{
 			name				okay
