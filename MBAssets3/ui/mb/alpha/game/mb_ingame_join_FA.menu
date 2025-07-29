@@ -24,6 +24,9 @@
 			show				spectator_button
 
 			setcvar				cg_escapeactive "1"
+			
+			// Check if selected FA character is a custom build
+			uiscript			mb_fa_checkmodel
 		}
 		onClose
 		{
@@ -432,6 +435,10 @@
 			action
 			{  
 				play			"sound/interface/button1"
+				// Reset FA custom build state when selecting new character
+				uiscript		mb_fa_checkmodel
+				// Clear any previous loadout data
+				uiscript		mb_clearcustomloadout
 				show			feeders
 			}
 			mouseEnter
@@ -465,6 +472,10 @@
 			action
 			{  
 				play			"sound/interface/button1"
+				// Reset FA custom build state when selecting new character
+				uiscript		mb_fa_checkmodel
+				// Clear any previous loadout data
+				uiscript		mb_clearcustomloadout
 				show			feeders
 			}
 			mouseEnter
