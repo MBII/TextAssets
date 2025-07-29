@@ -656,7 +656,7 @@ sfx_sabers/saber_trail_darksaber
 
 sfx_sabers/saber_blade_darksaber
 {
-    nopicmip
+    notc
     cull    twosided
 	sort	opaque
     {
@@ -674,7 +674,6 @@ sfx_sabers/saber_blade_darksaber
 
 sfx_sabers/saber_end_darksaber
 {
-	nopicmip
 	cull	twosided
     {
         map sfx_sabers/saber_end_darksaber
