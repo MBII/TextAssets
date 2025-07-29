@@ -2,8 +2,7 @@ ClassInfo
 {
 	name 				"h2_Lando"
 	weapons 			WP_MELEE|WP_MANDO_PISTOL|WP_EE3|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DODGE,2|MB_ATT_FUELREGEN,3|MB_ATT_MICRO_GRENADES,3
-	saberMaxChain 3
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,2|MB_ATT_DODGE,2|MB_ATT_FUELREGEN,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_SABER_COMBO_NONE
 	maxhealth 			165
 	maxarmor 			60
 	speed				1.03
@@ -15,6 +14,7 @@ ClassInfo
 	saberstyle			SS_MEDIUM
 	forcepowers      	FP_SABER_OFFENSE,1
 	saber1				vibroaxe_new_legends
+	saberDamage 146 //160
 	MBClass 			MB_CLASS_HERO
 	classNumberLimit 	1
 	modelscale      	1.02
@@ -49,7 +49,6 @@ ClassInfo
 	model_3			"landoskiff" 				
 	skin_3			"default"					
 	uishader_3		"models/players/landoskiff/mb2_icon_default"
-	
 	//respawncustomtime  50000	
 }
 
@@ -111,7 +110,7 @@ WeaponInfo2
 	hasAnimOverrides 1
 	animReady BOTH_STAND4TOATTACK2
 	animReadyWalk BOTH_STAND4TOATTACK2
-	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animReadyNoAmmo BOTH_PISTOL_ATTACK
 	animAttack BOTH_SABERSTAFF_STANCE 
 	animAttackWalk BOTH_SABERSTAFF_STANCE
 	animStand BOTH_STAND1
@@ -173,40 +172,31 @@ WeaponInfo4
 	damagemod 0.001
 }
 
-description "Lando Calrissian
+description "Lando Calrissian [Hero]
 
-Class: Hero
-Brief Overview: 
 A fast gunner/saberist with stealth abilities.
 
 ^2Weaponry:
 - Melee
-- BD-1 Cutter Vibroaxe
--- Based on Lightsaber
--- Yellow style
+- BD-1 Cutter Vibroaxe (Yellow Saber)
 -- Saber Defense (1)
 -- Cannot block Blasters
--- Chain Limit: 3
--- 25% less damage
+-- No Saber Training
+-- 33% less DMG
 -- 10% shorter reach
--- 33% wider radius
 -- Slap ^3[CS2]
-- S-5 Heavy Blaster Pistol 
--- Based on WESTAR Pistol (2)
--- 25% faster fire rate
--- 25% faster projectiles
--- 10% more FP damage
+- S-5 Heavy Blaster Pistol (WESTAR 2)
+-- 25% faster RoF
+-- 25% faster velocity
+-- 10% more FP DMG
 -- 20% faster reload
-- Gambler's Palm Grenades (4)
--- Based on Frag Grenades
+- Gambler's Palm Grenades (4) (Frags)
 -- Quick-Throw only
-- Smoke Grenades (3)
--- Based on Concussion Grenades
--- Spreads an obscuring cloud on detonation
--- 99.9% less damage
-- Lando's E-11 Blaster Rifle
--- Based on EE-3 Carbine (3)
--- 25% faster fire rate
+- Smoke Grenades (3) (Concs)
+-- Obscures vision
+-- 99.9% less DMG
+- Lando's E-11 Blaster Rifle (EE-3 3)
+-- 25% faster RoF
 
 ^8Attributes:
 - Armor Regen (1)

@@ -6,7 +6,7 @@ ClassInfo
 	MBClass		MB_CLASS_CLONETROOPER
 	weapons		WP_MELEE|WP_SABER
 	
-	attributes	MB_ATT_AMMO,2|MB_ATT_FP_SABER_DEFENSE,1
+	attributes	MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,1
 	
 	special1	EAS_HI_SPRINT
 	special2 EAS_MELEE
@@ -27,7 +27,7 @@ ClassInfo
 	rateOfFire	1.1
 	
 	speed       1.07
-	
+	saberDamage 180
 	BPmultiplier		1
 	rankBP 			1.1,1.25,1.5
 	
@@ -35,8 +35,6 @@ ClassInfo
 	rankAP			1.05,1.1,1.25
 	
 	CSmultiplier     	1.10
-
-	forceBlocking		1
 	
 	tauntAnim 		BOTH_VICTORY_FAST
 	gloatAnim       	BOTH_VICTORY_FAST
@@ -63,7 +61,7 @@ ClassInfo
 	uioverlay_l "gfx/icons/heavy"
 	uioverlay_r "gfx/icons/infantry"
 	
-	modelscale	1.01
+	modelscale	1.02
 	
 	model		"purgetrooper"
 	skin			"default"
@@ -86,38 +84,38 @@ ClassInfo
 	//uishader_4 		"models/players/purgetrooper/MB2_Icons_purge_tfu"
 	
 	isCustomBuild	1
-	mbPoints		60
+	mbPoints		70
 	
-	c_att_skill_0	MB_ATT_INVALID
-	c_att_names_0	"^2Weaponry"
-	c_att_ranks_0	-1
+	c_att_skill_0	MB_ATT_BP_MULTIPLIER
+	c_att_names_0	"E-Weap BP (110/125/150%):"
+	c_att_ranks_0	2,3,5
 	
-	c_att_skill_1	MB_ATT_CLONERIFLE
-	c_att_names_1	"DC-15A Blaster Rifle:"
-	c_att_ranks_1	1,9
+	c_att_skill_1	MB_ATT_AP_MULTIPLIER
+	c_att_names_1	"E-Weap AP (105/110/125%):"
+	c_att_ranks_1	2,2,5
 	
-	c_att_skill_2	MB_ATT_CLONEBLOBS
-	c_att_names_2	"DC-15A Concussion Blobs:"
-	c_att_ranks_2	1,1,1
+	c_att_skill_2	MB_ATT_CLONERIFLE
+	c_att_names_2	"DC-15A Clone Rifle:"
+	c_att_ranks_2	1,9
 	
-	c_att_skill_3	MB_ATT_MICRO_GRENADES
-	c_att_names_3	"Concussion Grenades:"
-	c_att_ranks_3	2,2,2
+	c_att_skill_3	MB_ATT_CLONEBLOBS
+	c_att_names_3	"> DC-15A Concussion Blobs:"
+	c_att_ranks_3	1,1,1
 	
-	c_att_skill_4	MB_ATT_INVALID
-	c_att_names_4	"^8Attributes^7/^3Abilities"
-	c_att_ranks_4	-1
+	c_att_skill_4	MB_ATT_MICRO_GRENADES
+	c_att_names_4	"Concussion Grenades:"
+	c_att_ranks_4	2,2,2
 	
 	c_att_skill_5	MB_ATT_RESPAWNS
 	c_att_names_5	"Reinforcement:"
-	c_att_ranks_5	15
+	c_att_ranks_5	25
 	
 	c_att_skill_6	MB_ATT_HEALTH
-	c_att_names_6	"Health:"
+	c_att_names_6	"Health (100/120):"
 	c_att_ranks_6	2,2
 		
 	c_att_skill_7	MB_ATT_ARMOUR
-	c_att_names_7	"Armor:"
+	c_att_names_7	"Armor (50/80/120):"
 	c_att_ranks_7	3,4,5
 	
 	c_att_skill_8	MB_ATT_CORTOSIS
@@ -128,25 +126,17 @@ ClassInfo
 	c_att_names_9	"Force Block:"
 	c_att_ranks_9	10
 	
-	c_att_skill_10	MB_ATT_BP_MULTIPLIER
-	c_att_names_10	"E-Weap Block Power (BP):"
-	c_att_ranks_10	2,3,5
+	c_att_skill_10	MB_ATT_STAMINA
+	c_att_names_10	"Stamina ^3[CS1]^7:"
+	c_att_ranks_10	2,2,2
 	
-	c_att_skill_11	MB_ATT_AP_MULTIPLIER
-	c_att_names_11	"E-Weap Attack Power (AP):"
-	c_att_ranks_11	2,2,5
-
-	c_att_skill_12	MB_ATT_STAMINA
-	c_att_names_12	"Stamina ^3[CS1]^7:"
-	c_att_ranks_12	2,2,2
+	c_att_skill_11	MB_ATT_DEXTERITY
+	c_att_names_11	"Dexterity ^3[CS3]^7:"
+	c_att_ranks_11	2,2,3
 	
-	c_att_skill_13	MB_ATT_DEXTERITY
-	c_att_names_13	"Dexterity ^3[CS3]^7:"
-	c_att_ranks_13	2,2,3
-	
-	c_att_skill_14	MB_ATT_GRAPPLE_HOOK
-	c_att_names_14	"Grappling Hook ^3[CS4 M]^7:"
-	c_att_ranks_14	1,3
+	c_att_skill_12	MB_ATT_GRAPPLE_HOOK
+	c_att_names_12	"Grappling Hook ^3[CS4 M]^7:"
+	c_att_ranks_12	1,3
 }
 
 WeaponInfo0
@@ -166,34 +156,27 @@ WeaponInfo1
 	NewWorldModel		"models/weapons2/dc-15_ext/dc-15_ext_w.glm"
 	NewViewModel		"models/weapons2/dc-15_ext/dc-15_ext.md3"
 	Icon				"gfx/hud/w_icon_clonerifle_blobs"
-	WeaponName		"DC-15A Blaster Rifle"
+	WeaponName		"DC-15A Clone Rifle"
 	MuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot01R"
 	altMissileMissEffect	"blobs/concussion"
 }
 
-description	"Purge Trooper
+description	"Purge Trooper [Clone Trooper]
 
-Class: Clone Trooper
-Brief Overview:
 Dexterous Melee/gunner hybrids who can spec into anti-Jedi tools, damage protection, Electro-Weapon upgrades, and advanced mobility options.
 
 ^2Default Weaponry:
 - Melee
-- Electro-Weapon
--- Based on Lightsaber
+- Electro-Weapon (Saber)
 -- Saber Defense (1)
 -- Cannot block Blasters
--- No Saber Throw
+-- 30% less DMG
 -- Slap ^3[CS2]
-> Imperial Electrostaff
--- Staff style
+> Imperial Electrostaff (Staff)
 -- 20% faster swings
--- 25% less damage
-> Dual Electrobatons
--- Dual style
+> Dual Electrobatons (Dual)
 -- 8% faster swings
--- 25% less damage
 -- 65% shorter reach
 
 ^8Default Attributes:
@@ -201,14 +184,4 @@ Dexterous Melee/gunner hybrids who can spec into anti-Jedi tools, damage protect
 
 ^3Default Abilities:
 - Sprint ^3[CS1]
-- Limited Dex Roll ^3[CS3]
-
-^9Point Buy Info:
-- Health
--- 100, 120
-- Armor
--- 50, 80, 120
-- E-Weap Block Power (BP)
--- 1.1, 1.25, 1.5
-- E-Weap Attack Power (AP)
--- 1.05, 1.1, 1.25"
+- Limited Dex Roll ^3[CS3]"

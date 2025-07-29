@@ -4,19 +4,20 @@ ClassInfo
 {
 	name  			"v1_ImpSold"
 	weapons 		WP_BLASTER_PISTOL|WP_BLASTER|WP_FRAG_NADE|WP_CONC_NADE|WP_MELEE|WP_SABER
-	attributes  	MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES,1|MB_ATT_FRAGS,1|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_CCTRAINING,1
+	attributes  	MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES,1|MB_ATT_FRAGS,1|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,3|MB_ATT_CCTRAINING,1|MB_ATT_SABER_COMBO_NONE
 	maxhealth 		50
 	maxarmor  		35
 	rateOfFire 		1
 	MBClass 		MB_CLASS_SOLDIER
 	modelscale 		1.00
-	
+	WP_SaberFlags HELD_STUN
 	saber1			soldierbaton_legends
 	forcepowers 	FP_SABER_OFFENSE,3
 	saberstyle 		SS_MEDIUM|SS_TAVION
-	BPmultiplier 	0
-	APmultiplier 	0.8
-	
+	BPmultiplier 		0
+	APmultiplier 		0.8
+	ASmultiplier 1.05
+	saberDamage 60
 	customred		0.630
 	customgreen		0.198
 	customblue		0.198
@@ -32,46 +33,74 @@ ClassInfo
 	
 	uioverlay "gfx/icons/infantry"
 	
-	model 		"stormie"
-	skin  		"legends"
-	uishader  	"models/players/stormie/mb2_icon_default"
-	
-	model_1 		"stormie"
-	skin_1  		"remnant_legends"
-	uishader_1 	"models/players/stormie/mb2_icon_remnant"
-	
-	model_2 		"stormie"
-	skin_2  		"mimban_legends"
-	uishader_2  	"models/players/stormie/mb2_icon_mimban"
+	model		"imperial_army"
+	skin 		"default"
+	uishader	"models/players/imperial_army/mb2_icon_default"
 
-	//model_3		"imperial_garrison"
-	//skin_3 		"default"
-	//uishader_3		"models/players/imperial_garrison/mb2_icon_default"
-	
-	//model_4		"imperial"
-	//skin_4			"commander_rax"
-	//uishader_4	 	"models/players/imperial/mb2_icon_commander_rax"
-	
-	//model_5 		"imperial"
-	//skin_5			"army" 
-	//uishader_5 		"models/players/imperial/mb2_icon_army"
-	
-	//model_6 		"imperial"
-	//skin_6 		"default"
-	//uishader_6  	"models/players/imperial/mb2_icon_default"
-	
-	//model_7		"imperial"
-	//skin_7 		"commander"
-	//uishader_7 		"models/players/imperial/mb2_icon_commander"
-	
-	//model_8 		"imperial"
-	//skin_8 		"officer"
-	//uishader_8 		"models/players/imperial/mb2_icon_officer"
-	
-	//model_9 		"imperial"
-	//skin_9  		"officer2"
-	//uishader_9 		"models/players/imperial/mb2_icon_officer2"
-	
+	model_1		"imperial_army"
+	skin_1 		"atst"
+	uishader_1	"models/players/imperial_army/mb2_icon_atst"
+
+	model_2		"imperial_army"
+	skin_2		"navy"
+	uishader_2	"models/players/imperial_army/mb2_icon_navy"
+
+	model_3		"imperial"
+	skin_3		"navy"
+	uishader_3	"models/players/imperial/mb2_icon_navy"
+
+	model_4		"stormpilot"
+	skin_4		"default"
+	uishader_4	"models/players/stormpilot/mb2_icon_default"
+
+	model_5		"stormpilot_fml"
+	skin_5		"rgb"
+	uishader_5	"models/players/stormpilot_fml/mb2_icon_rgb"
+	userRGB_5 	1
+	customred_5 	0.709
+	customgreen_5	0.12
+	customblue_5 	0.12 //def r
+
+	model_6		"mudtrooper"
+	skin_6 		"security"
+	uishader_6	"models/players/mudtrooper/mb2_icon_security"
+
+	model_7		"mudtrooper"
+	skin_7 		"security2"
+	uishader_7	"models/players/mudtrooper/mb2_icon_security2"
+
+	model_8		"mudtrooper"
+	skin_8		"tactician"
+	uishader_8	"models/players/mudtrooper/mb2_icon_tactician"
+
+	model_9		"imperial_garrison"
+	skin_9 		"default"
+	uishader_9	"models/players/imperial_garrison/mb2_icon_default"
+
+	model_10	"imperial_narkina"
+	skin_10		"default"
+	uishader_10	"models/players/imperial_narkina/mb2_icon_default"
+
+	model_11	"preoxmo"
+	skin_11		"default"
+	uishader_11	"models/players/preoxmo/mb2_icon_default"
+
+	model_12	"mudtrooper"
+	skin_12		"default"
+	uishader_12	"models/players/mudtrooper/mb2_icon_default"
+
+	model_13	"mudtrooper"
+	skin_13		"clean"
+	uishader_13	"models/players/mudtrooper/mb2_icon_clean"
+
+	model_14	"imperial_army"
+	skin_14		"atdp"
+	uishader_14	"models/players/imperial_army/mb2_icon_atdp"
+
+	model_15	"imperial_worker"
+	skin_15		"default"
+	uishader_15	"models/players/imperial_worker/mb2_icon_default"
+
 	//respawncustomtime 10000
 }
 
@@ -98,35 +127,19 @@ WeaponInfo1
 	ChargeSound			"sound/weapons/leia_pistol/altcharge.mp3"	
 }
 
-WeaponInfo2
-{
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
-	NewWorldModel		"models/weapons2/Stormi_TD/stormiTD_w.glm"  	
-	NewViewModel		"models/weapons2/Stormi_TD/stormiTD.md3" 
-	MissileModel "models/weapons2/Stormi_TD/stormiTD_proj.md3" 
-	AltMissileModel "models/weapons2/Stormi_TD/stormiTD_proj.md3" 
-	altMissileMissEffect	"grenades/EXP_alt"
-	Icon				"gfx/hud/w_icon_StormiTD" 					
-	WeaponName			"Frag Grenade"    
-}
+description	"Imperial Conscript [Soldier]
 
-description	"Imperial Conscript
-
-Class: Soldier
-Brief Overview:
-5-life basic infantry units with an arsenal including close-to-mid-range Blasters and Grenades.
+5-life basic infantry units.
 
 ^2Weaponry:
 - Melee
-- Shock Baton
--- Based on Lightsaber
--- Yellow/Cyan styles
+- Shock Baton (Yellow/Cyan Saber)
 -- Cannot block Sabers/Blasters
--- 40% less damage
+-- No Saber Training
+-- Staggers targets
+-- 75/50% less DMG
 -- 50% shorter reach
 -- 33% wider radius
--- No Saber Throw
 -- Slap ^3[CS2]
 - SE-14C Blaster Pistol (2)
 - E-11 Blaster Rifle (3)
@@ -136,4 +149,4 @@ Brief Overview:
 ^8Attributes:
 - Reinforcements (4)
 - Close Combat Training (1)
-- Assemble"
+- Assemble (3)"
