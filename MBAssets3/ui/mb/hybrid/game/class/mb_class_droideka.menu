@@ -188,7 +188,7 @@
 			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
-			descText			"Purchase a shield and allow it to function when standing still, walking, and even raise faster"
+			descText			"Purchase a shield and allow it to function when standing still, walking, and even raise faster. Cost: 4/6/8 points"
 			visible				1
 			action
 			{
@@ -244,7 +244,7 @@
 			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
-			descText			"Strengthen the droideka's shield"
+			descText			"Strengthen the droideka's shield. Cost: 8/8 points"
 			visible				1 
 			action
 			{
@@ -299,7 +299,7 @@
 			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
-			descText			"Strengthen the droideka's hull"
+			descText			"Strengthen the droideka's hull. Cost: 8/4/2 points"
 			visible				1 
 			action
 			{
@@ -355,7 +355,7 @@
 			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
-			descText			"Increase the rate of the droideka's fire and rate of ammo regeneration"
+			descText			"Increase the rate of the droideka's fire. Cost: 4/6/8 points"
 			visible				1 
 			action
 			{
@@ -467,7 +467,7 @@
 			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
-			descText			"Uses shield energy to create a discharge shockwave knocking down or back enemies"
+			descText			"Uses shield energy to create a discharge shockwave knocking down or back enemies (12 points)"
 			visible				1 
 			action
 			{
@@ -523,7 +523,7 @@
 			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
-			descText			"Grants ability to deploy immediately"
+			descText			"Grants ability to deploy immediately (15 points)"
 			visible				1 
 			action
 			{
@@ -579,7 +579,7 @@
 			forecolor			0.1 0.7 1 0.7
 			border				0
 			bordercolor			0 0 0 0
-			descText			"Grants ability to use shield battery to recharge ammo"
+			descText			"Toggle between firepower and shield modes for tactical flexibility (12 points)"
 			visible				1 
 			action
 			{
@@ -595,13 +595,293 @@
 			}
 		}
 
+		// Sniper Mode title
+		itemDef
+		{
+			name				setfp_saberoffense
+			group				darkpowers
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Sniper Mode"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 280 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1 
+			decoration
+		}
+
+		// Sniper Mode assign
+		itemDef
+		{
+			name				setfp_saberoffense
+			group				darkpowers
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_SABERATTACK
+			rect				230 300 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"High-power precision shots (2x damage) with increased heat buildup (18 points)"
+			visible				1 
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_saberoffense forecolor2 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_saberoffense forecolor1 0.1 0.7 1 0.7
+			}
+		}
+
+		// Rolling Speed title
+		itemDef
+		{
+			name				setfp_protect
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Rolling Speed"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 300 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1 
+			decoration
+		}
+
+		// Rolling Speed assign
+		itemDef
+		{
+			name				setfp_protect
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_PROTECT
+			rect				230 280 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Increase rolling speed for faster flanking maneuvers (6 points per level)"
+			visible				1 
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_protect forecolor2 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_protect forecolor1 0.1 0.7 1 0.7
+			}
+		}
+
+		// Turn/Aim Speed title
+		itemDef
+		{
+			name				setfp_absorb
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Turn/Aim Speed"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 300 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1 
+			decoration
+		}
+
+		// Turn/Aim Speed assign
+		itemDef
+		{
+			name				setfp_absorb
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_ABSORB
+			rect				230 300 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Improve turning and aiming speed for aggressive playstyle (5 points per level)"
+			visible				1 
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_absorb forecolor2 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_absorb forecolor1 0.1 0.7 1 0.7
+			}
+		}
+
+		// Heat Capacity title
+		itemDef
+		{
+			name				setfp_teamheal
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Heat Capacity"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 320 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1 
+			decoration
+		}
+
+		// Ammo Capacity assign
+		itemDef
+		{
+			name				setfp_teamheal
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_TEAM_HEAL
+			rect				230 320 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Increase heat threshold before weapons overheat (6 points per level)"
+			visible				1 
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_teamheal forecolor2 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_teamheal forecolor1 0.1 0.7 1 0.7
+			}
+		}
+
+		// Cooling Systems title
+		itemDef
+		{
+			name				setfp_teamforce
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Cooling Systems"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				230 340 110 15
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			105
+			textaligny			0
+			font				4
+			textscale			1
+			forecolor			0.1 0.7 1 0.7
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			border				0
+			bordercolor			0 0 0 0
+			visible				1 
+			decoration
+		}
+
+		// Ammo Regen assign
+		itemDef
+		{
+			name				setfp_teamforce
+			group				"playersettingforcegroup"
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_TEAM_FORCE
+			rect				230 340 175 15
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			115
+			textaligny			-6
+			textscale			.25
+			outlinecolor		1 1 1 1
+			backcolor			0 0 0 0
+			forecolor			0.1 0.7 1 0.7
+			border				0
+			bordercolor			0 0 0 0
+			descText			"Improved heat dissipation for faster weapon recovery (4 points per level)"
+			visible				1 
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_teamforce forecolor2 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_teamforce forecolor1 0.1 0.7 1 0.7
+			}
+		}
+
 		// APPLY BUTTON
 		itemDef
 		{
 			name				applyjoinbutton
 			group				"playerforcejoin"
 			style				WINDOW_STYLE_SHADER
-			rect				270 384 65 32
+			rect				270 374 65 32
 			background			"ui/art/button/mb_hl_classic"
 			forecolor			1 1 1 1
 			decoration
@@ -615,7 +895,7 @@
 			text				"Apply"
 			type				1
 			style				WINDOW_STYLE_TEXT_RGB2
-			rect				226 374 150 48
+			rect				226 364 150 48
 			textalign			1
 			textalignx			75
 			textaligny			12
