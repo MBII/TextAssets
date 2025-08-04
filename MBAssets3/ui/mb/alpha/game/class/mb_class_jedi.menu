@@ -58,33 +58,19 @@
 
 		// SETUP LEGEND
 		// Skills title
-		itemDef
-		{
-			name				forceranktitle
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_POWER
-			rect 8 25 0 0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		itemDef
 		{
 			name				forceranktitle2
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
+			text2 				@MENUS_POWER
 			text				@MENUS_1_2_3
 			rect 113 25 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			1
 			textaligny			-5
+			text2alignx -106
 			font				6
 			textscale			0.15
 			forecolor			1 1 1 0.8
@@ -93,24 +79,6 @@
 		}
 
 		// SPECIFIC CLASS ABILITIES		
-		// Force Jump title
-		itemDef
-		{
-			name				setfp_jump
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				@MENUS_FORCE_JUMP
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 45 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Force Jump assign
 		itemDef
@@ -119,49 +87,32 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LEVITATION
-			rect 8 45 150 18			
+			rect 8 45 150 18	
+			text " "
+			text2 "Jump"	
+			font 6
+			textscale 0.15
+			text2alignx			-95	
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
 			forecolor			1 1 1 0.8
 			descText			@MENUS_LEAP_TO_AMAZING_HEIGHTS
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 44 147 20
-				setitemcolor	setfp_jump forecolor 1 1 1 1
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_jump forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 		
-		// Force Attunement title
-		itemDef
-		{
-			name				setfp_grip
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Attunement:"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 62 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Force Attunement assign
 		itemDef
@@ -171,47 +122,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_GRIP
 			rect 8 62 150 18
+			text " "
+			text2 "Attunement"
+			font 6
+			textscale 0.15
+			text2alignx			-95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
 			forecolor			1 1 1 0.8
 			descText			"Unlock higher force power levels at the cost of reduced blaster defense."
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect 	button_glow 8 61 147 20				
-				setitemcolor	setfp_grip forecolor 1 1 1 1
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_grip forecolor 1 1 1 0.8
+				setcolor		forecolor 1 1 1 0.8
 			}
-		}
-
-		// Force Push title
-		itemDef
-		{
-			name				setfp_push
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				@MENUS_FORCE_PUSH
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 79 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		itemDef
@@ -220,16 +153,14 @@
 			group				pointssetup
 			rect 113 79 41 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_force_push
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_force_push
 			}
 		}
@@ -242,48 +173,32 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
 			rect 8 79 150 18
+			text " "
+			text2 @MENUS_FORCE_PUSH
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			@MENUS_PUSH_YOUR_FOES_AWAY_AND
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 78 147 20
-				setitemcolor	setfp_push forecolor 1 1 1 1
+				setitemrect 	button_glow 8 78 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_push forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 
-		// Force Pull title
-		itemDef
-		{
-			name				setfp_pull
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				@MENUS_FORCE_PULL
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 96 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
+
 
 		itemDef
 		{
@@ -291,16 +206,14 @@
 			group				pointssetup
 			rect 113 96 41 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_force_pull
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_force_pull
 			}
 		}
@@ -313,47 +226,31 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PULL
 			rect 8 96 150 18
+			text " "
+			text2 @MENUS_FORCE_PULL
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			@MENUS_PULL_YOUR_FOES_TO_YOU
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 95 147 20
-				setitemcolor	setfp_pull forecolor 1 1 1 1
+				setitemrect 	button_glow 8 95 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_pull forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 
-		// Force Sight title
-		itemDef
-		{
-			name				setfp_see
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				@MENUS_FORCE_SIGHT
-			rect 8 113 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		itemDef
 		{
@@ -361,16 +258,14 @@
 			group				pointssetup
 			rect 113 113 41 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_force_sense
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_force_sense
 			}
 		}
@@ -383,48 +278,31 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SEE
 			rect 8 113 150 18
+			text " "
+			text2 @MENUS_FORCE_SIGHT
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			@MENUS_SEE_ENEMIES_AT_ALL_TIMES
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 112 147 20
-				setitemcolor	setfp_see forecolor 1 1 1 1
+				setitemrect 	button_glow 8 112 147 20
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_see forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 /*		
-		// Force Stasis title (not in Open)
-		itemDef
-		{
-			name				setfp_team_force
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Stasis:"
-			rect 8 130 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
-
 		// Force Stasis assign
 		itemDef
 		{
@@ -433,50 +311,33 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TEAM_FORCE
 			rect 8 130 147 18
+			text " "
+			text2 "Stasis"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"TBD"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 129 147 20
-				setitemcolor	setfp_team_force forecolor 1 1 1 1
+				setitemrect 	button_glow 8 129 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_team_force forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 */
 /*
 		// LIGHTSIDE POWERS
-		// Force Battle Meditation title (not in Open)
-		itemDef
-		{
-			name				setfp_lightning
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Battle Meditation:"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 155 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Force Battle Meditation assign
 		itemDef
@@ -486,48 +347,31 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LIGHTNING
 			rect 8 155 147 18
+			text " "
+			text2 "Battle Meditation"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"TBD"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 154 147 20
-				setitemcolor	setfp_lightning forecolor 1 1 1 1
+				setitemrect 	button_glow 8 154 147 20
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_lightning forecolor 1 1 1 0.8
+				setcolor		forecolor 1 1 1 0.8
 			}
 		}
 */
-		// Force Speed title
-		itemDef
-		{
-			name				setfp_speed
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Speed [CS3]"//@MENUS_FORCE_SPEED
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 155 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		itemDef
 		{
@@ -535,16 +379,14 @@
 			group				pointssetup
 			rect 113 155 41 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_force_speed
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_force_speed
 			}
 		}
@@ -557,47 +399,31 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SPEED
 			rect 8 155 147 18
+			text " "
+			text2 "Speed [CS3]"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"Unlock force speed, through which you can move at higher speed.\n           Use with Class Special 3 or Force-related keybinds"//@MENUS_MOVE_AT_AN_ACCELERATED
+			descText			"Unlock force speed, through which you can move at higher speed.\nUse with Class Special 3 or Force-related keybinds"//@MENUS_MOVE_AT_AN_ACCELERATED
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 154 147 20
-				setitemcolor	setfp_speed forecolor 1 1 1 1
+				setitemrect 	button_glow 8 154 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_speed forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 
-		// Force Mind Trick title
-		itemDef
-		{
-			name				setfp_mindtrick
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Mindtrick [CS4]"//@MENUS_FORCE_MINDTRICK
-			rect 8 172 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		itemDef
 		{
@@ -605,16 +431,14 @@
 			group				pointssetup
 			rect 113 172 41 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_force_mindtrick
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_force_mindtrick
 			}
 		}
@@ -627,50 +451,32 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TELEPATHY
 			rect 8 172 147 18
+			text " "
+			text2 "Mindtrick [CS4]"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.9
+			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"A Jedi Mindtrick, used to confuse enemies, makes you invisible to them.\n                 Use with Class Special 4 or Force-related keybinds"//@MENUS_RENDER_YOURSELF_INVISIBLE
+			descText			"A Jedi Mindtrick, used to confuse enemies, makes you invisible to them.\nUse with Class Special 4 or Force-related keybinds"//@MENUS_RENDER_YOURSELF_INVISIBLE
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 171 147 20
-				setitemcolor	setfp_mindtrick forecolor 1 1 1 1
+				setitemrect		button_glow 8 171 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_mindtrick forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 
 		// SABER POWERS
-		
-		//Fast Styles title
-		itemDef
-		{
-			name				setfp_protect
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Fast Styles"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 214 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Fast Styles assign
 		itemDef
@@ -680,47 +486,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PROTECT
 			rect 8 214 147 18
+			text " "
+			text2 "Fast Styles"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Unlock fast lightsaber styles, such as Blue, Cyan"//@MENUS_USE_MORE_POWERFUL_LIGHTSABER
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 213 147 20
-				setitemcolor	setfp_protect forecolor 1 1 1 1
+				setitemrect 	button_glow 8 213 147 20
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_protect forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
-		}
-
-		//Medium Styles title
-		itemDef
-		{
-			name				setfp_saberattack
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Medium Styles"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 231 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		// Medium Styles assign
@@ -731,48 +519,31 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
 			rect 8 231 147 18
+			text " "
+			text2 "Medium Styles"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Unlock medium lightsaber styles, such as Yellow, Duals, Staff"//@MENUS_USE_MORE_POWERFUL_LIGHTSABER
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 230 147 20
-				setitemcolor	setfp_saberattack forecolor 1 1 1 1
+				setitemrect 	button_glow 8 230 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_saberattack forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 		
-		//Strong Styles title
-		itemDef
-		{
-			name				setfp_rage
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Strong Styles"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 248 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Strong Styles assign
 		itemDef
@@ -782,27 +553,28 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_RAGE
 			rect 8 248 147 18
+			text " "
+			text2 "Strong Styles"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Unlock strong lightsaber styles, such as Red, Purple"//@MENUS_USE_MORE_POWERFUL_LIGHTSABER
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 247 147 20
-				setitemcolor	setfp_rage forecolor 1 1 1 1
+				setitemrect 	button_glow 8 247 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_rage forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 
@@ -1014,25 +786,6 @@
 			decoration
 		}
 
-		// Force Block title
-		itemDef
-		{
-			name				setfp_heal
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Force Block"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 276 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
-
 		// Force Block assign
 		itemDef
 		{
@@ -1041,48 +794,30 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_HEAL
 			rect 8 276 147 18
+			text " "
+			text2 "Force Block"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"Blocks incoming force powers, as long as you have enough force points\n                or your enemy has not gained force focus on you."
+			descText			"Blocks incoming force powers, as long as you have enough force points\nor your enemy has not gained force focus on you."
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
 
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 275 147 20
-				setitemcolor	setfp_heal forecolor 1 1 1 1
+				setitemrect 	button_glow 8 275 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_heal forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
-		}
-		
-		// Saber Defend title
-		itemDef
-		{
-			name				setfp_saberdefend
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				@MENUS_SABER_DEFEND
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 293 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		// Saber Defend assign
@@ -1093,47 +828,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
 			rect 8 293 147 18
+			text " "
+			text2 @MENUS_SABER_DEFEND
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"Block against saber attacks. Take less damage and regain more block points.\n                Not adding any point will make you completely vulnerable."//@MENUS_USE_THE_LIGHTSABER_TO
+			descText			"Block against saber attacks. Take less damage and regain more block points."//@MENUS_USE_THE_LIGHTSABER_TO
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 292 147 20
-				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
+				setitemrect 	button_glow 8 292 147 20
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_saberdefend forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
-		}
-
-		// Blaster Defend title
-		itemDef
-		{
-			name				setfp_drain
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Blaster Defense:"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 310 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		// Blaster Defend assign
@@ -1144,48 +861,31 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_DRAIN
 			rect 8 310 147 18
+			text " "
+			text2 "Blaster Defense"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Improves defense against blaster fire by reducing force points drain."
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 309 147 20
-				setitemcolor	setfp_drain forecolor 1 1 1 1
+				setitemrect 	button_glow 8 309 147 20
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_drain forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 
-		// Saber Deflect title
-		itemDef
-		{
-			name				setfp_teamheal
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Saber Deflect:"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 327 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Saber deflect assign
 		itemDef
@@ -1195,47 +895,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TEAM_HEAL
 			rect 8 327 147 18
+			text " "
+			text2 "Saber Deflect"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Determines accuracy of blaster fire deflection."
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
-				setitemrect button_glow 8 326 147 20
-				setitemcolor	setfp_teamheal forecolor 1 1 1 1
+				setitemrect 	button_glow 8 326 147 20
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_teamheal forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
-		}
-		
-		// Saber Throw title
-		itemDef
-		{
-			name				setfp_saberthrow
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Saber Throw [CS1]"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 344 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		// Saber Throw assign
@@ -1246,27 +928,28 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERTHROW
 			rect				8 344 147 18
+			text " "
+			text2 "Saber Throw [CS1]"
+			text2alignx -95
+			font 6
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"Throw your lightsaber at enemies and with higher level manually control it.\n                      Use with Class Special 1 keybind."
+			descText			"Throw your lightsaber at enemies and with higher level manually control it.\nUse with Class Special 1 keybind."
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow 8 343 147 20
-				setitemcolor	setfp_saberthrow forecolor 1 1 1 1
+				setcolor	 	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_saberthrow forecolor 1 1 1 0.8
+				setcolor	 	forecolor 1 1 1 0.8
 			}
 		}
 		
@@ -1275,36 +958,18 @@
 			name				nosaber
 			group				"playersettinggroup"
 			text				@MENUS_NO_LIGHTSABER
+			text2 "(Requires points in at least one style)"
 			style				WINDOW_STYLE_TEXT_RGB3
-			type				1
 			rect 8 295 147 16
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			73
 			textaligny			-5
+			text2aligny 		13
+			text2alignx 		-40
 			font				6
 			textscale			0.15
 			forecolor			1 1 1 0.8
 			visible				0
-			decoration
-		}
-		
-
-		// Add Saber Attack for saber
-		itemDef
-		{
-			name				nosaber
-			group				"playersettinggroup"
-			text				"(Requires a Saber Attack skill)"
-			type				1
-			style				WINDOW_STYLE_TEXT_RGB3
-			rect 8 312 147 16
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			73
-			textaligny			-5
-			font				6
-			textscale			.15
-			forecolor			1 1 1 0.8
-			visible				0 
 			decoration
 		}
 	}

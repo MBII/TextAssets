@@ -60,31 +60,16 @@
 		// Skills title
 		itemDef
 		{
-			name				forceranktitle
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_POWER
-			rect 8 25 0 0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
-
-		itemDef
-		{
 			name				forceranktitle2
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
+			text2 				@MENUS_POWER
 			text				@MENUS_1_2_3
 			rect 113 25 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			1
 			textaligny			-5
+			text2alignx -106
 			font				6
 			textscale			0.15
 			forecolor			1 1 1 0.8
@@ -93,24 +78,6 @@
 		}
 
 		// SPECIFIC CLASS ABILITIES
-		// Hull Strength title
-		itemDef
-		{
-			name				setfp_grip
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Hull Strength"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 45 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Hull Strength assign
 		itemDef
@@ -120,47 +87,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_GRIP
 			rect 8 45 147 18
+			text " "
+			text2 "Hull Strength"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Strengthen your droid's hull by increasing HP"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 44 147 20
-				setitemcolor	setfp_grip forecolor 1 1 1 1
+				setcolor	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_grip forecolor 1 1 1 0.8
+				setcolor	forecolor 1 1 1 0.8
 			}
-		}
-		
-		// Firepower title
-		itemDef
-		{
-			name				setfp_drain
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Firepower"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 65 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 		
 		itemDef
@@ -169,16 +118,14 @@
 			group				pointssetup
 			rect				113 65 41 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_weapon_sbdblaster
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_weapon_sbdblaster
 			}
 		}
@@ -191,46 +138,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_DRAIN
 			rect 8 65 147 18
+			text " "
+			text2 "Firepower"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
+			textscale			.15
 			textaligny			-5
 			forecolor			1 1 1 0.8
 			descText			"Give your droid a faster firing rate"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 64 147 20
-				setitemcolor	setfp_drain forecolor 1 1 1 1
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_drain forecolor 1 1 1 0.8
+				setcolor		forecolor 1 1 1 0.8
 			}
-		}
-
-		// Recharge Boost title
-		itemDef
-		{
-			name				setfp_lightning
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Recharge Boost [CS1]"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 85 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		// Recharge Boost assign
@@ -241,47 +171,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LIGHTNING
 			rect 8 85 147 18
+			text " "
+			text2 "Recharge Boost [CS1]"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Increase the recharge rate of your droids battery and stop battery drain from walking"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 84 147 20
-				setitemcolor	setfp_lightning forecolor 1 1 1 1
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_lightning forecolor 1 1 1 0.8
+				setcolor		forecolor 1 1 1 0.8
 			}
-		}
-
-		// Advanced Logic title
-		itemDef
-		{
-			name				setfp_rage
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Advanced Logic"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect 8 105 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		itemDef
@@ -290,16 +202,14 @@
 			group				pointssetup
 			rect				113 105 27 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_ability_advancedlogic
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_ability_advancedlogic
 			}
 		}
@@ -312,47 +222,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_RAGE
 			rect 8 105 147 18
+			text " "
+			text2 "Advanced Logic"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Defends against Mind Trick from Jedi"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 104 147 20
-				setitemcolor	setfp_rage forecolor 1 1 1 1
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_rage forecolor 1 1 1 0.8
+				setcolor		forecolor 1 1 1 0.8
 			}
-		}
-
-		// Advanced Targeting title
-		itemDef
-		{
-			name				setfp_team_force
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Advanced Targeting"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 125 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		itemDef
@@ -361,16 +253,14 @@
 			group				pointssetup
 			rect				113 125 13 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_ability_advancedtargeting
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_ability_advancedtargeting
 			}
 		}
@@ -383,47 +273,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TEAM_FORCE
 			rect				8 125 147 18
+			text " "
+			text2 "Advanced Targeting"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Gives the ability to zoom in on targets"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 124 147 20
-				setitemcolor	setfp_team_force forecolor 1 1 1 1
+				setcolor	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_team_force forecolor 1 1 1 0.8
+				setcolor	forecolor 1 1 1 0.8
 			}
-		}
-
-		// Advanced Radar title
-		itemDef
-		{
-			name				setfp_saberthrow
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Advanced Radar"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 145 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		itemDef
@@ -432,16 +304,14 @@
 			group				pointssetup
 			rect				113 145 13 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_ability_advancedradar
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_ability_advancedradar
 			}
 		}
@@ -454,47 +324,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERTHROW
 			rect				8 145 147 18
+			text " "
+			text2 "Advanced Radar"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"The Radar shows enemies while in Low Power Mode/Recharge Mode"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 144 147 20
-				setitemcolor	setfp_saberthrow forecolor 1 1 1 1
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_saberthrow forecolor 1 1 1 0.8
+				setcolor		forecolor 1 1 1 0.8
 			}
-		}
-
-		// Cortosis title
-		itemDef
-		{
-			name				setfp_pull
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Cortosis"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 175 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		itemDef
@@ -503,16 +355,14 @@
 			group				pointssetup
 			rect				113 175 13 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_ability_cortosis
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_ability_cortosis
 			}
 		}
@@ -525,47 +375,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PULL
 			rect				8 175 147 18
+			text " "
+			text2 "Cortosis"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Defends against lightsaber attacks by decreasing their damage"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 174 147 20
-				setitemcolor	setfp_pull forecolor 1 1 1 1
+				setcolor	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_pull forecolor 1 1 1 0.8
+				setcolor	forecolor 1 1 1 0.8
 			}
-		}
-
-		// Blast Armour title
-		itemDef
-		{
-			name				setfp_push
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Blast Armour"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 195 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		// Blast Armour assign
@@ -576,47 +408,29 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
 			rect 				8 195 147 18
+			text " "
+			text2 "Blast Armour"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Defends against sniper fire (not Disruptor shots), explosives, rockets, and melee"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 194 147 20
-				setitemcolor	setfp_push forecolor 1 1 1 1
+				setcolor	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_push forecolor 1 1 1 0.8
+				setcolor	forecolor 1 1 1 0.8
 			}
-		}
-
-		// Magnetic Plating title
-		itemDef
-		{
-			name				setfp_see
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Magnetic Plating"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 215 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
 		}
 
 		itemDef
@@ -625,16 +439,14 @@
 			group				pointssetup
 			rect				113 215 13 18
 			style				WINDOW_STYLE_SHADER
-			background			"gfx/menus/alpha/Btn_Info"
+			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter
-			{
+			mouseEnter {
 				open			mb_ability_magneticplating
 			}
-			mouseExit
-			{
+			mouseExit {
 				close			mb_ability_magneticplating
 			}
 		}
@@ -647,48 +459,31 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SEE
 			rect				8 215 147 18
+			text " "
+			text2 "Magnetic Plating"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Defends against energy fire from blaster weapons"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 214 147 20
-				setitemcolor	setfp_see forecolor 1 1 1 1
+				setcolor		forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_see forecolor 1 1 1 0.8
+				setcolor		forecolor 1 1 1 0.8
 			}
 		}
 
-		// Ammo title
-		itemDef
-		{
-			name				setfp_saberdefend
-			group				pointssetup
-			style				WINDOW_STYLE_TEXT_RGB3
-			text				"Ammo"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				8 245 147 18
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			0
-			textaligny			-5
-			font				6
-			textscale			0.15
-			forecolor			1 1 1 0.8
-			visible				1
-			decoration
-		}
 
 		// Ammo assign
 		itemDef
@@ -698,27 +493,28 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
 			rect				 8 245 147 18
+			text " "
+			text2 "Ammo"
+			font 6
+			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			105
+			textalignx			95
 			textaligny			-5
-			textscale			.25
+			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Increase your ammo store for all your weapons"
 			visible				1
-			action
-			{
+			action {
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter
-			{
+			mouseenter {
 				show			button_glow
 				setitemrect		button_glow	8 244 147 20
-				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
+				setcolor	forecolor 1 1 1 1
 			}
-			mouseExit
-			{
+			mouseExit {
 				hide			button_glow
-				setitemcolor	setfp_saberdefend forecolor 1 1 1 0.8
+				setcolor	forecolor 1 1 1 0.8
 			}
 		}
 	}
