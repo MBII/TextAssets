@@ -938,13 +938,13 @@
 		}
 		mouseenter
 		{
-			setitemcolor	specTitle forecolor 1 1 1 0.25
+			setcolor		forecolor 1 1 1 0.25
 			show			btn_info_hl
 			setitemrect		btn_info_hl 358 66 15 20
 		}
 		mouseExit
 		{
-			setitemcolor	specTitle forecolor 1 1 1 0.1
+			setcolor		forecolor 1 1 1 0.1
 			hide			btn_info_hl
 		}
 	}
@@ -954,14 +954,14 @@
 	{
 		name		sk1
 		group		faSpecs
-		text		"Skill 1"
+		text		" "
 		type		ITEM_TYPE_BUTTON
 		style		WINDOW_STYLE_TEXT_RGB1
 		rect		366 100 70 80
 		textalign	ITEM_ALIGN_MIDDLE
 		textaligny	-15
 		font		6
-		textscale	.2
+		textscale	.17
 		forecolor	1 1 1 0.7
 		descText	""
 		visible		0
@@ -1005,14 +1005,14 @@
 	{
 		name		sk2
 		group		faSpecs
-		text		"Skill 2"
+		text		" "
 		type		ITEM_TYPE_BUTTON
 		style		WINDOW_STYLE_TEXT_RGB1
 		rect		366 210 70 80
 		textalign	ITEM_ALIGN_MIDDLE
 		textaligny	-15
 		font		6
-		textscale	.2
+		textscale	.17
 		forecolor	1 1 1 0.7
 		descText	""
 		visible		0
@@ -1056,14 +1056,14 @@
 	{
 		name		sk3
 		group		faSpecs
-		text		"Skill 3"
+		text		" "
 		type		ITEM_TYPE_BUTTON
 		style		WINDOW_STYLE_TEXT_RGB1
 		rect		366 320 70 80
 		textalign	ITEM_ALIGN_MIDDLE
 		textaligny	-15
 		font		6
-		textscale	.2
+		textscale	.17
 		forecolor	1 1 1 0.7
 		descText	""
 		visible		0
@@ -1220,39 +1220,25 @@
 
 	// SETUP LEGEND
 	// Skills title
-	itemDef
-	{
-		name				forceranktitle
-		group				faSkills
-		style				WINDOW_STYLE_TEXT_RGB1
-		text				@MENUS_POWER
-		rect 				175 95 0 0//8 25 0 0
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			0
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+		itemDef
+		{
+			name				forceranktitle
+			group				faSkills
+			style				WINDOW_STYLE_TEXT_RGB1
+			text 				@MENUS_POWER
+			text2				@MENUS_1_2_3
+			rect 174 100 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			-5
+			text2alignx 119
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
-	itemDef
-	{
-		name				forceranktitle2
-		group				faSkills
-		style				WINDOW_STYLE_TEXT_RGB1
-		text				@MENUS_1_2_3
-		rect 				292 95 0 0//113 25 0 0
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			0
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 
 	// FA Skill 0
 	itemDef
@@ -1260,28 +1246,16 @@
 		name				setfa_title0
 		group				faSkills1
 		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 115 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
-	itemDef
-	{
-		name				setfa_title0
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_00
 		rect 190 115 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1292,33 +1266,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 114 147 20
-			setitemcolor	setfa_title0 forecolor 1 1 1 1
+			setitemrect		button_glow	175 114 162 20
+			setcolor		forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title0 forecolor 1 1 1 0.8
+			setcolor		forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 1
-	itemDef
-	{
-		name				setfa_title1
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 135 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title1
@@ -1326,10 +1283,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_01
 		rect 190 135 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1340,33 +1301,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 134 147 20
-			setitemcolor	setfa_title1 forecolor 1 1 1 1
+			setitemrect		button_glow	175 134 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title1 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 2
-	itemDef
-	{
-		name				setfa_title2
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 155 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title2
@@ -1374,10 +1318,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_02
 		rect 190 155 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1388,33 +1336,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 154 147 20
-			setitemcolor	setfa_title2 forecolor 1 1 1 1
+			setitemrect		button_glow	175 154 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title2 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 3
-	itemDef
-	{
-		name				setfa_title3
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 175 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title3
@@ -1422,10 +1353,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_03
 		rect 190 175 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1436,33 +1371,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 174 147 20
-			setitemcolor	setfa_title3 forecolor 1 1 1 1
+			setitemrect		button_glow	175 174 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title3 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 4
-	itemDef
-	{
-		name				setfa_title4
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 195 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title4
@@ -1470,10 +1388,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_04
 		rect 190 195 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1484,33 +1406,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 194 147 20
-			setitemcolor	setfa_title4 forecolor 1 1 1 1
+			setitemrect		button_glow	175 194 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title4 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 5
-	itemDef
-	{
-		name				setfa_title5
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 215 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title5
@@ -1518,10 +1423,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_05
 		rect 190 215 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1532,33 +1441,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 214 147 20
-			setitemcolor	setfa_title5 forecolor 1 1 1 1
+			setitemrect		button_glow	175 214 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title5 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 6
-	itemDef
-	{
-		name				setfa_title6
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 235 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title6
@@ -1566,10 +1458,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_06
 		rect 190 235 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1580,33 +1476,17 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 234 147 20
-			setitemcolor	setfa_title6 forecolor 1 1 1 1
+			setitemrect		button_glow	175 234 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title6 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 7
-	itemDef
-	{
-		name				setfa_title7
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 255 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title7
@@ -1614,10 +1494,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_07
 		rect 190 255 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1628,33 +1512,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 254 147 20
-			setitemcolor	setfa_title7 forecolor 1 1 1 1
+			setitemrect		button_glow	175 254 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title7 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 8
-	itemDef
-	{
-		name				setfa_title8
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 275 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title8
@@ -1662,10 +1529,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_08
 		rect 190 275 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1676,33 +1547,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 274 147 20
-			setitemcolor	setfa_title8 forecolor 1 1 1 1
+			setitemrect		button_glow	175 274 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title8 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 9
-	itemDef
-	{
-		name				setfa_title9
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 295 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title9
@@ -1710,10 +1564,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_09
 		rect 190 295 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1724,33 +1582,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 294 147 20
-			setitemcolor	setfa_title9 forecolor 1 1 1 1
+			setitemrect		button_glow	175 294 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title9 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 10
-	itemDef
-	{
-		name				setfa_title10
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 315 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title10
@@ -1758,10 +1599,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_10
 		rect 190 315 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1772,33 +1617,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 314 147 20
-			setitemcolor	setfa_title10 forecolor 1 1 1 1
+			setitemrect		button_glow	175 314 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title10 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 	
-	// FA Skill 11
-	itemDef
-	{
-		name				setfa_title11
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 335 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title11
@@ -1806,10 +1634,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_11
 		rect 190 335 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1820,33 +1652,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 334 147 20
-			setitemcolor	setfa_title11 forecolor 1 1 1 1
+			setitemrect		button_glow	175 334 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title11 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-	
-	// FA Skill 12
-	itemDef
-	{
-		name				setfa_title12
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 355 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title12
@@ -1854,10 +1669,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_12
 		rect 190 355 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1868,33 +1687,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 354 147 20
-			setitemcolor	setfa_title12 forecolor 1 1 1 1
+			setitemrect		button_glow	175 354 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title12 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 		
-	// FA Skill 13
-	itemDef
-	{
-		name				setfa_title13
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 375 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title13
@@ -1902,10 +1704,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_13
 		rect 190 375 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1916,33 +1722,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 374 147 20
-			setitemcolor	setfa_title13 forecolor 1 1 1 1
+			setitemrect		button_glow	175 374 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title13 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 	
-	// FA Skill 14
-	itemDef
-	{
-		name				setfa_title14
-		group				faSkills1
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 395 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title14
@@ -1950,10 +1739,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_14
 		rect 190 395 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -1964,34 +1757,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 394 147 20
-			setitemcolor	setfa_title14 forecolor 1 1 1 1
+			setitemrect		button_glow	175 394 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title14 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 	
-
-	// FA Skill 15
-	itemDef
-	{
-		name				setfa_title15
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 115 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title15
@@ -1999,10 +1774,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_15
 		rect 190 115 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2013,33 +1792,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 114 147 20
-			setitemcolor	setfa_title15 forecolor 1 1 1 1
+			setitemrect		button_glow	175 114 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title15 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 16
-	itemDef
-	{
-		name				setfa_title16
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 135 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title16
@@ -2047,10 +1809,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_16
 		rect 190 135 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2061,33 +1827,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 134 147 20
-			setitemcolor	setfa_title16 forecolor 1 1 1 1
+			setitemrect		button_glow	175 134 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title16 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 17
-	itemDef
-	{
-		name				setfa_title17
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 155 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title17
@@ -2095,10 +1844,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_17
 		rect 190 155 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2109,33 +1862,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 154 147 20
-			setitemcolor	setfa_title17 forecolor 1 1 1 1
+			setitemrect		button_glow	175 154 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title17 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 18
-	itemDef
-	{
-		name				setfa_title18
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 175 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title18
@@ -2143,10 +1879,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_18
 		rect 190 175 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2157,33 +1897,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 174 147 20
-			setitemcolor	setfa_title18 forecolor 1 1 1 1
+			setitemrect		button_glow	175 174 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title18 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 19
-	itemDef
-	{
-		name				setfa_title19
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 195 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title19
@@ -2191,10 +1914,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_19
 		rect 190 195 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2205,33 +1932,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 194 147 20
-			setitemcolor	setfa_title19 forecolor 1 1 1 1
+			setitemrect		button_glow	175 194 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title19 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 20
-	itemDef
-	{
-		name				setfa_title20
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 215 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title20
@@ -2239,10 +1949,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_20
 		rect 190 215 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2253,33 +1967,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 214 147 20
-			setitemcolor	setfa_title20 forecolor 1 1 1 1
+			setitemrect		button_glow	175 214 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title20 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 21
-	itemDef
-	{
-		name				setfa_title21
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 235 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title21
@@ -2287,10 +1984,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_21
 		rect 190 235 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2301,33 +2002,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 234 147 20
-			setitemcolor	setfa_title21 forecolor 1 1 1 1
+			setitemrect		button_glow	175 234 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title21 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 22
-	itemDef
-	{
-		name				setfa_title22
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 255 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title22
@@ -2335,10 +2019,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_22
 		rect 190 255 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2349,33 +2037,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 254 147 20
-			setitemcolor	setfa_title22 forecolor 1 1 1 1
+			setitemrect		button_glow	175 254 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title22 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 23
-	itemDef
-	{
-		name				setfa_title23
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 275 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title23
@@ -2383,10 +2054,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_23
 		rect 190 275 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2397,33 +2072,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 274 147 20
-			setitemcolor	setfa_title23 forecolor 1 1 1 1
+			setitemrect		button_glow	175 274 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title23 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 24
-	itemDef
-	{
-		name				setfa_title24
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 295 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title24
@@ -2431,10 +2089,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_24
 		rect 190 295 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2445,33 +2107,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 294 147 20
-			setitemcolor	setfa_title24 forecolor 1 1 1 1
+			setitemrect		button_glow	175 294 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title24 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 25
-	itemDef
-	{
-		name				setfa_title25
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 315 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title25
@@ -2479,10 +2124,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_25
 		rect 190 315 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2493,33 +2142,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 314 147 20
-			setitemcolor	setfa_title25 forecolor 1 1 1 1
+			setitemrect		button_glow	175 314 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title25 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-	
-	// FA Skill 26
-	itemDef
-	{
-		name				setfa_title26
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 335 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title26
@@ -2527,10 +2159,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_26
 		rect 190 335 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2541,33 +2177,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 334 147 20
-			setitemcolor	setfa_title26 forecolor 1 1 1 1
+			setitemrect		button_glow	175 334 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title26 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 	
-	// FA Skill 27
-	itemDef
-	{
-		name				setfa_title27
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 355 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title27
@@ -2575,10 +2194,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_27
 		rect 190 355 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2589,33 +2212,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 354 147 20
-			setitemcolor	setfa_title27 forecolor 1 1 1 1
+			setitemrect		button_glow	175 354 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title27 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-		
-	// FA Skill 28
-	itemDef
-	{
-		name				setfa_title28
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 375 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title28
@@ -2623,10 +2229,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_28
 		rect 190 375 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2637,33 +2247,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 374 147 20
-			setitemcolor	setfa_title28 forecolor 1 1 1 1
+			setitemrect		button_glow	175 374 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title28 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-	
-	// FA Skill 29
-	itemDef
-	{
-		name				setfa_title29
-		group				faSkills2
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 395 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title29
@@ -2671,10 +2264,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_29
 		rect 190 395 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2685,35 +2282,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 394 147 20
-			setitemcolor	setfa_title29 forecolor 1 1 1 1
+			setitemrect		button_glow	175 394 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title29 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 	
-	
-	
-	// FA Skill 30
-	itemDef
-	{
-		name				setfa_title30
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 115 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title30
@@ -2721,10 +2299,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_30
 		rect 190 115 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2735,33 +2317,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 114 147 20
-			setitemcolor	setfa_title30 forecolor 1 1 1 1
+			setitemrect		button_glow	175 114 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title30 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 31
-	itemDef
-	{
-		name				setfa_title31
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 135 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title31
@@ -2769,10 +2334,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_31
 		rect 190 135 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2783,33 +2352,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 134 147 20
-			setitemcolor	setfa_title31 forecolor 1 1 1 1
+			setitemrect		button_glow	175 134 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title31 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 32
-	itemDef
-	{
-		name				setfa_title32
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 155 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title32
@@ -2817,10 +2369,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_32
 		rect 190 155 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2831,33 +2387,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 154 147 20
-			setitemcolor	setfa_title32 forecolor 1 1 1 1
+			setitemrect		button_glow	175 154 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title32 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 33
-	itemDef
-	{
-		name				setfa_title33
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 175 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title33
@@ -2865,10 +2404,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_33
 		rect 190 175 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2879,33 +2422,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 174 147 20
-			setitemcolor	setfa_title33 forecolor 1 1 1 1
+			setitemrect		button_glow	175 174 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title33 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 34
-	itemDef
-	{
-		name				setfa_title34
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 195 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title34
@@ -2913,10 +2439,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_34
 		rect 190 195 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2927,33 +2457,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 194 147 20
-			setitemcolor	setfa_title34 forecolor 1 1 1 1
+			setitemrect		button_glow	175 194 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title34 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 35
-	itemDef
-	{
-		name				setfa_title35
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 215 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title35
@@ -2961,10 +2474,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_35
 		rect 190 215 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -2975,33 +2492,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 214 147 20
-			setitemcolor	setfa_title35 forecolor 1 1 1 1
+			setitemrect		button_glow	175 214 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title35 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 36
-	itemDef
-	{
-		name				setfa_title36
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 235 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title36
@@ -3009,10 +2509,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_36
 		rect 190 235 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3023,33 +2527,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 234 147 20
-			setitemcolor	setfa_title36 forecolor 1 1 1 1
+			setitemrect		button_glow	175 234 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title36 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 37
-	itemDef
-	{
-		name				setfa_title37
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 255 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title37
@@ -3057,10 +2544,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_37
 		rect 190 255 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3071,33 +2562,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 254 147 20
-			setitemcolor	setfa_title37 forecolor 1 1 1 1
+			setitemrect		button_glow	175 254 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title37 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 38
-	itemDef
-	{
-		name				setfa_title38
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 275 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title38
@@ -3105,10 +2579,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_38
 		rect 190 275 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3119,33 +2597,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 274 147 20
-			setitemcolor	setfa_title38 forecolor 1 1 1 1
+			setitemrect		button_glow	175 274 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title38 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 39
-	itemDef
-	{
-		name				setfa_title39
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 295 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title39
@@ -3153,10 +2614,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_39
 		rect 190 295 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3167,33 +2632,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 294 147 20
-			setitemcolor	setfa_title39 forecolor 1 1 1 1
+			setitemrect		button_glow	175 294 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title39 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
-	// FA Skill 40
-	itemDef
-	{
-		name				setfa_title40
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 315 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
 	itemDef
 	{
 		name				setfa_title40
@@ -3201,10 +2649,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_40
 		rect 190 315 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3215,33 +2667,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 314 147 20
-			setitemcolor	setfa_title40 forecolor 1 1 1 1
+			setitemrect		button_glow	175 314 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title40 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-	
-	// FA Skill 41
-	itemDef
-	{
-		name				setfa_title41
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 335 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title41
@@ -3249,10 +2684,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_41
 		rect 190 335 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3263,33 +2702,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 334 147 20
-			setitemcolor	setfa_title41 forecolor 1 1 1 1
+			setitemrect		button_glow	175 334 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title41 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-	
-	// FA Skill 42
-	itemDef
-	{
-		name				setfa_title42
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 355 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title42
@@ -3297,10 +2719,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_42
 		rect 190 355 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3311,33 +2737,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 354 147 20
-			setitemcolor	setfa_title42 forecolor 1 1 1 1
+			setitemrect		button_glow	175 354 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title42 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-		
-	// FA Skill 43
-	itemDef
-	{
-		name				setfa_title43
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 375 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title43
@@ -3345,10 +2754,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_43
 		rect 190 375 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3359,33 +2772,16 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 374 147 20
-			setitemcolor	setfa_title43 forecolor 1 1 1 1
+			setitemrect		button_glow	175 374 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title43 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
-	
-	// FA Skill 44
-	itemDef
-	{
-		name				setfa_title44
-		group				faSkills3
-		style				WINDOW_STYLE_TEXT_RGB3
-		text				""
-		rect 175 395 147 18
-		textalign			ITEM_ALIGN_LEFT
-		textalignx			0
-		textaligny			-5
-		font				6
-		textscale			0.15
-		forecolor			1 1 1 0.8
-		visible				0
-		decoration
-	}
+
 	itemDef
 	{
 		name				setfa_title44
@@ -3393,10 +2789,14 @@
 		style				WINDOW_STYLE_TEXT_RGB3
 		ownerdraw			UI_FA_RANK_44
 		rect 190 395 147 18
+		text " "
+		text2 " "
 		textalign			ITEM_ALIGN_LEFT
-		textalignx			105
+		font 6
+		text2alignx -110
+		textalignx			95
 		textaligny			-5
-		textscale			.25
+		textscale			.15
 		forecolor			1 1 1 0.8
 		descText			""
 		visible				0
@@ -3407,13 +2807,13 @@
 		mouseenter
 		{
 			show			button_glow
-			setitemrect		button_glow	175 394 147 20
-			setitemcolor	setfa_title44 forecolor 1 1 1 1
+			setitemrect		button_glow	175 394 162 20
+			setcolor	forecolor 1 1 1 1
 		}
 		mouseExit
 		{
 			hide			button_glow
-			setitemcolor	setfa_title4 forecolor 1 1 1 0.8
+			setcolor	forecolor 1 1 1 0.8
 		}
 	}
 
