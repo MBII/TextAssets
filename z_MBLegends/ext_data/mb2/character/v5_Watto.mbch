@@ -4,7 +4,7 @@ ClassInfo
 	weapons		WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE|WP_FLECHETTE
 	maxhealth		125
 	maxarmor       	125
-	attributes  MB_ATT_FUELREGEN,2|MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2|MB_ATT_FLECHETTE,2|MB_ATT_TRIP_MINES,3
+	attributes  MB_ATT_FUELREGEN,2|MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2|MB_ATT_FLECHETTE,2|MB_ATT_TRIP_MINES,3|MB_ATT_SABER_COMBO_NONE
 
 	modelscale .82
 	MBClass			MB_CLASS_MANDALORIAN
@@ -13,11 +13,11 @@ ClassInfo
 	resourceCooldown 	0
 	resourceCap 		70
 	forcepool    		70
-	APMultiplier     1.2
-	ASMultiplier 			1.2
+	APMultiplier     1.25
+	ASMultiplier 	1.25
 	BPmultiplier		0
 	speed 				1.07
-
+	saberDamage 160
 	holdables       HI_SEEKER
 	
 	special1 EAS_HI_SPRINT
@@ -87,7 +87,7 @@ WeaponInfo1
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
-	NewWorldModel  "models/weapons2/dummy/dummy.glm"
+	NewWorldModel  "models/weapons2/dummyblaster/model.glm"
 	NewViewModel  "models/weapons2/dummy/dummy.md3"
 	Icon  "gfx/hud/w_icon_pitdroidsaber"
 	WeaponName  "Folded Pit Droid"
@@ -118,34 +118,31 @@ WeaponInfo2
 	AltMissileModel "models/map_objects/desert/3po_head.md3"
 	primFireEnabled 0
 	clipsize 75
-	damageMod 1.15
+	damageMod 1.5
+	FPmult 2
 	velocityMod 0
 }
 
-description "Watto
+description "Watto [Mandalorian]
 
-Class: Mandalorian
-Brief Overview: 
 A dexterous, Flight-capable grenadier who specializes in placing traps for his enemies and raining down hell from the sky.
 
 ^2Weaponry: 
 - Melee
-- Folded Pit Droid
--- Based on Lightsaber
--- Yellow/Red/Purple styles
+- Folded Pit Droid (Yellow/Red/Purple Saber)
 -- Cannot block Sabers/Blasters
--- 15% more knockback
--- 50% less damage
+-- No Saber Training
+-- 15% more KB
+-- 33/69/60% less DMG
 -- 57% shorter reach
 -- 300% wider radius
--- No Saber Throw
 -- Slap ^3[CS2]
 - DL-44 Blaster Pistol (2)
-- Busted Parts
--- Based on FC-1 Flechette Launcher (2)
--- 15% more damage
--- 100% slower projectiles
--- Sec. fire only
+- Busted Parts (Flechette 2)
+-- 50% more DMG
+-- 100% more FP DMG
+-- 100% slower velocity
+-- Sec. only
 - Frag Grenades (3)
 - Trip Mines (3)
 - Concussion Grenades (2)
@@ -162,9 +159,6 @@ A dexterous, Flight-capable grenadier who specializes in placing traps for his e
 - Mind Trick Immunity
 
 ^3Abilities:
-- Flight
--- Based on Jetpack
+- Flight (Jetpack)
 - Sprint ^3[CS1]
-- Dodge (3) ^3[CS3]
-
-^9Note: Double-tap jump for Flight ^9to avoid Dex flip Stamina drain."
+- Dodge (3) ^3[CS3]"

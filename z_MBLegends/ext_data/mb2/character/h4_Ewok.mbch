@@ -3,42 +3,51 @@
 ClassInfo
 {
 	name				"h4_Ewok"
-	weapons				WP_MELEE|WP_SABER|WP_T21|WP_REPEATER
-	attributes 			MB_ATT_ASSEMBLE,1|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_REPEATER
+	MBClass			MB_CLASS_HERO
+	classNumberLimit 6
+	
+	weapons		WP_MELEE|WP_SABER|WP_T21|WP_REPEATER
+	
+	attributes 	MB_ATT_ASSEMBLE,3|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_REPEATER
+	
 	maxhealth		90
 	maxarmor  		25
+	
 	forcepool        100
 	resource RESOURCE_ENERGY
+	
+	rateOfFire 		1
+	rateOfFire_Melee	.5
+	
 	saber1  			ewok_spear_legends
 	sabercolor  		0
 	saberstyle  		SS_MEDIUM
-	modelscale		0.68
-	MBClass			MB_CLASS_HERO
-	classNumberLimit 	4
-	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
-	WP_RepeaterFlags		HELD_KNOCKBACK|HELD_KNOCKDOWN
-	WP_MeleeFlags			HELD_LOWDAMAGE
-	rateOfFire_Melee	.5
-	classFlags 			CFL_BLOODYMELEE
 	BPmultiplier		0
-	
-	rateOfFire 		1
 	APmultiplier		0.8
 	saberdamage 98
-	gloatanim	 	BOTH_VICTORY_FAST
-	tauntAnim		BOTH_ENGAGETAUNT
-	flourishAnim		BOTH_FORCE_RAGE
-	WalkBackward BOTH_WALKBACK_DUAL
-	WalkForward BOTH_WALK_DUAL
-	saberStanceAnim BOTH_TAVION_STANCE
+
+	//WP_FlechetteFlags 	HELD_FLAME|HELD_EXPLOSIVE
+	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
+	WP_RepeaterFlags		HELD_KNOCKBACK|HELD_KNOCKDOWN|HELD_ALTRELOAD
+	WP_MeleeFlags			HELD_LOWDAMAGE
 	
-	uioverlay_r "gfx/icons/infantry"
-	uioverlay_l "gfx/icons/tactician"
-	
+	//damageGiven 0.1
+	classFlags 			CFL_BLOODYMELEE
+
 	special1 EAS_HI_DODGE
 	special2 EAS_HI_DASH
 	special3 EAS_MELEE
 	
+	gloatanim	 	BOTH_VICTORY_FAST
+	tauntAnim		BOTH_ENGAGETAUNT
+	flourishAnim		BOTH_FORCE_RAGE
+	WalkBackward 		BOTH_WALKBACK_DUAL
+	WalkForward 		BOTH_WALK_DUAL
+	saberStanceAnim 	BOTH_TAVION_STANCE
+
+	uioverlay_r "gfx/icons/infantry"
+	uioverlay_l "gfx/icons/tactician"
+	modelscale		0.68
 	model		"Jedi_EW"
 	skin			"endor_warrick"
 	uishader 	"models/players/Jedi_EW/mb2_Icon_endor_warrick"
@@ -143,8 +152,9 @@ WeaponInfo2
 	AltFlashSound0		"sound/weapons/stone/fire.mp3"
 	MissileModel 		"models/weapons2/stone/thermal.md3"
 	FlashSound0		"sound/weapons/stone/fire.mp3"
-	clipSize 150
-	customAmmo 1
+	clipSize 25
+	customAmmo 125
+	reloadTimeModifier 1.9
 	hasAnimOverrides 1
 	animReady BOTH_SABERDUAL_STANCE //upper
 	animReadyWalk BOTH_SABERDUAL_STANCE
@@ -152,43 +162,35 @@ WeaponInfo2
 	animAttack NADE_SECONDARY
 	animAttackWalk NADE_SECONDARY
 	animStand BOTH_SABERDUAL_STANCE //lower
-	rateMod 2
 }
 
-description "Ewok
+description "Ewok [Hero]
 
-Class: Hero
-Brief Overview: 
 3-life archers and spear wielders of diminutive stature carrying powerful knockdown Stones. They thrive on ambushes and pack behavior.
 
 ^2Weaponry:
 - Light Melee 
 -- 50% faster swings
-- Ewok Spear
--- Based on Lightsaber
--- Yellow style
+- Ewok Spear (Yellow Saber)
 -- Cannot block Sabers/Blasters
--- 62% less damage
+-- 62% less DMG
 -- 53% shorter reach
 -- 33% wider radius
--- No Saber Throw
 -- Slap ^3[CS3]
-- Stones (6)
--- Based on Imperial Heavy Repeater
+- Stones (6) (Repeater)
 -- Pushes/knocks down targets on direct hit
--- 100% slower fire rate
--- Sec. fire only
-- Bow and Arrows
--- Based on T-21 Heavy Blaster (1)
+-- 90% slower mag reload
+-- Sec. only
+- Bow and Arrows (T-21 1)
 -- Staggers/knocks back targets
--- 15% faster fire rate
--- 50% less damage
--- Fixed-length reload
+-- 15% faster RoF
+-- 50% less DMG
+-- Mag reload
 
 ^8Attributes:
 - Reinforcements (2)
 - Healing (1)
-- Assemble (Respawn on Rally allies)
+- Assemble (3) 
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
