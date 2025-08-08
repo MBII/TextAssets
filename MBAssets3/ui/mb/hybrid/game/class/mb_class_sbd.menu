@@ -5,81 +5,35 @@
 		name					"mb_class_sbd"
 		visible					0
 		fullscreen				0
-		rect					25 40 630 425
+		rect					259 60 163 371
 		focusColor				1 1 1 1
-		style					1
-		border					1
 		descX					320
-		descY					465
+		descY					445
 		descScale				0.8
-		descColor				0.1 0.7 1 0.9
+		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
-		onOpen
-		{
-			
-			uiScript			"getmodelcvars"	//needed for model display stuff
-			uiScript			"getmodelskin"	//needed for model display stuff
-		}
-		onClose
-		{
-			
-		}
-		onEsc
-		{
-			
-			open				ingame_join
-			play				"sound/interface/back.mp3"
-			close				mb_class_sbd
-		}
+		stayOpen
 
-		// Character model
-		itemDef
+/* 		itemDef
 		{
-			name				modelviewer
-			group				models
-			type				ITEM_TYPE_MODEL
-			rect				-10 -40 175 230
-			model_g2anim 		"SBD_WALK_GUN"
-			asset_model			"ui_char_model"
-			model_angle			90
-			//mins maxs format is apparently z x y (hmmm... y x z?)
-			model_g2mins		-30 -20 -14
-			model_g2maxs		20 20 30
-			model_rotation		60
-			model_fovx			50
-			model_fovy			50
-			isCharacter			1
+			name				ClassSelectC
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 163 371
+			background			"gfx/menus/alpha/Menu_ClassSelect_C"
 			visible				1
 			decoration
-		}
+		} */
 
-		// Overall window backdrop
 		itemDef
 		{
-			name				background_pic
-			style				WINDOW_STYLE_FILLED
-			rect				0 0 430 425
-			background			"gfx/menus/classmenu"
-			forecolor			1 1 1 1
-			backcolor			1 1 1 1
-			visible				1
-			decoration
-		}
-
-		// Player Configuration title
-		itemDef
-		{
-			name				playerconfigtitle
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Configure your class"
-			rect				100 15 390 28
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			195
-			textaligny			2
-			font				3
-			textscale			0.8
-			forecolor			0.1 0.7 1 0.9
-			visible				1
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
 			decoration
 		}
 
@@ -87,17 +41,17 @@
 		itemDef
 		{
 			name				siderank
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POINTS_REMAINING
 			ownerdraw			UI_FORCE_POINTS
-			rect				250 55 0 0
+			rect 8 10 147 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			60
-			textaligny			-15
-			font				2
-			textscale			1
-			forecolor			0.1 0.7 1 0.8
+			textalignx			64
+			textaligny			-5
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
@@ -107,16 +61,16 @@
 		itemDef
 		{
 			name				forceranktitle
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_POWER
-			rect				230 82 0 0
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			104
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			rect 8 25 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
@@ -124,61 +78,54 @@
 		itemDef
 		{
 			name				forceranktitle2
-			group				"playersettingforcegroup"
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_1_2_3
-			rect				230 82 0 0
+			rect 113 25 0 0
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
+			textalignx			1
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
 
 		// SPECIFIC CLASS ABILITIES
-		// Hull Strength title
+		// Search tags: SBD_ABILITIES_UI, SBD_CLASS_CONFIG
+		// Hull Integrity title
 		itemDef
 		{
 			name				setfp_grip
-			group				darkpowers
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Hull Strength"
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Hull Integrity"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 100 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 8 45 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
 
-		// Hull Strength assign
+		// Hull Integrity assign
 		itemDef
 		{
 			name				setfp_grip
-			group				darkpowers
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_GRIP
-			rect				230 100 175 15
+			rect 8 45 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Strengthen your droid's hull by increasing HP"
 			visible				1
 			action
@@ -187,109 +134,46 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_grip forecolor2 1 1 1 1
+				setitemcolor	setfp_grip forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_grip forecolor1 0.1 0.7 1 0.7
+				setitemcolor	setfp_grip forecolor 1 1 1 0.8
 			}
 		}
 		
-		// Firepower title
+		// Battery Power title
 		itemDef
 		{
-			name				setfp_drain
-			group				darkpowers
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Firepower"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 120 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Firepower assign
-		itemDef
-		{
-			name				setfp_drain
-			group				darkpowers
+			name				setfp_lightning
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_DRAIN
-			rect				230 120 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			"Give your droid a faster firing rate"
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_drain forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_drain forecolor1 0.1 0.7 1 0.7
-			}
-		}
-
-		// Recharge Boost title
-		itemDef
-		{
-			name				setfp_lightning
-			group				darkpowers
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Recharge Boost"
+			text				"Battery Power"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 140 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 8 65 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
 		}
 
-		// Recharge Boost assign
+		// Battery Power assign
 		itemDef
 		{
 			name				setfp_lightning
-			group				darkpowers
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LIGHTNING
-			rect				230 140 175 15
+			rect 8 65 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Increase the recharge rate of your droids internal battery and stop battery drain from walking"
 			visible				1
 			action
@@ -298,54 +182,66 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_lightning forecolor2 1 1 1 1
+				setitemcolor	setfp_lightning forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_lightning forecolor1 0.1 0.7 1 0.7
+				setitemcolor	setfp_lightning forecolor 1 1 1 0.8
 			}
 		}
-
+		
 		// Advanced Logic title
 		itemDef
 		{
 			name				setfp_rage
-			group				darkpowers
-			style				WINDOW_STYLE_TEXT_RGB1
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
 			text				"Advanced Logic"
 			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 160 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
+			rect 8 85 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
 			visible				1
 			decoration
+		}
+
+		itemDef
+		{
+			name				Info_AdvLogic
+			group				pointssetup
+			rect 78 85 12 16
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_advancedlogic
+			}
+			mouseExit
+			{
+				close			mb_ability_advancedlogic
+			}
 		}
 
 		// Advanced Logic assign
 		itemDef
 		{
 			name				setfp_rage
-			group				darkpowers
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_RAGE
-			rect				230 160 175 15
+			rect 8 85 147 16
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
+			textalignx			105
+			textaligny			-5
 			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
+			forecolor			1 1 1 0.8
 			descText			"Defends against Mind Trick from Jedi"
 			visible				1
 			action
@@ -354,638 +250,369 @@
 			}
 			mouseenter
 			{
-				setitemcolor	setfp_rage forecolor2 1 1 1 1
+				setitemcolor	setfp_rage forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				setitemcolor	setfp_rage forecolor1 0.1 0.7 1 0.7
+				setitemcolor	setfp_rage forecolor 1 1 1 0.8
 			}
 		}
-
-		// Advanced Targeting title
+		
+		// SBD TACTICAL MODES SECTION
+		// Search tags: SBD_MODE_SECTION, SBD_TACTICAL_MODES_UI, SBD_MODES_MENU
+		// Mode divider
 		itemDef
 		{
-			name				setfp_team_force
-			group				darkpowers
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Advanced Targeting"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 180 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Advanced Targeting assign
-		itemDef
-		{
-			name				setfp_team_force
-			group				darkpowers
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_TEAM_FORCE
-			rect				230 180 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			"Gives the ability to zoom in on targets with the Class Special 2 key"
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_team_force forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_team_force forecolor1 0.1 0.7 1 0.7
-			}
-		}
-
-		// Advanced Radar title
-		itemDef
-		{
-			name				setfp_saberthrow
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Advanced Radar"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 200 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Advanced Radar assign
-		itemDef
-		{
-			name				setfp_saberthrow
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_SABERTHROW
-			rect				230 200 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			"The Radar shows enemies while in Low Power Mode/Recharge Mode"
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_saberthrow forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_saberthrow forecolor1 0.1 0.7 1 0.7
-			}
-		}
-
-		// Cortosis title
-		itemDef
-		{
-			name				setfp_pull
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Cortosis"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 230 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Cortosis assign
-		itemDef
-		{
-			name				setfp_pull
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_PULL
-			rect				230 230 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			textscale				.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			"Defends against lightsaber attacks decreasing their damage and even turning off sabers briefly"
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_pull forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_pull forecolor1 0.1 0.7 1 0.7
-			}
-		}
-
-		// Blast Armour title
-		itemDef
-		{
-			name				setfp_push
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Blast Armour"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 250 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Blast Armour assign
-		itemDef
-		{
-			name				setfp_push
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_PUSH
-			rect				230 250 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			textscale				.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			"Defends against sniper fire (not Disruptor shots), explosives, rockets, and melee damage"
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_push forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_push forecolor1 0.1 0.7 1 0.7
-			}
-		}
-
-		// Magnetic Plating title
-		itemDef
-		{
-			name				setfp_see
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Magnetic Plating"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 270 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Magnetic Plating assign
-		itemDef
-		{
-			name				setfp_see
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_SEE
-			rect				230 270 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			textscale				.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			"Defends against energy fire from blaster weapons"
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_see forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_see forecolor1 0.1 0.7 1 0.7
-			}
-		}
-
-		// Ammo title
-		itemDef
-		{
-			name				setfp_saberdefend
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Ammo"
-			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
-			rect				230 300 110 15
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			105
-			textaligny			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			border				0
-			bordercolor			0 0 0 0
-			visible				1
-			decoration
-		}
-
-		// Ammo assign
-		itemDef
-		{
-			name				setfp_saberdefend
-			group				"playersettingforcegroup"
-			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect				230 300 175 15
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			115
-			textaligny			-6
-			textscale			.25
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			"Increase your ammo store for all your weapons"
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter
-			{
-				setitemcolor	setfp_saberdefend forecolor2 1 1 1 1
-			}
-			mouseExit
-			{
-				setitemcolor	setfp_saberdefend forecolor1 0.1 0.7 1 0.7
-			}
-		}
-
-		// APPLY BUTTON
-		itemDef
-		{
-			name				applyjoinbutton
-			group				"playerforcejoin"
-			style				WINDOW_STYLE_SHADER
-			rect				270 384 65 32
-			background			"ui/art/button/mb_hl_classic"
-			forecolor			1 1 1 1
-			decoration
-			visible				0
-		}
-
-		itemDef
-		{
-			name				applyjoin
-			group				"playerforcejoin"
-			text				"Apply"
-			type				1
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				226 374 150 48
-			textalign			1
-			textalignx			75
-			textaligny			12
-			font				2
-			textscale			0.9
-			forecolor			0.1 0.7 1 0.9
-			visible				1
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiScript		setsiegeclassandteam
-			}
-			mouseenter
-			{
-				show		applyjoinbutton
-			}
-			mouseExit
-			{
-				hide		applyjoinbutton
-			}
-		}
-
-		// FORCE TEMPLATES
-		// Force Template title
-		// Overall window backdrop
-		itemDef
-		{
-			name				background_pic
+			name				mode_divider
+			group				pointssetup
 			style				WINDOW_STYLE_FILLED
-			rect				425 5 210 410
-			background			"gfx/menus/classmenu_extra"
+			rect				8 105 147 2
 			forecolor			1 1 1 1
-			backcolor			1 1 1 1
+			backcolor			1 1 1 0.3
 			visible				1
 			decoration
 		}
 
+		// Modes header
 		itemDef
 		{
-			name				fcflist
-			group				"playersettingforcegroup"
+			name				modes_title
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
-			text				"Builds Template" //@MENUS_FORCE_TEMPLATES
-			rect				440 45 0 0
-			textalign			ITEM_ALIGN_LEFT
-			textalignx			4
-			textaligny			0
-			//outlinecolor		0.1 0.7 1 0.8
-			//backcolor			0 0 0 0
-			font				2
-			textscale			0.8
-			//forecolor			.549 .854 1 1
-			forecolor			0.1 0.7 1 0.8
-			border				0
-			bordercolor			0 0 0 0
+			text				"TACTICAL MODES"
+			rect 8 110 147 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			73
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
 			visible				1
 			decoration
 		}
 
-		// Force Template picker
+		// Firepower Mode title (base requirement)
+		// Search tags: SBD_FIREPOWER_MODE_UI
 		itemDef
 		{
-			name				fcflist
-			rect				440 75 130 130
-			type				ITEM_TYPE_LISTBOX
-			style				WINDOW_STYLE_LISTBOX_RGB1
-			elementwidth		155
-			elementheight		17
-			font				4
-			textscale			.75
-			elementtype			LISTBOX_TEXT
-			feeder				FEEDER_MBCFG
-			textstyle			6
-			textalign			3
-			textaligny			2
-			//border			1
-			//bordercolor		.5 .5 .5 1
-			forecolor			0.1 0.7 1 0.7
-			//backcolor			0 0 .5 .25
-			outlinecolor		.25 .464 .578 .5
-			descText			"Choose a pre-made allocation of abilities" //@MENUS_CHOOSE_A_PRE_MADE_ALLOCATION
-			visible				1
-			columns				1 2 190 250
-			mouseenter
-			{
-				setitemcolor	fcflist bordercolor 1 0 0 1 
-			}
-			mouseExit
-			{
-				setitemcolor	fcflist bordercolor .5 .5 .5 1 
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}
-
-		// SAVE TEMPLATE
-		//Save template title entry field
-		itemDef
-		{
-			name 				namefield
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB2
-			text				@MENUS_FILENAME
-			cvar				"ui_SaveFCF"
-			maxchars			12
-			rect				445 205 185 32
+			name				setfp_push
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Firepower Mode"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 125 147 16
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			0
-			textaligny 			0
-			font				4
-			textscale			1
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			border				0
-			bordercolor			0 0 0 0
-			descText			@MENUS_ENTER_THE_TITLE_FOR_YOUR
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1.0 0.0 0.0 1  // Red color
 			visible				1
-		}
-
-		//Save template button
-		itemDef
-		{
-			name				templatesavetext
-			group				"playerforcetemplatesave"
-			style				WINDOW_STYLE_TEXT_RGB1
-			textalign			ITEM_ALIGN_LEFT
-			rect				420 270 185 32
-			outlinecolor		1 1 1 1
-			backcolor			0 0 0 0
-			forecolor			0.1 0.7 1 0.7
-			font				4
-			textscale			1
-			text				@MENUS_MATCHING_NAMES
 			decoration
-			visible				0
 		}
 
+		// Firepower Mode assign
 		itemDef
 		{
-			name				templatesave
-			group				"playerforcetemplatesave"
-			text				@MENUS_SAVE_FILE
-			type				1
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect				415 225 185 32
-			textalign			1
-			textalignx			92
-			textaligny			2
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7 //forecolor			1 .682 0 1
-			descText			@MENUS_SAVE_CURRENT_FORCE_SETUP
+			name				setfp_push
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_PUSH
+			rect 8 125 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			forecolor			1 1 1 0.8
+			descText			"Increased damage, tri-shot blaster. Base mode purchase required"
 			visible				1
 			action
 			{
 				play			"sound/interface/button1.wav"
-				uiScript 		mb_savetemplate
 			}
 			mouseenter
 			{
-				show			templatesavetext
-				show			templatesavebutton
+				setitemcolor	setfp_push forecolor 1 1 1 1
 			}
 			mouseExit
 			{
-				hide			templatesavetext
-				hide			templatesavebutton
+				setitemcolor	setfp_push forecolor 1 1 1 0.8
 			}
 		}
 
-		//Armor and HP readouts - Dusty
+		// Armor Mode title
+		// Search tags: SBD_ARMOR_MODE_UI
 		itemDef
 		{
-			name				hp_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				550 285 175 15
-			text				"HP : "
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-45
-			textaligny			0
-			textscale			.5
-			font				3
-			forecolor			0.1 0.6 1 0.65
-			cvar				"ui_maxhealth"
+			name				setfp_pull
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Armor Mode"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 145 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			0.0 0.8 0.0 1  // Green color
 			visible				1
 			decoration
 		}
 
+		// Armor Mode assign
 		itemDef
 		{
-			name				armorpoints_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				595 298 175 15
-			text				"(  Hull Strength  )"
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-50
-			textaligny			0
-			textscale			.45 
-			font				3
-			forecolor			0.1 0.6 1 0.6
+			name				setfp_pull
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_PULL
+			rect 8 145 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Damage reduction, slower movement. Hold Special 3 + move mouse to switch modes"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_pull forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_pull forecolor 1 1 1 0.8
+			}
+		}
+
+		// Speed Mode title
+		// Search tags: SBD_SPEED_MODE_UI
+		itemDef
+		{
+			name				setfp_mindtrick
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Speed Mode"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 165 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			0.0 0.8 1.0 1  // Blue color
 			visible				1
 			decoration
 		}
 
+		// Speed Mode assign
 		itemDef
 		{
-			name				ammoregen_text1
-			group				none
-			type				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				578 322 175 15
-			text				"Armblaster"
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-40
-			textaligny			0
-			textscale			.5
-			font				3
-			forecolor			0.1 0.65 1 0.6
+			name				setfp_mindtrick
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_TELEPATHY
+			rect 8 165 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Faster movement, battery drain. Requires Wrist Rocket/Dual Blasters"
 			visible				1
-			decoration
-			
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 0.8
+			}
 		}
 
+		// Strength Mode title
+		// Search tags: SBD_STRENGTH_MODE_UI
 		itemDef
 		{
-			name				ammoregen_text2
-			group				none
-			type				ITEM_TYPE_TEXT
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				591 335 175 15
-			text				"Ammunition Units :"
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			-40
-			textaligny			0
-			textscale			.5
-			font				3
-			forecolor			0.1 0.65 1 0.6
+			name				setfp_heal
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Strength Mode"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 185 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1.0 0.7 0.0 1  // Orange color
 			visible				1
 			decoration
 		}
 
+		// Strength Mode assign
 		itemDef
 		{
-			name				armblaster_readout
-			group				none
-			type				ITEM_TYPE_EDITFIELD
+			name				setfp_heal
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_HEAL
+			rect 8 185 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Melee damage boost, grab ability. Requires Wrist Rocket/Dual Blasters"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_heal forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_heal forecolor 1 1 1 0.8
+			}
+		}
+
+		// SPECIAL WEAPONS SECTION
+		// Search tags: SBD_SPECIAL_WEAPONS_UI, SBD_WRIST_ROCKET_UI, SBD_DUAL_BLASTERS_UI
+		// Special weapons divider
+		itemDef
+		{
+			name				special_divider
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect				8 205 147 2
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.3
+			visible				1
+			decoration
+		}
+
+		// Special weapons header
+		itemDef
+		{
+			name				special_title
+			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
-			rect				575 360 175 15
-			text				""
+			text				"SPECIAL WEAPONS"
+			rect 8 210 147 15
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			-70
-			textaligny			0
-			textscale			.65
-			font				3
-			forecolor			0.1 0.7 1 0.7
-			cvarTest			"ui_ammo_e11"
-			hideCvar			{ "0" }
-			cvar				"ui_ammo_e11"
+			textalignx			73
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
 			visible				1
 			decoration
+		}
+
+		// Wrist Rocket title
+		itemDef
+		{
+			name				setfp_pull
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Wrist Rocket"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 230 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Wrist Rocket assign
+		itemDef
+		{
+			name				setfp_pull
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_PULL
+			rect 8 230 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Arm-mounted explosive launcher. Can't use with Dual Blasters. Enables Speed/Strength modes"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_pull forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_pull forecolor 1 1 1 0.8
+			}
+		}
+
+		// Dual Blasters title
+		itemDef
+		{
+			name				setfp_mindtrick
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Dual Blasters"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 250 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Dual Blasters assign
+		itemDef
+		{
+			name				setfp_mindtrick
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_TELEPATHY
+			rect 8 250 147 16
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Dual wielded blasters with rapid fire. Can't use with Wrist Rocket. Enables Speed/Strength modes"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 0.8
+			}
 		}
 	}
 }

@@ -1,0 +1,652 @@
+// SBD TACTICAL MODES ABILITY TOOLTIP MENU
+// SBD_REWORK_MCBOBER: Information display for SBD mode system
+// Search tags: SBD_MODE_INFO, SBD_MODE_TOOLTIP, SBD_ABILITY_MENU
+// C99 Compliant ability description menu
+{
+	menuDef
+	{
+		name					"mb_ability_sbd_modes"
+		visible					0
+		fullscreen				0
+		rect					432 68 109 352
+		focusColor				1 1 1 1
+		descX					320
+		descY					445
+		descScale				0.8
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+
+		itemDef
+		{
+			name				menu_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 0 0 109 352
+			forecolor			1 1 1 1
+			backcolor			0 0 0 1
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Header graphic placeholder
+		itemDef
+		{
+			name				header_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 0 0 109 20
+			forecolor			1 1 1 1
+			backcolor			0.2 0.2 0.2 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				header_text
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"SBD MODES"
+			rect 0 0 109 20
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			54
+			textaligny			-5
+			font				6
+			textscale			0.12
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// Mode selection instructions
+		itemDef
+		{
+			name				instructions_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 22 105 28
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.15
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				instructions
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Hold Special 3 to"
+			rect 30 22 65 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			30
+			textaligny			-2
+			font				6
+			textscale			0.09
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				instructions2
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"open mode selector"
+			rect 30 34 65 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			30
+			textaligny			-2
+			font				6
+			textscale			0.09
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// Armor Mode
+		// Search tags: SBD_ARMOR_MODE_INFO
+		itemDef
+		{
+			name				armor_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 52 105 48
+			forecolor			1 1 1 1
+			backcolor			0.0 0.8 0.0 0.2  // Green tint
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Armor mode icon
+		itemDef
+		{
+			name				armor_icon
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 4 54 16 16
+			forecolor			1 1 1 1
+			backcolor			0.0 0.8 0.0 1  // Green
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				armor_title
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"ARMOR MODE"
+			rect 22 52 83 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			0.0 1.0 0.0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				armor_desc
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Damage reduction"
+			rect 4 66 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				armor_desc2
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Slow movement"
+			rect 4 76 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				armor_desc3
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"L1: 10% L2: 20% L3: 30%"
+			rect 4 86 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			0.0 0.8 0.0 1
+			visible				1
+			decoration
+		}
+
+		// Speed Mode
+		// Search tags: SBD_SPEED_MODE_INFO
+		itemDef
+		{
+			name				speed_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 102 105 48
+			forecolor			1 1 1 1
+			backcolor			0.0 0.8 1.0 0.2  // Blue tint
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Speed mode icon
+		itemDef
+		{
+			name				speed_icon
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 4 104 16 16
+			forecolor			1 1 1 1
+			backcolor			0.0 0.8 1.0 1  // Blue
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				speed_title
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"SPEED MODE"
+			rect 22 102 83 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			0.0 0.8 1.0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				speed_desc
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Faster movement"
+			rect 4 116 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				speed_desc2
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Battery drain"
+			rect 4 126 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				speed_desc3
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"L1: +10% L2: +15% L3: +20%"
+			rect 4 136 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			0.0 0.8 1.0 1
+			visible				1
+			decoration
+		}
+
+		// Strength Mode
+		// Search tags: SBD_STRENGTH_MODE_INFO
+		itemDef
+		{
+			name				strength_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 152 105 48
+			forecolor			1 1 1 1
+			backcolor			1.0 0.7 0.0 0.2  // Orange tint
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Strength mode icon
+		itemDef
+		{
+			name				strength_icon
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 4 154 16 16
+			forecolor			1 1 1 1
+			backcolor			1.0 0.7 0.0 1  // Orange
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				strength_title
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"STRENGTH MODE"
+			rect 22 152 83 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1.0 0.7 0.0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				strength_desc
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Enhanced melee"
+			rect 4 166 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				strength_desc2
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Grab ability"
+			rect 4 176 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				strength_desc3
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"L1: +50% L2: +100% L3: +150%"
+			rect 4 186 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1.0 0.7 0.0 1
+			visible				1
+			decoration
+		}
+
+		// Firepower Mode
+		// Search tags: SBD_FIREPOWER_MODE_INFO
+		itemDef
+		{
+			name				firepower_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 202 105 48
+			forecolor			1 1 1 1
+			backcolor			1.0 0.0 0.0 0.2  // Red tint
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Firepower mode icon
+		itemDef
+		{
+			name				firepower_icon
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 4 204 16 16
+			forecolor			1 1 1 1
+			backcolor			1.0 0.0 0.0 1  // Red
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				firepower_title
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"FIREPOWER MODE"
+			rect 22 202 83 14
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1.0 0.0 0.0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				firepower_desc
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Damage boost"
+			rect 4 216 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				firepower_desc2
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Tri-shot blast"
+			rect 4 226 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				firepower_desc3
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"L1: +10% L2: +20% L3: +30%"
+			rect 4 236 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1.0 0.0 0.0 1
+			visible				1
+			decoration
+		}
+
+		// Battery Status
+		// Search tags: SBD_BATTERY_INFO
+		itemDef
+		{
+			name				battery_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 252 105 48
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.45
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				battery_title
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"BATTERY SYSTEM"
+			rect 4 252 101 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			50
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				battery_desc
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Speed mode drains battery"
+			rect 4 266 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				battery_desc2
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Low battery = No modes"
+			rect 4 276 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				battery_desc3
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Recharges when walking"
+			rect 4 286 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Requirements
+		// Search tags: SBD_MODE_REQUIREMENTS
+		itemDef
+		{
+			name				req_background
+			group				none
+			style				WINDOW_STYLE_FILLED
+			rect 2 302 105 48
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.05
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				req_title
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"REQUIREMENTS"
+			rect 4 302 101 14
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			50
+			textaligny			-2
+			font				6
+			textscale			0.1
+			forecolor			1 0.8 0.2 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				req_desc
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Speed/Strength modes:"
+			rect 4 316 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				req_desc2
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Need Wrist Rocket OR"
+			rect 4 326 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				req_desc3
+			group				Stats
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"Dual Blasters"
+			rect 4 336 101 10
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-2
+			font				6
+			textscale			0.08
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+	}
+}

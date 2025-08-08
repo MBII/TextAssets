@@ -1,0 +1,932 @@
+// SBD MODE SELECTION MENU
+// SBD_REWORK_MCBOBER: New SBD tactical mode system UI
+// Search tags: SBD_MODE_MENU, SBD_UI_MODES, SBD_MODE_CONFIG
+// C99 Compliant menu definition for SBD mode configuration
+{
+	menuDef
+	{
+		name					"mb_class_sbd_modes"
+		visible					0
+		fullscreen				0
+		rect					259 60 163 371
+		focusColor				1 1 1 1
+		descX					320
+		descY					440.25
+		descScale				0.14
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		stayOpen
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+
+		// Skill points remaining
+		itemDef
+		{
+			name				siderank
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_POINTS_REMAINING
+			ownerdraw			UI_FORCE_POINTS
+			rect 8 10 147 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			64
+			textaligny			-5
+			font				7
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// SETUP LEGEND
+		// Skills title
+		itemDef
+		{
+			name				forceranktitle
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_POWER
+			rect 8 25 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				forceranktitle2
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_1_2_3
+			rect 113 25 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			1
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// SPECIFIC CLASS ABILITIES
+		// Hull Strength title
+		itemDef
+		{
+			name				setfp_grip
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Hull Strength"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 45 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Hull Strength assign
+		itemDef
+		{
+			name				setfp_grip
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_GRIP
+			rect 8 45 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Strengthen your droid's hull by increasing HP"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 44 147 20
+				setitemcolor	setfp_grip forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_grip forecolor 1 1 1 0.8
+			}
+		}
+		
+		// Firepower title
+		itemDef
+		{
+			name				setfp_drain
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Firepower"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 65 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				Info_Firepower
+			group				pointssetup
+			rect				113 65 41 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_weapon_sbdblaster
+			}
+			mouseExit
+			{
+				close			mb_weapon_sbdblaster
+			}
+		}
+
+		// Firepower assign
+		itemDef
+		{
+			name				setfp_drain
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_DRAIN
+			rect 8 65 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			forecolor			1 1 1 0.8
+			descText			"Give your droid a faster firing rate"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 64 147 20
+				setitemcolor	setfp_drain forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_drain forecolor 1 1 1 0.8
+			}
+		}
+
+		// Recharge Boost title
+		itemDef
+		{
+			name				setfp_lightning
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Recharge Boost [CS1]"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 85 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Recharge Boost assign
+		itemDef
+		{
+			name				setfp_lightning
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_LIGHTNING
+			rect 8 85 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Increase the recharge rate of your droids battery and stop battery drain from walking"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 84 147 20
+				setitemcolor	setfp_lightning forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_lightning forecolor 1 1 1 0.8
+			}
+		}
+
+		// Advanced Logic title
+		itemDef
+		{
+			name				setfp_rage
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Advanced Logic"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 105 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Info_AdvLogic
+			group				pointssetup
+			rect				113 105 27 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_advancedlogic
+			}
+			mouseExit
+			{
+				close			mb_ability_advancedlogic
+			}
+		}
+
+		// Advanced Logic assign
+		itemDef
+		{
+			name				setfp_rage
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_RAGE
+			rect 8 105 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Defends against Mind Trick from Jedi"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 104 147 20
+				setitemcolor	setfp_rage forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_rage forecolor 1 1 1 0.8
+			}
+		}
+
+		// Advanced Targeting title
+		itemDef
+		{
+			name				setfp_team_force
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Advanced Targeting"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				8 125 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Info_AdvTargeting
+			group				pointssetup
+			rect				113 125 13 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_advancedtargeting
+			}
+			mouseExit
+			{
+				close			mb_ability_advancedtargeting
+			}
+		}
+
+		// Advanced Targeting assign
+		itemDef
+		{
+			name				setfp_team_force
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_TEAM_FORCE
+			rect				8 125 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Gives the ability to zoom in on targets"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 124 147 20
+				setitemcolor	setfp_team_force forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_team_force forecolor 1 1 1 0.8
+			}
+		}
+
+		// Advanced Radar title
+		itemDef
+		{
+			name				setfp_saberthrow
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Advanced Radar"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect				8 145 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Info_AdvRadar
+			group				pointssetup
+			rect				113 145 13 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_advancedradar
+			}
+			mouseExit
+			{
+				close			mb_ability_advancedradar
+			}
+		}
+
+		// Advanced Radar assign
+		itemDef
+		{
+			name				setfp_saberthrow
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_SABERTHROW
+			rect				8 145 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"The Radar shows enemies while in Low Power Mode/Recharge Mode"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 144 147 20
+				setitemcolor	setfp_saberthrow forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_saberthrow forecolor 1 1 1 0.8
+			}
+		}
+
+		// SBD MODES SECTION
+		// Search tags: SBD_MODE_UI, SBD_TACTICAL_MODES
+		// SBD mode divider
+		itemDef
+		{
+			name				mode_divider
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect				8 165 147 2
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.3
+			visible				1
+			decoration
+		}
+
+		// Modes header
+		itemDef
+		{
+			name				modes_title
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"TACTICAL MODES"
+			rect 8 170 147 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			73
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// Armor Mode title
+		// Search tags: SBD_ARMOR_MODE, SBD_MODE_ARMOR_UI
+		itemDef
+		{
+			name				setfp_pull
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Armor Mode"
+			rect				8 190 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			0.0 0.8 0.0 1  // Green color
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Armor mode icon - using colored box placeholder
+		itemDef
+		{
+			name				armor_icon_placeholder
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect				90 191 16 16
+			forecolor			1 1 1 1
+			backcolor			0.0 0.8 0.0 0.5  // Green for armor
+			visible				1
+			decoration
+		}
+
+		// Armor Mode assign
+		itemDef
+		{
+			name				setfp_pull
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_PULL
+			rect				8 190 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Damage reduction, slower movement. Hold Special 3 + move mouse to switch modes"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 189 147 20
+				setitemcolor	setfp_pull forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_pull forecolor 1 1 1 0.8
+			}
+		}
+
+		// Speed Mode title
+		// Search tags: SBD_SPEED_MODE, SBD_MODE_SPEED_UI
+		itemDef
+		{
+			name				setfp_mindtrick
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Speed Mode"
+			rect				8 210 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			0.0 0.8 1.0 1  // Blue color
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Speed mode icon - using colored box placeholder
+		itemDef
+		{
+			name				speed_icon_placeholder
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect				90 211 16 16
+			forecolor			1 1 1 1
+			backcolor			0.0 0.8 1.0 0.5  // Blue for speed
+			visible				1
+			decoration
+		}
+
+		// Speed Mode assign
+		itemDef
+		{
+			name				setfp_mindtrick
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_TELEPATHY
+			rect				8 210 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Faster movement, battery drain. Requires Wrist Rocket/Dual Blasters"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 209 147 20
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 0.8
+			}
+		}
+
+		// Strength Mode title
+		// Search tags: SBD_STRENGTH_MODE, SBD_MODE_STRENGTH_UI
+		itemDef
+		{
+			name				setfp_heal
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Strength Mode"
+			rect				8 230 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1.0 0.7 0.0 1  // Orange color
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Strength mode icon - using colored box placeholder
+		itemDef
+		{
+			name				strength_icon_placeholder
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect				90 231 16 16
+			forecolor			1 1 1 1
+			backcolor			1.0 0.7 0.0 0.5  // Orange for strength
+			visible				1
+			decoration
+		}
+
+		// Strength Mode assign
+		itemDef
+		{
+			name				setfp_heal
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_HEAL
+			rect				8 230 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Melee damage boost, grab ability. Requires Wrist Rocket/Dual Blasters"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 229 147 20
+				setitemcolor	setfp_heal forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_heal forecolor 1 1 1 0.8
+			}
+		}
+
+		// Firepower Mode title
+		// Search tags: SBD_FIREPOWER_MODE, SBD_MODE_FIREPOWER_UI
+		itemDef
+		{
+			name				setfp_push
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Firepower Mode"
+			rect				8 250 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1.0 0.0 0.0 1  // Red color
+			visible				1
+			decoration
+		}
+
+		// SBD_PLACEHOLDER: Firepower mode icon - using colored box placeholder
+		itemDef
+		{
+			name				firepower_icon_placeholder
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect				90 251 16 16
+			forecolor			1 1 1 1
+			backcolor			1.0 0.0 0.0 0.5  // Red for firepower
+			visible				1
+			decoration
+		}
+
+		// Firepower Mode assign
+		itemDef
+		{
+			name				setfp_push
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_PUSH
+			rect 				8 250 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Increased damage, tri-shot blaster. Base mode purchase required"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 249 147 20
+				setitemcolor	setfp_push forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_push forecolor 1 1 1 0.8
+			}
+		}
+
+		// Wrist Rocket/Dual Blasters selection header
+		// Search tags: SBD_SPECIAL_WEAPONS, SBD_WRIST_ROCKET, SBD_DUAL_BLASTERS
+		itemDef
+		{
+			name				special_divider
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect				8 275 147 2
+			forecolor			1 1 1 1
+			backcolor			1 1 1 0.3
+			visible				1
+			decoration
+		}
+
+		// Special weapons header
+		itemDef
+		{
+			name				special_title
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"SPECIAL WEAPONS"
+			rect 8 280 147 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			73
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		// Note about mutual exclusivity
+		itemDef
+		{
+			name				special_note
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"(Choose one)"
+			rect 8 293 147 10
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			73
+			textaligny			-5
+			font				6
+			textscale			0.12
+			forecolor			1 1 1 0.6
+			visible				1
+			decoration
+		}
+
+		// Magnetic Plating/Battery title
+		itemDef
+		{
+			name				setfp_see
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Magnetic Plating"
+			rect				8 305 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				Info_MagPlating
+			group				pointssetup
+			rect				113 305 13 18
+			style				WINDOW_STYLE_SHADER
+			background			"gfx/menus/alpha/Btn_Info"
+			forecolor			1 1 1 0
+			visible				1
+			decoration
+			mouseEnter
+			{
+				open			mb_ability_magneticplating
+			}
+			mouseExit
+			{
+				close			mb_ability_magneticplating
+			}
+		}
+
+		// Magnetic Plating assign
+		itemDef
+		{
+			name				setfp_see
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_SEE
+			rect				8 305 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Defends against energy fire from blaster weapons"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 304 147 20
+				setitemcolor	setfp_see forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_see forecolor 1 1 1 0.8
+			}
+		}
+
+		// Ammo title
+		itemDef
+		{
+			name				setfp_saberdefend
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Ammo"
+			rect				8 325 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		// Ammo assign
+		itemDef
+		{
+			name				setfp_saberdefend
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_SABERDEFEND
+			rect				 8 325 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			105
+			textaligny			-5
+			textscale			.25
+			forecolor			1 1 1 0.8
+			descText			"Increase your ammo store for all your weapons"
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter
+			{
+				show			button_glow
+				setitemrect		button_glow	8 324 147 20
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
+			}
+			mouseExit
+			{
+				hide			button_glow
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 0.8
+			}
+		}
+	}
+}
