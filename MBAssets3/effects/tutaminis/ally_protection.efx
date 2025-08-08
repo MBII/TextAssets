@@ -1,0 +1,118 @@
+// FRENZY_TUTAMINIS: Protection shimmer effect on allies
+
+Particle
+{
+	spawnFlags			rgbComponentInterpolation orgOnSphere
+
+	count				15
+	life				400
+
+	origin				0 0 40
+	originRange			0 0 0
+
+	radius				30
+
+	velocity			0 0 0
+	velocityRange		10 10 10
+
+	rgb
+	{
+		start			0.3 0.5 1.0
+		end				0.1 0.3 0.6
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.3
+		end				0
+		flags			linear wave
+	}
+
+	size
+	{
+		start			8 10
+		end				2 3
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/shield_shimmer
+		gfx/effects/blueGlow
+	]
+}
+
+OrientedParticle
+{
+	count				3
+	life				300
+
+	origin				0 0 40
+
+	rotation			0 360
+	rotationDelta		-30 30
+
+	rgb
+	{
+		start			0.2 0.4 0.8
+		end				0.1 0.2 0.4
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.2
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			50
+		end				60
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/protection_ring
+	]
+}
+
+Electricity
+{
+	count				2
+	life				200
+
+	origin				0 0 20
+	origin2				0 0 60
+
+	rgb
+	{
+		start			0.3 0.5 0.8
+		end				0.1 0.2 0.4
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.3
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			1
+		end				0.5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+	]
+
+	flags				useBBox
+}

@@ -1,0 +1,123 @@
+// FRENZY_TUTAMINIS: Electric energy absorption effect at hands (Force Lightning, DEMP2)
+
+repeatDelay				100
+
+Electricity
+{
+	count				3
+	life				400
+
+	origin				0 0 0
+	origin2				5 5 5
+
+	rgb
+	{
+		start			0.4 0.6 1.0
+		end				0.2 0.4 0.8
+	}
+
+	alpha
+	{
+		start			0.8
+		end				0.2
+		flags			linear
+	}
+
+	size
+	{
+		start			2
+		end				0.5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/blueLine
+		gfx/effects/blueElectricity
+	]
+
+	flags				useBBox
+}
+
+Particle
+{
+	spawnFlags			rgbComponentInterpolation
+
+	count				8
+	life				300 500
+
+	origin				0 0 0
+	originRange			3 3 3
+
+	velocity			0 0 10
+	velocityRange		20 20 30
+
+	acceleration		0 0 -20
+
+	rotation			0 360
+	rotationDelta		-15 15
+
+	rgb
+	{
+		start			0.2 0.5 1.0
+		end				0.1 0.3 0.8
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.6
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			8 12
+		end				2 4
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/electric_spark
+		gfx/effects/blueSpark
+	]
+}
+
+OrientedParticle
+{
+	count				2
+	life				200
+
+	origin				0 0 0
+
+	rotation			0 360
+	rotationDelta		-180 180
+
+	rgb
+	{
+		start			0.3 0.5 1.0
+		end				0.1 0.2 0.6
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.4
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			20
+		end				5
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/shock_ripple
+	]
+}
