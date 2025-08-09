@@ -1,4 +1,5 @@
-// FRENZY_TUTAMINIS: Shield and effect shaders
+// TUTAMINIS PLACEHOLDER SHADERS
+// Using existing MBII textures as placeholders until proper assets are created
 
 // ============================================================================
 // CURVED SHIELD SHADERS
@@ -7,18 +8,17 @@
 // Invisible curved shield with one-way blocking
 tutaminis/shield_invisible
 {
-	qer_editorimage	textures/tutaminis/shield_base
+	qer_editorimage	gfx/mp/forceshell
 	qer_trans	0.5
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	forcefield
 	surfaceparm	trans
 	surfaceparm	playerclip
-	surfaceparm	tutaminis_oneway
 	cull		none
 	
 	{
-		map textures/tutaminis/shield_base
+		map gfx/mp/forceshell
 		blendFunc GL_ONE GL_ZERO
 		alphaFunc GE128
 		depthWrite
@@ -30,7 +30,7 @@ tutaminis/shield_invisible
 // Shield hit ripple effect - appears when absorbing
 tutaminis/shield_ripple
 {
-	qer_editorimage	textures/tutaminis/ripple
+	qer_editorimage	gfx/misc/shockwave
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
@@ -38,324 +38,299 @@ tutaminis/shield_ripple
 	deformVertexes	wave 100 sin 0 2 0 8
 	
 	{
-		clampmap textures/tutaminis/ripple_ring
+		clampmap gfx/misc/shockwave
 		blendFunc GL_ONE GL_ONE
 		tcMod stretch sin 1 0.5 0 2
 		rgbGen wave sin 0.3 0.2 0 4
 		alphaGen wave sin 0.5 0.3 0 4
 	}
 	{
-		map textures/tutaminis/shield_distortion
+		map gfx/mp/forceshell
 		blendFunc GL_SRC_ALPHA GL_ONE
 		tcGen environment
-		tcMod scroll 0.1 0.1
-		rgbGen const ( 0.2 0.4 0.8 )
-		alphaGen wave sin 0.2 0.1 0 3
+		rgbGen wave sin 0.2 0.1 0 3
 	}
 }
 
-// Shield glow when hit rapidly
+// Shield persistent glow - visible shield presence
 tutaminis/shield_glow
 {
-	qer_editorimage	textures/tutaminis/shield_glow
+	qer_editorimage	gfx/mp/forceshell2
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/shield_hex
-		blendFunc GL_SRC_ALPHA GL_ONE
-		tcMod scale 2 2
-		tcMod scroll 0.05 0.05
+		map gfx/mp/forceshell2
+		blendFunc GL_ONE GL_ONE
 		rgbGen wave sin 0.2 0.1 0 2
-		alphaGen wave sin 0.3 0.2 0 3
+		tcMod scroll 0.1 0.1
+		tcGen environment
 	}
 	{
-		map textures/tutaminis/energy_field
-		blendFunc GL_ONE GL_ONE
-		tcGen environment
-		rgbGen wave sin 0.1 0.05 0 4
-		alphaGen wave sin 0.2 0.1 0 5
+		map gfx/mp/forceshell
+		blendFunc GL_DST_COLOR GL_ONE
+		tcMod turb 0 0.02 0 0.2
+		tcMod scale 1.5 1.5
+		rgbGen wave sin 0.1 0.05 0 1
 	}
 }
 
 // ============================================================================
-// HAND EFFECT SHADERS
+// HAND ENERGY SHADERS (Absorption Types)
 // ============================================================================
 
-// Base energy swirl for hands
+// Base energy swirl around hand
 tutaminis/hand_energy_base
 {
-	qer_editorimage	textures/tutaminis/energy_swirl
+	qer_editorimage	gfx/mp/forceshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		animMap 10 textures/tutaminis/energy1 textures/tutaminis/energy2 textures/tutaminis/energy3 textures/tutaminis/energy4
+		// Using force shell as animated energy
+		map gfx/mp/forceshell
 		blendFunc GL_ONE GL_ONE
-		rgbGen vertex
-		alphaGen vertex
+		tcMod rotate 50
+		rgbGen wave sin 0.4 0.2 0 2
 	}
 	{
-		map textures/tutaminis/spiral
+		map gfx/mp/forceshell2
 		blendFunc GL_SRC_ALPHA GL_ONE
-		tcMod rotate 120
-		tcMod scale 0.5 0.5
-		rgbGen vertex
-		alphaGen wave sin 0.8 0.2 0 2
+		tcMod rotate -30
+		tcMod scale 0.8 0.8
+		rgbGen wave sin 0.3 0.1 0.5 1.5
 	}
 }
 
-// Electric absorption (blue swirls)
+// Electric/Lightning absorption effect
 tutaminis/hand_electric
 {
-	qer_editorimage	textures/tutaminis/electric_blue
+	qer_editorimage	gfx/mp/dmgshader_shields
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/lightning_spiral
+		map gfx/mp/dmgshader_shields
 		blendFunc GL_ONE GL_ONE
-		tcMod rotate 200
-		tcMod scale 0.3 0.3
-		rgbGen const ( 0.2 0.5 1.0 )
-		alphaGen wave sin 0.9 0.1 0 8
+		tcMod scale 0.5 0.5
+		tcMod rotate 100
+		rgbGen const ( 0.5 0.7 1.0 )
 	}
 	{
-		map textures/tutaminis/electric_core
+		map gfx/mp/forceshell
+		blendFunc GL_DST_COLOR GL_ONE
+		tcMod scroll 0.5 1.0
+		rgbGen const ( 0.3 0.5 0.8 )
+	}
+	{
+		clampmap gfx/misc/shockwave
 		blendFunc GL_SRC_ALPHA GL_ONE
-		tcMod rotate -150
-		rgbGen const ( 0.4 0.6 1.0 )
-		alphaGen wave sin 0.7 0.3 0 6
-	}
-	{
-		clampmap textures/tutaminis/spark_trail
-		blendFunc GL_ONE GL_ONE
-		tcMod stretch sin 1 0.5 0 4
+		tcMod stretch sin 1 0.3 0 5
 		rgbGen const ( 0.6 0.8 1.0 )
 	}
 }
 
-// Blaster absorption (red-orange heat)
+// Blaster/Red energy absorption
 tutaminis/hand_blaster
 {
-	qer_editorimage	textures/tutaminis/energy_red
+	qer_editorimage	gfx/mp/forceshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/heat_swirl
+		map gfx/mp/forceshell
 		blendFunc GL_ONE GL_ONE
-		tcMod rotate 80
-		rgbGen const ( 1.0 0.3 0.1 )
-		alphaGen wave sin 0.8 0.2 0 3
+		tcMod rotate 40
+		rgbGen const ( 1.0 0.3 0.2 )
 	}
 	{
-		map textures/tutaminis/heat_distortion
+		map gfx/mp/forceshell2
 		blendFunc GL_SRC_ALPHA GL_ONE
-		tcMod scroll 0.1 0.2
-		rgbGen const ( 1.0 0.5 0.2 )
-		alphaGen wave sin 0.6 0.3 0 4
+		tcMod scroll 0.2 0.3
+		rgbGen wave sin 0.5 0.2 0 3
+		rgbGen const ( 0.8 0.2 0.1 )
 	}
 }
 
-// Disruptor absorption (green energy)
+// Disruptor/Green energy absorption
 tutaminis/hand_disruptor
 {
-	qer_editorimage	textures/tutaminis/energy_green
+	qer_editorimage	gfx/mp/forceshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/disruptor_ring
+		map gfx/mp/forceshell
 		blendFunc GL_ONE GL_ONE
-		tcMod rotate 150
-		tcMod scale 0.4 0.4
-		rgbGen const ( 0.1 1.0 0.2 )
-		alphaGen wave sin 0.9 0.1 0 5
+		tcMod rotate -60
+		rgbGen const ( 0.2 1.0 0.3 )
 	}
 	{
-		map textures/tutaminis/energy_core_green
+		map gfx/mp/forceshell2
 		blendFunc GL_SRC_ALPHA GL_ONE
-		rgbGen const ( 0.2 0.9 0.3 )
-		alphaGen wave sin 0.7 0.2 0 3
+		tcMod scale 1.2 1.2
+		tcMod rotate 30
+		rgbGen const ( 0.1 0.8 0.2 )
 	}
 }
 
-// Plasma absorption (yellow-orange)
+// Plasma/Yellow energy absorption
 tutaminis/hand_plasma
 {
-	qer_editorimage	textures/tutaminis/plasma_yellow
+	qer_editorimage	gfx/mp/forceshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/plasma_swirl
+		map gfx/mp/forceshell
 		blendFunc GL_ONE GL_ONE
-		tcMod rotate 100
-		rgbGen const ( 1.0 0.8 0.1 )
-		alphaGen wave sin 0.8 0.2 0 4
+		tcMod rotate 70
+		rgbGen const ( 1.0 0.8 0.2 )
 	}
 	{
-		map textures/tutaminis/plasma_core
-		blendFunc GL_SRC_ALPHA GL_ONE
-		tcMod scale 0.6 0.6
-		rgbGen const ( 1.0 0.9 0.3 )
-		alphaGen wave sin 0.6 0.3 0 6
+		map gfx/mp/forceshell2
+		blendFunc GL_DST_COLOR GL_ONE
+		tcMod scale 0.7 0.7
+		tcMod scroll 0.1 0.1
+		rgbGen const ( 0.9 0.7 0.1 )
 	}
 }
 
 // ============================================================================
-// ABSORPTION TRAIL SHADERS
+// ADDITIONAL EFFECTS
 // ============================================================================
 
-// Energy trail from impact to hands
+// Energy absorption trail effect
 tutaminis/absorption_trail
 {
-	qer_editorimage	textures/tutaminis/energy_trail
+	qer_editorimage	gfx/mp/forceshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/trail_gradient
+		map gfx/mp/forceshell
 		blendFunc GL_SRC_ALPHA GL_ONE
-		rgbGen vertex
 		alphaGen vertex
-		tcMod scroll 2 0
+		tcMod scroll -1.0 0
 	}
 }
-
-// ============================================================================
-// PROTECTION EFFECTS
-// ============================================================================
 
 // Ally protection shimmer
 tutaminis/ally_protection
 {
-	qer_editorimage	textures/tutaminis/shield_shimmer
+	qer_editorimage	gfx/mp/invulnshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
-	deformVertexes	wave 50 sin 0 2 0 1
 	
 	{
-		map textures/tutaminis/shield_shimmer
-		blendFunc GL_SRC_ALPHA GL_ONE
-		rgbGen const ( 0.3 0.3 0.8 )
-		alphaGen wave sin 0.2 0.1 0 2
+		map gfx/mp/invulnshell
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen wave sin 0.5 0.2 0 1
+		alphaGen const 0.3
 		tcGen environment
-		tcMod scale 3 3
 	}
 }
 
-// Explosion mitigation wave
+// Explosion/overload shockwave
 tutaminis/explosion_wave
 {
-	qer_editorimage	textures/tutaminis/shockwave
+	qer_editorimage	gfx/misc/shockwave
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		clampmap textures/tutaminis/shockwave_ring
-		blendFunc GL_SRC_ALPHA GL_ONE
-		rgbGen const ( 0.2 0.4 0.8 )
-		alphaGen wave sin 0.8 0 0 1
-		tcMod stretch sin 0.1 1 0 0.5
+		clampmap gfx/misc/shockwave
+		blendFunc GL_ONE GL_ONE
+		tcMod stretch sin 0.1 1.0 0 1
+		rgbGen wave sin 1.0 0.5 0 1
+		alphaGen wave sin 1.0 0.8 0 1
 	}
 }
 
-// ============================================================================
-// STANCE EFFECTS
-// ============================================================================
-
-// Active stance aura
+// Force stance aura
 tutaminis/stance_aura
 {
-	qer_editorimage	textures/tutaminis/force_aura
+	qer_editorimage	gfx/mp/forceshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/force_aura
+		map gfx/mp/forceshell
 		blendFunc GL_SRC_ALPHA GL_ONE
-		rgbGen wave sin 0.1 0.05 0 1
-		alphaGen wave sin 0.15 0.1 0 0.5
-		tcMod rotate 10
+		rgbGen wave sin 0.2 0.1 0 0.5
+		alphaGen const 0.2
+		tcGen environment
 	}
 }
 
-// FP drain warning particles
+// Force point drain visualization
 tutaminis/fp_drain
 {
-	qer_editorimage	textures/tutaminis/force_drain
+	qer_editorimage	gfx/mp/forceshell2
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/force_particles
+		map gfx/mp/forceshell2
 		blendFunc GL_ONE GL_ONE
-		rgbGen wave sin 0.5 0.3 0 10
-		alphaGen wave sin 0.8 0.2 0 8
 		tcMod scroll 0 -0.5
+		rgbGen wave sin 0.1 0.05 0 10
+		rgbGen const ( 0.2 0.3 0.8 )
 	}
 }
 
-// ============================================================================
-// DEBUG/VISUALIZATION SHADERS
-// ============================================================================
-
-// Shield wireframe for debugging
+// Debug wireframe for shield testing
 tutaminis/shield_wireframe
 {
-	qer_editorimage	textures/tutaminis/wireframe
+	qer_editorimage	gfx/mp/dmgshader_shields
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
 	cull		none
 	
 	{
-		map textures/tutaminis/grid
-		blendFunc GL_SRC_ALPHA GL_ONE
-		rgbGen const ( 0.2 0.4 0.8 )
+		map gfx/mp/dmgshader_shields
+		blendFunc GL_ONE GL_ONE
+		rgbGen const ( 0.0 1.0 0.0 )
 		alphaGen const 0.5
 	}
 }
 
-// Shield segment visualization
+// Debug segment visualization
 tutaminis/shield_segment_debug
 {
-	qer_editorimage	textures/tutaminis/segment
+	qer_editorimage	gfx/mp/forceshell
 	surfaceparm	nomarks
 	surfaceparm	nonsolid
 	surfaceparm	trans
-	polygonOffset
 	cull		none
 	
 	{
-		map textures/tutaminis/hex_pattern
-		blendFunc GL_SRC_ALPHA GL_ONE
-		rgbGen wave sin 0.2 0.1 0 1
+		map gfx/mp/forceshell
+		blendFunc GL_ONE GL_ZERO
+		rgbGen entity
 		alphaGen const 0.3
-		tcMod scale 0.5 0.5
 	}
 }
