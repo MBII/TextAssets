@@ -1,0 +1,206 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name			"h5_NiteOwl"
+	classNumberLimit	2
+	MBClass		MB_CLASS_MANDALORIAN
+	weapons			WP_MELEE|WP_SONIC_NADE|WP_SABER|
+	attributes		MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_ROCKET,1|MB_ATT_WRISTLASER|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_BESKAR,2|MB_ATT_TRACKING_BEACON
+	
+	speed     1.10
+	maxhealth 80
+	maxarmor 100
+	
+	saber1		Legends_Knife_Spy
+	saberstyle	SS_TAVION
+	saber1_1		Legends_Knife_Spy_T
+	saberstyle_1	SS_TAVION
+
+	BPmultiplier		0
+	saberdamage 90
+
+	uioverlay "gfx/icons/aerial"
+	uishader "models/players/deathwatch/mb2_icon_default"
+	model	"deathwatch"
+	skin		"default"
+	modelscale      1.03	
+	
+	resource 	RESOURCE_STAMINA 
+	forcepool	50
+	resourceRegenCap 	50
+    resourceRegenAmount 	1
+    resourceRegenRate 5000
+
+	WP_DLT20AFlags HELD_ALTRELOAD
+	WP_BlasterPistolFlags 	HELD_ALTRELOAD
+	WP_ProjFlags			HELD_ALTRELOAD|HELD_DISRUPTIFY
+	WP_CloneRifleFlags	HELD_AMMOREGEN
+
+	special1 EAS_HI_ROCKET
+	special2 EAS_MELEE
+
+	isCustomBuild	1
+	mbPoints		5
+
+	c_att_skill_0	MB_ATT_PISTOL
+	c_att_names_0	"DE-10 Six-Shooter (Pistol)"
+	c_att_ranks_0	2
+	
+	c_att_skill_1	MB_ATT_CLONERIFLE
+	c_att_names_1	"Concordian Repeater (CR)"
+	c_att_ranks_1	3	
+
+	c_att_skill_2	MB_ATT_DLT20A
+	c_att_names_2	"GALAAR-15 Carbine (DLT)"
+	c_att_ranks_2	2,1,0
+
+	c_att_skill_3	MB_ATT_PROJECTILE_RIFLE
+	c_att_names_3	"Kingpin Projectile Rifle"
+	c_att_ranks_3	5
+
+	c_att_skill_4	MB_ATT_RESPAWNS
+	c_att_names_4	"Reinforcement"
+	c_att_ranks_4	2
+}
+
+WeaponInfo0
+{
+	WeaponToReplace	WP_DLT20A
+	WeaponBasedOff	WP_BLASTER    			
+	NewWorldModel		"models/weapons2/kotor_brifle1/kotor_brifle1_w.glm"
+	NewViewModel		"models/weapons2/kotor_brifle1/kotor_brifle1.md3"
+	Icon				"gfx/hud/w_icon_kotor_brifle1"
+	MuzzleEffect		"Blaster/MuzzleFlash03B"
+	AltMuzzleEffect	"Blaster/MuzzleFlash03B"
+	MissileEffect		"blaster/Shot03B"
+	AltMissileEffect 	"blaster/Shot03B"
+	FlashSound0		"sound/weapons/dc17m/fire.wav"
+	AltFlashSound0 	"sound/weapons/dc17m/alt_fire.mp3"
+	WeaponName		"GALAAR-15 Carbine"
+	SelectSound   	"sound/weapons/dc17m/select.mp3"
+	customammo 	800
+	clipsize 	40
+	FPMult		1.15
+	velocityMod 		1.2
+	reloadTimeModifier	1.4
+}
+WeaponInfo1
+{
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_CLONE_PISTOL
+	NewWorldModel		"models/weapons2/bp_dt29/dt29.glm"
+	NewViewModel		"models/weapons2/bp_dt29/dt29.md3"
+	Icon				"gfx/hud/w_icon_dt29"
+	MuzzleEffect		"halo_beamrifle/muzzle_flash"
+	AltMuzzleEffect	"halo_beamrifle/altmuzzle_flash"
+	WeaponName		"DE-10 Six Shooter"
+	MissileEffect       "DE-10/shot"
+    Missile3Effect      "DE-10/shot"
+    AltMissileEffect    "DE-10/shot"
+    PowerupShotEffect   "DE-10/shot"
+    ChargeEffect       "gfx/effects/cloneFrontFlash"
+	FlashSound0		"sound/weapons/LPA_NN-14/fire.wav"
+	altFlashSound0	"sound/weapons/LPA_NN-14/alt_fire.wav"
+	hasAnimOverrides 	1
+	animReady 		BOTH_MAND_PISTOL_READY
+	animReadyWalk 	BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo 	BOTH_BF2RETURN
+	animAttack 		BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk 	BOTH_MAND_PISTOL_ATTACK
+	animStand 	BOTH_STAND9
+	customAmmo 	600
+	clipsize		6
+	FPMult 		1.6
+	rateMod 		1.3
+	damageMod 	1.6
+	velocityMod 	1.3
+	altfireenabled 	0
+}
+WeaponInfo2 
+{
+    WeaponToReplace	WP_CLONE_RIFLE
+    WeaponBasedOff	WP_CLONE_RIFLE
+    NewWorldModel		"models/weapons2/mandoAR/mandoAR.glm"  
+    NewViewModel		"models/weapons2/mandoAR/mandoAR.md3"
+    Icon				"gfx/hud/w_icon_mandoAr"
+    WeaponName		"Concordian Repeater"   
+	MuzzleEffect		"Blaster/MuzzleFlash02Y"
+	AltMuzzleEffect	"Blaster/MuzzleFlash03Y"
+	customAmmo 		600
+	clipsize			8
+	FPMult 			1.1
+	ReloadTimeModifier 6
+	rateMod 			0.5
+	velocityMod 		1.1
+	damageMod	1.25
+}
+WeaponInfo3
+{
+	WeaponToReplace 	WP_PROJ
+	WeaponBasedOff	WP_PROJ
+	NewWorldModel	"models/weapons2/me3-widow/disruptor_w.glm"
+	NewViewModel	"models/weapons2/me3-widow/disruptor.md3"
+	Icon		"Gfx\MPLevels\ultimate_showdown\widow_na.png"
+	WeaponName 	"Kingpin Projectile Rifle"
+	MuzzleEffect		"Blaster/MuzzleFlash01Y"
+	AltMuzzleEffect	"Blaster/MuzzleFlash01Y"
+	FlashSound0	"sound/weapons/halo_beamrifle/fire.mp3"
+	FlashSound1	"sound/weapons/halo_beamrifle/fire1.mp3"
+	FlashSound2	"sound/weapons/halo_beamrifle/fire2.mp3"
+	FlashSound3	"sound/weapons/halo_beamrifle/fire3.mp3"
+	CustomAmmo 	12
+	clipsize		2
+	damageMod 	0.90
+	FPMult 	1.25
+}
+
+WeaponInfo4
+{
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
+	NewWorldModel	"models/weapons2/vibroknife/model.glm"
+	NewViewModel	"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_prisonknife"
+	WeaponName	"Vibroknife"
+}
+description	"Nite Owl Mandalorian [Mandalorian]
+
+Eagle-eyed sharpshooters with Jetpacks.
+
+^2Default Weaponry:
+- Melee
+- Vibroknife (Cyan Saber)
+-- Cannot block Sabers/Blasters
+-- 25% less DMG
+-- 60% shorter reach
+
+^8Attributes:
+- Resource Regen: 1/5s to 50
+- Dexterity (3)
+- Beskar (2)
+- Tracking Beacon
+
+^3Abilities:
+- Jetpack
+- Rocket ^3[CS1]
+- Wrist Laser ^3[CS2]
+
+^9Point Buy Info:
+- DE-10 Six Shooter (Pistol)
+-- 60% more DMG/FP DMG
+-- 30% faster/slower velocity/RoF
+-- Mag reload
+- Concordian Repeater (Clone Rifle)
+-- Passive ammo regen
+-- 25/10% more DMG/FP DMG
+-- 10% faster velocity
+-- 50% faster RoF
+-- 700% slower reload
+- GALAAR-15 Carbine (DLT)
+-- 15% more FP DMG
+-- 20% faster velocity
+-- 40% slower mag reload
+- Kingpin Projectile Rifle
+-- 25/10% more/less FP DMG/DMG
+-- Mag reload"
