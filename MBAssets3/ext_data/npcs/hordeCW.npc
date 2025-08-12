@@ -345,6 +345,48 @@ DA6B //saberstyle 6 green/duals
 	dismemberProbHands	30
 	dismemberProbWaist	0
 }
+DA6C //saberstyle 6 green/duals
+{
+	playerModel	reborn_concept
+	customSkin	force
+	saber2		saber_reborn_mp
+	saber2Color	random
+	weapon	WP_SABER
+	MB_ATT_FORCEBLOCK 3
+	MB_ATT_FP_SABER_DEFENSE 3
+	MB_ATT_GUN_DEFENSE 3
+	MB_ATT_DEFLECT 3
+	RESOURCE_FORCE 1
+	saberStyle	6
+	FP_LEVITATION	3
+	FP_SABERTHROW	3
+	FP_SPEED		3
+	rank		captain
+	forcePowerMax 200
+	reactions	5
+	aim			5
+	move		5
+	aggression	5
+	evasion		5
+	intelligence	5
+	hfov		120
+	vfov		120
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_REBORN
+	snd			reborn2
+	sndcombat	reborn2
+	sndjedi		reborn2
+	yawSpeed	60
+	walkSpeed	45
+	runSpeed	180
+	health		150
+	dismemberProbHead	0
+	dismemberProbArms	20
+	dismemberProbLegs	0
+	dismemberProbHands	30
+	dismemberProbWaist	0
+}
 DA7B //saberstyle 7 staff/white
 {
 	playerModel	reborn_concept
@@ -390,7 +432,7 @@ DA7B //saberstyle 7 staff/white
 //CIS Droids, note need a pass on models, skins, and snds.
 //TO DO: SBDs? Flying probes? Dekas? Crab Droids? Walking Vulture Droid? Organic Seps/Trandos/Mercs/BHs?
 //B1s have the basic weapons and BX have the nasty ones
-BX_Sword2 //works best with style 2 for a npc that isn't supposed to be a jedi
+BX_Sword2 //AI works best with style 2
 {
 	playerModel	bxdroid
 	customSkin	default
@@ -424,7 +466,7 @@ BX_Sword2 //works best with style 2 for a npc that isn't supposed to be a jedi
 	dismemberProbWaist	0
 } 
 
-BX_EE4 //works better then WP_Blaster because of the bloom
+BX_EE4 //works better then E-11 because of the bloom
 {
 	playerModel bxdroid
 	customSkin  default
@@ -530,7 +572,7 @@ BX_DLT20A //animation looks derpy
 	dismemberProbWaist	0
 }
 
-BX_T21 //no alt fire but interesting
+BX_T21 //no alt fire but interesting mixup
 {
 	playerModel bxdroid
 	customSkin  default
@@ -637,7 +679,7 @@ BX_EE3 //pretty good with it
 	dismemberProbWaist	0
 }
 
-BX_AMBAN //only tries to melee when stuck inplace
+BX_AMBAN //no altFire so useless, only tries to melee and stuck inplace
 {
 	playerModel bxdroid
 	customSkin  default
@@ -709,40 +751,6 @@ BX_Rocket //so jedi have something to push
 	dismemberProbWaist	0
 }
 
-B2 //need work, espcially size wise 
-{
-	playerModel sbd
-	//customSkin  ep1
-	weapon		WP_SBD
-	MB_ATT_FIREPOWER 3
-	health		250
-	headPitchRangeDown 30
-	reactions	3
-	aim			1
-	move		3
-	aggression	3
-	evasion		1
-	intelligence	5
-	rank		crewman
-	playerTeam	TEAM_PLAYER
-	enemyTeam	TEAM_ENEMY
-//	race		klingon
-	class		CLASS_STORMTROOPER
-	height		80
-	crouchheight 60
-	walkSpeed	51
-	runSpeed	200
-	snd			sbd
-	sndcombat	sbd
-	sndextra	sbd
-	yawspeed	70
-	dismemberProbHead	0
-	dismemberProbArms	10
-	dismemberProbLegs	0
-	dismemberProbHands	20
-	dismemberProbWaist	0
-}
-
 B1_Blaster //the most basic guy, no altFire really kills usefulness but it works for a B1
 {
 	playerModel battledroid
@@ -779,7 +787,7 @@ B1_Blaster //the most basic guy, no altFire really kills usefulness but it works
 	dismemberProbWaist	0
 }
 
-B1_Shotgun //very cool but might be annoying to fight
+B1_Shotgun //very cool but might be annoying to fight, maybe should be on bx, pump action sounds terrible on a Star Wars gun too
 {
 	playerModel battledroid
 	customSkin  ep1
@@ -814,11 +822,47 @@ B1_Shotgun //very cool but might be annoying to fight
 	dismemberProbWaist	0
 }
 
-B1_Pistol //nice mixup from blasters
+B1_Pistol //nice difference from other blasters, maybe should be on an officer, merc, or bx droid
 {
 	playerModel battledroid
 	customSkin  ep1
 	weapon		WP_BLASTER_PISTOL
+	MB_ATT_PISTOL 3
+	health		50
+	armor 		15
+	headPitchRangeDown 30
+	reactions	3
+	aim			1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+//	race		klingon
+	class		CLASS_STORMTROOPER
+	height		64
+	crouchheight 38
+	walkSpeed	51
+	runSpeed	200
+	snd			battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	70
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	0
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_Demp //nice mixup from normal blasters, idk if it makes sense for B1s to have this though, maybe give to a merc
+{
+	playerModel battledroid
+	customSkin  ep1
+	weapon		WP_DEMP2
+	MB_ATT_DEMP2 3
 	MB_ATT_PISTOL 3
 	health		50
 	armor 		15
@@ -879,7 +923,225 @@ B1_Nader //nice mixup over only blasters but very derpy, works for B1 and untrai
 	dismemberProbHands	20
 	dismemberProbWaist	0
 }
-B1_Baton //same as above but will pull out a stun baton if you get too close without a saber drawn and lit
+
+B1_Frag //???
+{
+	playerModel	battledroid
+	customSkin	grenadier2
+	weapon		WP_FRAG_NADE
+	weapon		WP_MELEE
+	reactions	3
+	aim		1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	health 		50
+	armor 		15
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_GRAN
+	snd		battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	90
+	walkSpeed	55
+	runSpeed	200
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	1
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_Pulse //???
+{
+	playerModel	battledroid
+	customSkin	grenadier2
+	weapon		WP_PULSE_NADE
+	weapon		WP_MELEE
+	reactions	3
+	aim		1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	health 		50
+	armor 		15
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_GRAN
+	snd		battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	90
+	walkSpeed	55
+	runSpeed	200
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	1
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_Fire //???
+{
+	playerModel	battledroid
+	customSkin	grenadier2
+	weapon		WP_FIRE_NADE
+	weapon		WP_MELEE
+	reactions	3
+	aim		1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	health 		50
+	armor 		15
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_GRAN
+	snd		battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	90
+	walkSpeed	55
+	runSpeed	200
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	1
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_Sonic //???
+{
+	playerModel	battledroid
+	customSkin	grenadier2
+	weapon		WP_SONIC_NADE
+	weapon		WP_MELEE
+	reactions	3
+	aim		1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	health 		50
+	armor 		15
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_GRAN
+	snd		battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	90
+	walkSpeed	55
+	runSpeed	200
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	1
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_Conc //???
+{
+	playerModel	battledroid
+	customSkin	grenadier2
+	weapon		WP_CONC_NADE
+	weapon		WP_MELEE
+	reactions	3
+	aim		1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	health 		50
+	armor 		15
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_GRAN
+	snd		battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	90
+	walkSpeed	55
+	runSpeed	200
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	1
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_Cryo //???
+{
+	playerModel	battledroid
+	customSkin	grenadier2
+	weapon		WP_CRYO_NADE
+	weapon		WP_MELEE
+	reactions	3
+	aim		1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	health 		50
+	armor 		15
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_GRAN
+	snd		battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	90
+	walkSpeed	55
+	runSpeed	200
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	1
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_TD //???
+{
+	playerModel	battledroid
+	customSkin	grenadier2
+	weapon		WP_REAL_TD
+	weapon		WP_MELEE
+	reactions	3
+	aim		1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	health 		50
+	armor 		15
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_GRAN
+	snd		battledroid
+	sndcombat	battledroid
+	sndextra	battledroid
+	yawspeed	90
+	walkSpeed	55
+	runSpeed	200
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	1
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B1_Baton //same as nader but will pull out a stun baton if you get too close without a saber drawn and lit
 {
 	playerModel	battledroid
 	customSkin	grenadier2
@@ -981,7 +1243,7 @@ B1_Plasma //don't attack perfectly but it's good enough for varit, plasma don't 
 	dismemberProbHands	20
 	dismemberProbWaist	0
 }
-B1_Ice //has a hard time hitting enough to freeze anyone
+B1_Ice //has a hard time hitting enough times to slow or freeze a player
 {
 	playerModel battledroid
 	customSkin flame 
@@ -1080,6 +1342,40 @@ B1_Sniper //stands in the back and shoots, not amazing but an ok way to vary up 
 	runSpeed	200
 	health		50
 	armor 		15
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	0
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+B2 //need work, espcially size wise 
+{
+	playerModel sbd
+	//customSkin  ep1
+	weapon		WP_SBD
+	MB_ATT_FIREPOWER 3
+	health		250
+	headPitchRangeDown 30
+	reactions	3
+	aim			1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+//	race		klingon
+	class		CLASS_STORMTROOPER
+	height		80
+	crouchheight 60
+	walkSpeed	51
+	runSpeed	200
+	snd			sbd
+	sndcombat	sbd
+	sndextra	sbd
+	yawspeed	70
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	0
@@ -1366,7 +1662,7 @@ CT_Ice  //something jedi can't block x3, AI has a hard time landing enough of th
 	dismemberProbWaist	0
 }
 
-CT_Lightning  //projectile mixup
+CT_Lightning  //another good projectile mixup
 {
 	playerModel clonetrooper_p2
 	customSkin 501
@@ -1477,82 +1773,6 @@ CT_M5 //animation looks derpy on AI
 	dismemberProbWaist	0
 }
 
-CT_Demp //looks stupid on a clone, maybe reuse on CIS merc or Kotor, nice projectle mixup though
-{
-	playerModel clonetrooper_p2
-	customSkin 501
-	weapon		WP_DEMP2
-	MB_ATT_DEMP2 3
-	altFire 1
-	health		80
-	armor 40
-	headPitchRangeDown 30
-	reactions	3
-	aim			1
-	move		3
-	aggression	3
-	evasion		1
-	intelligence	5
-	rank		crewman
-	playerTeam	TEAM_PLAYER
-	enemyTeam	TEAM_ENEMY
-//	race		klingon
-	class		CLASS_STORMTROOPER
-	height		64
-	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
-	snd			clone_ep3
-	sndcombat	clone_ep3
-	sndextra	clone_ep3
-	yawspeed	70
-	walkSpeed	55
-	runSpeed	200
-	dismemberProbHead	0
-	dismemberProbArms	10
-	dismemberProbLegs	0
-	dismemberProbHands	20
-	dismemberProbWaist	0
-}
-
-CT_Bryar //just another pistol
-{
-	playerModel clonetrooper_p2
-	customSkin 501
-	weapon		WP_BRYAR_OLD
-	MB_ATT_BRYAR_OLD 3
-	altFire 1
-	health		80
-	armor 40
-	headPitchRangeDown 30
-	reactions	3
-	aim			1
-	move		3
-	aggression	3
-	evasion		1
-	intelligence	5
-	rank		crewman
-	playerTeam	TEAM_PLAYER
-	enemyTeam	TEAM_ENEMY
-//	race		klingon
-	class		CLASS_STORMTROOPER
-	height		64
-	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
-	snd			clone_ep3
-	sndcombat	clone_ep3
-	sndextra	clone_ep3
-	yawspeed	70
-	walkSpeed	55
-	runSpeed	200
-	dismemberProbHead	0
-	dismemberProbArms	10
-	dismemberProbLegs	0
-	dismemberProbHands	20
-	dismemberProbWaist	0
-}
-
 CT_Minigun //will never hold fire down long enough to shoot
 {
 	playerModel clonetrooper_p2
@@ -1628,7 +1848,7 @@ CT_Proj //can't scope in so useless
 	dismemberProbWaist	0
 }
 
-CT_PLX1 //can't scope in so useless
+CT_PLX1 //can't reload it so useless
 {
 	playerModel clonetrooper_p2
 	customSkin 501
@@ -1688,7 +1908,7 @@ CT_Assassin //like hows this works, the small jumps work well for his animations
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 //	race		human
-	class		CLASS_REBORN
+	class		CLASS_SHADOWTROOPER
 	snd			clone_ep3
 	sndcombat	clone_ep3
 	sndjedi		clone_ep3
@@ -1703,7 +1923,7 @@ CT_Assassin //like hows this works, the small jumps work well for his animations
 	dismemberProbWaist	0
 }
 
-Wook_Bowcaster //shoots, even at slow at high weapon level, need to be resized
+Wook_Bowcaster //shoots slow, even at at high weapon level, need to be resized
 {
 	playerModel chewbacca
 	customSkin  default
