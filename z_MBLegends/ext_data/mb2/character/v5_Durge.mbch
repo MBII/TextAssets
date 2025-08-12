@@ -1,40 +1,46 @@
 //Legends Mode character file - Created by Frenzy & Leos
-//would be nice to give him those energy shield fists
+//would be nice to give him those energy shield fists UPDATE: WE DID IT
 
 ClassInfo
 {
 	name			"v5_Durge"
-	weapons			WP_MELEE|WP_CLONE_PISTOL|WP_SBD
-	attributes		MB_ATT_HEALING,2|MB_ATT_SHIELD_RECHARGE,2|MB_ATT_CLONE_PISTOL,3|MB_ATT_BLAST_ARMOUR|MB_ATT_CORTOSIS,1|MB_ATT_FUEL,3|MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_FLAMETHROWER|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_FIREPOWER,3
+	MBClass			MB_CLASS_WOOKIE
+	classNumberLimit	1
+	
+	weapons			WP_MELEE|WP_MANDO_PISTOL|WP_SBD|WP_SABER
+	attributes		MB_ATT_HEALING,2|MB_ATT_SHIELD_RECHARGE,2|MB_ATT_MANDO_PISTOL,3|MB_ATT_BLAST_ARMOUR|MB_ATT_CORTOSIS,1|MB_ATT_FUEL,3|MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_FLAMETHROWER|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_FIREPOWER,3
+	
 	maxhealth		125
 	maxarmor			60
-	model			"durge" 				
-	skin				"jetpack"				
-	uishader			"models/players/durge/mb2_icon_default"
-	MBClass			MB_CLASS_WOOKIE
+	
 	classflags		CFL_DISMEMBERFRAGILE|CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE|CFL_NOLOCATIONALDAMAGE
-	classNumberLimit	1
-	modelscale		1.25
-	forcepowers		FP_SEE,1|FP_ABSORB,2|FP_RAGE,3
+	
+	resource	RESOURCE_FORCE
+	forcepowers		FP_SEE,1|FP_RAGE,3
 	forcepool		80
 	forceregen    	0.65
 	speed        	1.05
 	rateoffire		1.15
 	//rateoffire_melee	1.15
-	damageGiven   	1
 	damageTaken		0.60
 	knockbackTaken 0.85
-	special1 	EAS_FP_ABSORB
-	special2 	EAS_HI_FLAME
+	
+	special1 	EAS_HI_FLAME
+	special2 	EAS_MELEE
 	special3 	EAS_FP_SEE
 	special4 	EAS_FP_RAGE
 	
-	resource	resource_force
+	saber1 durgeshield_leg
+	saber2 durgeshield_leg
+	saberstyle SS_DUAL
 	
+	model		"durge" 				
+	skin			"jetpack"				
+	uishader		"models/players/durge/mb2_icon_default"
 	uioverlay_r "gfx/icons/aerial"
-		uioverlay_l "gfx/icons/spec_infantry"
-		uioverlay_c "gfx/icons/brawler"
-	
+	uioverlay_l "gfx/icons/spec_infantry"
+	uioverlay_c "gfx/icons/brawler"
+	modelscale		1.25
 	//respawncustomtime 75000
 	
 	gloatAnim DUAL_DRAW
@@ -45,28 +51,28 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/DE-10/blaster_pistol_w.glm"  	 
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	 	 
-	Icon			"gfx/hud/w_icon_DE-10"
-	WeaponName		"Stolen DE-10 Blaster Pistols"
-	customAmmo 		650
-	FlashSound0		"sound/weapons/de10/fire.wav"
-	altFlashSound0	"sound/weapons/de10/alt_fire.mp3"
-	ChargeSound "sound/weapons/de10/altcharge.mp3"
+	WeaponToReplace	WP_MANDO_PISTOL
+	WeaponBasedOff	WP_MANDO_PISTOL
+	NewWorldModel		"models/weapons2/dc-17_cw/dc-17_w.glm"  	 
+	NewViewModel		"models/weapons2/dc-17_cw/dc-17_cw.md3" 
+	NewHandsModel		"models/weapons2/dc-17_cw/dc-17_cw_hand.md3" 
+	Icon				"gfx/hud/w_icon_dc-17_cw_dual"
+	WeaponName		"Durge's Blaster Pistols"
+	FlashSound0		"sound/weapons/se-44c/fire.wav"
+	altFlashSound0	"sound/weapons/se-44c/alt_fire.wav"
 	FPMult 	 	1.30
+	customAmmo 	650
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SBD
-	WeaponBasedOff		WP_SBD
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	 
+	WeaponToReplace	WP_SBD
+	WeaponBasedOff	WP_SBD
+	NewWorldModel	"models/weapons2/dummyblaster/model.glm"
+	NewViewModel	"models/weapons2/dummy/dummy.md3" 	 
 	Icon			"gfx/hud/w_icon_sbdarm"
-	WeaponName		"Flechette Gatling Gauntlet"
-	customAmmo 		56
+	WeaponName	"Flechette Gatling Gauntlet"
+	customAmmo 	56
 	clipsize 	7
 	FlashSound0		"sound/weapons/halo_needler/fire.wav"
 	FlashSound1		"sound/weapons/halo_needler/fire.wav"
@@ -75,22 +81,33 @@ WeaponInfo1
 	altFlashSound0	"sound/weapons/halo_needler/fire.wav"
 	MissileMissEffect "effects/flechette/wall_impact"
 	MissileEffect		"effects/flechette/shot"
-	MuzzleEffect		"effects/flechette/muzzle_flash"
-	MissileHitHumanEffect    "effects/flechette/flesh_impact"
+	MuzzleEffect		null
+	MissileHitHumanEffect 	"effects/flechette/flesh_impact"
     MissileHitDroidEffect 	"effects/flechette/wall_impact"
-	altMissileMissEffect "effects/flechette/wall_impact"
+	altMissileMissEffect 	"effects/flechette/wall_impact"
 	altMissileEffect		"effects/flechette/shot"
-	altMuzzleEffect		"effects/flechette/muzzle_flash"
-	altMissileHitHumanEffect    "effects/flechette/flesh_impact"
-	altMissileHitDroidEffect 	"effects/flechette/wall_impact"
+	altMuzzleEffect		null
+	altMissileHitHumanEffect "effects/flechette/flesh_impact"
+	altMissileHitDroidEffect "effects/flechette/wall_impact"
 	altfireenabled 0
 	FPMult 	 	1.50
-	primgore 1
+	primgore 	1
 	hasAnimOverrides 1
 	animReadyNoAmmo BOTH_BLASTER_ATTACK
 	animAttack BOTH_BLASTER_ATTACK
 	animAttackWalk BOTH_BLASTER_ATTACK
 	animStand BOTH_STAND1
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER	
+	NewWorldModel		"models/weapons2/minishield/minishield.glm"
+	NewViewModel		"models/weapons2/minishield/minishield.md3"
+	Icon				"gfx/hud/w_icon_gunganshield"
+	WeaponName		"Durge's Personal Energy Shields"
+	primFireEnabled 0
 }
 
 ForceInfo0
@@ -102,27 +119,26 @@ ForceInfo0
 	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
-ForceInfo1
-{
-	ForceToReplace	FP_ABSORB
-	Icon			"gfx/2d/hud/hlp_defend"
-	ForcePowerName	"Energy Shield"
-}
-
 description	"Durge [Wookiee]
 
 A tanky dual pistoleer/brawler class equipped with a Jetpack and tools meant for destroying Jedi.
 
 ^2Weaponry:
 - Wookiee-style Melee
-- Stolen DE-10 Blaster Pistols (Clone Pistols 3)
+- Durge's Personal Energy Shields (Dual Sabers)
+-- Saber Defense/Deflect (0)
+-- Blaster Defense (0)
+-- 12% shorter reach
+-- 66% wider radius
+-- Sec. only
+-- Slap ^3[CS2]
+- Durge's Blaster Pistols (WESTARs 3)
 -- 30% more FP DMG
 - Flechette Gatling Gauntlet (Arm Blaster 3)
 -- 50% more FP DMG
 -- Prim. only
 
 ^5Powers:
-- Energy Shield (Absorb 2) ^3[CS1]
 - Cybernetic Tracking Implant (Sense 1) ^3[CS3]
 - Dark Rage (3) ^3[CS4]
 
@@ -139,4 +155,4 @@ A tanky dual pistoleer/brawler class equipped with a Jetpack and tools meant for
 
 ^3Abilities:
 - Jetpack
-- Wrist Flamethrower ^3[CS2]"
+- Wrist Flamethrower ^3[CS1]"
