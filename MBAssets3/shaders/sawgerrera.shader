@@ -6,7 +6,7 @@ models/players/sawgerrera/armor
         rgbGen lightingDiffuse
     }
     {
-        map models/players/sawgerrera/armor_s
+        map models/players/sawgerrera/armor_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -20,7 +20,7 @@ models/players/sawgerrera/body
         rgbGen lightingDiffuse
     }
     {
-        map models/players/sawgerrera/body_s
+        map models/players/sawgerrera/body_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -34,7 +34,21 @@ models/players/sawgerrera/face
         rgbGen lightingDiffuse
     }
     {
-        map models/players/sawgerrera/face_s
+        map models/players/sawgerrera/face_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/sawgerrera/face2
+{
+    {
+        map models/players/sawgerrera/face2
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/sawgerrera/face2_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -49,7 +63,7 @@ models/players/sawgerrera/hair
         rgbGen lightingDiffuse
     }
     {
-        map models/players/sawgerrera/hair_s
+        map models/players/sawgerrera/hair_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
