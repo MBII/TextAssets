@@ -4,8 +4,8 @@ ClassInfo
 {
 	name			"h10_JForce"
 	weapons			WP_MELEE|WP_SABER
-	forcepowers		FP_LEVITATION,3|FP_SPEED,2|FP_PULL,2|FP_PUSH,3|FP_SEE,3|FP_PROTECT,1|FP_TELEPATHY,2
-	attributes		MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,3|MB_ATT_FP_REPULSE,1|MB_ATT_FLIPKICK,1|MB_ATT_HEALING,3|MB_ATT_SPY_DISGUISE,2|MB_ATT_FP_SABER_DEFENSE,0
+	forcepowers		FP_LEVITATION,3|FP_SPEED,2|FP_PULL,2|FP_PUSH,2|FP_SEE,3|FP_PROTECT,2|FP_TELEPATHY,3
+	attributes		MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,3|MB_ATT_FP_REPULSE,1|MB_ATT_FLIPKICK,1|MB_ATT_HEALING,3|MB_ATT_SPY_DISGUISE,2|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_DEXTERITY,3|MB_ATT_DASH,2|MB_ATT_INAIR_FORCE_REGEN|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP
 
 	forcepool	120
 	forceregen	1.1
@@ -14,15 +14,15 @@ ClassInfo
 	modelscale	1
 	MBClass			MB_CLASS_JEDI
 	classNumberLimit	2
-	classflags		CFL_SEEING_STEALTH|CFL_HEAVYMELEE|CFL_NOPICKUPS
-	forceBlocking   1
-	
+	classflags		CFL_SEEING_STEALTH|CFL_HEAVYMELEE|CFL_NOPICKUPS|CFL_BPFREEJUMPS
+
+	saberDamage 70
 	saber1	martialarts_legends
 	saber2	martialarts_legends
 	saberstyle		SS_DUAL
 	APmultiplier       0.8
 	BPmultiplier		1
-	
+	saberspecialDamage 2
 	saberStanceAnim	MELEE_STAND
 	gloatAnim BOTH_ATTACK10
 	flourishAnim BOTH_STAND5TOSIT3
@@ -41,29 +41,32 @@ ClassInfo
 		
 	//respawncustomtime 30000	
 	
-	special1		EAS_FP_TELEPATHY
-	special2	 	EAS_FP_PROTECT
+	special1		EAS_FP_PROTECT
+	special2	 	EAS_HI_DEX
 	special3		EAS_FP_REPULSE
-	special4		EAS_FP_SPEED
+	special4		EAS_HI_DASH
 	isCustomBuild		1
-	mbPoints			3
+	mbPoints			4
 	
 	c_att_skill_0	MB_ATT_RESPAWNS
 	c_att_names_0	"Reinforcement"
 	c_att_ranks_0	3
 	
-	c_att_skill_1	MB_ATT_FP_PULL
-	c_att_names_1	"Pull"
+	c_att_skill_1	MB_ATT_FP_PUSH
+	c_att_names_1	"Force Push"
 	c_att_ranks_1	0,0,1
 	
-	c_att_skill_2	MB_ATT_FP_TELEPATHY
-	c_att_names_2	"Mind Trick ^3[CS1]"
+	c_att_skill_2	MB_ATT_FP_PULL
+	c_att_names_2	"Force Pull"
 	c_att_ranks_2	0,0,1
 	
-	c_att_skill_3	MB_ATT_FLIPKICK
-	c_att_names_3	"Flipkick ^3[Contact Jump]"
-	c_att_ranks_3	0,1
-
+	c_att_skill_3	MB_ATT_FP_PROTECT
+	c_att_names_3	"Force Protect ^3[CS1]"
+	c_att_ranks_3	0,0,1
+	
+	c_att_skill_4	MB_ATT_FLIPKICK
+	c_att_names_4	"Flipkick ^3[Contact Jump]"
+	c_att_ranks_4	0,1
 }
 
 WeaponInfo0
@@ -86,26 +89,33 @@ Light side masters who forego the use of a Lightsaber in favor of martial arts a
 -- Saber Defense (0)
 -- Cannot block Blasters
 -- Blocking resists Force Powers
--- 80% less DMG
+-- BP-Free Jumps
+-- 73% less DMG
 -- 55% shorter reach
 -- 167% wider radius
 -- Slap ^3[Gunbash]
 
 ^5Default Force Powers:
 - Jump (3)
-- Push (3)
+- Push (2)
 - Pull (2)
 - Sense (3)
-- Mind Trick (2) ^3[CS1]
-- Protect (1) ^3[CS2]
+- Mind Trick (3)
+- Protect (2) ^3[CS1]
 - Repulse ^3[CS3 Melee]
-- Speed (2) ^3[CS4]
+- Speed (2)
 
 ^8Default Attributes:
+- Bunny Hop (1)
+- Slow Faller
+- Dexterity (3)
 - Healing (3)
+- Aerial Force Regen
 - Force Sense Immunity
 - Force Block/Focus (3)
 
 ^3Default Abilities:
 - Flipkick (1) ^3[Contact Jump]
-- Disguise (2) ^3[Toggle Melee]"
+- Disguise (2) ^3[Toggle Melee]
+- Dex Roll ^3[CS2]
+- Dash (2) ^3[CS4]"
