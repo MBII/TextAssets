@@ -46,7 +46,7 @@ ClassInfo
 	
 	modelscale		1.17
 	//rankModelScale 	1.26,1.36,0.86
-	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_HIGHDAMAGE
+	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_KNOCKBACK
 	WP_BowcasterFlags HELD_ALTRELOAD
 	gloatAnim 		BOTH_TUSKENTAUNT1
 	flourishAnim 		BOTH_VICTORY_FAST
@@ -133,13 +133,13 @@ ClassInfo
 	c_att_skill_8	MB_ATT_WOOKIEE_FURY
 	c_att_names_8	"Fury/Barge ^3[CS1/2 M]^7:"
 	c_att_ranks_8	1,1
-
-	c_att_skill_9	MB_ATT_STM_MULTIPLIER
-	c_att_names_9	"> Skill Cooldown (150%):"
+	
+	c_att_skill_9	MB_ATT_POWER
+	c_att_names_9	"> Larger Fury Pool (140):"
 	c_att_ranks_9	1
 
-	c_att_skill_10	MB_ATT_POWER
-	c_att_names_10	"Larger Fury Pool (140):"
+	c_att_skill_10	MB_ATT_STM_MULTIPLIER
+	c_att_names_10	"> Skill Cooldown (150%):"
 	c_att_ranks_10	1
 
 	c_att_skill_11	MB_ATT_BLAST_ARMOUR
@@ -199,7 +199,6 @@ WeaponInfo3
     WeaponBasedOff WP_ROCKET_LAUNCHER
     NewWorldModel	"models/weapons2/wgrl/wgrl.glm"
     NewViewModel	"models/weapons2/wgrl/wgrl.md3"
-	customSkin 	"models/weapons2/wgrl/wgrl.skin"
     Icon	 "gfx/hud/w_icon_wgrl" 
     WeaponName	"Wookiee Guided Rocket Launcher"
 	flashSound0 "sound/weapons/upl/fire_mortar.wav"
@@ -210,10 +209,22 @@ WeaponInfo3
 	altFlashSound1 "sound/weapons/upl/fire_mortar.wav"
 	altFlashSound2 "sound/weapons/upl/fire_mortar.wav"
 	altFlashSound3 "sound/weapons/upl/fire_mortar.wav"
-	customAmmo 	20
+	//muzzleEffect null
+	//altMuzzleEffect null
+	//MissileEffect null
+	//AltMissileEffect null
+	MissileMissEffect "effects/wook_rocket/wall_impact"
+	altMissileMissEffect "effects/wook_rocket/wall_impact"
+	MissileHitHumanEffect "effects/wook_rocket/wall_impact"
+	altMissileHitHumanEffect "effects/wook_rocket/wall_impact"
+	MissileHitDroidEffect "effects/wook_rocket/wall_impact"
+	altMissileHitDroidEffect "effects/wook_rocket/wall_impact"
+	customAmmo 	10
 	clipsize 5
-	reloadTimeModifier 1.6
-		hasAnimOverrides 1
+	rateMod 1.35
+	reloadTimeModifier 2
+	damageMod 1.8
+	hasAnimOverrides 1
 	animReady BOTH_PLX1_READY //upper
 	animReadyWalk BOTH_PLX1_READY
 	animReadyNoAmmo BOTH_PLX1_IDLE
@@ -223,7 +234,7 @@ WeaponInfo3
 
 description	"Wookiee Warrior [Wookiee]
 
-Tough 2-life units who can spec into blasters, brawling, and Saber upgrades. Rage doubles as Blaster Defense.
+Tough 2-life units who can spec into Blasters, brawling, and Saber upgrades. Rage doubles as Blaster Defense.
 
 ^2Default Weaponry:
 - Wookiee-style Melee
@@ -248,7 +259,8 @@ Tough 2-life units who can spec into blasters, brawling, and Saber upgrades. Rag
 - Bowcaster
 -- No charge shots
 -- Mag reload
-- Guided Rocket Launcher (25)
--- Knocks back targets on direct hit
--- 100% more DMG
--- 60% slower mag reload"
+- Guided Rocket Launcher (15)
+-- Pushes targets on direct hit
+-- 80% more DMG
+-- 35% slower RoF
+-- 100% slower mag reload"
