@@ -6,36 +6,37 @@ MBClass MB_CLASS_ELITETROOPER
 classNumberLimit 1
 extralives 1
 
-weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CR2|WP_DET_PACK|WP_PULSE_NADE
-attributes MB_ATT_PISTOL,2|MB_ATT_CR2,2|MB_ATT_DET_PACK,3|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1
+weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CR2|WP_M5|WP_DET_PACK|WP_PULSE_NADE
+attributes MB_ATT_PISTOL,2|MB_ATT_CR2,2|MB_ATT_DET_PACK,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1
 
 forcepowers FP_SEE,1|FP_LIGHTNING,1
 holdables HI_SEEKER|HI_STIMPACK
 
-resource RESOURCE_DEKASHIELD
+resource RESOURCE_FUEL
 forcepool 65
 forceregen 1
 resourceRegenRate 800
 resourceRegenAmount 5
 resourceRegenCap 65
 
-maxhealth 80
+maxhealth 85
 MaxArmor 80
 
-basespeed 210
+basespeed 218
+damageTaken 0.95
 
-hackRate 0.65
+hackRate 0.74
 knockbackTaken 1.1
 
 damageGiven 1.3 //IMPORTANT: This is to increase lightning and detpack damage by 30%. Set all other weapons' damageMod to the inverse, 1/damageGiven. (1/1.3 = 0.77)
-WP_MeleeFlags HELD_LOWDAMAGE //Avoid 1.3x damage on melee attacks. 0.65x is the new total.
+WP_MeleeFlags HELD_LOWDAMAGE
+rateOfFire_Melee	.8
 
 modelscale 1.02
 model "jedi_zf"
 skin "merc_et"
 uishader "models/players/jedi_zf/mb2_icon_merc_et"
 uioverlay_l "gfx/icons/tactician"
-uioverlay_r "gfx/icons/infantry"
 
 special1 EAS_FP_SEE
 special2 EAS_FP_LIGHTNING
@@ -44,7 +45,6 @@ special4 EAS_HI_STIMPACK
 
 flourishAnim BOTH_ENGAGETAUNT
 //flourishAnim BOTH_MINDTRICK1
-
 }
 
 WeaponInfo0
@@ -55,9 +55,9 @@ NewWorldModel "models/weapons2/blaster_two/blaster_pistol_w.glm"
 NewViewModel "models/weapons2/blaster_two/blaster_pistol.md3"
 Icon "gfx/hud/w_icon_blaster_pistol_2"
 WeaponName "DL-44 Blaster Pistol"
-	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
-
-damageMod 0.77 //inverse of damageGiven
+ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
+damageMod 0.8
+ratemod 0.95
 }
 
 WeaponInfo1
@@ -75,10 +75,9 @@ FlashSound3 "sound/weapons/blasterMB/alt_fire.mp3"
 MuzzleEffect "Blaster/MuzzleFlash01R"
 MissileEffect "Blaster/Shot02R"
 
-damageMod 0.846 //inverse of damageGiven, after 10% increase for this gun (1.10/1.3 = 0.846) NOTE: set to 0.77 if you want 1.0x damage instead
+damageMod 0.85
 velocityMod 1.10
-
-//customAmmo 600
+customAmmo 600
 clipSize 60
 }
 
@@ -99,18 +98,27 @@ customAmmo 3
 hasAnimOverrides 1
 animAttack BOTH_MAND_FLAME_READY
 animAttackWalk BOTH_MAND_FLAME_READY
+rateMod 0.75
 }
 
+//NADE LAUNCHER, W5 MODEL
 WeaponInfo3
 {
-WeaponToReplace WP_PULSE_NADE
-WeaponBasedOff WP_PULSE_NADE
-NewWorldModel "models/weapons2/kes_pgren/laser_trap_w.glm"
-NewViewModel "models/weapons2/kes_pgren/laser_trap.md3"
-Icon "gfx/hud/w_icon_rpgren"
-WeaponName "Reverse Polarity Pulse Grenades"
-
-damageMod 0.77 //inverse of damageGiven
+    WeaponToReplace        WP_M5
+    WeaponBasedOff        WP_M5
+    NewWorldModel        "models/weapons2/cw-w5/dc-15_ext_w.glm"
+    NewViewModel        "models/weapons2/cw-w5/dc-15_ext.md3"
+    Icon                "gfx/hud/w_icon_cw-w5g"
+    WeaponName            "Pulse Grenade Launcher"
+ 
+    customAmmo            2
+    clipSize            -1
+    primFireEnabled        0
+ 	 
+    hasAnimOverrides     1
+    animAttack            BOTH_ATTACK3    
+    animAttackWalk        BOTH_ATTACK3
+	ratemod 0.25
 }
 
 ForceInfo0
@@ -120,7 +128,6 @@ Icon "gfx/forcepowers/lightning"
 ForcePowerName "Wrist Shocker"
 StartSound "sound/ambience/kotor/console03.mp3"
 LoopSound "null"
-
 }
 
 ForceInfo1
@@ -134,19 +141,24 @@ LoopSound "sound/ambience/cp_02_lp.wav"
 
 description "Rebel Sapper [Elite Trooper]
 
-2-life electronic saboteurs with various damage-boosted gadgets.
+A 2-life electronic saboteur with damage-boosted gadgets.
 
 ^2Weaponry:
 - Melee
+-- 20% faster swings
 -- 50% less DMG
 - DL-44 Blaster Pistol (2)
--- 23% less DMG
+-- 5% faster RoF
+-- 20% less DMG
 - E-11 Blaster Carbine (CR-2 2)
 -- 10% faster velocity
--- 16% less DMG
-- Pulse Grenades (2)
--- 23% less DMG
+-- 15% less DMG
+- Pulse Grenade Launcher (M5)
+-- 75% faster RoF
+-- Sec. only
+- Pulse Grenades (3)
 - Det Packs (3)
+-- 25% faster RoF
 
 ^5Powers:
 - Radar Scanner (Sense 1) ^3[CS1]
