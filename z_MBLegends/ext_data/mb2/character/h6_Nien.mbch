@@ -11,17 +11,17 @@ ClassInfo
 	
 	forcepowers FP_SABERTHROW,0
 	
-	resource		RESOURCE_ENERGY
-	resource 100
-
+	resource	RESOURCE_ENERGY
+	forcepool 100
+	skilltimermod 0.9
 	maxhealth	135
-	maxarmor		90
+	maxarmor	90
 	
 	speed		1.06
 	rateOfFire	0.8
-	
-	damageGiven 	0.8
+	damageGiven 0.8
 	damageTaken	0.9
+	knockbackTaken 1.2
 	
 	ASmultiplier 1.15
 	APmultiplier	1.2
@@ -41,7 +41,7 @@ ClassInfo
 	classflags       CFL_SEEING_STEALTH
 
 	saberStanceAnim	TORSO_SURRENDER_START
-	flourishAnim		BOTH_COWER1
+	flourishAnim	BOTH_INJURED_TO_COLLAPSED
 	gloatAnim		BOTH_COME_ON1
 	bowAnim	BOTH_STAND5STARTLEDLOOKLEFT
 	
@@ -85,13 +85,13 @@ WeaponInfo1
 	MissileHitHumanEffect "gfx/effects/greenfrontflash"
 	MissileHitDroidEffect "gfx/effects/greenfrontflash"
 	ReloadTimeModifier  0.9
-	damageMod 1.1
+	damageMod 1.2
+	rateMod 0.95
 	hasAnimOverrides 1
-	animReady BOTH_DC15_IDLE
-	animReadyWalk BOTH_AMBAN_AIM_READY
-	animReadyNoAmmo BOTH_AMBAN_AIM_ATTACK
-	animAttack BOTH_AMBAN_AIM_ATTACK
-	animAttackWalk BOTH_AMBAN_AIM_ATTACK
+	animReady BOTH_WESTARM5_IDLE
+	animReadyWalk BOTH_WESTARM5_READY
+	animAttack BOTH_WESTARM5_ATTACK
+	animAttackWalk BOTH_WESTARM5_ATTACK
 }
 
 WeaponInfo2
@@ -103,13 +103,13 @@ WeaponInfo2
 	Icon				"gfx/hud/w_icon_dh-17"
 	WeaponName			"DH-17 Blaster Pistol"
 	hasAnimOverrides 1
-	animReady BOTH_STAND4TOATTACK2
-	animReadyWalk BOTH_STAND4TOATTACK2
-	animReadyNoAmmo BOTH_PISTOL_ATTACK
-	animAttack BOTH_PISTOL_ATTACK
-	animAttackWalk BOTH_PISTOL_ATTACK
+	animReady TORSO_WEAPONREADY2
+	animReadyWalk TORSO_WEAPONREADY2
+	animReadyNoAmmo BOTH_ATTACK2 
+	animAttack BOTH_ATTACK2
+	animAttackWalk BOTH_ATTACK2
 	animStand BOTH_STAND1
-	customammo 500
+	customammo 600
 }
 
 description	"Nien Nunb [Hero]
@@ -130,8 +130,9 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 -- Slap ^3[Gunbash]
 - DH-17 Blaster Pistol (Blaster Rifle 2)
 - Pulse Cannon (Disruptor 2)
--- 10% more DMG
+-- 20% more DMG
 -- 10% faster reload
+-- 5% faster RoF
 - Frag Grenades (4)
 - Trip Mines (3)
 - Pulse Grenades (2)
@@ -142,6 +143,8 @@ A scrappy, evasive class with many explosives, a melee weapon with high knockbac
 - Assault Sentry
 
 ^8Attributes:
+- 20% more KB taken
+- 10% faster skill CD
 - Dexterity (1)
 - Blast Armor
 - Healing (3)
