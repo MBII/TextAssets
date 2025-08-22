@@ -430,6 +430,18 @@ gfx/effects/deadlysightblur
 	}
 }
 
+gfx/2d/OutOfBoundsMask
+{
+	nopicmip
+	notc
+	nomipmaps
+	{
+		map gfx/2d/OutOfBoundsMask
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+		alphaGen vertex
+	}
+}
 
 ////RED FORCE SWIRL////
 

@@ -598,6 +598,7 @@ gfx/hud/alpha/HUD_EndGame
 		map gfx/hud/alpha/HUD_EndGame
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
+		alphaGen vertex
 	}
 }
 
@@ -609,6 +610,19 @@ gfx/hud/alpha/HUD_EndGame_Border
 		map gfx/hud/alpha/HUD_EndGame_Border
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen vertex
+		alphaGen vertex
+	}
+}
+
+gfx/hud/alpha/HUD_OutOfBounds
+{
+	nopicmip
+	notc
+	{
+		map gfx/hud/alpha/HUD_OutOfBounds
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen vertex
+		alphaGen vertex
 	}
 }
 
