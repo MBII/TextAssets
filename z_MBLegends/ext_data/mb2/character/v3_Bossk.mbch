@@ -2,55 +2,58 @@
 
 ClassInfo
 {
-	name				"v3_Bossk"
-	weapons				WP_BOWCASTER|WP_MELEE|WP_FIRE_NADE
-	attributes			MB_ATT_BOWCASTER,3|MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_HEALING,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_TRACKING_BEACON
-	maxhealth			300
-	maxarmor				30
-	forcepool            140
+	name		"v3_Bossk"
+	MBClass MB_CLASS_ARCTROOPER
+	classNumberLimit	1
+	weapons	WP_BOWCASTER|WP_MELEE|WP_FIRE_NADE
+	attributes MB_ATT_BOWCASTER,3|MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_HEALING,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_TRACKING_BEACON
+	
+	maxhealth	300
+	maxarmor		30
+	forcepool    140
 	rateOfFire_Melee 0.9
 	//saber1          Bossk_legends
 	//saber2			Bossk_legends
 	//saberstyle		SS_DUAL
-
-	forcepowers			FP_SEE,1
-	model				"bossk"
-	skin					"default"
-	uishader				"models/players/bossk/mb2_icon_default"
-	MBClass			    MB_CLASS_ARCTROOPER
-	classNumberLimit		1
-	Classflags			CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_HEAVYMELEE|CFL_STRONGAGAINSTPHYSICAL
-	modelscale           1.08
-	WP_BowcasterFlags		HELD_POISON|HELD_ALTRELOAD
-	speed           		1.02
-	saberStanceAnim	MELEE_STAND
-	flourishAnim 		BOTH_SPINATTACK6
-	gloatAnim 		BOTH_WOOKIEE_ENRAGE
-	tauntAnim 		BOTH_ENGAGETAUNT
 	
-	//respawncustomtime 50000
+	damageGiven 1.35
+	forcepowers	FP_SEE,1
+	
+	modelscale  1.08
+	model	"bossk"
+	skin		"default"
+	uishader	"models/players/bossk/mb2_icon_default"
+	uioverlay "gfx/icons/heavy"
+	Classflags	CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_STRONGAGAINSTPHYSICAL
+
+	WP_BowcasterFlags	HELD_POISON|HELD_ALTRELOAD
+	
+	speed 1.02
+	
+	//saberStanceAnim	MELEE_STAND
+	flourishAnim 	BOTH_SPINATTACK6
+	gloatAnim BOTH_WOOKIEE_ENRAGE
+	tauntAnim BOTH_ENGAGETAUNT
 	
 	SPECIAL1	EAS_HI_SPRINT
 	SPECIAL2	EAS_HI_DEX
-	special3 EAS_FP_SEE
-	
-	uioverlay "gfx/icons/heavy"
+	SPECIAL3 EAS_FP_SEE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/relby_v10/model_w.glm"
-	NewViewModel		"models/weapons2/relby_v10/model.md3"
-	Icon				"gfx/hud/w_icon_relby_v10"
-	WeaponName			"Relby-v10 Targeting Rifle"
-	FlashSound0 		"sound/weapons/cw-w5/fire_scope.mp3"
-	AltFlashSound0 		"sound/weapons/cw-w5/fire_scope.mp3"
-	primGore		1
-	altGore			1
-	CustomAmmo           800
-	idleAnim  DC15_FIRE
+	WeaponToReplace WP_BOWCASTER
+	WeaponBasedOff WP_BOWCASTER
+	NewWorldModel	"models/weapons2/relby_v10/model_w.glm"
+	NewViewModel	"models/weapons2/relby_v10/model.md3"
+	Icon	"gfx/hud/w_icon_relby_v10"
+	WeaponName "Relby-v10 Targeting Rifle"
+	FlashSound0 	"sound/weapons/cw-w5/fire_scope.mp3"
+	AltFlashSound0 "sound/weapons/cw-w5/fire_scope.mp3"
+	primGore	1
+	altGore	1
+	CustomAmmo  800
+	damageMod 0.8
 }
 
 //WeaponInfo1
@@ -65,20 +68,22 @@ WeaponInfo0
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/marvel/spidersense"
-	ForcePowerName	"Hunter Vision"
+	ForceToReplace FP_SEE
+	Icon	"gfx/marvel/spidersense"
+	ForcePowerName "Hunter Vision"
 }
 
-description	"Bossk'wassak'Cradossk aka Bossk [ARC Trooper]
+description "Bossk'wassak'Cradossk aka Bossk [ARC Trooper]
 
-A dexterous class with a unique Poison-firing Rifle, incendiary Grenades, strong Melee attacks, and mobility options.
+A dexterous gunner with enhanced poison shots.
 
 ^2Weaponry:
-- Heavy Melee
+- Melee
 -- 10% faster swings
 - Relby-v10 Targeting Rifle (Bowcaster 3)
 -- Poisons targets
+--- 35% more poison DMG
+-- 20% less damage
 -- Mag reload
 - Fire Grenades (3)
 
