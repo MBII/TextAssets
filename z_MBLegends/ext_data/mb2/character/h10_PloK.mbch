@@ -1,0 +1,178 @@
+//Legends Mode character file - Created by Frenzy & Leos
+
+ClassInfo
+{
+	name		"h10_PloK"
+	classNumberLimit	1
+	MBClass	MB_CLASS_JEDI
+	
+	weapons		WP_SABER|WP_MELEE|WP_SHOTGUN|WP_MINIGUN
+	
+	WP_ShotgunFlags HELD_FREEZE
+	WP_MinigunFlags HELD_STUN|HELD_KNOCKBACK|HELD_DISRUPTIFY
+	
+	attributes	MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_SHOTGUN,1|MB_ATT_MINIGUN,2
+
+	forcepowers	FP_SABER_OFFENSE,3|FP_LEVITATION,2|FP_PUSH,2|FP_PULL,2|FP_SEE,1|FP_BLIND,1|FP_LIGHTNING,1|FP_TELEPATHY,1|FP_DEADLYSIGHT,1|FP_SABERTHROW,1
+
+	maxhealth	140
+	skilltimermod 1.5
+	
+	forcepool 130
+	forceregen 1.1
+	
+	saberDamage 120
+	saberstyle	SS_FAST|SS_STRONG
+	BPmultiplier		1.2
+	APmultiplier     	1.0
+	CSmultiplier		1.0
+	ASmultiplier		1.0
+	classflags CFL_NOPICKUPS
+
+	special2	EAS_MELEE
+	special3	EAS_FP_BLIND
+	special4 EAS_FP_DEADLYSIGHT
+	
+	saber1			saber_plo
+	sabercolor		4
+	
+	saber1_1 		saber_plo_leg
+	sabercolor_1 		2
+	
+	uioverlay "gfx/icons/support"
+	model	"tcwplo"
+	skin		"default"
+	uishader	"models/players/tcwplo/mb2_icon_default"
+	modelscale		1.03
+}
+
+ForceInfo0
+{
+    ForceToReplace    FP_LIGHTNING
+    Icon            "gfx/forcepowers/lightning_judge"
+    ForcePowerName    "Electric Judgment"
+    ConeEffect        "effects/force/lightning_judge"
+}
+
+ForceInfo1
+{
+	ForceToReplace	FP_PULL
+	Icon			"gfx/hud/Alpha/HUD_RadarCone"
+	ForcePowerName	"Fog"
+	ConeEffect	"effects/weather/smoke_plo"
+	startSound "sound/effects/woosh10.mp3"
+}
+
+ForceInfo2
+{
+	ForceToReplace	FP_PUSH
+	Icon			"gfx/menus/alpha/icon_weap_stun"
+	ForcePowerName	"Sandstorm"
+	ConeEffect	"effects/weather/sand_plo"
+	startSound "sound/effects/stone_crash2.mp3"
+}
+
+ForceInfo3
+{
+	ForceToReplace	FP_DEADLYSIGHT
+	Icon			"gfx/menus/alpha/icon_weap_fire"
+	ForcePowerName	"Grill"
+	startSound "sound/effects/fire_lp.wav"
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_MINIGUN
+	WeaponBasedOff		WP_MINIGUN
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	MuzzleEffect  	"effects/concussion/muzzle_flash"
+	MissileEffect 		"effects/demp2/projectile"
+	MissileMissEffect "effects/impacts/impactmediumblue3"
+	MissileHitHumanEffect "effects/impacts/impactmediumblue3"
+	MissileHitDroidEffect "effects/impacts/impactmediumblue3"
+	FlashSound0		"sound/weapons/impacts/hit15.wav"
+	altFlashSound0 "sound/weapons/impacts/hit15.wav"
+	isMinigun			0
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Blast"
+	damageMod 4
+	clipsize 10
+	customAmmo -1
+	rateMod 8
+	hasAnimOverrides 1
+	animReady BOTH_MELEE_STAND1
+	animReadyWalk BOTH_MELEE_STAND1
+	animReadyNoAmmo BOTH_SUPERPUSH
+	animAttack BOTH_SUPERPUSH
+	animAttackWalk BOTH_SUPERPUSH
+	AnimStand BOTH_STAND1
+	selectSound "sound/weapons/blade/swing4.mp3"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_SHOTGUN
+	WeaponBasedOff		WP_SHOTGUN
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	MuzzleEffect  		"effects/Flamethrower/ice"
+	MissileEffect 		"effects/materials/snow"
+	MissileMissEffect "effects/Flamethrower/ice_wall"
+	MissileHitHumanEffect "effects/Flamethrower/ice_wall"
+	MissileHitDroidEffect "effects/Flamethrower/ice_wall"
+	FlashSound0 "sound/effects/air_burst.mp3"
+	FlashSound1 "sound/effects/air_burst.mp3"
+	FlashSound2 "sound/effects/air_burst.mp3"
+	FlashSound3 "sound/effects/air_burst.mp3"
+	Icon			"gfx/mplevels/aliens3/aliens_claws.png"
+	WeaponName			"Cold Front"
+	clipsize      96
+	customAmmo     -1
+	rateMod 1.75
+	AltFireEnabled 		0
+	hasAnimOverrides 1
+	animReady BOTH_MELEE_BLOCK_BLASTER_L
+	animReadyWalk BOTH_MELEE_BLOCK_BLASTER_L
+	animReadyNoAmmo BOTH_FORCE_2HANDEDLIGHTNING_RELEASE
+	animAttack BOTH_FORCE_2HANDEDLIGHTNING_HOLD
+	animAttackWalk BOTH_FORCE_2HANDEDLIGHTNING_HOLD
+	animCharge BOTH_FORCE_2HANDEDLIGHTNING_START
+	selectSound "sound/weapons/tai_weap/swing9.mp3"
+	
+}
+
+description	"Plo Koon [Jedi]
+
+A hearty Jedi with the ability to manipulate the elements.
+
+^2Weaponry:
+- Melee
+- Lightsaber (Red/Blue)
+-- Saber/Blaster Defense (2)
+-- Saber Deflect (3)
+-- 76% less Red DMG
+-- EX Saber Throw (1) ^3[CS1]
+-- Slap ^3[CS2]
+- Force Cold Front (Shotgun 1)
+-- Freezes targets
+-- 75% slower RoF
+-- Prim. only
+- Force Blast (Minigun 2)
+-- Staggers/knocks back targets
+-- 300% more DMG
+-- 700% slower RoF
+
+^5Force Powers:
+- Jump (2)
+- Sandstorm (Push 2)
+- Fog (Pull 2)
+- Sense (1)
+- Electric Judgment (Lightning 1)
+- Blinding (1) ^3[CS3]
+- Grill (Deadly Sight 1) ^3[CS4]
+- Mind Trick (1)
+
+^8Attributes:
+- 50% slower skill CD
+- Force Block/Focus (2)"
