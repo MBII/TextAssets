@@ -27,6 +27,7 @@ ClassInfo
 	rateoffire	1
 	
 	saberDamage 90
+	saberSpecialDamage 2
 	saberMaxChain 1
 
 	WP_DCCarbineFlags		HELD_ALTRELOAD	
@@ -84,11 +85,10 @@ WeaponInfo0
 	FlashSound3			"sound/weapons/dc17m/fire.wav"
 	AltFlashSound0 		"sound/weapons/dc17m/fire.wav"
 	MuzzleEffect		"Blaster/MuzzleFlash01C"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01C"
 	MissileEffect		"blaster/Shot01C"
-	AltMissileEffect 	"blaster/Shot01C"
+	MissileMissEffect "blaster/impact_wall01c"
 	Icon				"gfx/hud/w_icon_dc-17mB"
-	WeaponName			"DC-17m Repeating Blaster Rifle"
+	WeaponName			"DC-17m ICWS Blaster Attachment"
 	customAmmo 			1260
 	clipSize			120
 	ReloadTimeModifier 	1.25
@@ -124,15 +124,15 @@ WeaponInfo2
 	altFlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
 	MuzzleEffect		"Blaster/MuzzleFlash01C"
 	altMuzzleEffect "Blaster/MuzzleFlash01C"
-	MissileEffect		"Blaster/Shot03C"
-	AltMissileEffect	"Blaster/Shot02C"
-	WeaponName			"DC-17m Sniper Attachment"
+	MissileMissEffect "blaster/impact_wall01c"
+	altMissileMissEffect "blaster/impact_wall01c"
+	WeaponName			"DC-17m ICWS Sniper Attachment"
 	clipSize			25
-	customAmmo 		75
-	damageMod 1.7
-	ReloadTimeModifier 	1.9
-	FPmult				1.7
-	rateMod 1.15
+	customAmmo 		100
+	damageMod 2.2
+	ReloadTimeModifier 	1.75
+	FPmult				2.2
+	rateMod 1.10
 	disruptorBeam1 "gfx/effects/disrupt_beam_blue"
 	disruptorBeam2 "gfx/effects/disrupt_beam_blue"
 }
@@ -142,22 +142,25 @@ WeaponInfo3
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_BLASTER_PISTOL
 	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
-	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_clonepistol"
 	WeaponName			"DC-15s Side Arm Blaster"	
 	FlashSound0			"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
 	AltFlashSound0 		"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
 	MuzzleEffect		"Blaster/MuzzleFlash01C"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01C"
 	MissileEffect		"Blaster/Shot01C"
-	Missile3Effect		"Blaster/Shot04C"
-	AltMissileEffect	"Blaster/Shot04C"
-	PowerupShotEffect	"Blaster/Shot04C"
+	MissileMissEffect "blaster/impact_wall01c"
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
 	clipSize			15
 	ReloadTimeModifier 	2
 	customammo 			435
 	rateMod 0.6
+	hasAnimOverrides 1
+	animReady		BOTH_PISTOL_IDLE2
+	animReadyWalk		BOTH_PISTOL_IDLE2
+	animReadyNoAmmo	BOTH_PISTOL_ATTACK
+	animAttack     	BOTH_PISTOL_ATTACK
+	animAttackWalk 	BOTH_PISTOL_ATTACK
 }
 
 description	"Delta Squad Clone Commando [Clone Trooper]
@@ -169,27 +172,28 @@ Mobile armor-regenning gunner.
 - Knuckle Plate Vibroblade (Cyan Saber)
 -- Cannot block Sabers/Blasters
 -- Chain Limit: 1
--- 5% more KB
+-- 5% more KB given
 -- 25% less DMG
+-- 50% more special DMG
 -- 57% shorter reach
 -- 33% wider radius
 -- Slap ^3[Gunbash]
 - DC-15s Side Arm Blaster (Pistol 1)
 -- 40% faster RoF
 -- 100% slower reload
-- DC-17m Repeating Blaster Rifle (C. Carbine 1)
+- DC-17m ICWS Blaster Attachment (C. Carbine 1)
 -- 40% faster RoF
 -- 25% slower mag reload
 - Frag Grenades (2)
 - Pulse Grenades (2)
-- DC-17m Sniper Attachment (Disruptor 1)
--- 70% more DMG/FP DMG
--- 15% slower RoF
--- 90% slower mag reload
+- DC-17m ICWS Sniper Attachment (Disruptor 1)
+-- 120% more DMG/FP DMG
+-- 10% slower RoF
+-- 75% slower mag reload
 
 ^6Inventory:
-- Bacta (25 HP)
-- Big Bacta (50 HP)
+- Kolto (Gradual 50 HP)
+- Bacta (Instant 50 HP)
 
 ^8Attributes:
 - 20% less KB taken
@@ -202,4 +206,4 @@ Mobile armor-regenning gunner.
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
 - Dash (1) ^3[CS3]
-- Grappling Hook (2) ^3[CS4 in ^3Melee]"
+- Grappling Hook (2) ^3[CS4 Melee]"

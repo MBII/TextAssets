@@ -1,188 +1,122 @@
-//--------------------------------------------------------------------------------------------
-// uberScreen
-//
-// cvars used (at least some of them
-//	siege_mapgraphic - the name of the graphic of the map of the level.
-//	currentObjButton - the menu item name of currently active objective button
-//
-//	team1_icon	- read in from siege file, the graphic of team1
-//	team2_icon	- read in from siege file, the graphic of team2
-//
-//--------------------------------------------------------------------------------------------
 {
 	menuDef
 	{
-		name 					"ingame_siegeclass"
-  		fullScreen				0
+		name					"ingame_siegeclass"
+		fullScreen				0
 		visible					0
-		rect					0 0 640 480
-		focusColor				1 1 1 1
-		style					1
-		descX					476
-		descY					457
-		descScale				0.7
-		descColor				0.1 0.7 1 0.7
-		descAlignment				ITEM_ALIGN_CENTER
+		rect					93 5 454 475
+		descX					320
+		descY					436
+		descScale				0.175
+		descColor				1 1 1 1
+		descAlignment			ITEM_ALIGN_CENTER
+		focusColor				1 1 1 0.8
 		backColor				0 0 0 0
 		disablecolor			1 1 1 1		// color of selected buttons text
-		disablebackcolor		1 1 1 1		// color of selected buttons background
-		onClose
-		{ 
-			hide				siegeclassconfigtitle
-		}
+		disablebackcolor		1 1 1 0.5	// color of selected buttons background
 		onOpen
-		{
-			uiScript			update "ui_GetName" // sync the current cvar to avoid shenanigans with console renaming
-			
+		{ 
 			exec				"siegeCompleteCvarUpdate"
+			
 			setitembackground	team1_symbol	"*team1_icon"
 			setitembackground	team2_symbol	"*team2_icon"
-			
-			hide				class_portrait
-			hide				itemdescription
 
-			// Set the map icon picture to the updated graphic
-			uiscript			setteamclassicons
+			show				spectator_button
+
+			setcvar				cg_escapeactive "1"
 			
-			setitembackground	class1_button	"*ui_classportrait0"
-			setitembackground	class2_button	"*ui_classportrait1"
-			setitembackground	class3_button	"*ui_classportrait2"
-			setitembackground	class4_button	"*ui_classportrait3"
-			setitembackground	class5_button	"*ui_classportrait4"
-			setitembackground	class6_button	"*ui_classportrait5"
-			
-			setcvar				class1multiflag	"0"
-			setcvar				class2multiflag	"0"
-			setcvar				class3multiflag	"0"
-			setcvar				class4multiflag	"0"
-			setcvar				class5multiflag	"0"
-			setcvar				class6multiflag	"0"
+			// Check if selected FA character is a custom build
+			uiscript			mb_fa_checkmodel
+		}
+		onClose
+		{
+			setcvar				cg_escapeactive "0"
+
+			hide				Team1Feeder
+			hide				Team2Feeder
+			hide				FA_count
+			hide				titleV
+			hide				playermodels
+		}
+		onESC
+		{
+			play				"sound/interface/back.mp3"
+			close				all
+			open				ingame
 		}
 
-	//------------------------------------------------------------
-	// Window backdrop
-	//------------------------------------------------------------
+
 //----------------------------------------------------------------------------------------------
 // MAP TIME SECTION
 //----------------------------------------------------------------------------------------------
-
-		// Border 		
+		
 		itemDef
 		{
-			name				bg_clean1 //border
+			name				bg_teamselect
 			group				none
 			style				WINDOW_STYLE_FILLED_RGB1
-			rect				317 5 323 130
+			rect				0 0 454 50
+			background			"gfx/menus/alpha/Menu_TeamSelect"
 			forecolor			1 1 1 1
-			background			"gfx/menus/alpha/Menu_Clean"
 			visible				1
 			decoration
 		}
-		
-		// Background for "Okay" box - needs to be here because of desc texts
+
 		itemDef
 		{
-			name				bg_clean3 //border
+			name				bg_class_fa
 			group				none
-			style 				WINDOW_STYLE_FILLED_RGB1
-			rect				317 435 323 40
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 55 454 371
+			background			"gfx/menus/alpha/Menu_ClassSelect_FA"
 			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				bg_clean3
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				75 430 304 36
 			background			"gfx/menus/alpha/Menu_ClassDescription"
+			forecolor			1 1 1 1
 			visible				1
 			decoration
 		}
-		
+
 		itemDef
 		{
-			name				playername
-			group				time
-			type				ITEM_TYPE_EDITFIELD
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				330 8 120 18
-			text				@MENUS_NAME_TITLE
-			cvar				ui_Name
-			maxchars			35
-			textalign			ITEM_ALIGN_LEFT		
-			textalignx			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			mouseenter
-			{
-				uiScript		update "ui_GetName"
-			}
-			mouseExit
-			{
-				uiScript		update "ui_SetName"
-			}
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}
-		
-		itemDef
-		{
-			name				playerteam
-			group				time
-			type				ITEM_TYPE_MULTI
-			style				WINDOW_STYLE_TEXT_RGB1
-			rect				500 8 120 18
-			text				@MENUS_TEAM
-			cvar				ui_team
-			cvarStrList
-			{
-				@MENUS_SPECTATOR		0
-				"*cg_siegeTeam1Name"	1
-				"*cg_siegeTeam2Name"	2
-				@MENUS_SPECTATOR		3
-			}
-			textalign			ITEM_ALIGN_LEFT		
-			textalignx			0
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			visible				1
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
 			decoration
 		}
+
 //----------------------------------------------------------------------------------------------
 // TEAM SELECTION
 //----------------------------------------------------------------------------------------------
-			
-		// join a team text
-		itemDef
-		{
-			name 				joinateam
-			rect 				323 27 316 20
-			style 				WINDOW_STYLE_TEXT_RGB1
-			text				@MENUS_JOIN_A_TEAM
-			font				3
-			textscale			.7
-			textalign 			ITEM_ALIGN_LEFT
-			textalignx 			6
-			textaligny 			2
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			decoration
-		}
 
-	//----------------------------------------
 	// TEAM SYMBOLS AND COUNTS PER TEAM
-	//----------------------------------------
-
 		itemDef
 		{
-			name				team1name
+			name				team1_buttonbg
 			group				none
-			rect				355 47 45 18
-			type 				ITEM_TYPE_TEXT
+			rect				8 8 155 34
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Rebel"
+			backcolor			1 1 1 0.1
 			cvar				cg_siegeTeam1Name
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.6 0.6 0.6 1
+			textalignx			77.5
+			font				6
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
 			cvarTest			"ui_holdteam"
@@ -192,26 +126,25 @@
 		{
 			name				team1_symbol
 			group				none
-			style				WINDOW_STYLE_FILLED
-			rect				355 66 45 45
-			backcolor			0.6 0.6 0.6 1
+			style				WINDOW_STYLE_SHADER
+			rect				12 13.5 19 24
+			forecolor			1 1 1 1
 			visible				1
 			decoration
-			cvarTest			"ui_holdteam"
-			disableCvar 		{ 1 }
 		}
 		itemDef
 		{
 			name				team1_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			rect				355 111 45 18
+			rect				140 13.5 22 22
 			text				"#UI_TEAM_CNT_1"
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23.5
-			font				4
-			textscale			1
-			forecolor			0.6 0.6 0.6 1
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
 			cvarTest			"ui_holdteam"
@@ -220,162 +153,71 @@
 		itemDef
 		{
 			name				team1_button
-			group				team_button			
-			rect				355 48 45 81
+			group				team_button
+			rect				8 8 155 34
 			type				ITEM_TYPE_BUTTON
 			descText			@MENUS_JOIN_TEAM_DESC
 			visible				1
 
 			mouseEnter
-			{
-				setitemcolor	team1_symbol	backcolor		1 1 1 1
-				setitemcolor	team1_count		forecolor		1 1 1 1
-				setitemcolor	team1name		forecolor		1 1 1 1
+			{ 
+				setitemcolor	team1_buttonbg	backcolor	1 1 1 0.3
+				setitemcolor	team1_buttonbg	forecolor	1 1 1 1
+				setitemcolor	team1_count		forecolor	1 1 1 1
 			}
 			mouseExit
-			{
-				setitemcolor	team1_symbol	backcolor		0.6 0.6 0.6 1
-				setitemcolor	team1_count		forecolor		0.6 0.6 0.6 1
-				setitemcolor	team1name		forecolor		0.6 0.6 0.6 1
+			{ 
+				setitemcolor	team1_buttonbg	backcolor   1 1 1 0.1
+				setitemcolor	team1_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team1_count		forecolor	0.5 0.5 0.5 1
 			}
 			action
 			{
-				setitemcolor	team1_symbol	backcolor		0.6 0.6 0.6 1
-				setitemcolor	team1_count		forecolor		0.6 0.6 0.6 1
-				setitemcolor	team1name		forecolor		0.6 0.6 0.6 1
-				// show the class stuff, cause this uses class
-				show			class_button	
-				show			class_count	
-				show			classdescription
+				setitemcolor	team1_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	team1_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team1_count		forecolor	0.5 0.5 0.5 1
 
 				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam			1
-				setcvar			ui_siege_class		0
-				uiscript		updatesiegeclasscnt	1
+				setcvar			ui_holdteam				1
+				uiscript		updatesiegeclasscnt		1
 				uiscript		updatesiegecvars
-				
-				// turn on class buttons
-				disable			class_button		0
-				
-				setitemcolor		class_button  forecolor 1 1 1 1
-				setitemcolor		siegeclassconfigtitle  forecolor1 0.1 0.7 1 0.7
-								
-				setitemtext		class1_count "*ui_tm1_c0_cnt"
-				setitemtext		class2_count "*ui_tm1_c1_cnt"
-				setitemtext		class3_count "*ui_tm1_c2_cnt"
-				setitemtext		class4_count "*ui_tm1_c3_cnt"
-				setitemtext		class5_count "*ui_tm1_c4_cnt"
-				setitemtext		class6_count "*ui_tm1_c5_cnt"
-				
-				hide			class_portrait
-				show			siegeclassconfigtitle
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				uiscript 		feederselection
-				hide			feeders
-				hide			forcepowerlevel
-				hide			stats
-				hide			classdescription
-				setitemcolor		class_count	forecolor1 0.1 0.7 1 0.7
-				hide			itemdescription
-				setitembackground	class_portrait	"*ui_classportrait"
 
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
+				uiscript		feederselection
+				hide			feeders
+				
+				show			character_title
+				show			Team1Feeder
+				hide			Team2Feeder
+				uiscript		mb_fa_feeders
 			}
 		}
 		itemDef
 		{
 			name				red_lock
 			group				lock_icon			
-			rect				355 66 45 45
-			type				ITEM_TYPE_BUTTON
+			rect				8 8 155 34
 			style				WINDOW_STYLE_FILLED
 			descText			"Team is locked."
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
 			decoration
 		}
-		
-		// This item is here just to have a script for C to run if the menu is opened by 
-		// a player who is already on a team		
-		itemDef
-		{
-			name				onteam1
-			group				none
-			rect				455 47 45 45
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			forecolor			0.1 0.7 1 0.7
-			visible				0
-			decoration
-			action
-			{ 
-				// show the class stuff, cause this uses class
-				show			class_button	
-				show			class_count	
-				show			classdescription	
 
-				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 1
-				uiscript		updatesiegeclasscnt      1
-				uiscript		updatesiegecvars
-				
-				// turn on class buttons
-				disable			class_button	0
-				
-				setitemcolor		class_button  forecolor 1 1 1 1
-				setitemcolor		siegeclassconfigtitle  forecolor1 0.1 0.7 1 0.7
-								
-				setitemtext		class1_count "*ui_tm1_c0_cnt"
-				setitemtext		class2_count "*ui_tm1_c1_cnt"
-				setitemtext		class3_count "*ui_tm1_c2_cnt"
-				setitemtext		class4_count "*ui_tm1_c3_cnt"
-				setitemtext		class5_count "*ui_tm1_c4_cnt"
-				setitemtext		class6_count "*ui_tm1_c5_cnt"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
-				hide			class_portrait
-				show			siegeclassconfigtitle
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				uiscript 		feederselection
-				hide			feeders
-				hide			forcepowerlevel
-				hide			stats
-				hide			classdescription
-				setitemcolor		class_count	forecolor1 0.1 0.7 1 0.7
-				hide			itemdescription
-			}
-		}
-		
 		itemDef
 		{
-			name				team2name
+			name				team2_buttonbg
 			group				none
-			rect				455 47 45 18
-			type 				ITEM_TYPE_TEXT
+			rect				291 8 155 34
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team"
+			backcolor			1 1 1 0.1
 			cvar				cg_siegeTeam2Name
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.6 0.6 0.6 1
+			textalignx			77.5
+			font				6
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
 			cvarTest			"ui_holdteam"
@@ -385,26 +227,25 @@
 		{
 			name				team2_symbol
 			group				none
-			style				WINDOW_STYLE_FILLED
-			rect				455 66 45 45
-			backcolor			0.6 0.6 0.6 1
+			style				WINDOW_STYLE_SHADER
+			rect				295 13.5 19 24
+			forecolor			1 1 1 1
 			visible				1
 			decoration
-			cvarTest			"ui_holdteam"
-			disableCvar 		{ 2 }
 		}
 		itemDef
 		{
 			name				team2_count
 			group				team_count
 			type 				ITEM_TYPE_TEXT
-			rect				455 111 45 18
+			rect				423 13.5 22 22
 			text				"#UI_TEAM_CNT_2"
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23.5
-			font				4
-			textscale			1
-			forecolor			0.6 0.6 0.6 1
+			textalignx			10
+			textaligny			-6
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1
 			visible				1
 			decoration
 			cvarTest			"ui_holdteam"
@@ -413,1303 +254,3899 @@
 		itemDef
 		{
 			name				team2_button
-			group				team_button			
-			rect				455 48 45 81
+			group				team_button
+			rect				291 8 155 34
 			type				ITEM_TYPE_BUTTON
 			descText			@MENUS_JOIN_TEAM_DESC
 			visible				1
 
 			mouseEnter
 			{ 
-				setitemcolor	team2_symbol	backcolor		1 1 1 1
-				setitemcolor	team2_count		forecolor		1 1 1 1
-				setitemcolor	team2name		forecolor		1 1 1 1
+				setitemcolor	team2_buttonbg	backcolor	1 1 1 0.3
+				setitemcolor	team2_buttonbg	forecolor	1 1 1 1
+				setitemcolor	team2_count		forecolor	1 1 1 1
 			}
 			mouseExit
-			{
-				setitemcolor	team2_symbol	backcolor		0.6 0.6 0.6 1
-				setitemcolor	team2_count		forecolor		0.6 0.6 0.6 1
-				setitemcolor	team2name		forecolor		0.6 0.6 0.6 1
+			{ 
+				setitemcolor	team2_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	team2_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2_count		forecolor	0.5 0.5 0.5 1
 			}
 			action
 			{
-				setitemcolor	team2_symbol	backcolor		0.6 0.6 0.6 1
-				setitemcolor	team2_count		forecolor		0.6 0.6 0.6 1
-				setitemcolor	team2name		forecolor		0.6 0.6 0.6 1
-				// show the class stuff, cause this uses class
-				show			class_button	
-				show			class_count	
-				show			classdescription
-								
+				setitemcolor	team2_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	team2_buttonbg	forecolor	0.5 0.5 0.5 1
+				setitemcolor	team2_count		forecolor	0.5 0.5 0.5 1
+
 				play			"sound/interface/button1.wav"
 				setcvar			ui_holdteam			2
-				setcvar			ui_siege_class		0
 				uiscript		updatesiegeclasscnt	2
 				uiscript		updatesiegecvars
-				
-				// turn on class buttons
-				disable			class_button	0
-				
-				setitemcolor		class_button  forecolor 1 1 1 1
-				setitemcolor		siegeclassconfigtitle  forecolor1 0.1 0.7 1 0.7
 
-				setitemtext		class1_count "*ui_tm2_c0_cnt"
-				setitemtext		class2_count "*ui_tm2_c1_cnt"
-				setitemtext		class3_count "*ui_tm2_c2_cnt"
-				setitemtext		class4_count "*ui_tm2_c3_cnt"
-				setitemtext		class5_count "*ui_tm2_c4_cnt"
-				setitemtext		class6_count "*ui_tm2_c5_cnt"
-
-				hide			class_portrait
-				show			siegeclassconfigtitle
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
 				uiscript		feederselection
 				hide			feeders
-				hide			forcepowerlevel
-				hide			stats
-				hide			classdescription
-				setitemcolor		class_count	forecolor1 0.1 0.7 1 0.7
-				hide			itemdescription
-				setitembackground	class_portrait	"*ui_classportrait"
-				
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
+
+				show			character_title
+				hide			Team1Feeder
+				show			Team2Feeder
+				uiscript		mb_fa_feeders
 			}
 		}
 		itemDef
 		{
 			name				blue_lock
-			group				lock_icon			
-			rect				455 66 45 45
-			type				ITEM_TYPE_BUTTON
+			group				lock_icon
+			rect				291 8 155 34
 			style				WINDOW_STYLE_FILLED
 			descText			"Team is locked."
 			backcolor			1 1 1 1
 			visible				0
-			background			"gfx/2d/logos/forbidden.tga"
+			background			"gfx/menus/alpha/Menu_TeamSelect_Team_Lock"
 			decoration
 		}
 		
-		// This item is here just to have a script for C to run if the menu is opened by 
-		// a player who is already on a team		
 		itemDef
 		{
-			name				onteam2
-			group				none
-			rect				455 47 45 45
+			name				spectator_buttonbg
+			group				team_count
+			type 				ITEM_TYPE_TEXT
+			rect				200 8 55 34
+			style				WINDOW_STYLE_FILLED
+			background			"gfx/menus/alpha/Menu_TeamSelect_Spec"
+			backcolor			1 1 1 0.1
+			text				"#UI_TEAM_CNT_3"
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			forecolor			0.1 0.7 1 0.7
-			visible				0
+			textalignx			41.5
+			textaligny			0
+			font				7
+			textscale			0.2
+			forecolor			0.5 0.5 0.5 1		
+			visible				1
 			decoration
-			action
-			{ 
-				// show the class stuff, cause this uses class
-				show			class_button	
-				show			class_count	
-				show			classdescription
-								
-				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam 2
-				uiscript		updatesiegeclasscnt      2
-				uiscript		updatesiegecvars
-				
-				// turn on class buttons
-				disable			class_button	0
-				setitemcolor		class_button  forecolor 1 1 1 1
-				setitemtext		class1_count "*ui_tm2_c0_cnt"
-				setitemtext		class2_count "*ui_tm2_c1_cnt"
-				setitemtext		class3_count "*ui_tm2_c2_cnt"
-				setitemtext		class4_count "*ui_tm2_c3_cnt"
-				setitemtext		class5_count "*ui_tm2_c4_cnt"
-				setitemtext		class6_count "*ui_tm2_c5_cnt"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
-
-				hide			class_portrait
-				show			siegeclassconfigtitle
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				uiscript		feederselection
-				hide			feeders
-				hide			forcepowerlevel
-				hide			stats
-				hide			classdescription
-				setitemcolor		class_count	forecolor1 0.1 0.7 1 0.7
-				hide			itemdescription
-			}
+			cvarTest			"ui_holdteam"
+			disableCvar 		{ 3 }
 		}
-
 		itemDef
 		{
 			name				spectator_symbol
-			group				none			
-			rect				556 45 32 32
-			style				WINDOW_STYLE_FILLED
-			descText			@MENUS_WATCH_DESC
-			backcolor			0.6 0.6 0.6 1
-			visible				1
-			background			"gfx/2d/mp_spec_symbol"
-			decoration
-			cvarTest			"ui_holdteam"
-			disableCvar 		{ 3 }
-		}
-		itemDef
-		{
-			name				team3name
 			group				none
-			type 				ITEM_TYPE_TEXT
-			rect				542 70 60 18
-			text				@MENUS_SPECTATOR
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			30
-			font				4
-			textscale			1
-			forecolor			0.6 0.6 0.6 1
+			style				WINDOW_STYLE_SHADER
+			rect				203.5 13.5 19 24
+			background			"gfx/2d/mp_spec_symbol"
+			forecolor			1 1 1 1
 			visible				1
 			decoration
-			cvarTest			"ui_holdteam"
-			disableCvar 		{ 3 }
-		}
-		itemDef
-		{
-			name				spectator_count
-			group				team_count
-			type 				ITEM_TYPE_TEXT
-			rect				556 88 32 18
-			text				"#UI_TEAM_CNT_3"
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			16.5
-			font				4
-			textscale			1
-			forecolor			0.6 0.6 0.6 1
-			visible				1
-			decoration
-			cvarTest			"ui_holdteam"
-			disableCvar 		{ 3 }
 		}
 		itemDef
 		{
 			name				spectator_button
 			group				team_button
-			rect				550 45 45 61
+			rect				200 8 55 34
 			type				ITEM_TYPE_BUTTON
 			descText			@MENUS_WATCH_DESC
-			visible				1
+			visible				0
 			mouseEnter
-			{ 
-				setitemcolor	spectator_symbol	backcolor	1 1 1 1
-				setitemcolor	spectator_count		forecolor	1 1 1 1
-				setitemcolor	team3name			forecolor	1 1 1 1
+			{
+				setitemcolor	spectator_buttonbg	backcolor	1 1 1 0.3
+				setitemcolor	spectator_buttonbg	forecolor	1 1 1 1
 			}
 			mouseExit
-			{ 
-				setitemcolor	spectator_symbol	backcolor	0.6 0.6 0.6 1
-				setitemcolor	spectator_count		forecolor	0.6 0.6 0.6 1
-				setitemcolor	team3name			forecolor	0.6 0.6 0.6 1
+			{
+				setitemcolor	spectator_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	spectator_buttonbg	forecolor	0.5 0.5 0.5 1
 			}
 			action
 			{
-				setitemcolor	spectator_symbol	backcolor	0.6 0.6 0.6 1
-				setitemcolor	spectator_count		forecolor	0.6 0.6 0.6 1
-				setitemcolor	team3name			forecolor	0.6 0.6 0.6 1
+				setitemcolor	spectator_buttonbg	backcolor	1 1 1 0.1
+				setitemcolor	spectator_buttonbg	forecolor	0.5 0.5 0.5 1
 				play			"sound/interface/button1.wav"
-				setcvar			ui_holdteam	3
+
+				setcvar			ui_holdteam 3
+				setcvar			ui_class	0
 				exec			"cmd team s"
-				uiScript		closeingame		
+				uiScript		closeingame
 			}
 		}
-	
-//----------------------------------------------------------------------------------------------
-// CLASS SELECTION
-//----------------------------------------------------------------------------------------------
-		// Border around the objective half of the screen		
-		itemDef
+
+/* 		itemDef
 		{
-			name				bg_clean1 //border
-			group				class_button
-			style 				WINDOW_STYLE_FILLED_RGB1
-			rect				317 140 323 110
+			name				autoteam_symbol
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				263.5 13.5 19 24
+			background			"gfx/menus/alpha/Icon_Shuffle"
 			forecolor			1 1 1 1
-			background			"gfx/menus/alpha/Menu_Clean"
 			visible				1
 			decoration
 		}
-		
-		// Choose a class text
-		itemDef
+
+		itemDef 
 		{
-			name 				siegeclassconfigtitle
-			group				class_button
-			rect 				330 148 316 19
-			style 				WINDOW_STYLE_TEXT_RGB1
-			text 				"Choose a character"
-			font				3
-			textscale			.7
-			textalign 			ITEM_ALIGN_LEFT
-			textalignx 			0
-			textaligny 			2
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			decoration
-		}
+			name				autoteam_button
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED
+			descText			@MENUS_AUTO_JOIN_DESC
+			rect				260 8 26 34
+			backcolor			1 1 1 0.1
+			visible				1 
+			background			"gfx/menus/alpha/Menu_TeamSelect_Random"
+			
+			mouseEnter 
+			{ 
+				setitemcolor		autoteam_symbol backcolor   1 1 1 1
+				setitemcolor		autoteam_button backcolor   1 1 1 0.3
+			}
+			mouseExit 
+			{ 
+				setitemcolor		autoteam_symbol backcolor   0.5 0.5 0.5 1
+				setitemcolor		autoteam_button backcolor   1 1 1 0.1
+			}
+			action 
+			{ 
+				play				"sound/interface/button1.wav"
+				setitemcolor		autoteam_button backcolor   1 1 1 0.5
+				exec				"cmd team free"
+				
+				uiScript			closeingame 
+			}
+		} */
 
 //--------------------------------------------------	
 // MB FA MODE
 //--------------------------------------------------
 
-//----------------------------------------------------------------------------------------------
-// CLASS 1
-//----------------------------------------------------------------------------------------------
 		itemDef
 		{
-			name 				classmultiicon1_1
-			group				class_button
-			rect 				330 170 45 45
-			style				WINDOW_STYLE_FILLED
-			forecolor			1 1 1 .6
-			backcolor			0 0 0.1 0.9
-			border			1
-			bordercolor 		0.1 0.7 1 0.7
-			visible				1
-			cvartest			"class1multiflag"
-			hidecvar
-			{
-				"0"
+			name 				Team1Feeder
+			group				playermodels
+			rect				6 86 152 335 // 222 // Hardcoded 4th value : MB_FA_Feeder_Variants
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		35
+			elementheight 		44
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_SIEGE_TEAM1
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			.6
+			// cvartest			ui_class
+			// hideCvar			{ "9", "11" }
+			action
+			{  
+				play			"sound/interface/button1"
+				// Reset FA custom build state when selecting new character
+				uiscript		mb_fa_checkmodel
+				// Clear any previous loadout data
+				uiscript		mb_clearcustomloadout
+				// Hide delete prompts if open
+				hide			pointstemplatesdelete_fa
+				show			templatedelete_fa
+				show			feeders
 			}
-			decoration
-		}
-		
-		itemDef
-		{
-			name				class1_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait0"
-			rect				328 180 45 45
-			forecolor			.5  .5  .5  1
-			visible				1 
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class1_cnt"
-			hidecvar			{ "0" }
-			
 			mouseEnter
 			{ 
-				setitemcolor		class1_button	forecolor	1 1 1 1
-				setitemcolor		class1_count	forecolor	1 1 1 1
-				setitemcolor		class1_desc	forecolor	1 1 1 1
+				setitemcolor 	Team1Feeder bordercolor 1 1 1 1 
 			}
 			mouseExit
 			{ 
-				setitemcolor		class1_button	forecolor	.5 .5 .5 1
-				setitemcolor		class1_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class1_desc	forecolor	0.1 0.7 1 0.7
+				setitemcolor 	Team1Feeder bordercolor 0.1 0.7 1 0.9
 			}
-			
+		}
+
+
+		itemDef
+		{
+			name 				Team2Feeder
+			group				playermodels
+			rect				6 86 152 335 // 222 // Hardcoded 4th value : MB_FA_Feeder_Variants
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		35
+			elementheight 		44
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_SIEGE_TEAM2
+			forecolor 			1 1 1 1
+			descText			@MENUS_CHOOSE_THE_MODEL_FOR
+			visible				0
+			textscale 			0.6
+			// cvartest			ui_class
+			// hideCvar			{ "9", "11" }
 			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar			ui_siege_class 0
-				uiscript		updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable			class_button	0
-				setitemcolor		class_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor		siegeclassconfigtitle	forecolor1	0.1 0.7 1 0.7
-				
-				// High light this button and disable it
-				setitemcolor		class1_button	forecolor	1 1 1 1
-				setitemcolor		class1_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class1_desc	forecolor	0.1 0.7 1 0.7
-				//disable		class1_button	1			
-				
-//	setitemtext		description 	"*ui_classdesc"
-				show			class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	326 176 49 49
-
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				show			description
-				hide			itemdescription
-				setitemcolor		stats	forecolor	1 1 1 1
-				//show			feeders
-				show			stats
-				show			forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
+			{  
+				play			"sound/interface/button1"
+				// Reset FA custom build state when selecting new character
+				uiscript		mb_fa_checkmodel
+				// Clear any previous loadout data
+				uiscript		mb_clearcustomloadout
+				// Hide delete prompts if open
+				hide			pointstemplatesdelete_fa
+				show			templatedelete_fa
+				show			feeders
 			}
-		}
-
-		itemDef
-		{
-			name				class1_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				328 225 45 18
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			cvartest			"ui_class1_cnt"
-			hidecvar			{ "0" }
-			visible				1
-			decoration
-		}
-		
-//----------------------------------------------------------------------------------------------
-// CLASS 2
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon2_1
-			group				class_button
-			rect 				382 170 45 45
-			style				WINDOW_STYLE_FILLED
-			forecolor			1 1 1 .6
-			backcolor			0 0 0.1 0.9
-			border			1
-			bordercolor 		0.1 0.7 1 0.7
-			visible				1
-			cvartest			"class2multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		itemDef
-		{
-			name				class2_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait1"
-			rect				379 180 45 45
-			forecolor			.5  .5  .5  1
-			visible				1 
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class2_cnt"
-			hidecvar			{ "0" }
-			
 			mouseEnter
 			{ 
-				setitemcolor		class2_button	forecolor	1 1 1 1
-				setitemcolor		class2_count	forecolor	1 1 1 1
-				setitemcolor		class2_desc	forecolor	1 1 1 1
+				setitemcolor 	Team2Feeder bordercolor 1 1 1 1 
 			}
 			mouseExit
 			{ 
-				setitemcolor		class2_button	forecolor	.5 .5 .5 1
-				setitemcolor		class2_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class2_desc	forecolor	0.1 0.7 1 0.7
-			}
-			
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar			ui_siege_class 1
-				uiscript		updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable			class_button	0
-				setitemcolor		class_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor		siegeclassconfigtitle	forecolor1	0.1 0.7 1 0.7
-				
-				// High light this button and disable it
-				setitemcolor		class2_button	forecolor	1 1 1 1
-				setitemcolor		class2_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class2_desc	forecolor	0.1 0.7 1 0.7
-				//disable		class2_button	1			
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show			class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	377 176 49 49
-				
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				show			description
-				hide			itemdescription
-				setitemcolor		stats	forecolor	1 1 1 1
-				//show			feeders
-				show			stats
-				show			forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
+				setitemcolor 	Team2Feeder bordercolor 0.1 0.7 1 0.9
 			}
 		}
 
 		itemDef
 		{
-			name				class2_count
-			group				class_count
+			name				FA_count
 			type 				ITEM_TYPE_TEXT
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				379 225 45 18
+			rect				140 66 0 0
+			cvar				ui_FAque
 			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			cvartest			"ui_class2_cnt"
-			hidecvar			{ "0" }
-			visible				1
-			decoration
-		}
-		
-//----------------------------------------------------------------------------------------------
-// CLASS 3
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon3_1
-			group				class_button
-			rect 				433 170 45 45
-			style				WINDOW_STYLE_FILLED
-			forecolor			1 1 1 .6
-			backcolor			0 0 0.1 0.9
-			border			1
-			bordercolor 		0.1 0.7 1 0.7
-			visible				1
-			cvartest			"class3multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		// The actual button
-		itemDef
-		{
-			name				class3_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait2"
-			rect				430 180 45 45
-			forecolor			.5  .5  .5  1
-			visible				1 
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class3_cnt"
-			hidecvar			{ "0" }
-			
-			mouseEnter
-			{ 
-				setitemcolor		class3_button	forecolor	1 1 1 1
-				setitemcolor		class3_count	forecolor	1 1 1 1
-				setitemcolor		class3_desc	forecolor	1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		class3_button	forecolor	.5 .5 .5 1
-				setitemcolor		class3_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class3_desc	forecolor	0.1 0.7 1 0.7
-			}
-			
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar			ui_siege_class 2
-				uiscript		updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable			class_button	0
-				setitemcolor		class_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor		siegeclassconfigtitle	forecolor1	0.1 0.7 1 0.7
-				
-				// High light this button and disable it
-				setitemcolor		class3_button	forecolor	1 1 1 1
-				setitemcolor		class3_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class3_desc	forecolor	0.1 0.7 1 0.7
-				//disable		class3_button	1			
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show			class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	428 176 49 49
-
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				
-				show			description
-				hide			itemdescription
-				setitemcolor		stats	forecolor	1 1 1 1
-				//show			feeders
-				show			stats
-				show			forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
-			}
-		}
-
-		itemDef
-		{
-			name				class3_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				430 225 45 18
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			cvartest			"ui_class3_cnt"
-			hidecvar			{ "0" }
-			visible				1
-			decoration
-		}
-		
-//----------------------------------------------------------------------------------------------
-// CLASS 4
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon4_1
-			group				class_button
-			rect 				484 170 45 45
-			style				WINDOW_STYLE_FILLED
-			forecolor			1 1 1 .6
-			backcolor			0 0 0.1 0.9
-			border			1
-			bordercolor 		0.1 0.7 1 0.7
-			visible				1
-			cvartest			"class4multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		// The actual button
-		itemDef
-		{
-			name				class4_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait3"
-			rect				481 180 45 45
-			forecolor			.5  .5  .5  1
-			visible				1 
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class4_cnt"
-			hidecvar			{ "0" }
-			
-			mouseEnter
-			{ 
-				setitemcolor		class4_button	forecolor	1 1 1 1
-				setitemcolor		class4_count	forecolor	1 1 1 1
-				setitemcolor		class4_desc	forecolor	1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		class4_button	forecolor	.5 .5 .5 1
-				setitemcolor		class4_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class4_desc	forecolor		0.1 0.7 1 0.7
-			}
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar			ui_siege_class 3
-				uiscript		updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable			class_button	0
-				setitemcolor		class_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor		siegeclassconfigtitle	forecolor1	0.1 0.7 1 0.7
-				
-				// High light this button and disable it
-				setitemcolor		class4_button	forecolor	1 1 1 1
-				setitemcolor		class4_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class4_desc	forecolor	0.1 0.7 1 0.7
-				//disable		class4_button	1				
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show			class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	479 176 49 49
-
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-
-				show			description
-				hide			itemdescription
-				setitemcolor		stats	forecolor	1 1 1 1
-				//show			feeders
-				show			stats
-				show			forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
-			}
-		}
-
-		itemDef
-		{
-			name				class4_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				481 225 60 18
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			24
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			cvartest			"ui_class4_cnt"
-			hidecvar			{ "0" }
+			textalignx 			0
+			textaligny 			-10
+			font				7
+			textscale			0.2
+			forecolor			0.9 0.9 0.9 1
 			visible				1
 			decoration
 		}
 
-//----------------------------------------------------------------------------------------------
-// CLASS 5
-//----------------------------------------------------------------------------------------------
-		itemDef
-		{
-			name 				classmultiicon5_1
-			group				class_button
-			rect 				535 170 45 45
-			style				WINDOW_STYLE_FILLED
-			forecolor			1 1 1 .6
-			backcolor			0 0 0.1 0.9
-			border			1
-			bordercolor 		0.1 0.7 1 0.7
-			visible				1
-			cvartest			"class5multiflag"
-			hidecvar
-			{
-				"0"
-			}
-			decoration
-		}
-		
-		// The actual button
-		itemDef
-		{
-			name				class5_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait4"
-			rect				532 180 45 45
-			forecolor			.5  .5  .5  1
-			visible				1 
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class5_cnt"
-			hidecvar			{ "0" }
-			
-			mouseEnter
-			{ 
-				setitemcolor		class5_button	forecolor	1 1 1 1
-				setitemcolor		class5_count	forecolor	1 1 1 1
-				setitemcolor		class5_desc	forecolor	1 1 1 1
-			}
-			mouseExit
-			{ 
-				setitemcolor		class5_button	forecolor	.5 .5 .5 1
-				setitemcolor		class5_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class5_desc	forecolor	0.1 0.7 1 0.7
-			}
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar			ui_siege_class 4
-				uiscript		updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable			class_button	0
-				setitemcolor		class_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor		siegeclassconfigtitle	forecolor1	0.1 0.7 1 0.7
-				
-				// High light this button and disable it
-				setitemcolor		class5_button	forecolor	1 1 1 1
-				setitemcolor		class5_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class5_desc	forecolor	0.1 0.7 1 0.7
-				//disable		class5_button	1				
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show			class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	530 176 49 49
-
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				
-				show			description
-				hide			itemdescription
-				setitemcolor		stats	forecolor	1 1 1 1
-				//show			feeders
-				show			stats
-				show			forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class6_button forecolor .5 .5 .5 1
-			}
-		}
-
-		itemDef
-		{
-			name				class5_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				532 225 60 18
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			cvartest			"ui_class5_cnt"
-			hidecvar			{ "0" }
-			visible				1
-			decoration
-		}
-		
 //--------------------------------------------------
-// CLASS 6
+// CLASS VARIANT - Model and Saber selection system
 //--------------------------------------------------
+
 		itemDef
 		{
-			name 				classmultiicon6_1
-			group				class_button
-			rect 				586 170 45 45
-			style				WINDOW_STYLE_FILLED
-			forecolor			1 1 1 .6
-			backcolor			0 0 0.1 0.9
-			border			1
-			bordercolor 		0.1 0.7 1 0.7
-			visible				1
-			cvartest			"class6multiflag"
-			hidecvar
-			{
-				"0"
-			}
+			name 				titleV
+			rect 				81 309 10 15
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"CUSTOMIZE"
+			font				7
+			textscale			0.2
+			textalign 			ITEM_ALIGN_CENTER
+			textalignx 			0
+			textaligny 			-10
+			forecolor			1 1 1 1
+			visible 			0
 			decoration
 		}
-		
-		// The actual button
+
 		itemDef
 		{
-			name				class6_button
-			group				class_button
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_SHADER
-			background			"*ui_classportrait5"
-			rect				583 180 45 45
-			forecolor			.5  .5  .5  1
-			visible				1 
-			descText			@MENUS_CLASS_CHOICE_DESC
-			cvartest			"ui_class6_cnt"
-			hidecvar			{ "0" }
+			name 				headlistV
+			group				playermodels
+			rect 				6 326 152 46//6 308 152 46
+			type 				ITEM_TYPE_LISTBOX
+			style 				WINDOW_STYLE_FILLED
+			elementwidth 		35
+			elementheight 		44
+			elementtype 		LISTBOX_IMAGE
+			feeder 				FEEDER_SIEGE_FA_MODEL
+			//horizontalscroll
+			forecolor 			1 1 1 1
+			descText			"Select Model Variant"
+			visible				0
+			textscale 			0.7
+			action
+			{ 
+				play			"sound/interface/button1"
+			}
 			mouseEnter
 			{ 
-				setitemcolor		class6_button	forecolor	1 1 1 1
-				setitemcolor		class6_count	forecolor	1 1 1 1
-				setitemcolor		class6_desc	forecolor	1 1 1 1
+				setitemcolor 	headlistV bordercolor2 1 1 1 1 
 			}
 			mouseExit
 			{ 
-				setitemcolor		class6_button	forecolor	.5 .5 .5 1
-				setitemcolor		class6_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class6_desc	forecolor	0.1 0.7 1 0.7
-			}
-			
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				
-				setcvar			ui_siege_class 5
-				uiscript		updatesiegecvars
-				
-				// Turn other buttons on
-				setitemcolor		class_button	forecolor	1 1 1 1
-				disable			class_button	0
-				setitemcolor		class_count	forecolor1	0.1 0.7 1 0.7
-				setitemcolor		siegeclassconfigtitle	forecolor1	0.1 0.7 1 0.7
-				
-				// High light this button and disable it
-				setitemcolor		class6_button	forecolor	1 1 1 1
-				setitemcolor		class6_count	forecolor	0.1 0.7 1 0.7
-				setitemcolor		class6_desc	forecolor	0.1 0.7 1 0.7
-				//disable		class6_button	1				
-				
-//		setitemtext		description 	"*ui_classdesc"
-				show			class_portrait
-				setitembackground	class_portrait	"*ui_classportrait"
-				setitemrect		class_portrait	581 176 49 49
-
-				uiscript		resetsiegelistboxes
-				uiscript		resetitemdescription
-				
-				show			description
-				hide			itemdescription
-				setitemcolor		stats	forecolor	1 1 1 1
-				//show			feeders
-				show			stats
-				show			forcepowerlevel
-
-				setitembackground	class1_button	"*ui_classportrait0"
-				setitembackground	class2_button	"*ui_classportrait1"
-				setitembackground	class3_button	"*ui_classportrait2"
-				setitembackground	class4_button	"*ui_classportrait3"
-				setitembackground	class5_button	"*ui_classportrait4"
-				setitembackground	class6_button	"*ui_classportrait5"
-				setitemcolor		class1_button forecolor .5 .5 .5 1
-				setitemcolor		class2_button forecolor .5 .5 .5 1
-				setitemcolor		class3_button forecolor .5 .5 .5 1
-				setitemcolor		class4_button forecolor .5 .5 .5 1
-				setitemcolor		class5_button forecolor .5 .5 .5 1
+				setitemcolor 	headlistV bordercolor1 0.1 0.7 1 0.9
 			}
 		}
-
-		itemDef
+		itemDef 
 		{
-			name				class6_count
-			group				class_count
-			type 				ITEM_TYPE_TEXT
-			style 				WINDOW_STYLE_TEXT_RGB2
-			rect				583 225 60 18
-			textalign			ITEM_ALIGN_CENTER
-			textalignx			23
-			font				4
-			textscale			1
-			forecolor			0.1 0.7 1 0.7
-			cvartest			"ui_class6_cnt"
-			hidecvar			{ "0" }
-			visible				1
-			decoration
+			name				hiltlistV
+			group				playermodels			
+			rect				6 372 152 36//6 354 152 36//54
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth 		120
+			elementheight		16
+			font				6
+			textaligny			13
+			textscale			0.15
+			forecolor			0.9 0.9 0.9 1
+			backcolor			0 0 .5 .25
+			outlinecolor		.5 .5 .5 .5
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_SIEGE_FA_SABER
+			descText			"Select Saber Variant"
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			visible				0			 
+			action 
+			{
+				play			"sound/interface/choose_hilt.wav"
+			}
+			mouseEnter
+			{ 
+				setitemcolor 	hiltbut bordercolor2 1 1 1 1 
+			}
+			mouseExit
+			{ 
+				setitemcolor 	hiltbut bordercolor1 0.1 0.7 1 0.9
+			}
 		}
-		
+
 //--------------------------------------------------
 // CLASS PORTRAIT - this gets its background value from ui_classportrait
 //--------------------------------------------------
+		// HEADER
 		itemDef
 		{
-			name				class_portrait
+			name 				character_title
+							
+			rect 				81 66 10 15
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"CHARACTER"
+			font				7
+			textscale			0.2
+			textalign 			ITEM_ALIGN_CENTER
+			textalignx 			0
+			textaligny 			-10
+			forecolor			1 1 1 1
+			visible 			0
+			decoration
+		}
+
+//		itemDef
+//		{
+//			name				class_portrait
+//			style				WINDOW_STYLE_FILLED
+//			rect				10 95 45 60
+//			backcolor			1 1 1 1
+//			visible				0
+//			decoration
+//		}
+
+//--------------------------------------------------
+// TAB BUTTONS (for custom build characters)
+//--------------------------------------------------
+		// Stats Tab
+		itemDef
+		{
+			name				tab_stats
+			text				"STATS"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				358 66 30 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			15
+			textaligny			-4
+			font				6
+			textscale			0.125
+			forecolor			1 1 1 1
+			visible				0
+			// Only show for custom build characters
+			cvarTest			"ui_fa_is_custom_build"
+			showCvar			{ "1" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			faSpecs
+				hide			faBuilds
+				hide			pointstemplatesdelete_fa
+				show			stats
+				show			model_rgb
+				// Update tab colors
+				setitemcolor	tab_stats forecolor 1 1 1 1
+				setitemcolor	tab_spec forecolor 1 1 1 0.5
+				setitemcolor	tab_builds forecolor 1 1 1 0.5
+			}
+		}
+		
+		// Spec Tab
+		itemDef
+		{
+			name				tab_spec
+			text				"SPEC"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				390 66 30 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			15
+			textaligny			-4
+			font				6
+			textscale			0.125
+			forecolor			1 1 1 0.5
+			visible				0
+			// Only show for custom build characters
+			cvarTest			"ui_fa_is_custom_build"
+			showCvar			{ "1" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			stats
+				hide			model_rgb
+				hide			faBuilds
+				hide			pointstemplatesdelete_fa
+				show			faSpecs
+				// Update tab colors
+				setitemcolor	tab_stats forecolor 1 1 1 0.5
+				setitemcolor	tab_spec forecolor 1 1 1 1
+				setitemcolor	tab_builds forecolor 1 1 1 0.5
+			}
+		}
+		
+		// Builds Tab
+		itemDef
+		{
+			name				tab_builds
+			text				"BUILDS"
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				422 66 35 15
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			17
+			textaligny			-4
+			font				6
+			textscale			0.125
+			forecolor			1 1 1 0.5
+			visible				0
+			// Only show for custom build characters
+			cvarTest			"ui_fa_is_custom_build"
+			showCvar			{ "1" }
+			action
+			{
+				play			"sound/interface/button1.wav"
+				hide			stats
+				hide			model_rgb
+				hide			faSpecs
+				show			faBuilds
+				hide			pointstemplatesdelete_fa
+				uiScript		mb_refresh_templates
+				// Update tab colors
+				setitemcolor	tab_stats forecolor 1 1 1 0.5
+				setitemcolor	tab_spec forecolor 1 1 1 0.5
+				setitemcolor	tab_builds forecolor 1 1 1 1
+			}
+		}
+
+//--------------------------------------------------
+// STATS
+//--------------------------------------------------
+		itemDef
+		{
+			name 				stats_title
+			group				stats
+			rect 				402 66 10 15
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				"STATS"
+			font				7
+			textscale			0.2
+			textalign 			ITEM_ALIGN_CENTER
+			textalignx 			0
+			textaligny 			-10
+			forecolor			1 1 1 1
+			visible 			0
+			decoration
+			// Hide for custom build characters (using tabs instead)
+			cvarTest			"ui_fa_is_custom_build"
+			hideCvar			{ "1" }
+		}
+
+		itemDef
+		{
+			name 				stat_health
+			group				stats
+			rect 				360 87 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Health:"
+			cvar				"ui_class_health"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+
+		itemDef
+		{
+			name 				stat_armor
+			group				stats
+			rect 				360 102 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Armor: "
+			cvar				"ui_class_armor"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			forecolor 			0.1 0.7 1 0.7
+			visible 			0
+			decoration
+		}
+		
+		itemDef
+		{
+			name 				stat_speed
+			group				stats
+			rect 				360 132 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Speed:"
+			cvar				"ui_class_speed"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+	
+		itemDef
+		{
+			name 				mod_scale
+			group				stats
+			rect 				360 147 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Scale: "
+			cvar				"ui_class_scale"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+		
+		itemDef
+		{
+			name 				stat_force
+			group				stats
+			rect 				360 162 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Force: "
+			cvar				"ui_class_power"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+		
+		// WEAPON MODS
+		itemDef
+		{
+			name 				category_weapon
+			group				stats
+			rect 				375 192 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Weapon Mods"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+
+		itemDef
+		{
+			name 				mod_given
+			group				stats
+			rect 				360 207 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Dmg Given:"
+			cvar				"ui_class_given"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+	
+		itemDef
+		{
+			name 				mod_taken
+			group				stats
+			rect 				360 222 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Dmg Taken:"
+			cvar				"ui_class_taken"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+	
+		itemDef
+		{
+			name 				mod_rof
+			group				stats
+			rect 				360 237 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Rate of Fire:"
+			cvar				"ui_class_rof"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+	
+		// SABER MODS
+		itemDef
+		{
+			name 				category_saber
+			group				stats
+			rect 				377 267 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Saber Mods"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+	
+		itemDef
+		{
+			name 				sab_bp
+			group				stats
+			rect 				360 282 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Block Power:  "
+			cvar				"ui_class_bp"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+	
+		itemDef
+		{
+			name 				sab_ap
+			group				stats
+			rect 				360 297 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Attack Power:"
+			cvar				"ui_class_ap"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+		
+		itemDef
+		{
+			name 				sab_cs
+			group				stats
+			rect 				360 312 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Chain Speed: "
+			cvar				"ui_class_cs"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+	
+		itemDef
+		{
+			name 				sab_as
+			group				stats
+			rect 				360 327 0 0
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				"Attack Speed:"
+			cvar				"ui_class_as"
+			textalign			ITEM_ALIGN_LEFT		
+			textalignx			0
+			textaligny			0
+			font				6
+			textscale 			0.15
+			visible 			0
+			forecolor 			0.1 0.7 1 0.7
+			decoration
+		}
+		
+
+//-----------------------------------------------
+// CUSTOM POINT SPECS
+//-----------------------------------------------
+	itemDef
+	{
+		name 				specs_title
+		group				faSpecs
+		rect 				402 66 10 15
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				"SPECS"
+		font				7
+		textscale			0.2
+		textalign 			ITEM_ALIGN_CENTER
+		textalignx 			0
+		textaligny 			-10
+		forecolor			1 1 1 1
+		visible 			0
+		decoration
+	}
+	
+	// Original toggle for non-custom build characters
+	itemDef
+	{
+		name				specTitle
+		descText			"Swap between Stats and Spec"
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		background			"gfx/menus/alpha/Btn_Info"
+		rect				358 66 15 20
+		textaligny			-12
+		font				6
+		textscale			0.5
+		textalignx			58
+		textalign			ITEM_ALIGN_CENTER
+		textstyle			0
+		forecolor			1 1 1 0.1
+		visible				0
+		// Only show for non-custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		hideCvar			{ "1" }
+		action 
+		{
+			play			"sound/interface/go.mp3" ;
+			uiScript		fa_specstats
+		}
+		mouseenter
+		{
+			setitemcolor	specTitle forecolor 1 1 1 0.25
+			show			btn_info_hl
+			setitemrect		btn_info_hl 358 66 15 20
+		}
+		mouseExit
+		{
+			setitemcolor	specTitle forecolor 1 1 1 0.1
+			hide			btn_info_hl
+		}
+	}
+
+
+	itemDef
+	{
+		name		sk1
+		group		faSpecs
+		text		"Skill 1"
+		type		ITEM_TYPE_BUTTON
+		style		WINDOW_STYLE_TEXT_RGB1
+		rect		366 100 70 80
+		textalign	ITEM_ALIGN_MIDDLE
+		textaligny	-15
+		font		6
+		textscale	.2
+		forecolor	1 1 1 0.7
+		descText	""
+		visible		0
+		action
+		{
+			play	"sound/interface/go.mp3"
+			show	faSkills1
+			hide	faSkills2
+			hide	faSkills3
+			uiScript	fa_setSpec1
+			setitemcolor sk1 forecolor 1 1 1 1
+			setitemcolor ic1 forecolor 1 1 1 1
+			setitemcolor sk2 forecolor 1 1 1 0.7
+			setitemcolor ic2 forecolor 1 1 1 0.7
+			setitemcolor sk3 forecolor 1 1 1 0.7
+			setitemcolor ic3 forecolor 1 1 1 0.7
+			disable "sk1" 1
+			disable "sk2" 0
+			disable "sk3" 0
+		}
+		mouseEnter{
+			setitemcolor sk1 forecolor 1 1 1 1
+			setitemcolor ic1 forecolor 1 1 1 1
+		}
+		mouseExit{
+			setitemcolor sk1 forecolor 1 1 1 0.7
+			setitemcolor ic1 forecolor 1 1 1 0.7
+		}
+	}
+	itemDef
+	{
+		name		ic1
+		group		faSpecs
+		style		WINDOW_STYLE_SHADER
+		rect		378 120 48 48
+		forecolor	1 1 1 0.7
+		visible		0
+		decoration
+	}
+	itemDef
+	{
+		name		sk2
+		group		faSpecs
+		text		"Skill 2"
+		type		ITEM_TYPE_BUTTON
+		style		WINDOW_STYLE_TEXT_RGB1
+		rect		366 210 70 80
+		textalign	ITEM_ALIGN_MIDDLE
+		textaligny	-15
+		font		6
+		textscale	.2
+		forecolor	1 1 1 0.7
+		descText	""
+		visible		0
+		action
+		{
+			play	"sound/interface/go.mp3"
+			hide	faSkills1
+			show	faSkills2
+			hide	faSkills3
+			uiScript	fa_setSpec2
+			setitemcolor sk2 forecolor 1 1 1 1
+			setitemcolor ic2 forecolor 1 1 1 1
+			setitemcolor sk3 forecolor 1 1 1 0.7
+			setitemcolor ic3 forecolor 1 1 1 0.7
+			setitemcolor sk1 forecolor 1 1 1 0.7
+			setitemcolor ic1 forecolor 1 1 1 0.7
+			disable "sk1" 0
+			disable "sk2" 1
+			disable "sk3" 0
+		}
+		mouseEnter{
+			setitemcolor sk2 forecolor 1 1 1 1
+			setitemcolor ic2 forecolor 1 1 1 1
+		}
+		mouseExit{
+			setitemcolor sk2 forecolor 1 1 1 0.7
+			setitemcolor ic2 forecolor 1 1 1 0.7
+		}
+	}
+	itemDef
+	{
+		name		ic2
+		group		faSpecs
+		style		WINDOW_STYLE_SHADER
+		rect		378 230 48 48
+		forecolor	1 1 1 0.7
+		visible		0
+		decoration
+	}
+	itemDef
+	{
+		name		sk3
+		group		faSpecs
+		text		"Skill 3"
+		type		ITEM_TYPE_BUTTON
+		style		WINDOW_STYLE_TEXT_RGB1
+		rect		366 320 70 80
+		textalign	ITEM_ALIGN_MIDDLE
+		textaligny	-15
+		font		6
+		textscale	.2
+		forecolor	1 1 1 0.7
+		descText	""
+		visible		0
+		action
+		{
+			play	"sound/interface/go.mp3"
+			hide	faSkills1
+			hide	faSkills2
+			show	faSkills3
+			uiScript	fa_setSpec3
+			setitemcolor sk3 forecolor 1 1 1 1
+			setitemcolor ic3 forecolor 1 1 1 1
+			setitemcolor sk2 forecolor 1 1 1 0.7
+			setitemcolor ic2 forecolor 1 1 1 0.7
+			setitemcolor sk1 forecolor 1 1 1 0.7
+			setitemcolor ic1 forecolor 1 1 1 0.7
+			disable "sk1" 0
+			disable "sk2" 0
+			disable "sk3" 1
+		}
+		mouseEnter{
+			setitemcolor sk3 forecolor 1 1 1 1
+			setitemcolor ic3 forecolor 1 1 1 1
+		}
+		mouseExit{
+			setitemcolor sk3 forecolor 1 1 1 0.7
+			setitemcolor ic3 forecolor 1 1 1 0.7
+		}
+	}
+	itemDef
+	{
+		name		ic3
+		group		faSpecs
+		style		WINDOW_STYLE_SHADER
+		rect		378 340 48 48
+		forecolor	1 1 1 0.7
+		visible		0
+		decoration
+	}
+
+
+
+//-----------------------------------------------
+// CUSTOM POINT BUILDS
+//-----------------------------------------------
+
+	itemDef
+	{
+		name 				descriptionTitle
+		group				classdesc
+		rect 				255 66 10 15 
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				"OVERVIEW"
+		font				7
+		textscale			0.2
+		textalign 			ITEM_ALIGN_CENTER
+		textalignx 			0
+		textaligny 			-10
+		forecolor			1 1 1 1
+		visible 			0
+		decoration
+	}
+	
+	// Class Config Info Button
+	itemDef
+	{
+		name				plusTitle
+		descText			"Swap between Description and Build"
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		background			"gfx/menus/alpha/Btn_Info"
+		rect				175 66 15 20	
+		textaligny			-12
+		font				6
+		textscale			0.5
+		textalignx			58
+		textalign			ITEM_ALIGN_CENTER
+		textstyle			0
+		forecolor			1 1 1 0.1
+		visible				0	  
+		action 
+		{ 			
+			play			"sound/interface/go.mp3" ;
+			uiScript		fa_builddesc
+		}
+		mouseenter
+		{
+			setitemcolor	plusTitle forecolor 1 1 1 0.25
+			show			btn_info_hl
+			setitemrect		btn_info_hl 175 66 15 20
+		}
+		mouseExit
+		{
+			setitemcolor	plusTitle forecolor 1 1 1 0.1
+			hide			btn_info_hl
+		}
+	}
+
+	
+	itemDef
+	{
+		name 				customizeButton
+		group				faSkills
+		rect 				185 66 155 15
+		style WINDOW_STYLE_TEXT_RGB1
+		text "BUILD"
+		font				7
+		textscale			0.2
+		textalign 			ITEM_ALIGN_CENTER
+		textalignx 			70
+		text2alignx 		50
+		textaligny 			-10
+		forecolor			1 1 1 1
+		visible 			0
+	}
+
+	
+
+	itemDef
+	{
+		name 				descriptionFeeder
+		group				classdesc
+		rect 				174 87 167 325
+		type				ITEM_TYPE_TEXTSCROLL
+		style 				WINDOW_STYLE_TEXT_RGB1
+		text				"   "
+		//cvar				ui_classdesc
+		font				6
+		textscale 			0.125
+		textalign 			ITEM_ALIGN_LEFT
+		forecolor			1 1 1 1
+		visible 			0
+		lineHeight			13
+	}
+
+	// Skill points remaining
+	itemDef
+	{
+		name				siderank
+		group				faSkills
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				@MENUS_POINTS_REMAINING
+		ownerdraw			UI_FORCE_POINTS
+		rect 				240 80 0 0//8 10 147 15
+		textalign			ITEM_ALIGN_CENTER
+		textalignx			0
+		textaligny			0
+		font				7
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+
+	// SETUP LEGEND
+	// Skills title
+	itemDef
+	{
+		name				forceranktitle
+		group				faSkills
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				@MENUS_POWER
+		rect 				175 95 0 0//8 25 0 0
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			0
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+
+	itemDef
+	{
+		name				forceranktitle2
+		group				faSkills
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				@MENUS_1_2_3
+		rect 				292 95 0 0//113 25 0 0
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			0
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+
+	// FA Skill 0
+	itemDef
+	{
+		name				setfa_title0
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title0
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_00
+		rect 190 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 114 147 20
+			setitemcolor	setfa_title0 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title0 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 1
+	itemDef
+	{
+		name				setfa_title1
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title1
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_01
+		rect 190 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 134 147 20
+			setitemcolor	setfa_title1 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title1 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 2
+	itemDef
+	{
+		name				setfa_title2
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title2
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_02
+		rect 190 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 154 147 20
+			setitemcolor	setfa_title2 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title2 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 3
+	itemDef
+	{
+		name				setfa_title3
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title3
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_03
+		rect 190 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 174 147 20
+			setitemcolor	setfa_title3 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title3 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 4
+	itemDef
+	{
+		name				setfa_title4
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title4
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_04
+		rect 190 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 194 147 20
+			setitemcolor	setfa_title4 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title4 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 5
+	itemDef
+	{
+		name				setfa_title5
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title5
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_05
+		rect 190 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 214 147 20
+			setitemcolor	setfa_title5 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title5 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 6
+	itemDef
+	{
+		name				setfa_title6
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title6
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_06
+		rect 190 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 234 147 20
+			setitemcolor	setfa_title6 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title6 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 7
+	itemDef
+	{
+		name				setfa_title7
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title7
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_07
+		rect 190 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 254 147 20
+			setitemcolor	setfa_title7 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title7 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 8
+	itemDef
+	{
+		name				setfa_title8
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title8
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_08
+		rect 190 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 274 147 20
+			setitemcolor	setfa_title8 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title8 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 9
+	itemDef
+	{
+		name				setfa_title9
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title9
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_09
+		rect 190 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 294 147 20
+			setitemcolor	setfa_title9 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title9 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 10
+	itemDef
+	{
+		name				setfa_title10
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title10
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_10
+		rect 190 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 314 147 20
+			setitemcolor	setfa_title10 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title10 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 11
+	itemDef
+	{
+		name				setfa_title11
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title11
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_11
+		rect 190 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 334 147 20
+			setitemcolor	setfa_title11 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title11 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 12
+	itemDef
+	{
+		name				setfa_title12
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title12
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_12
+		rect 190 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 354 147 20
+			setitemcolor	setfa_title12 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title12 forecolor 1 1 1 0.8
+		}
+	}
+		
+	// FA Skill 13
+	itemDef
+	{
+		name				setfa_title13
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title13
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_13
+		rect 190 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 374 147 20
+			setitemcolor	setfa_title13 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title13 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 14
+	itemDef
+	{
+		name				setfa_title14
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title14
+		group				faSkills1
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_14
+		rect 190 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 394 147 20
+			setitemcolor	setfa_title14 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title14 forecolor 1 1 1 0.8
+		}
+	}
+	
+
+	// FA Skill 15
+	itemDef
+	{
+		name				setfa_title15
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title15
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_15
+		rect 190 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 114 147 20
+			setitemcolor	setfa_title15 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title15 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 16
+	itemDef
+	{
+		name				setfa_title16
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title16
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_16
+		rect 190 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 134 147 20
+			setitemcolor	setfa_title16 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title16 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 17
+	itemDef
+	{
+		name				setfa_title17
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title17
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_17
+		rect 190 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 154 147 20
+			setitemcolor	setfa_title17 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title17 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 18
+	itemDef
+	{
+		name				setfa_title18
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title18
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_18
+		rect 190 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 174 147 20
+			setitemcolor	setfa_title18 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title18 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 19
+	itemDef
+	{
+		name				setfa_title19
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title19
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_19
+		rect 190 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 194 147 20
+			setitemcolor	setfa_title19 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title19 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 20
+	itemDef
+	{
+		name				setfa_title20
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title20
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_20
+		rect 190 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 214 147 20
+			setitemcolor	setfa_title20 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title20 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 21
+	itemDef
+	{
+		name				setfa_title21
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title21
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_21
+		rect 190 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 234 147 20
+			setitemcolor	setfa_title21 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title21 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 22
+	itemDef
+	{
+		name				setfa_title22
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title22
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_22
+		rect 190 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 254 147 20
+			setitemcolor	setfa_title22 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title22 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 23
+	itemDef
+	{
+		name				setfa_title23
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title23
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_23
+		rect 190 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 274 147 20
+			setitemcolor	setfa_title23 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title23 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 24
+	itemDef
+	{
+		name				setfa_title24
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title24
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_24
+		rect 190 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 294 147 20
+			setitemcolor	setfa_title24 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title24 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 25
+	itemDef
+	{
+		name				setfa_title25
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title25
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_25
+		rect 190 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 314 147 20
+			setitemcolor	setfa_title25 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title25 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 26
+	itemDef
+	{
+		name				setfa_title26
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title26
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_26
+		rect 190 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 334 147 20
+			setitemcolor	setfa_title26 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title26 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 27
+	itemDef
+	{
+		name				setfa_title27
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title27
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_27
+		rect 190 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 354 147 20
+			setitemcolor	setfa_title27 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title27 forecolor 1 1 1 0.8
+		}
+	}
+		
+	// FA Skill 28
+	itemDef
+	{
+		name				setfa_title28
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title28
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_28
+		rect 190 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 374 147 20
+			setitemcolor	setfa_title28 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title28 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 29
+	itemDef
+	{
+		name				setfa_title29
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title29
+		group				faSkills2
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_29
+		rect 190 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 394 147 20
+			setitemcolor	setfa_title29 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title29 forecolor 1 1 1 0.8
+		}
+	}
+	
+	
+	
+	// FA Skill 30
+	itemDef
+	{
+		name				setfa_title30
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title30
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_30
+		rect 190 115 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 114 147 20
+			setitemcolor	setfa_title30 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title30 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 31
+	itemDef
+	{
+		name				setfa_title31
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title31
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_31
+		rect 190 135 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 134 147 20
+			setitemcolor	setfa_title31 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title31 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 32
+	itemDef
+	{
+		name				setfa_title32
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title32
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_32
+		rect 190 155 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 154 147 20
+			setitemcolor	setfa_title32 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title32 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 33
+	itemDef
+	{
+		name				setfa_title33
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title33
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_33
+		rect 190 175 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 174 147 20
+			setitemcolor	setfa_title33 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title33 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 34
+	itemDef
+	{
+		name				setfa_title34
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title34
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_34
+		rect 190 195 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 194 147 20
+			setitemcolor	setfa_title34 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title34 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 35
+	itemDef
+	{
+		name				setfa_title35
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title35
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_35
+		rect 190 215 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 214 147 20
+			setitemcolor	setfa_title35 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title35 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 36
+	itemDef
+	{
+		name				setfa_title36
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title36
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_36
+		rect 190 235 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 234 147 20
+			setitemcolor	setfa_title36 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title36 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 37
+	itemDef
+	{
+		name				setfa_title37
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title37
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_37
+		rect 190 255 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 254 147 20
+			setitemcolor	setfa_title37 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title37 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 38
+	itemDef
+	{
+		name				setfa_title38
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title38
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_38
+		rect 190 275 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 274 147 20
+			setitemcolor	setfa_title38 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title38 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 39
+	itemDef
+	{
+		name				setfa_title39
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title39
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_39
+		rect 190 295 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 294 147 20
+			setitemcolor	setfa_title39 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title39 forecolor 1 1 1 0.8
+		}
+	}
+
+	// FA Skill 40
+	itemDef
+	{
+		name				setfa_title40
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title40
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_40
+		rect 190 315 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 314 147 20
+			setitemcolor	setfa_title40 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title40 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 41
+	itemDef
+	{
+		name				setfa_title41
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title41
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_41
+		rect 190 335 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 334 147 20
+			setitemcolor	setfa_title41 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title41 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 42
+	itemDef
+	{
+		name				setfa_title42
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title42
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_42
+		rect 190 355 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 354 147 20
+			setitemcolor	setfa_title42 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title42 forecolor 1 1 1 0.8
+		}
+	}
+		
+	// FA Skill 43
+	itemDef
+	{
+		name				setfa_title43
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title43
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_43
+		rect 190 375 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 374 147 20
+			setitemcolor	setfa_title43 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title43 forecolor 1 1 1 0.8
+		}
+	}
+	
+	// FA Skill 44
+	itemDef
+	{
+		name				setfa_title44
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		text				""
+		rect 175 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			0
+		textaligny			-5
+		font				6
+		textscale			0.15
+		forecolor			1 1 1 0.8
+		visible				0
+		decoration
+	}
+	itemDef
+	{
+		name				setfa_title44
+		group				faSkills3
+		style				WINDOW_STYLE_TEXT_RGB3
+		ownerdraw			UI_FA_RANK_44
+		rect 190 395 147 18
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			105
+		textaligny			-5
+		textscale			.25
+		forecolor			1 1 1 0.8
+		descText			""
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+		}
+		mouseenter
+		{
+			show			button_glow
+			setitemrect		button_glow	175 394 147 20
+			setitemcolor	setfa_title44 forecolor 1 1 1 1
+		}
+		mouseExit
+		{
+			hide			button_glow
+			setitemcolor	setfa_title4 forecolor 1 1 1 0.8
+		}
+	}
+
+//--------------------------------------------------
+// BUILDS TAB CONTENT (for custom FA characters)
+//--------------------------------------------------
+	// Builds title - REMOVED (using tabs instead)
+
+	// Template list
+	itemDef
+	{
+		name				fcfpicker
+		group				faBuilds
+		rect				360 120 80 160
+		type				ITEM_TYPE_LISTBOX
+		style				WINDOW_STYLE_LISTBOX_RGB1
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		elementwidth		100
+		elementheight		15
+		font				6
+		textscale			.15
+		maxLineChars		20
+		elementtype			LISTBOX_TEXT
+		feeder				FEEDER_MBCFG
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			4
+		textaligny			-4
+		forecolor			1 1 1 1
+		backcolor			1 1 1 0.05
+		outlinecolor		1 1 1 .35
+		descText			"Choose a build template to load"
+		visible				0
+		columns				1 4 96 96
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	fcfpicker bordercolor 1 0 0 1
+		}
+		mouseExit
+		{
+			setitemcolor	fcfpicker bordercolor .5 .5 .5 1
+		}
+		action
+		{
+			play			"sound/interface/button1.wav"
+			// Load the selected build
+			uiScript		mb_load_template
+		}
+	}
+
+	// Save template name input
+	itemDef
+	{
+		name				saveFCF
+		group				faBuilds
+		type				ITEM_TYPE_EDITFIELD
+		style				WINDOW_STYLE_TEXT_RGB1
+		text				""
+		cvar				"ui_SaveFCF"
+		maxChars			15
+		maxPaintChars		15
+		rect				360 285 80 15
+		textalign			ITEM_ALIGN_LEFT
+		textalignx			2
+		textaligny			11
+		font				4
+		textscale			0.15
+		forecolor			1 1 1 1
+		backcolor			0 0 0 .25
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+	}
+
+	// Save button
+	itemDef
+	{
+		name				btn_save_fa
+		group				faBuilds
+		descText			"Save current points into a build template."
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		rect				360 305 24 24
+		background			"gfx/menus/Alpha/Btn_SaveTemplate"
+		forecolor			1 1 1 0.5
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	btn_save_fa forecolor	1 1 1 1
+		}
+		mouseExit
+		{
+			setitemcolor	btn_save_fa forecolor	1 1 1 0.5
+		}			
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_savetemplate
+			// Clear the name field
+			setcvar			ui_SaveFCF ""
+		}
+	}
+
+	// Save with cosmetics button
+	itemDef
+	{
+		name				btn_save_all_fa
+		group				faBuilds
+		descText			"Save cosmetic settings and current points into a build template."
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		rect				388 305 24 24
+		background			"gfx/menus/Alpha/Btn_SaveCosmetic"
+		forecolor			1 1 1 0.5
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	btn_save_all_fa forecolor	1 1 1 1
+		}
+		mouseExit
+		{
+			setitemcolor	btn_save_all_fa forecolor	1 1 1 0.5
+		}	
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_savetemplate_all
+			// Clear the name field
+			setcvar			ui_SaveFCF ""
+		}
+	}
+
+	// Toggle favorite button
+	itemDef
+	{
+		name				btn_favorite_fa
+		group				faBuilds
+		descText			"Toggle selected build as a favorite."
+		type				ITEM_TYPE_BUTTON
+		style				WINDOW_STYLE_SHADER
+		rect				416 305 24 24
+		background			"gfx/menus/Alpha/Btn_ToggleFavorite"
+		forecolor			1 1 1 0.5
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		mouseenter
+		{
+			setitemcolor	btn_favorite_fa forecolor	1 1 1 1
+		}
+		mouseExit
+		{
+			setitemcolor	btn_favorite_fa forecolor	1 1 1 0.5
+		}	
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_fav_toggle
+			// Refresh both lists
+			uiScript		mb_refresh_templates
+		}
+	}
+
+	// Delete template button
+	itemDef
+	{
+		name				templatedelete_fa
+		group				faBuilds
+		text				@MENUS_DELETE_FILE
+		type				1
+		style				WINDOW_STYLE_FILLED
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		rect				360 335 80 15
+		textaligny			11
+		font				4
+		textscale			0.15
+		textalign			ITEM_ALIGN_CENTER
+		forecolor			1 1 1 0.5
+		backcolor			1 0 0 0.075
+		visible				0
+		// Only show for custom build characters
+		cvarTest			"ui_fa_is_custom_build"
+		showCvar			{ "1" }
+		// Don't allow deletion of default templates
+		cvarTest 			"ui_SaveFCF"
+		hideCvar	 		{ "Default", "Custom" }	
+		action
+		{
+			play			"sound/interface/button1.wav"
+			hide			templatedelete_fa
+			show			pointstemplatesdelete_fa
+		}
+		mouseenter
+		{
+			setitemcolor	templatedelete_fa			forecolor	1 1 1 1
+			setitemcolor	templatedelete_fa			backcolor	1 0 0 0.3
+		}
+		mouseExit
+		{
+			setitemcolor	templatedelete_fa			forecolor	1 1 1 0.5
+			setitemcolor	templatedelete_fa			backcolor	1 0 0 0.075
+		}
+	}
+
+	// Delete confirmation buttons
+	itemDef
+	{
+		name				templatedeleteconfirm_fa
+		group				pointstemplatesdelete_fa
+		text				@MENUS_CONFIRM_DELETE_FILE
+		type				1
+		style				WINDOW_STYLE_FILLED
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		rect				360 335 49 15
+		textaligny			11
+		font				4
+		textscale			0.15
+		textalign			ITEM_ALIGN_CENTER
+		forecolor			1 1 1 1
+		backcolor			1 0 0 0.075
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+			uiScript 		mb_deletetemplate
+			hide			pointstemplatesdelete_fa
+			show			templatedelete_fa
+			// Refresh the list after deletion
+			uiScript		mb_refresh_templates
+		}
+		mouseenter
+		{
+			setitemcolor	templatedeleteconfirm_fa	backcolor	1 0 0 0.3
+		}
+		mouseExit
+		{
+			setitemcolor	templatedeleteconfirm_fa	backcolor	1 0 0 0.075
+		}
+	}
+	
+	itemDef
+	{
+		name				templatedeletecancel_fa
+		group				pointstemplatesdelete_fa
+		text				@MENUS_CANCEL_DELETE_FILE
+		type				1
+		style				WINDOW_STYLE_FILLED
+		textstyle			WINDOW_STYLE_TEXT_RGB2
+		rect				411 335 49 15
+		textaligny			11
+		font				4
+		textscale			0.15
+		textalign			ITEM_ALIGN_CENTER
+		forecolor			1 1 1 1
+		backcolor			1 1 1 0.05
+		visible				0
+		action
+		{
+			play			"sound/interface/button1.wav"
+			hide			pointstemplatesdelete_fa
+			show			templatedelete_fa
+		}
+		mouseenter
+		{
+			setitemcolor	templatedeletecancel_fa	backcolor	1 1 1 0.3
+		}
+		mouseExit
+		{
+			setitemcolor	templatedeletecancel_fa	backcolor	1 1 1 0.05
+		}
+	}
+
+
+
+// RGB SLIDERS
+		itemDef
+		{
+			name 				charred_icon
+			group				model_rgb
 			style				WINDOW_STYLE_FILLED
-			rect				526 176 45 45
-			backcolor			1 1 1 1
+			rect				360 370 3 10
+			backcolor			0.75 0 0 1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			visible				0
+		}
+
+		itemDef
+		{
+			name 				chargreen_icon
+			group				model_rgb
+			style				WINDOW_STYLE_FILLED
+			rect				360 383 3 10
+			backcolor			0 0.75 0 1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			visible				0
+		}
+
+		itemDef
+		{
+			name 				charblue_icon
+			group				model_rgb
+			style				WINDOW_STYLE_FILLED
+			rect				360 396 3 10
+			backcolor			0 0 0.75 1
+			background			"gfx/menus/alpha/Menu_ClassSelect_Item2"
+			visible				0
+		}
+
+		itemDef
+		{
+			name				charred
+			group				model_rgb
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"ui_char_color_red" 50 0 255
+			rect				365 367 80 16
+			forecolor			1.0 1.0 1.0 0.8
+			visible				0
+			mouseenter
+			{
+				show			charred_glow
+			}
+			mouseExit
+			{
+				hide			charred_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				chargreen
+			group				model_rgb
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"ui_char_color_green" 50 0 255
+			rect				365 380 80 16
+			forecolor			1.0 1.0 1.0 0.8
+			visible				0
+			mouseenter
+			{
+				show			chargreen_glow
+			}
+			mouseExit
+			{
+				hide			chargreen_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				charblue
+			group				model_rgb
+			type				ITEM_TYPE_INTSLIDER
+			cvarInt				"ui_char_color_blue" 50 0 255
+			rect				365 393 80 16
+			forecolor			1.0 1.0 1.0 0.8
+			visible				0
+			mouseenter
+			{
+				show			charblue_glow
+			}
+			mouseExit
+			{
+				hide			charblue_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		//RGB float values
+		itemDef
+		{
+			name				charred_value
+			group				model_rgb
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				""
+			cvarInt				"ui_char_color_red" 50 0 255
+			maxchars			3
+			maxPaintChars		3
+			rect				395 371 20 10
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-9
+			font				6
+			textscale			0.15
+			forecolor			1.0 1.0 1.0 0.8
+			outlinecolor		1 1 1 1
+			visible				0
+			descText			"Red Channel Value (0-255)"
+			mouseenter
+			{
+				show			charred_glow
+			}
+			mouseExit
+			{
+				hide			charred_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				chargreen_value
+			group				model_rgb
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				""
+			cvarInt				"ui_char_color_green" 50 0 255
+			maxchars			3
+			maxPaintChars 		3
+			rect				395 384 20 10
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-9
+			font				6
+			textscale			0.15
+			forecolor			1.0 1.0 1.0 0.8
+			outlinecolor		1 1 1 1
+			visible				0
+			descText			"Green Channel Value (0-255)"
+			mouseenter
+			{
+				show			chargreen_glow
+			}
+			mouseExit
+			{
+				hide			chargreen_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+		itemDef
+		{
+			name				charblue_value
+			group				model_rgb
+			type				ITEM_TYPE_EDITFIELD
+			style				WINDOW_STYLE_TEXT_RGB2
+			text				""
+			cvarInt				"ui_char_color_blue" 50 0 255
+			maxchars			3
+			maxPaintChars		3
+			rect				395 397 20 10
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			10
+			textaligny			-9
+			font				6
+			textscale			0.15
+			forecolor			1.0 1.0 1.0 0.8
+			visible				0
+			descText			"Blue Channel Value (0-255)"
+			mouseenter
+			{
+				show			charblue_glow
+			}
+			mouseExit
+			{
+				hide			charblue_glow
+			}
+			action
+			{
+				play			"sound/interface/button1"
+			}
+		}
+
+
+
+
+
+//-----------------------------------------------
+// JOIN + BACK BUTTONS
+//-----------------------------------------------
+
+		itemDef
+		{
+			name				back
+			group				bg_button_l
+			text				"BACK"
+			descText			@MENUS_BACKUP_ONE_MENU
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Menu_ClassButtonL"
+			rect				0 430 70 36
+			textaligny			0
+			font				6
+			textscale			0.2
+			textalignx			35
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			visible				1
+			forecolor			1 1 1 1
+			action
+			{ 
+				play			"sound/interface/back.mp3"
+				close			all
+				open			main
+				open			ingame
+			}
+			mouseenter
+			{
+				show			ClassButtonL_Hl
+			}
+			mouseExit
+			{
+				hide			ClassButtonL_Hl
+			}
+		}
+
+		itemDef
+		{
+			name				ClassButtonL_Hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 430 70 36
+			background			"gfx/menus/alpha/Menu_ClassButtonL_Hl"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+
+	
+		itemDef
+		{
+			name				okay
+			group				bg_button_r
+			text				"OKAY"
+			descText			@MENUS_JOIN_GAME
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_FILLED_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB2
+			background			"gfx/menus/alpha/Menu_ClassButtonR"
+			rect				384 430 70 36
+			textaligny			0
+			font				6
+			textscale			0.2
+			textalignx			35
+			textalign			ITEM_ALIGN_CENTER
+			textstyle			0
+			forecolor			1 1 1 1
+			visible				1
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		setsiegeclassandteam
+			}
+			mouseenter
+			{
+				show			ClassButtonR_Hl
+			}
+			mouseExit
+			{
+				hide			ClassButtonR_Hl
+			}
+		}
+
+		itemDef
+		{
+			name				ClassButtonR_Hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				384 430 70 36
+			background			"gfx/menus/alpha/Menu_ClassButtonR_Hl"
+			forecolor			1 1 1 0.8
 			visible				0
 			decoration
 		}
 
 //-----------------------------------------------
-//
-// DISPLAY HEALTH, SHIELD, SPEED
-//
+// INFO ICON ON TOP
 //-----------------------------------------------
 
 		itemDef
 		{
-			name				bg_clean1 //border
-			group				stats
-			style 				WINDOW_STYLE_FILLED_RGB1
-			rect				317 255 323 175
-			forecolor			1 1 1 1
-			background			"gfx/menus/alpha/Menu_Clean"
-			visible				1
+			name				btn_info_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/btn_info_hl"
+			forecolor			0.8 0.8 0.8 1
+			visible				0
 			decoration
-		}
-		
-		itemDef
-		{
-			name 				health_disp
-			group				stats
-			rect 				374 259 110 20
-			type				ITEM_TYPE_EDITFIELD
-			text				@SIEGE_HEALTH
-			cvar				"ui_class_health"
-			textalign			ITEM_ALIGN_RIGHT		
-			textalignx			0
-			textaligny			0
-			font				3
-			textscale			0.5
-			visible 			0
-			forecolor 			1 0.7 1 0.7
-			decoration
-		}
-
-		itemDef
-		{
-			name 				armor_disp
-			group				stats
-			rect 				525 259 100 20
-			type				ITEM_TYPE_EDITFIELD
-			text				@SIEGE_SHIELDS
-			cvar				"ui_class_armor"
-			textalign			ITEM_ALIGN_RIGHT		
-			textalignx			0
-			textaligny			0
-			font				3
-			textscale			0.5
-			forecolor 			0.1 0.7 1 0.7
-			visible 			0
-			decoration
-		}
-
-		//itemDef
-		//{
-		//	name 				speed_disp
-		//	group				stats
-		//	rect 				548 260 100 20
-		//	type				ITEM_TYPE_EDITFIELD
-		//	text				@SIEGE_SPEED
-		//	cvar				"ui_class_speed"
-		//	textalign			ITEM_ALIGN_LEFT		
-		//	textalignx			0
-		//	textaligny			0
-		//	font				4
-		//	textscale			.7
-		//	visible 			0
-		//	forecolor 			0.1 0.7 1 0.7
-		//	decoration
-		//}
-			
-		itemDef
-		{
-			name 				description
-			group				classdescription
-			rect 				327 275 300 150
-			type				ITEM_TYPE_TEXTSCROLL
-			style 				WINDOW_STYLE_TEXT_RGB1
-			text				"   "
-			cvar				ui_classdesc
-			font				4
-			textscale 			1
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			lineHeight			13			
-		}
-		
-		itemDef
-		{
-			name				slot0
-			group 				forcepowerlevel
-			rect 				350 322 300 80
-			type				ITEM_TYPE_TEXT
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			cvar				ui_class_powerlevelslot0
-			cvartest			ui_class_powerlevelslot0
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot1
-			group 				forcepowerlevel
-			rect 				384 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			cvar				ui_class_powerlevelslot1
-			cvartest			ui_class_powerlevelslot1
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot2
-			group 				forcepowerlevel
-			rect 				418 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			cvar				ui_class_powerlevelslot2
-			cvartest			ui_class_powerlevelslot2
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot3
-			group 				forcepowerlevel
-			rect 				452 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor		      0.1 0.7 1 0.7
-			visible 			0
-			cvar				ui_class_powerlevelslot3
-			cvartest			ui_class_powerlevelslot3
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot4
-			group 				forcepowerlevel
-			rect 				486 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			cvar				ui_class_powerlevelslot4
-			cvartest			ui_class_powerlevelslot4
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot5
-			group 				forcepowerlevel
-			rect 				520 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			cvar				ui_class_powerlevelslot5
-			cvartest			ui_class_powerlevelslot5
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot6
-			group 				forcepowerlevel
-			rect 				554 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			cvar				ui_class_powerlevelslot6
-			cvartest			ui_class_powerlevelslot6
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot7
-			group 				forcepowerlevel
-			rect 				588 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			cvar				ui_class_powerlevelslot7
-			cvartest			ui_class_powerlevelslot7
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name				slot8
-			group 				forcepowerlevel
-			rect 				620 322 300 80
-			type				ITEM_TYPE_TEXT
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale			.5
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			cvar				ui_class_powerlevelslot8
-			cvartest			ui_class_powerlevelslot8
-			hidecvar			
-			{
-				"0"
-			}
-		}
-							
-		itemDef
-		{
-			name 				itemdescription
-			group				itemdescription
-			rect 				327 246 300 192
-			type				ITEM_TYPE_TEXTSCROLL
-			text				"   "
-			cvar				ui_itemforceinvdesc
-			font				4
-			textscale 			1
-			textalign 			ITEM_ALIGN_LEFT
-			forecolor			0.1 0.7 1 0.7
-			visible 			0
-			lineHeight			13			
-		}
-							
-
-	//-----------------------------------------------
-	// CANCEL BUTTON
-	//-----------------------------------------------
-		itemDef
-		{
-			name 				cancel
-			text				@MENUS_CANCEL
-			type 				1
-			textscale			.8
-			group 				grpControlbutton
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect 				325 440 150 26
-			textalign			ITEM_ALIGN_CENTER
-			textalignx 			75
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			descText			@MENUS_CANCEL_DESC
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				hide			stats
-				hide			forcepowerlevel
-				close 			all
-			}
-		}
-
-	//-----------------------------------------------
-	// OKAY BUTTON
-	//-----------------------------------------------
-		itemDef
-		{
-			name 				okay
-			text				@MENUS_OKAY
-			type 				1
-			textscale			.8
-			group 				grpControlbutton
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_TEXT_RGB2
-			rect 				476 440 150 26
-			textalign			ITEM_ALIGN_CENTER
-			textalignx 			75
-			forecolor			0.1 0.7 1 0.7
-			visible				1
-			descText			@MENUS_JOIN_GAME
-			action
-			{ 
-				play			"sound/interface/button1.wav"
-				uiScript		setsiegeclassandteam
-			}
 		}
 	}
 }

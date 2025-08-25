@@ -4,37 +4,49 @@
 Classinfo
 {
 	name		"v10_Ragnos"
-	weapons		WP_MELEE|WP_SABER
-	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FORCEBLOCK,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DEFLECT,1|MB_ATT_JETPACK,1|MB_ATT_CORTOSIS,1|MB_ATT_WATER_BREATHING|MB_ATT_FLOAT_HOP|MB_ATT_BUNNY_HOP,1
+	MBclass		MB_CLASS_WOOKIE
+	classNumberLimit  	1
+	weapons		WP_MELEE|WP_SABER|WP_SHOTGUN
+	
+	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FORCEBLOCK,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DEFLECT,1|MB_ATT_JETPACK,1|MB_ATT_CORTOSIS,1|MB_ATT_WATER_BREATHING|MB_ATT_FLOAT_HOP|MB_ATT_BUNNY_HOP,1|MB_ATT_FORCEFOCUS,1|MB_ATT_SHOTGUN,1|MB_ATT_WHISTLINGBIRD
 	
 	forcepowers		FP_LIGHTNING,3|FP_PUSH,3|FP_PULL,3|FP_GRIP,3|FP_DRAIN,3|FP_SEE,2|FP_SABER_OFFENSE,3|FP_RAGE,3|FP_ABSORB,2|FP_LEVITATION,2
+
+	special1 EAS_FP_DRAIN
+	special2 EAS_MELEE
+	special3 EAS_FP_ABSORB
+	special4 EAS_HI_WHISTLING_BIRDS
 
 	saber1 		force_deflection
 	saber2 		force_deflection
 	saberstyle	SS_DUAL
-	WP_SaberFlags HELD_PULSE
-	saberDamage 71
+	saberDamage 73 //80
+	saberSpecialDamage 1.5 //120
 	APmultiplier    0.8
+	
+	WP_SaberFlags HELD_PULSE
+	WP_ShotgunFlags HELD_FLAME|HELD_DISRUPTIFY
+	//WP_MeleeFlags HELD_DISRUPTIFY
 	
 	forcepool	200
 	forceregen	1
-	//resourceRegenCap 
-	//resourceRegenAmount 50
-	//resourceRegenRate 2500	
+	
+	//resourceRegenCap  200
+	//resourceRegenAmount 1
+	//resourceRegenRate 500
 	resource		RESOURCE_FORCE
 	
-	modelscale	1.15
 	maxhealth	200
 	damageGiven    1.1
 
 	meleeMoves M_BLOCK|M_KATA|M_PUNCH|M_UPPERCUT|M_KICK
 
 	classflags			CFL_NOPICKUPS|CFL_BPFREEJUMPS|CFL_STRONGAGAINSTPHYSICAL
-	MBclass					MB_CLASS_WOOKIE
-	classNumberLimit  		1
-	bargeSoundOverride 		"sound/chars/snoke/misc/jump1.mp3"
-	rageSoundOverride 		"sound/chars/snoke/misc/pain75.mp3"
-
+	
+	modelscale	1.15
+	model		"old_marka_ragnos" 				
+	skin			"ghost_legends"					
+	uishader		"gfx/hud/fa_icons/mb2_icon_GhostOfRagnos"
 	uioverlay_r "gfx/icons/support"
 	uioverlay_l "gfx/icons/aerial"
 
@@ -51,27 +63,11 @@ Classinfo
 	WalkBackward 		BOTH_SWIM_IDLE1
 	RunForward 		BOTH_SWIM_IDLE1
 	RunBackward 		BOTH_SWIM_IDLE1
-	
-	model		"old_marka_ragnos" 				
-	skin			"ghost_legends"					
-	uishader		"gfx/hud/fa_icons/mb2_icon_GhostOfRagnos"
-	
-	//model		"marka_ragnos" 				
-	//skin		"model_default"					
-	//uishader	"gfx/hud/fa_icons/mb2_icon_GhostOfRagnos"
-	
-	//respawncustomtime 50000
-	
+
 	tauntAnim      	BOTH_FORCE_2HANDEDLIGHTNING
 	gloatAnim 		BOTH_FORCE_PROTECT_FAST
 	flourishAnim 		BOTH_PULLED_INAIR_F
 	bowAnim			BOTH_SLEEP6STOP
-	
-	special1 EAS_FP_DRAIN
-	special2 EAS_MELEE
-	special3 EAS_FP_RAGE
-	special4 EAS_FP_ABSORB
-	
 }
 WeaponInfo0
 {
@@ -82,22 +78,50 @@ WeaponInfo0
 	Icon			"models/weapons2/halo_melee/icon.png"
 	WeaponName		"Lightning Fists"
 }
-
+WeaponInfo1
+{
+	WeaponToReplace 	WP_SHOTGUN
+	WeaponBasedOff    WP_SHOTGUN
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"models/weapons2/halo_melee/icon.png"
+    FlashSound0			"sound/weapons/impacts/hit23.wav"  			
+	WeaponName 			"Force Incinerate"
+	hasAnimOverrides 1
+	animReady BOTH_FORCE_2HANDEDLIGHTNING_START
+	animReadyWalk BOTH_FORCE_2HANDEDLIGHTNING_START
+	animReadyNoAmmo BOTH_FORCE_2HANDEDLIGHTNING
+	animAttack BOTH_FORCE_2HANDEDLIGHTNING
+	animAttackWalk BOTH_FORCE_2HANDEDLIGHTNING
+	clipsize      96
+	customAmmo     -1
+	rateMod 1.75
+	AltFireEnabled 		0
+	MuzzleEffect 		"flamethrower/flameburn"
+	MissileEffect 		"flamethrower/flamethrowerwide"
+}
 Description 	"Marka Ragnos [Wookiee]
 
-A flying hybrid class that combines melee brawling abilities and offensive dark side powers.
+A flying hybrid class that combines Melee brawling abilities and dark side powers.
 
 ^2Weaponry:
 - Wookiee-style Melee
 - Lightning Fists (Dual Saber)
 -- Saber/Blaster Defense (1)
 -- Saber Deflect (1)
+-- BP-Free Jumps
 -- Electrifies targets
--- 150% more KB
--- 70% less DMG
+-- 150% more KB given
+-- 69% less DMG
+-- 58% less special DMG
 -- 45% shorter reach
 -- 33% wider radius
 -- Slap ^3[CS2]
+- Force Incinerate (Shotgun 1)
+-- Ignites targets
+-- Fires focused blasts while hovering
+-- 75% slower RoF
+-- Prim. only
 
 ^5Force Powers:
 - Jump (2)
@@ -106,17 +130,17 @@ A flying hybrid class that combines melee brawling abilities and offensive dark 
 - Sense (2) 
 - Lightning (3)
 - Drain (3) ^3[CS1]
-- Dark Rage (3) ^3[CS3]
+- Dark Rage (3)
 - Grip (3)
-- Absorb (2) ^3[CS4]
+- Absorb (2) ^3[CS3]
 
 ^8Attributes:
 - Strength (2)
 - Cortosis (1)
 - Physical Resistance
 - Underwater Breathing
-- BP-Free Jumps
-- Force Block (1)
+- Force Block/Focus (1)
 
 ^3Abilities:
-- Force Flight (Jetpack)"
+- Force Flight (Jetpack)
+- Force Swarm (Whistling Birds) ^3[CS4]"

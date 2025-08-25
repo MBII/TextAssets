@@ -10,40 +10,38 @@ ClassInfo
 	
 	attributes 	MB_ATT_ASSEMBLE,3|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_REPEATER
 	
-	maxhealth		90
-	maxarmor  		25
+	maxhealth		100
+	maxarmor  		20
 	
-	forcepool        100
+	forcepool      	100
+	forceRegen		0.85
 	resource RESOURCE_ENERGY
-	
-	rateOfFire 		1
+
 	rateOfFire_Melee	.5
-	
+
 	saber1  			ewok_spear_legends
-	sabercolor  		0
-	saberstyle  		SS_MEDIUM
+	saberstyle  		SS_MEDIUM|SS_STAFF
 	BPmultiplier		0
 	APmultiplier		0.8
-	saberdamage 98
-
+	ASmultiplier 		1.05
+	saberdamage 		100
+	saberSpecialDamage 2
 	//WP_FlechetteFlags 	HELD_FLAME|HELD_EXPLOSIVE
 	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
 	WP_RepeaterFlags		HELD_KNOCKBACK|HELD_KNOCKDOWN|HELD_ALTRELOAD
-	WP_MeleeFlags			HELD_LOWDAMAGE
-	
-	//damageGiven 0.1
+
 	classFlags 			CFL_BLOODYMELEE
 
 	special1 EAS_HI_DODGE
-	special2 EAS_HI_DASH
-	special3 EAS_MELEE
+	special2 EAS_MELEE
+	special3 EAS_HI_DASH
 	
 	gloatanim	 	BOTH_VICTORY_FAST
 	tauntAnim		BOTH_ENGAGETAUNT
 	flourishAnim		BOTH_FORCE_RAGE
 	WalkBackward 		BOTH_WALKBACK_DUAL
 	WalkForward 		BOTH_WALK_DUAL
-	saberStanceAnim 	BOTH_TAVION_STANCE
+	saberStanceAnim 	BOTH_SPEAR_STANCE 
 
 	uioverlay_r "gfx/icons/infantry"
 	uioverlay_l "gfx/icons/tactician"
@@ -110,20 +108,17 @@ WeaponInfo1
 	MissileMissEffect	"dc/explosion"
 	MissileHitHumanEffect "bow/arrow_humandroid"
 	MissileHitDroidEffect	"bow/arrow_humandroid"
-	rateMod 0.85
+	rateMod 			0.85
 	clipSize			32	
 	customAmmo		184
-	hasAnimOverrides 1
-
+	altFireEnabled	0
+	hasAnimOverrides 	1
 	animReady BOTH_DC15_IDLE
-	animReadyWalk TORSO_WEAPONREADY4
-	animReadyNoAmmo TORSO_WEAPONREADY4
-
+	animReadyWalk BOTH_TORSO_WEAPONREADY4
+	animReadyNoAmmo BOTH_TORSO_WEAPONREADY4
 	animAttack BOTH_ATTACK4
 	animAttackWalk BOTH_ATTACK4
-
 	animStand TORSO_DROPWEAP4
-	altFireEnabled	0
 }
 
 WeaponInfo2
@@ -154,14 +149,26 @@ WeaponInfo2
 	FlashSound0		"sound/weapons/stone/fire.mp3"
 	clipSize 25
 	customAmmo 125
-	reloadTimeModifier 1.9
+	reloadTimeModifier 1.8
 	hasAnimOverrides 1
 	animReady BOTH_SABERDUAL_STANCE //upper
 	animReadyWalk BOTH_SABERDUAL_STANCE
 	animReadyNoAmmo BOTH_SABERDUAL_STANCE
-	animAttack NADE_SECONDARY
-	animAttackWalk NADE_SECONDARY
+	animAttack BOTH_THERMAL_THROW2
+	animAttackWalk BOTH_THERMAL_THROW2
 	animStand BOTH_SABERDUAL_STANCE //lower
+}
+WeaponInfo3
+{
+	WeaponToReplace		WP_MELEE
+	WeaponBasedOff		WP_MELEE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_melee"
+	WeaponName		"Melee"
+	primFireEnabled		1
+	AltFireEnabled 		1
+	damageMod 0.75
 }
 
 description "Ewok [Hero]
@@ -169,20 +176,22 @@ description "Ewok [Hero]
 3-life archers and spear wielders of diminutive stature carrying powerful knockdown Stones. They thrive on ambushes and pack behavior.
 
 ^2Weaponry:
-- Light Melee 
+- Melee 
 -- 50% faster swings
-- Ewok Spear (Yellow Saber)
+-- 25% less DMG
+- Ewok Spear (Staff/Yellow Saber)
 -- Cannot block Sabers/Blasters
--- 62% less DMG
--- 53% shorter reach
+-- 61/58% less DMG
+-- 23/16% less special DMG
+-- 37/50% shorter reach
 -- 33% wider radius
--- Slap ^3[CS3]
+-- Slap ^3[CS2]
 - Stones (6) (Repeater)
 -- Pushes/knocks down targets on direct hit
--- 90% slower mag reload
+-- 80% slower mag reload
 -- Sec. only
 - Bow and Arrows (T-21 1)
--- Staggers/knocks back targets
+-- Pushes/staggers targets
 -- 15% faster RoF
 -- 50% less DMG
 -- Mag reload
@@ -194,4 +203,4 @@ description "Ewok [Hero]
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
-- Dash (2) ^3[CS2]"
+- Dash (2) ^3[CS3]"
