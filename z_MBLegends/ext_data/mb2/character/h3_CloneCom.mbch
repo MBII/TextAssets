@@ -3,30 +3,32 @@ ClassInfo
 name	"h3_CloneCom"
 MBClass	MB_CLASS_CLONETROOPER
 classNumberLimit	4
-extralives 	1
+extralives 1
 weapons	WP_MELEE|WP_BLASTER_PISTOL|WP_FRAG_NADE
 WP_DCCarbineFlags HELD_ALTRELOAD
 WP_DisruptorFlags HELD_ALTRELOAD
 WP_FlechetteFlags HELD_ALTRELOAD
-attributes MB_ATT_AMMO,2|MB_ATT_STAMINA,2|MB_ATT_PISTOL,1|MB_ATT_FRAGS,1
+attributes MB_ATT_STAMINA,2|MB_ATT_PISTOL,1|MB_ATT_FRAGS,2
 maxhealth 75
 maxarmor	40
 armourRegenCap 40
 armourRegenAmount	2
 armourRegenRate	1000
+healthRegenAmount 1
+healthRegenrate 1000
+healthRegenCap	25
 basespeed	180
 rankbasespeed 200,220
 rankHack 0.85
-knockbackTaken  0.85	
-rankKBTaken 0.20
+knockbackTaken 0.85
+rankKBTaken 0.2
 skillTimerMod 2
 rankROFMelee 0.7
 resource RESOURCE_STAMINA
-holdables HI_MEDPAC
 special1	EAS_HI_SPRINT
 tauntAnim BOTH_ENGAGETAUNT
 gloatAnim BOTH_VICTORY_FAST
-flourishAnim 	BOTH_STAND5TOAIM
+flourishAnim	BOTH_STAND5TOAIM
 modelscale   1.02
 uioverlay_l "gfx/icons/spec_infantry"
 uioverlay_r "gfx/icons/infantry"
@@ -75,7 +77,7 @@ c_att_descs_0 "25% faster RoF, 25% slower mag reload, Prim. only"
 c_att_skill_1	MB_ATT_DISRUPTOR
 c_att_names_1	"DC-17m Sniper (Disruptor)"
 c_att_ranks_1	0
-c_att_descs_1 "80% more DMG, 80% more FP DMG, 10% slower RoF, 
+c_att_descs_1 "80% more DMG, 80% more FP DMG, 10% slower RoF,
 85% slower mag reload"
 c_att_skill_2	MB_ATT_BASESPEED
 c_att_names_2	"Movement Speed (200)"
@@ -186,7 +188,7 @@ NewViewModel	"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
 FlashSound0 "sound/weapons/acparray/fire.wav"
 Icon	"gfx/hud/w_icon_cp-50_repeater"
 WeaponName "ACP Scatter Gun"
-clipSize  40
+clipSize 40
 customAmmo 360
 rateMod 1.4
 ReloadTimeModifier  1.6
@@ -222,28 +224,28 @@ customAmmo 8
 }
 WeaponInfo5
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_clonepistol"
-	WeaponName			"DC-15s Side Arm Blaster"	
-	FlashSound0			"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
-	AltFlashSound0 		"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01C"
-	MissileEffect		"Blaster/Shot01C"
-	MissileMissEffect "blaster/impact_wall01c"
-	ChargeEffect		"gfx/effects/cloneFrontFlash"
-	clipSize			15
-	ReloadTimeModifier 	2
-	customammo 			420
-	rateMod 0.75
-	hasAnimOverrides 1
-	animReady		BOTH_PISTOL_IDLE2
-	animReadyWalk		BOTH_PISTOL_IDLE2
-	animReadyNoAmmo	BOTH_PISTOL_ATTACK
-	animAttack     	BOTH_PISTOL_ATTACK
-	animAttackWalk 	BOTH_PISTOL_ATTACK
+WeaponToReplace	WP_BLASTER_PISTOL
+WeaponBasedOff	WP_BLASTER_PISTOL
+NewWorldModel	"models/weapons2/DC-15/dc-15_w.glm"
+NewViewModel	"models/weapons2/dummy/dummy.md3"
+Icon	"gfx/hud/w_icon_clonepistol"
+WeaponName	"DC-15s Side Arm Blaster"
+FlashSound0	"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
+AltFlashSound0 "sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
+MuzzleEffect	"Blaster/MuzzleFlash01C"
+MissileEffect	"Blaster/Shot01C"
+MissileMissEffect "blaster/impact_wall01c"
+ChargeEffect	"gfx/effects/cloneFrontFlash"
+clipSize	15
+ReloadTimeModifier 	2
+customammo	420
+rateMod 0.75
+hasAnimOverrides 1
+animReady	BOTH_PISTOL_IDLE2
+animReadyWalk	BOTH_PISTOL_IDLE2
+animReadyNoAmmo	BOTH_PISTOL_ATTACK
+animAttack BOTH_PISTOL_ATTACK
+animAttackWalk BOTH_PISTOL_ATTACK
 }
 ForceInfo0
 {
@@ -262,15 +264,13 @@ Adaptable 2-life units with staying power.
 - DC-15s Side Arm Blaster (Pistol 1)
 -- 25% faster RoF
 -- 100% slower reload
-- Frag Grenade (1)
-
-^6Default Inventory:
-- Bacta (Instant 50 HP)
+- Frag Grenades (2)
 
 ^8Default Attributes:
 - 100% slower skill CD
 - 15% less KB taken
 - Stamina (2)
+- Health Regen 1/s up to 25
 - Armor Regen: 2/s up to 40
 
 ^3Default Abilities:
