@@ -1,0 +1,166 @@
+Teams
+{
+	team1 Republic
+	team2 Sith
+}
+
+mapgraphic "gfx/mplevels/mb2_cq_enclave/map"
+missionname "Jedi Enclave Conquest"
+MBModesAllowed "0 1 2" //Not to be changed.
+radartopleft "-2304, 4096"
+radarbottomright "5760, -3968"
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_cq_enclave"
+		radargraphicfull "gfx/automap/mb2_cq_enclavefull"
+	}
+}
+
+HelpIcons
+{
+	//Resupply cap neutral
+    HelpIcon0
+    {
+		dynamic 1
+        redicon    HLP_CAPTURE_SUB
+		blueicon   HLP_CAPTURE_SUB
+		specicon   HLP_CAPTURE_SUB
+		sideobjective 1
+    }
+	//Resupply cap red
+    HelpIcon1
+    {
+        dynamic 1
+        redicon    HLP_DEFEND_SUB
+		blueicon   HLP_CAPTURE_SUB
+		specicon   HLP_CAPTURE_SUB
+		sideobjective 1
+    }
+	//Resupply cap blue
+    HelpIcon2
+    {
+        dynamic 1
+        redicon    HLP_CAPTURE_SUB
+		blueicon   HLP_DEFEND_SUB
+		specicon   HLP_DEFEND_SUB
+		sideobjective 1
+    }
+
+}
+
+roundbegin_target ""
+
+countin_time 0
+
+Republic
+{
+	RequiredObjectives 1
+	Timed 900
+	UseTeam "enclave_jedi"							
+	TeamIcon	"gfx/2d/logos/mb_oldrepublic"
+	TeamColorOn "0 0 1 1"
+	TeamColorOff "0 0 .7 1"
+
+	Objective1
+	{
+		goalname ""
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Attack and control the most locations."
+		objgfx "gfx/mplevels/mb2_cq_enclave/obj"
+	}
+	
+	wonround ""
+	lostround ""
+	attackers 1
+
+	briefing "Attack and control the most locations."
+}
+
+Sith
+{
+	RequiredObjectives 1
+	Timed 900
+	UseTeam "enclave_sith"
+	TeamIcon	"gfx/2d/logos/mb_sithempire"
+	TeamColorOn "1 0 0 1"
+	TeamColorOff ".7 0 0 1"
+
+	Objective1
+	{
+		goalname ""
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Attack and control the most locations."
+		objgfx "gfx/mplevels/mb2_cq_enclave/obj"
+	}
+	
+	wonround ""
+	lostround ""
+	attackers 1
+
+	briefing "Attack and control the most locations."
+}
+
+
+CaptureNodes
+{
+	Node1
+	{
+		name	"Hub"									// Reference to entity NameProper or targetname (Should match NameProper)
+		letter	"F 4 10"								// Letter ID + X/Y position
+		iconN	"gfx/mp/symbols/mb_oldrep2sithemp"		// Neutral Icon
+		iconR	"gfx/mp/symbols/mb_oldrepublic2"		// Red Icon
+		iconB	"gfx/mp/symbols/mb_sithempire"			// Blue Icon
+		rect	"262 273 12 16"							// X/Y position  W/H size
+	}
+	Node2
+	{
+		name	"Council"								// Reference to entity NameProper or targetname (Should match NameProper)
+		letter	"E 4 10"								// Letter ID + X/Y position
+		iconN	"gfx/mp/symbols/mb_oldrep2sithemp"		// Neutral Icon
+		iconR	"gfx/mp/symbols/mb_oldrepublic2"		// Red Icon
+		iconB	"gfx/mp/symbols/mb_sithempire"			// Blue Icon
+		rect	"277 320 12 16"							// X/Y position  W/H size
+	}
+	Node3
+	{
+		name	"Garden"								// Reference to entity NameProper or targetname (Should match NameProper)
+		letter	"D 3 10"								// Letter ID + X/Y position
+		iconN	"gfx/mp/symbols/mb_oldrep2sithemp"		// Neutral Icon
+		iconR	"gfx/mp/symbols/mb_oldrepublic2"		// Red Icon
+		iconB	"gfx/mp/symbols/mb_sithempire"			// Blue Icon
+		rect	"320 340 12 16"							// X/Y position  W/H size
+	}
+	Node4
+	{
+		name	"Courtyard"								// Reference to entity NameProper or targetname (Should match NameProper)
+		letter	"C 3 10"								// Letter ID + X/Y position
+		iconN	"gfx/mp/symbols/mb_oldrep2sithemp"		// Neutral Icon
+		iconR	"gfx/mp/symbols/mb_oldrepublic2"		// Red Icon
+		iconB	"gfx/mp/symbols/mb_sithempire"			// Blue Icon
+		rect	"345 288 12 16"							// X/Y position  W/H size
+	}
+	Node5
+	{
+		name	"Upper Exterior"						// Reference to entity NameProper or targetname (Should match NameProper)
+		letter	"B 4 10"								// Letter ID + X/Y position
+		iconN	"gfx/mp/symbols/mb_oldrep2sithemp"		// Neutral Icon
+		iconR	"gfx/mp/symbols/mb_oldrepublic2"		// Red Icon
+		iconB	"gfx/mp/symbols/mb_sithempire"			// Blue Icon
+		rect	"346 204 12 16"							// X/Y position  W/H size
+	}
+	Node6
+	{
+		name	"Lower Exterior"						// Reference to entity NameProper or targetname (Should match NameProper)
+		letter	"A 3 10"								// Letter ID + X/Y position
+		iconN	"gfx/mp/symbols/mb_oldrep2sithemp"		// Neutral Icon
+		iconR	"gfx/mp/symbols/mb_oldrepublic2"		// Red Icon
+		iconB	"gfx/mp/symbols/mb_sithempire"			// Blue Icon
+		rect	"280 219 12 16"							// X/Y position  W/H size
+	}
+}

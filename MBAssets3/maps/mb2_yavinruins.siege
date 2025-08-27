@@ -5,9 +5,46 @@ Teams
 	team1 Rebels
 	team2 Empire
 }
+LevelshotDesc
+{
+    desc1
+    {   
+        text "We have tracked an Imperial patrol through these ruins. They seek an ancient Massassi relic. Scouts found temple records showing how to release and destroy it. Its power is unknown but letting the Empire recover it is too risky. Activate four altars. Hold them off at all costs."
+        
+        rect "410 147 220 55"
+        scale 0.125
+    }
+    desc2
+    {   
+        text "Rebel forces have breached the ruins. The artifact is a high-priority Imperial asset and must not be accessed or removed until Lord Vader arrives to recover it personally. Reinforcements are on their way. Hold this ground no matter what. Failure is not an option."
+        
+        rect "410 258 220 55"
+        scale 0.125
+    }
+}
 
-mapgraphic ""
+mapgraphic "gfx/mp/mplevels/mb2_yavinruins/map"
 missionname  "Yavin Massassi Ruins"
+radartopleft "-1200, 2272"
+radarbottomright "3928, -1228"
+
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/automap/mb2_yavinruins"
+		radargraphicfull "gfx/automap/mb2_yavinruinsfull"
+                height "0"
+	}
+
+	AutoMap1
+	{
+		radargraphic "gfx/automap/mb2_yavinruins1"
+		radargraphicfull "gfx/automap/yavinruins1full"
+		height "-20"
+	}
+
+}
 
 roundbegin_target ""
 //this is a global target, it will be fired off if there is one when the round begins (this happens
@@ -80,7 +117,7 @@ Rebels
 	RequiredObjectives 1	
         Timed 300							//How many objectives must this team complete before winning the round?										//this team has 300 seconds to complete its objectives, otherwise the other team wins.
 	UseTeam "YR_Rebs" 						//Specifies the name of team "theme" to use
-	TeamIcon	"gfx/2d/logos/mb_oldrepublic2"
+	TeamIcon	"gfx/2d/logos/mb_rebel"
 	TeamColorOn	"1 0 0 1"
 	TeamColorOff	".7 0 0 1"	
 	
@@ -90,7 +127,7 @@ Rebels
 		goalname "Empower the Altars."
 		final -1
 		objdesc "ATTACK: Empower the Altars to activate the Artifact."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_yavinruins/obj1"
 	}
 
 	Objective2
@@ -100,7 +137,7 @@ Rebels
 		message_team1 ""
 		message_team2 ""
 		objdesc "ATTACK: Destroy the Artifact."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_yavinruins/obj2"
 	}
 	
 	wonround "We have destroyed the Artifact." 						//Printed to this team if they won the round.
@@ -117,7 +154,7 @@ Empire
 {
 	RequiredObjectives 1
 	UseTeam "YR_Imps"
-	TeamIcon	"gfx/2d/logos/mb_sithempire"
+	TeamIcon	"gfx/2d/logos/mb_empire"
 	TeamColorOn	"0 0 1 1"
 	TeamColorOff	"0 0 .7 1"
 
@@ -128,7 +165,7 @@ Empire
 		message_team1 ""
 		message_team2 ""
 		objdesc "DEFEND: Keep the Rebels away from the Altars."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_yavinruins/obj1"
 	}
 
 
@@ -139,7 +176,7 @@ Empire
 		message_team1 ""
 		message_team2 ""
 		objdesc "DEFEND: Stop the Rebels from destroying the Artifact."
-		objgfx ""
+		objgfx "gfx/mp/mplevels/mb2_yavinruins/obj2"
 	}
 	
 	wonround "We have stopped the Rebel scums."

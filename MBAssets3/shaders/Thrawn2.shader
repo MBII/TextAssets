@@ -32,8 +32,8 @@ models/players/Thrawn2/hips_legs
 
 models/players/Thrawn2/hips_legs_cull
 {
-	cull twosided
 	q3map_nolightmap
+	cull	disable
 	{
 		map models/players/Thrawn2/hips_legs
 		rgbGen lightingDiffuse
@@ -88,7 +88,6 @@ models/players/thrawn2/eye
 
 models/players/Thrawn2/helmet
 {
-	cull	twosided
 	{
 		map models/players/Thrawn2/helmet
 		rgbGen lightingDiffuse
@@ -143,7 +142,6 @@ models/players/Thrawn2/helmet_thing
 
 models/players/Thrawn2/armor_heavy
 {
-	cull	twosided
 	{
 		map models/players/Thrawn2/armor_heavy
 		rgbGen lightingDiffuse
