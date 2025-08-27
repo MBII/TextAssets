@@ -656,7 +656,7 @@ sfx_sabers/saber_trail_darksaber
 
 sfx_sabers/saber_blade_darksaber
 {
-    nopicmip
+    notc
     cull    twosided
 	sort	opaque
     {
@@ -674,7 +674,6 @@ sfx_sabers/saber_blade_darksaber
 
 sfx_sabers/saber_end_darksaber
 {
-	nopicmip
 	cull	twosided
     {
         map sfx_sabers/saber_end_darksaber
@@ -1970,7 +1969,6 @@ models/weapons2/f11d_blaster/F11D_Phasma_Stock
     }
 }
 
-
 // UPL - Merr-Sonn Electromagnetic Pulse Launchers for Clone Jet Trooper
 
 models/weapons2/upl/body
@@ -2025,194 +2023,3 @@ models/weapons2/upl/warhead
         tcMod scroll 0.25 0.25
     }
 }
-
-
-//  Energy Shield
-
-models/weapons2/energyshield/energyshield
-{
-	cull none
-    {
-        map models/weapons2/energyshield/energyshield.tga
-        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
-        alphaFunc GE128
-        rgbGen identity
-    }
-
-    {
-        map models/weapons2/energyshield/energyshield_glow.tga
-        blendFunc GL_ONE GL_ONE
-        glow
-        rgbGen wave sin 0.7 0.3 0 1.5
-    }
-
-    {
-        map models/weapons2/energyshield/energyshield_streaks.tga
-        blendFunc GL_ONE GL_ONE
-        rgbGen identity
-    }
-}
-
-
-// Fusion Cutter - F187
-
-models/weapons2/fc_f187/fca
-{
-    {
-        map models/weapons2/fc_f187/fca
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/fc_f187/fca_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/weapons2/fc_f187/fca/g1
-        blendFunc GL_ONE GL_ONE
-        rgbGen identity
-    }
-    {
-        map models/weapons2/fc_f187/fca/g2
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave square 0 1 0 0.25
-    }
-    {
-        map models/weapons2/fc_f187/fca/g3
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave noise 0.25 0.5 -5 -5
-    }
-}
-
-models/weapons2/fc_f187/fcc
-{
-    {
-        map models/weapons2/fc_f187/fcc
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/fc_f187/fcc_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/weapons2/fc_f187/fcc/g1
-        blendFunc GL_ONE GL_ONE
-        rgbGen identity
-    }
-    {
-        map models/weapons2/fc_f187/fcc/g2
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave square 0 1 0 0.33
-    }
-    {
-        map models/weapons2/fc_f187/fcc/g2
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave square 0 1 0 -0.33
-    }
-    {
-        map models/weapons2/fc_f187/fcc/g3
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave square 0 1 0 0.125
-    }
-}
-
-models/weapons2/fc_f187/fci
-{
-    {
-        map models/weapons2/fc_f187/fci
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/fc_f187/fci_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/weapons2/fc_f187/fci/g1
-        blendFunc GL_ONE GL_ONE
-        rgbGen identity
-    }
-    {
-        map models/weapons2/fc_f187/fci/g2
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave square 0 1 0 0.125
-    }
-    {
-        animMap 5 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g3 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g5 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g5 models/weapons2/fc_f187/fci/g5 models/weapons2/fc_f187/fci/g5 models/weapons2/fc_f187/fci/g5 models/weapons2/fc_f187/fci/g4 models/weapons2/fc_f187/fci/g3 models/weapons2/fc_f187/fci/g3 models/weapons2/fc_f187/fci/g3 models/weapons2/fc_f187/fci/g3 
-        blendFunc GL_ONE GL_ONE
-        rgbGen lightingDiffuse
-    }
-}
-
-models/weapons2/fc_f187/fcr
-{
-    {
-        map models/weapons2/fc_f187/fcr
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/fc_f187/fcr_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-    {
-        map models/weapons2/fc_f187/fcr/g1
-        blendFunc GL_ONE GL_ONE
-        rgbGen identity
-    }
-    {
-        map models/weapons2/fc_f187/fcr/g2
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave random 0.25 1 0 1
-    }
-    {
-        animMap 5 models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g3.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g4.jpg models/weapons2/fc_f187/fcr/g3.jpg 
-        blendFunc GL_ONE GL_ONE
-        rgbGen wave sin 0.9 0.1 0 1
-    }
-}
-
-
-// Imperial Sovereign Protector Double Vibrosword
-
-models/weapons2/sab_hilts/ispdvb/blades
-{
-	q3map_nolightmap
-    {
-        map models/weapons2/sab_hilts/ispdvb/blades
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/sab_hilts/ispdvb/blades_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/weapons2/sab_hilts/ispdvb/base
-{
-	q3map_nolightmap
-    {
-        map models/weapons2/sab_hilts/ispdvb/base
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/weapons2/sab_hilts/ispdvb/base_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-

@@ -44,7 +44,7 @@ textures/mp/cq_border
         blendFunc GL_ONE GL_ONE
         rgbGen vertex
         tcMod scroll -0.1 0
-		detail
+	detail
     }
 }
 
@@ -67,7 +67,7 @@ models/symbols/cq_symbol
         glow
         rgbGen vertex
         tcMod scroll 0 -0.25
-		detail
+	detail
     }
 }
 
@@ -75,161 +75,31 @@ gfx/mp/symbols/mb_tradefed
 {
 	qer_editorimage	gfx/mp/symbols/mb_tradefed
 	nopicmip
+	nomipmaps
     {
         clampmap gfx/mp/symbols/mb_tradefed
-        blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.25 0.5 0.953  )
+        blendFunc GL_ONE GL_ONE
     }
 }
 
 gfx/mp/symbols/mb_naboo
 {
-	qer_editorimage	gfx/mp/symbols/mb_naboo
+	qer_editorimage	gfx/mp/symbols/mb_tradefed
 	nopicmip
+	nomipmaps
     {
-        clampmap gfx/mp/symbols/mb_naboo
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.953 0.378 0.25 )
+        clampmap gfx/mp/symbols/mb_tradefed
+        blendFunc GL_ONE GL_ONE
     }
 }
 
 gfx/mp/symbols/mb_tfednaboo
 {
-	qer_editorimage	gfx/mp/symbols/mb_tfednaboo
+	qer_editorimage	gfx/mp/symbols/mb_tradefed
 	nopicmip
+	nomipmaps
     {
-        clampmap gfx/mp/symbols/mb_tfednaboo
-        blendFunc blend
-		alphagen vertex
-    }
-}
-
-gfx/mp/symbols/mb_rebel
-{
-	qer_editorimage	gfx/mp/symbols/mb_rebel
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_rebel
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.953 0.378 0.25 )
-    }
-}
-
-gfx/mp/symbols/mb_empire
-{
-	qer_editorimage	gfx/mp/symbols/mb_empire
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_empire
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.25 0.5 0.953  )
-    }
-}
-
-gfx/mp/symbols/mb_empirerebel
-{
-	qer_editorimage	gfx/mp/symbols/mb_empirerebel
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_empirerebel
-        blendFunc blend
-		alphagen vertex
-    }
-}
-
-gfx/mp/symbols/mb_oldrepublic2
-{
-	qer_editorimage	gfx/mp/symbols/mb_oldrepublic2
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_oldrepublic2
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.953 0.378 0.25 )
-    }
-}
-
-gfx/mp/symbols/mb_sithempire
-{
-	qer_editorimage	gfx/mp/symbols/mb_sithempire
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_sithempire
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.25 0.5 0.953  )
-    }
-}
-
-gfx/mp/symbols/mb_oldrep2sithemp
-{
-	qer_editorimage	gfx/mp/symbols/mb_oldrep2sithemp
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_oldrep2sithemp
-        blendFunc blend
-		alphagen vertex
-    }
-}
-
-gfx/mp/symbols/mb_ebonhawk
-{
-	qer_editorimage	gfx/mp/symbols/mb_ebonhawk
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_ebonhawk
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.953 0.378 0.25 )
-    }
-}
-
-gfx/mp/symbols/mb_mand
-{
-	qer_editorimage	gfx/mp/symbols/mb_mand
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_mand
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.25 0.5 0.953  )
-    }
-}
-
-gfx/mp/symbols/mb_ebonmand
-{
-	qer_editorimage	gfx/mp/symbols/mb_ebonmand
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_ebonmand
-        blendFunc blend
-		alphagen vertex
-    }
-}
-
-gfx/mp/symbols/mb_czerka
-{
-	qer_editorimage	gfx/mp/symbols/mb_czerka
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_czerka
-		blendFunc blend
-		alphagen vertex
-		rgbgen const ( 0.953 0.378 0.25 )
-    }
-}
-
-gfx/mp/symbols/mb_czerkamand
-{
-	qer_editorimage	gfx/mp/symbols/mb_czerkamand
-	nopicmip
-    {
-        clampmap gfx/mp/symbols/mb_czerkamand
-        blendFunc blend
-		alphagen vertex
+        clampmap gfx/mp/symbols/mb_tradefed
+        blendFunc GL_ONE GL_ONE
     }
 }
