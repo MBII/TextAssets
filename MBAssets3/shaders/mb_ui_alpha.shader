@@ -1322,6 +1322,25 @@ gfx/menus/alpha/Menu_TeamSelect_Team_Lock
 	}
 }
 
+gfx/menus/alpha/Icon_Expand
+{
+	nopicmip
+	{
+		map gfx/menus/alpha/Icon_Expand
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+	}
+}
+
+gfx/menus/alpha/Icon_Contract
+{
+	nopicmip
+	{
+		map gfx/menus/alpha/Icon_Expand
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		tcMod scale	-1.0 1.0
+	}
+}
+
 gfx/menus/MB220Saber
 {
 	nopicmip
