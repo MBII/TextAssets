@@ -2,56 +2,56 @@
 
 ClassInfo
 {
-	name 			"v3_FOMarsh"
-	weapons 		WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER|WP_FRAG_NADE|WP_FIRE_NADE
-	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_PISTOL,1|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_BLASTER,2|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FRAGS,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_BESKAR,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_BLAST_ARMOUR
-	saber1  			phasma_staff_legends
-	saberstyle  		SS_STAFF
-	maxhealth 			100
-	maxarmor      		125
-	classflags CFL_HEAVYMELEE
-	damageTaken 		0.90
-	classNumberLimit  	1
-	MBClass 			MB_CLASS_ARCTROOPER
-	forcepowers			FP_SABER_OFFENSE,3
-	modelscale  		1.08
-	speed				1.0
-	rateoffire			1
-	damageGiven      	1.15
+	name 	"v3_FOMarsh"
+	classNumberLimit  1
+	MBClass 	MB_CLASS_ARCTROOPER
+	
+	weapons 	WP_MELEE|WP_BLASTER_PISTOL|WP_BLASTER|WP_SABER|WP_FRAG_NADE|WP_FIRE_NADE
+	
+	attributes	MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_PISTOL,1|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_BLASTER,2|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_FRAGS,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_BESKAR,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_BLAST_ARMOUR
+	
+	maxhealth 100
+	maxarmor  125
 
-	APmultiplier		1.1
-	CSmultiplier		1.1
-	ASmultiplier		1.1
-	BPmultiplier 		0.9
+	damageTaken 		0.90
+	rateoffire_melee	0.95
+	
 	resource RESOURCE_STAMINA
 	forcepool 100
+	forcepowers	FP_SABER_OFFENSE,3
 	
-	rateoffire_melee	0.95
-	saberdamage 174 //200
-
-	model 				"phasma"
-	skin  				"default"
-	uishader  			"gfx/hud/FA_icons/mb2_icon_phasma"
-
-	model_1				"stormie_tfa"
-	skin_1  			"cardinal"
-	uishader_1  		"models/players/stormie_tfa/mb2_icon_cardinal"
-
-	model_2				"stormie_tfa"
-	skin_2  			"pyre"
-	uishader_2  		"models/players/stormie_tfa/mb2_icon_pyre"
+	saber1  		phasma_staff_legends
+	saberstyle  	SS_STAFF
+	saberdamage 130
+	APmultiplier	1.1
+	CSmultiplier	1.1
+	ASmultiplier	1.1
+	BPmultiplier 	0.9
 	
-	//respawncustomtime 	50000
-	special1			EAS_HI_SPRINT
-	special2 			EAS_MELEE
-	special3			EAS_HI_DEX
+	classflags CFL_HEAVYMELEE
+		
+	uioverlay "gfx/icons/heavy"
+	model 		"phasma"
+	skin  		"default"
+	uishader  	"gfx/hud/FA_icons/mb2_icon_phasma"
+
+	model_1		"stormie_tfa"
+	skin_1  		"cardinal"
+	uishader_1  	"models/players/stormie_tfa/mb2_icon_cardinal"
+
+	model_2		"stormie_tfa"
+	skin_2  		"pyre"
+	uishader_2  	"models/players/stormie_tfa/mb2_icon_pyre"
+	modelscale  		1.08
 	
-	WP_BlasterFlags	HELD_ALTRELOAD|HELD_LOWDAMAGE	
+	special1	EAS_HI_SPRINT
+	special2 EAS_MELEE
+	special3	EAS_HI_DEX
+	
+	WP_BlasterFlags	HELD_ALTRELOAD
 	
 	knockbacktaken 0.8
 	knockbackgiven 0.8
-	
-	uioverlay "gfx/icons/heavy"
 }
 
 WeaponInfo0
@@ -66,9 +66,10 @@ WeaponInfo0
     AltFlashSound0  	"sound/weapons/se-44c/alt_fire.wav"
 	ChargeSound			"sound/weapons/leia_pistol/altcharge.mp3"
 	clipSize		6
-	ReloadTimeModifier 	1.5
+	ReloadTimeModifier 	2
 	customammo 600
 	FPMult	1.15
+	damageMod 1.15
 	rateMod 0.6
 }
 
@@ -76,23 +77,23 @@ WeaponInfo1
 {
 	WeaponToReplace WP_BLASTER
 	WeaponBasedOff  WP_BLASTER
-	NewWorldModel 	"models/weapons2/f11d_blaster/F11D_Phasma_W.glm"
+	NewWorldModel "models/weapons2/f11d_blaster/F11D_Phasma_W.glm"
 	NewViewModel  "models/weapons2/f11d_blaster/F11D_Phasma.md3"
-	Icon  			"gfx/hud/w_icon_f11_p"
+	Icon  		"gfx/hud/w_icon_f11_p"
 	WeaponName  	"F11-D Blaster Rifle"
 	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
+	MissileEffect	 "Blaster/Shot01R"
 	AltMuzzleEffect  "Blaster/MuzzleFlash01R"
 	AltMissileEffect	"Blaster/Shot01R"
-	FlashSound0	    	"sound/weapons/f-11d/fire.mp3"
-	firingAnim  	BOTH_DC15_ATTACK
-	AltFlashSound0	    	"sound/weapons/f-11d/fire.mp3"
-	AltfiringAnim  	BOTH_DC15_ATTACK
-	customAmmo 			1200
-	clipSize			180
-	primFireEnabled			0
-	ReloadTimeModifier 	1.4
+	FlashSound0	    "sound/weapons/f-11d/fire.mp3"
+	AltFlashSound0	"sound/weapons/f-11d/fire.mp3"
+	customAmmo 1200
+	clipSize	180
+	primFireEnabled	0
+	ReloadTimeModifier 1.4
 	rateMod 0.6
+	damageMod 0.65
+	fpmult 0.65
 }
 
 WeaponInfo2
@@ -115,16 +116,16 @@ A hybrid melee/gunner commander with Beskar armor resistance, a spear, and rapid
 - Quicksilver Spear (Staff Saber)
 -- Saber Defense (2)
 -- Cannot block Blasters
--- 33% less DMG
+-- 50% less DMG
 -- 33% wider radius
 -- Slap ^3[CS2]
 - SE-44C Blaster Pistol (1)
 -- 40% faster RoF
--- 15% more FP DMG
--- 50% slower reload
+-- 15% more DMG/FP DMG
+-- 100% slower reload
 - F-11D Blaster Rifle (2)
 -- 40% faster RoF
--- 50% less DMG
+-- 35% less DMG/FP DMG
 -- 40% slower mag reload
 -- Sec. only
 - Frag Grenades (2)

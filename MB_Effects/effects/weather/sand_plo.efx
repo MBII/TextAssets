@@ -1,0 +1,166 @@
+repeatDelay				220
+
+// --- Ambient blowing sand across your view ---
+Particle
+{
+	flags				useAlpha
+	// Wide storm band, evenly filled; world-space motion
+	spawnFlags			absoluteVel orgOnCylinder evenDistribution rgbComponentInterpolation
+
+	// Many small grains
+	count				40 60
+	life				600 900
+	delay				0 40
+	intensity			0.08 0.12
+
+	// Spawn ~3–6 ft in front, low to mid height
+	origin				36 0 -6 72 0 12
+
+	// Broad storm footprint, shallow vertical band
+	radius				48 72
+	height				18 28
+
+	rotation			0 360
+	rotationDelta		-10 10
+
+	// Lateral wind (Y axis) with slight vertical wobble
+	velocity			0 80 -6   0 120 6
+	gravity				-10
+
+	rgb
+	{
+		start			0.74 0.67 0.52   0.70 0.62 0.48
+	}
+
+	alpha
+	{
+		start			0.12 0.18
+		end				0
+		parm			70 90
+		flags			linear
+	}
+
+	size
+	{
+		start			6 10
+		end				3 6
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/WcloudA
+	]
+}
+
+// --- Wind-driven streaks/gusts (gives speed & direction) ---
+Tail
+{
+	flags				useAlpha
+	spawnFlags			cheapOrgCalc absoluteVel orgOnCylinder evenDistribution rgbComponentInterpolation
+
+	count				20 28
+	life				400 600
+	delay				0 120
+
+	// Same storm band position
+	origin				36 0 -4 72 0 10
+
+	// Slightly wider ring for visible gust lanes
+	radius				56 84
+	height				10 22
+
+	// Stronger lateral push; tiny vertical play
+	velocity			0 90 0   0 140 10
+	acceleration		0 -12 0   0 -18 0
+
+	gravity				-12
+
+	rgb
+	{
+		start			0.70 0.64 0.52   0.68 0.60 0.48
+	}
+
+	alpha
+	{
+		start			0
+		end				0.18 0.30
+		parm			2.2 2.8
+		flags			wave
+	}
+
+	size
+	{
+		start			7 11
+		end				12 16
+		flags			linear
+	}
+
+	length
+	{
+		start			20 30
+		end				120 160
+		parm			0.85
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/WcloudA
+	]
+}
+
+// --- Centered wind core (denser, churning column in front) ---
+Particle
+{
+	flags				useAlpha
+	// Tight cylinder core with even fill; axisFromSphere adds directional variation
+	spawnFlags			absoluteVel orgOnCylinder evenDistribution axisFromSphere rgbComponentInterpolation
+
+	count				12 18
+	life				450 700
+	delay				0 60
+	intensity			0.10 0.15
+
+	// Center the core a bit further forward
+	origin				48 0 -2 64 0 2
+
+	// Tight column, taller to read as a “core”
+	radius				8 12
+	height				60 90
+
+	rotation			0 360
+	rotationDelta		-25 25
+
+	// Slight upward movement; lateral swirl hinted via accel
+	velocity			0 0 24   0 0 36
+	// Nudge around the ring to suggest spin (XY curve)
+	acceleration		-28 -40 0   28 40 0
+
+	gravity				-18
+
+	rgb
+	{
+		start			0.72 0.66 0.53   0.69 0.61 0.49
+	}
+
+	alpha
+	{
+		start			0.16 0.24
+		end				0
+		parm			85
+		flags			linear
+	}
+
+	size
+	{
+		start			10 14
+		end				7 10
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/WcloudA
+	]
+}

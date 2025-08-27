@@ -3,70 +3,71 @@
 
 ClassInfo
 {
-	name 				 "h5_DinMando"
-	attributes			MB_ATT_AMMO,3|MB_ATT_FUELREGEN,1|MB_ATT_QUICKTHROW,1|MB_ATT_FUEL,3|MB_ATT_TRACKING_BEACON
-	weapons 			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
-	forcepowers 		FP_SABER_OFFENSE,2
-	maxhealth 			115
-	classNumberLimit  	1
+	name 	"h5_DinMando"
+	MBClass	 MB_CLASS_MANDALORIAN
+	classNumberLimit  1
 	
-	forcepool           30
-	forceregen			1.25
+	attributes	MB_ATT_AMMO,3|MB_ATT_FUELREGEN,1|MB_ATT_QUICKTHROW,1|MB_ATT_FUEL,3|MB_ATT_TRACKING_BEACON
 	
-	model 				"dindjarin"
-	skin  				"jetpack"
-	uishader  			"models/players/dindjarin/mb2_icon_jetpack"
-	MBClass			    MB_CLASS_MANDALORIAN
-	speed				1.05
-	damageGiven         1
+	weapons 		WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
 	
-	maxarmor			50
-	rankArmor			100,150,200
+	forcepowers 	FP_SABER_OFFENSE,2
 	
-	resource			resource_fuel
+	speed		1.05
+	maxhealth 	120
+	resource		RESOURCE_FUEL
+	forcepool    30
+	forceregen	1.25
+	knockbackTaken .8
+	rankKBtaken 0.5,0.25
+	maxarmor	 50
+	rankArmor 100,150,200
 	
-	BPmultiplier		0.9
-	rankBP				1.0,1.1,1.25
+	saberDamage 130
+	BPmultiplier	0.9
+	rankBP		1.0,1.1,1.25
+	APMultiplier	0.9
+	rankAP		1.0,1.1,1.25
+	saber1 		mando_pike_legends
+	saberstyle	SS_STAFF
 	
-	APMultiplier		0.9
-	rankAP				1.0,1.1,1.25
+	holdables HI_BINOCULARS
 	
-	modelscale          1.01
+	gloatAnim     BOTH_VICTORY_FAST
+	flourishAnim 	 BOTH_STAND1_TALK3
 	
+	model 	"dindjarin"
+	skin  	"jetpack"
+	uishader  "models/players/dindjarin/mb2_icon_jetpack"
+	modelscale  1.01
 	uioverlay_r "gfx/icons/aerial"
 	uioverlay_l "gfx/icons/scout"
 	uioverlay_c "gfx/icons/hybrid"
 	
-	saber1 				mando_pike_legends
-	saberstyle			SS_STAFF
-	
-	holdables 			HI_BINOCULARS
-	
-	gloatAnim     BOTH_VICTORY_FAST
-	flourishAnim BOTH_STAND1_TALK3
 	isCustomBuild		1
 	mbPoints			30
 	
 	special1		EAS_HI_WHISTLING_BIRDS
 	//no special 2 fixes this class so that it can wrist laser AND flamethrower! gj goosto
 	special3		EAS_HI_QUICKTHROW
-	special4 		EAS_MELEE
+	special4 	EAS_MELEE
 	
-	c_att_skill_0 	MB_ATT_FP_SABER_DEFENSE
+	c_att_skill_0 MB_ATT_FP_SABER_DEFENSE
 	c_att_names_0	"Saber Defense"
 	c_att_ranks_0	3,3,1
 	
-	c_att_skill_1 	MB_ATT_BP_MULTIPLIER
+	c_att_skill_1 MB_ATT_BP_MULTIPLIER
 	c_att_names_1	"Saber BP (100/110/125%)"
 	c_att_ranks_1	1,1,2
 	
 	c_att_skill_2	MB_ATT_AP_MULTIPLIER
-	c_att_names_2 	"Saber AP (100/110/125%)"
+	c_att_names_2 "Saber AP (100/110/125%)"
 	c_att_ranks_2	1,1,2
 	
 	c_att_skill_3	MB_ATT_PISTOL
 	c_att_names_3	"IB-94 Blaster Pistol"
 	c_att_ranks_3	0,1,3
+	c_att_descs_3 "10% more DMG"
 	
 	c_att_skill_4	MB_ATT_FRAGS
 	c_att_names_4	"Frag Grenades"
@@ -79,6 +80,7 @@ ClassInfo
 	c_att_skill_6	MB_ATT_AMBAN
 	c_att_names_6	"Amban Phase-Pulse Blaster"
 	c_att_ranks_6	2,1,1
+	c_att_descs_6 "25% more DMG, 20% faster velocity"
 	
 	c_att_skill_7	MB_ATT_ARMOUR
 	c_att_names_7	"Armor (100/150/200)"
@@ -88,39 +90,45 @@ ClassInfo
 	c_att_names_8	"Beskar"
 	c_att_ranks_8	2,1,2
 	
-	c_att_skill_9	MB_ATT_JETPACK
-	c_att_names_9	"Jetpack"
-	c_att_ranks_9	3
+	c_att_skill_9	MB_ATT_KB_TAKEN_MULTIPLIER
+	c_att_names_9	"Knockback Taken (50%/25%)"
+	c_att_ranks_9	2,1
 	
-	c_att_skill_10	MB_ATT_WHISTLINGBIRD
-	c_att_names_10	"Whistling Birds ^3[CS1]"
-	c_att_ranks_10	2
+	c_att_skill_10	MB_ATT_JETPACK
+	c_att_names_10	"Jetpack"
+	c_att_ranks_10	3
 	
-	c_att_skill_11	MB_ATT_FLAMETHROWER
-	c_att_names_11	"Flamethrower ^3[CS2 TM]"
-	c_att_ranks_11	2
+	c_att_skill_11	MB_ATT_WHISTLINGBIRD
+	c_att_names_11	"Whistling Birds ^3[CS1]"
+	c_att_ranks_11	2,2,2
 	
-	c_att_skill_12	MB_ATT_WRISTLASER
-	c_att_names_12	"Wrist Laser ^3[CS2 TM]"
+	c_att_skill_12	MB_ATT_FLAMETHROWER
+	c_att_names_12	"Wrist Flamethrower ^3[CS2 TM]"
 	c_att_ranks_12	2
+	c_att_descs_12 	"Toggle Melee Weapon Mode to swap Wrist Flamethrower/Laser"
+	
+	c_att_skill_13	MB_ATT_WRISTLASER
+	c_att_names_13	"Wrist Laser ^3[CS2 TM]"
+	c_att_ranks_13	2
+	c_att_descs_13 	"Toggle Melee Weapon Mode to swap Wrist Laser/Flamethrower"
 }
 
 WeaponInfo0
 {
 	WeaponToReplace WP_BLASTER_PISTOL
-	WeaponBasedOff  WP_BOWCASTER
+	WeaponBasedOff  WP_BLASTER_PISTOL
 	NewWorldModel "models/weapons2/mando_pistol/mando_pistol.glm"
 	NewViewModel  "models/weapons2/mando_pistol/pistol.md3"
 	WeaponName  "IB-94 Blaster Pistol"
 	ChargeSound			"sound/weapons/leia_pistol/altcharge.mp3"
 	Icon        "gfx/hud/w_icon_mandopistol"
 	hasAnimOverrides 1
-	animReady BOTH_STAND4TOATTACK2
-	animReadyWalk BOTH_STAND4TOATTACK2
-	animReadyNoAmmo BOTH_PISTOL_ATTACK
-	animAttack BOTH_PISTOL_ATTACK
-	animAttackWalk BOTH_PISTOL_ATTACK
-	animStand BOTH_STAND9
+	animReady BOTH_MAND_PISTOL_READY
+	animReadyWalk BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo BOTH_MAND_PISTOL_ATTACK
+	animAttack BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk BOTH_MAND_PISTOL_ATTACK
+	animCharge BOTH_MAND_PISTOL_ATTACK
 	CustomAmmo		792
 	clipSize 24
 	damageMod 1.1
@@ -143,7 +151,7 @@ WeaponInfo2
 	NewWorldModel "models/weapons2/mando_rifle/mando_rifle.glm"
 	NewViewModel  "models/weapons2/mando_rifle/mando_rifle.md3"
 	Icon  "gfx/hud/w_icon_mandorifle"
-	WeaponName  "Amban Phase-Pulse Blaster"
+	WeaponName  "Din's Amban Phase-Pulse Blaster"
 	velocityMod 1.2
 	damageMod 1.25
 }
@@ -158,6 +166,7 @@ A hybrid Melee fighter who can spec into weapons, Mandalorian abilities, damage 
 -- Saber Defense (0)
 -- Cannot block Blasters
 -- 25% longer reach
+-- 50% less DMG
 -- 33% wider radius
 -- Slap ^3[CS4]
 - IB-94 Blaster Pistol (1)
@@ -167,14 +176,9 @@ A hybrid Melee fighter who can spec into weapons, Mandalorian abilities, damage 
 - Electrobinoculars
 
 ^8Default Attributes:
+- 20% less KB taken
 - Fuel Regen (1)
 - Tracking Beacon
 
 ^3Default Abilities:
-- Quick-Throw (1) ^3[CS3]
-
-^9Point Buy Info:
-- Amban Phase-Pulse Blaster
--- 25% more DMG
--- 20% faster velocity
-- Flamethrower/Wrist Laser ^3[Toggle Melee]"
+- Quick-Throw (1) ^3[CS3]"
