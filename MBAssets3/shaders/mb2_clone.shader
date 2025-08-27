@@ -1461,6 +1461,12 @@ models/players/MB2_Clones/visor_elite
 		detail
         tcGen environment
     }
+    {
+       map models/players/MB2_Clones/visor_elite
+       blendFunc GL_ONE GL_ONE
+       detail
+       glow
+    }
 }
 
 // Armor (63)

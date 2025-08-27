@@ -8,8 +8,8 @@
 		rect					259 60 163 371
 		focusColor				1 1 1 1
 		descX					320
-		descY					440.25
-		descScale				0.14
+		descY					445
+		descScale				0.8
 		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		stayOpen
@@ -60,16 +60,31 @@
 		// Skills title
 		itemDef
 		{
+			name				forceranktitle
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_POWER
+			rect 8 25 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
 			name				forceranktitle2
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
-			text2 				@MENUS_POWER
 			text				@MENUS_1_2_3
 			rect 113 25 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			1
 			textaligny			-5
-			text2alignx -106
 			font				6
 			textscale			0.15
 			forecolor			1 1 1 0.8
@@ -78,6 +93,23 @@
 		}
 
 		// SPECIFIC CLASS ABILITIES
+		// Pistol title
+		itemDef
+		{
+			name				setfp_jump
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Pistol"
+			rect 8 45 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		itemDef
 		{
@@ -85,15 +117,17 @@
 			group				pointssetup
 			rect				113 45 14 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "1"
 				open			mb_weapon_pistol
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_pistol
 			}
@@ -105,15 +139,17 @@
 			group				pointssetup
 			rect				127 45 14 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "2"
 				open			mb_weapon_pistol
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_pistol
 			}
@@ -127,30 +163,46 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LEVITATION
 			rect 8 45 147 18
-			text " "
-            noTextBlink 1
-			text2 "Pistol"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
 			textscale			0.15
 			forecolor			1 1 1 0.8
-			descText			"Unlock a charged shot for your Pistol"
+			descText			"Add a charge shot"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 44 147 20
-				setcolor	forecolor 1 1 1 1
+				setitemcolor	setfp_jump forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor	forecolor 1 1 1 0.8
+				setitemcolor	setfp_jump forecolor 1 1 1 0.8
 			}
+		}
+
+		// E-11 Blaster title
+		itemDef
+		{
+			name				setfp_push
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"E-11 Blaster"
+			rect 8 65 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		itemDef
@@ -159,15 +211,17 @@
 			group				pointssetup
 			rect				113 65 14 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "1"
 				open			mb_weapon_e11
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_e11
 			}
@@ -179,15 +233,17 @@
 			group				pointssetup
 			rect				127 65 14 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "2"
 				open			mb_weapon_e11
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_e11
 			}
@@ -199,15 +255,17 @@
 			group				pointssetup
 			rect				141 65 13 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "3"
 				open			mb_weapon_e11
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_e11
 			}
@@ -221,30 +279,47 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
 			rect 8 65 147 18
-			text " "
-            noTextBlink 1
-			text2 "E-11 Blaster"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
 			textscale			0.15
 			forecolor			1 1 1 0.8
 			descText			"Add alt-fire mode, and improve accuracy, damage of alt-fire and weapon clip size"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 64 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemcolor	setfp_push forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_push forecolor 1 1 1 0.8
 			}
+		}
+
+		// A280 title
+		itemDef
+		{
+			name				setfp_mindtrick
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"A280"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 85 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		itemDef
@@ -253,15 +328,17 @@
 			group				pointssetup
 			rect				113 85 14 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "1"
 				open			mb_weapon_a280
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_a280
 			}
@@ -273,15 +350,17 @@
 			group				pointssetup
 			rect				127 85 14 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "2"
 				open			mb_weapon_a280
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_a280
 			}
@@ -293,15 +372,17 @@
 			group				pointssetup
 			rect				141 85 13 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "3"
 				open			mb_weapon_a280
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_a280
 			}
@@ -315,30 +396,46 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TELEPATHY
 			rect 8 85 147 18
-			text " "
-            noTextBlink 1
-			text2 "A280"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
 			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"A heavy blaster, improve accuracy and add burst fire mode, also adds a scope"
+			descText			"A heavy blaster, improve accuracy and add burst fire mode, and add a scope"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 84 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_mindtrick forecolor 1 1 1 0.8
 			}
+		}
+
+		// Frag Grenade title
+		itemDef
+		{
+			name				setfp_saberthrow
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Frag Grenade"
+			rect 8 105 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		itemDef
@@ -347,14 +444,16 @@
 			group				pointssetup
 			rect				113 105 27 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				open			mb_weapon_fraggrenade
 			}
-			mouseExit {
+			mouseExit
+			{
 				close			mb_weapon_fraggrenade
 			}
 		}
@@ -367,30 +466,46 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERTHROW
 			rect 8 105 147 18
-			text " "
-            noTextBlink 1
-			text2 "Frag Grenade"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
 			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Buy Frag Grenades with high damage primary fire and instantly exploding alt-fire"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 104 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemcolor	setfp_saberthrow forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberthrow forecolor 1 1 1 0.8
 			}
+		}
+
+		// Sonic Detonator title
+		itemDef
+		{
+			name				setfp_protect
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Sonic Detonator"
+			rect				8 125 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		itemDef
@@ -399,14 +514,16 @@
 			group				pointssetup
 			rect				113 125 27 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				open			mb_weapon_sonicgrenade
 			}
-			mouseExit {
+			mouseExit
+			{
 				close			mb_weapon_sonicgrenade
 			}
 		}
@@ -419,32 +536,47 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PROTECT
 			rect 8 125 147 18
-			text " "
-            noTextBlink 1
-			text2 "Sonic Detonator"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
 			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"Buy Sonic Detonators, which stun enemies caught in the blast radius\nand also have a mine mode"
+			descText			"Buy Sonic Detonators which stun enemies caught in the blast radius and have a mine mode"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 124 147 20
-				setcolor	forecolor 1 1 1 1
+				setitemcolor	setfp_protect forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor	forecolor 1 1 1 0.8
+				setitemcolor	setfp_protect forecolor 1 1 1 0.8
 			}
 		}
 
+		// Reinforcement title
+		itemDef
+		{
+			name				setfp_absorb
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Reinforcement"
+			rect 8 155 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		// Reinforcement assign
 		itemDef
@@ -454,30 +586,45 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_ABSORB
 			rect 8 155 147 18
-			text " "
-            noTextBlink 1
-			text2 "Reinforcement"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
-			textscale			.15
+			textalignx			105
 			textaligny			-5
 			forecolor			1 1 1 0.8
-			descText			"Allows you to have an extra life in a round"
+			descText			"Allows you to have an extra life in one round"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 154 147 20
-				setcolor	forecolor 1 1 1 1
+				setitemcolor	setfp_absorb forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor	forecolor 1 1 1 0.8
+				setitemcolor	setfp_absorb forecolor 1 1 1 0.8
 			}
+		}
+
+		// Rally title
+		itemDef
+		{
+			name				setfp_pull
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Rally"
+			rect 8 175 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		// Rally assign
@@ -488,30 +635,46 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PULL
 			rect 8 175 147 18
-			text " "
-            noTextBlink 1
-			text2 "Rally"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
-			textscale			.15
+			textalignx			105
 			textaligny			-5
 			forecolor			1 1 1 0.8
 			descText			"Allows you to rally Soldiers to your location"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 174 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemcolor	setfp_pull forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_pull forecolor 1 1 1 0.8
 			}
+		}
+
+		// Dodge title
+		itemDef
+		{
+			name				setfp_healself
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Dodge [CS1]"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 195 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		// Dodge title
@@ -522,30 +685,47 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_HEAL
 			rect 8 195 147 18
-			text " "
-            noTextBlink 1
-			text2 "Dodge [CS1]"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.9
 			forecolor			1 1 1 0.8
 			descText			"Increases your reflexes and allows you to dodge incoming sniper fire"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 194 147 20
-				setcolor	forecolor 1 1 1 1
+				setitemcolor	setfp_healself forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor	forecolor 1 1 1 0.8
+				setitemcolor	setfp_healself forecolor 1 1 1 0.8
 			}
+		}
+
+		// Armour title
+		itemDef
+		{
+			name				setfp_saberattack
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Armour"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 225 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		// Armour assign
@@ -556,31 +736,48 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
 			rect 8 225 147 18
-			text " "
-            noTextBlink 1
-			text2 "Armour"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
 			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Increase your armour strength"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
 
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 224 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemcolor	setfp_saberattack forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberattack forecolor 1 1 1 0.8
 			}
+		}
+
+		// Ammo title
+		itemDef
+		{
+			name				setfp_saberdefend
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Ammo"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 8 245 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		// Ammo assign
@@ -591,29 +788,27 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
 			rect 8 245 147 18
-			text " "
-            noTextBlink 1
-			text2 "Ammo"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
 			textscale			.15
 			forecolor			1 1 1 0.8
 			descText			"Increase your ammo store for all your weapons"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 244 147 20
-				setcolor	forecolor 1 1 1 1
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor	forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 0.8
 			}
 		}
 	}

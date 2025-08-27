@@ -4,10 +4,9 @@
 	{
 		name					"ingame_about"
 		fullScreen				0// MENU_TRUE
-		rect					93 50 454 418
+		rect					93 50 554 418//454 418
 		visible					0
 		focusColor				1 1 1 0.6
-		disableColor			0.5 0.5 0.5 1
 		appearanceIncrement		75
 		descX					320
 		descY					383
@@ -25,7 +24,6 @@
 		{
 			uiscript				conquestnames
 			uiscript				conquestteams
-			uiscript				conquestnodes
 			
 			setcvar					currentObjButton "null"
 			exec					"siegeCompleteCvarUpdate"
@@ -43,8 +41,6 @@
 			show					obj_minidesc
 			show					obj_longdesc
 			show					objective_pic
-			hide					nodelist
-			hide					SpawnListButton_Expanded
 			// change color and stext of mini desc
 			setitemtext				obj_minidesc @MENUS_OBJECTIVE_1
 			//change text of long desc
@@ -53,16 +49,12 @@
 			setitembackground		objective_pic	"*team1_objective1_gfx"
 			// Show new map icon
 			setitembackground		tm1_icon1	"*team1_objective1_mapicon"
-			// Reset backgrounds
-			setitembackground		SpawnExpand	"gfx/menus/alpha/Icon_Expand"
 			// Reset all buttons to their normal colors
 			setitemcolor			team1obj_buttons forecolor .75 .75 .75 1
 			setitemcolor			team1obj_buttons backcolor 1 1 1 0.1
 			setitemcolor			team2obj_buttons forecolor .75 .75 .75 1
 			setitemcolor			team2obj_buttons backcolor 1 1 1 0.1
-			setitemcolor			mapicons	bordercolor	0 0 0 0
-			// Reset all rects
-			setitemrect				SpawnExpand 11 208 10 15
+			setitemcolor			mapicons	bordercolor	0 0 0 0 
 			// Disable current button and give it a border
 			setitemcolor			team1obj1_button	bordercolor 1 1 1 1
 			setitemcolor			team1obj1_button	backcolor 1 1 1 0.25
@@ -116,7 +108,7 @@
 			style				WINDOW_STYLE_SHADER
 			rect				9 12 188 40
 			background			"gfx/menus/alpha/Mission_Teamback"
-			forecolor			0.93 0.11 0.14 0.1
+			forecolor			0 0.68 0.93 0.1
 			visible				1
 			decoration
 		}
@@ -128,7 +120,7 @@
 			style				WINDOW_STYLE_SHADER
 			rect				257 12 -188 40
 			background			"gfx/menus/alpha/Mission_Teamback"
-			forecolor			0 0.68 0.93 0.1
+			forecolor			0.93 0.11 0.14 0.1
 			visible				1
 			decoration
 		}
@@ -182,12 +174,10 @@
 			cvar				"ui_Authenticity"
 			cvarFloatList
 			{
-				"@MENUS_MODE_OPEN"					0
-				"@MENUS_MODE_SEMI_AUTHENTIC"		1
-				"@MENUS_MODE_FULL_AUTHENTIC"		2
-				"@MENUS_MODE_DUEL"					3
-				"@MENUS_MODE_LEGENDS"				4
-				"@MENUS_MODE_SUPREMACY"				5
+				"Open Mode"				0
+				"Semi-Authentic"		1
+				"Full Authentic"		2
+				"Duel Mode"				3
 			}
 			textalign			ITEM_ALIGN_CENTER
 			textalignx			30
@@ -1253,7 +1243,7 @@
 			name				mappic
 			group				none
 			style				WINDOW_STYLE_MAP_RGB1
-			rect				9 109 423 212
+			rect				9 109 423 212//9 117 423 212//
 			forecolor			1 1 1 1
 			visible				1
 			decoration
@@ -1263,7 +1253,7 @@
 		itemDef
 		{
 			name				mappic_zoomin
-			rect				398 114 15 20
+			rect				398 114 15 20//398 122 15 20//
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Icon_ZoomIn"
 			forecolor			1 1 1 0.6
@@ -1274,7 +1264,7 @@
 		itemDef
 		{
 			name				mappic_zoomout
-			rect				415 114 15 20
+			rect				415 114 15 20//415 122 15 20//
 			style				WINDOW_STYLE_SHADER
 			background			"gfx/menus/alpha/Icon_ZoomOut"
 			forecolor			1 1 1 0.6
@@ -1319,7 +1309,7 @@
 			name				legend
 			group				none
 			style				WINDOW_STYLE_FILLED
-			rect				9 338 243 71
+			rect				9 334 243 71
 			forecolor			1 1 1 1
 			backcolor			1 1 1 1
 			visible				1
@@ -1330,7 +1320,7 @@
 		itemDef
 		{
 			name				aboutserver
-			rect				257 338 188 10
+			rect				257 334 188 10
 			style 				WINDOW_STYLE_TEXT_RGB1
 			type				4
 			text				""
@@ -1349,7 +1339,7 @@
 		itemDef
 		{
 			name				aboutserver
-			rect				257 348 188 10
+			rect				257 344 188 10
 			style 				WINDOW_STYLE_TEXT_RGB1
 			type				4
 			text				""
@@ -1368,7 +1358,7 @@
 		itemDef
 		{
 			name				aboutserver
-			rect				257 364 188 10
+			rect				257 360 188 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_MAP_NAME
@@ -1386,7 +1376,7 @@
 		itemDef
 		{
 			name				about
-			rect				257 374 188 10
+			rect				257 370 188 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_MAXIMUM_PLAYERS
@@ -1404,7 +1394,7 @@
 		itemDef
 		{
 			name				about
-			rect				257 384 94 10
+			rect				257 380 94 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				"Round Limit:"
@@ -1424,7 +1414,7 @@
 		itemDef
 		{
 			name				about
-			rect				351 384 94 10
+			rect				351 380 94 10
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				@MENUS_FRAG_LIMIT
@@ -1444,7 +1434,7 @@
 		itemDef
 		{
 			name				about
-			rect				257 394 188 15
+			rect				257 390 188 15
 			type				4
 			style 				WINDOW_STYLE_TEXT_RGB1
 			text				""
@@ -1460,93 +1450,27 @@
 			decoration
 		}
 		
-		itemDef
-		{
-			name		SpawnExpand
-			group		conquest
-			style		WINDOW_STYLE_FILLED
-			background	"gfx/menus/alpha/Icon_Expand"
-			rect		11 208 10 15
-			backcolor	1 1 1 1
-			descText	""
-			visible		0
-		}
 		
-		itemDef
-		{
-			name		SpawnListButton_Collapsed
-			group		conquest
-			type		ITEM_TYPE_BUTTON
-			style		WINDOW_STYLE_FILLED
-			rect		9 109 13 212
-			backcolor	1 1 1 0.1
-			descText	""
-			visible		0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.5
-				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.1
-				show			SpawnListButton_Expanded
-				show			nodelist
-				hide			SpawnListButton_Collapsed
-				setitemrect		SpawnExpand 111 208 10 15
-				setitembackground SpawnExpand	"gfx/menus/alpha/Icon_Contract"
-			}
-			mouseenter
-			{
-				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.1
-			}
-		}
-
-		itemDef
-		{
-			name		SpawnListButton_Expanded
-			group		conquest
-			type		ITEM_TYPE_BUTTON
-			style		WINDOW_STYLE_FILLED
-			rect		109 109 13 212
-			backcolor	1 1 1 0.1
-			descText	""
-			visible		0
-			action
-			{
-				play			"sound/interface/back.mp3"
-				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.5
-				setitemcolor	SpawnListButton_Collapsed		backcolor	1 1 1 0.1
-				hide			SpawnListButton_Expanded
-				hide			nodelist
-				show			SpawnListButton_Collapsed
-				setitemrect		SpawnExpand 11 208 10 15
-				setitembackground SpawnExpand	"gfx/menus/alpha/Icon_Expand"
-			}
-			mouseenter
-			{
-				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				setitemcolor	SpawnListButton_Expanded		backcolor	1 1 1 0.1
-			}
-		}
+		
 		
 		itemDef
 		{
 			name			nodelist
 			group			conquest
-			rect			9 109 100 212
+			rect			10 323 150 85//76
 			type			ITEM_TYPE_LISTBOX
-			elementwidth	70
+			//style			WINDOW_STYLE_LISTBOX_RGB1
+			elementwidth	120
 			elementheight	16
-			font			6
+			font			2
 			textaligny		16
-			textscale		.125
+			textscale		.7
+			border			1
+			bordersize		1
+			bordercolor		1 1 1 1
 			forecolor		0.9 0.9 0.9 1
-			backcolor		0 0 0 .5
+			backcolor		0 0 .5 .25
+			outlinecolor	.5 .5 .5 .5
 			elementtype		LISTBOX_TEXT
 			feeder			FEEDER_CONQUEST
 			//descText		"Select a spawn point."
@@ -1556,24 +1480,30 @@
 			{
 				play		"sound/interface/button1.wav"
 			}
+			mouseEnter
+			{
+				setitemcolor	nodelist bordercolor2 1 1 1 1
+			}
+			mouseExit
+			{
+				setitemcolor	nodelist bordercolor1 0.1 0.7 1 0.9
+			}
 		}
+
 		
 		itemDef
 		{
 			name		selectSpawn
 			group		conquest
-			text		"@MENUS_CONQUEST_SET_SPAWN"
-			type		ITEM_TYPE_BUTTON
-			style		WINDOW_STYLE_FILLED
-			textstyle	WINDOW_STYLE_TEXT_RGB2
-			background	"gfx/menus/alpha/Btn2_Bg"
-			rect		135 320 80 15
-			textalign	ITEM_ALIGN_CENTER
-			textalignx	40
-			textaligny	-7
+			text		"Select Spawn" //@MENUS_FORCE_TEMPLATES
+			type		1
+			style		WINDOW_STYLE_TEXT_RGB2
+			rect		165 340 75 20
+			textalign	ITEM_ALIGN_LEFT
+			textalignx	0
+			textaligny	-4
 			font		7
 			textscale	.15
-			backcolor	1 1 1 0.1
 			forecolor	1 1 1 1
 			descText	""
 			visible		0
@@ -1581,15 +1511,6 @@
 			{
 				play	"sound/interface/button1.wav"
 				uiscript setCqtSpawn
-				setitemcolor	selectSpawn			backcolor	1 1 1 0.5
-			}
-			mouseenter
-			{
-				setitemcolor	selectSpawn			backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				setitemcolor	selectSpawn			backcolor	1 1 1 0.1
 			}
 		}
 		
@@ -1597,18 +1518,15 @@
 		{
 			name		removeSpawn
 			group		conquest
-			text		"@MENUS_CONQUEST_REMOVE_SPAWN"
-			type		ITEM_TYPE_BUTTON
-			style		WINDOW_STYLE_FILLED
-			textstyle	WINDOW_STYLE_TEXT_RGB2
-			background	"gfx/menus/alpha/Btn2_Bg"
-			rect		225 320 80 15
-			textalign	ITEM_ALIGN_CENTER
-			textalignx	40
-			textaligny	-7
+			text		"Remove Spawn" //@MENUS_FORCE_TEMPLATES
+			type		1
+			style		WINDOW_STYLE_TEXT_RGB2
+			rect		165 370 75 20
+			textalign	ITEM_ALIGN_LEFT
+			textalignx	0
+			textaligny	-4
 			font		7
 			textscale	.15
-			backcolor	1 1 1 0.1
 			forecolor	1 1 1 1
 			descText	""
 			visible		0
@@ -1616,358 +1534,23 @@
 			{
 				play	"sound/interface/button1.wav"
 				uiscript rmCqtSpawn
-				setitemcolor	removeSpawn			backcolor	1 1 1 0.5
-			}
-			mouseenter
-			{
-				setitemcolor	removeSpawn			backcolor	1 1 1 0.3
-			}
-			mouseExit
-			{
-				setitemcolor	removeSpawn			backcolor	1 1 1 0.1
 			}
 		}
 		
-		// Conquest Nodes
+		
+		// Legend
 		itemDef
 		{
-			name				node10
-			group				nodes
-			type				ITEM_TYPE_BUTTON
+			name				legendCqt
+			group				conquest
 			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
+			rect				300 54 180 51//9 334 243 71
+			forecolor			1 1 1 1
 			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node10
-			}
+			visible				0
+			decoration
+			background			"gfx/menus/mission_legend"
 		}
-		itemDef
-		{
-			name				node11
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node11
-			}
-		}
-		itemDef
-		{
-			name				node12
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node12
-			}
-		}
-		itemDef
-		{
-			name				node13
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node13
-			}
-		}
-		itemDef
-		{
-			name				node14
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node14
-			}
-		}
-		itemDef
-		{
-			name				node15
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node15
-			}
-		}
-		itemDef
-		{
-			name				node16
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node16
-			}
-		}
-		itemDef
-		{
-			name				node17
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node17
-			}
-		}
-		itemDef
-		{
-			name				node18
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node18
-			}
-		}
-		itemDef
-		{
-			name				node19
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node19
-			}
-		}
-		itemDef
-		{
-			name				node20
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node20
-			}
-		}
-		itemDef
-		{
-			name				node21
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node21
-			}
-		}
-		itemDef
-		{
-			name				node22
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node22
-			}
-		}
-		itemDef
-		{
-			name				node23
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node23
-			}
-		}
-		itemDef
-		{
-			name				node24
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node24
-			}
-		}
-		itemDef
-		{
-			name				node25
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node25
-			}
-		}
-		itemDef
-		{
-			name				node26
-			group				nodes
-			type				ITEM_TYPE_BUTTON
-			style				WINDOW_STYLE_FILLED
-			forecolor			0.75 0.75 0.75 1
-			backcolor			1 1 1 1
-			border				0
-			bordercolor			1 0.78 0 1
-			font				7
-			textscale			0.125
-			textstyle			ITEM_TEXTSTYLE_SHADOWED
-			visible 			0
-			action
-			{
-				play			"sound/interface/button1.wav"
-				uiscript		node26
-			}
-		}
+		
 	}
 }

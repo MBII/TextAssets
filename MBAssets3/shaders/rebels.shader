@@ -810,6 +810,21 @@ models/players/rebel_partisan/torso_b
 
 // rebel_pathfinder
 
+models/players/rebel_pathfinder/head
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder/head
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/rebel_pathfinder/head_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
 models/players/rebel_pathfinder/hands
 {
 	q3map_nolightmap
@@ -825,15 +840,32 @@ models/players/rebel_pathfinder/hands
     }
 }
 
-models/players/rebel_pathfinder/head
+models/players/rebel_pathfinder/torso_vest
 {
 	q3map_nolightmap
     {
-        map models/players/rebel_pathfinder/head
+        map models/players/rebel_pathfinder/torso_vest
+        blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/rebel_pathfinder/head_spec
+        map models/players/cassian/torso_vest_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/rebel_pathfinder/torso_vestc
+{
+	q3map_nolightmap
+    {
+        map models/players/rebel_pathfinder/torso_vestc
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/cassian/torso_vest_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
@@ -857,10 +889,31 @@ models/players/rebel_pathfinder/helmet
 	}
 }
 
-models/players/rebel_pathfinder/legs
+models/players/rebel_pathfinder/helmetb
+{	  
+	cull	twosided
+	q3map_nolightmap
+	q3map_onlyvertexlighting
+	{
+		map models/players/rebel_pathfinder/helmetb
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_guerilla/helmet_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// rebel_pathfinder2
+
+models/players/rebel_pathfinder2/legs
 {
 	{
-		map models/players/rebel_pathfinder/legs
+		map models/players/rebel_pathfinder2/legs
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -872,10 +925,10 @@ models/players/rebel_pathfinder/legs
 	}
 }
 
-models/players/rebel_pathfinder/legs_desert
+models/players/rebel_pathfinder2/legs_desert
 {
 	{
-		map models/players/rebel_pathfinder/legs_desert
+		map models/players/rebel_pathfinder2/legs_desert
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -887,10 +940,10 @@ models/players/rebel_pathfinder/legs_desert
 	}
 }
 
-models/players/rebel_pathfinder/legs_urban
+models/players/rebel_pathfinder2/legs_urban
 {
 	{
-		map models/players/rebel_pathfinder/legs_urban
+		map models/players/rebel_pathfinder2/legs_urban
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
@@ -902,11 +955,11 @@ models/players/rebel_pathfinder/legs_urban
 	}
 }
 
-models/players/rebel_pathfinder/torso
+models/players/rebel_pathfinder2/torso
 {
 	q3map_nolightmap
     {
-        map models/players/rebel_pathfinder/torso
+        map models/players/rebel_pathfinder2/torso
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -918,11 +971,11 @@ models/players/rebel_pathfinder/torso
     }
 }
 
-models/players/rebel_pathfinder/torso_desert
+models/players/rebel_pathfinder2/torso_desert
 {
 	q3map_nolightmap
     {
-        map models/players/rebel_pathfinder/torso_desert
+        map models/players/rebel_pathfinder2/torso_desert
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -934,11 +987,11 @@ models/players/rebel_pathfinder/torso_desert
     }
 }
 
-models/players/rebel_pathfinder/torso_urban
+models/players/rebel_pathfinder2/torso_urban
 {
 	q3map_nolightmap
     {
-        map models/players/rebel_pathfinder/torso_urban
+        map models/players/rebel_pathfinder2/torso_urban
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }

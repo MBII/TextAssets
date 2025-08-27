@@ -8,8 +8,8 @@
 		rect					259 60 163 371
 		focusColor				1 1 1 1
 		descX					320
-		descY					440.25
-		descScale				0.14
+		descY					445
+		descScale				0.8
 		descColor				1 1 1 1
 		descAlignment			ITEM_ALIGN_CENTER
 		stayOpen
@@ -65,16 +65,31 @@
 		// Skills title
 		itemDef
 		{
+			name				forceranktitle
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB1
+			text				@MENUS_POWER
+			rect 				8 25 0 0
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
 			name				forceranktitle2
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB1
-			text2 				@MENUS_POWER
 			text				@MENUS_1_2_3
-			rect 113 25 0 0
+			rect 				113 25 0 0
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			1
 			textaligny			-5
-			text2alignx -106
 			font				6
 			textscale			0.15
 			forecolor			1 1 1 0.8
@@ -83,6 +98,23 @@
 		}
 
 		// SPECIFIC CLASS ABILITIES
+		// Pistol title
+		itemDef
+		{
+			name				setfp_jump
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Clone Pistol"
+			rect 				8 45 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		itemDef
 		{
@@ -90,15 +122,17 @@
 			group				pointssetup
 			rect				113 45 14 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "1"
 				open			mb_weapon_clonepistol
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_clonepistol
 			}
@@ -110,15 +144,17 @@
 			group				pointssetup
 			rect				127 45 13 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "2"
 				open			mb_weapon_clonepistol
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_clonepistol
 			}
@@ -132,31 +168,47 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_LEVITATION
 			rect 				8 45 147 18
-			text " "
-			text2 "Clone Pistol"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.25
 			forecolor			1 1 1 0.8
-			descText			"Unlock a charged bounce shot to your Clone Pistol"
+			descText			"Add a charge bounce shot"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 44 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemcolor	setfp_jump forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_jump forecolor 1 1 1 0.8
 			}
 		}
 
+		// Clone Carbine title
+		itemDef
+		{
+			name				setfp_speed
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Clone Carbine"
+			rect 				8 65 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 		
 		// Clone Carbine assign
 		itemDef
@@ -166,80 +218,68 @@
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SPEED
 			rect 				8 65 147 18
-			text " "
-			text2 "Clone Carbine"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.25
 			forecolor			1 1 1 0.8
-			descText			"Buy a DC-15 Carbine, weapon commonly used during Clone Wars.\nHigher levels unlock a stun blast secondary fire, and increased clip size"
+			descText			"Adds secondary fire and makes primary more ammo efficient"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
 				setitemrect		button_glow	8 64 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemcolor	setfp_speed forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_speed forecolor 1 1 1 0.8
 			}
 		}
 
-		// Minigun assign
+		// Minigun title 85
+		// Minigun assign 85
+
+		// Clone Rifle title
 		itemDef
 		{
-			name				setfp_pull
+			name				setfp_push
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
-			ownerdraw			UI_FORCE_RANK_PULL
+			text				"Clone Rifle"
 			rect 				8 85 147 18
-			text " "
-			text2 "Minigun"
-			font 6
-			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			0
 			textaligny			-5
-			textscale			.15
+			font				6
+			textscale			0.15
 			forecolor			1 1 1 0.8
-			descText			"Increases rate of fire"
 			visible				1
-			action {
-				play			"sound/interface/button1.wav"
-			}
-			mouseenter {
-				show			button_glow
-				setitemrect		button_glow	8 84 147 20
-				setcolor		forecolor 1 1 1 1
-			}
-			mouseExit {
-				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
-			}
+			decoration
 		}
-
 
 		itemDef
 		{
 			name				Info_CloneRifle_1
 			group				pointssetup
-			rect				113 105 14 19
+			rect				113 85 14 19
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "1"
 				open			mb_weapon_clonerifle
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_clonerifle
 			}
@@ -249,17 +289,19 @@
 		{
 			name				Info_CloneRifle_2
 			group				pointssetup
-			rect				127 105 14 19
+			rect				127 85 14 19
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "2"
 				open			mb_weapon_clonerifle
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_clonerifle
 			}
@@ -269,17 +311,19 @@
 		{
 			name				Info_CloneRifle_3
 			group				pointssetup
-			rect				141 105 13 19
+			rect				141 85 13 19
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				setcvar			ui_help_performance "3"
 				open			mb_weapon_clonerifle
 			}
-			mouseExit {
+			mouseExit
+			{
 				setcvar			ui_help_performance "0"
 				close			mb_weapon_clonerifle
 			}
@@ -292,29 +336,28 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PUSH
-			rect 				8 105 147 18
-			text " "
-			text2 "Clone Rifle"
-			font 6
-			text2alignx -95
+			rect 				8 85 147 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.25
 			forecolor			1 1 1 0.8
-			descText			"Buy a DC-15A Clone Rifle and improve its rate of fire with higher levels"
+			descText			"Buy a Clone Rifle and improve its rate of fire"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
-				setitemrect		button_glow	8 104 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemrect		button_glow	8 85 147 20
+				setitemcolor	setfp_push forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_push forecolor 1 1 1 0.8
 			}
 		}
 
@@ -326,7 +369,7 @@
 			name 				setfp_protect
 			group				pointssetup
 			style				WINDOW_STYLE_FILLED
-			rect 				11 121 3 34
+			rect 				11 101 3 34
 			backcolor			1 1 1 0.8
 			visible				1
 		}
@@ -337,7 +380,7 @@
 			name 				setfp_protect
 			group				pointssetup
 			style				WINDOW_STYLE_FILLED
-			rect 				14 131 4 4
+			rect 				14 111 4 4
 			backcolor			1 1 1 0.8
 			visible				1
 		}
@@ -348,26 +391,46 @@
 			name 				setfp_teamheal
 			group				pointssetup
 			style				WINDOW_STYLE_FILLED
-			rect 				14 151 4 4
+			rect 				14 131 4 4
 			backcolor			1 1 1 0.8
 			visible				1
 		}
 
+		// Protect title
+		itemDef
+		{
+			name				setfp_protect
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Concussive blasts"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 				20 105 135 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		itemDef
 		{
 			name				Info_ConcBlob
 			group				pointssetup
-			rect				113 125 41 18
+			rect				113 105 41 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				open			mb_ability_concblob
 			}
-			mouseExit {
+			mouseExit
+			{
 				close			mb_ability_concblob
 			}
 		}
@@ -379,47 +442,65 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PROTECT
-			rect 				8 125 147 18
-			text " "
-			text2 "Concussive blasts"
-			font 6
-			text2alignx -82
+			rect 				8 105 147 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.9
 			forecolor			1 1 1 0.8
-			descText			"Buy concussive blasts (per life), that deal knockdown and high damage\non direct hits and very light splash damage"
+			descText			"Buy concussive blasts (per life), deals knockdown and high damage on direct hits and very light splash damage"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
-				setitemrect		button_glow	8 124 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemrect		button_glow	8 104 147 20
+				setitemcolor	setfp_protect forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_protect forecolor 1 1 1 0.8
 			}
 		}
 
+		itemDef
+		{
+			name				setfp_teamheal
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Ion blasts"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 				20 125 135 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		itemDef
 		{
 			name				Info_IonBlob
 			group				pointssetup
-			rect				113 145 41 18
+			rect				113 125 41 18
 			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
+			background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
 			visible				1
 			decoration
-			mouseEnter {
+			mouseEnter
+			{
 				open			mb_ability_ionblob
 			}
-			mouseExit {
+			mouseExit
+			{
 				close			mb_ability_ionblob
 			}
 		}
@@ -431,32 +512,48 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TEAM_HEAL
-			rect 				8 145 147 18
-			text " "
-			text2 "Ion blasts"
-			font 6
-			text2alignx -82
+			rect 				8 125 147 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.9
 			forecolor			1 1 1 0.8
-			descText			"Buy Ion Blasts (per life), that deal electrical splash damage and must be\ncharged to increase range and blast radius"
+			descText			"Buy Ion Blasts (per life), deals electrical splash damage and must be charged to increase range and blast radius"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
-				setitemrect		button_glow	8 144 147 20
-				setcolor		forecolor 1 1 1 1
-			}	
-			mouseExit {
+				setitemrect		button_glow	8 124 147 20
+				setitemcolor	setfp_teamheal forecolor 1 1 1 1
+			}
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_teamheal forecolor 1 1 1 0.8
 			}
 		}
 
+		// Reinforcement title
+		itemDef
+		{
+			name				setfp_absorb
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Reinforcement"
+			rect 				8 155 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		// Reinforcement assign
 		itemDef
@@ -465,32 +562,48 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_ABSORB
-			rect 				8 175 147 18
-			text " "
-			text2 "Reinforcement"
-			font 6
-			text2alignx -95
+			rect 				8 155 147 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
-			textscale			.15
+			textalignx			105
 			textaligny			-5
 			forecolor			1 1 1 0.8
-			descText			"Allows you to have an extra life in a round"
+			descText			"Allows you to have an extra life in one round"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
-				setitemrect		button_glow	8 174 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemrect		button_glow	8 154 147 20
+				setitemcolor	setfp_absorb forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_absorb forecolor 1 1 1 0.8
 			}
 		}
 
+		// Stamina title
+		itemDef
+		{
+			name				setfp_healself
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Stamina [CS1]"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 				8 175 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		// Stamina title
 		itemDef
@@ -499,30 +612,48 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_HEAL
-			rect 				8 195 147 18
-			text " "
-			text2 "Stamina [CS1]"
-			font 6
-			text2alignx -95
+			rect 				8 175 147 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.9
 			forecolor			1 1 1 0.8
-			descText			"Drained from sprinting, higher levels allow faster regeneration\nUse with Class Special 1 keybind"
+			descText			"Drained from sprinting, higher levels allow faster regeneration"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
-				setitemrect		button_glow	8 194 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemrect		button_glow	8 174 147 20
+				setitemcolor	setfp_healself forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_healself forecolor 1 1 1 0.8
 			}
+		}
+
+		// Armour title
+		itemDef
+		{
+			name				setfp_saberattack
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Armour"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 				8 205 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
 		}
 
 		// Armour assign
@@ -532,32 +663,49 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect 				8 225 147 18
-			text " "
-			text2 "Armour"
-			font 6
-			text2alignx -95
+			rect 				8 205 147 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.25
 			forecolor			1 1 1 0.8
 			descText			"Increase your armour strength"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
-				setitemrect		button_glow	8 224 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemrect		button_glow	8 204 147 20
+				setitemcolor	setfp_saberattack forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberattack forecolor 1 1 1 0.8
 			}
 		}
 
+		// Ammo title
+		itemDef
+		{
+			name				setfp_saberdefend
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			text				"Ammo"
+			//descText			@MENUS_DESCRIPTION_OF_A_FORCE
+			rect 				8 225 147 18
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.8
+			visible				1
+			decoration
+		}
 
 		// Ammo assign
 		itemDef
@@ -566,29 +714,28 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect 				8 245 147 18
-			text " "
-			text2 "Ammo"
-			font 6
-			text2alignx -95
+			rect 				8 225 147 18
 			textalign			ITEM_ALIGN_LEFT
-			textalignx			95
+			textalignx			105
 			textaligny			-5
-			textscale			.15
+			textscale			.25
 			forecolor			1 1 1 0.8
 			descText			"Increase your ammo store for all your weapons"
 			visible				1
-			action {
+			action
+			{
 				play			"sound/interface/button1.wav"
 			}
-			mouseenter {
+			mouseenter
+			{
 				show			button_glow
-				setitemrect		button_glow	8 244 147 20
-				setcolor		forecolor 1 1 1 1
+				setitemrect		button_glow	8 224 147 20
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 1
 			}
-			mouseExit {
+			mouseExit
+			{
 				hide			button_glow
-				setcolor		forecolor 1 1 1 0.8
+				setitemcolor	setfp_saberdefend forecolor 1 1 1 0.8
 			}
 		}
 	}
