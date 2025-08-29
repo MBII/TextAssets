@@ -5,15 +5,24 @@ ClassInfo
 	name 			"h5_Paz"
 	MBClass 			MB_CLASS_WOOKIE
 	weapons 			WP_MELEE|WP_MINIGUN|WP_SABER
-	attributes 		MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,3|MB_ATT_MINIGUN,3
+	attributes 		MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,3|MB_ATT_MINIGUN,3|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,3|MB_ATT_DEFLECT,0|MB_ATT_WOOKIEE_FURY,1
 	
 	forcepowers FP_RAGE,3
 	
+	BPmultiplier		1	
+	blockResourceRegen 0
+	ASmultiplier		1.05
+	APmultiplier 		1.35
 	saberstyle	SS_DESANN
-	saber1		Legends_Knife
-	saberDamage 160
-	resource		RESOURCE_FUEL
-	forcepool 	140
+	saber1		Legends_Knife_paz
+	saber2      energyshield_leg_paz
+	saberDamage 120
+	
+	resource		RESOURCE_RAGE
+	resourceRegenCap 20
+	resourceRegenRate 500
+	resourceRegenAmount 2
+	forcepool 	150
 	
 	special1 	EAS_FP_RAGE
 	special2 	EAS_MELEE
@@ -21,22 +30,13 @@ ClassInfo
 	classflags	CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE
 
 	maxhealth 		200
-	maxarmor		   	240
-	
-	BPmultiplier		0
-
-	rateOfFire          	0.92
+	maxarmor		240
 	
 	speed              	0.82
-	
-	damagegiven		1
 	damagetaken			0.90
 	knockbackgiven		0.80
 	knockbacktaken		0.20
-	
-	ASmultiplier		1.05
-	APmultiplier 		1.35
-	
+
 	uioverlay_r "gfx/icons/aerial"	
 	uioverlay_c "gfx/icons/brawler"
 	uioverlay_l "gfx/icons/heavy"
@@ -47,8 +47,8 @@ ClassInfo
 	modelscale		    1.15
 	//respawncustomtime 	75000
 	classNumberLimit  	1
-	
-	flourishAnim BOTH_SPINATTACK7
+	//saberStanceAnim BOTH_TRIPLE3_STAFFSTANCE
+	flourishAnim BOTH_MELEE_UPPERCUT
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 }
@@ -61,28 +61,25 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/z6_rotary/rotary_cannon.md3"
 	NewHandsModel		"models/weapons2/z6_rotary/rotary_cannon_hand.md3"
 	NewBarrelModel		"models/weapons2/z6_rotary/rotary_cannon_barrel.md3"
-
 	MuzzleEffect		"Blaster/MuzzleCharge01R"
-	AltMuzzleEffect	"Blaster/MuzzleFlash01R"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot02r"
 	MissileMissEffect	"Blaster/Impact_Wall01R.efx"
-	Missile3Effect	"Blaster/Shot04r"
+	Missile3Effect		"Blaster/Shot04r"
 	AltMissileEffect	"Blaster/Shot04r"
 	PowerupShotEffect	"Blaster/Shot04r"
-
 	Icon			"gfx/hud/w_icon_rotary_cannon"
 	WeaponName		"M-55 Medium Repeating Blaster"
 	FlashSound0		"sound/weapons/e_22/fire.mp3"
-	customAmmo 			1200
-	isMinigun			1
-	clipSize				400
+	customAmmo 		1200
+	isMinigun	1
+	clipSize	400
 	ReloadTimeModifier	1.1
-	altFireEnabled			1
-	firingAnim		MINIGUN_FIRE
-	idleAnim		MINIGUN_READY
-	FPMult     			0.9
+	altFireEnabled	1
+	FPMult     0.9
 	velocityMod 1.2
 	damageMod 0.95
+	rateMod 0.92
 }
 
 WeaponInfo1
@@ -92,7 +89,7 @@ WeaponInfo1
 	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_prisonknife"
-	WeaponName		"Vibroknife"
+	WeaponName		"Vibroknife/Personal Energy Shield"
 }
 
 ForceInfo0
@@ -108,12 +105,15 @@ A slow, Jetpack-equipped tank with a Minigun and high damage/knockback resistanc
 
 ^2Weaponry:
 - Wookiee-style Melee
-- Vibroknife (Purple Saber)
--- Cannot block Sabers/Blasters
--- 50% less DMG
+- Vibroknife/Personal Energy Shield (Purple Saber)
+-- Saber/Blaster Defense (3)
+-- Saber Deflect (0)
+-- No BP Regen
+-- 70% less DMG
 -- 60% shorter reach
 -- Slap ^3[CS2]
 - M-55 Medium Repeating Blaster (Minigun 3)
+-- 8% faster RoF
 -- 20% faster velocity
 -- 5% less DMG
 -- 10% less FP DMG
@@ -130,8 +130,7 @@ A slow, Jetpack-equipped tank with a Minigun and high damage/knockback resistanc
 - Blast Armor
 - Physical Resistance
 - Healing (1)
-- Fuel (3)
--- 40% more Fuel
+- Fury (1)
 
 ^3Abilities:
 - Jetpack"

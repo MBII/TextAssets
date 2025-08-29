@@ -7,47 +7,48 @@ ClassInfo
 	MBClass		MB_CLASS_JEDI
 	weapons		WP_SABER|WP_MELEE|WP_CONCUSSION|WP_PULSE_NADE|WP_PLX1
 	
-	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DASH,1|MB_ATT_STAMINA,3|MB_ATT_PLX1,3|MB_ATT_AMMO,3|MB_ATT_CONCUSSION,1|MB_ATT_GUN_DEFENSE,3|MB_ATT_WATER_BREATHING|MB_ATT_BUNNY_HOP,1|MB_ATT_DEFLECT,1|MB_ATT_SABER_COMBO_NONE
-
+	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DASH,1|MB_ATT_STAMINA,3|MB_ATT_PLX1,3|MB_ATT_AMMO,3|MB_ATT_CONCUSSION,1|MB_ATT_GUN_DEFENSE,3|MB_ATT_WATER_BREATHING|MB_ATT_BUNNY_HOP,1|MB_ATT_DEFLECT,1
+	
+	saberMaxChain 	1
 	saber1		bossnass_shield_legends
 	saberstyle	SS_STAFF
-	saberDamage 130
+	saber1_1 	bossnass_shield_legends_2
+	saberstyle_1	SS_STAFF
+	saberDamage 70
+	
 	maxhealth	300
 	maxarmor		100
-	forcepool	70
+	forcepool	80
 	speed		0.97
 	skilltimermod 1.25
+	
 	classflags	CFL_BLOODYMELEE|CFL_STRONGAGAINSTPHYSICAL
 	
-	WP_ThrowerFlags 	HELD_ALTRELOAD
+	WP_MeleeFlags HELD_SLOW
 	WP_PulseNadeFlags HELD_HIGHDAMAGE
-	//WP_SaberFlags 	HELD_KNOCKDOWNRESISTANCE
 	WP_ConcussionFlags HELD_ALTRELOAD
 
-	KnockbackTaken	1
-	rankKbTaken 2
-
-	//saberStanceAnim  	BOTH_SABERSTAFF_STANCE
 	RunForward   	BOTH_RUN_DUAL
 	gloatAnim 		BOTH_FORCE_PROTECT_FAST
 	flourishAnim		BOTH_TUSKENTAUNT1
 	
-	modelScale      1.10	
+	special1		EAS_NONE
+	special2 	EAS_MELEE
+	special3		EAS_HI_DASH
+
+	modelScale   1.10	
 	uioverlay "gfx/icons/heavy"
 	model	"bossnass"
 	skin		"default"
-	uishader	"models/players/bossnass/mb2_icon_default"
+	uishader	"models/players/bossnass/mb2_icon_default"	
 	
-	//respawncustomtime 	50000	
-	
-	special1		EAS_NONE
-	special2 	EAS_MELEE
-	special3		EAS_HI_DASH	
+	KnockbackTaken	1
+	rankKbTaken 2
 	
 	isCustomBuild	1
-		
+
 	c_att_skill_0	MB_ATT_KB_TAKEN_MULTIPLIER
-	c_att_names_0	"Knockback Taken (200%):"
+	c_att_names_0	"Knockback Taken (200%)"
 	c_att_ranks_0 0	
 }
 
@@ -58,7 +59,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
 	Icon				"gfx/hud/w_icon_gunganshield"
-	WeaponName			"Gungan Personal Energy Shield" 
+	WeaponName			"Nass' Personal Energy Shield" 
 	PrimFireEnabled     1
 }
 
@@ -72,7 +73,7 @@ WeaponInfo1
 	WeaponName			"Salvaged E-60R Missile Launcher"
 	customAmmo       	8
 	clipsize 2
-	reloadtimemodifier 0.5
+	reloadtimemodifier 0.7
 }
 
 WeaponInfo2
@@ -97,26 +98,30 @@ WeaponInfo3
 {
 	WeaponToReplace		WP_PULSE_NADE
 	WeaponBasedOff		WP_PULSE_NADE
-	NewWorldModel			"models/weapons2/thr_booma/booma.glm"
-	NewViewModel			"models/weapons2/thr_booma/booma.md3"
-	altFlashSound0		"sound/weapons/stone/fire.mp3"
-	altMissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	NewWorldModel			"models/weapons2/throwables/booma_sling/booma_sling.glm"
+	NewViewModel			"models/weapons2/throwables/booma_sling/booma_sling.md3"
+	NewHandsModel 		"models/weapons2/throwables/booma_sling/booma_sling_hand.md3"
+	altFlashSound0		"sound/weapons/ballz/swing2.mp3"
+	altMissileModel 			"models/weapons2/throwables/booma_sling/booma_sling_proj.md3"
 	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
 	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
 	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
 	altMuzzleEffect 			"stone/muzzle1"
 	altMissileEffect 		"grenades/glowempb"
-	FlashSound0		"sound/weapons/stone/fire.mp3"
-	MissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
+	FlashSound0		"sound/weapons/ballz/swing2.mp3"
+	MissileModel 			"models/weapons2/throwables/booma_sling/booma_sling_proj.md3"
 	MissileMissEffect		"effects/Grenades/EXP_Pulsenade"
 	MissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
 	MissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
 	MuzzleEffect				"stone/muzzle1"
 	altFireEnabled 			1
-	WeaponName				"Boss's Big Blue Boomas"
+	WeaponName			"Boss's Big Bombad Boomas"
 	Icon						"gfx/hud/w_icon_booma"
 	customAmmo 				2
-	SelectSound	"sound/weapons/blunt/spin.mp3"	
+	SelectSound	"sound/weapons/ballz/bounce1.mp3"
+	hasAnimOverrides 1
+	animAttack BOTH_T5_BL__R
+	animAttackWalk BOTH_T5_BL__R
 }
 
 description	"Boss Rugor Nass [Jedi]
@@ -125,17 +130,23 @@ A tanky rocketeer with a large protective Energy Shield and inherent aquatic res
 
 ^2Default Weaponry:
 - Melee
-- Gungan Personal Energy Shield (Saber)
+-- 15% slower movement
+- Nass's Personal Energy Shield (Staff Saber)
 -- Saber Defense/Deflect (1)
 -- Blaster Defense (3)
--- No Saber Training
--- 128% longer reach
--- 50% less DMG
+-- Chain Limit: 1
+-- 73% less DMG
 -- Slap ^3[CS2]
+> Tower Shield
+-- 43% shorter reach
+-- 1100% wider radius
+> Broad Shield
+-- 12% longer reach
+-- 500% wider radius
 - Salvaged E-60R Missile Launcher (8) (PLX-1)
 -- 2 rockets per clip
--- 50% faster reload
-- Boss's Big Blue Boomas (2) (Pulse Grenades)
+-- 30% faster reload
+- Boss's Big Bombad Boomas (2) (Pulse Nades)
 -- 100% more DMG
 - Broken Concussion Rifle (1)
 -- 60% slower mag reload

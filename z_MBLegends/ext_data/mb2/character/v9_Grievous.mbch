@@ -2,66 +2,60 @@
 
 Classinfo
 {
-	name				"v9_Grievous"
-	MBclass				MB_CLASS_CLONETROOPER
-	weapons				WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
-	saberstyle			SS_DUAL
-	attributes			MB_ATT_DASH,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_PISTOL,2|MB_ATT_FORCEBLOCK,3|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_BLAST_ARMOUR|MB_ATT_STAMINA,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_GUN_DEFENSE,1
+	name			"v9_Grievous"
+	MBclass		MB_CLASS_CLONETROOPER
+	classNumberLimit	1
 	
-	forcepowers			FP_SABER_OFFENSE,2|FP_LEVITATION,1
-	
-	saber1				grievb4
-	sabercolor			4
-	saber2				grievg4
-	saber2color			3
+	weapons		WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
 
+	attributes	MB_ATT_DASH,1|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_PISTOL,2|MB_ATT_FORCEBLOCK,3|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_BLAST_ARMOUR|MB_ATT_STAMINA,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_DEFLECT,0|MB_ATT_DEXTERITY,3|MB_ATT_SABER_COMBO,2
+	
+	forcepowers	FP_SABER_OFFENSE,2|FP_LEVITATION,1
+	
+	saberMaxChain 6
+	saberstyle	SS_DUAL
+	saber1		grievb4
+	sabercolor	4
+	saber2		grievg4
+	saber2color	3
+	saberDamage 100
 	APMultiplier 		1.2 
-	BPMultiplier 		0.85
-	ASmultiplier		1.1
+	BPMultiplier 		0.6
+	ASmultiplier		1
 	CSmultiplier		2.0
-	
-	model			"grievous4"
-	skin				"default"
-	uishader			"models/players/grievous/mb2_icon_nocape"
-	
-	//model_1	"grievous"
-	//skin_1	"default"
-	//uishader_1	"models/players/grievous/mb2_icon_default"
+	blockRegenAmount 1
+	blockRegenRate 400
+	blockRegenCap 80
+		knockbackTaken 0.80
+	model		"grievous4"
+	skin		"default"
+	uishader	"models/players/grievous/mb2_icon_nocape"
+	modelscale   1.2
+	uioverlay 	"gfx/icons/frontline"
 
-	//model_2	"grievous"
-	//skin_2	"worn_nocape"
-	//uishader_2	"models/players/grievous/mb2_icon_nocape"
-	
-	//model_1		"grievous4"
+	//model_1	"grievous4"
 	//skin_1		"nocape"
 	//uishader_1	"models/players/grievous4/mb2_icon_nocape"
-	
-	uioverlay "gfx/icons/frontline"
-	
-	maxhealth			65
-	maxarmor            90
-	modelscale			1.2
-	speed				1.14
-	resource				RESOURCE_STAMINA
-	forcepool			115
-	forceregen			1.15
-	
-	runForward BOTH_RAGERUN
-	bowAnim  BOTH_REACHFORSABER1
-	//runBackward BOTH_RUNBACK_DUAL
-	//WalkBackward BOTH_WALK_DUAL
-	//WalkForward  BOTH_RAGERUN
-	
-	damageTaken 			1
 
-	classNumberLimit	1
-	Classflags			CFL_BLOODYMELEE|CFL_HEAVYMELEE|CFL_STRONGAGAINSTPHYSICAL
+	maxhealth	70
+	maxarmor     80
+
+	basespeed	250
+	resource	    RESOURCE_STAMINA
+	forcepool	115
+	forceregen	1.15
+	
+	runForward BOTH_WOOKIEE_RAGE_RUN
+	bowAnim  BOTH_REACHFORSABER1
+	saberStanceAnim BOTH_WOOKIEE_RAGE_STAND_IDLE
+
+	Classflags CFL_BLOODYMELEE|CFL_STRONGAGAINSTPHYSICAL
 
 	//respawncustomtime 50000
 	
-	special1	EAS_HI_SPRINT
-	special2 	EAS_MELEE
-	special3 	EAS_HI_DASH
+	special1	EAS_NONE
+	special2 EAS_MELEE
+	special3 EAS_HI_DASH
 	special4	EAS_HI_GRAPPLEHOOK
 }
 
@@ -84,14 +78,45 @@ WeaponInfo0
 	Customammo				120
 }
 
+/* //WeaponInfo1
+{
+	WeaponToReplace			WP_STUN_BATON
+	WeaponBasedOff			WP_STUN_BATON
+	NewWorldModel		"models/weapons2/dummy/dummyblaster.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName				"Claw Rush"
+	flashSound0 "sound/HK/hkstep1.mp3"
+	flashSound1 "sound/HK/hkstep1.mp3"
+	flashSound2 "sound/HK/hkstep1.mp3"
+	flashSound3 "sound/HK/hkstep1.mp3"
+	altflashSound0 "sound/HK/hkstep1.mp3"
+	altflashSound1 "sound/HK/hkstep1.mp3"
+	altflashSound2 "sound/HK/hkstep1.mp3"
+	altflashSound3 "sound/HK/hkstep1.mp3"
+	hasAnimOverrides 1
+	animReady BOTH_COLLAPSED_IDLE
+	animReadyWalk BOTH_COLLAPSED_IDLE
+	animAttack BOTH_MELEE_SWIMFORWARD
+	animAttackWalk BOTH_MELEE_SWIMFORWARD
+	animStand BOTH_COLLAPSED_IDLE
+	rateMod 0.5
+	damageMod 0.5
+} */
+
 Description "General Grievous [Clone Trooper]
 
-A speedy, resilient commander with 4 Lightsabers and increased power and speed on his attacks. Excels at close-range encounters as well as quick escapes.
+A speedy, resilient commander with 4 Lightsabers. Excels at close-range encounters as well as quick escapes.
 
 ^2Weaponry:
-- Heavy Melee
+- Melee
 - Grievous' Lightsabers (Dual)
--- Saber/Blaster Defense (1)
+-- Saber Defense (3)
+-- Blaster Defense (1)
+-- Saber Deflect (0)
+-- EX Saber Training (2)
+-- Chain Limit: 6
+-- 61% less DMG
 -- Slap ^3[CS2]
 - DT-57 'Annihilator' Blaster (Pistol 2)
 
@@ -99,16 +124,16 @@ A speedy, resilient commander with 4 Lightsabers and increased power and speed o
 - Cyber Jump (1)
 
 ^8Attributes:
-- Cybernetic Skeleton
--- Stamina (3)
--- Strength (1)
--- Blast Armor
--- Cortosis (1)
--- Physical Resistance
--- Armor Regen (1)
--- Force Block (3)
+- 20% less KB taken
+- Stamina (3)
+- Dexterity (3)
+- Strength (1)
+- Blast Armor
+- Cortosis (1)
+- Physical Resistance
+- Armor Regen (1)
+- Force Block (3)
 
 ^3Abilities:
-- Sprint ^3[CS1]
 - Dash (1) ^3[CS3]
-- Grappling Hook (1) ^3[CS4 in ^3Melee]"
+- Grappling Hook (1) ^3[CS4 Melee]"

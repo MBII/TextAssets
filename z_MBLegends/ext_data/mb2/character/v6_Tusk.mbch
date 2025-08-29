@@ -4,25 +4,26 @@ ClassInfo
 {
 	name			"v6_Tusk"
 	weapons			WP_SABER|WP_MELEE|WP_CLONE_PISTOL|WP_PROJ|WP_CONC_NADE
-	attributes		MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,1|MB_ATT_WOOKIEE_FURY,2
+	attributes		MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_SABER_COMBO_NONE
 	forcepowers     FP_SABER_OFFENSE,1
-forcepool 100
-resource RESOURCE_RAGE
+	forcepool 150
+	resource RESOURCE_RAGE
+	forceregen	0.5
 	maxhealth		80
 	maxarmor        	80
 	MBClass			MB_CLASS_WOOKIE
 	basespeed		232
-	WP_ProjFlags 		HELD_ALTRELOAD|HELD_KNOCKBACK
+	WP_ProjFlags 		HELD_ALTRELOAD|HELD_STUN
 	WP_ClonePistolFlags    HELD_ALTRELOAD
 	WP_SaberFlags HELD_SPEED
 	rageSoundOverride 	"sound/chars/tusken/misc/rage.mp3"
 	bargeSoundOverride 	"sound/chars/tusken/misc/anger3.mp3"
 	APmultiplier			1.2
+	ASmultiplier 1.10
 	BPmultiplier		0
-	rateOfFire          	1
-	classNumberLimit		3
-	damageGiven 			1
-	saberDamage 	150
+	classNumberLimit		4
+	saberDamage 	130
+	saberspecialDamage 1.54 //200
 	extralives			1
 	modelscale      		1.03
 	//holdables       HI_BINOCULARS
@@ -30,6 +31,7 @@ resource RESOURCE_RAGE
 	saber1		Gaffi_legends
 	saber1_1		Gaffi_legends2
 	saberstyle	SS_MEDIUM|SS_STAFF
+	saberStanceAnim BOTH_SPEAR_STANCE
 	
 	flourishAnim BOTH_VICTORY_FAST
 	gloatAnim BOTH_TUSKENTAUNT1
@@ -103,10 +105,10 @@ WeaponInfo1
 	hasAnimOverrides 1
 	animReady BOTH_SABERDUAL_STANCE
 	animReadyWalk BOTH_SABERDUAL_STANCE
-	animRunAttackR    DUAL_RUNNING_FIRE_RIGHT
-    animRunAttackL    DUAL_RUNNING_FIRE_LEFT
-    animWalkAttackR   DUAL_RUNNING_FIRE_RIGHT
-    animWalkAttackL   DUAL_RUNNING_FIRE_LEFT
+	animRunAttackR    BOTH_DUAL_PISTOLS_ATTACK_R
+    animRunAttackL   BOTH_DUAL_PISTOLS_ATTACK_L
+    animWalkAttackR   BOTH_MAND_DUAL_PISTOLS_ATTACK_R
+    animWalkAttackL   BOTH_MAND_DUAL_PISTOLS_ATTACK_L
 }
 
 WeaponInfo2
@@ -118,7 +120,7 @@ WeaponInfo2
 	FlashSound0			"sound/weapons/tusken_cycler/fire.wav"  			
 	Icon				"gfx/hud/w_icon_tuskenSniper"
 	WeaponName			"Tusken Cycler Projectile Rifle"  
-	CustomAmmo 	14
+	CustomAmmo 	7
 	clipsize    1
 	ReloadTimeModifier 1.35
 	damageMod .85
@@ -132,8 +134,10 @@ A 2-life class with a unique blend of Melee weapons, slug-based guns, and Wookie
 - Wookiee-style Melee
 - Gaffi Stick (Staff/Yellow Saber)
 -- Cannot block Sabers/Blasters
+-- No Saber Training
 -- 15% faster movement
--- 42/37% less DMG
+-- 50/45% less DMG
+-- 23/16% less special DMG
 -- Slap ^3[CS2]
 > Tusken Gaffi Stick
 -- 14% faster swings
@@ -149,12 +153,13 @@ A 2-life class with a unique blend of Melee weapons, slug-based guns, and Wookie
 -- Prim. only
 - Concussion Grenades (2)
 - Tusken Cycler Projectile Rifle
--- Pushes targets
+-- Staggers targets
 -- 15% less DMG
 -- 35% slower mag reload
 
 ^8Attributes:
 - Reinforcement (1)
+- 50% slower Resource Decay
 - Strength (1)
-- Fury (2)
-- Healing (1)"
+- Healing (1)
+- Fury (2)"

@@ -14,8 +14,8 @@ ClassInfo
 	WP_FlechetteFlags 		HELD_ALTRELOAD
 	WP_RocketLauncherFlags 	HELD_ALTRELOAD|HELD_HIGHDAMAGE
 	WP_MeleeFlags 			HELD_SPEED
-	
-	model		"jan"
+	hackRate 0.9
+	model			"jan"
 	skin			"default"
 	uishader		"models/players/doompack/Janors"
 	
@@ -36,20 +36,20 @@ ClassInfo
 	forcepool 110
 	forceregen	1.1
 
-	rankforcepool	115,120
+	rankforcepool	115,120,125
 
 	uioverlay "gfx/icons/spec_infantry"
 
 	isCustomBuild	1
-	mbPoints		2
+	mbPoints		3
 	
 	c_att_skill_0	MB_ATT_BASE_TD
-	c_att_names_0	"Thermal Grenades:"
-	c_att_ranks_0	1,1
+	c_att_names_0	"Thermal Grenades"
+	c_att_ranks_0	1,1,1
 	
 	c_att_skill_1	MB_ATT_POWER
-	c_att_names_1	"Energy Pool (115/120):"
-	c_att_ranks_1	1,1
+	c_att_names_1	"Energy Pool (115/120/125)"
+	c_att_ranks_1	1,1,1
 }
 
 WeaponInfo0
@@ -64,11 +64,11 @@ WeaponInfo0
     FlashSound0			"sound/weapons/flechette/fire.mp3"  			
 	WeaponName 			"FC-1 Flechette Launcher"
 	MuzzleEffect 		"flechette/muzzle_flash"
-	customAmmo           864
+	customAmmo           870
 	clipsize             30
 	AltFireEnabled 		 1
 	damageMod 1.1
-
+	fpmult 1.1
 }
 
 WeaponInfo1
@@ -95,12 +95,11 @@ WeaponInfo2
 	Icon				"gfx/hud/w_icon_dh-17"
 	WeaponName		"DH-17 Blaster Pistol"
 	hasAnimOverrides 1
-	animReady TORSO_CLONEPISTOL
-	animReadyWalk TORSO_CLONEPISTOL
-	animReadyNoAmmo BOTH_ATTACK2 
-	animAttack BOTH_ATTACK2
-	animAttackWalk BOTH_ATTACK2
-	animStand BOTH_STAND1
+	animReady BOTH_PISTOL_IDLE
+	animReadyWalk BOTH_PISTOL_IDLE2
+	animReadyNoAmmo BOTH_PISTOL_ATTACK
+	animAttack BOTH_PISTOL_ATTACK
+	animAttackWalk BOTH_PISTOL_ATTACK
 	FlashSound0		"sound/weapons/blasterMB/fire.mp3"
 	altFlashSound0	"sound/weapons/blasterMB/alt_fire.mp3"
 	clipsize		40
@@ -120,7 +119,7 @@ A nimble gunner with a unique projectile shotgun.
 -- 10% faster RoF
 -- 10% faster reload
 - FC-1 Flechette Launcher (2)
--- 10% more DMG
+-- 10% more DMG/FP DMG
 - PLX-2M Rocket Launcher (5)
 -- 100% more DMG
 -- 15% faster velocity
@@ -129,16 +128,17 @@ A nimble gunner with a unique projectile shotgun.
 - Frag Grenades (2)
 
 ^6Inventory: 
-- Big Bacta (50 HP)
+- Bacta (Instant 50 HP)
 - Assault Sentry ^3[CS4]
 
 ^8Attributes:
 - Bunny Hop (1)
 - Slow Faller
+- 10% faster Hacking
 - Dexterity (1)
 - Healing (3)
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
 - Dash (2) ^3[CS2]
-- Quick-Throw (2) ^3[CS3 outside ^3of Grenades]"
+- Quick-Throw (2) ^3[CS3]"

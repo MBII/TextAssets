@@ -11,7 +11,7 @@ Classinfo
 
 	modelScale   1.07			
 	basespeed 	200
-	
+	forcepowers FP_LEVITATION,1
  	maxhealth	200
 	maxarmor		60
 	
@@ -52,7 +52,7 @@ Classinfo
  	model 			"jarjar"					
  	skin				"default"	
 	uishader			"models/players/jarjar/mb2_icon_default"
-	
+
 	WalkForward		BOTH_WALK7
 	WalkBackward 		BOTH_WALK7
 	tauntAnim		BOTH_ENGAGETAUNT
@@ -73,7 +73,7 @@ Classinfo
 WeaponInfo0
 {
 	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_PULSE_NADE
+	WeaponBasedOff		WP_FRAG_NADE
 	NewWorldModel			"models/weapons2/pw_atlatl/atlatl.glm"
 	NewViewModel			"models/weapons2/pw_atlatl/atlatl.md3"
 	altFlashSound0		"sound/weapons/stone/fire.mp3"
@@ -81,20 +81,16 @@ WeaponInfo0
 	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
 	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
 	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
-	FlashSound0		"sound/weapons/stone/fire.mp3"
-	MissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
-	MissileMissEffect		"effects/Grenades/EXP_Pulsenade"
-	MissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
-	MissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
-	MuzzleEffect				"stone/muzzle1"
-	altMuzzleEffect 			"stone/muzzle1"
-	MissileEffect 			"grenades/glowempb"
+	altMuzzleEffect 		null
 	altMissileEffect 		"grenades/glowempb"
 	primFireEnabled 			0
-	WeaponName				"Atlatl and Boomas"
+	WeaponName				"Atlatl Boomas"
 	Icon						"gfx/hud/w_icon_atlatl"
 	customAmmo 				4
-		SelectSound	"sound/weapons/wood/spin.mp3"
+	SelectSound	"sound/weapons/wood/spin.mp3"
+	animAttack BOTH_S6_S6_BL
+	animAttackWalk BOTH_S6_S6_BL
+	hasAnimOverrides 1
 }
 
 WeaponInfo1
@@ -103,24 +99,22 @@ WeaponInfo1
 	WeaponBasedOff		WP_PULSE_NADE
 	NewWorldModel			"models/weapons2/thr_booma/booma.glm"
 	NewViewModel			"models/weapons2/thr_booma/booma.md3"
-	altFlashSound0		"sound/weapons/stone/fire.mp3"
-	altMissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
-	altMissileMissEffect		"effects/Grenades/EXP_Pulsenade"
-	altMissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
-	altMissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
-	altMuzzleEffect 			"stone/muzzle1"
-	altMissileEffect 		"grenades/glowempb"
 	FlashSound0		"sound/weapons/stone/fire.mp3"
 	MissileModel 			"models/weapons2/thr_booma/booma_proj.md3"
 	MissileMissEffect		"effects/Grenades/EXP_Pulsenade"
 	MissileHitHumanEffect 	"effects/Grenades/EXP_Pulsenade"
 	MissileHitDroidEffect	"effects/Grenades/EXP_Pulsenade"
-	MuzzleEffect				"stone/muzzle1"
+	MuzzleEffect		null
 	altFireEnabled 			0
 	WeaponName				"Hand Boomas"
 	Icon						"gfx/hud/w_icon_booma"
 	customAmmo 				4
-		SelectSound	"sound/weapons/blunt/spin.mp3"	
+	SelectSound	"sound/weapons/blunt/spin.mp3"	
+	animAttack BOTH_THERMAL_THROW2
+	animAttackWalk BOTH_THERMAL_THROW2
+	animReady BOTH_THERMAL_READY2
+	animReadyWalk BOTH_THERMAL_READY2
+	hasAnimOverrides 1
 }
 
 WeaponInfo2
@@ -140,7 +134,7 @@ WeaponInfo2
 	MissileEffect		"blaster/Shot01R"
 	altMuzzleEffect		"Blaster/MuzzleFlash01R"
 	altMissileEffect		"blaster/Shot01R"
-	customAmmo 		864
+	customAmmo 		1008
 	clipsize 		144
 }
 
@@ -158,7 +152,7 @@ WeaponInfo3
 
 description "Jar Jar Binks [Hero]
 
-A chaos vortex with unreliable firepower, but all the luck in the world.
+Mesa, uh, clumsy...
 
 ^2Weaponry:
 - Heavy Melee
@@ -167,19 +161,22 @@ A chaos vortex with unreliable firepower, but all the luck in the world.
 -- Cannot block Sabers/Blasters
 -- Chain Limit: 1
 -- Knocks down targets
--- 50% more KB
 -- 30% faster swings
+-- 50% more KB given
 -- 66% less DMG
 -- 25% shorter reach
 - Salvaged E-5 Blaster Rifle (T-21 1)
 -- 50% less DMG
-- Atlatl and Boomas (4) (Knockdown Frags)
+- Atlatl Boomas (4) (Knockdown Frags)
 -- Electrifies/staggers targets
 -- 100% more DMG
 -- Sec. only
 - Hand Boomas (4) (Pulse Grenades)
 -- 100% more DMG
 -- Prim. only
+
+^5Powers:
+- Jar Jar Jump (1)
 
 ^8Attributes:
 - 200% slower skill CD
@@ -194,8 +191,8 @@ A chaos vortex with unreliable firepower, but all the luck in the world.
 - Underwater Breathing
 
 ^3Abilities:
-- Flipkick (3)
 - Gungan Jive (Taunts damage Sith)
+- Flipkick (3) ^3[Contact Jump]
 - Dodge (3) ^3[CS1]
 - Dex Roll ^3[CS2]
-- Dash Jump (2) ^3[CS3]"
+- Dash/Dash Jump (2) ^3[CS3]"

@@ -1,48 +1,39 @@
 ClassInfo
 {
-	name			"v5_Watto"
-	weapons		WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE|WP_FLECHETTE
-	maxhealth		125
-	maxarmor       	125
-	attributes  MB_ATT_FUELREGEN,2|MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2|MB_ATT_FLECHETTE,2|MB_ATT_TRIP_MINES,3|MB_ATT_SABER_COMBO_NONE
-
-	modelscale .82
-	MBClass			MB_CLASS_MANDALORIAN
+	name		"v5_Watto"
+	MBClass	MB_CLASS_MANDALORIAN
 	classNumberLimit	1
+	weapons	WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE|WP_FLECHETTE
+	
+	WP_FlechetteFlags HELD_ALTRELOAD
+	
+	attributes  MB_ATT_FUELREGEN,2|MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2|MB_ATT_FLECHETTE,2|MB_ATT_TRIP_MINES,3
+	
+	maxhealth 125
+	maxarmor  125
+
 	resourceAmount 	70
 	resourceCooldown 	0
 	resourceCap 		70
-	forcepool    		70
-	APMultiplier     1.25
-	ASMultiplier 	1.25
-	BPmultiplier		0
-	speed 				1.07
-	saberDamage 160
-	holdables       HI_SEEKER
+	forcepool    	70
+
+	speed 	1.07
+
+	holdables    HI_SEEKER
 	
 	special1 EAS_HI_SPRINT
 	special2 EAS_MELEE
 	special3 EAS_HI_DODGE
 	special4 EAS_HI_SEEKER
-	//WP_SaberFlags  HELD_SPEED
-	//classflags		CFL_NO_JETPACK_OVERHEAT
 	
-	uioverlay "gfx/icons/aerial"
-	
-	//saberStanceAnim TRIPLE3_BLUESTANCE
-	
-	RunForward    BOTH_VT_TURBO
-	RunBackward BOTH_VT_TURBO
-	WalkBackward	BOTH_VT_RUN_FWD
-	WalkForward	BOTH_VT_RUN_FWD
-	tauntAnim	BOTH_LK_S_DL_T_SB_1_L
-	gloatAnim	BOTH_ENGAGETAUNT
-	bowAnim BOTH_SLEEP1GETUP
-	idleAnim BOTH_SWIM_IDLE1
-	flourishAnim BOTH_MINDTRICK1
-	
+	saberDamage 120
+	saberSpecialDamage 1.67 //200
+	saberMaxChain 2
+	APMultiplier  1.25
+	ASMultiplier 	1.15
+	BPmultiplier	0
 	saber1		pitdroid_legends
-	saberstyle     SS_MEDIUM|SS_STRONG|SS_DESANN
+	saberstyle    SS_MEDIUM|SS_STRONG|SS_DESANN
 	
 	jetpackThrustEffect	""
 	jetpackIdleEffect		""
@@ -57,11 +48,21 @@ ClassInfo
 	jetpackIdleSound		"sound/effects/woosh4"
 	jetpackStartSound 	"sound/effects/woosh22"
 	
-	model		"watto" 
-	skin			"default"				
-	uishader		"gfx/hud/fa_icons/mb2_icon_watto"
+	modelscale .82
+	model	"watto" 
+	skin		"default"				
+	uishader	"gfx/hud/fa_icons/mb2_icon_watto"
+	uioverlay "gfx/icons/aerial"
 	
-	//respawncustomtime  50000		
+	RunForward    BOTH_VT_TURBO
+	RunBackward BOTH_VT_TURBO
+	WalkBackward	BOTH_VT_RUN_FWD
+	WalkForward	BOTH_VT_RUN_FWD
+	tauntAnim	BOTH_LK_S_DL_T_SB_1_L
+	gloatAnim	BOTH_ENGAGETAUNT
+	bowAnim BOTH_SLEEP1GETUP
+	idleAnim BOTH_SWIM_IDLE1
+	flourishAnim BOTH_MINDTRICK1
 }
 
 WeaponInfo0
@@ -104,9 +105,11 @@ WeaponInfo2
 	AltFlashSound0 "sound/weapons/whistlingbird/flyby3.mp3"
 	AltFlashSound1 "sound/weapons/whistlingbird/flyby2.mp3"
 	AltFlashSound2 "sound/weapons/whistlingbird/flyby1.mp3"
+	AltFlashSound3 "sound/weapons/whistlingbird/flyby2.mp3"
 	FlashSound0 "sound/weapons/whistlingbird/flyby3.mp3"
 	FlashSound1 "sound/weapons/whistlingbird/flyby2.mp3"
 	FlashSound2 "sound/weapons/whistlingbird/flyby1.mp3"
+	FlashSound3 "sound/weapons/whistlingbird/flyby2.mp3"
 	hasAnimOverrides 1
 	animReady  BOTH_VT_TURBO
 	animReadyWalk  BOTH_VT_TURBO
@@ -118,7 +121,7 @@ WeaponInfo2
 	AltMissileModel "models/map_objects/desert/3po_head.md3"
 	primFireEnabled 0
 	clipsize 75
-	damageMod 1.5
+	damageMod 1.75
 	FPmult 2
 	velocityMod 0
 }
@@ -131,17 +134,19 @@ A dexterous, Flight-capable grenadier who specializes in placing traps for his e
 - Melee
 - Folded Pit Droid (Yellow/Red/Purple Saber)
 -- Cannot block Sabers/Blasters
--- No Saber Training
--- 15% more KB
--- 33/69/60% less DMG
+-- Chain Limit: 2
+-- 15% more KB given
+-- 50/76/70% less DMG
+-- 16/61/50% less special DMG
 -- 57% shorter reach
 -- 300% wider radius
 -- Slap ^3[CS2]
 - DL-44 Blaster Pistol (2)
 - Busted Parts (Flechette 2)
--- 50% more DMG
+-- 75% more DMG
 -- 100% more FP DMG
 -- 100% slower velocity
+-- Mag reload
 -- Sec. only
 - Frag Grenades (3)
 - Trip Mines (3)
