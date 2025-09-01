@@ -7,7 +7,7 @@ classNumberLimit 2
 extralives 1
 
 weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CR2|WP_M5|WP_DET_PACK|WP_PULSE_NADE
-attributes MB_ATT_PISTOL,2|MB_ATT_CR2,2|MB_ATT_DET_PACK,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1
+attributes MB_ATT_PISTOL,2|MB_ATT_CR2,2|MB_ATT_DET_PACK,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1
 
 forcepowers FP_SEE,1|FP_LIGHTNING,1
 holdables HI_SEEKER|HI_STIMPACK
@@ -15,7 +15,7 @@ holdables HI_SEEKER|HI_STIMPACK
 resource RESOURCE_FUEL
 forcepool 65
 forceregen 1
-resourceRegenRate 800
+resourceRegenRate 1000
 resourceRegenAmount 5
 resourceRegenCap 65
 
@@ -74,7 +74,6 @@ FlashSound2 "sound/weapons/blasterMB/alt_fire.mp3"
 FlashSound3 "sound/weapons/blasterMB/alt_fire.mp3"
 MuzzleEffect "Blaster/MuzzleFlash01R"
 MissileEffect "Blaster/Shot02R"
-
 damageMod 0.85
 velocityMod 1.10
 customAmmo 600
@@ -89,7 +88,6 @@ NewWorldModel "models/weapons2/detpack/det_pack_w.glm"
 NewViewModel "models/weapons2/detpack/det_pack.md3"
 Icon "gfx/hud/w_icon_detpack"
 WeaponName "Det Packs"
-
 AltFlashSound0 "sound/ambience/kotor/console03.mp3"
 AltFlashSound1 "sound/ambience/kotor/console06.mp3"
 customAmmo 3
@@ -101,24 +99,21 @@ animAttackWalk BOTH_MAND_FLAME_READY
 rateMod 0.75
 }
 
-//NADE LAUNCHER, W5 MODEL
 WeaponInfo3
 {
-    WeaponToReplace        WP_M5
-    WeaponBasedOff        WP_M5
-    NewWorldModel        "models/weapons2/cw-w5/dc-15_ext_w.glm"
-    NewViewModel        "models/weapons2/cw-w5/dc-15_ext.md3"
-    Icon                "gfx/hud/w_icon_cw-w5g"
-    WeaponName            "Pulse Grenade Launcher"
- 
-    customAmmo            2
-    clipSize            -1
-    primFireEnabled        0
- 	 
-    hasAnimOverrides     1
-    animAttack            BOTH_ATTACK3    
-    animAttackWalk        BOTH_ATTACK3
-	ratemod 0.35
+    WeaponToReplace WP_M5
+    WeaponBasedOff  WP_M5
+    NewWorldModel  "models/weapons2/cw-w5/dc-15_ext_w.glm"
+    NewViewModel   "models/weapons2/cw-w5/dc-15_ext.md3"
+    Icon  "gfx/hud/w_icon_cw-w5g"
+    WeaponName  "Pulse Grenade Launcher"
+    customAmmo  2
+    clipSize -1
+    primFireEnabled  0
+    hasAnimOverrides 1
+    animAttack     BOTH_ATTACK3
+    animAttackWalk  BOTH_ATTACK3
+	ratemod 0.75
 }
 
 ForceInfo0
@@ -145,7 +140,7 @@ description "Rebel Sapper [Elite Trooper]
 
 ^2Weaponry:
 - Melee
--- 20% faster AS
+-- 20% faster RoF
 -- 50% less DMG
 - DL-44 Blaster Pistol (2)
 -- 5% faster RoF
@@ -154,9 +149,9 @@ description "Rebel Sapper [Elite Trooper]
 -- 10% faster velocity
 -- 15% less DMG
 - Pulse Grenade Launcher (M5)
--- 65% faster RoF
+-- 25% faster RoF
 -- Sec. only
-- Pulse Grenades (3)
+- Pulse Grenades (2)
 - Det Packs (3)
 -- 25% faster RoF
 
@@ -172,7 +167,7 @@ description "Rebel Sapper [Elite Trooper]
 - Reinforcement (1)
 - 15% faster Hacking
 - 10% more KB taken
-- Resource Regen: 5/.8s to 65
+- Resource Regen: 5/1s to 65
 - Dexterity (1)
 - Armor Regen (1)
 - Tracking Beacon
