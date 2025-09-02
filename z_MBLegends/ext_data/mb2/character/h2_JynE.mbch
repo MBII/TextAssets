@@ -5,9 +5,9 @@ ClassInfo
 	classNumberLimit	1
 	weapons 			WP_MANDO_PISTOL|WP_MELEE|WP_SABER|WP_BOWCASTER|WP_SONIC_NADE|WP_DET_PACK
 	
-	WP_BowcasterFlags  HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_PULSE|HELD_KNOCKBACK|HELD_SLOW
+	WP_BowcasterFlags  HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_PULSE|HELD_KNOCKBACK
 	
-	attributes  	MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FLIPKICK,2|MB_ATT_DASH,2|MB_ATT_BOWCASTER,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DET_PACK,3|MB_ATT_SABER_COMBO_NONE
+	attributes  	MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FLIPKICK,2|MB_ATT_DASH,2|MB_ATT_BOWCASTER,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DET_PACK,3
 	
 	forcepowers 	FP_SABER_OFFENSE,3
 	maxhealth 150
@@ -15,12 +15,12 @@ ClassInfo
 	saber1	truncheon_legends
 	saber2     a180_saber_legends
 	saberstyle	SS_DUAL|SS_TAVION
-	saberDamage 66 //75
+	saberDamage 61 //70
 	APmultiplier  1.25
 	CSmultiplier  1.1
 	ASmultiplier  1.15
 	BPmultiplier 0
-	
+		saberMaxChain 2
 	modelscale 	0.933
 	model 		"jynerso"
 	skin  		"default"
@@ -41,7 +41,7 @@ ClassInfo
 	rateoffire_melee	0.9
 	speed           	1.05
 	
-	saberStanceAnim	BOTH_MELEE_STAND2
+	saberStanceAnim	BOTH_MELEEPOSE
 	flourishAnim     BOTH_STAND5TOAIM
 	gloatAnim	BOTH_SHOWOFF_FAST
 	tauntAnim	BOTH_ENGAGETAUNT
@@ -70,15 +70,20 @@ WeaponInfo0
 	ClipSize 			22
 	ReloadTimeModifier 	0.9
 	damageMod 1.1
+	CustomAmmo			820
+	FPMult 				1.1
 	hasAnimOverrides 1
 	animReady BOTH_STAND4TOATTACK2
 	animReadyWalk BOTH_STAND4TOATTACK2
-	animReadyNoAmmo BOTH_PISTOL_ATTACK
-	animAttack BOTH_PISTOL_ATTACK
-	animAttackWalk BOTH_PISTOL_ATTACK
-	//animStand BOTH_STAND1
-	CustomAmmo			800
-	FPMult 				1.1
+	animReadyNoAmmo BOTH_PISTOL_ATTACK 
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animStand BOTH_STAND1
+	//animAttack BOTH_ATTACK2
+	//animAttackWalk BOTH_ATTACK2
+	//animReady BOTH_PISTOL_IDLE
+	//animReadyWalk BOTH_PISTOL_IDLE2
+	//animReadyNoAmmo BOTH_ATTACK2
 }
 WeaponInfo1
 {
@@ -98,6 +103,13 @@ WeaponInfo1
 	CustomAmmo 			38
 	ReloadTimeModifier 	1.75
 	FPMult 				2.5
+	//hasAnimOverrides 1
+	//animStand BOTH_STAND1
+	//animReady BOTH_WESTARM5_IDLE
+	//amimReadyWalk BOTH_WESTARM5_IDLE
+	//animAttack BOTH_DC15_AIM_ATTACK
+	//animAttackWalk BOTH_DC15_AIM_ATTACK
+	//animReadyNoAmmo BOTH_DC15_AIM_ATTACK
 }
 
 WeaponInfo2
@@ -119,8 +131,8 @@ A speedy pistoleer with advanced movement capabilities and a shocking/displacing
 -- 10% faster swings
 - Jyn's Truncheon (Dual/Cyan Saber)
 -- Cannot block Sabers/Blasters
--- No Saber Training
--- 74/45% less DMG
+-- Chain Limit: 2
+-- 76/49% less DMG
 -- 30% shorter reach
 -- Slap ^3[CS3]
 - A180 Blaster Pistol (WESTAR 2)
@@ -129,7 +141,6 @@ A speedy pistoleer with advanced movement capabilities and a shocking/displacing
 - A180 Ion Attachment (Bowcaster 3)
 -- Electrifies/pushes/knocks down targets
 -- 150% more FP DMG
--- 15% slower movement
 -- 75% slower mag reload
 - Sonic Detonators (2)
 - Det Packs (3)
@@ -139,9 +150,9 @@ A speedy pistoleer with advanced movement capabilities and a shocking/displacing
 
 ^8Attributes:
 - Healing (3)
-- Force Sense Immunity
+- Sense Immunity
 
 ^3Abilities:
-- Flipkick (2)
+- Flipkick (2) ^3[Contact Jump]
 - Dodge (3) ^3[CS1]
 - Dash (2) ^3[CS2]"

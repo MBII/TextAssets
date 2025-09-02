@@ -14,7 +14,7 @@ ClassInfo
 	WP_ShotgunFlags   HELD_PULSE|HELD_ALTRELOAD|HELD_SLOWPROJ
 	WP_T21Flags HELD_ALTRELOAD
 	
-	attributes	MB_ATT_FORCEBLOCK,2|MB_ATT_HEALING,1|MB_ATT_ASSEMBLE,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DEXTERITY,2|MB_ATT_PISTOL,1|MB_ATT_AMMO,2
+	attributes	MB_ATT_FORCEBLOCK,2|MB_ATT_HEALING,1|MB_ATT_ASSEMBLE,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DEXTERITY,2|MB_ATT_PISTOL,1|MB_ATT_AMMO,2|MB_ATT_DEFLECT,0
 
 	forcepowers	FP_SABER_OFFENSE,3
 	resource RESOURCE_FORCE
@@ -51,13 +51,13 @@ ClassInfo
 	mbPoints			1
 	
 	c_att_skill_0	MB_ATT_SHOTGUN
-	c_att_names_0	"ARC Caster (Shotgun):"
+	c_att_names_0	"ARC Caster (Shotgun)"
 	c_att_ranks_0	1
-	
+	c_att_descs_0 "Electrifies targets, 75% slower velocity, 75% slower mag reload"
 	c_att_skill_1	MB_ATT_T21
-	c_att_names_1	"T-21 Heavy Blaster Rifle:"
+	c_att_names_1	"T-21 Heavy Blaster"
 	c_att_ranks_1	1,0
-
+	c_att_descs_1 "Sec. only, Mag reload"
 	//respawncustomtime 30000
 }
 
@@ -82,8 +82,10 @@ WeaponInfo1
 	WeaponName			"ARC Caster"
 	hasAnimOverrides 1
 	animReady BOTH_DC15_IDLE
-	animReadyWalk TORSO_WEAPONREADY4
+		animReadyWalk TORSO_WEAPONREADY4
 	animReadyNoAmmo TORSO_WEAPONREADY4
+	//animReadyWalk BOTH_TORSO_WEAPONREADY4
+	//animReadyNoAmmo BOTH_TORSO_WEAPONREADY4
 	animAttack BOTH_ATTACK4
 	animAttackWalk BOTH_ATTACK4
 	animStand BOTH_STAND5
@@ -120,7 +122,7 @@ WeaponInfo3
 	WeaponToReplace WP_T21
 	WeaponBasedOff  WP_T21 
 	Icon				"gfx/hud/w_icon_t-21" 
-	WeaponName  "T-21 Heavy Blaster Rifle"
+	WeaponName  "T-21 Heavy Blaster"
 	NewWorldModel		"models/weapons2/t-21/t-21_w.glm" 
 	NewViewModel		"models/weapons2/t-21/t-21.md3" 
 	NewHandsModel		"models/weapons2/t-21/t-21_hand.md3"
@@ -140,10 +142,11 @@ Mobile 2-lifes with a Saber and Force Block.
 -- 15% faster movement
 - Imperial Force Pike (Yellow/Purple Saber)
 -- Saber/Blaster Defense (1)
+-- Saber Deflect (0)
 -- Chain Limit: 3
 -- Staggers targets
 -- 7% faster swings
--- 15% more KB
+-- 15% more KB given
 -- 54/72% less DMG
 -- 30% shorter reach
 -- 167% wider radius
@@ -159,12 +162,4 @@ Mobile 2-lifes with a Saber and Force Block.
 - Assemble (3)
 
 ^3Abilities:
-- Dex Roll ^3[CS3]
-
-^9Point Buy Info:
-- ARC Caster (Shotgun 1)
--- Electrifies targets
--- 75% slower velocity/mag reload
-- T-21 Heavy Blaster Rifle (2)
--- Mag reload
--- Sec. only"
+- Dex Roll ^3[CS3]"

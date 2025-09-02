@@ -1,81 +1,81 @@
 ClassInfo
 {
-	name				"v2_Greedo"
-	weapons				WP_MELEE|WP_BLASTER_PISTOL
-	attributes			MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON
-	maxhealth			160
-	maxarmor				25
-	speed               1.06
-	damageGiven			1
-	modelscale          0.99
-	MBClass				MB_CLASS_HERO
+	name		"v2_Greedo"
+	MBClass	MB_CLASS_HERO //dash
 	classNumberLimit	1
-
-	model			"rodian" 					
-	skin				"default"						
-	uishader			"models/players/rodian/mb2_icon_default"
-
-	Resource			RESOURCE_ENERGY
 	
-		idleAnim BOTH_SCEPTER_HOLD
+	weapons	WP_MELEE|WP_BLASTER_PISTOL
+	attributes	MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON
+	
+	maxhealth 160
+	speed   1.06
+
+	modelscale   0.99
+	model		"rodian" 					
+	skin			"default"						
+	uishader		"models/players/rodian/mb2_icon_default"
+	uioverlay "gfx/icons/spec_infantry"
+	Resource	RESOURCE_ENERGY
+	
+	idleAnim BOTH_SCEPTER_HOLD
 	flourishAnim BOTH_SCEPTER_HOLD
 	
-	forcepool		100
-	forceregen		2
-	
-	rankArmor		40,80
-	
+	forcepool	100
 	rankforcepool	130,165,200	
+	forceregen	2
 	
-	uioverlay "gfx/icons/spec_infantry"
+	maxarmor		25
+	rankArmor	45,85
 
-	MBClass						MB_CLASS_HERO
-	classNumberLimit			1
-	WP_FragNadeFlags			HELD_KNOCKDOWN
-	WP_BlasterPistolFlags		HELD_HIGHDAMAGE|HELD_SLOW
+	WP_FragNadeFlags	HELD_KNOCKDOWN
+	WP_BlasterPistolFlags	HELD_HIGHDAMAGE|HELD_SLOW
 	
-	special1				EAS_HI_DODGE
-
-	//special3				EAS_HI_QUICKTHROW
+	special1	EAS_HI_DODGE
 
 	isCustomBuild		1
 	mbPoints			115
 	
 	c_att_skill_0	MB_ATT_PISTOL
-	c_att_names_0	"DT-12 Blaster Pistol:"
+	c_att_names_0	"Han Solo's DL-44 Pistol"
 	c_att_ranks_0	0,5,25
-	
+	c_att_descs_0 "100% more DMG, 20% more FP DMG, 20% faster velocity,
+20.5% slower RoF, 15% slower movement, 150% slower reload"
 	c_att_skill_1	MB_ATT_FRAGS
-	c_att_names_1	"Frag Grenades:"
+	c_att_names_1	"Frag Grenades"
 	c_att_ranks_1	10,10,10
-	
+	c_att_descs_1 "Sec. fire travels set distance and explodes on impact,
+Fully cooked sec. nades are auto-thrown, Cooking resets det. timer"
 	c_att_skill_2	MB_ATT_MICRO_GRENADES
-	c_att_names_2	"Concussion Grenades:"
+	c_att_names_2	"Concussion Grenades"
 	c_att_ranks_2	5,5,5
 		
 	c_att_skill_3	MB_ATT_HEALING
-	c_att_names_3	"Healing:"
+	c_att_names_3	"Healing"
 	c_att_ranks_3	5,5,5
 	
 	c_att_skill_4	MB_ATT_ARMOUR
-	c_att_names_4	"Armor (40/80):"
+	c_att_names_4	"Armor (45/85)"
 	c_att_ranks_4	5,10
 
 	c_att_skill_5	MB_ATT_POWER
-	c_att_names_5	"Energy Pool (135/165/200):"
+	c_att_names_5	"Energy Pool (135/165/200)"
 	c_att_ranks_5	10,10,10
 	
-	c_att_skill_6	MB_ATT_DODGE
-	c_att_names_6	"Dodge ^3[CS1]^7:"
-	c_att_ranks_6	4,6,10
-
-	c_att_skill_7	MB_ATT_DASH
-	c_att_names_7	"Dash ^3[CS2]^7:"
-	c_att_ranks_7	10,5
+	c_att_skill_6	MB_ATT_DEXTERITY
+	c_att_names_6	"Dexterity"
+	c_att_ranks_6	5
 	
-	c_att_skill_8	MB_ATT_QUICKTHROW
-	c_att_names_8	"Quick-Throw ^3[CS3]^7:"
-	c_att_ranks_8	5,5
+	c_att_skill_7	MB_ATT_DODGE
+	c_att_names_7	"Dodge ^3[CS1]"
+	c_att_ranks_7	4,6,10
+
+	c_att_skill_8	MB_ATT_DASH
+	c_att_names_8	"Dash ^3[CS2]"
+	c_att_ranks_8	10,5
+	
+	c_att_skill_9	MB_ATT_QUICKTHROW
+	c_att_names_9	"Quick-Throw ^3[CS3]"
+	c_att_ranks_9	5,5
 }
 
 WeaponInfo0
@@ -89,7 +89,7 @@ WeaponInfo0
 	Icon  				"gfx/hud/w_icon_kyd-21"
 	WeaponName			"DT-12 Blaster Pistol"
 	clipSize       		15
-	FPMult     			1
+	FPMult     			1.2
 	rateMod 	1.205
 	velocityMod 1.2
 	ReloadTimeModifier 	2.5
@@ -100,12 +100,21 @@ WeaponInfo0
 	PowerupShotEffect		"blaster/Shot04R"
 	MissileEffect			"blaster/Shot03R"
 	hasAnimOverrides 1
-	animReady BOTH_STAND4TOATTACK2 //upper
+	animReady BOTH_STAND4TOATTACK2
 	animReadyWalk BOTH_STAND4TOATTACK2
 	animReadyNoAmmo BOTH_STAND4TOATTACK2
-	animAttack BOTH_PISTOL_ATTACK
-	animAttackWalk BOTH_PISTOL_ATTACK
-	animStand BOTH_STAND4TOATTACK2 //lower
+	animAttack BOTH_PISTOL_ATTACK 
+	animAttackWalk BOTH_PISTOL_ATTACK 
+	animCharge BOTH_PISTOL_ATTACK
+	animStand BOTH_STAND4TOATTACK2
+
+	//animReady BOTH_MAND_PISTOL_READY
+	//animReadyWalk BOTH_MAND_PISTOL_READY
+	//animReadyNoAmmo BOTH_MAND_PISTOL_ATTACK
+	//animAttack BOTH_MAND_PISTOL_ATTACK
+	//animAttackWalk BOTH_MAND_PISTOL_ATTACK
+	//animStand BOTH_MAND_PISTOL_READY
+	//animCharge BOTH_MAND_PISTOL_ATTACK
 }
 
 description	"Greedo [Hero]
@@ -116,16 +125,11 @@ A scrappy class with custom options like a double-damage Pistol, a massive Energ
 - Melee
 - DT-12 Blaster Pistol (1)
 -- 100% more DMG
+-- 20% more FP DMG
 -- 20% faster velocity
 -- 20.5% slower RoF
 -- 15% slower movement
--- 250% slower reload
+-- 150% slower reload
 
 ^8Default Attributes:
-- Tracking Beacon
-
-^9Point Buy Info:
-- Frag Grenades
--- Sec. fire detonates upon any contact
--- Fully cooked sec. nades are auto-thrown
--- Cooking does not affect det. timer"
+- Tracking Beacon"

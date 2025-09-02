@@ -12,7 +12,7 @@ ClassInfo
 	
 	maxarmor			65	
 	rankArmor		75,90,115
-
+	ASmultiplier 1.05
 	APmultiplier		.75
 	rankAP			1.0,1.1,1.2
 	
@@ -54,7 +54,8 @@ ClassInfo
 	
 	WP_CloneRifleFlags	HELD_SLOW
 	
-	knockbackTaken  0.85
+	knockbackTaken		.80
+	rankKbTaken			.20
 	
 	//respawncustomtime  50000
 
@@ -62,52 +63,56 @@ ClassInfo
 	mbPoints			160
 	
 	c_att_skill_0	MB_ATT_FP_SABER_DEFENSE
-	c_att_names_0	"Vibro (Saber) Defense:"
+	c_att_names_0	"Saber Defense"
 	c_att_ranks_0	10,15
 	
 	c_att_skill_1	MB_ATT_AP_MULTIPLIER
-	c_att_names_1	"Vibro AP (100/110/120%):"
+	c_att_names_1	"Saber AP (100/110/120%)"
 	c_att_ranks_1	10,10,10
 	
 	c_att_skill_2	MB_ATT_CLONERIFLE
-	c_att_names_2	"Repeating Blaster (CR):"
+	c_att_names_2	"Repeating Blaster (CR)"
 	c_att_ranks_2	5,15,30
-	
+	c_att_descs_2 "100% slower reload, 15% slower movement"
 	c_att_skill_3	MB_ATT_STRONGBLOBS
-	c_att_names_3	"> Repeat. Blaster Ion Blobs:"
+	c_att_names_3	"> Repeat. Blaster Ion Blobs"
 	c_att_ranks_3	4,4,4
 	
 	c_att_skill_4	MB_ATT_FRAGS
-	c_att_names_4	"Frag Grenades:"
+	c_att_names_4	"Frag Grenades"
 	c_att_ranks_4	10,10,10
 	
 	c_att_skill_5	MB_ATT_HEALTH
-	c_att_names_5	"Health (110/125/150):"
+	c_att_names_5	"Health (110/125/150)"
 	c_att_ranks_5	3,5,6
 	
 	c_att_skill_6	MB_ATT_HEALING
-	c_att_names_6	"Healing:"
+	c_att_names_6	"Healing"
 	c_att_ranks_6	5,5,5
 	
 	c_att_skill_7	MB_ATT_ARMOUR
-	c_att_names_7	"Armor (75/90/115):"
+	c_att_names_7	"Armor (75/90/115)"
 	c_att_ranks_7	5,7,9
 	
 	c_att_skill_8	MB_ATT_BESKAR
-	c_att_names_8	"Beskar:"
+	c_att_names_8	"Beskar"
 	c_att_ranks_8	10,5,10
 	
 	c_att_skill_9	MB_ATT_BLAST_ARMOUR
-	c_att_names_9	"Blast Armor:"
+	c_att_names_9	"Blast Armor"
 	c_att_ranks_9	10
 	
 	c_att_skill_10	MB_ATT_CORTOSIS
-	c_att_names_10	"Cortosis:"
+	c_att_names_10	"Cortosis"
 	c_att_ranks_10	10
 	
-	c_att_skill_11	MB_ATT_STAMINA
-	c_att_names_11	"Stamina ^3[CS1]^7:"
-	c_att_ranks_11	5,5,5
+	c_att_skill_11	MB_ATT_KB_TAKEN_MULTIPLIER
+	c_att_names_11	"Knockback Taken (20%)"
+	c_att_ranks_11	6
+	
+	c_att_skill_12	MB_ATT_STAMINA
+	c_att_names_12	"Stamina ^3[CS1]"
+	c_att_ranks_12	5,5,5
 }
 
 WeaponInfo0
@@ -118,10 +123,13 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_kotor_repeater"
 	WeaponName			"Canderous' Repeating Blaster"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	altMuzzleEffect		"Blaster/MuzzleFlash01R"
-	FlashSound0			"sound/weapons/kotor/fire_hvy.wav"	
 	MissileEffect		"Blaster/Shot01R"
+	MuzzleEffect		"Blaster/MuzzleFlash01R"
+	AltMuzzleEffect "Blaster/MuzzleFlash01B"
+	altMissileMissEffect "blobs/ionblast"
+	altMissileHitHumanEffect "blobs/ionblast"
+	altMissileHitDroidEffect "blobs/ionblast"
+	FlashSound0			"sound/weapons/kotor/fire_hvy.wav"
 	//FPMult     			0.9
 	clipsize			60
 	ReloadTimeModifier  2	
@@ -151,16 +159,11 @@ A tanky hybrid who can spec into Blaster and Saber skills.
 -- Slap ^3[CS2]
 
 ^8Default Attributes:
-- 15% less KB taken
-- Physical Resistance
+- 20% less KB taken
 - Stamina (0)
 - Dexterity (1)
+- Physical Resistance
 - Rally
 
 ^3Default Abilities:
-- Sprint ^3[CS1]
-
-^9Point Buy Info:
-- Canderous' Repeating Blaster (Clone Rifle)
--- 15% slower movement
--- 100% slower reload"
+- Sprint ^3[CS1]"

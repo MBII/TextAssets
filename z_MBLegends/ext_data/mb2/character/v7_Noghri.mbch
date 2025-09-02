@@ -1,62 +1,133 @@
 //Legends Mode character file - Created by Frenzy & Leos
-
 ClassInfo
 {
-	name			"v7_Noghri"
-	MBClass				MB_CLASS_ARCTROOPER
-	weapons				WP_MELEE|WP_T21|WP_SABER|WP_BOWCASTER
-	attributes			MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_DEXTERITY,2|MB_ATT_T21,2|MB_ATT_AMMO,3|MB_ATT_POISON_DART,2|MB_ATT_BOWCASTER,1|MB_ATT_STAMINA,3|MB_ATT_WOOKIEE_FURY,2|MB_ATT_BUNNY_HOP,1
-	
+	name	"v7_Noghri"
+	MBClass	MB_CLASS_MANDALORIAN
+	weapons	WP_MELEE|WP_SABER
+	attributes	MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_DEXTERITY,1|MB_ATT_AMMO,3|MB_ATT_WOOKIEE_FURY,2|MB_ATT_BUNNY_HOP,1
+
 	maxhealth	100
-	maxarmor		60
-	baseSpeed 261.2
-	modelscale    0.97
+	rankhealth 120,140
+	
+	maxarmor	60
+	rankarmor 80
+	
+	basespeed 250
+	rankbaseSpeed 262
+
+	modelscale	0.97
 	classNumberLimit	2
-	extralives   1
 
 	forcepool  225
 	forceregen 0.1
-	
-	resource 		RESOURCE_RAGE
+	resource RESOURCE_RAGE
 	resourceRegenCap 50
 	resourceRegenAmount 2
 	resourceRegenRate 500
 	
+	rateOfFire_Melee	0.88
+
 	saber1      vibrokhopesh
 	saberstyle  SS_TAVION	
 	saberMaxChain 4
 	CSmultiplier   1.1
 	ASmultiplier   1.1
 	APmultiplier   1.1
-	BPmultiplier   1.1
+	BPmultiplier   1.05
 	WP_SaberFlags HELD_POISON
-	WP_MeleeFlags HELD_POISON
-	WP_BowcasterFlags  HELD_KNOCKDOWN|HELD_ALTRELOAD|HELD_PULSE
-
+	//WP_MeleeFlags HELD_POISON
+	WP_BowcasterFlags  HELD_KNOCKBACK|HELD_ALTRELOAD|HELD_POISON
 	classflags	CFL_ACIDBLOOD|CFL_BLOODYMELEE|CFL_HEAVYMELEE|CFL_SEEING_STEALTH
-
-	holdables HI_CLOAK
-
-	model		"noghri"
-	skin			"deathcomm"					
-	uishader		"gfx/hud/fa_icons/mb2_icon_warnoghri"
 	
+	holdables HI_CLOAK
+	
+	model	"noghri"
+	skin		"deathcomm"					
+	uishader	"gfx/hud/fa_icons/mb2_icon_warnoghri"
+
 	uioverlay_l "gfx/icons/tactician"
 	uioverlay_c "gfx/icons/hybrid"
 	uioverlay_r "gfx/icons/infantry"
-	
+
 	model_1		"noghri"
 	skin_1		"default"
 	uishader_1	"models/players/noghri/mb2_icon_default"
-	
-	special1 EAS_HI_POISON
+
+	special1	EAS_HI_WHISTLING_BIRDS
 	special2	EAS_MELEE
 	special3 EAS_HI_DEX
+	special4 EAS_HI_POISON
 	WalkBackward BOTH_WALKBACK_DUAL
 	WalkForward BOTH_WALK_DUAL
+
+    //respawncustomtime 30000
+
+	isCustomBuild	1
+	mbPoints	50
 	
-    //respawncustomtime 30000	
+c_att_skill_0	MB_ATT_FP_SABER_DEFENSE
+c_att_names_0	"Saber Defense"
+c_att_ranks_0	15
+
+c_att_skill_1	MB_ATT_PISTOL
+c_att_names_1	"Disruptor Pistol"
+c_att_ranks_1	5
+c_att_descs_1 "150% more DMG/FP DMG, 75% faster velocity, 50% slower RoF, 
+1000% slower reload"
+c_att_skill_2	MB_ATT_BOWCASTER
+c_att_names_2	"Stokhli Spray Stick (Bowcaster)"
+c_att_ranks_2	5
+c_att_descs_2 "Poisons/staggers targets, 25% more DMG, 100% more FP DMG,
+50% slower velocity, 20% slower RoF, 40% slower mag reload"
+c_att_skill_3	MB_ATT_T21
+c_att_names_3	"T-21 Heavy Blaster"
+c_att_ranks_3	4,4,2
+
+c_att_skill_4	MB_ATT_FP_SEE
+c_att_names_4	"Hunter (Force) Sense"
+c_att_ranks_4	5
+
+c_att_skill_5	MB_ATT_RESPAWNS
+c_att_names_5	"Reinforcement"
+c_att_ranks_5	25
+
+c_att_skill_6	MB_ATT_HEALTH
+c_att_names_6	"Health (120/140)"
+c_att_ranks_6 	2,2
+
+c_att_skill_7 	MB_ATT_HEALING
+c_att_names_7 	"Healing"
+c_att_ranks_7 	2
+
+c_att_skill_8	MB_ATT_ARMOUR
+c_att_names_8	"Armor (80)"
+c_att_ranks_8	4
+
+c_att_skill_9	MB_ATT_BASESPEED
+c_att_names_9	"Speed (262)"
+c_att_ranks_9 	5
+
+c_att_skill_10	MB_ATT_KNOCKDOWN_ROLL
+c_att_names_10	"Knockdown Roll"
+c_att_ranks_10	10
+
+c_att_skill_11 	MB_ATT_FLIPKICK
+c_att_names_11 	"Flipkick ^3[Contact Jump]"
+c_att_ranks_11	4
+
+c_att_skill_12	MB_ATT_WHISTLINGBIRD
+c_att_names_12	"Whistling Birds ^3[CS1]"
+c_att_ranks_12	4
+
+c_att_skill_13	MB_ATT_DEXTERITY
+c_att_names_13	"Dexterity ^3[CS3]"
+c_att_ranks_13 	0,0,4
+
+c_att_skill_14 	MB_ATT_POISON_DART
+c_att_names_14 	"Poison Darts ^3[CS4 Melee]"
+c_att_ranks_14 	2,2,2
 }
+
 WeaponInfo0
 {
 	WeaponToReplace	WP_SABER	
@@ -67,33 +138,67 @@ WeaponInfo0
 	WeaponName	"Acidic Vibrokhopesh"  
 	SelectSound 		"s/w/v/swish1.wav"
 }
-
 WeaponInfo1
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/noghri_stick/noghri_stick_w.glm"
-	NewViewModel		"models/weapons2/noghri_stick/noghri_stick.md3"
-	Icon			"gfx/hud/w_icon_noghri_stick"
-	WeaponName			"Stokhli Spray Stick"
+	WeaponToReplace	WP_BOWCASTER
+	WeaponBasedOff	WP_BOWCASTER
+	NewWorldModel	"models/weapons2/noghri_stick/noghri_stick_w.glm"
+	NewViewModel	"models/weapons2/noghri_stick/noghri_stick.md3"
+	Icon	"gfx/hud/w_icon_noghri_stick"
+	WeaponName	"Stokhli Spray Stick"
 	MissileMissEffect	"noghri_stick/gas_cloud"
-	MissileEffect		"noghri_stick/shot"				
-	MuzzleEffect		"noghri_stick/muzzle_flash" 	
-	FlashSound0		"sound/weapons/cp-50_repeater/fire.wav"
-	CustomAmmo           10
-	clipsize				2
-	ReloadTimeModifier 	1.6
-	FPMult 2.50
-	damageMod 0.75
+	MissileEffect	"noghri_stick/shot"				
+	MuzzleEffect	"noghri_stick/muzzle_flash" 	
+	FlashSound0	"sound/weapons/cp-50_repeater/fire.wav"
+	CustomAmmo  100
+	clipsize	20
+	ReloadTimeModifier	1.4
+	FPMult 2
+	damageMod 1.25
+	velocitymod 0.5
+	ratemod 0.8
+	//	hasAnimOverrides 1
+	//animStand BOTH_MELEE_BLOCK_B
 }
 
-description	"Noghri Death Commando [ARC Trooper]
+WeaponInfo2
+{
+WeaponToReplace	WP_BLASTER_PISTOL
+WeaponBasedOff WP_BLASTER_PISTOL
+NewWorldModel	"models/weapons2/kotor_pistol1/pistol_w.GLM"
+NewViewModel	"models/weapons2/kotor_pistol1/model.md3"
+Icon	"gfx/hud/w_icon_kotor_dispistol"
+MuzzleEffect	"Blaster/MuzzleFlash01Y"
+Missile3Effect "Blaster/Shot02Y"
+MissileEffect "blaster/Shot03Y"
+altMissileEffect "Blaster/Shot04Y"
+WeaponName "Disruptor Pistol"  
+FlashSound0 "sound/weapons/kotor/fire_power1.mp3"
+damagemod 2.5
+fpmult 2.5
+velocitymod 1.75
+ratemod 1.5
+clipsize 5
+ReloadTimeModifier	11
+customammo 160
+//	hasAnimOverrides 1
+//	animStand BOTH_MELEE_BLOCK_B
+}
 
-Fast 2-life Saberist/gunners with Cloak and a disabling firearm. Start with reduced resource which can be 'overcharged' through damage dealt.
+ForceInfo0
+{
+ForceToReplace	FP_SEE
+Icon		"gfx/marvel/spidersense"
+ForcePowerName	"Hunter Sense"
+}
 
-^2Weaponry:  
+description	"Noghri Death Commando [Mandalorian]
+
+Fast Saber/gunner hybrids with Cloak. Start with reduced resource which can be 'overcharged' through damage dealt.
+
+^2Default Weaponry:  
 - Heavy Melee
--- Poisons targets
+-- 12% faster swings
 - Acidic Vibrokhopesh (Cyan)
 -- Saber Defense (0)
 -- Cannot block Blasters
@@ -101,28 +206,19 @@ Fast 2-life Saberist/gunners with Cloak and a disabling firearm. Start with redu
 -- Poisons targets
 -- 18% shorter reach
 -- Slap ^3[CS2]
-- Stokhli Spray Stick (Bowcaster 1)
--- Electrifies/knocks down targets
--- 250% more FP DMG
--- 25% less DMG
--- 60% slower mag reload
-- T-21 Heavy Blaster (2)
 
-^6Inventory:
+^6Default Inventory:
 - Cloaking Device
 
-^8Attributes:
-- Reinforcement (1)
+^8Default Attributes:
 - Bunny Hop (1)
 - 90% slower Resource Decay
 - Resource Regen: 2/.5s to 50
-- Stamina (3)
-- Dexterity (2)
+- Dexterity (1)
 - Fury (2)
-- Force Sense Immunity
+- Sense Immunity
 - Tracking Beacon
 - Acid Blood (Poison enemies on death)
 
-^3Abilities:
-- Poison Darts (2) ^3[CS1 in ^3Melee]
+^3Default Abilities:
 - Dex Roll ^3[CS3]"

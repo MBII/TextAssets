@@ -3,30 +3,31 @@
 ClassInfo
 {
 	name  		"v6_MercSh"
-	MBClass 			MB_CLASS_CLONETROOPER
-	classNumberLimit  1
-	weapons    	WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE|WP_CONC_NADE
-	  
-	attributes  	MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_CLONEBLOBS,3|MB_ATT_STRONGBLOBS,3|MB_ATT_THERMALS,1|MB_ATT_DISRUPTOR,2|MB_ATT_FIRE_GRENADES,1|MB_ATT_TRACKING_DART,4|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_MICRO_GRENADES,3
+	MBClass 	MB_CLASS_BOUNTY_HUNTER
+	classNumberLimit 1
+	weapons    	WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE|WP_CONC_NADE|WP_PULSE_NADE
 
-	rateoffire		1
-	basespeed        247.5
-	modelscale  		0.97
-	  
+	attributes  	MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DISRUPTOR,2|MB_ATT_TRACKING_DART,4|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_CLONEBLOBS,2|MB_ATT_STRONGBLOBS,2
+
+	basespeed 247.5
+	modelscale	0.97
+
 	//respawncustomtime 50000
-	  
-	special1 EAS_FP_SEE
+
+	special1 EAS_HI_POISON
 	special2 EAS_HI_TRACKER
-	special3 EAS_HI_KICK
-	  
+	special3 EAS_FP_SEE
+	special4	EAS_HI_KICK
+
 	flourishAnim BOTH_STAND5TOAIM
-	maxhealth 	150
-	maxarmor  	100
-	  
+	bowAnim BOTH_MAND_FLAME_ATTACK
+	maxhealth 150
+	maxarmor  100
+
 	WP_CloneRifleFlags HELD_ALTRELOAD
 
-	forcepowers 	FP_SEE,3
-	forcepool 	80
+	forcepowers	FP_SEE,3
+	forcepool	80
 	resourceRegenAmount 80
 	resourceRegenRate 25000
 	//resourceRegenCap 30
@@ -35,21 +36,74 @@ ClassInfo
 	model	"dengar"
 	skin		"default"
 	uishader	"models/players/dengar/mb2_icon_default"
-	  
-	model_1 		"4lom"
-	skin_1  		"default"
-	uishader_1  	"models/players/4lom/mb2_icon_default"
-	
+
+	model_1 	"4lom"
+	skin_1  	"default"
+	uishader_1  "models/players/4lom/mb2_icon_default"
+
 	model_2		"bounty_hunter"
 	skin_2		"default"
 	uishader_2	"models/players/bounty_hunter/mb2_icon_default"
-	
-	model_3		"mayfeld" 					
-	skin_3		"default"						
-	uishader_3	"models/players/mayfeld/mb2_icon_default"
-	
+
+	model_3		"RAB-24"
+	skin_3		"default"
+	uishader_3	"models/players/RAB-24/mb2_icon_default"
+
+	model_4		"mayfeld"
+	skin_4		"default"
+	uishader_4	"models/players/mayfeld/mb2_icon_default"
+
+	model_5		"jedi_rm"
+	skin_5		"ootyr"
+	uishader_5	"models/players/ootyr/mb2_icon_default_jab"
+
+	model_6		"human_merc"
+	skin_6		"azanti"
+	uishader_6	"models/players/human_merc/mb2_icon_azanti"
+
 	uioverlay_l "gfx/icons/scout"
 	uioverlay_r "gfx/icons/spec_infantry"
+
+	isCustomBuild	1
+	mbPoints		5
+
+c_att_skill_0	MB_ATT_AMMO
+c_att_names_0	"Disruptor Rifle Ammo (600)"
+c_att_ranks_0 0,0,1
+
+c_att_skill_1	MB_ATT_CLONEBLOBS
+c_att_names_1	"DLT-19 (CR) Concussion Blobs"
+c_att_ranks_1	0,0,1
+
+c_att_skill_2	MB_ATT_STRONGBLOBS
+c_att_names_2	"DLT-19 (CR) Ion Blobs"
+c_att_ranks_2	0,0,1
+
+c_att_skill_3	MB_ATT_THERMALS
+c_att_names_3	"Thermal Detonator"
+c_att_ranks_3	1
+
+c_att_skill_4	MB_ATT_TRIP_MINES
+c_att_names_4	"Trip Mine"
+c_att_ranks_4	1
+
+c_att_skill_5 MB_ATT_PULSE_GRENADES
+c_att_names_5	"Pulse Grenade"
+c_att_ranks_5	1
+
+c_att_skill_6	MB_ATT_FIRE_GRENADES
+c_att_names_6	"Fire Grenade"
+c_att_ranks_6	1
+
+c_att_skill_7	MB_ATT_MICRO_GRENADES
+c_att_names_7	"Smoke Grenades (Concs)"
+c_att_ranks_7	1,0,0
+c_att_descs_7 "Obscures vision, 99.9% less DMG, 40% faster RoF"
+
+c_att_skill_8	MB_ATT_POISON_DART
+c_att_names_8	"Poison Darts ^3[CS2]"
+c_att_ranks_8	1,1
+
 }
 
 WeaponInfo0
@@ -60,9 +114,10 @@ WeaponInfo0
 	NewViewModel  "models/weapons2/dummy/dummy.md3"
 	Icon  "gfx/hud/w_icon_dlt19scoped"
 	WeaponName  "DLT-19 Heavy Blaster Rifle"
-	FlashSound0	"sound/weapons/DLT19/fire.wav"	
+	FlashSound0	"sound/weapons/DLT19/fire.wav"
 	MuzzleEffect  "Blaster/MuzzleFlash01R"
 	MissileEffect		"Blaster/Shot01R"
+	MissileMissEffect "Blaster/impact_wall01"
 	customAmmo         750
 	damageMod 1.10
 	clipsize 85
@@ -89,7 +144,6 @@ WeaponInfo1
 	FlashSound0		"sound/weapons/smokenade/select.mp3"
 	AltFlashSound0 	"sound/weapons/smokenade/select.mp3"
 	WeaponName  				"Smoke Grenades"
-	primFireEnabled 1
 	hasAnimOverrides 1
 	animReady  BOTH_SABERDUAL_STANCE //upper
 	animReadyWalk  BOTH_SABERDUAL_STANCE
@@ -97,7 +151,12 @@ WeaponInfo1
 	animAttack NADE_SECONDARY
 	animAttackWalk NADE_SECONDARY
 	animStand BOTH_STAND1 //lower
+	//animAttack BOTH_THERMAL_THROW2
+	//animAttackWalk BOTH_THERMAL_THROW2
+	//animReady BOTH_THERMAL_READY2
+	//animReadyWalk BOTH_THERMAL_READY2
 	damageMod 0.001
+	ratemod 0.6
 }
 
 ForceInfo0
@@ -109,28 +168,23 @@ ForceInfo0
 	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
-description	"Mercenary Shooter [Clone Trooper]
+description	"Mercenary Shooter [Bounty Hunter]
 
 A suppressive fire class with rifles and area-control tools.
 
-^2Weaponry:
+^2Default Weaponry:
 - Melee
 - Disruptor Rifle (2)
 - DLT-19 Heavy Blaster Rifle (Clone Rifle 2)
+-- Concussion/Ion Blobs (2)
 -- 10% more DMG
 -- 8% faster RoF
 -- Mag reload
--- Concussion/Ion Blobs (3)
-- Thermal Detonator (1)
-- Fire Grenade (1)
-- Smoke Grenades (3) (Concs)
--- Obscures vision
--- 99.9% less DMG
 
-^5Powers:
-- Infrared Motion Sensor (Sense 3) ^3[CS1]
+^5Default Powers:
+- Infrared Motion Sensor (Sense 3) ^3[CS3]
 
-^8Attributes:
+^8Default Attributes:
 - Resource Regen: 80/25s
 - Dexterity (1)
 - Blast Armor
@@ -138,6 +192,6 @@ A suppressive fire class with rifles and area-control tools.
 - Armor Regen (1)
 - Tracking Beacon
 
-^3Abilities:
-- Tracking Darts (8) ^3[CS2 in ^3Melee]
-- Gun Kick ^3[CS3]"
+^3Default Abilities:
+- Tracking Darts (8) ^3[CS2 Melee]
+- Gun Kick ^3[CS2/4]"
