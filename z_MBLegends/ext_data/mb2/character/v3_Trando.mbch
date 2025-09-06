@@ -5,7 +5,7 @@ MBClass MB_CLASS_WOOKIE
 extralives 1
 classNumberLimit 4
 weapons WP_MELEE|WP_SABER|WP_FLECHETTE
-attributes MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_TRACKING_BEACON|MB_ATT_FLECHETTE,2|MB_ATT_WOOKIEE_FURY,2|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_DART,2|MB_ATT_FRAGS,1
+attributes MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_TRACKING_BEACON|MB_ATT_FLECHETTE,2|MB_ATT_WOOKIEE_FURY,2|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_DART,2|MB_ATT_FRAGS,1|MB_ATT_SONIC_DETONATOR,1
 saber1 tb
 saberstyle SS_DESANN
 saberDamage 120
@@ -44,6 +44,7 @@ WP_DCCarbineFlags HELD_SLOW|HELD_ALTRELOAD
 WP_ConcussionFlags HELD_SLOW|HELD_ALTRELOAD
 WP_ShotgunFlags HELD_PULSE|HELD_KNOCKBACK|HELD_STUN|HELD_FREEZE|HELD_LOWDAMAGE
 WP_AmbanFlags HELD_SPEED
+meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 uioverlay_r "gfx/icons/infantry"
 isCustomBuild	1
 mbPoints	0
@@ -132,7 +133,7 @@ altFireEnabled 0
 WeaponInfo1
 {
 WeaponToReplace WP_SABER
-WeaponBasedOff WP_SABER
+WeaponBasedOff WP_M5
 NewWorldModel "models/weapons2/hadhafang_gamma/hadhafang.glm"
 NewViewModel "models/weapons2/dummy/dummy.md3"
 Icon "models/weapons2/icons/hblade"
@@ -167,7 +168,6 @@ WeaponBasedOff WP_PROJ
 NewWorldModel "models/weapons2/tusken_rifle_sar/tusken_rifle_w.glm"
 NewViewModel "models/weapons2/tusken_rifle_sar/tusken_rifle.md3"
 NewHandsModel "models/weapons2/tusken_rifle_sar/tusken_rifle_hand.md3"
-MissileEffect	"acp_array/shot"
 Icon	"gfx/hud/w_icon_trifle"
 WeaponName "Hunting Rifle"
 damageMod .7
@@ -175,12 +175,11 @@ damageMod .7
 WeaponInfo4
 {
 WeaponToReplace WP_DC_CARBINE
-WeaponBasedOff WP_DC_CARBINE
+WeaponBasedOff WP_M5
 WeaponName "LS-150 Heavy ACP Repeater"
 NewWorldModel	"models/weapons2/mgun/heavy_repeater_w.glm"
 NewViewModel "models/weapons2/mgun/heavy_repeater_1.md3"
 NewHandsModel "models/weapons2/mgun/heavy_repeater_hand.md3"
-NewBarrelModel "models/weapons2/mgun/heavy_repeater_barrel_1.md3"
 Icon	"gfx/hud/w_icon_rotary_cannon"
 FlashSound0 "sound/weapons/ww2shotgun/fire.wav"
 FlashSound1 "sound/weapons/ww2shotgun/fire.wav"
@@ -224,16 +223,15 @@ WeaponToReplace	WP_SHOTGUN
 WeaponBasedOff	WP_SHOTGUN
 NewWorldModel	"models/weapons2/junglerifle/jungeRifle.glm"
 NewViewModel	"models/weapons2/junglerifle/jungeRifle.md3"
-NewBarrelModel "models/weapons2/junglerifle/jungeRifle_barrel.md3"
 NewHandsModel "models/weapons2/junglerifle/jungeRifle_hand.md3"
 Icon	"gfx/hud/w_icon_junglerifle"
 WeaponName "Electronet Launcher"
+muzzleeffect null
 MissileEffect	"electronet/shot"
 MissileMissEffect "sbd/cortosis_orange"
 MissileHitHumanEffect "sbd/cortosis_orange"
 MissileHitDroidEffect "sbd/cortosis_orange"
-FlashSound0 "sound/movers/objects/green_beam_start.mp3"
-muzzleEffect "halo_pistol/Muzzle_Flash"
+FlashSound0 "sound/weapons/volgin/volgin_shot.mp3"
 customAmmo 72
 clipSize 12
 rateMod .2
@@ -268,6 +266,8 @@ Hiss
 - ACP Scatter Gun (Flechette 2)
 -- 40% slower RoF
 -- 60% slower mag reload
+- Frag Grenade (1)
+- Sonic Detonator (1)
 
 ^5Powers:
 - Hunter Vision (Sense 1) ^3[CS1]
@@ -278,6 +278,7 @@ Hiss
 - 90% slower Resource Decay
 - Strength (1)
 - Tracking Beacon
+- Fury (2)
 
 ^3Abilities:
 - Tracking Darts (4) ^3[CS3 Melee]"
