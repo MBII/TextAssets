@@ -13,7 +13,7 @@ ClassInfo
 	skin					"default"
 	uishader				"gfx/hud/fa_icons/mb2_icon_t3m4"
 	MBClass				MB_CLASS_SBD
-	classflags			CFL_ICETHROWER|CFL_FASTHACKING|CFL_NOLOCATIONALDAMAGE
+	classflags			CFL_ICETHROWER|CFL_NOLOCATIONALDAMAGE
 	forcepowers			FP_SEE,1
 	forcepool			100
 	speed				1.3
@@ -23,12 +23,27 @@ ClassInfo
 	WP_ThrowerFlags 		HELD_ALTRELOAD
 	damageTaken 			0.9
 	disableGunBash 1
+
+	rankHack 0.34
+	hackRate 1.0
 	
 	special1	EAS_HI_RECHARGE
 	special2 EAS_HI_SBD_ZOOM
 	//respawncustomtime 50000
 	
 	uioverlay "gfx/icons/tactician"
+
+	isCustomBuild	1
+	mbPoints		1
+	
+	c_att_skill_0	MB_ATT_HACK_MULTIPLIER
+	c_att_names_0	"Hack speed (300%)"
+	c_att_ranks_0	1
+	
+	c_att_skill_1	MB_ATT_SONIC_DETONATOR
+	c_att_names_1	"Sonic Mines (3)"
+	c_att_ranks_1	1
+	c_att_descs_1 	"Alt. Fire only, 50% slower RoF"
 }
 WeaponInfo0
 {
@@ -44,9 +59,10 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_t3m4_ion"
 	WeaponName		"Ion Blaster"
 	FlashSound0		"sound/weapons/demp2/fire_old.mp3"
-	customammo 		288
+	customammo 		300
 	clipsize   		10
 	AltFireEnabled 	0
+	fpmult 1.2
 }
 WeaponInfo1
 {
@@ -75,6 +91,19 @@ WeaponInfo2
 	clipsize 100
 }
 
+WeaponInfo3
+{
+	WeaponToReplace		WP_SONIC_NADE
+	WeaponBasedOff		WP_SONIC_NADE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon			"gfx/hud/w_icon_sonic_det"
+	WeaponName		"Sonic Mine"
+	customammo 3
+	primFireEnabled 0
+	ratemod 1.5
+}
+
 ForceInfo0
 {
 	ForceToReplace	FP_SEE
@@ -91,12 +120,12 @@ A small, fast moving support class who can Hack into interfaces with superior sp
 -- Advanced Targeting ^3[Sec. fire]
 - Ion Blaster (Clone Pistol 1)
 -- Electrifies on hit
+-- 20% more FP DMG
 -- Mag reload
 - CryoBan Projector (Icethrower)
 -- 100% slower mag reload
 
 ^8Attributes:
-- 300% faster Hacking
 - Flat Damage Taken
 - Battery Recharge (3)
 - Self-Repair (Armor Regen 1)
