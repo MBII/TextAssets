@@ -84,7 +84,7 @@ c_att_ranks_0	6
 c_att_skill_1	MB_ATT_MINIGUN
 c_att_names_1	"Assault Cannon (Minigun)"
 c_att_ranks_1	2,1
-c_att_descs_1 "Ignites targets, 50% more DMG, 25% more FP DMG,
+c_att_descs_1 "Ignites on hit, 50% more DMG, 25% more FP DMG,
 20% slower velocity, 75% slower RoF"
 c_att_skill_2	MB_ATT_FRAGS
 c_att_names_2	"Frag Grenade"
@@ -101,9 +101,6 @@ c_att_ranks_5 1
 c_att_skill_6	MB_ATT_ARMOUR
 c_att_names_6	"Armor (100)"
 c_att_ranks_6 1
-c_att_skill_7	MB_ATT_QUICKTHROW
-c_att_names_7	"Quick-Throw ^3[CS3]"
-c_att_ranks_7 0
 
 c_att_skill_15	MB_ATT_RESPAWNS
 c_att_names_15	"Reinforcement"
@@ -112,24 +109,29 @@ c_att_skill_16	MB_ATT_DC_CARBINE
 c_att_names_16	"Repeat. Blaster (C. Carbine)"
 c_att_ranks_16	3,0
 c_att_descs_16 "20% faster velocity, 10% faster RoF, 10% less DMG/FP DMG"
-c_att_skill_17	MB_ATT_FRAGS
-c_att_names_17	"Frag Grenade"
-c_att_ranks_17	1,1
-c_att_skill_18	MB_ATT_PULSE_GRENADES
-c_att_names_18	"Pulse Grenades"
+c_att_skill_17	MB_ATT_WESTARM5
+c_att_names_17	"Pulse Grenade Launcher (M5)"
+c_att_ranks_17 1,0
+c_att_descs_17 "Prim. fire: Single shot, 50% more DMG/FP DMG, 50% faster velocity,
+25% slower reload, Sec. fire: 70% faster RoF, P. Nade ammo"
+c_att_skill_18	MB_ATT_FRAGS
+c_att_names_18	"Frag Grenades"
 c_att_ranks_18	1,1
-c_att_skill_19	MB_ATT_FP_SEE
-c_att_names_19	"Radar Scanner (Sense)"
-c_att_ranks_19	1
-c_att_skill_20	MB_ATT_HEALTH_REGEN_CAP
-c_att_names_20	"HP Regen (5/.5s to 35)"
+c_att_skill_19	MB_ATT_ARC_RIFLE_GRENADELAUNCHER
+c_att_names_19	"Pulse Grenades"
+c_att_ranks_19	1,0,0
+c_att_skill_20	MB_ATT_FP_SEE
+c_att_names_20	"Radar Scanner (Sense)"
 c_att_ranks_20	1
-c_att_skill_21	MB_ATT_BASESPEED
-c_att_names_21	"Speed (232)"
-c_att_ranks_21 	1
-c_att_skill_22	MB_ATT_QUICKTHROW
-c_att_names_22	"Quick-Throw ^3[CS3]"
-c_att_ranks_22 	0
+c_att_skill_21	MB_ATT_HEALTH_REGEN_CAP
+c_att_names_21	"HP Regen (5/.5s to 35)"
+c_att_ranks_21	1
+c_att_skill_22	MB_ATT_BASESPEED
+c_att_names_22	"Speed (232)"
+c_att_ranks_22	1
+c_att_skill_23	MB_ATT_DEXTERITY
+c_att_names_23	"Dexterity"
+c_att_ranks_23	0
 
 c_att_skill_30	MB_ATT_RESPAWNS
 c_att_names_30	"Reinforcement"
@@ -151,14 +153,11 @@ c_att_skill_35	MB_ATT_ARMOUR_REGEN_CAP
 c_att_names_35 	"Armor Regen Cap (70)"
 c_att_ranks_35 	1
 c_att_skill_36	MB_ATT_DMG_TAKEN_MULTIPLIER
-c_att_names_36 	"Damage Taken (75%)"
+c_att_names_36 	"DMG Taken (75%)"
 c_att_ranks_36 	1
 c_att_skill_37	MB_ATT_KB_TAKEN_MULTIPLIER
-c_att_names_37	"Knockback Taken (70%)"
+c_att_names_37	"KB Taken (70%)"
 c_att_ranks_37 	1
-c_att_skill_38	MB_ATT_QUICKTHROW
-c_att_names_38	"Quick-Throw ^3[CS3]"
-c_att_ranks_38 	0
 }
 WeaponInfo0
 {
@@ -193,7 +192,7 @@ NewViewModel  "models/weapons2/jungleRifle/jungeRifle_w.md3"
 Icon  "gfx/hud/w_icon_junglerifle"
 WeaponName		"Repeating Blaster Rifle"
 MuzzleEffect	null
-customammo 525
+customammo 530
 velocityMod 1.2
 damagemod 0.9
 ratemod 0.9
@@ -239,6 +238,22 @@ DamageMod 0.75
 ReloadTimeModifier	1.25
 customammo 375
 }
+WeaponInfo5
+{
+WeaponToReplace WP_M5
+WeaponBasedOff  WP_M5
+NewWorldModel  "models/weapons2/cw-w5/dc-15_ext_w.glm"
+NewViewModel   "models/weapons2/cw-w5/dc-15_ext.md3"
+Icon  "gfx/hud/w_icon_cw-w5g"
+FlashSound0 	"sound/weapons/dc17m/alt_fire.mp3"
+WeaponName  "Pulse Grenade Launcher"
+clipSize 2
+ratemod 0.3
+ReloadTimeModifier	1.25
+DamageMod 1.5
+fpmult 1.5
+customammo 175
+}
 ForceInfo0
 {
 ForceToReplace	FP_SEE
@@ -264,25 +279,28 @@ description	"Republic Trooper [Clone Trooper]
 
 Durable multi-lifes with crowd control.
 
-^2Default Weaponry:
+^2Weaponry:
 - Melee
 - Jagged Vibroknife (Purple Saber)
--- Cannot block Sabers/Blasters
+-- No Saber/Blaster Block
 -- Chain Limit: 4
 -- 65% less DMG
--- 50% shorter reach
+-- 50% less reach
 -- Slap ^3[CS2]
 - Pulse Cannon (Lightning Thrower)
 -- 75% slower mag reload
 
-^6Default Inventory:
-- Big Bacta ^3[CS4]
+^6Inventory:
+- Bacta (Instant 50 HP) ^3[CS4]
 
-^8Default Attributes:
+^8Attributes:
 - Reinforcement (1)
 - 10% more/less KB given/taken
-- Armor Regen: 2/1s to 25
+- Armor Regen: 2/s to 25
 - Strength (1)
 - Blast Armor
 - Force Block (1)
-- Assemble (3)"
+- Assemble (3)
+
+^3Abilities:
+- Quick-Throw (1) ^3[CS3]"

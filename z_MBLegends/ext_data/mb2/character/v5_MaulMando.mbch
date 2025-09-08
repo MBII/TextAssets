@@ -7,7 +7,7 @@ ClassInfo
 	classNumberLimit		2
 	weapons			WP_MELEE|WP_SABER|WP_FIRE_NADE
 	
-	WP_EE3Flags 		  HELD_ALTRELOAD|HELD_AMMOREGEN
+	WP_EE3Flags 		  HELD_ALTRELOAD
 	WP_MandoPistolFlags HELD_ALTRELOAD
 	WP_A280Flags		HELD_ALTRELOAD
 	WP_MinigunFlags	HELD_FLAME|HELD_DISRUPTIFY|HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_STUN
@@ -55,25 +55,24 @@ ClassInfo
 	
 	c_att_skill_0	MB_ATT_MANDO_PISTOL
 	c_att_names_0	"DX-13 Pistols (WESTARs)"
-	c_att_ranks_0	1,0,2
+	c_att_ranks_0	2,0,1
 	c_att_descs_0 "20% faster RoF, 20% faster velocity, 10% more FP DMG, 
 10% less DMG, Mag reload"
 	c_att_skill_1	MB_ATT_MINIGUN
 	c_att_names_1	"Vornax Cannon (Minigun)"
 	c_att_ranks_1	5,0
 	c_att_descs_1 "Ignites/staggers/pushes on direct hit, 300% more DMG/FP DMG,
-700% slower RoF, 50% slower velocity, 200% slower mag reload" 
+700% slower RoF, 50% slower velocity, 100% slower mag reload" 
 	700/50/200% slower RoF"
 	c_att_skill_2	MB_ATT_A280
 	c_att_names_2	"Concordian Rifle (A280)"
-	c_att_ranks_2	2,1,0
+	c_att_ranks_2	1,2,0
 	c_att_descs_2 "25% more FP DMG, 25% faster velocity, 25% slower RoF, 
-50% slower mag reload"
+40% slower mag reload"
 	c_att_skill_3	MB_ATT_EE3
 	c_att_names_3	"Sundari Repeater (EE-3)"
 	c_att_ranks_3	2,0,1
-	c_att_descs_3 "Passive ammo regen, 30% faster RoF, 20% faster velocity,
-70% slower mag reload"
+	c_att_descs_3 "30% faster RoF, 20% faster velocity, 40% slower mag reload"
 	c_att_skill_4 MB_ATT_RESPAWNS
 	c_att_names_4	"Reinforcement"
 	c_att_ranks_4 2
@@ -81,7 +80,7 @@ ClassInfo
 	c_att_skill_5	MB_ATT_FLAMETHROWER
 	c_att_names_5	"Wrist Flamethrower ^3[CS2 TM]"
 	c_att_ranks_5	1
-	c_att_descs_5 "Toggle Melee Weapon Mode to swap Wrist Laser/Flamethrower"
+	c_att_descs_5 "Toggle Melee Weapon Mode to swap Wrist Flamethrower/Laser"
 }
 WeaponInfo0
 {
@@ -114,17 +113,16 @@ WeaponInfo1
 	hasAnimOverrides 	1
 	animReady 		BOTH_PAIN16   
 	animReadyWalk 	BOTH_PAIN16    
-		animReadyNoAmmo 	DUAL_DRAW 
+	animReadyNoAmmo 	DUAL_DRAW 
 	//animReadyNoAmmo BOTH_DUAL_PISTOLS_DRAW
 	animRunAttackR	DUAL_PISTOLS_FIRE_RIGHT
 	animRunAttackL	DUAL_PISTOLS_FIRE_LEFT
 	animWalkAttackR	DUAL_RUNNING_FIRE_RIGHT
 	animWalkAttackL	DUAL_RUNNING_FIRE_LEFT
-	typeCharge 	DUAL_PISTOLS_READY
 	animCharge	DUAL_PISTOLS_READY
 	animStand 	BOTH_STAND9
-	customAmmo 600
-	clipsize	24
+	customAmmo 800
+	clipsize	30
 	rateMod 	0.80
 	FPMult 	1.1
 	velocityMod 	1.20
@@ -141,10 +139,9 @@ WeaponInfo2
 	MuzzleEffect  		"DW_Cannon/muzzleflash"
 	altMuzzleEffect  		"DW_Cannon/muzzleflash"
 	MissileEffect 		"Blaster/Shot04R"
-	missileMissEffect 	"effects/Grenades/EXP_BaseThermal"
-	missileHitEffect 		"effects/Grenades/EXP_BaseThermal"
-	MissileHitHumanEffect	"effects/Grenades/EXP_BaseThermal"
-	MissileHitDroidEffect 	"effects/Grenades/EXP_BaseThermal"
+	missileMissEffect 	"effects/impacts/impactMediumRed3"
+	MissileHitHumanEffect	"effects/impacts/impactMediumRed3"
+	MissileHitDroidEffect 	"effects/impacts/impactMediumRed3"
 	FlashSound0	"sound/weapons/MWC-35c/fire.wav"
 	isMinigun 1
 	Icon	 "gfx/hud/w_icon_rotary_cannon"
@@ -153,9 +150,9 @@ WeaponInfo2
 	rateMod 8
 	damageMod 4
 	velocityMod	0.5
-	ReloadTimeModifier 3
+	ReloadTimeModifier 2
 	clipsize	10
-	customAmmo	300
+	customAmmo	400
 }
 WeaponInfo3
 {
@@ -180,9 +177,9 @@ WeaponInfo3
 	AltFlashSound3  	"sound/weapons/EL-16/alt_fire.wav"
 	AltFlashSound4  	"sound/weapons/EL-16/alt_fire.wav"
 	customammo 	800
-	clipsize 40
+	clipsize 80
 	FPMult	1.25
-	ReloadTimeModifier 1.5
+	ReloadTimeModifier 1.4
 	rateMod 		1.25
 	velocityMod 	1.25
 }
@@ -200,10 +197,10 @@ WeaponInfo4
 	Missile3Effect	"Blaster/Shot03Y"
 	PowerupShotEffect	"Blaster/Shot04Y"
 	AltMissileEffect	"Blaster/Shot04Y"
-	customAmmo 	600
-	clipsize		24
+	customAmmo 	800
+	clipsize		32
 	//FPMult 	1.1
-	ReloadTimeModifier 	1.7
+	ReloadTimeModifier 	1.4
 	rateMod 			0.7
 	velocityMod 		1.2
 }
@@ -211,28 +208,29 @@ description	"Mandalorian Super Commando [Mandalorian]
 
 Enforcers with brutal burst fire/area control.
 
-^2Default Weaponry:
+^2Weaponry:
 - Melee
 - Mandalorian Personal Energy Shield (Cyan Saber)
 -- Saber Defense/Deflect (0)
 -- Blaster Defense (3)
--- 50% more/less KB/DMG
+-- 50% more KB
+-- 50% less DMG
 -- 12% shorter reach
 -- 66% wider radius
 -- Slap ^3[GB]
 - Fire Grenade (1)
 
-^5Default Powers:
+^5Powers:
 - Dark Rage (3) ^3[CS4]
 
-^8Default Attributes:
+^8Attributes:
 - Resource Regen: 2/.75s to 50
 - Strength (1)
 - Dexterity (3)
 - Beskar (2)
 - Fury (2)
 
-^3Default Abilities:
+^3Abilities:
 - Jetpack
 - Rocket ^3[CS1]
 - Wrist Laser ^3[CS2 TM]
