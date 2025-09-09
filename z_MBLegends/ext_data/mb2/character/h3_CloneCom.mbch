@@ -4,11 +4,11 @@ name "h3_CloneCom"
 MBClass	MB_CLASS_CLONETROOPER
 classNumberLimit 4
 extralives 1
-weapons	WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE
+weapons	WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_THERMAL
 WP_DCCarbineFlags HELD_ALTRELOAD
 WP_DisruptorFlags HELD_ALTRELOAD
 WP_FlechetteFlags HELD_ALTRELOAD
-attributes MB_ATT_STAMINA,2|MB_ATT_PISTOL,1|MB_ATT_FRAGS,1
+attributes MB_ATT_STAMINA,2|MB_ATT_PISTOL,1|MB_ATT_BASE_TD,2|MB_ATT_DEXTERITY,1
 saber1 cc
 saberstyle SS_TAVION
 saberMaxChain 1
@@ -26,8 +26,6 @@ basespeed 180
 rankbasespeed 200,220
 rankHack 0.85
 knockbackTaken 0.85
-rankKBTaken 0.2
-skillTimerMod 2
 rankROFMelee 0.7
 special1 EAS_HI_SPRINT
 special2 EAS_MELEE
@@ -84,20 +82,17 @@ c_att_descs_1 "120% more DMG, 120% more FP DMG, 10% slower RoF,
 c_att_skill_2 MB_ATT_BASESPEED
 c_att_names_2 "Speed (200)"
 c_att_ranks_2 0
-c_att_skill_3 MB_ATT_DEXTERITY
-c_att_names_3 "Dexterity"
-c_att_ranks_3 0
 c_att_skill_15 MB_ATT_WOOKIE_STRENGTH
 c_att_names_15 "Commando Strength"
 c_att_ranks_15 0,0
 c_att_skill_16 MB_ATT_UGL
 c_att_names_16 "DC-17m Anti-Armor (UGL)"
 c_att_ranks_16 0,0
-c_att_descs_16 "25% less DMG, 25% slower RoF"
+c_att_descs_16 "25% slower RoF"
 c_att_skill_17 MB_ATT_MICRO_GRENADES
 c_att_names_17 "> DC-17m Conc. Grenades (8)"
 c_att_ranks_17 0
-c_att_descs_17 "Cannot be hand-thrown, 50% less DMG"
+c_att_descs_17 "Cannot be hand-thrown, 60% less DMG"
 c_att_skill_18 MB_ATT_DET_PACK
 c_att_names_18 "Det Packs"
 c_att_ranks_18 0,0,0
@@ -120,9 +115,6 @@ c_att_ranks_33 0,0
 c_att_skill_34 MB_ATT_HACK_MULTIPLIER
 c_att_names_34 "Hack Speed (115%)"
 c_att_ranks_34 0
-c_att_skill_35 MB_ATT_DEXTERITY
-c_att_names_35 "Dexterity"
-c_att_ranks_35 0
 }
 WeaponInfo0
 {
@@ -204,7 +196,6 @@ altflashsound3 "sound/weapons/dc-17m/alt_fire.wav"
 Icon	"gfx/hud/w_icon_dc-17ml"
 WeaponName "DC-17m ICWS Anti-Armor Attachment"
 selectSound "sound/weapons/dc17m/select.mp3"
-damageMod .75
 rateMod 1.25
 }
 WeaponInfo4
@@ -219,7 +210,7 @@ WeaponName "DC-17m Concussion Grenades"
 primfireenabled 0
 altFireEnabled 0
 customAmmo 8
-damageMod .5
+damageMod .4
 hasAnimOverrides 1
 animReady BOTH_STAND5TOSTAND8
 animReadyWalk BOTH_STAND5TOSTAND8
@@ -228,20 +219,20 @@ animStand BOTH_STAND1
 WeaponInfo5
 {
 WeaponToReplace	WP_BLASTER_PISTOL
-WeaponBasedOff	WP_BLASTER_PISTOL
+WeaponBasedOff WP_BLASTER_PISTOL
 NewWorldModel	"models/weapons2/DC-15/dc-15_w.glm"
 NewViewModel	"models/weapons2/dummy/dummy.md3"
 Icon	"gfx/hud/w_icon_clonepistol"
-WeaponName	"DC-15s Side Arm Blaster"
+WeaponName "DC-15s Side Arm Blaster"
 FlashSound0	"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
 AltFlashSound0 "sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
 MuzzleEffect	"Blaster/MuzzleFlash01C"
 MissileEffect	"Blaster/Shot01C"
 MissileMissEffect "blaster/impact_wall01c"
 ChargeEffect	"gfx/effects/cloneFrontFlash"
-clipSize			15
+clipSize 15
 ReloadTimeModifier 2
-customammo 			435
+customammo 435
 rateMod 0.6
 }
 WeaponInfo6
@@ -254,12 +245,15 @@ Icon "gfx/hud/w_icon_arc_shiv_short"
 WeaponName "Knuckle Plate Vibroblade"
 altFireEnabled 0
 }
-ForceInfo0
+WeaponInfo7
 {
-ForceToReplace FP_PUSH
-Icon	"gfx/forcepowers/push"
-ForcePowerName "Repulsor Gauntlet"
-HandShader "gfx/effects/flare1"
+WeaponToReplace WP_THERMAL
+WeaponBasedOff WP_THERMAL
+NewWorldModel	"models/weapons2/thermal/thermal_w.glm"
+NewViewModel "models/weapons2/thermal/thermal_hand.md3"
+Icon	"gfx/hud/w_thermal_grenade"
+WeaponName "Hand Thermal Grenades"
+damagemod 3
 }
 description	"Clone Commando [Clone Trooper]
 
@@ -278,11 +272,12 @@ Adaptable 2-life units with staying power.
 - DC-15s Side Arm Blaster (Pistol 1)
 -- 40% faster RoF
 -- 100% slower reload
-- Frag Grenade (1)
+- Hand Thermal Grenades (2)
+-- 200% more DMG
 
 ^8Attributes:
-- 100% slower skill CD
 - 15% less KB taken
+- Dexterity (1)
 - Stamina (2)
 - Health Regen: 1/s to 25
 - Armor Regen: 2/s
