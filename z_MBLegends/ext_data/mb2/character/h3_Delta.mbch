@@ -2,19 +2,19 @@
 
 ClassInfo
 {
-	name					"h3_Delta"
-	MBClass				MB_CLASS_CLONETROOPER
-	classNumberLimit		1
+	name		"h3_Delta"
+	MBClass	MB_CLASS_CLONETROOPER
+	classNumberLimit	1
 	
-	weapons		WP_SABER|WP_MELEE|WP_DC_CARBINE|WP_DISRUPTOR|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_FRAG_NADE|WP_UGL
-	attributes	MB_ATT_DC_CARBINE,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_DASH,1|MB_ATT_PISTOL,1|MB_ATT_DISRUPTOR,1|MB_ATT_UGL,2
+	weapons	WP_SABER|WP_MELEE|WP_DC_CARBINE|WP_DISRUPTOR|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_THERMAL|WP_UGL
+	attributes MB_ATT_DC_CARBINE,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_DASH,1|MB_ATT_PISTOL,1|MB_ATT_DISRUPTOR,1|MB_ATT_UGL,2|MB_ATT_BASE_TD,2
 	
-	DamageTaken	0.90
+	DamageTaken	  0.9
 	knockbackTaken  0.8
-	maxhealth	80
+	maxhealth		80
 	healthRegenAmount 2
 	healthRegenrate 1000
-	maxarmor		50
+	maxarmor			50
 	armourRegenAmount	2
 	armourRegenRate	1000
 	
@@ -24,19 +24,18 @@ ClassInfo
 	ASmultiplier 	1.2
 	BPmultiplier	0
 	
-	basespeed	203
+	basespeed 203
 	
 	saberDamage 90
 	saberSpecialDamage 2
 	saberMaxChain 1
 
-	WP_DCCarbineFlags		HELD_ALTRELOAD	
+	WP_DCCarbineFlags	HELD_ALTRELOAD	
 	WP_DisruptorFlags HELD_ALTRELOAD
 
 	resource		RESOURCE_STAMINA
 	forcepool	110
-	forceregen 1.1
-	//holdables	HI_MEDPAC_BIG|HI_MEDPAC|HI_STIMPACK
+	forceregen 	1.1
 
 	special1	EAS_HI_SPRINT
 	special2	EAS_HI_DEX
@@ -51,7 +50,7 @@ ClassInfo
 	//WalkBackward BOTH_WALK_DUAL
 	//WalkForward BOTH_WALK_DUAL
 	
-	modelscale      		1.02
+	modelscale 1.02
 	uioverlay "gfx/icons/heavy"
 	
 	model		"clonerc2"
@@ -72,19 +71,16 @@ ClassInfo
 	
 isCustomBuild	1
 mbPoints	4
-c_att_skill_0	MB_ATT_FRAGS
-c_att_names_0	"Frag Grenades"
+c_att_skill_0 MB_ATT_PULSE_GRENADES
+c_att_names_0	"Pulse Grenades"
 c_att_ranks_0	1,1
-c_att_skill_1 MB_ATT_PULSE_GRENADES
-c_att_names_1	"Pulse Grenades"
+c_att_skill_1	MB_ATT_SONIC_DETONATOR
+c_att_names_1	"Sonic Detonators"
 c_att_ranks_1	1,1
-c_att_skill_2	MB_ATT_SONIC_DETONATOR
-c_att_names_2	"Sonic Detonators"
-c_att_ranks_2	1,1
-c_att_skill_3	MB_ATT_MICRO_GRENADES
-c_att_names_3	"Flashbang Grenades (Concs)"
-c_att_ranks_3	1,1
-c_att_descs_3 "Blind on det"
+c_att_skill_2	MB_ATT_MICRO_GRENADES
+c_att_names_2	"Concussion Grenades (4)"
+c_att_ranks_2	4
+c_att_descs_2 "40% less DMG"
 }
 
 WeaponInfo0
@@ -197,21 +193,33 @@ selectSound "sound/weapons/dc17m/select.mp3"
 
 WeaponInfo5
 {
-	WeaponToReplace			WP_CONC_NADE
-	WeaponBasedOff			WP_CONC_NADE
-	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
-	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
-	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
-	
-	altMissileMissEffect		"Grenades/EXP_Flash"
-	MissileMissEffect			"Grenades/EXP_Flash"
-	altMissileHitHumanEffect	"Grenades/EXP_Flash"
-	missileHitHumanEffect		"Grenades/EXP_Flash"
-	altMissileHitDroidEffect	"Grenades/EXP_Flash"
-	missileHitDroidEffect		"Grenades/EXP_Flash"
-	
-	Icon						"gfx/hud/w_icon_stungrenade"
-	WeaponName					"Flashbang Grenades"
+	WeaponToReplace WP_CONC_NADE
+	WeaponBasedOff WP_CONC_NADE
+	NewWorldModel	"models/weapons2/v-59_concussion/v-59_conc_w.glm"
+	NewViewModel	"models/weapons2/v-59_concussion/v-59_conc.md3"
+	MissileModel 	"models/weapons2/v-59_concussion/v-59_conc_proj.md3"
+	NewHandsModel	"models/weapons2/v-59_concussion/v-59_conc_hand.md3"
+	Icon	"gfx/hud/w_icon_V-59_conc"
+	WeaponName	"Concussion Grenades"
+	customAmmo 4
+	damageMod .6
+}
+
+WeaponInfo6
+{
+	WeaponToReplace	WP_THERMAL
+	WeaponBasedOff	WP_THERMAL
+	NewWorldModel	"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel	"models/weapons2/thermal/thermal_hand.md3"
+	Icon		"gfx/hud/w_thermal_grenade"
+	WeaponName  	"Hand Thermal Grenades"
+	altMissileMissEffect	"Grenades/EXP_Explosion"
+	MissileMissEffect		"Grenades/EXP_Explosion"
+	altMissileHitHumanEffect "Grenades/EXP_Explosion"
+	missileHitHumanEffect	"Grenades/EXP_Explosion"
+	altMissileHitDroidEffect"Grenades/EXP_Explosion"
+	missileHitDroidEffect	"Grenades/EXP_Explosion"
+	damagemod 4
 }
 
 description	"Delta Squad Clone Commando [Clone Trooper]
@@ -228,8 +236,8 @@ A highly adaptable special ops unit.
 -- 50% more special DMG
 -- 57% less reach
 -- 33% more radius
--- Slap ^3[Gunbash]
 -- Prim. only
+-- Slap ^3[Gunbash]
 - DC-15s Blaster Pistol (1)
 -- 40% faster RoF
 -- 100% slower reload
@@ -240,12 +248,13 @@ A highly adaptable special ops unit.
 -- 120% more DMG/FP DMG
 -- 10% slower RoF
 -- 75% slower mag reload
+- Hand Thermal Grenades (2)
+-- 300% more DMG
 - DC-17m ICWS Anti-Armor Attachment (UGL 2)
 
 ^8Attributes:
 - 20% less KB taken
-- Health Regen: 2/s
-- Armor Regen: 2/s
+- Health/Armor Regen: 2/s
 - Stamina (3)
 - Dexterity (1)
 - Blast Armor
