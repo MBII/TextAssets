@@ -6,9 +6,9 @@ ClassInfo
 	MBClass	MB_CLASS_ARCTROOPER
 	classNumberLimit	1
 	
-	weapons	WP_MELEE|WP_CLONE_PISTOL|WP_PULSE_NADE|WP_PROJ|WP_FRAG_NADE|WP_SABER
+	weapons	WP_MELEE|WP_PULSE_NADE|WP_PROJ|WP_FRAG_NADE|WP_SABER|WP_M5|WP_CLONE_PISTOL
 	
-	attributes	MB_ATT_CLONE_PISTOL,3|MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,2|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FLIPKICK,1|MB_ATT_TRACKING_BEACON
+	attributes	MB_ATT_CLONE_PISTOL,2|MB_ATT_FRAGS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FLIPKICK,1|MB_ATT_TRACKING_BEACON|MB_ATT_WESTARM5,2|MB_ATT_ARC_RIFLE_SCOPE|MB_ATT_TRACKING_DART,4
 	
 	maxhealth	125
 	maxarmor		125
@@ -24,7 +24,6 @@ ClassInfo
 	holdables	HI_BINOCULARS
 
 	WP_ProjFlags 			HELD_PULSE
-	WP_ClonePistolFlags   HELD_ALTRELOAD
 
 	damageGiven 1.1
 	speed   1.09
@@ -43,7 +42,7 @@ ClassInfo
 	
 	special1		EAS_HI_SPRINT
 	special2		EAS_HI_DEX	
-	special3 	EAS_HI_BINOCULARS
+	special3 	EAS_HI_TRACKER
 	special4		EAS_HI_GRAPPLEHOOK
 }
 
@@ -59,23 +58,53 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_PROJ					 
-	WeaponBasedOff      WP_CONCUSSION
-	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
-	NewViewModel  "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
-	Icon  "gfx/hud/w_icon_dlt-18"
+	WeaponToReplace	WP_PROJ					 
+	WeaponBasedOff   WP_PROJ	
+	NewWorldModel	"models/weapons2/me3-widow/disruptor_w.glm"
+	NewViewModel	"models/weapons2/me3-widow/disruptor.md3"
+	Icon		"Gfx\MPLevels\ultimate_showdown\widow_na.png"
 	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
-	WeaponName			"Valken-38x Projectile Rifle"    				 
-	CustomAmmo 	18
+	WeaponName			"773 Firepuncher Rifle Pulse Config"  
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot10B"
-	fpmult	1.1
+	MissileEffect		"Blaster/Shot10B"	
+	CustomAmmo 	18
+	fpmult	1.15
 	ReloadTimeModifier 	0.8
+	velocityMod 1.15
 }
 
+WeaponInfo2
+{
+	WeaponToReplace	WP_M5					 
+	WeaponBasedOff   WP_M5	
+	NewWorldModel	"models/weapons2/me3-widow/disruptor_w.glm"
+	NewViewModel	"models/weapons2/me3-widow/disruptor.md3"
+	Icon		"Gfx\MPLevels\ultimate_showdown\widow_na.png"
+	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
+	WeaponName			"773 Firepuncher Rifle Standard Config"  
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"Blaster/Shot10B"	
+	rateMod 2.5
+	velocityMod 1.15
+}	
+WeaponInfo3
+{
+	WeaponToReplace	WP_CLONE_PISTOL					 
+	WeaponBasedOff   WP_CLONE_PISTOL
+	NewWorldModel	"models/weapons2/me3-widow/disruptor_w.glm"
+	NewViewModel	"models/weapons2/me3-widow/disruptor.md3"
+	Icon		"Gfx\MPLevels\ultimate_showdown\widow_na.png"
+	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
+	WeaponName			"773 Firepuncher Rifle Ricochet Config"  
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"Blaster/Shot10B"	
+	primFireEnabled 0
+	rateMod .5
+	velocityMod 1.15
+}
 description	"CT-9904 aka 'Crosshair' [ARC Trooper]
 
-A dexterous class with powerful Dual Pistols, an electrifying Projectile Rifle, a Grappling Hook, and more.
+A dexterous class with an all-in-one sniper rifle.
 
 ^2Weaponry:
 - Melee
@@ -84,21 +113,27 @@ A dexterous class with powerful Dual Pistols, an electrifying Projectile Rifle, 
 -- 31% less DMG
 -- 60% less reach
 -- Slap ^3[Gunbash]
-- Dual DC-17 Clone Pistols (3)
--- Mag reload
-- Valken-38x Projectile Rifle
--- Electrifies on hit
--- 10% more FP DMG
+- 773 Firepuncher Rifle Ricochet Config (Clone Pistol 2)
+-- 50% faster RoF
+-- 15% faster velocity
+-- Sec. only
+- 773 Firepuncher Rifle Standard Config (WESTAR-M5 2 + Scope)
+-- 15% faster velocity
+-- 150% slower RoF
+- 773 Firepuncher Rifle Pulse Config (Proj)
+-- Electrifies targets
+-- 15% faster velocity
+-- 15% more FP DMG
 -- 20% faster reload
 - Frag Grenade (1)
 - Pulse Grenades (2)
 
 ^6Inventory:
-- Electrobinoculars ^3[CS3]
+- Electrobinoculars
 
 ^8Attributes:
 - Stamina (3)
-- Dexterity (2)
+- Dexterity (3)
 - Blast Armor
 - Healing (2)
 - Ally Stat Viewer
@@ -108,4 +143,5 @@ A dexterous class with powerful Dual Pistols, an electrifying Projectile Rifle, 
 - Flipkick (1) ^3[Contact Jump]
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
+- Tracking Darts (8) ^3[CS3 Melee]
 - Grappling Hook (2) ^3[CS4 Melee]"
