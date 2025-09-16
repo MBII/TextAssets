@@ -1,31 +1,34 @@
 ClassInfo
 {
 name	"v3_Trando"
-MBClass	MB_CLASS_WOOKIE
+MBClass MB_CLASS_WOOKIE
 extralives 1
 classNumberLimit 4
-weapons	WP_MELEE|WP_SABER|WP_FLECHETTE
-attributes MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_TRACKING_BEACON|MB_ATT_FLECHETTE,2|MB_ATT_WOOKIEE_FURY,2|MB_ATT_SABER_COMBO_NONE
+weapons WP_MELEE|WP_SABER|WP_FLECHETTE
+attributes MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_TRACKING_BEACON|MB_ATT_FLECHETTE,2|MB_ATT_WOOKIEE_FURY,2|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_DART,2|MB_ATT_FRAGS,1|MB_ATT_SONIC_DETONATOR,1
 saber1 tb
 saberstyle SS_DESANN
 saberDamage 120
-rankAS 1.2
+rankAS 1.22
 BPMultiplier 0
 maxhealth 200
 maxarmor	25
 damageTaken 0.9
-rankROFMelee 0.9,0.7
-rankKBGiven 1.25
-resource RESOURCE_RAGE
-forcepool 80
-rankForcePool 120
+rateOfFire_Melee 0.9
+rankROFMelee 0.65
+forceregen 0.1
+forcepool 85
+rankForcePool 165
 forcepowers FP_SEE,1|FP_HEAL,2
-skilltimerMod 1.5
 baseSpeed 190
-rankBaseSpeed 212.5,225
+rankBaseSpeed 213,225
+classflags CFL_BLOODYMELEE
+flourishAnim BOTH_SPINATTACK6
+gloatAnim BOTH_WOOKIEE_ENRAGE
 special1 EAS_FP_SEE
 special2 EAS_MELEE
-special3 EAS_FP_HEAL
+special3 EAS_HI_TRACKER
+special4 EAS_FP_HEAL
 model "trandoshan"
 skin	"merc"
 uishader	"models/players/trandoshan/mb2_icon_merc"
@@ -34,12 +37,14 @@ skin_1 "rgb"
 uishader_1 "models/players/trandoshan/mb2_icon_rgb"
 userRGB_1 1
 modelscale 1.06
-WP_DCCarbineFlags HELD_SLOW|HELD_ALTRELOAD
 WP_SaberFlags HELD_POISON
-WP_ShotgunFlags HELD_PULSE|HELD_KNOCKBACK|HELD_STUN|HELD_LOWDAMAGE
-WP_ConcussionFlags HELD_ALTRELOAD
-WP_RepeaterFlags HELD_ALTRELOAD
 WP_FlechetteFlags HELD_ALTRELOAD
+WP_RepeaterFlags HELD_ALTRELOAD
+WP_DCCarbineFlags HELD_SLOW|HELD_ALTRELOAD
+WP_ConcussionFlags HELD_SLOW|HELD_ALTRELOAD
+WP_ShotgunFlags HELD_PULSE|HELD_KNOCKBACK|HELD_STUN|HELD_FREEZE|HELD_LOWDAMAGE
+WP_AmbanFlags HELD_SPEED
+meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 uioverlay_r "gfx/icons/infantry"
 isCustomBuild	1
 mbPoints	0
@@ -54,69 +59,61 @@ customSpecDesc_2 ""
 customSpecName_3 "Slaver"
 customSpecIcon_3 "gfx/menus/classes/wook"
 customSpecDesc_3 ""
-c_att_skill_0	MB_ATT_ROF_MELEE_MULTIPLIER
-c_att_names_0	"Melee Swing Speed (110%)"
+c_att_skill_0	MB_ATT_AS_MULTIPLIER
+c_att_names_0	"Saber AS (122%)"
 c_att_ranks_0	0
-c_att_skill_1	MB_ATT_AS_MULTIPLIER
-c_att_names_1	"Saber AS (120%)"
+c_att_skill_1	MB_ATT_REPEATER
+c_att_names_1	"ACP Repeater"
 c_att_ranks_1	0
-c_att_skill_2	MB_ATT_REPEATER
-c_att_names_2	"ACP Repeater"
+c_att_descs_1 "100% faster velocity, 50% less DMG/FP DMG, 10% slower RoF,
+Mag reload, Prim. only"
+c_att_skill_2	MB_ATT_PROJECTILE_RIFLE
+c_att_names_2	"Hunting Rifle (Proj)"
 c_att_ranks_2	0
-c_att_descs_2 "100% faster velocity, 55% less DMG/FP DMG,
-10% slower RoF, Mag reload"
-c_att_skill_3	MB_ATT_PROJECTILE_RIFLE
-c_att_names_3	"Hunting Rifle (Proj)"
+c_att_descs_2 "30% less DMG"
+c_att_skill_3	MB_ATT_BASESPEED
+c_att_names_3	"Speed (213)"
 c_att_ranks_3	0
-c_att_descs_3 "35% less DMG"
-c_att_skill_4	MB_ATT_BASESPEED
-c_att_names_4	"Speed (212.5)"
-c_att_ranks_4	0
-c_att_skill_5	MB_ATT_DEXTERITY
-c_att_names_5	"Dexterity"
-c_att_ranks_5	0,0
+c_att_skill_4	MB_ATT_DEXTERITY
+c_att_names_4	"Dexterity"
+c_att_ranks_4	0,0
 c_att_skill_15 MB_ATT_WOOKIE_STRENGTH
 c_att_names_15 "Trando Strength"
 c_att_ranks_15 0,0
 c_att_skill_16 MB_ATT_DC_CARBINE
 c_att_names_16 "Heavy Repeater (C. Carbine)"
 c_att_ranks_16 0
-c_att_descs_16 "55% faster RoF, 55% less FP DMG, 40% less DMG,
-10% slower velocity, 200% slower mag reload, 15% slower movement"
-c_att_skill_17 MB_ATT_FRAGS
-c_att_names_17 "Frag Grenade"
-c_att_ranks_17 0
-c_att_skill_18 MB_ATT_CONCUSSION
-c_att_names_18 "LJ-50 Concussion Rifle"
-c_att_ranks_18 0,0,0
-c_att_descs_18 "60% slower RoF, 60% slower velocity, 60% slower mag reload"
-c_att_skill_19 MB_ATT_POWER
-c_att_names_19 "Fury Pool (120)"
+c_att_descs_16 "55% faster RoF, 40% less DMG/FP DMG, 170% slower mag reload, 
+15% slower movement"
+c_att_skill_17 MB_ATT_CONCUSSION
+c_att_names_17 "LJ-50 Concussion Rifle"
+c_att_ranks_17 0,0,0
+c_att_descs_17 "80% slower velocity/RoF/mag reload, 15% slower movement,
+Prim. only"
+c_att_skill_18 MB_ATT_POWER
+c_att_names_18 "Resource (165)"
+c_att_ranks_18 0
+c_att_skill_19 MB_ATT_BLAST_ARMOR
+c_att_names_19 "Blast Armor"
 c_att_ranks_19 0
-c_att_skill_20 MB_ATT_BLAST_ARMOR
-c_att_names_20 "Blast Armor"
-c_att_ranks_20 0
 c_att_skill_30 MB_ATT_ROF_MELEE_MULTIPLIER
-c_att_names_30 "Melee Swing Speed (130%)"
-c_att_ranks_30 0,0
+c_att_names_30 "Melee RoF (135%)"
+c_att_ranks_30 0
 c_att_skill_31 MB_ATT_SHOTGUN
 c_att_names_31 "Electronet Launcher (Shotgun)"
 c_att_ranks_31 0
-c_att_descs_31 "Electrifies/staggers/knocks back targets, 80% faster shot swap,
-50% less DMG, 14900% slower reload"
+c_att_descs_31 "Electrifies/freezes/staggers/knocks back on hit, 
+80% faster shot swap, 50% less DMG, 14900% slower reload"
 c_att_skill_32 MB_ATT_AMBAN
 c_att_names_32 "Slave Prod (Amban)"
 c_att_ranks_32 0,0,0
-c_att_descs_32 "No ammo"
-c_att_skill_33 MB_ATT_KNOCKBACK_GIVEN
-c_att_names_33 "Knockback Given (125%)"
-c_att_ranks_33 0
-c_att_skill_34 MB_ATT_BASESPEED
-c_att_names_34 "Speed (225)"
+c_att_descs_32 "15% faster movement, No ammo"
+c_att_skill_33 MB_ATT_BASESPEED
+c_att_names_33 "Speed (225)"
+c_att_ranks_33 0,0
+c_att_skill_34 MB_ATT_DEXTERITY
+c_att_names_34 "Dexterity"
 c_att_ranks_34 0,0
-c_att_skill_35 MB_ATT_DEXTERITY
-c_att_names_35 "Dexterity"
-c_att_ranks_35 0,0
 }
 WeaponInfo0
 {
@@ -136,7 +133,7 @@ altFireEnabled 0
 WeaponInfo1
 {
 WeaponToReplace WP_SABER
-WeaponBasedOff WP_SABER
+WeaponBasedOff WP_M5
 NewWorldModel "models/weapons2/hadhafang_gamma/hadhafang.glm"
 NewViewModel "models/weapons2/dummy/dummy.md3"
 Icon "models/weapons2/icons/hblade"
@@ -154,14 +151,15 @@ flashSound0 "sound/weapons/ArrayACP/fire.wav"
 MissileModel null
 MissileEffect "effects/blaster/shot02Y"
 MuzzleEffect	"halo_pistol/Muzzle_Flash"
-AltMuzzleEffect "halo_pistol/altmuzzle_flash"
+MissileHitHumanEffect "blaster/impact_flesh"
+MissileHitDroidEffect "blaster/impact_droid"
 altfireenabled 0
-customammo 500
+customammo 700
 clipsize 50
 velocityMod 2
-damagemod 0.45
+damagemod .5
 ratemod 1.1
-fpmult 0.45
+fpmult .5
 }
 WeaponInfo3
 {
@@ -170,36 +168,32 @@ WeaponBasedOff WP_PROJ
 NewWorldModel "models/weapons2/tusken_rifle_sar/tusken_rifle_w.glm"
 NewViewModel "models/weapons2/tusken_rifle_sar/tusken_rifle.md3"
 NewHandsModel "models/weapons2/tusken_rifle_sar/tusken_rifle_hand.md3"
-MuzzleEffect "acp_array/muzzle_flash"
-MissileEffect	"acp_array/shot"
-Icon	"gfx/hud/w_icon_trifle"
+Icon	"gfx/hud/w_icon_tuskenrifle"
 WeaponName "Hunting Rifle"
-damageMod 0.65
+damageMod .7
 }
 WeaponInfo4
 {
 WeaponToReplace WP_DC_CARBINE
-WeaponBasedOff WP_DC_CARBINE
+WeaponBasedOff WP_M5
 WeaponName "LS-150 Heavy ACP Repeater"
 NewWorldModel	"models/weapons2/mgun/heavy_repeater_w.glm"
 NewViewModel "models/weapons2/mgun/heavy_repeater_1.md3"
 NewHandsModel "models/weapons2/mgun/heavy_repeater_hand.md3"
-NewBarrelModel "models/weapons2/mgun/heavy_repeater_barrel_1.md3"
 Icon	"gfx/hud/w_icon_rotary_cannon"
 FlashSound0 "sound/weapons/ww2shotgun/fire.wav"
 FlashSound1 "sound/weapons/ww2shotgun/fire.wav"
 FlashSound2 "sound/weapons/ww2shotgun/fire.wav"
 FlashSound3 "sound/weapons/ww2shotgun/fire.wav"
 MuzzleEffect "halo_pistol/Muzzle_Flash"
-MissileEffect	"halo_smg/projectile"
+MissileEffect	"halo_shotgun/shot"
 MissileMissEffect "flechette/wall_impact"
 MissileHitHumanEffect "flechette/flesh_impact"
 MissileHitDroidEffect "flechette/wall_impact"
-rateMod	0.45
-damageMod 0.6
-fpmult 0.45
-velocityMod 0.9
-reloadTimeModifier 3
+rateMod	.45
+damageMod .6
+fpmult .6
+reloadTimeModifier 2.7
 customAmmo 720
 clipsize	180
 hasAnimOverrides 1
@@ -217,11 +211,11 @@ NewViewModel	"models/weapons2/lj-50_concussion/lj-50_concussion.md3"
 Icon	"gfx/hud/w_icon_lj-50_concussion"
 WeaponName "LJ-50 Concussion Rifle"
 flashSound0 "sound/weapons/fwmb/fire.mp3"
-clipsize	50
+clipsize	30
 Altfireenabled 0
-rateMod 1.6
-reloadTimeModifier 1.6
-velocityMod 0.4
+rateMod 1.8
+reloadTimeModifier 1.8
+velocityMod .2
 }
 WeaponInfo6
 {
@@ -229,19 +223,18 @@ WeaponToReplace	WP_SHOTGUN
 WeaponBasedOff	WP_SHOTGUN
 NewWorldModel	"models/weapons2/junglerifle/jungeRifle.glm"
 NewViewModel	"models/weapons2/junglerifle/jungeRifle.md3"
-NewBarrelModel "models/weapons2/junglerifle/jungeRifle_barrel.md3"
 NewHandsModel "models/weapons2/junglerifle/jungeRifle_hand.md3"
 Icon	"gfx/hud/w_icon_junglerifle"
 WeaponName "Electronet Launcher"
+muzzleeffect null
 MissileEffect	"electronet/shot"
 MissileMissEffect "sbd/cortosis_orange"
 MissileHitHumanEffect "sbd/cortosis_orange"
 MissileHitDroidEffect "sbd/cortosis_orange"
-FlashSound0 "sound/movers/objects/green_beam_start.mp3"
-muzzleEffect "halo_pistol/Muzzle_Flash"
+FlashSound0 "sound/weapons/volgin/volgin_shot.mp3"
 customAmmo 72
 clipSize 12
-rateMod 0.2
+rateMod .2
 ReloadTimeModifier 150
 altfireenabled 0
 }
@@ -253,30 +246,39 @@ NewWorldModel	"models/weapons2/mando_rifle/mando_rifle.glm"
 NewViewModel	"models/weapons2/mando_rifle/mando_rifle.md3"
 Icon	"gfx/hud/w_icon_mandorifle"
 WeaponName "Slave Prod"
-clipsize	-1
+clipsize -1
 CustomAmmo -1
 }
 description "Trandoshan Hunter [Wookiee]
 
-Hiss...
+Hiss
 
-^2Default Weaponry:
+^2Weaponry:
 - Melee
 - Hunting Blade (Purple Saber)
--- Cannot block Sabers/Blasters
+-- No Saber/Blaster Block
 -- No Saber Training
--- Poisons targets
+-- Poisons on hit
+-- 5% faster movement
 -- 70% less DMG
--- 25% shorter reach
+-- 25% less reach
+-- Slap ^3[CS2]
 - ACP Scatter Gun (Flechette 2)
 -- 40% slower RoF
--- 60% slower reload
+-- 60% slower mag reload
+- Frag Grenade (1)
+- Sonic Detonator (1)
 
-^5Default Powers:
-- Hunter Vision (Sense 1)
-- Regenerate (Heal 2)
+^5Powers:
+- Hunter Vision (Sense 1) ^3[CS1]
+- Regenerate (Heal 2) ^3[CS4]
 
-^8Default Attributes:
+^8Attributes:
 - Reinforcement (1)
+- 90% slower Resource Decay
 - Strength (1)
-- Tracking Beacon"
+- Tracking Beacon
+- Fury (2)
+
+^3Abilities:
+- Tracking Darts (4) ^3[CS3 Melee]"
