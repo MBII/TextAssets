@@ -4254,12 +4254,32 @@ models/players/MB2_Clones/body_shock_rgb
     }
 }
 
+models/players/MB2_Clones/body_ep2_501
+{
+    {
+        map models/players/MB2_Clones/body_ep2_clean_rgb
+		blendFunc GL_ONE GL_ZERO
+		rgbGen const ( 0.223529 0.32549 0.541176 )
+	}
+	{
+		map models/players/MB2_Clones/body_ep2_clean_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+    {
+        map models/players/MB2_Clones/body_clean_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 models/players/MB2_Clones/helmet_mixer
 {
     {
         map models/players/MB2_Clones/helmet_mixer
 		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
+		rgbGen const ( 0.223529 0.32549 0.541176 )
 	}
 	{
 		map models/players/MB2_Clones/helmet_mixer
@@ -4279,7 +4299,7 @@ models/players/MB2_Clones/helmet_redeye
     {
         map models/players/MB2_Clones/helmet_redeye
 		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuseEntity
+		rgbGen const ( 0.223529 0.32549 0.541176 )
 	}
 	{
 		map models/players/MB2_Clones/helmet_redeye
@@ -5729,5 +5749,6 @@ models/players/clonekeller/robe-parts_rc
 		rgbGen lightingDiffuse
 	}
 }
+
 
 
