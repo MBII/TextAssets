@@ -1,0 +1,307 @@
+
+ClassInfo
+{
+	name			"v7_Mouse"
+	MBClass		MB_CLASS_WOOKIE //sbd
+	classNumberLimit  2
+
+	weapons		WP_STUN_BATON|WP_SABER|WP_EE3|WP_FLECHETTE|WP_MELEE
+
+	attributes	MB_ATT_WOOKIEE_FURY,3|MB_ATT_GETUPS,0|MB_ATT_STUN_BATON,1|MB_ATT_DISP_ARMOR,1|MB_ATT_DISP_FORCE,1|MB_ATT_DISP_BLOCK,1|MB_ATT_USE_DISTANCE,1|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_EE3,1|MB_ATT_FLECHETTE,1
+
+ BPmultiplier 0
+	saber1		   mouse_alarm //can surf damage due to KB
+	saberstyle	SS_STAFF
+ sabercolor 0
+
+ WP_EE3Flags HELD_KNOCKBACK|HELD_AMMOREGEN
+
+ WP_FlechetteFlags HELD_ALTRELOAD
+
+ //WP_MeleeFlags HELD_LOWDAMAGE
+
+	//WP_RepeaterFlags HELD_EXPLOSIVE|HELD_FLAME|HELD_KNOCKBACK|HELD_STUN|HELD_SONIC|HELD_KNOCKDOWN|HELD_PULSE|HELD_ALTRELOAD
+
+
+	special1 EAS_FP_SEE
+ special2 EAS_HI_BARGE
+
+	hackRate 0.9
+
+	disableGunBash 1
+
+	baseSpeed 225
+	maxhealth	50
+ maxArmor 50
+ skillTimerMod 0.8
+ knockbackTaken 2 
+ knockbackGiven 1 
+
+ classflags CFL_NOLOCATIONALDAMAGE|CFL_STATVIEWER|CFL_NODISMEMBER
+	
+	forcepowers FP_SABER_OFFENSE,0|FP_SABER_DEFENSE,0|FP_SEE,3
+	resource RESOURCE_RAGE //battery
+	forcepool 150
+	forceRegen 0.01
+	resourceRegenAmount 150
+	resourceRegenRate 9999999
+	//resourceRegenCap  //1-time resource bar, fill the rest with damage
+tauntAnim BOTH_ENGAGETAUNT
+gloatAnim BOTH_VICTORY_FAST
+flourishAnim  BOTH_CONSOLE1
+bowAnim BOTH_DEATH1
+meditateAnim BOTH_DEATH2
+
+RunForward BOTH_RUN1
+RunBackward BOTH_RUNBACK1
+WalkForward BOTH_WALK1
+WalkBackward  BOTH_WALKBACK1
+
+deathAnim BOTH_DEATH2
+
+ bargeSoundOverride		"sound/chars/mouse/misc/pain50.mp3"
+
+	model		    "mouse"
+	skin			    "default"
+	uishader		 ""
+	uioverlay_l 	"gfx/icons/tactician"
+ uioverlay_r "gfx/icons/infantry"
+ uioverlay_c "gfx/2d/hud/hlp_defend"
+
+
+	isCustomBuild		1
+	mbPoints			2
+	
+	c_att_skill_0	MB_ATT_MINIGUN
+	c_att_names_0 "Panzer Module (Minigun)"
+	c_att_ranks_0	1
+
+	c_att_skill_1	MB_ATT_AMBAN
+	c_att_names_1	"Shock Probe (Amban)"
+	c_att_ranks_1	1,0,0
+ c_att_descs_1 "No ammo"
+	
+	c_att_skill_2	MB_ATT_FP_SPEED
+	c_att_names_2	"Scamper (Force Speed)"
+	c_att_ranks_2	1
+
+	c_att_skill_3 MB_ATT_REINFORCEMENTS
+	c_att_names_3	"Reinforcement"
+	c_att_ranks_3	1
+	c_att_descs_3	"1 default"
+}
+
+WeaponInfo0
+{
+	WeaponToReplace	WP_STUN_BATON
+	WeaponBasedOff		WP_STUN_BATON
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	NewHandsModel 	"models/weapons2/dummy/dummy.md3"
+	NewBarrelModel "models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/Alpha/HUD_Icon_WhistlingBird"
+	WeaponName	"Data Probe"
+	MissileMissEffect 	null
+	altMissileMissEffect 	null
+	MissileHitHumanEffect 		null
+	AltMissileHitHumanEffect 	null
+	MissileHitDroidEffect 		null
+	AltMissileHitDroidEffect 	null
+	rateMod 1.2
+ damageMod 1
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_EE3
+	WeaponBasedOff		WP_EE3
+	NewWorldModel		"models/weapons/CarboniteRifle/model.glm"
+	NewViewModel		"models/weapons/CarboniteRifle/model.md3"
+	MuzzleEffect		"env/water_splash"
+	AltMuzzleEffect		"env/water_splash"
+
+	MissileEffect		  "effects/env/water_drops_steam"
+
+	MissileMissEffect		"effects/env/water_impact"
+ MissileHitHumanEffect "effects/env/water_impact"
+ MissileHitDroidEffect "effects/env/water_impact"
+	FlashSound0		"sound/weapons/saber/hitwater.mp3"
+	FlashSound1	"sound/weapons/saber/hitwater.mp3"
+	FlashSound2		"sound/weapons/saber/hitwater.mp3"
+	FlashSound3		"sound/weapons/saber/hitwater.mp3"
+ clipSize 56
+ customAmmo 336
+ rateMod  0.15
+ //reloadTimeModifier 1.75
+ velocityMod 0.55
+ damageMod 0.25
+fpmult 0.25
+	Icon		"gfx/hud/w_icon_carboniterifle"
+	WeaponName		"Cleaning Module"
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/2d/mp_imp_symbol"
+	WeaponName		"Security Module"
+primFireEnabled		0
+altFireEnabled 		0
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+}
+WeaponInfo3
+{
+	WeaponToReplace		WP_MINIGUN
+	WeaponBasedOff		WP_MINIGUN
+	NewWorldModel		"models/weapons2/z6_rotary/model.glm"
+	NewViewModel		"models/weapons2/z6_rotary/rotary_cannon.md3"
+	NewHandsModel		"models/weapons2/z6_rotary/rotary_cannon_hand.md3"
+	NewBarrelModel		"models/weapons2/z6_rotary/rotary_cannon_barrel.md3"
+	MuzzleEffect  		"Blaster/MuzzleFlash01R"
+	altMuzzleEffect  		"Blaster/MuzzleFlash01R"
+	MissileEffect 		"Blaster/Shot02R"
+	MissileMissEffect		"Blaster/Impact_Wall01R.efx"
+	FlashSound0			"sound/weapons/minigun/fire.wav"
+	Icon				"gfx/hud/w_icon_rotary_cannon"
+	WeaponName			"Panzer Module"
+	isMinigun	1
+	altFireEnabled	1
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+}
+WeaponInfo4
+{
+WeaponToReplace WP_AMBAN
+WeaponBasedOff WP_AMBAN
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+Icon	"gfx/hud/w_icon_mandorifle"
+WeaponName "Shock Probe"
+clipsize -1
+CustomAmmo -1
+altFireEnabled 0
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+}
+
+WeaponInfo5
+{
+	WeaponToReplace		WP_FLECHETTE
+	WeaponBasedOff	WP_FLECHETTE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/noweap/noweap.md3"
+	Icon		"gfx/hud/w_thermal_grenade"
+	WeaponName		"Explosive Pellets"
+FlashSound0 null
+FlashSound1 null
+FlashSound2 null
+FlashSound3 null
+	customammo 600
+clipSize 90
+ rateMod 0.2
+ velocityMod 0
+primFireEnabled 0
+reloadTimeModifier 1.1
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+}
+
+WeaponInfo6
+{
+	WeaponToReplace WP_MELEE
+	WeaponBasedOff WP_MELEE  
+	NewWorldModel	"models/weapons2/dummy/dummy.glm"
+	NewViewModel	"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/2d/logos/mb_empire"
+	WeaponName	"Patrol Module"
+altFireEnabled 0
+primFireEnabled 0
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+damageMod 3
+}
+
+ForceInfo0
+{
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Radar Scanner"
+	StartSound "sound/ambience/kotor/consolebeep03.mp3"
+	LoopSound "sound/ambience/cp_02_lp.wav"
+}
+
+/* WeaponInfo7
+{
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_REPEATER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	MissileModel   "models/weapons2/dummy/dummy.md3"
+	altMissileModel   "models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_realDP"
+	WeaponName			"Fail-Safe Protocol"
+	altMissileHitHumanEffect "effects/Grenades/exp_explosion"
+	altMissileHitDroid 	"effects/Grenades/exp_explosion"
+	altMissileMissEffect "effects/Grenades/exp_explosion"
+	MissileEffect		null 					
+	AltMissileEffect 	null
+	MuzzleEffect		null
+	AltMuzzleEffect	null
+	FlashSound0		"sound/weapsup/g/wpn_thermalDetonator_throw.wav"
+	AltFlashSound0 "sound/weapsup/g/wpn_thermalDetonator_throw.wav"
+	velocityMod 0
+	primFireEnabled 0
+ clipSize 25
+ customAmmo -1
+ damageMod 2.95
+	hasAnimOverrides 1
+ animReady BOTH_CONSOLE1  
+ animReadyWalk BOTH_CONSOLE1  
+	animAttack BOTH_CONSOLE1  
+	animAttackWalk BOTH_CONSOLE1  
+animStand BOTH_CONSOLE1  
+selectSound "sound/chars/mouse/misc/mouse_lp.wav"
+} */
+
+description	"MSE-6-series 'Mouse' Repair Droid [Wookiee]
+
+Tiny, easily startled maintenance and patrol units.
+
+^2Weaponry:
+- Patrol Module (Melee)
+-- 200% more DMG
+-- Barge only
+- Data Probe (Stun Baton 1)
+-- 20% slower RoF
+- Explosive Pellets (Flechette 1)
+-- 80% faster RoF
+-- 100% less velocity
+-- 10% slower mag reload
+-- Sec. only
+- Cleaning Module (EE-3 1)
+-- Pushes on hit
+-- Passive ammo regen
+-- 85% faster RoF
+-- 75% less DMG/FP DMG
+-- 45% less velocity
+
+^5Powers:
+- Radar Scanner (Sense 3) ^3[CS1]
+
+^8Attributes:
+- 100% more KB taken
+- 20% faster skill CD
+- 10% faster Hacking
+- Getup (0)
+- Fury (3)
+-- Starting Resource: 150
+-- 99% slower Resource Decay
+- Flat Damage Taken
+- Ally Stat Viewer
+- No Gunbash
+
+^3Abilities:
+- Armor/BP/Resource Dispenser (1) ^3['Use' ^3on allies]
+-- +1 range
+- Trip (Barge) ^3[CS2]"

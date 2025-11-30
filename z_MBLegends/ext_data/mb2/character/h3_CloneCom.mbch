@@ -8,7 +8,7 @@ weapons	WP_BLASTER_PISTOL|WP_SABER|WP_THERMAL
 WP_DCCarbineFlags HELD_ALTRELOAD
 WP_DisruptorFlags HELD_ALTRELOAD
 WP_FlechetteFlags HELD_ALTRELOAD
-attributes MB_ATT_STAMINA,2|MB_ATT_PISTOL,1|MB_ATT_BASE_TD,2|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR
+attributes MB_ATT_STAMINA,2|MB_ATT_PISTOL,1|MB_ATT_BASE_TD,2|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_AMMO,3
 BPmultiplier 0
 saber1 cc
 saberstyle SS_TAVION
@@ -25,12 +25,12 @@ healthRegenrate 1000
 healthRegenCap 25
 basespeed 180
 rankbasespeed 200,220
-rankHack 0.84
-knockbackTaken 0.85
-rankROFMelee 0.7
-rankForcePool 140
+rankHack .84
+knockbackTaken .85
+rankROFMelee .7
+rankForcePool 145
 special2 EAS_MELEE
-modelscale   1.02
+modelscale 1.02
 uioverlay_l "gfx/icons/spec_infantry"
 uioverlay_r "gfx/icons/infantry"
 model "clonerc2"
@@ -95,7 +95,7 @@ c_att_descs_17 "25% slower RoF"
 c_att_skill_18 MB_ATT_MICRO_GRENADES
 c_att_names_18 "> DC-17m Rounds (6)"
 c_att_ranks_18 0
-c_att_descs_18 "Cannot be hand-thrown, 50% less DMG"
+c_att_descs_18 "No hand-throwing, 50% less DMG"
 c_att_skill_19 MB_ATT_DET_PACK
 c_att_names_19 "Det Packs"
 c_att_ranks_19 0,0,0
@@ -105,7 +105,7 @@ c_att_ranks_30 0
 c_att_skill_31 MB_ATT_FLECHETTE
 c_att_names_31 "ACP Scatter Gun (Flechette)"
 c_att_ranks_31 0,0
-c_att_descs_31 "40% slower RoF, 60% slower mag reload"
+c_att_descs_31 "15% more DMG, 40% slower RoF, 60% slower mag reload"
 c_att_skill_32 MB_ATT_FP_PUSH
 c_att_names_32 "Repulsor Gauntlet (Push)"
 c_att_ranks_32 0
@@ -116,11 +116,10 @@ c_att_skill_34 MB_ATT_HACK_MULTIPLIER
 c_att_names_34 "Hack Speed (118%)"
 c_att_ranks_34 0
 c_att_skill_35 MB_ATT_POWER
-c_att_names_35 "Extra Stamina Pool (140)"
+c_att_names_35 "Stamina Pool (145)"
 c_att_ranks_35 0
 }
-WeaponInfo0
-{
+WeaponInfo0{
 WeaponToReplace WP_DC_CARBINE
 WeaponBasedOff WP_DC_CARBINE
 NewWorldModel "models/weapons2/DC-17m/blaster.glm"
@@ -147,8 +146,7 @@ animStand BOTH_STAND1
 rateMod .65
 selectSound "sound/weapons/dc17m/select.mp3"
 }
-WeaponInfo1
-{
+WeaponInfo1{
 WeaponToReplace WP_DISRUPTOR
 WeaponBasedOff WP_DISRUPTOR
 NewWorldModel	"models/weapons2/DC-17m/sniper.glm"
@@ -171,8 +169,7 @@ disruptorBeam1 "gfx/effects/disrupt_beam_blue"
 disruptorBeam2 "gfx/effects/disrupt_beam_blue"
 selectSound "sound/weapons/dc17m/select.mp3"
 }
-WeaponInfo2
-{
+WeaponInfo2{
 WeaponToReplace WP_FLECHETTE
 WeaponBasedOff WP_FLECHETTE
 NewWorldModel	"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
@@ -180,14 +177,14 @@ NewViewModel	"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
 FlashSound0 "sound/weapons/acparray/fire.wav"
 Icon	"gfx/hud/w_icon_cp-50_repeater"
 WeaponName "ACP Scatter Gun"
+damageMod 1.15
 clipSize 40
-customAmmo 360
+customAmmo 480
 rateMod 1.4
-ReloadTimeModifier  1.6
+ReloadTimeModifier 1.6
 altFireEnabled 0
 }
-WeaponInfo3
-{
+WeaponInfo3{
 WeaponToReplace WP_UGL
 WeaponBasedOff WP_UGL
 NewWorldModel	"models/weapons2/DC-17m/launcher.glm"
@@ -201,8 +198,7 @@ rateMod 1.25
 hasAnimOverrides 1
 animAttackWalk BOTH_ATTACK3
 }
-WeaponInfo4
-{
+WeaponInfo4{
 WeaponToReplace WP_CONC_NADE
 WeaponBasedOff WP_M5
 NewWorldModel "models/weapons2/dummyblaster/model.glm"
@@ -219,8 +215,7 @@ customAmmo 6
 damageMod .5
 selectSound "sound/chars/clone_rc/misc/gasp.mp3"
 }
-WeaponInfo5
-{
+WeaponInfo5{
 WeaponToReplace	WP_BLASTER_PISTOL
 WeaponBasedOff WP_BLASTER_PISTOL
 NewWorldModel	"models/weapons2/DC-15/dc-15_w.glm"
@@ -238,8 +233,7 @@ ReloadTimeModifier 2
 customammo 435
 rateMod 0.6
 }
-WeaponInfo6
-{           
+WeaponInfo6{           
 WeaponToReplace WP_SABER
 WeaponBasedOff WP_SABER
 NewWorldModel "models/weapons2/arc_shiv_short/shiv_short_w.glm"
@@ -248,8 +242,7 @@ Icon "gfx/hud/w_icon_arc_shiv_short"
 WeaponName "Knuckle Plate Vibroblade"
 altFireEnabled 0
 }
-WeaponInfo7
-{
+WeaponInfo7{
 WeaponToReplace WP_THERMAL
 WeaponBasedOff WP_THERMAL
 NewWorldModel	"models/weapons2/thermal/thermal_w.glm"

@@ -1,0 +1,146 @@
+//Legends Mode character file - Created by Frenzy & Leos
+
+ClassInfo
+{
+	name				"v8_Wampa"
+	classNumberLimit	2
+ extralives 1
+	MBClass 			MB_CLASS_WOOKIE
+
+	weapons 		WP_MELEE|WP_STUN_BATON
+	attributes MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_WOOKIEE_FURY,1|MB_ATT_STUN_BATON,1|MB_ATT_HEALING,3
+
+ WP_StunBatonFlags HELD_SPEED
+// WP_MeleeFlags HELD_FREEZE
+
+	maxhealth		100
+	maxarmor			100
+
+	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_NOLOCATIONALDAMAGE|CFL_NODISMEMBER
+//humanoidSkeleton	1
+	disableGunBash 1
+ forcepowers FP_ABSORB,1|FP_RAGE,1
+ forcepool 100
+ resource RESOURCE_STAMINA
+
+	DamageTaken		0.8
+ knockbackTaken 0.7
+ skillTimerMod 0.85
+ baseSpeed 180
+
+	special1	EAS_FP_FURY
+	special2	EAS_HI_BARGE
+ special3 EAS_FP_ABSORB
+
+	hackRate 4
+	meleeMoves M_BLOCK
+
+ bargeSoundOverride		"sound/chars/wampa/misc/chase1.mp3"
+ rageSoundOverride	"sound/chars/wampa/misc/chase2.mp3"
+
+	modelscale	1.25
+	uioverlay "gfx/icons/brawler"
+
+	model	   "wampa"
+	skin		   "default"
+	uishader	"models/players/wampa_pl/icon_default"
+
+ tauntAnim BOTH_GESTURE1
+ gloatAnim BOTH_GESTURE2
+ flourishAnim BOTH_HOLD_SNIFF
+ bowAnim BOTH_ATTACK1
+ meditateAnim BOTH_ATTACK2
+ WalkForward BOTH_WALK1
+ WalkBackward BOTH_RUNBACK1 //BOTH_WALK2
+ RunForward BOTH_RUN2
+ RunBackward BOTH_RUNBACK1
+ deathAnim BOTH_CIN_2
+}
+
+WeaponInfo0
+{
+	WeaponToReplace WP_MELEE
+	WeaponBasedOff WP_MELEE  
+	NewWorldModel	"models/weapons2/dummy/dummy.glm"
+	NewViewModel	"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/menus/classes/wook"
+	WeaponName	"Wild Beast"
+altFireEnabled 0
+primFireEnabled 0
+selectSound "sound/weapons/knife/knifeoff.mp3"
+damageMod 6
+}
+WeaponInfo1
+{
+	WeaponToReplace	WP_STUN_BATON
+	WeaponBasedOff		WP_STUN_BATON
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	NewHandsModel 	"models/weapons2/dummy/dummy.md3"
+	NewBarrelModel "models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/mplevels/monster_forest/claws"
+	WeaponName	"Claws"
+	FlashSound0	"Sound/chars/wampa/swipe1.mp3"
+	FlashSound1	"Sound/chars/wampa/swipe2.mp3"
+	FlashSound2	"Sound/chars/wampa/swipe3.mp3"
+	FlashSound3	"Sound/chars/wampa/swipe4.mp3"
+	altFlashSound0	"Sound/chars/wampa/swipe1.mp3"
+	altFlashSound1	"Sound/chars/wampa/swipe2.mp3"
+	altFlashSound2	"Sound/chars/wampa/swipe3.mp3"
+	altFlashSound3	"Sound/chars/wampa/swipe4.mp3"
+	MissileMissEffect 	null
+	altMissileMissEffect 	null
+	MissileHitHumanEffect 		null
+	AltMissileHitHumanEffect 	null
+	MissileHitDroidEffect 		null
+	AltMissileHitDroidEffect 	null
+	rateMod 3.03
+ damageMod 4
+selectSound "sound/weapons/exec_hack/slash3.mp3"
+}
+/* WeaponInfo2
+{
+	WeaponToReplace	WP_SHOTGUN
+	WeaponBasedOff	WP_SHOTGUN
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	NewHandsModel 	"models/weapons2/dummy/dummy.md3"
+	NewBarrelModel "models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_carboniterifle"
+	WeaponName		"Ice Breath"
+ selectSound "sound/chars/wampa/misc/choke3.mp3"
+customAmmo 200
+clipSize 50
+	reloadTimeModifier 2
+} */
+
+description	"Wild Wampa [Wookiee]
+
+A wild beast looking for its next meal. Not a particularly picky eater.
+
+^2Weaponry:
+- Wild Beast (Limited Melee)
+-- 500% more DMG
+-- Barge only
+- Claws (Stun Baton 1)
+-- 300% more DMG
+-- 15% faster movement
+-- 203% slower RoF
+
+^5Powers:
+- Thick Fur (Absorb 1) ^3[CS3]
+- Dark Rage (1) ^3[CS1]
+
+^8Attributes:
+- Reinforcement (1)
+- 15% faster skill CD
+- 30% less KB taken
+- 300% slower Hacking
+- Strength (2)
+- Fury (1)
+- Healing (3)
+- Physical Resist
+- Flat Damage Taken
+
+^3Abilities:
+- Lunge (Barge) ^3[CS2 Melee]"

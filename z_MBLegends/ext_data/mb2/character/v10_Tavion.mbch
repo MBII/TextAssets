@@ -1,14 +1,12 @@
-
 ClassInfo
 {
 	name				"v10_Tavion"
-
 	MBClass				MB_CLASS_SITH
 	classNumberLimit	1
 
 	weapons				WP_SABER|WP_MELEE
 
-	attributes			MB_ATT_RALLY,1|MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_FP_SABER_DEFENSE,1
+	attributes			MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DEXTERITY,2
 
 	APMultiplier 		1.15
 	BPMultiplier 		1.2
@@ -16,8 +14,7 @@ ClassInfo
 	CSmultiplier 		1.1
 	saberThrowDamage 37 //40
 
-	forcepowers 		FP_SABER_OFFENSE,3|FP_PUSH,2|FP_PULL,2|FP_SEE,2|FP_SABERTHROW,3|FP_LIGHTNING,1|FP_TEAM_FORCE,3|FP_DRAIN,2
-
+	forcepowers 		FP_SABER_OFFENSE,3|FP_PUSH,2|FP_PULL,2|FP_SEE,2|FP_SABERTHROW,3|FP_LIGHTNING,1|FP_TEAM_FORCE,3|FP_LEVITATION,2
 	forcepool 			110
 	forceregen  1.04
  resource RESOURCE_FORCE
@@ -25,11 +22,15 @@ ClassInfo
 	maxhealth	120
 	speed     1.05
 	damageGiven 1.10
-	classflags CFL_NOPICKUPS|CFL_STATVIEWER
+	classflags CFL_NOPICKUPS|CFL_STATVIEWER|CFL_BPFREEJUMPS
+	
+	rankBP 	1.25
+	rankAP 1.2
+	rankAS	1.2
 
-	special2 EAS_FP_DRAIN
-	special3 EAS_FP_TEAM_FORCE
-	special4 EAS_FP_LIGHTNING
+	special2 EAS_MELEE
+	special3 EAS_FP_DRAIN
+	special4 EAS_FP_TEAM_FORCE
 	
 	saber1      tavion_legends
 	saber1_1 			sith_sword_legends
@@ -42,23 +43,102 @@ ClassInfo
 	uioverlay "gfx/icons/support"
 	
 	model	"tavion_new"
-	skin		"default"
+	skin	"default"
 	uishader	"models/players/tavion_new/mb2_icon_default"
 	
 	model_1		"tavion_new"
-	skin_1		 "possessed"
+	skin_1	 "possessed"
 	uishader_1	"models/players/tavion_new/mb2_icon_possessed"
 	
-	model_2 		"tavion"
-	skin_2 		 "default"
+	model_2	"tavion"
+	skin_2 	"default"
 	uishader_2	"models/players/tavion/mb2_icon_default"
 
 	isCustomBuild	1
-	mbPoints		0
+	mbPoints	0
+	hasCustomSpec 3
+	isOnlyOneSpec 1
+customSpecName_1 "Apprentice"
+customSpecIcon_1 "gfx/menus/alpha/icon_weap_firerate"
+customSpecDesc_1 "JK2"
+customSpecName_2 "Scepter"
+customSpecIcon_2 "gfx/2d/hud/hlp_overload"
+customSpecDesc_2 "Scepter"
+customSpecName_3 "Possessed"
+customSpecIcon_3 "gfx/2d/hud/hlp_defend"
+customSpecDesc_3 "Possessed"
 	
-	c_att_skill_0		MB_ATT_FP_LEVITATION
-	c_att_names_0		"Force Jump"
-	c_att_ranks_0		0,0,0
+	c_att_skill_0	MB_ATT_FP_LEVITATION
+	c_att_names_0	"Force Jump"
+	c_att_ranks_0	0,0,0
+
+	c_att_skill_1	MB_ATT_FP_SPEED
+	c_att_names_1	"Force Speed"
+	c_att_ranks_1	0,0
+
+	c_att_skill_2	MB_ATT_FP_GRIP
+	c_att_names_2	"Force Grip"
+	c_att_ranks_2	0,0
+
+	c_att_skill_3	MB_ATT_BP_MULTIPLIER
+	c_att_names_3	"Saber BP (125%)"
+	c_att_ranks_3	0
+	
+	c_att_skill_4	MB_ATT_AS_MULTIPLIER
+	c_att_names_4	"Saber AS (120%)"
+	c_att_ranks_4	0
+
+	c_att_skill_5	MB_ATT_DEXTERITY
+	c_att_names_5	"Dexterity"
+	c_att_ranks_5	0,0,0
+
+	c_att_skill_15	MB_ATT_FP_LEVITATION
+	c_att_names_15	"Force Jump"
+	c_att_ranks_15	0,0,0
+
+	c_att_skill_16	MB_ATT_FP_DRAIN
+	c_att_names_16	"Force Drain"
+	c_att_ranks_16	0,0
+
+	c_att_skill_17	MB_ATT_FP_TEAM_FORCE
+	c_att_names_17	"Team Energize"
+	c_att_ranks_17	0,0,0
+
+	c_att_skill_18	MB_ATT_AP_MULTIPLIER
+	c_att_names_18	"Saber AP (120%)"
+	c_att_ranks_18	0
+
+	c_att_skill_19	MB_ATT_RALLY
+	c_att_names_19	"Rally"
+	c_att_ranks_19	0
+
+	c_att_skill_20	MB_ATT_MINIGUN
+	c_att_names_20	"Scepter of Ragnos"
+	c_att_ranks_20	0,0
+
+	c_att_skill_30	MB_ATT_FP_LEVITATION
+	c_att_names_30	"Force Jump"
+	c_att_ranks_30	0,0,0
+
+	c_att_skill_31	MB_ATT_FP_GRIP
+	c_att_names_31	"Force Grip"
+	c_att_ranks_31	0,0
+
+	c_att_skill_32	MB_ATT_FP_LIGHTNING
+	c_att_names_32	"Force Lightning"
+	c_att_ranks_32	0,0
+	
+	c_att_skill_33	MB_ATT_FP_DRAIN
+	c_att_names_33	"Force Drain"
+	c_att_ranks_33	0,0,0
+
+	c_att_skill_34	MB_ATT_AP_MULTIPLIER
+	c_att_names_34	"Saber AP (120%)"
+	c_att_ranks_34	0
+	
+	c_att_skill_35	MB_ATT_POWER
+	c_att_names_35	"Force Pool (125)"
+	c_att_ranks_35	0
 
 }
 WeaponInfo0
@@ -83,7 +163,7 @@ A Dark Jedi that can wield either a slow but powerful extended-reach Lightsaber-
 -- Saber Deflect (2)
 -- EX Saber Throw (3) ^3[CS1]
 --- 23% more DMG
--- Slap ^3[GB]
+-- Slap ^3[CS2]
 > Scepter of Ragnos
 -- 50% more reach
 -- 15% more DMG
@@ -96,16 +176,17 @@ A Dark Jedi that can wield either a slow but powerful extended-reach Lightsaber-
 -- 8% less reach
 
 ^5Force Powers:
+- Jump (2)
 - Push (2)
 - Pull (2) 
 - Sense (2) 
-- Lightning (1) ^3[CS4]
-- Drain (2) ^3[CS2]
-- Team Energize (3) ^3[CS3]
+- Lightning (1)
+- Drain (2) ^3[CS3]
+- Team Energize (3) ^3[CS4]
 
 ^8Attributes:
 - Bunny Hop (1)
 - Slow Faller
-- Rally 
+- Dexterity (2)
 - Ally Stat Viewer
 - Force Block/Focus (2)"

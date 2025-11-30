@@ -3,8 +3,8 @@
 ClassInfo 
 {
 	name				"h7_Hera"
-	weapons				WP_MELEE|WP_CLONE_PISTOL|WP_PULSE_NADE|WP_FRAG_NADE
-	attributes			MB_ATT_DISP_ARMOR,2|MB_ATT_CLONE_PISTOL,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_AMMO,3|MB_ATT_QUICKTHROW,1|MB_ATT_FRAGS,1|MB_ATT_RALLY,1|MB_ATT_USE_DISTANCE,1
+	weapons				WP_MELEE|WP_PULSE_NADE|WP_FRAG_NADE|WP_CLONE_PISTOL
+	attributes			MB_ATT_DISP_ARMOR,2|MB_ATT_PULSE_GRENADES,3|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_AMMO,3|MB_ATT_QUICKTHROW,1|MB_ATT_FRAGS,1|MB_ATT_RALLY,1|MB_ATT_USE_DISTANCE,1|MB_ATT_CLONE_PISTOL,2
 	maxhealth			165
 	maxarmor			85
 	model				"hera"
@@ -16,6 +16,7 @@ ClassInfo
 	speed              	1.05
 	modelscale         	0.99
 	rateOfFire         	0.9
+rateOfFire_Melee 0.9
 	forceregen			1.25
 	forcepool			100
 	classflags			CFL_STATVIEWER
@@ -36,32 +37,46 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_CLONE_PISTOL 
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff 	WP_CLONE_PISTOL
 	NewWorldModel		"models/weapons2/hera_p/pistol_w.glm" 
-	NewViewModel		"models/weapons2/hera_p/pistol_w.md3"
+ NewViewModel		"models/weapons2/hera_p/pistol_w.md3"
 	Icon				"gfx/hud/w_icon_herapistols" 
-	WeaponName			"Blurrg-1120 Dual Pistols" 
-	FlashSound0			"sound/weapons/lvl3pistol/fire.mp3" 
-	AltFlashSound0		"sound/weapons/lvl3pistol/fire.mp3"
-	MuzzleEffect		"Blaster/MuzzleCharge01R"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01R"
+	WeaponName			"Blurrg-1120 Blaster Pistol" 
+	FlashSound0			"sound/weapons/whistlingbird/fire2.mp3" 
+	AltFlashSound0		"sound/weapons/amban/fire.mp3" 
+	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
+	MuzzleEffect		"gfx/effects/bryarfrontflash"
+	AltMuzzleEffect	"gfx/effects/bryarfrontflash"
 	MissileEffect		"Blaster/Shot02r"
-	Missile3Effect		"Blaster/Shot04r"
 	AltMissileEffect	"Blaster/Shot04r"
 	PowerupShotEffect	"Blaster/Shot04r"
 	ChargeEffect		"gfx/effects/bryarfrontflash"
 	MissileMissEffect 	"effects/blaster/Impact_Wall01R"
+	altMissileMissEffect 	"effects/blaster/Impact_Wall01R"
 	customAmmo 			825
+	hasAnimOverrides 1
+	animReady BOTH_PISTOL_IDLE
+	animReadyWalk BOTH_PISTOL_IDLE2
+	animAttack BOTH_PISTOL_ATTACK
+	animAttackWalk BOTH_PISTOL_ATTACK
+	animCharge BOTH_PISTOL_ATTACK
+	VelocityMod 		1.15
+	rateMod 0.65
+ damageMod 1.1
 }
 
 description	"Hera Syndulla [Hero]
 
-A dexterous and speedy dual pistoleer commander with Quick-Throw grenades and portable defensive utilities. Can repair her teammates' Armor. 
+A dexterous and speedy commander with Quick-Throw grenades and portable defensive utilities. Can repair her teammates' Armor.
 
 ^2Weaponry:
 - Melee
-- Blurrg-1120 Dual Pistols (Clone Pistols 3)
+-- 10% faster RoF
+- Blurrg-1120 Blaster Pistol (Clone Pistol 2)
+-- 35% faster RoF
+-- 15% more velocity
+-- 10% more DMG
 - Frag Grenade (1)
 - Pulse Grenades (3)
 

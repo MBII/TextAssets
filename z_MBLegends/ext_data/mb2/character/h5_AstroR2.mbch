@@ -8,9 +8,9 @@ ClassInfo
 	classNumberLimit 		1
 	
 	weapons WP_MELEE|WP_SABER|WP_THROWER
-	
-	WP_SaberFlags HELD_STUN
 	WP_MeleeFlags HELD_SLOW
+	WP_SaberFlags HELD_STUN
+ WP_ThrowerFlags HELD_ALTRELOAD
 
  	attributes	MB_ATT_SHIELD_RECHARGE,1|MB_ATT_JETPACK,1|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISP_BLOCK,2|MB_ATT_DISP_FORCE,2|MB_ATT_DISP_ARMOR,2|MB_ATT_THROWER_FLAME|MB_ATT_USE_DISTANCE,1|MB_ATT_HEALING,2|MB_ATT_FUELREGEN,2|MB_ATT_CORTOSIS,1|MB_ATT_FLIPKICK,1
 	
@@ -22,10 +22,10 @@ ClassInfo
 	maxhealth	150
 	maxarmor		40
 
-	special1 EAS_FP_PUSH
+	special1 EAS_HI_WRIST
 	special2	EAS_HI_BARGE
-	special3	EAS_HI_WRIST
-	special4 EAS_FP_SPEED
+	special3	EAS_FP_SPEED
+	special4 EAS_FP_LIGHTNING
 	bargeSoundOverride	"sound/chars/r2d2/misc/death1.mp3"
 	classflags	CFL_STRONGAGAINSTPHYSICAL|CFL_NOLOCATIONALDAMAGE|CFL_STATVIEWER|
 	
@@ -38,7 +38,6 @@ ClassInfo
 	saberstyle 	SS_FAST
 	saberdamage 11 //12
 	
-	skilltimermod 1.5
 	hackRate 0.80
 	basespeed	215
 	disableGunBash 1
@@ -110,8 +109,10 @@ WeaponInfo2
 	WeaponName		"Flamethrower"
 	primFireEnabled		1
 	AltFireEnabled 		0
-	clipsize 90
-	customammo 630
+	clipsize 25
+	customammo 500
+ rateMod 2.5
+reloadTimeModifier 1.5
 }
 
 ForceInfo0
@@ -153,6 +154,7 @@ A plucky support with numerous gadgets.
 ^2Weaponry:
 - Prod (Limited Melee)
 -- 15% slower movement
+-- Sec. only
 - Circular Saw (Blue Saber)
 -- No Saber/Blaster Block
 -- Chain Limit: 1
@@ -161,18 +163,19 @@ A plucky support with numerous gadgets.
 -- 90% less DMG
 -- 50% less reach
 - Flamethrower
+-- 150% slower ignition rate
+-- 50% slower mag reload
 
 ^5Powers:
-- Steam Projector (Push 1) ^3[CS1]
-- Electroshock Probe (Lightning 1)
-- Overclock (Speed 3) ^3[CS4]
+- Steam Projector (Push 1)
+- Electroshock Probe (Lightning 1) ^3[CS4]
+- Overclock (Speed 3) ^3[CS3]
 
 ^8Attributes:
-- 50% slower skill CD
 - 25% faster Hacking
 - Strength (2)
 - Cortosis (1)
-- Flat Damage Taken
+- Flat DMG Taken
 - Physical Resist
 - Armor Regen (1) 
 - Healing (2)
@@ -185,5 +188,5 @@ A plucky support with numerous gadgets.
 -- +1 range
 - Jet Boosters (Jetpack)
 - Headbutt (Flipkick 1) ^3[Contact Jump]
-- Barge ^3[CS2 M]
-- Mini-Blaster (Wrist Laser) ^3[CS3]"
+- Mini-Blaster (Wrist Laser) ^3[CS1]
+- Barge ^3[CS2 Melee]"

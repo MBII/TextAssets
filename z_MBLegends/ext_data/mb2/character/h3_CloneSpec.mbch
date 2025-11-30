@@ -8,14 +8,14 @@ weapons WP_MELEE
 WP_EE4Flags HELD_ALTRELOAD
 WP_ShotgunFlags HELD_ALTRELOAD
 WP_StunBatonFlags HELD_FLAME
-attributes MB_ATT_ASSEMBLE,3|MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_STRONGBLOBS,3|MB_ATT_CLONEBLOBS,3|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_QUICKTHROW,1
+attributes MB_ATT_ASSEMBLE,3|MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_STRONGBLOBS,3|MB_ATT_CLONEBLOBS,3|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_FIRE_GRENADES,1
 Forcepool 110
 knockbacktaken .88
 maxhealth 110
 maxarmor 80
-RankArmor 120
-RankDmgGiven 1.2
-speed 1.015
+RankArmor 110
+RankDmgGiven 1.1
+speed 1.01
 classflags CFL_STRONGAGAINSTPHYSICAL
 holdables HI_MEDPAC_BIG
 special4 EAS_HI_GRAPPLEHOOK
@@ -65,8 +65,8 @@ c_att_ranks_2	6
 c_att_descs_2 "80% more DMG"
 c_att_skill_3	MB_ATT_MINIGUN
 c_att_names_3	"Chaingun (Minigun)"
-c_att_ranks_3	15
-c_att_descs_3 "200% more velocity, 25% faster RoF, 25% less DMG/FP DMG"
+c_att_ranks_3	12
+c_att_descs_3 "200% more velocity, 25% faster RoF, 20% less DMG/FP DMG"
 c_att_skill_4	MB_ATT_PULSE_GRENADES
 c_att_names_4	"Pulse Grenades"
 c_att_ranks_4	3,3
@@ -74,10 +74,10 @@ c_att_skill_5	MB_ATT_SONIC_DETONATOR
 c_att_names_5	"Sonic Detonators"
 c_att_ranks_5	4,4
 c_att_skill_6	MB_ATT_DMG_GIVEN_MULTIPLIER
-c_att_names_6	"Damage Given (120%)"
+c_att_names_6	"Damage Given (110%)"
 c_att_ranks_6	2
 c_att_skill_7	MB_ATT_ARMOUR
-c_att_names_7	"Armor (120)"
+c_att_names_7	"Armor (110)"
 c_att_ranks_7	2
 c_att_skill_15 MB_ATT_CLONE_PISTOL
 c_att_names_15 "DC-17 Clone Pistol"
@@ -96,9 +96,9 @@ c_att_skill_19 MB_ATT_EE4
 c_att_names_19 "DC-15x Sniper Rifle (EE-4)"
 c_att_ranks_19 8,7
 c_att_descs_19 "110% more DMG/FP DMG, 120% more velocity, 150% slower RoF,
-125% slower mag reload"
+120% slower mag reload"
 c_att_skill_20 MB_ATT_MICRO_GRENADES
-c_att_names_20 "Concussion Grenades"
+c_att_names_20 "Conc Grenades"
 c_att_ranks_20 2,2
 c_att_skill_21 MB_ATT_FRAGS
 c_att_names_21 "Frag Grenades"
@@ -111,8 +111,8 @@ c_att_names_23 "Grappling Hook ^3[CS4 M]"
 c_att_ranks_23 0,3
 c_att_skill_30 MB_ATT_STUN_BATON
 c_att_names_30 "F-187 Fusioncutter (Stun Baton)"
-c_att_ranks_30 5
-c_att_descs_30 "Ignites on hit, 80% faster RoF, 80% less DMG"
+c_att_ranks_30 2
+c_att_descs_30 "Ignites on hit, 80% faster RoF, 70% less DMG"
 c_att_skill_31 MB_ATT_DC_CARBINE
 c_att_names_31 "DC-15S Clone Carbine"
 c_att_ranks_31 2,1,1
@@ -122,8 +122,8 @@ c_att_ranks_32 3,7
 c_att_descs_32 "6 Conc/Ion Blobs"
 c_att_skill_33 MB_ATT_SHOTGUN
 c_att_names_33 "DP-23 Shotgun"
-c_att_ranks_33 10,8
-c_att_descs_33 "25% faster RoF, 45% less DMG, 20% slower mag reload"
+c_att_ranks_33 10,8,4
+c_att_descs_33 "25% faster RoF, 35% less DMG, 20% slower mag reload, Prim. only"
 c_att_skill_34 MB_ATT_DET_PACK
 c_att_names_34 "Det Packs"
 c_att_ranks_34 1,1,1
@@ -131,8 +131,7 @@ c_att_skill_35 MB_ATT_HEALING
 c_att_names_35 "Healing"
 c_att_ranks_35 2,2
 }
-WeaponInfo0
-{
+WeaponInfo0{
 WeaponToReplace WP_MINIGUN
 WeaponBasedOff WP_MINIGUN
 isMinigun 1
@@ -146,19 +145,18 @@ MuzzleEffect	"Blaster/MuzzleFlash01B"
 MissileEffect	"halo_shotgun/shot"
 MissileMissEffect "halo_smg/wall_impact"
 rateMod .75
-damageMod .75
-fpmult .75
+damageMod .8
+fpmult .8
 velocitymod 3
-customAmmo 800
+customAmmo 900
 hasAnimOverrides 1
-animReady BOTH_PLX1_READY
-animReadyWalk BOTH_PLX1_READY
-animAttack BOTH_PLX1_ATTACK
-animAttackWalk BOTH_PLX1_ATTACK
+animReady BOTH_DC15_IDLE
+animReadyWalk BOTH_DC15_READY
+animAttack BOTH_DC15_ATTACK_ALT
+animAttackWalk BOTH_DC15_ATTACK_ALT
 animStand BOTH_STAND2
 }
-WeaponInfo1
-{
+WeaponInfo1{
 WeaponToReplace WP_THROWER
 WeaponBasedOff WP_THROWER
 NewWorldModel	"models/weapons2/mgun/heavy_repeater_w.glm"
@@ -166,7 +164,7 @@ NewViewModel "models/weapons2/mgun/heavy_repeater_1.md3"
 NewHandsModel "models/weapons2/mgun/heavy_repeater_hand.md3"
 Icon	"gfx/hud/w_icon_mgun"
 WeaponName "BT X-42 Flamethrower"
-customAmmo 800
+customAmmo 900
 clipsize 150
 Damagemod 1.8
 hasAnimOverrides 1
@@ -176,21 +174,20 @@ animAttack BOTH_MINIGUN_ATTACK
 animAttackWalk BOTH_MINIGUN_ATTACK
 animStand BOTH_STAND2
 }
-WeaponInfo2
-{
+WeaponInfo2{
 WeaponToReplace WP_EE4
 WeaponBasedOff WP_EE4
 NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
 NewViewModel 	"models/weapons2/dummy/dummy.md3"
 Icon "gfx/hud/w_icon_dlt-18"
 WeaponName "DC-15x Sniper Rifle"
-CustomAmmo 112
+CustomAmmo 128
 Clipsize 16
 ratemod 2.5
 fpmult 2.1
 damagemod 2.1
 Velocitymod 2.2
-ReloadTimeModifier 2.25
+ReloadTimeModifier 2.2
 MuzzleEffect	"Blaster/MuzzleFlash01B"
 FlashSound0 "sound/weapons/e_22/fire.mp3"
 MissileEffect	"Blaster/Shot10B"
@@ -198,8 +195,7 @@ Missile3Effect "Blaster/Shot10B"
 MissileMissEffect "blaster/impact_wall01b"
 AltMissileMissEffect "blaster/impact_wall01b"
 }
-WeaponInfo3
-{
+WeaponInfo3{
 WeaponToReplace WP_T21
 WeaponBasedOff WP_T21
 NewWorldModel	"models/weapons2/t-21/t-21_w.glm"
@@ -213,9 +209,10 @@ AltMuzzleEffect	"Blaster/MuzzleFlash01B"
 MissileMissEffect "blaster/impact_wall01b"
 AltMissileMissEffect "blaster/impact_wall01b"
 customAmmo 800
+hasAnimOverrides 1
+animReady BOTH_AMBAN_IDLE
 }
-WeaponInfo4
-{
+WeaponInfo4{
 WeaponToReplace WP_SHOTGUN
 WeaponBasedOff WP_SHOTGUN
 NewWorldModel	"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
@@ -227,20 +224,17 @@ altFireEnabled 0
 Customammo 600
 ReloadTimeModifier 1.2
 ratemod 0.8
-damagemod 0.55
+damagemod 0.65
 MissileEffect	"Blaster/Shot01B"
 MuzzleEffect	"Blaster/MuzzleFlash01B"
 MissileMissEffect "blaster/impact_wall01b"
-AltMissileMissEffect "blaster/impact_wall01b"
 hasAnimOverrides 1
-animReady BOTH_WESTARM5_IDLE
 animReadyWalk BOTH_WESTARM5_READY
 animReadyNoAmmo BOTH_WESTARM5_ATTACK
 animAttack BOTH_WESTARM5_ATTACK
 animAttackWalk BOTH_WESTARM5_ATTACK
 }
-WeaponInfo5
-{
+WeaponInfo5{
 WeaponToReplace WP_STUN_BATON
 WeaponBasedOff WP_STUN_BATON
 NewWorldModel "models/weapons2/fc_f187/f187.glm"
@@ -259,7 +253,7 @@ MissileMissEffect "effects/sparks/spark_exp_nosnd"
 MissileHitHumanEffect "effects/sparks/spark_exp_nosnd"
 MissileHitDroidEffect "effects/sparks/spark_exp_nosnd"
 rateMod .2
-damageMod .2
+damageMod .3
 }
 description "Clone Specialist [Clone Trooper]
 
@@ -268,6 +262,7 @@ Clones with niche expertise.
 ^2Weaponry:
 - Melee
 - DC-17 Clone Pistol (2)
+- Fire Grenade (1)
 
 ^6Inventory:
 - Bacta (Instant 50 HP)
@@ -282,5 +277,4 @@ Clones with niche expertise.
 
 ^3Abilities:
 - Sprint ^3[CS1]
-- Quick-Throw (1) ^3[CS3]
 - Grappling Hook (1) ^3[CS4 Melee]"

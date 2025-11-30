@@ -7,7 +7,7 @@ Classinfo
 	classNumberLimit	2
 	extralives		1
 	weapons	WP_MELEE|WP_THROWER|WP_FIRE_NADE|WP_UGL|WP_DLT20A
-	attributes	MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_UGL,2|MB_ATT_DLT20A,2|MB_ATT_WRISTLASER
+	attributes	MB_ATT_AMMO,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_UGL,3|MB_ATT_DLT20A,2|MB_ATT_WRISTLASER
 	maxhealth	80
 	maxarmor		80
 
@@ -20,7 +20,7 @@ Classinfo
 	special1	EAS_HI_DODGE
 	special2 EAS_HI_WRIST
 	special3	EAS_HI_SENTRY_GUN
-	special4 EAS_HI_BACTA
+	special4 EAS_HI_MEDPAC
 
 	holdables HI_MEDPAC|HI_SENTRY_GUN
 
@@ -38,7 +38,7 @@ Classinfo
 	skin_1	"flame"					
 	uishader_1 "models/players/battledroid/mb2_icon_flame"
 	
-  	uioverlay_r "gfx/icons/infantry"
+ uioverlay_r "gfx/icons/infantry"
 	uioverlay_l "gfx/icons/spec_infantry"
 }
 
@@ -50,9 +50,34 @@ WeaponInfo0
 	NewViewModel	"models/weapons2/CR-24_flamerifle/rifle.md3"		
 	Icon	"gfx/hud/w_icon_cr-24_flamerifle"
 	WeaponName "CR-24 Flame Rifle"
-	customAmmo 740
+	customAmmo 750
 	clipsize 140
 	ReloadTimeModifier 1.30
+}
+
+WeaponInfo1
+{
+WeaponToReplace WP_UGL
+WeaponBasedOff WP_UGL
+Icon	"gfx/hud/w_icon_upl"
+NewWorldModel	"models/weapons2/upl/upl_w.glm"
+NewViewModel	"models/weapons2/upl/upl.md3"
+NewHandsModel "models/weapons2/upl/upl_hand.md3"
+NewBarrelModel "models/weapons2/upl/upl_barrel.md3"
+WeaponName "Modified Grenade Launcher"
+flashSound0 "sound/weapons/upl/fire_mortar.wav"
+flashSound1 "sound/weapons/upl/fire_mortar.wav"
+flashSound2 "sound/weapons/upl/fire_mortar.wav"
+flashSound3 "sound/weapons/upl/fire_mortar.wav"
+hasAnimOverrides 1
+animReady BOTH_AMBAN_IDLE
+animReadyWalk	TORSO_WEAPONREADY3
+animReadyNoAmmo BOTH_ATTACK3
+animAttack BOTH_ATTACK3
+animAttackWalk BOTH_ATTACK3
+altfireenabled 0
+velocityMod 0.77
+damageMod 1.5
 }
 
 Description 	"Flame Trooper [Mandalorian]
@@ -65,7 +90,10 @@ A 2-life class specializing in incendiary support.
 -- 30% slower mag reload
 - DLT-20A Blaster Rifle (2)
 - Fire Grenades (3)
-- Universal Grenade Launcher (2)
+- Modified Grenade Launcher (UGL 3)
+-- 50% more DMG
+-- 23% less velocity
+-- Prim. only
 
 ^6Inventory:
 - Assault Sentry ^3[CS3]
