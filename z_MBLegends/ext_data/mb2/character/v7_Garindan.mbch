@@ -1,0 +1,208 @@
+ClassInfo
+{
+	name			"v7_Garindan"
+	MBClass			MB_CLASS_COMMANDER
+	classNumberLimit	1
+	weapons			WP_MELEE|WP_SABER|WP_MGL|WP_STUN_BATON|WP_BLASTER_PISTOL|WP_DET_PACK
+
+	attributes		MB_ATT_AMMO,3|MB_ATT_SPAWNER,2|MB_ATT_PISTOL,3|MB_ATT_MGL,3|MB_ATT_STICKY_BOMBS,3|MB_ATT_DET_PACK,5|MB_ATT_STUN_BATON,3|MB_ATT_DEXTERITY,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_BLAST_ARMOR|MB_ATT_FRAGS,4|MB_ATT_QUICKTHROW,3|MB_ATT_DASH,2|MB_ATT_TRACKING_DART,6|MB_ATT_ANTI_MT,1|MB_ATT_ROSHTAUNT
+	
+	WP_StunBatonFlags HELD_STUN|HELD_FLAME
+	
+	maxhealth		135
+	MaxArmor		90
+
+	ArmourRegenCap 30
+	ArmourRegenAmount 15
+	ArmourRegenRate	10000
+	
+	speed		1.06
+	
+	resource	RESOURCE_ENERGY
+	forcepool 100
+	
+	ASmultiplier	1.15
+	APmultiplier	1.2
+	BPmultiplier    0
+	saber1			garindan_leg_asp
+	forcepowers     FP_SABER_OFFENSE,3|FP_SABER_THROW,0
+	saberstyle		SS_MEDIUM|SS_STRONG
+	saberDamage 	120
+	saberSpecialDamage 2
+	saberThrowDamage 80
+	saberMaxChain 2
+
+	//classflags		CFL_SEEING_STEALTH
+	holdables		HI_CLOAK|HI_SPAWNER|HI_STIMPACK
+
+	special1	EAS_FP_SABERTHROW
+	special2	EAS_HI_DASH
+	special3	EAS_HI_TRACKER
+	special4	EAS_HI_QUICKTHROW
+	
+	uioverlay_l "gfx/icons/tactician"
+	uioverlay_c "gfx/icons/spec_infantry"
+	
+	WalkForward	BOTH_WALK1TALKCOMM1
+	WalkBackward	BOTH_WALK1TALKCOMM1
+	
+	tauntAnim 	BOTH_TALKCOMM1START
+	gloatAnim	BOTH_REACHFORSABER1
+	flourishAnim	BOTH_SILENCEGESTURE1
+	saberStanceAnim	BOTH_RESISTPUSH
+		
+	model 	"tie_pilot"
+	skin		"garindan"
+	uishader  "models/players/tie_pilot/mb2_icon_garindan"
+}
+WeaponInfo0
+{
+	WeaponToReplace	WP_BLASTER_PISTOL
+	WeaponBasedOff	WP_BLASTER_PISTOL
+	NewWorldModel	"models/weapons2/blaster_two/blaster_pistol_w.glm"
+	NewViewModel	"models/weapons2/blaster_two/blaster_pistol.md3"
+	Icon	"gfx/hud/w_icon_blaster_pistol_2"
+	ChargeSound	"sound/weapons/mando_rifle/charge.wav"
+	WeaponName	"Overcharged DL-44 Heavy Blaster Pistol"
+	//AltMuzzleEffect "acp_array/muzzle_flash" (noisy but cool)
+	AltMuzzleEffect "mini_concussion/muzzle_flash"
+	ChargeEffect	"gfx/effects/beamr_frontflash"
+	PowerupShotEffect	"acp_array/shot"
+	clipSize 21
+	FPChargeMult 1.4
+	velocityMod 1.3
+}
+WeaponInfo1
+{
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
+	NewWorldModel	"models/weapons2/sword_asp/saber_w.glm"
+	NewViewModel	"models/weapons2/sword_asp/saber_w.md3"
+	Icon	"gfx/hud/w_icon_soldierbaton"
+	WeaponName	"Snap Baton/Magna-Gloves"
+}
+WeaponInfo2
+{
+	WeaponToReplace	WP_STUN_BATON
+	WeaponBasedOff	WP_STUN_BATON
+	NewWorldModel	"models/weapons2/fc_f187/f187.glm"
+	NewViewModel	"models/weapons2/fc_f187/f187.md3"
+	NewHandsModel "models/weapons2/fc_f187/f187_hand.md3"
+	Icon	"gfx/hud/w_icon_fc_f187_all"
+	WeaponName "Overcharged F-187 Fusioncutter"
+	FlashSound0 "sound/weapons/fusioncutter/cutter_hit.mp3"
+	altFlashSound0 "sound/weapons/fusioncutter/cutter_hit.mp3"
+	MuzzleEffect "Blaster/MuzzleFlash01Y"
+	altMuzzleEffect "Blaster/MuzzleFlash01Y"
+	MissileEffect "blaster/dash_bolt"
+	altMissileEffect "blaster/dash_bolt"
+	MissileHitHumanEffect "effects/sparks/spark_exp_nosnd.efx"
+	MissileHitDroidEffect "effects/sparks/spark_exp_nosnd.efx"
+	altMissileHitHumanEffect "effects/sparks/spark_exp_nosnd.efx"
+	altMissileHitDroidEffect "effects/sparks/spark_exp_nosnd.efx"
+	hasAnimOverrides 1
+	animReady TORSO_WEAPONREADY0
+	animReadyWalk TORSO_WEAPONREADY0
+	animReadyNoAmmo BOTH_ATTACK2
+	animAttack BOTH_ATTACK2
+	animAttackWalk BOTH_ATTACK2
+	animStand	BOTH_STAND5
+	rateMod 2.8
+	damageMod 1.5
+}
+WeaponInfo3
+{
+	WeaponToReplace	WP_MGL
+	WeaponBasedOff	WP_MGL
+	NewWorldModel	"models/weapons2/reglauncher/reglauncher.glm"
+	NewViewModel	"models/weapons2/reglauncher/reglauncher.md3"
+	NewHandsModel	"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon	"gfx/mplevels/revil/icon_glauncher"
+	WeaponName		"VRL-29 Air Burst Grenade Launcher"
+	FlashSound0	"Sound/weapons/reglauncher/fire.wav"
+	AltFlashSound0	"sound/ambience/kotor/Console10.mp3"
+	ChargeSound 	"null"
+	hasAnimOverrides 1
+	animReady	BOTH_AMBAN_IDLE
+	animReadyWalk	BOTH_AMBAN_IDLE
+	animReadyNoAmmo	BOTH_AMBAN_IDLE
+	animAttack	BOTH_AMBAN_AIM_ATTACK
+	animAttackWalk	BOTH_AMBAN_AIM_ATTACK
+	animStand	BOTH_AMBAN_IDLE
+	altFireAnim BOTH_AMBAN_IDLE
+	clipSize 3
+	customAmmo 60
+	damageMod .2 //16 dmg direct, 20 splash
+	rateMod .8 //allows more easy airbursts
+	velocityMod .8
+	reloadTimeModifier 10
+}
+WeaponInfo4
+{	
+	WeaponToReplace	WP_FRAG_NADE
+	WeaponBasedOff	WP_FRAG_NADE
+	NewWorldModel	"models/weapons2/ninja_smoke/smokepellet.glm"
+	NewViewModel	"models/weapons2/ninja_smoke/smokepellet.md3"
+	Icon	"gfx/hud/w_icon_blackegg"
+	WeaponName	"Smoke Pellets"
+	MissileModel	"models/weapons2/ninja_smoke/smokepellet_proj.md3"
+	AltMissileModel	"models/weapons2/ninja_smoke/smokepellet_proj.md3"
+	MissileMissEffect	"smokenadeleg/explode_vol"
+	altMissileMissEffect	"smokenadeleg/explode_vol"
+	FlashSound0	"Sound/css_wep/smokegrenade_explode.wav"
+	altFlashSound0	"Sound/css_wep/smokegrenade_explode.wav"
+	hasAnimOverrides 1
+	animReady BOTH_STAND5TOSTAND8
+	animReadyWalk BOTH_STAND5TOSTAND8
+	animReadyNoAmmo BOTH_STAND5TOSTAND8
+	animAttack NADE_SECONDARY
+	animAttackWalk NADE_SECONDARY
+	animStand BOTH_STAND1
+	primFireEnabled	0
+	altFireEnabled	0
+	customammo	4
+}
+
+description	"Garindan ezz Zavor [Commander]
+
+The greatest spy in Mos Eisley spaceport, and very far from home
+
+^2Weaponry:
+- Melee
+- Snap Baton/Magna-Gloves (Yellow/Red Saber)
+-- No Saber/Blaster Block
+-- Chain Limit: 2
+-- 125%/167% more KB given/radius
+-- 40% less reach/50% less DMG
+-- Saber Throw ^3[CS1]
+--- 233% more DMG
+-- Slap ^3[Gunbash]
+- Overcharged Fusion Cutter (Stun Baton)
+-- Ignites/stuns on hit
+-- 50% more DMG
+-- 280% slower RoF
+- Overcharged DL-44 Heavy Blaster Pistol
+-- 40% more charged FP dmg/30% faster velocity
+- VRL-29 Air Burst Grenade Launcher
+-- 80% less DMG/1000% slower reload
+-- 20% faster RoF/slower velocity
+- Smoke Pellets (4) (Frags)
+-- Quick-Throw only
+- Det Packs (5)
+
+^6Inventory:
+- Stimpack
+- Sentry Droid
+- Cloaking Device
+
+^8Attributes:
+- Dexterity (1)
+- Blast Armor
+- Armor Regen: 15/10s up to 30
+- Strong-Willed (Anti-Mind Trick 1)
+
+^3Abilities:
+- Dash (2) ^3[CS2]
+- Tracking Darts ^3[CS3]
+- Quick-Throw (3) ^3[CS4]
+- Snitching [Taunt damages Jedi]"
