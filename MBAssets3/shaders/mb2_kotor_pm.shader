@@ -17,51 +17,147 @@ models/players/atton/atton_head
 }
 
 //// Bastilla Shan ////
-models/players/bastila/body
+models/players/bastila/boots_hands
 {
 	{
-		map models/players/bastila/body
+		map models/players/bastila/boots_hands
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/bastila/body_spec
+		map models/players/bastila/boots_hands_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/bastila/head
-{
-	cull	disable
-	{
-		map models/players/bastila/head
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/bastila/body_sith
+models/players/bastila/boots_hands_sith
 {
 	{
-		map models/players/bastila/body_sith
+		map models/players/bastila/boots_hands_sith
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/bastila/body_sith_spec
+		map models/players/bastila/boots_hands_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/bastila/head_sith
+models/players/bastila/extras
 {
 	cull	disable
 	{
-		map models/players/bastila/head_sith
+		map models/players/bastila/extras
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bastila/extras_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/bastila/extras_sith
+{
+	cull	disable
+	{
+		map models/players/bastila/extras_sith
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bastila/extras_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/bastila/hairtie
+{
+	{
+		map models/players/bastila/hairtie
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bastila/hairtie_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/bastila/hairtie_sith
+{
+	{
+		map models/players/bastila/hairtie_sith
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bastila/hairtie_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/bastila/layers
+{
+	cull	disable
+	{
+		map models/players/bastila/layers
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bastila/layers_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/bastila/layers_sith
+{
+	cull	disable
+	{
+		map models/players/bastila/layers_sith
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/bastila/layers_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/bastila/hair
+{
+	cull	disable
+	{
+		map models/players/bastila/hair
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
 		rgbGen lightingDiffuse
 	}
 }
+
+models/players/bastila/hair_sith
+{
+	cull	disable
+	{
+		map models/players/bastila/hair_sith
+		alphaFunc GE128
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+}
+
+
 
 //// Calo Nord ////
 models/players/calonord/torso
@@ -411,7 +507,7 @@ models/players/kreia/head_traya
 	}
 }
 
-models/players/kreia/robe_nocull
+models/players/kreia/robe_twosided
 {
 	cull	twosided
 	{
@@ -420,7 +516,7 @@ models/players/kreia/robe_nocull
 	}
 }
 
-models/players/kreia/robe_traya_nocull
+models/players/kreia/robe_traya_twosided
 {
 	cull	twosided
 	{
