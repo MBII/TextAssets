@@ -142,7 +142,9 @@ models/players/obiwan_ot/legs
 	}
 }
 
+
 // CW
+
 models/players/obiwan_cw/cape
 {
 	cull	twosided
@@ -158,6 +160,53 @@ models/players/obiwan_cw/torso
 	{
 		map models/players/obiwan_cw/torso
 		rgbGen lightingDiffuse
+	}
+}
+
+
+// TCW
+
+models/players/obiwan_tcw/body_clean
+{
+    {
+        map models/players/obiwan_tcw/body_clean
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/MB2_clones/body_clean_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/obiwan_tcw/bodysuit_clean
+{
+    {
+        map models/players/obiwan_tcw/bodysuit_clean
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/MB2_clones/bodysuit_clean_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/players/obiwan_tcw/boots
+{
+	{
+		map models/players/obiwan_tcw/boots
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/obiwan_ep3/boots_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
 
