@@ -320,7 +320,6 @@ models/players/darthbandon/bandon_torso
 
 
 // HK-47 //
-
 models/players/hk47/hk47
 {
     {
@@ -363,7 +362,6 @@ models/players/hk47/hk47_body_old
 
 
 // HK-50 //
-
 models/players/hk47/hk50
 {
     {
@@ -386,7 +384,6 @@ models/players/hk47/hk50
 
 
 // HK-51 //
-
 models/players/hk47/hk51
 {
     {
@@ -405,6 +402,17 @@ models/players/hk47/hk51
 		rgbGen wave noise 1 0.5 0 2
 		glow
 	}
+}
+
+
+//// Jolee Bindo ////
+models/players/jolee/lower_robe
+{
+	cull	twosided
+    {
+        map models/players/jolee/lower_robe
+        rgbGen lightingDiffuse
+    }
 }
 
 
