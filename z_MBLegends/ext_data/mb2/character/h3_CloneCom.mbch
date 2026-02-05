@@ -5,6 +5,7 @@ MBClass	MB_CLASS_CLONETROOPER
 classNumberLimit 4
 extralives 1
 weapons	WP_BLASTER_PISTOL|WP_SABER|WP_THERMAL
+WP_UGLFlags HELD_KNOCKBACK
 WP_DCCarbineFlags HELD_ALTRELOAD
 WP_DisruptorFlags HELD_ALTRELOAD
 WP_FlechetteFlags HELD_ALTRELOAD
@@ -64,13 +65,10 @@ hasCustomSpec 3
 isOnlyOneSpec 1
 customSpecName_1 "Gunner"
 customSpecIcon_1 "gfx/menus/alpha/icon_weap_accuracy"
-customSpecDesc_1 ""
 customSpecName_2 "Heavy"
 customSpecIcon_2 "gfx/menus/alpha/icon_weap_expdamagesplash"
-customSpecDesc_2 ""
 customSpecName_3 "Wild Card"
 customSpecIcon_3 "gfx/menus/alpha/icon_weap_stun"
-customSpecDesc_3 ""
 c_att_skill_0 MB_ATT_DC_CARBINE
 c_att_names_0 "DC-17m Blaster (DC Carbine)"
 c_att_ranks_0 0
@@ -90,8 +88,8 @@ c_att_names_16 "Trad Wookiee Bowcaster"
 c_att_ranks_16 0,0,0
 c_att_skill_17 MB_ATT_UGL
 c_att_names_17 "DC-17m Anti-Armor (UGL)"
-c_att_ranks_17 0,0
-c_att_descs_17 "55% less DMG, 25% slower RoF"
+c_att_ranks_17 0
+c_att_descs_17 "Pushes on det"
 c_att_skill_18 MB_ATT_MICRO_GRENADES
 c_att_names_18 "> DC-17m Rounds (6)"
 c_att_ranks_18 0
@@ -121,9 +119,9 @@ c_att_ranks_35 0
 }
 WeaponInfo0{
 WeaponToReplace WP_DC_CARBINE
-WeaponBasedOff WP_DC_CARBINE
+WeaponBasedOff  WP_MANDO_PISTOL
 NewWorldModel "models/weapons2/DC-17m/blaster.glm"
-NewViewModel "models/weapons2/dummy/dummy.md3"
+NewViewModel "models/weapons2/DC-17m/blaster.md3"
 FlashSound0 "sound/weapons/dc17m/fire.wav"
 FlashSound1 "sound/weapons/dc17m/fire.wav"
 FlashSound2 "sound/weapons/dc17m/fire.wav"
@@ -150,7 +148,7 @@ selectSound "sound/weapons/dc17m/select.mp3"
 }
 WeaponInfo1{
 WeaponToReplace WP_DISRUPTOR
-WeaponBasedOff WP_DISRUPTOR
+WeaponBasedOff  WP_MANDO_PISTOL
 NewWorldModel	"models/weapons2/DC-17m/sniper.glm"
 NewViewModel	"models/weapons2/DC-17m/sniper.md3"
 Icon	"gfx/hud/w_icon_dc-17mS"
@@ -171,7 +169,7 @@ selectSound "sound/weapons/dc17m/select.mp3"
 }
 WeaponInfo2{
 WeaponToReplace WP_FLECHETTE
-WeaponBasedOff WP_FLECHETTE
+WeaponBasedOff WP_SHOTGUN
 NewWorldModel	"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
 NewViewModel	"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
 FlashSound0 "sound/weapons/acparray/fire.wav"
@@ -186,7 +184,7 @@ altFireEnabled 0
 }
 WeaponInfo3{
 WeaponToReplace WP_UGL
-WeaponBasedOff WP_UGL
+WeaponBasedOff WP_MANDO_PISTOL
 NewWorldModel	"models/weapons2/DC-17m/launcher.glm"
 NewViewModel	"models/weapons2/DC-17m/launcher.md3"
 FlashSound0 "sound/weapons/upl/fire_mortar.wav"
@@ -194,8 +192,6 @@ altFlashSound0 "sound/weapons/dc17m/alt_fire.wav"
 Icon	"gfx/hud/w_icon_dc-17ml"
 WeaponName "DC-17m ICWS Anti-Armor Attachment"
 selectSound "sound/weapons/dc17m/select.mp3"
-rateMod 1.25
-damageMod .45
 hasAnimOverrides 1
 animAttackWalk BOTH_ATTACK3
 }
@@ -217,16 +213,16 @@ selectSound "sound/chars/clone_rc/misc/gasp.mp3"
 }
 WeaponInfo5{
 WeaponToReplace	WP_BLASTER_PISTOL
-WeaponBasedOff WP_BLASTER_PISTOL
-NewWorldModel	"models/weapons2/DC-15/dc-15_w.glm"
-NewViewModel	"models/weapons2/dummy/dummy.md3"
+WeaponBasedOff WP_MANDO_PISTOL
+NewWorldModel	"models/weapons2/dc-15/dc-15_w.glm"
+NewViewModel	"models/weapons2/dc-15/dc-15.md3"
+NewHandsModel	"models/weapons2/dc-15/dc-15_hand.md3"
 Icon	"gfx/hud/w_icon_clonepistol"
 WeaponName "DC-15s Side Arm Blaster"
 FlashSound0	"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
 AltFlashSound0 "sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
 MuzzleEffect	"Blaster/MuzzleFlash01B"
 MissileEffect	"blaster/Shot01b"
-
 ChargeEffect	"gfx/effects/cloneFrontFlash"
 clipSize 15
 ReloadTimeModifier 2
@@ -246,12 +242,13 @@ WeaponInfo7{
 WeaponToReplace WP_THERMAL
 WeaponBasedOff WP_THERMAL
 NewWorldModel	"models/weapons2/thermal/thermal_w.glm"
-NewViewModel "models/weapons2/thermal/thermal_hand.md3"
+NewViewModel "models/weapons2/thermal/thermal.md3"
+NewHandsModel "models/weapons2/thermal/thermal_hand.md3"
 Icon	"gfx/hud/w_thermal_grenade"
 WeaponName "Hand Thermal Grenades"
 damagemod 2.25
 }
-description "Clone Commando [Clone Trooper]
+description "Clone Commando 
 
 Adaptable 2-lifes with staying power.
 
@@ -265,7 +262,6 @@ Adaptable 2-lifes with staying power.
 -- 57% less reach
 -- 33% more radius
 -- Prim only
--- Slap ^3[GB]
 - DC-15s Side Arm Blaster (Pistol 1)
 -- 40% faster RoF
 -- 100% slower reload

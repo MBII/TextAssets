@@ -44,7 +44,7 @@ ClassInfo
 	//rankModelScale 	1.26,1.36,0.86
 	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_SLOW
 	WP_BowcasterFlags HELD_ALTRELOAD
-
+	WP_TradBowcasterFlags HELD_ALTRELOAD
 	gloatAnim 		BOTH_TUSKENTAUNT1
 	flourishAnim 		BOTH_VICTORY_FAST
 	
@@ -112,6 +112,7 @@ ClassInfo
 	c_att_names_3	"Melee RoF (125%)"
 	c_att_ranks_3	1
 	c_att_descs_3 "75% default"
+
 	c_att_skill_4	MB_ATT_PISTOL
 	c_att_names_4	"Kashyyyk Side-Arm Pistol"
 	c_att_ranks_4	0,0,1
@@ -125,6 +126,7 @@ ClassInfo
 	c_att_skill_6	MB_ATT_TRAD_BOWCASTER
 	c_att_names_6	"Traditional Bowcaster"
 	c_att_ranks_6	1,1,1
+	c_att_descs_6 "No charge shots, Mag reload"
 	
 	c_att_skill_7	MB_ATT_ROCKET_LAUNCHER
 	c_att_names_7	"Guided Rocket Launcher (10)"
@@ -162,24 +164,25 @@ ClassInfo
 
 WeaponInfo0
 {
-    WeaponToReplace		WP_BOWCASTER
-    WeaponBasedOff		WP_BOWCASTER
-    NewWorldModel		"models/weapons2/bowcaster/bowcaster_w.glm"
-    NewViewModel		"models/weapons2/bowcaster/bowcaster.md3"
-    Icon				"gfx/hud/w_icon_bowcaster" 
-    WeaponName			"Bowcaster"
+ WeaponToReplace		WP_BOWCASTER
+ WeaponBasedOff		WP_BOWCASTER
+ NewWorldModel		"models/weapons2/bowcaster/bowcaster_w.glm"
+ NewViewModel		"models/weapons2/bowcaster/bowcaster.md3"
+ Icon				"gfx/hud/w_icon_bowcaster" 
+ WeaponName			"Bowcaster"
 	clipsize 60
+ customAmmo 800
 	AltFireEnabled 0
 }
 
 WeaponInfo1
 {
-    WeaponToReplace		WP_BLASTER_PISTOL
-    WeaponBasedOff		WP_BLASTER_PISTOL
-    NewWorldModel		"models/weapons2/wsidearm/wsidearm.glm"
-    NewViewModel		"models/weapons2/wsidearm/wsidearm.md3"
-    Icon				"gfx/hud/w_icon_wsidearm" 
-    WeaponName			"Kashyyyk Side-Arm Blaster Pistol"
+ WeaponToReplace		WP_BLASTER_PISTOL
+ WeaponBasedOff		WP_BLASTER_PISTOL
+ NewWorldModel		"models/weapons2/wsidearm/wsidearm.glm"
+ NewViewModel		"models/weapons2/wsidearm/wsidearm.md3"
+ Icon				"gfx/hud/w_icon_wsidearm" 
+ WeaponName			"Kashyyyk Side-Arm Blaster Pistol"
 	AltFireEnabled 0
 }
 
@@ -195,12 +198,12 @@ WeaponInfo2
 
 WeaponInfo3
 {
-    WeaponToReplace WP_ROCKET_LAUNCHER
-    WeaponBasedOff WP_ROCKET_LAUNCHER
-    NewWorldModel	"models/weapons2/wgrl/wgrl.glm"
-    NewViewModel	"models/weapons2/wgrl/wgrl.md3"
-    Icon	 "gfx/hud/w_icon_wgrl" 
-    WeaponName	"Wookiee Guided Rocket Launcher"
+ WeaponToReplace WP_ROCKET_LAUNCHER
+ WeaponBasedOff WP_SHOTGUN
+ NewWorldModel	"models/weapons2/wgrl/wgrl.glm"
+ NewViewModel	"models/weapons2/wgrl/wgrl.md3"
+ Icon	 "gfx/hud/w_icon_wgrl" 
+ WeaponName	"Wookiee Guided Rocket Launcher"
 	flashSound0 "sound/weapons/upl/fire_mortar.wav"
 	flashSound1 "sound/weapons/upl/fire_mortar.wav"
 	flashSound2 "sound/weapons/upl/fire_mortar.wav"
@@ -227,18 +230,21 @@ WeaponInfo3
 	animAttackRun BOTH_PLX1_ATTACK
 	animAttack BOTH_PLX1_ATTACK
 	animAttackWalk BOTH_PLX1_ATTACK
+ animCharge BOTH_PLX1_ATTACK
 }
 WeaponInfo4
 {
-    WeaponToReplace	WP_TRAD_BOWCASTER
-    WeaponBasedOff	WP_TRAD_BOWCASTER
-    NewWorldModel		"models/weapons2/wbowcaster/wbowcaster3.glm"
-    NewViewModel		"models/weapons2/wbowcaster/wbowcaster3.md3"
-    Icon		"gfx/hud/w_icon_wbowcaster3" 
-    WeaponName	"Traditional Bowcaster"
+WeaponToReplace	WP_TRAD_BOWCASTER
+WeaponBasedOff	WP_BOWCASTER
+NewWorldModel		"models/weapons2/wbowcaster/wbowcaster3.glm"
+NewViewModel		"models/weapons2/wbowcaster/wbowcaster3.md3"
+Icon		"gfx/hud/w_icon_wbowcaster3" 
+WeaponName	"Traditional Bowcaster"
 	clipsize 60
+ customAmmo 800
+	AltFireEnabled 0
 }
-description	"Wookiee Warrior [Wookiee]
+description	"Wookiee Warrior 
 
 Tough 2-life units who can spec into Blasters, brawling, and Saber upgrades. Rage doubles as Blaster Defense.
 
@@ -252,7 +258,6 @@ Tough 2-life units who can spec into Blasters, brawling, and Saber upgrades. Rag
 -- 25% more reach
 -- 45% more KB
 -- 65/77% less DMG
--- Slap ^3[GB]
 - Kashyyyk Side-Arm Blaster Pistol (2)
 -- Prim only
 - Det Packs (3)

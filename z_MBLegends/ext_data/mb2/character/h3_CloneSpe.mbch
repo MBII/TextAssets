@@ -6,7 +6,7 @@ extralives 1
 WP_EE4Flags HELD_ALTRELOAD
 WP_ShotgunFlags HELD_ALTRELOAD
 WP_StunBatonFlags HELD_FLAME
-attributes MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_ASSEMBLE,1
+attributes MB_ATT_AMMO,3|MB_ATT_CLONE_PISTOL,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_ASSEMBLE,1|MB_ATT_ENV_PROT,2
 Forcepool 110
 knockbacktaken .88
 maxhealth 110
@@ -14,7 +14,6 @@ maxarmor 80
 RankArmor 110
 RankDmgGiven 1.2
 basespeed 189
-classflags CFL_STRONGAGAINSTPHYSICAL
 holdables HI_MEDPAC
 special3 EAS_HI_MEDPAC
 special4 EAS_HI_GRAPPLEHOOK
@@ -53,7 +52,7 @@ c_att_names_0	"DC-15S Clone Carbine"
 c_att_ranks_0	2,1,1
 c_att_skill_1	MB_ATT_CLONERIFLE
 c_att_names_1	"DC-15A Clone Rifle"
-c_att_ranks_1	4,6,18
+c_att_ranks_1	4,6
 c_att_skill_2	MB_ATT_STRONGBLOBS
 c_att_names_2	"> DC-15A Ion Blobs"
 c_att_ranks_2	1,1,1
@@ -126,7 +125,8 @@ c_att_skill_35 MB_ATT_SHOTGUN
 c_att_names_35 "DP-23 Shotgun"
 c_att_ranks_35 10,8,4
 c_att_descs_35 "25% faster RoF, 35% less DMG, 20% slower mag reload, Prim only"
-c_att_names_36 MB_ATT_FIRE_GRENADES
+c_att_skill_36 MB_ATT_FIRE_GRENADES
+c_att_names_36 "Fire Grenade"
 c_att_ranks_36 0
 c_att_skill_37 MB_ATT_DET_PACK
 c_att_names_37 "Det Packs"
@@ -184,9 +184,9 @@ animStand BOTH_STAND2
 }
 WeaponInfo2{
 WeaponToReplace WP_EE4
-WeaponBasedOff WP_EE4
-NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
-NewViewModel "models/weapons2/dummy/dummy.md3"
+	WeaponBasedOff   WP_CONCUSSION
+	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel  "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
 Icon "gfx/hud/w_icon_dlt-18"
 WeaponName "DC-15x Sniper Rifle"
 CustomAmmo 128
@@ -247,7 +247,7 @@ NewHandsModel "models/weapons2/fc_f187/f187_hand.md3"
 Icon "gfx/hud/w_icon_fc_f187_all"
 WeaponName "F-187 Fusioncutter"
 hasAnimOverrides 1
-animReadyNoAmmo BOTH_ATTACK2
+animReadyNoAmmo TORSO_WEAPONREADY0
 animReadyRun TORSO_WEAPONREADY0
 animReady TORSO_WEAPONREADY0
 animReadyWalk TORSO_WEAPONREADY0
@@ -258,7 +258,7 @@ FlashSound0 "sound/weapons/fusioncutter/cutter_hit.mp3"
 rateMod .2
 damageMod .35
 }
-description "Clone Specialist [Clone Trooper]
+description "Clone Specialist 
 
 Clones with niche expertise.
 
@@ -274,7 +274,7 @@ Clones with niche expertise.
 - 12% less KB taken
 - Stamina (3)
 - Dexterity (1)
-- Physical Resist
+- Environmental Protection (2)
 - Assemble (1)
 
 ^3Abilities:

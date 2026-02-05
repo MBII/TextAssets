@@ -4,7 +4,8 @@ ClassInfo
 	MBClass 		MB_CLASS_HERO
 	classNumberLimit	1
 	weapons 			WP_MANDO_PISTOL|WP_MELEE|WP_SABER|WP_BOWCASTER|WP_SONIC_NADE|WP_DET_PACK
-	
+
+ WP_SonicNadeFlags HELD_KNOCKBACK|HELD_PULSE
 	WP_BowcasterFlags  HELD_ALTRELOAD|HELD_PULSE|HELD_KNOCKBACK
 	
 	attributes  	MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FLIPKICK,1|MB_ATT_DASH,2|MB_ATT_BOWCASTER,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DET_PACK,3|MB_ATT_DEXTERITY,1
@@ -16,7 +17,8 @@ ClassInfo
 	saber1	truncheon_legends
 	saber2     a180_saber_legends
 	saberstyle	SS_DUAL|SS_TAVION
-	saberDamage 70
+	saberDamage 120
+ saberSpecialDamage 1.2
 	APmultiplier  1.25
 	CSmultiplier  1.1
 	ASmultiplier  1.15
@@ -51,8 +53,8 @@ ClassInfo
 	
 	special1	EAS_HI_DODGE
 	special2 EAS_HI_DASH
-	special3	EAS_HI_MEDPAC_BIG
-	special4 EAS_HI_KICK
+	special3 EAS_HI_KICK
+	special4	EAS_HI_MEDPAC_BIG
 	
 	uioverlay "gfx/icons/spec_infantry"
 }
@@ -71,8 +73,9 @@ WeaponInfo0
 	ClipSize 			22
 	ReloadTimeModifier 	0.9
 	damageMod 1.1
-	CustomAmmo			820
+ velocityMod 1.15
 	FPMult 				1.1
+	CustomAmmo			820
 	hasAnimOverrides 1
 	animStand BOTH_STAND1
 	animAttackRun BOTH_ATTACK2
@@ -99,8 +102,7 @@ WeaponInfo1
 	WeaponName  		"A180 Ion Attachment"
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
 	clipSize 			4
-	CustomAmmo 			38
-	ReloadTimeModifier 	1.75
+	CustomAmmo 		38
 	FPMult 				2.5
 	hasAnimOverrides 1
 	animStand BOTH_STAND1
@@ -123,8 +125,26 @@ WeaponInfo2
 	Icon			"gfx/hud/w_icon_truncheon"
 	WeaponName		"Jyn's Truncheon" 
 }
-
-description	"Jyn Erso [Hero]
+WeaponInfo3
+{
+	WeaponToReplace			WP_SONIC_NADE
+	WeaponBasedOff			WP_SONIC_NADE
+	NewWorldModel			"models/weapons2/b17polaritypulse/laser_trap_w.glm"
+	NewViewModel	"models/weapons2/b17polaritypulse/laser_trap.md3"
+	MissileModel 		"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
+ missileEffect "grenades/glowEMPB"
+	altmissileEffect "grenades/glowEMPB"
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	MissileMissEffect			"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	missileHitHumanEffect		"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	missileHitDroidEffect		"Grenades/EXP_Flash"
+	altFireEnabled 0
+	Icon						"gfx/hud/w_icon_polarity"
+	WeaponName					"Electro-Sonic Flashbangs"
+}
+description	"Jyn Erso 
 
 A damage/fire rate-boosted pistoleer with advanced movement capabilities and a shocking/displacing sidearm.
 
@@ -134,22 +154,23 @@ A damage/fire rate-boosted pistoleer with advanced movement capabilities and a s
 - Jyn's Truncheon (Dual/Cyan Saber)
 -- No Saber/Blaster Block
 -- Chain Limit: 2
--- 10/20% more KB on L/R hands
--- 73/41% less DMG
+-- 10/20% more L/R KB
+-- 125% special DMG mult
 -- 30% less reach
--- Slap ^3[GB]
 - A180 Blaster Pistol (WESTAR 2)
+-- 15% faster velocity
 -- 10% more DMG/FP DMG
 -- 10% faster reload
 - A180 Ion Attachment (Bowcaster 3)
 -- Shocks/pushes on hit
 -- 150% more FP DMG
--- 75% slower mag reload
-- Sonic Detonators (2)
+- Electro-Sonic Flashbangs (2)
+-- Shocks/sonics/blinds/pushes on det
+-- Prim only
 - Det Packs (3)
 
 ^6Inventory:
-- Advanced Medpac ^3[CS3]
+- Advanced Medpac ^3[CS4]
 - Electrobinoculars
 
 ^8Attributes:
@@ -161,4 +182,4 @@ A damage/fire rate-boosted pistoleer with advanced movement capabilities and a s
 - Flipkick (1) ^3[Contact Jump]
 - Dodge (3) ^3[CS1]
 - Dash (2) ^3[CS2]
-- Gunkick ^3[CS4]"
+- Gunkick ^3[CS3]"
