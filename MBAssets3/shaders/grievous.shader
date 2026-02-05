@@ -1,176 +1,73 @@
-models/players/grievous/cape
+models/players/grievous/g02
 {
-	q3map_nolightmap
-	cull	disable
-	{
-		map models/players/grievous/cape
-		blendFunc GL_ONE GL_ZERO
-		rgbGen lightingDiffuse
-	}
+    {
+        map models/players/grievous/g02
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/grievous/metal_env
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+    {
+        map models/players/grievous/metal_env2
+        blendFunc GL_ONE GL_ONE
+        tcGen environment
+		detail
+    }
+    {
+        map models/players/grievous/g02
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+		detail
+    }
+    {
+        map models/players/grievous/g02_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
 }
 
-models/players/grievous/arms
+models/players/grievous/g03
 {
-	{
-		map models/players/grievous/arms
+    {
+        map models/players/grievous/g03
+        tcMod turb 1 0.001 0 4
 		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
+    }
+    {
+        map models/players/grievous/green_env
+        blendFunc GL_ONE GL_ONE
+		rgbGen lightingDiffuse
+        tcGen environment
+		detail
+    }
+    {
+        map models/players/grievous/g03_2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		tcMod turb 1 0.001 0 2.25
+        rgbGen lightingDiffuse
+    }
 	{
-		map models/players/grievous/arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
+        map models/players/grievous/g03_3
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
+	{
+        map models/players/grievous/g03_4
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+    }
 }
 
-models/players/grievous/breastplate
+models/players/grievous/g01
 {
-	{
-		map models/players/grievous/breastplate
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/breastplate_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/hands
-{
-	{
-		map models/players/grievous/hands
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/head
-{
-	{
-		map models/players/grievous/head
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/legs
-{
-	{
-		map models/players/grievous/legs
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/torso
-{
-	{
-		map models/players/grievous/torso
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/torso_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-
-models/players/grievous/arms_worn
-{
-	{
-		map models/players/grievous/arms_worn
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/arms_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/breastplate_worn
-{
-	{
-		map models/players/grievous/breastplate_worn
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/breastplate_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/hands_worn
-{
-	{
-		map models/players/grievous/hands_worn
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/hands_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/head_worn
-{
-	{
-		map models/players/grievous/head_worn
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/head_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
-}
-
-models/players/grievous/legs_worn
-{
-	{
-		map models/players/grievous/legs_worn
-		rgbGen lightingDiffuse
-		//alphaFunc GE128
-	}
-	{
-		map models/players/grievous/legs_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	detail
-	}
+	cull	twosided
+    {
+        map models/players/grievous/g01
+        rgbGen lightingDiffuse
+		alphaFunc GE128
+    }
 }
