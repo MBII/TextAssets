@@ -13666,8 +13666,8 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"voicechat"
-			text2 @MENUS_VC_CONTROLS
+			cvar				"messagemode3"
+			text2 "Private Message:"
 			rect				142 170 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -13677,7 +13677,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_VC_CONTROLS_DESC
+			descText			"When looking at a player, start writing them a private message."
 			mouseenter
 			{
 				show			button_glow 
@@ -13701,9 +13701,44 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
+			cvar				"voicechat"
+			text2 @MENUS_VC_CONTROLS
+			rect				142 185 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			text2alignx 		-118
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			@MENUS_VC_CONTROLS_DESC
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 186 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
 			cvar				"automap_toggle"
 			text2 @MENUS_AUTOMAP
-			rect				142 185 230 14
+			rect				142 200 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			text2alignx 		-118
@@ -13720,7 +13755,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 186 230 15			
+				setitemrect		button_glow	142 201 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -13738,41 +13773,6 @@ itemDef
 			text				" "
 			cvar				"+scores"
 			text2 @MENUS_SHOW_SCORES
-			rect				142 200 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			text2alignx 		-118
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			@MENUS_SHOWS_THE_CURRENT_SCORES
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 201 230 15			
-				show			keybindstatus
-			}
-			mouseExit
-			{
-				hide			button_glow			
-				hide			keybindstatus
-			}
-			action
-			{
-				play			"sound/interface/go.mp3"
-			}
-		}
-
-		itemDef
-		{
-			group				othercontrols
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_BIND
-			text				" "
-			cvar				"cg_thirdperson !"
-			text2 "1st/3rd Person:"
 			rect				142 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -13782,7 +13782,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_CHANGES_VIEW_BETWEEN
+			descText			@MENUS_SHOWS_THE_CURRENT_SCORES
 			mouseenter
 			{
 				show			button_glow 
@@ -13806,8 +13806,8 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"taunt"
-			text2 @MENUS_TAUNT
+			cvar				"cg_thirdperson !"
+			text2 "1st/3rd Person:"
 			rect				142 230 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -13817,7 +13817,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_TAUNT_DESC
+			descText			@MENUS_CHANGES_VIEW_BETWEEN
 			mouseenter
 			{
 				show			button_glow 
@@ -13841,8 +13841,8 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"bow"
-			text2 @MENUS_BOW
+			cvar				"taunt"
+			text2 @MENUS_TAUNT
 			rect				142 245 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -13852,7 +13852,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_BOW_DESC
+			descText			@MENUS_TAUNT_DESC
 			mouseenter
 			{
 				show			button_glow 
@@ -13876,8 +13876,8 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"meditate"
-			text2 @MENUS_MEDITATE
+			cvar				"bow"
+			text2 @MENUS_BOW
 			rect				142 260 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -13887,7 +13887,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_MEDITATE_DESC
+			descText			@MENUS_BOW_DESC
 			mouseenter
 			{
 				show			button_glow 
@@ -13911,8 +13911,8 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
-			cvar				"flourish"
-			text2 @MENUS_FLOURISH
+			cvar				"meditate"
+			text2 @MENUS_MEDITATE
 			rect				142 275 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -13922,7 +13922,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			@MENUS_FLOURISH_DESC
+			descText			@MENUS_MEDITATE_DESC
 			mouseenter
 			{
 				show			button_glow 
@@ -13946,9 +13946,44 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_BIND
 			text				" "
+			cvar				"flourish"
+			text2 @MENUS_FLOURISH
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			text2alignx 		-118
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			@MENUS_FLOURISH_DESC
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 291 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+		itemDef
+		{
+			group				othercontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
 			cvar				"gloat"
 			text2 @MENUS_GLOAT
-			rect				142 290 230 14
+			rect				142 305 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			text2alignx 		-118
@@ -13961,7 +13996,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 291 230 15			
+				setitemrect		button_glow	142 306 230 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -13981,7 +14016,7 @@ itemDef
 			group				none
 			ownerdraw			250
 			text				@MENUS_BLANK_1
-			rect				172 300 0 0
+			rect				172 320 0 0
 			textStyle			0
 			font				5
 			textscale			0.15
