@@ -8,17 +8,24 @@ ClassInfo
 
 	weapons				WP_SABER|WP_MELEE
 
-	attributes			MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_LIGHTS_BEACON
+	attributes			MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_LIGHTS_BEACON|MB_ATT_HEALING,1
 
-	forcepowers			FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_PUSH,2|FP_SEE,3|FP_SABERTHROW,2|FP_SPEED,1|FP_LIGHTNING,1
+	forcepowers			FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_PUSH,2|FP_SEE,3|FP_SABERTHROW,2|FP_LIGHTNING,1|FP_PULL,1
 
-	speed      1.02
+ rateOfFire_Melee 0.9
+ damageGiven 1.1
+
+	basespeed  240
+
 	maxhealth		135
-	skilltimermod 	2
+
+	skilltimermod 	1.9
+
 	forcepool		130
 	forceregen 1.05
 
-	saberDamageStyle SS_FAST,130|SS_STRONG,280
+ saberSpecialDamage 1.25
+	saberDamageStyle SS_FAST,130|SS_STRONG,280|SS_MEDIUM,240
 	saberstyle			SS_FAST|SS_MEDIUM|SS_STRONG
 	saberThrowDamage 40
 	BPmultiplier		1.3
@@ -26,9 +33,9 @@ ClassInfo
 	CSmultiplier		1.1
 	ASmultiplier		1.05
 
-	special2	EAS_NONE
-	special3	EAS_FP_SPEED
-	special4 EAS_FP_LIGHTNING
+	special2	EAS_FP_LIGHTNING
+	special3	EAS_FP_PROTECT
+	//special4 
 	
 	classflags CFL_NOPICKUPS
 
@@ -139,53 +146,55 @@ uishader_20  "models/players/luke_gm/mb2_icon_default"
 	mbPoints		1
 	
 	c_att_skill_0		MB_ATT_FP_TELEPATHY
-	c_att_names_0		"Force Mind Trick^3*"
+	c_att_names_0		"Force Mind Trick^3* ^3[CS4]"
 	c_att_ranks_0		1
  c_att_descs_0 "Effect is shared with a targeted/nearby ally"
-	
+
 	c_att_skill_1		MB_ATT_FP_ABSORB
 	c_att_names_1		"Force Absorb^3*"
 	c_att_ranks_1		1
 	c_att_descs_1 "Effect is shared with a targeted/nearby ally"
-
+	
 	c_att_skill_2		MB_ATT_FP_PROTECT
-	c_att_names_2		"Force Protect^3*"
+	c_att_names_2		"Force Protect^3* ^3[CS3]"
 	c_att_ranks_2		1
- c_att_descs_2 "Effect is shared with a targeted/nearby ally"
+	c_att_descs_2 "Effect is shared with a targeted/nearby ally"
 }
 
 ForceInfo0
 {
-    ForceToReplace    FP_LIGHTNING
-    Icon            "gfx/forcepowers/lightning_judge"
-    ForcePowerName    "Emerald Lightning"
-    ConeEffect        "effects/force/lightning_judge_el"
+ForceToReplace  FP_LIGHTNING
+Icon  "gfx/forcepowers/lightning_judge"
+ForcePowerName "Emerald Lightning"
+ConeEffect  "effects/force/lightning_judge_el"
 }
 
 description	"Luke Skywalker 
 
-A defensive Jedi supplemented with a light side variant of Force Lightning, and the ability to share supportive Force Powers with allies. Regains BP upon defeating enemies.
+A defensive duelist/support who can share his Force Powers with allies.
 
 ^2Weaponry:
 - Melee
+-- 10% faster RoF
 - Lightsaber (Yellow/Red/Blue)
 -- Saber Defense (3)
 -- Blaster Defense (2)
 -- Blaster Deflect (3)
--- 46% less Red/8% more Blue DMG
+-- 46% less Red/8% more Blue Dmg
+-- 125% Spec Dmg mult
 -- EX Saber Throw (2) ^3[CS1]
---- 33% more DMG
--- Slap ^3[GB]
+--- 33% more Dmg
 
 ^5Force Powers:
 - Jump (3)
 - Push (2)
+- Pull (1)
 - Sense (3)
-- Emerald Lightning (1) ^3[CS4]
-- Speed (1) ^3[CS3]
+- Emerald Lightning (1) ^3[CS2]
 
 ^8Attributes:
 ^7- ^3*^7Light's Beacon (Shares Force Powers with a ^7targeted/nearby ally)
-- 100% slower skill CD
+- 90% slower Skill Cd
+- Healing (1)
 - Force Block (2)
 - Force Focus (3)"

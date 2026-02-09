@@ -6,13 +6,13 @@ Classinfo
  MBClass			MB_CLASS_JEDI
  classNumberLimit	1
 
-	weapons			WP_MELEE|WP_SABER|WP_T21|WP_PULSE_NADE|WP_FLECHETTE
+	weapons			WP_MELEE|WP_SABER|WP_T21|WP_PULSE_NADE|WP_UGL
 	
-	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,3|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_QUICKTHROW,3|MB_ATT_FLECHETTE,4|MB_ATT_GETUPS,3
+	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,3|MB_ATT_DASH_JUMP|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_QUICKTHROW,3|MB_ATT_UGL|MB_ATT_UGL_BURST,4|MB_ATT_GETUPS,3
 	
 	WP_MeleeFlags HELD_HIGHDAMAGE
 	WP_SaberFlags HELD_KNOCKDOWN 
- WP_FlechetteFlags HELD_SLOW|HELD_PULSE|HELD_DISRUPTIFY|HELD_KNOCKBACK|HELD_KNOCKDOWN
+ WP_UGLFlags HELD_SLOW|HELD_DISRUPTIFY|HELD_HIGHDAMAGE
 	WP_PulseNadeFlags HELD_DISRUPTIFY|HELD_HIGHDAMAGE
 	WP_T21Flags HELD_LOWDAMAGE
 	
@@ -111,7 +111,7 @@ WeaponInfo1
 	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
 	NewViewModel 		"models/weapons2/e5/e5.md3"
  NewHandsModel "models/weapons2/e5/e5_hand.md3"
- NewBarrelModel "models/weaposn2/e5/e5_kitsu.md3"
+ NewBarrelModel "models/weapons2/e5/e5_kitsu.md3"
 	Icon				"gfx/hud/w_icon_e5"
 	WeaponName		"Salvaged E-5 Blaster Rifle"	
 	FlashSound0 		"sound/weapons/blasterMB/fire.mp3"
@@ -123,8 +123,8 @@ WeaponInfo1
 	MissileEffect		"blaster/Shot01R"
 	altMuzzleEffect		"Blaster/MuzzleFlash01R"
 	altMissileEffect		"blaster/Shot01R"
-	customAmmo 		1008
-	clipsize 		144
+	customAmmo 		1092
+	clipsize 		156
  reloadTimeModifier 0.75
 	hasAnimOverrides 1
 	animReadyNoAmmo BOTH_ARC_FORWARD_DIVE
@@ -147,8 +147,8 @@ WeaponInfo2
 
 WeaponInfo3
 {
- WeaponToReplace	WP_FLECHETTE
- WeaponBasedOff	WP_FLECHETTE
+ WeaponToReplace	WP_UGL
+ WeaponBasedOff	WP_UGL
  FlashSound0		"sound/weapons/ballz/swing2.mp3"
 	FlashSound1	"sound/weapons/ballz/swing2.mp3"
 	FlashSound2	"sound/weapons/ballz/swing2.mp3"
@@ -172,26 +172,23 @@ WeaponInfo3
  altMuzzleEffect null
 	altMissileEffect "grenades/glowempb"
 	MissileEffect "grenades/glowempb"
-	primFireEnabled 			0
 	WeaponName				"Boomaload"
 	Icon						"gfx/hud/w_icon_booma"
-	clipSize 15
- customAmmo 5
- velocityMod 0
- damageMod 3
- rateMod 12.5
+ velocityMod 1
+ rateMod 6
 	SelectSound	"sound/weapons/ballz/fall4.mp3"
 	hasAnimOverrides 1
 	animReadyRun BOTH_HUGGER1
 	animReady BOTH_HUGGER1
 	animReadyWalk BOTH_HUGGER1
 	animReadyNoAmmo BOTH_HUGGER1
-	animAttackRun BOTH_KYLE_MISS
-	animAttack  BOTH_KYLE_MISS
-	animAttackWalk BOTH_KYLE_MISS
+	animAttackRun BOTH_SPINATTACK6
+	animAttack BOTH_SPINATTACK6
+	animAttackWalk BOTH_SPINATTACK6
+ animCharge BOTH_COWER1
 }
 
-description "Jar Jar Binks 
+description "Jar Jar Binks
 
 Mesa, uh, clumsy...
 
@@ -201,33 +198,29 @@ Mesa, uh, clumsy...
 - Grand Gungan Ticklers (Dual Saber)
 -- No Saber/Blaster Block
 -- Chain Limit: 1
--- Knocks down on hit
--- 160% more KB
--- 100/25% less L/R reach
--- 66% less DMG
--- 200% special DMG mult
--- 400% more radius
-- Boomaload (1) (Flechette 4)
--- Shocks/pushes/knocks down on det
--- 200% more DMG
--- 100% less velocity
--- 1150% slower shot swap
--- 15% slower movement
--- Sec only
+-- Trips on hit
+-- 300% more Kb
+-- 100/25% less L/R Reach
+-- 200% Spec Dmg mult
+-- 400% more Radius
+- Boomaload (Burst UGL)
+-- 100% more Dmg
+-- 500% slower Shot Swap
+-- 15% slower Movement
 - Salvaged E-5 Blaster Rifle (T-21 1)
--- 25% faster reload
--- 50% less DMG
+-- 25% faster Reload
+-- 50% less Dmg
 - Boomas (4) (Pulse Grenades)
--- 100% more DMG
+-- 100% more Dmg
 -- Prim only
 
 ^5Powers:
 - Jar Jar Jump (1)
 
 ^8Attributes:
-- 190% slower skill CD
+- 190% slower Skill Cd
 - 50% slower Hacking
-- 50% more KB taken/given
+- 50% more Kb Taken/Given
 - Bunny Hop (2)
 - Slow Faller
 - Stamina (3)

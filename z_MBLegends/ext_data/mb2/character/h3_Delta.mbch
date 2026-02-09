@@ -6,9 +6,9 @@ ClassInfo
 	MBClass	MB_CLASS_CLONETROOPER
 	classNumberLimit	1
 	
-	weapons	WP_SABER|WP_MELEE|WP_DC_CARBINE|WP_DISRUPTOR|WP_BLASTER_PISTOL|WP_THERMAL|WP_CONC_NADE
+	weapons	WP_SABER|WP_MELEE|WP_DC_CARBINE|WP_DISRUPTOR|WP_BLASTER_PISTOL|WP_UGL
 
-	attributes MB_ATT_DC_CARBINE,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_DASH,1|MB_ATT_PISTOL,1|MB_ATT_DISRUPTOR,1|MB_ATT_BASE_TD,2|MB_ATT_MICRO_GRENADES,4|MB_ATT_GRAPPLE_HOP
+	attributes MB_ATT_DC_CARBINE,1|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_PISTOL,1|MB_ATT_DISRUPTOR,1|MB_ATT_GRAPPLE_HOP|MB_ATT_UGL|MB_ATT_DASH,1|MB_ATT_QUICKTHROW,1
 	
 	DamageTaken	  0.9
 	knockbackTaken  0.8
@@ -40,9 +40,9 @@ ClassInfo
 	forceregen 	1.1
 
 	special1	EAS_HI_SPRINT
-	special2	EAS_HI_DEX
-	special3	EAS_HI_DASH
-	special4	EAS_HI_GRAPPLEHOOK
+	special2	EAS_HI_DASH
+ special3 EAS_HI_QUICKTHROW
+	meleespecial4	EAS_HI_GRAPPLEHOOK
 	
 	saberStanceAnim	BOTH_STAND9
 	tauntAnim		TORSO_HANDSIGNAL3
@@ -72,19 +72,23 @@ ClassInfo
 	uishader_3	"models/players/clonerc2/mb2_icon_scorch"
 	
 isCustomBuild	1
-mbPoints	2
+mbPoints	4
 
-c_att_skill_0 MB_ATT_PULSE_GRENADES
-c_att_names_0	"Pulse Grenades"
-c_att_ranks_0	1,0
-c_att_skill_1	MB_ATT_SONIC_DETONATOR
-c_att_names_1	"Sonic Detonators"
-c_att_ranks_1	1,0
+c_att_skill_0	MB_ATT_FRAGS
+c_att_names_0	"Frag Grenades"
+c_att_ranks_0	1,1
 
-c_att_skill_2	MB_ATT_UGL
-c_att_names_2	"DC-17m Anti-Armor (UGL)"
-c_att_ranks_2	2
-c_att_descs_2 "Pushes on det"
+c_att_skill_1 MB_ATT_PULSE_GRENADES
+c_att_names_1	"Pulse Grenades"
+c_att_ranks_1	1,1
+
+c_att_skill_2	MB_ATT_SONIC_DETONATOR
+c_att_names_2	"Sonic Detonators"
+c_att_ranks_2	1,1
+
+c_att_skill_3	MB_ATT_MICRO_GRENADES
+c_att_names_3	"Flashbang Grenades (Concs)"
+c_att_ranks_3	1,1
 }
 
 WeaponInfo0
@@ -93,14 +97,14 @@ WeaponToReplace WP_DC_CARBINE
 WeaponBasedOff  WP_MANDO_PISTOL
 NewWorldModel "models/weapons2/DC-17m/blaster.glm"
 NewViewModel "models/weapons2/DC-17m/blaster.md3"
-	FlashSound0			"sound/weapons/dc17m/fire.wav"
-	FlashSound1			"sound/weapons/dc17m/fire.wav"
-	FlashSound2			"sound/weapons/dc17m/fire.wav"
-	FlashSound3			"sound/weapons/dc17m/fire.wav"
-	AltFlashSound0 		"sound/weapons/dc17m/fire.wav"
+	FlashSound0		"sound/weapons/dc17m/fire.wav"
+	FlashSound1		"sound/weapons/dc17m/fire.wav"
+	FlashSound2		"sound/weapons/dc17m/fire.wav"
+	FlashSound3		"sound/weapons/dc17m/fire.wav"
+	AltFlashSound0 	"sound/weapons/dc17m/fire.wav"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	MissileEffect		"blaster/Shot01B"
-		hasAnimOverrides 1
+	hasAnimOverrides 1
 	animReady		TORSO_WEAPONIDLE3
 	animReadyRun		TORSO_WEAPONIDLE3
 	animReadyWalk		TORSO_WEAPONREADY3
@@ -109,10 +113,10 @@ NewViewModel "models/weapons2/DC-17m/blaster.md3"
 	animAttackRun     BOTH_ATTACK3
 	animAttackWalk  BOTH_ATTACK3
 	animStand 		BOTH_STAND1
-	Icon				"gfx/hud/w_icon_dc-17mB"
-	WeaponName			"DC-17m ICWS Blaster Attachment"
-	customAmmo 			1260
-	clipSize			120
+	Icon		"gfx/hud/w_icon_dc-17mB"
+	WeaponName		"DC-17m ICWS Blaster Attachment"
+	customAmmo 		1260
+	clipSize		120
 	ReloadTimeModifier 	1.25
 	altFireEnabled			0
 	rateMod 0.6
@@ -120,12 +124,12 @@ NewViewModel "models/weapons2/DC-17m/blaster.md3"
 }
 
 WeaponInfo1
-{           
-	WeaponToReplace        WP_SABER
-	WeaponBasedOff         WP_SABER
+{ 
+	WeaponToReplace   WP_SABER
+	WeaponBasedOff   WP_SABER
 	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	
-	Icon             	"gfx/hud/w_icon_arc_shiv_short"
+	Icon  "gfx/hud/w_icon_arc_shiv_short"
 	WeaponName		"Knuckle Plate Vibroblade"
 	altFireEnabled 0
 }
@@ -136,17 +140,17 @@ WeaponToReplace WP_DISRUPTOR
 WeaponBasedOff  WP_MANDO_PISTOL
 	NewWorldModel		"models/weapons2/DC-17m/sniper.glm"
 	NewViewModel		"models/weapons2/DC-17m/sniper.md3"
-	Icon				"gfx/hud/w_icon_dc-17mS"
+	Icon			"gfx/hud/w_icon_dc-17mS"
 	FlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
-	altFlashSound0			"sound/weapons/RC_Sniper/fire.mp3"
+	altFlashSound0		"sound/weapons/RC_Sniper/fire.mp3"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	altMuzzleEffect "Blaster/MuzzleFlash01B"
 	WeaponName			"DC-17m ICWS Sniper Attachment"
 	clipSize			25
 	customAmmo 		100
-	damageMod 2.2
+	damageMod 2.3
 	ReloadTimeModifier 	1.75
-	FPmult				2.2
+	FPmult				2.3
 	rateMod 1.10
 	disruptorBeam1 "gfx/effects/disrupt_beam_blue"
 	disruptorBeam2 "gfx/effects/disrupt_beam_blue"
@@ -160,7 +164,7 @@ WeaponBasedOff WP_MANDO_PISTOL
 NewWorldModel	"models/weapons2/dc-15/dc-15_w.glm"
 NewViewModel	"models/weapons2/dc-15/dc-15.md3"
 NewHandsModel	"models/weapons2/dc-15/dc-15_hand.md3"
-	Icon				"gfx/hud/w_icon_clonepistol"
+	Icon			"gfx/hud/w_icon_clonepistol"
 	WeaponName			"DC-15s Side Arm Blaster"
 	FlashSound0			"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
 	AltFlashSound0 		"sound/weapons/delta_pistol/wep_GEN_pistolFire_MP.wav"
@@ -188,20 +192,19 @@ selectSound "sound/weapons/dc17m/select.mp3"
 
 WeaponInfo5
 {
-WeaponToReplace WP_THERMAL
-WeaponBasedOff WP_THERMAL
-NewWorldModel	"models/weapons2/thermal/thermal_w.glm"
-NewViewModel "models/weapons2/thermal/thermal.md3"
-NewHandsModel "models/weapons2/thermal/thermal_hand.md3"
-Icon	"gfx/hud/w_thermal_grenade"
-WeaponName "Hand Thermal Grenades"
-	altMissileMissEffect	"Grenades/EXP_Explosion"
-	MissileMissEffect		"Grenades/EXP_Explosion"
-	altMissileHitHumanEffect "Grenades/EXP_Explosion"
-	missileHitHumanEffect	"Grenades/EXP_Explosion"
-	altMissileHitDroidEffect"Grenades/EXP_Explosion"
-	missileHitDroidEffect	"Grenades/EXP_Explosion"
-	damagemod 2.5
+	WeaponToReplace	WP_CONC_NADE
+	WeaponBasedOff	WP_CONC_NADE
+	NewWorldModel	"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel	"models/weapons/Grenade_Concussion/viewmodel.md3"
+	MissileModel 	"models/weapons/Grenade_Concussion/proj.md3"
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	MissileMissEffect		"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	missileHitHumanEffect		"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	missileHitDroidEffect		"Grenades/EXP_Flash"
+	Icon		"gfx/hud/w_icon_stungrenade"
+	WeaponName	"Flashbang Grenades"
 }
 
 description	"Delta Squad Clone Commando 
@@ -214,36 +217,35 @@ A highly adaptable special ops unit.
 -- No Saber/Blaster Block
 -- Chain Limit: 1
 -- Staggers on hit
--- 75% more KB
--- 67% special DMG mult
--- 57% less reach
--- 33% more radius
+-- 75% more Kb
+-- 167% Spec Dmg mult
+-- 57% less Reach
+-- 33% more Radius
 -- Prim only
 - DC-15s Side Arm Blaster (Pistol 1)
 -- 40% faster RoF
--- 100% slower reload
+-- 100% slower Reload
 - DC-17m ICWS Blaster Attachment (DC Carbine 1)
 -- 40% faster RoF
--- 25% slower mag reload
+-- 25% slower Mag Reload
 - DC-17m ICWS Sniper Attachment (Disruptor 1)
--- 120% more DMG/FP DMG
+-- 130% more Dmg/FP Dmg
 -- 10% slower RoF
--- 75% slower mag reload
-- Hand Thermal Grenades (2)
--- 150% more DMG
-- Conc Grenades (4)
+-- 75% slower Mag Reload
+- DC-17m ICWS Anti-Armor Attachment (UGL)
+-- Pushes on det
 
 ^8Attributes:
-- 10% faster skill CD
-- 20% less KB taken
-- Health/Armor Regen: 2/s
+- 10% faster Skill Cd
+- 20% less Kb Taken
+- HP/Armor Regen: 2/s
 - Stamina (3)
 - Dexterity (1)
 - Blast Armor
 
 ^3Abilities:
 - Sprint ^3[CS1]
-- Dex Roll ^3[CS2]
-- Dash (1) ^3[CS3]
+- Dash (1) ^3[CS2]
+- Quickthrow (1) ^3[CS3]
 - Grappling Hook/Hop (2) ^3[CS4 Melee]
 -- Retain momentum from first Grapple"

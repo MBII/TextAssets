@@ -8,7 +8,7 @@ ClassInfo
 
 	weapons				WP_SABER|WP_MELEE|WP_FRAG_NADE
 
-	attributes			MB_ATT_SABER_FAST,2|MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_TRACKING_BEACON
+	attributes			MB_ATT_SABER_FAST,2|MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_TRACKING_BEACON|MB_ATT_HEALING,1
 
 	forcepowers			FP_SABER_OFFENSE,2|FP_LEVITATION,3|FP_PUSH,2|FP_SEE,2|FP_SABERTHROW,3
 
@@ -23,20 +23,21 @@ ClassInfo
 	rankBP 			1.20
 	rankAS				1.15
 	rankCS				1.15
-saberDamageStyle SS_STAFF,260|SS_TAVION,130
-
+ saberDamageStyle SS_STAFF,260|SS_TAVION,130
+ saberSpecialDamage 1.25
 	maxhealth		100
-	maxarmor			10
-
+	maxarmor			15
+ rateOfFire_Melee .9
 	damageGiven 1.1
 
 	basespeed			225
 	rankBaseSpeed		240
 
 	saberThrowDamage	30
-	RanksaberThrowDamage	50
+	RanksaberThrowDamage	60
 
 	special2 		EAS_FP_DRAIN
+ special4 EAS_FP_SPEED
 
 	uioverlay "gfx/icons/frontline"
 	model		"GI_rebels"
@@ -62,7 +63,7 @@ saberDamageStyle SS_STAFF,260|SS_TAVION,130
 	mbPoints			60
 
 c_att_skill_0	MB_ATT_SABERTHROW_DAMAGE
-c_att_names_0	"Saber Throw DMG (50)"
+c_att_names_0	"Saber Throw Dmg (60)"
 c_att_ranks_0	5
 
 c_att_skill_1	MB_ATT_BP_MULTIPLIER
@@ -84,7 +85,7 @@ c_att_ranks_4	15
 c_att_skill_5	MB_ATT_FRAGS
 c_att_names_5	"Flashbang Grenades (Frags)"
 c_att_ranks_5	5,5
-c_att_descs_5 "Blind everyone, Sec only"
+c_att_descs_5 "Blinds on det, Sec only"
 
 c_att_skill_6 MB_ATT_FP_PULL
 c_att_names_6 "Force Pull"
@@ -99,7 +100,7 @@ c_att_names_8	"Force Grip ^3[CS3]"
 c_att_ranks_8	5,5
 
 c_att_skill_9	MB_ATT_FP_SPEED
-c_att_names_9	"Force Speed"
+c_att_names_9	"Force Speed ^3[CS4]"
 c_att_ranks_9	5,5
 
 c_att_skill_10	MB_ATT_BASESPEED
@@ -127,20 +128,21 @@ WeaponInfo0
 	primFireEnabled			0
 }
 
-description	"Inquisitor 
+description	"Sith Inquisitor 
 
-A customizable Sith designed to hunt down Jedi. Can spec into Force Powers, improved dueling stats, Saber Throw damage, and more.
+A customizable Sith designed to hunt down Jedi.
 
 ^2Weaponry:
 - Melee
+-- 10% faster RoF
 - Lightsaber (Staff/Cyan)
 -- Saber Defense (3)
 -- Blaster Defense/Deflect (2)
--- 25% more reach
--- 8% more Cyan DMG
--- 43% less radius
+-- 25% more Reach
+-- 8% more Cyan Dmg
+-- 125% Spec Dmg mult
+-- 43% less Radius
 -- EX Saber Throw (3) ^3[CS1]
--- Slap ^3[GB]
 
 ^5Force Powers:
 - Jump (3)
@@ -148,6 +150,7 @@ A customizable Sith designed to hunt down Jedi. Can spec into Force Powers, impr
 - Sense (2)
 
 ^8Attributes:
+- Healing (1)
 - Force Block (3)
 - Force Focus (2)
 - Tracking Beacon"

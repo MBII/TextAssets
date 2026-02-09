@@ -4,23 +4,24 @@ ClassInfo
 	MBClass 			MB_CLASS_BOUNTY_HUNTER
 	classNumberLimit  	1
 
-	weapons 			WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_CRYO_NADE|WP_FIRE_NADE
+	weapons 			WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_CRYO_NADE|WP_PULSE_NADE
 
 	WP_BlasterPistolFlags	HELD_ALTRELOAD|HELD_STUN
+ WP_PulseNadeFlags HELD_STUN|HELD_POISON
 
-	attributes 			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,2|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_FIRE_GRENADES,2|MB_ATT_QUICKTHROW,3
+	attributes 			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,2|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_QUICKTHROW,1|MB_ATT_PULSE_GRENADES,2
+
+ forcepowers FP_TEAM_FORCE,1
 
 	maxhealth 			125
 	maxarmor  			125
 
-	damageGiven		1.35
-
  baseSpeed 255
 	
 	resource		RESOURCE_ENERGY
-	forcepool			100
+	forcepool			110
 
-	holdables 			HI_SENTRY_GUN|HI_SHIELD
+	holdables 			HI_SENTRY_GUN|HI_SHIELD|HI_MEDPAC
 
 	knockbackGiven 1.10
 	
@@ -34,7 +35,7 @@ ClassInfo
 	special1		EAS_HI_DODGE
 	special2		EAS_HI_KICK
 	special3		EAS_HI_QUICKTHROW
-	special4 	EAS_HI_SENTRY_GUN
+	special4 	EAS_HI_MEDPAC
 	
 	WalkForward BOTH_WALK6
 	WalkBackward BOTH_WALK6
@@ -53,13 +54,14 @@ WeaponInfo0
 	Icon  		"gfx/hud/w_icon_dt29"
 	WeaponName  "Krennic's DT-29 Blaster Pistol"
 	ClipSize 		18
-	CustomAmmo		750
+	CustomAmmo		810
 	FlashSound0 		"sound/weapons/Glie-44/fire.wav"
-	altFlashSound0 	"sound/weapons/Glie-44/fire.wav"
+	altFlashSound0 	"sound/weapons/Glie-44/alt_fire.wav"
 	ChargeSound 			"sound/weapons/leia_pistol/altcharge.mp3"
 	FPMult     		1.35
-	rateMod 1.15
-	//ReloadTimeModifier 1.25
+damageMod 1.35
+	rateMod 1.25
+	ReloadTimeModifier 1.3
 		hasAnimOverrides 1
 animReadyRun BOTH_MAND_PISTOL_READY
 animReady BOTH_MAND_PISTOL_READY
@@ -69,7 +71,7 @@ animAttackRun BOTH_MAND_PISTOL_ATTACK
 animAttack BOTH_MAND_PISTOL_ATTACK
 animAttackWalk BOTH_MAND_PISTOL_ATTACK
 animCharge BOTH_MAND_PISTOL_ATTACK
-animStand BOTH_MAND_PISTOL_ATTACK
+animStand BOTH_MAND_PISTOL_READY
 }
 
 WeaponInfo1
@@ -84,32 +86,54 @@ WeaponInfo1
 	Icon				"gfx/hud/w_icon_StormiTD" 					
 	WeaponName			"Frag Grenades"    
 }
-
+WeaponInfo2
+{
+	WeaponToReplace			WP_PULSE_NADE
+	WeaponBasedOff			WP_PULSE_NADE
+	NewWorldModel			"models/weapons2/kes_pgren/laser_trap_w.glm"
+	NewViewModel	"models/weapons2/kes_pgren/laser_trap.md3"
+	MissileModel 	"models/weapons2/kes_pgren/laser_trap_proj.md3"
+ missileEffect "hutt/toxic_breath"
+	altmissileEffect "hutt/toxic_breath"
+	altMissileMissEffect		"noghri_stick/flesh_impact"
+	MissileMissEffect			"noghri_stick/flesh_impact"
+	altMissileHitHumanEffect	"noghri_stick/flesh_impact"
+	missileHitHumanEffect		"noghri_stick/flesh_impact"
+	altMissileHitDroidEffect	"noghri_stick/flesh_impact"
+	missileHitDroidEffect	"noghri_stick/flesh_impact"
+	Icon						"gfx/hud/w_icon_rpgren"
+	WeaponName					"Electro-Dioxis Grenades"
+}
 description	"Director Orson Krennic
 
-A speedy, damage-boosted commander with a staggering Pistol, multiple Grenades, and gadgets.
+A speedy commander with a staggering Pistol, multiple Grenades, and gadgets.
 
 ^2Weaponry:
 - Melee
 - Krennic's DT-29 Blaster Pistol (3)
 -- Staggers on hit
--- 35% more FP DMG
--- 15% slower RoF
--- Mag reload
+-- 35% more Dmg/FP Dmg
+-- 25% slower RoF
+-- 30% slower Mag Reload
 - Frag Grenades (2) 
-- Fire Grenades (2)
+- Electro-Dioxis Grenades (2) (Pulses)
+-- Poisons/staggers on hit
 - Cryo Grenades (2)
 
+^5Powers:
+- Team Energize (1)
+
 ^6Inventory:
-- Assault Sentry ^3[CS4]
+- Assault Sentry
 - Forcefield
+- Medpac ^3[CS4]
 
 ^8Attributes:
-- 10% more KB given
+- 10% more Kb Given
 - Healing (2)
 - Rally 
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
 - Gunkick ^3[CS2]
-- Quickthrow (3) ^3[CS3]"
+- Quickthrow (1) ^3[CS3]"

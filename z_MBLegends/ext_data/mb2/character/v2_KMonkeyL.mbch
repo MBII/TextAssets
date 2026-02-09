@@ -5,13 +5,14 @@ ClassInfo
  MBClass			MB_CLASS_SITH
 	classNumberLimit	4
 	extralives		2
-	weapons			WP_MELEE|WP_BLASTER|WP_FRAG_NADE
+	weapons			WP_MELEE|WP_REPEATER|WP_FRAG_NADE
+WP_RepeaterFlags HELD_ALTRELOAD
 
-	attributes		MB_ATT_AMMO,1|MB_ATT_BLASTER,1|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH,1
+	attributes		MB_ATT_AMMO,1|MB_ATT_REPEATER|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH,1
 
 	maxhealth		90
 
-	forcepool 		120
+	forcepool 		115
 	forceregen 	1.25
 	forcepowers		FP_SEE,1|FP_LEVITATION,2
 	resource			RESOURCE_STAMINA
@@ -19,10 +20,10 @@ ClassInfo
 	rateOfFire_Melee .9
 
 	skilltimermod 1.5
-
+ knockbackTaken 1.35
 	baseSpeed 195
 
-classFlags CFL_NOPICKUPS
+ classFlags CFL_NOPICKUPS
 
 	rageSoundOverride "sound/chars/salaciouscrumb/misc/rageactivate.mp3"
 	bargeSoundOverride "sound/chars/salaciouscrumb/misc/pain100.mp3"
@@ -60,7 +61,32 @@ classFlags CFL_NOPICKUPS
 	c_att_ranks_1	1
 	c_att_descs_1 "Retain momentum from first Grapple"
 }
+WeaponInfo0
+{
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_REPEATER
+	NewWorldModel		"models/weapons2/heavy_repeater/heavy_repeater_w.glm"
+	NewViewModel		"models/weapons2/heavy_repeater/heavy_repeater.md3"
+	NewHandsModel		"models/weapons2/heavy_repeater/heavy_repeater_hand.md3"
+	NewBarrelModel		"models/weapons2/heavy_repeater/heavy_repeater_barrel.md3"
+	Icon  				"gfx/doom_wpicons/w_icon_repeater"
+	WeaponName			"Foraged Imperial Heavy Repeater"
+ MuzzleEffect		"Blaster/MuzzleFlash01Y"
+	AltFlashSound0		null
+ AltMuzzleEffect null
+	FlashSound0			"sound/weapons/repeater/fire_old.wav"  
+	altMissileMissEffect	"repeater/concussion"
+	altfireenabled			0
+ clipSize 20
+	ReloadTimeModifier 1.5
+ damageMod 1.4
+	Ratemod 3.2
+ hasAnimOverrides 1
+ animReadyRun BOTH_WESTARM5_IDLE
+ animReady BOTH_WESTARM5_IDLE
+	animStand BOTH_WOOKIEE_RAGE_STAND
 
+}
 description	"Kowakian Monkey-Lizard 
 
 Small and agile 3-life creatures with many mobility options. Taunting within range of a Jedi will deal them minor damage.
@@ -68,7 +94,11 @@ Small and agile 3-life creatures with many mobility options. Taunting within ran
 ^2Weaponry:
 - Melee
 -- 10% faster RoF
-- E-11 Blaster Rifle (1)
+- Foraged Imperial Heavy Repeater
+-- 40% more Dmg
+-- 220% slower RoF
+-- 50% slower Mag Reload
+-- Prim only
 - Frag Grenade (1)
 
 ^5Powers:
@@ -77,7 +107,8 @@ Small and agile 3-life creatures with many mobility options. Taunting within ran
 
 ^8Attributes:
 - Reinforcements (2)
-- 50% slower skill CD
+- 35% more Kb Taken
+- 50% slower Skill Cd
 - Stamina (2)
 - Dexterity (1)
 - Strength (1)

@@ -6,11 +6,14 @@ ClassInfo
 	classNumberLimit	2
 	extralives	1
 	
-	weapons		WP_MELEE|WP_SABER|WP_EE3|WP_PLX1
-	WP_SaberFlags HELD_PULSE
- WP_PLX1Flags HELD_POISON|HELD_EXPLOSIVE|HELD_TRACKING
+	weapons		WP_MELEE|WP_SABER|WP_EE3
 
-	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,2|MB_ATT_EE3,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,3|MB_ATT_ANTI_MT,2|MB_ATT_SABER_COMBO,1|MB_ATT_DEFLECT,0|MB_ATT_TRACKING_BEACON|MB_ATT_PLX1,1|MB_ATT_DASH,1|MB_ATT_DEXTERITY,2|MB_ATT_GRAPPLE_HOOK,1
+	WP_SaberFlags HELD_PULSE
+ WP_RocketLauncherFlags HELD_POISON|HELD_TRACKING|HELD_STUN|HELD_ALTRELOAD
+ WP_PLX1Flags HELD_LOWDAMAGE
+
+
+	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,2|MB_ATT_EE3,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,3|MB_ATT_ANTI_MT,2|MB_ATT_SABER_COMBO,1|MB_ATT_DEFLECT,0|MB_ATT_TRACKING_BEACON|MB_ATT_DASH,1|MB_ATT_DEXTERITY,2|MB_ATT_GRAPPLE_HOOK,1
 	
 	forcepowers	FP_LEVITATION,2
 
@@ -66,6 +69,19 @@ ClassInfo
 	model_4	"magnaguard"
 	skin_4	"bedlam_cape"
 	uishader_4 "models/players/magnaguard/mb2_icon_bedlam_cape"
+
+ isCustomBuild	1
+ mbPoints	1
+
+	c_att_skill_0	MB_ATT_ROCKET_LAUNCHER
+	c_att_names_0	"RD-4 Rocket Launcher (2)"
+	c_att_ranks_0	1
+ c_att_descs_0 "Poisons/tracks/staggers on det, 25% less DMG, 35% slower mag reload"
+
+	c_att_skill_1	MB_ATT_PLX1
+	c_att_names_1	"RPS-6 Rocket Launcher (PLX)"
+	c_att_ranks_1	1
+ c_att_descs_1 "50% less DMG"
 }
 
 WeaponInfo0
@@ -104,17 +120,17 @@ WeaponInfo1
 	animAttack BOTH_ATTACK2 
 	animAttackWalk BOTH_ATTACK2
 }
+
 WeaponInfo2
 {
-	WeaponToReplace		WP_PLX1
-	WeaponBasedOff		WP_PLX1
-	NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
-	NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
-	Icon				"gfx/hud/w_icon_e60r_launcher"
-	WeaponName			"Bulldog Radiation Launcher"
- reloadTimeModifier 0.6
- damageMod 0.1
- rateMod 0.35
+WeaponToReplace WP_ROCKET_LAUNCHER
+WeaponBasedOff WP_ROCKET_LAUNCHER
+Icon	"gfx/hud/w_icon_upl"
+NewWorldModel	"models/weapons2/upl/upl_w.glm"
+NewViewModel	"models/weapons2/upl/upl.md3"
+NewHandsModel "models/weapons2/upl/upl_hand.md3"
+NewBarrelModel "models/weapons2/upl/upl_barrel.md3"
+WeaponName "RD-4 Radiation Rocket Launcher"
 flashSound0 "sound/weapons/upl/fire_radiation.wav"
 altFlashSound0 "sound/weapons/upl/fire_radiation.wav"
  MuzzleEffect "noghri_stick/flesh_impact"
@@ -127,7 +143,25 @@ altFlashSound0 "sound/weapons/upl/fire_radiation.wav"
 	altMissileHitDroidEffect	"slime_explosion_new"
 	altMissileHitHumanEffect	"slime_explosion_new"
 	altMissileEffect		"hutt/toxic_breath"
+ customAmmo 1
+ clipSize 1
+ damageMod 0.75
+ reloadTimeModifier 1.35
 }
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_PLX1
+	WeaponBasedOff		WP_PLX1
+	NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon				"gfx/hud/w_icon_e60r_launcher"
+	WeaponName			"RPS-6 Rocket Launcher"
+flashSound0 "sound/weapons/upl/fire_rocket.wav"
+altFlashSound0 "sound/weapons/upl/fire_rocket.wav"
+}
+
+
 description 	"IG-100 MagnaGuard 
 
 Mobile hybrids with high dueling stats and Armor Regen.
@@ -139,15 +173,9 @@ Mobile hybrids with high dueling stats and Armor Regen.
 --- BP-Free Jumps
 -- EX Saber Training (1)
 -- Shocks on hit
--- 3% more KB
--- 6% less reach
--- 76% less DMG
-- Bulldog Radiation Launcher (1)
--- Poisons/tracks on hit
--- Bonus explosive DMG
--- 40% faster reload
--- 65% faster shot swap
--- 90% less DMG
+-- 3% more Kb
+-- 6% less Reach
+-- 76% less Dmg
 - Modified E-5 Blaster Rifle (EE-3 3)
 
 ^5Powers:
@@ -155,7 +183,7 @@ Mobile hybrids with high dueling stats and Armor Regen.
 
 ^8Attributes:
 - Reinforcement (1)
-- 50% slower skill CD
+- 50% slower Skill Cd
 - Dexterity (2)
 - Magnetic Plating
 - Physical Resist
