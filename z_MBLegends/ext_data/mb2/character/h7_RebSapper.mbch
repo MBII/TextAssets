@@ -5,8 +5,8 @@ MBClass MB_CLASS_ELITETROOPER
 classNumberLimit 2
 extralives 1
 
-weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CR2|WP_M5|WP_DET_PACK|WP_PULSE_NADE|WP_FRAG_NADE
-attributes MB_ATT_PISTOL,2|MB_ATT_CR2,2|MB_ATT_DET_PACK,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1
+weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CR2|WP_M5|WP_DET_PACK|WP_PULSE_NADE|WP_TRIP_MINE
+attributes MB_ATT_PISTOL,2|MB_ATT_CR2,2|MB_ATT_DET_PACK,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1
 
 forcepowers FP_LIGHTNING,1|FP_PULL,1
 holdables HI_SEEKER|HI_STIMPACK
@@ -35,7 +35,7 @@ knockbackTaken 1.1
 
 damageGiven 1.3 //IMPORTANT: This is to increase lightning and detpack damage by 30%. Set all other weapons' damageMod to the inverse, 1/damageGiven. (1/1.3 = 0.77)
 WP_MeleeFlags HELD_LOWDAMAGE|HELD_TRACKING
-WP_FragNadeFlags HELD_TRACKING
+WP_TripMineFlags HELD_LOWDAMAGE|HELD_TRACKING
 WP_DetPackFlags HELD_KNOCKBACK
 rateOfFire_Melee    .8
 
@@ -97,7 +97,7 @@ Icon "gfx/hud/w_icon_detpack"
 WeaponName "Det Packs"
 AltFlashSound0 "sound/ambience/kotor/console03.mp3"
 AltFlashSound1 "sound/ambience/kotor/console06.mp3"
-customAmmo 3
+customAmmo 2 //less ammo but still level 3 damage
 
 //put these on alt attack if that ever becomes a thing
 hasAnimOverrides 1
@@ -128,27 +128,14 @@ WeaponInfo3
 
 WeaponInfo4
 {
-WeaponToReplace WP_FRAG_NADE
-WeaponBasedOff WP_FRAG_NADE
-	NewWorldModel				"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel				"models/weapons2/thermal/thermal.md3"
-	NewHandsModel				"models/weapons2/thermal/thermal_hand.md3"
-	Icon							"gfx/hud/w_thermal_grenade"
-WeaponName  "Tracker Grenade"
-MissileModel "models/weapons2/thermal/thermal_proj.md3"
-MissileEffect   "effects/flechette/alt_shot" 
-MissileMissEffect   "slime_explosion_new"
-//FlashSound0 "sound/effects/woosh8.mp3"
-altFireEnabled 0
-damageMod 0.01
-	hasAnimOverrides 1
-	animReadyRun BOTH_THERMAL_READY2
-	animReady BOTH_THERMAL_READY2
-	animReadyWalk BOTH_THERMAL_READY2
-	animReadyNoAmmo BOTH_THERMAL_READY2
-	animAttackRun BOTH_THERMAL_THROW2
-	animAttack BOTH_THERMAL_THROW2
-	animAttackWalk BOTH_THERMAL_THROW2
+	WeaponToReplace		WP_TRIP_MINE
+	WeaponBasedOff		WP_TRIP_MINE
+	NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"
+	NewViewModel		"models/weapons2/laser_trap/laser_trap.md3"
+ 	NewHandsModel "models/weapons2/laser_trap/laser_trap_hand.md3"
+	Icon			"gfx/hud/w_icon_tripmine"
+	WeaponName		"Tracking Trip Mines"
+ 	rateMod 0.9
 }
 
 ForceInfo0
@@ -185,14 +172,13 @@ description "Rebel Sapper
 - Pulse Grenade Launcher (M5)
 -- 65% faster RoF
 -- Sec only
-- Tracker Grenade (1) (Frag)
--- Tracks on hit
--- 99.9% less Dmg
--- Prim only
 - Pulse Grenades (2)
-- Det Packs (3)
+- Det Packs (2)
 -- Pushes on det
 -- 40% faster RoF
+- Tracking Trip Mines (2)
+-- Tracks on hit
+-- 50% less Dmg
 
 ^5Powers:
 - Magna-Glove (Pull 1)
