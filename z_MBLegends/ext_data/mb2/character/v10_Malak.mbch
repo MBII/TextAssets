@@ -8,18 +8,20 @@ ClassInfo
 	
 	weapons				WP_MELEE|WP_SABER
 
-	attributes			MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,2|MB_ATT_DEFLECT,3|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,3
+	attributes			MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,2|MB_ATT_DEFLECT,3|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1
 
 	forcepowers			FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_PUSH,3|FP_PULL,2|FP_SEE,1|FP_ABSORB,1|FP_PROTECT,2|FP_SABERTHROW,3			
 
-	maxhealth		190
+	maxhealth		100
+ maxarmour  45
 
 	resource RESOURCE_FORCE
 	forcepool			125
 	forceregen  0.95
 
 	speed				0.96
-	
+	damageGiven 1.1
+ rateOfFire_Melee .9
 	APmultiplier	1.05
 	BPmultiplier	1.4
 	ASmultiplier	1
@@ -28,10 +30,10 @@ ClassInfo
 	saber1				saber_malak_legends
 	sabercolor			0
 	saberstyle			SS_MEDIUM|SS_DESANN|SS_TAVION
- saberDamageStyle SS_DESANN,280|SS_TAVION,130
-	
-	special2 EAS_NONE
-	special3 EAS_FP_ABSORB
+ saberDamageStyle SS_DESANN,280|SS_TAVION,130|SS_MEDIUM,240
+	saberSpecialDamage 1.25
+
+	special2 EAS_FP_ABSORB
 	special4 EAS_FP_PROTECT
 	
 	classflags CFL_NOPICKUPS
@@ -50,29 +52,31 @@ ClassInfo
 	uioverlay "gfx/icons/support"
 }
 
-description	"Darth Malak [Sith]
+description	"Darth Malak 
 
-A tanky support class that prioritizes a strong defense and gunner assistance. Regains BP upon defeating enemies.
+A tanky support class that prioritizes a strong defense and gunner assistance.
 
 ^2Weaponry:
 - Melee
+-- 10% faster RoF
 - Lightsaber (Yellow/Purple/Cyan)
 -- Saber/Blaster Defense (3)
 -- Blaster Deflect (3)
--- 30% less Purple/8% more Cyan DMG
--- 15% more reach
--- 10% less radius
+-- 30% less Purple/8% more Cyan Dmg
+-- 125% Spec Dmg Mult
+-- 15% more Reach
+-- 10% less Radius
 -- EX Saber Throw (3) ^3[CS1]
---- 33% more DMG
--- Slap ^3[GB]
+--- 33% more Dmg
 
 ^5Force Powers:
 - Jump (3)
 - Push (3)
 - Pull (2) 
 - Sense (1) 
-- Absorb (1) ^3[CS3]
+- Absorb (1) ^3[CS2]
 - Protect (2) ^3[CS4]
 
 ^8Attributes:
+- Healing (1)
 - Force Block/Focus (2)"

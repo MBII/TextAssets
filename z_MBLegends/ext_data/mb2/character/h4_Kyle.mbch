@@ -3,7 +3,7 @@
 ClassInfo
 {
 	name			"h4_Kyle"
-	MBClass				MB_CLASS_SITH //fp
+	MBClass				MB_CLASS_SITH
 	classNumberLimit  	1
 
 	weapons			WP_SABER|WP_MELEE|WP_STUN_BATON|WP_THERMAL
@@ -19,17 +19,17 @@ ClassInfo
 	
 	maxarmor		0
 	rankArmor	20,50,100
-	
+	//damageGiven 1.1
 	basespeed		238
-	
- saberDamageStyle SS_STRONG,280|SS_FAST,130
+ rateOfFire_Melee .9
+ saberDamageStyle SS_STRONG,280|SS_FAST,130|SS_MEDIUM,240
 	saberstyle		SS_MEDIUM|SS_STRONG|SS_FAST
 	saberThrowDamage 40
-
+ saberSpecialDamage 1.25
 	special1	EAS_FP_SABERTHROW
-	special2 EAS_NONE
-	//special3 EAS_FP_ABSORB
-	//special4 EAS_FP_PROTECT
+	special2 EAS_FP_PROTECT
+	//special3 EAS_FP_GRIP
+	//special4 EAS_FP_LIGHTNING
 
 	uioverlay_r "gfx/icons/frontline"
 	uioverlay_l "gfx/icons/hybrid"
@@ -80,7 +80,7 @@ c_att_ranks_1   8,8,4
 c_att_skill_2   MB_ATT_PISTOL
 c_att_names_2   "Kyle's Bryar (Blaster) Pistol"
 c_att_ranks_2   2,2,15
-c_att_descs_2   "20% more charged FP DMG, 20% less velocity"
+c_att_descs_2   "20% more Charged FP Dmg, 20% less Velocity"
 
 c_att_skill_3   MB_ATT_BLASTER
 c_att_names_3   "E-11 Blaster Rifle"
@@ -89,7 +89,7 @@ c_att_ranks_3   6,6
 c_att_skill_4   MB_ATT_DET_PACK
 c_att_names_4   "Det Packs"
 c_att_ranks_4   2,2,2
-c_att_descs_4   "100% more DMG, DMG increases with rank"
+c_att_descs_4   "100% more Dmg, Dmg increases with rank"
 
 c_att_skill_5   MB_ATT_FP_PUSH
 c_att_names_5   "Force Push"
@@ -113,11 +113,11 @@ c_att_ranks_9   4,6
 
 c_att_skill_10  MB_ATT_FP_ABSORB
 c_att_names_10  "Force Absorb"
-c_att_ranks_10  4,4
+c_att_ranks_10  4,6
 
 c_att_skill_11  MB_ATT_FP_PROTECT
-c_att_names_11  "Force Protect"
-c_att_ranks_11  4,4
+c_att_names_11  "Force Protect ^3[CS2]"
+c_att_ranks_11  4,6
 
 c_att_skill_12  MB_ATT_FP_SPEED
 c_att_names_12  "Force Speed"
@@ -135,7 +135,7 @@ c_att_ranks_14  4,6,8
 WeaponInfo0
 {
 	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_MANDO_PISTOL
 	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
 	NewViewModel		"models/weapons2/briar_pistol/briar_pistol.md3"
 	Icon				"gfx/hud/w_icon_briar"
@@ -148,6 +148,8 @@ WeaponInfo0
 	PowerupShotEffect	"Blaster/Shot04Y"
 	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash"
 	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
+ //FlashSound0 "sound/weapons/bryar/fire.mp3"
+ //altFlashSound0 "sound/weapons/bryar/alt_fire.mp3"
 	//OverchargeEffect	"Blaster/MuzzleFlash01Y"
 	velocityMod 0.8
 	FPChargeMult	1.20
@@ -161,19 +163,20 @@ WeaponInfo0
 	animAttackWalk BOTH_ATTACK2
 }
 
-description	"Kyle Katarn [Sith]
+description	"Kyle Katarn 
 
-A Force-sensitive mercenary with the ability to choose his own path.
+A Force-sensitive mercenary who must choose his own path.
 
 ^2Weaponry:
 - Melee
+-- 10% faster RoF
 - Lightsaber (Yellow/Red/Blue)
 -- Saber/Blaster Defense (0)
 -- Blaster Deflect (2)
--- 46% less Red/8% more Blue DMG
+-- 46% less Red/8% more Blue Dmg
+-- 125% Spec Dmg mult
 -- EX Saber Throw (2) ^3[CS1]
---- 33% more DMG
--- Slap ^3[GB]
+--- 33% more Dmg
 - Thermal Grenades (2)
 - Stun Baton (3)
 

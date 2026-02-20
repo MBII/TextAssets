@@ -23,8 +23,7 @@ ClassInfo
 	WP_CloneRifleFlags HELD_ALTRELOAD
 	WP_MeleeFlags HELD_SPEED
 	WP_SaberFlags HELD_FLAME
- WP_StickyLauncherFlags   HELD_ALTRELOAD
- //WP_MGLFlags 
+ WP_MGLFlags HELD_ALTRELOAD
 	WP_DCCarbineFlags	HELD_ALTRELOAD|HELD_PULSE|HELD_KNOCKBACK|HELD_STUN
 	
 	
@@ -44,8 +43,9 @@ ClassInfo
 
 	special1 EAS_HI_SPRINT
 	special2	EAS_HI_KICK
+	special3	EAS_HI_KICK
 	modelscale	1.01
-	model	"dengar"
+	model	"Dengar"
 	skin		"default"
 	uishader	"models/players/dengar/mb2_icon_default"
 	uioverlay_l "gfx/icons/scout"
@@ -61,25 +61,26 @@ ClassInfo
 	c_att_skill_1	MB_ATT_DC_CARBINE
 	c_att_names_1	"Modded Riot Gun (DC Carbine)"
 	c_att_ranks_1	1,0
-	c_att_descs_1 "Shocks/pushes/staggers on hit, 400% more DMG/FP DMG,
-100% slower RoF, 20% less velocity, 30% slower mag reload, Sec only"
+	c_att_descs_1 "Shocks/pushes/staggers on hit, 400% more Dmg/FP Dmg,
+100% slower RoF, 20% less Velocity, 30% slower Mag Reload, Sec only"
 
 	c_att_skill_2	MB_ATT_CLONERIFLE
 	c_att_names_2	"DLT-19 Blaster Rifle (CR)"
 	c_att_ranks_2	1,0
-	c_att_descs_2 "10% more DMG, 10% faster RoF, Mag reload"
+	c_att_descs_2 "10% more Dmg, 10% faster RoF, Mag Reload"
 	
 	c_att_skill_3	MB_ATT_WESTARM5
 	c_att_names_3	"Valken-38x Blaster Rifle (M5)"
 	c_att_ranks_3	1,0
-	c_att_descs_3 "50% more DMG/FP DMG, 100% slower RoF, Sec fire: Scope"
+	c_att_descs_3 "50% more Dmg/FP Dmg, 100% slower RoF, Sec fire: Scope"
 }
 
-WeaponInfo0{
+WeaponInfo0
+{
 	WeaponToReplace WP_CLONE_RIFLE
-	WeaponBasedOff  WP_CLONE_RIFLE
+	WeaponBasedOff  WP_CONCUSSION
 	NewWorldModel "models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
-	NewViewModel  "models/weapons2/dummy/dummy.md3"
+	NewViewModel  "models/weapons2/DLT-19_HeavyBlaster/riflescoped.glm"
 	Icon  "gfx/hud/w_icon_dlt19scoped"
 	WeaponName  "DLT-19 Heavy Blaster Rifle"
 	FlashSound0	"sound/weapons/DLT19/fire.wav"
@@ -104,8 +105,9 @@ WeaponInfo1
 {
 	WeaponToReplace		WP_CONC_NADE
 	WeaponBasedOff		WP_CONC_NADE
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel				"models/weapons2/thermal/thermal_hand.md3"
+NewWorldModel	"models/weapons2/thermal/thermal_w.glm"
+NewViewModel "models/weapons2/thermal/thermal.md3"
+NewHandsModel "models/weapons2/thermal/thermal_hand.md3"
 	Icon						"gfx/hud/w_thermal_grenade"
 	MissileModel 	"models/weapons2/thermal/thermal_proj.md3"
 	AltMissileModel	"models/weapons2/thermal/thermal_proj.md3"
@@ -135,7 +137,7 @@ WeaponInfo1
 WeaponInfo2
 {
 	WeaponToReplace	WP_M5
-	WeaponBasedOff    WP_M5	
+	WeaponBasedOff   WP_CONCUSSION
 	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
 	NewViewModel  "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
 	Icon  "gfx/hud/w_icon_dlt-18"
@@ -177,7 +179,7 @@ WeaponInfo3{
 	rateMod 1
 	clipSize 3
 	customAmmo 15
-	altFireEnabled 0
+	altFireEnabled 1
 	hasAnimOverrides 1
 	animReadyRun 	BOTH_THERMAL_READY2
 	animReady 	BOTH_THERMAL_READY2
@@ -198,7 +200,7 @@ WeaponName		"Dengar's Fire Blade"
 }
 WeaponInfo5{
 WeaponToReplace	WP_DC_CARBINE
-WeaponBasedOff	WP_DC_CARBINE
+WeaponBasedOff	WP_MANDO_PISTOL
 NewWorldModel	"models/weapons2/t-21/t-21_w.glm"
 NewViewModel	"models/weapons2/t-21/t-21.md3"
 Icon	"gfx/hud/w_icon_t-21"
@@ -222,7 +224,7 @@ animAttackWalk BOTH_ATTACK3
 }
 WeaponInfo6{
 WeaponToReplace 	WP_SHOTGUN
-WeaponBasedOff   WP_BLASTER_PISTOL
+WeaponBasedOff   WP_SHOTGUN
 NewWorldModel "models/weapons/FWG-5_FlechettePistol/model.glm"
 NewViewModel	"models/weapons/FWG-5_FlechettePistol/model.md3"
 Icon	"gfx/hud/w_icon_flechettepistol"
@@ -244,30 +246,28 @@ animAttackRun BOTH_ATTACK2
 animAttack BOTH_ATTACK2 
 animAttackWalk BOTH_ATTACK2 
 }
-description	"Dengar [Bounty Hunter]
+description	"Dengar 
 
 A ruthless assault class who likes to bring his bounties in cold.
 
 ^2Weaponry:
 - Melee
 -- 20% faster RoF
--- 15% faster movement
+-- 15% faster Movement
 - Dengar's Fire Blade (Cyan Saber)
 -- No Saber/Blaster Block
 -- Ignites on hit
--- 62% less range
--- 33% more radius
--- Slap ^3[GB]
+-- 62% less Reach
+-- 33% more Radius
 - Smoke Grenades (2) (Conc Grenades)
 -- Obscures vision on det
 -- 40% faster RoF
--- 99.9% less DMG
-- Sticky Bombs (6) (MGL 1)
--- Prim only
--- Mag reload
+-- 99.9% less Dmg
+- Sticky Bombs (6) (MGL)
+-- Mag Reload
 
 ^8Attributes:
-- 10% less KB taken
+- 10% less Kb Taken
 - Strength (1)
 - Stamina (1)
 - Dexterity (1)
@@ -280,4 +280,4 @@ A ruthless assault class who likes to bring his bounties in cold.
 
 ^3Abilities:
 - Sprint ^3[CS1]
-- Gunkick ^3[CS2]"
+- Gunkick ^3[CS2/3]"

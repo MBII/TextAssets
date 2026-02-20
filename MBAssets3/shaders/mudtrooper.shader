@@ -184,32 +184,16 @@ models/players/mudtrooper/newparts_andor
 
 // Andor - Garrison
 
-models/players/imperial_garrison/armor_sergeant
+models/players/mudtrooper/armor_sergeant
 {
 	q3map_nolightmap
 	cull	disable
 	{
-		map models/players/imperial_garrison/armor_sergeant
+		map models/players/mudtrooper/armor_sergeant
 		rgbGen lightingDiffuse
 	}
 	{
 		map models/players/mudtrooper/armor_clean_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial_garrison/cloth
-{
-	q3map_nolightmap
-	cull	disable
-	{
-		map models/players/imperial_garrison/cloth
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/mudtrooper/cloth_clean_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular

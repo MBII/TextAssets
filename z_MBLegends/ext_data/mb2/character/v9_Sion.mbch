@@ -10,26 +10,35 @@ ClassInfo
 
  WP_SaberFlags HELD_HEAL
 
-	attributes			MB_ATT_FORCEFOCUS,2|MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_WOOKIEE_FURY,3
+	attributes			MB_ATT_DEFLECT,1|MB_ATT_FORCEBLOCK,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_WOOKIEE_FURY,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_ENV_PROT,3
 
-	forcepowers			FP_LEVITATION,3|FP_PUSH,2|FP_SABER_OFFENSE,1|FP_DRAIN,2|FP_GRIP,1|FP_SABERTHROW,1|FP_RAGE,2
+	forcepowers			FP_LEVITATION,3|FP_PUSH,1|FP_SABER_OFFENSE,1|FP_DRAIN,2|FP_GRIP,1|FP_SABERTHROW,1|FP_RAGE,3
 	
 	maxhealth		135
-	forcepool  125
- forceRegen 0.5
+ maxarmor 15
+	forcepool  120
+
+ knockbackTaken 0.85
+
+ powerups PW_POISON
 
  resource RESOURCE_RAGE
  resourceRegenAmount 1
  resourceRegenRate 150
- resourceRegenCap 125
+ resourceRegenCap 120
 
-	BPmultiplier		1.15
-	APmultiplier		1.15
+ //healthRegenCap 10
+ //healthRegenAmount 10
+ //healthRegenRate 1
+rateOfFire_Melee .9
+	BPmultiplier		1.1
+	APmultiplier		1.2
 	CSmultiplier 	1.05	
 	ASmultiplier 	1.05
+ saberSpecialDamage 1.25
 	saberThrowDamage 40
  saberDamageStyle SS_FAST,130|SS_MEDIUM,240
-	saber1		saber_sion
+	saber1		saber_sion_l
 	sabercolor	0	
 	saberstyle	SS_MEDIUM|SS_FAST
 
@@ -37,9 +46,9 @@ ClassInfo
 	special3 EAS_FP_GRIP
 	special4 EAS_FP_RAGE
 	
-	classflags CFL_NOPICKUPS
+	classflags CFL_NOPICKUPS|CFL_BLOODYMELEE
 
- baseSpeed 233
+ baseSpeed 231
 	damageGiven   1.10
 
 	flourishAnim BOTH_STAND_INJURED_IDLE
@@ -48,39 +57,41 @@ ClassInfo
 	bowAnim BOTH_INJURED_TO_COLLAPSED
 	modelscale	1.03
 
-	model	"darthsion"
+	model	"Darthsion"
 	skin		"default"
 	uishader	"models/players/darthsion/mb2_icon_default"
 	uioverlay "gfx/icons/frontline"
 }
 
-description	"Darth Sion [Sith]
+description	"Darth Sion
 
-A Sith that can drain resource pools from others to heal himself, and possesses high Lightsaber and Force defenses.
+A Sith consumed with Rage. Difficult to kill.
 
 ^2Weaponry:
 - Melee
+-- 10% faster RoF
 - Lightsaber (Yellow/Blue)
--- Saber Defense (3)
+-- Saber Defense (2)
 -- Blaster Defense (2)
--- Blaster Deflect (3)
+-- Blaster Deflect (1)
 -- Self-heals on equip
--- 8% more Blue DMG
+-- 8% more Blue Dmg
+-- 125% Spec Dmg mult
 -- EX Saber Throw (1) ^3[CS1]
---- 33% more DMG
--- Slap ^3[GB]
+--- 33% more Dmg
 
 ^5Force Powers:
 - Jump (3)
-- Push (2) 
+- Push (1) 
 - Drain (2) ^3[CS2]
 - Grip (1) ^3[CS3]
-- Dark Rage (2) ^3[CS4]
+- Dark Rage (3) ^3[CS4]
 
 ^8Attributes:
-- Blast Armor
-- Force Block (3)
-- Force Focus (2)
+- 15% less Kb Taken
 - Fury (3)
 -- Resource Regen: 1/.15s
--- 50% slower Resource Decay"
+- Strength (1)
+- Environmental Protection (3)
+- Blast Armor
+- Force Block (3)"

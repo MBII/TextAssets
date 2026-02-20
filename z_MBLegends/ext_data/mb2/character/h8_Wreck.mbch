@@ -6,13 +6,13 @@ ClassInfo
 	MBClass		MB_CLASS_WOOKIE
 	classNumberLimit  1
 	weapons		WP_MELEE|WP_DC_CARBINE|WP_DET_PACK|WP_TRIP_MINE|WP_THERMAL|WP_REAL_TD|WP_FRAG_NADE
-	attributes	MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_HEALING,2|MB_ATT_DC_CARBINE,3|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DET_PACK,4|MB_ATT_TRIP_MINES,4|MB_ATT_BASE_TD,6|MB_ATT_THERMALS,1|MB_ATT_FRAGS,2
+	attributes	MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_HEALING,2|MB_ATT_DC_CARBINE,3|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DET_PACK,4|MB_ATT_TRIP_MINES,4|MB_ATT_BASE_TD,6|MB_ATT_THERMALS,1|MB_ATT_FRAGS,3
 	
 	forcepool 	100
 	resource	RESOURCE_RAGE
 	
 	maxhealth 280
-	maxarmor	180
+	maxarmor	225
 	
 	rateoffire_melee 1.10
 	rateoffire	0.75
@@ -25,7 +25,7 @@ ClassInfo
 	bargeSoundOverride	"sound/chars/wrecker/misc/taunt3.mp3"
 
 	damageGiven 1.15
-	damageTaken	0.9
+
 	knockbackGiven 1.15
 	knockbackTaken 0.5
 	meleeknockback_flat 90
@@ -33,6 +33,11 @@ ClassInfo
 	flourishAnim BOTH_STABDOWN_DUAL
 	
 	WP_DCCarbineFlags	HELD_ALTRELOAD
+ WP_DetPackFlags HELD_KNOCKBACK|HELD_STUN|HELD_KNOCKDOWN
+ WP_TripMineFlags HELD_KNOCKBACK|HELD_STUN|HELD_KNOCKDOWN
+ WP_ThermalFlags HELD_KNOCKBACK|HELD_STUN|HELD_KNOCKDOWN
+ WP_RealTDFlags HELD_KNOCKBACK|HELD_STUN|HELD_KNOCKDOWN
+ WP_FragNadeFlags HELD_KNOCKBACK|HELD_STUN|HELD_KNOCKDOWN
 	classflags CFL_STRONGAGAINSTPHYSICAL
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
@@ -47,9 +52,9 @@ ClassInfo
 WeaponInfo0
 {
 	WeaponToReplace WP_DC_CARBINE
-	WeaponBasedOff WP_DC_CARBINE
-	NewWorldModel	"models/weapons2/DC-17m/blaster.glm"
-	NewViewModel	"models/weapons2/DC-17m/blaster.md3"
+WeaponBasedOff  WP_MANDO_PISTOL
+NewWorldModel "models/weapons2/DC-17m/blaster.glm"
+NewViewModel "models/weapons2/DC-17m/blaster.md3"
 	FlashSound0	"sound/weapons/dc17m/fire.wav"
 	FlashSound1	"sound/weapons/dc17m/fire.wav"
 	FlashSound2	"sound/weapons/dc17m/fire.wav"
@@ -94,8 +99,9 @@ WeaponInfo2
 {
 	WeaponToReplace	WP_THERMAL
 	WeaponBasedOff	WP_THERMAL
-	NewWorldModel	"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel	"models/weapons2/thermal/thermal_hand.md3"
+NewWorldModel	"models/weapons2/thermal/thermal_w.glm"
+NewViewModel "models/weapons2/thermal/thermal.md3"
+NewHandsModel "models/weapons2/thermal/thermal_hand.md3"
 	Icon		"gfx/hud/w_thermal_grenade"
 	WeaponName  	"Heavy Thermal Grenades"
 	altMissileMissEffect	"Grenades/EXP_Explosion"
@@ -107,28 +113,33 @@ WeaponInfo2
 	damagemod 2
 }
 
-description	"CT-9903 aka 'Wrecker' [Wookiee]
+description	"CT-9903 aka 'Wrecker' 
 
 A tanky Wookiee/gunner hybrid who specializes in mass destruction and area denial. Deploys explosives quickly.
 
 ^2Weaponry:
 - Melee
--- Flat KB: 90
+-- Flat Kb: 90
 -- 10% slower RoF
 - DC-17m Repeating Blaster Rifle (DC Carbine 3)
--- 50% slower mag reload
+-- 50% slower Mag Reload
 - Heavy Thermal Grenades (6)
--- 100% more DMG
-- Frag Grenades (2)
+-- Staggers/pushes on det
+-- 100% more Dmg
+- Frag Grenades (3)
+-- Staggers/pushes on det
 -- Prim only
 - Thermal Detonator (1)
+-- Staggers/pushes/trips on det
 - Trip Mines (4)
+-- Staggers/pushes/trips on det
 - Det Packs (4)
+-- Staggers/pushes/trips on det
 
 ^8Attributes:
-- 10% faster skill CD
-- 15% more KB given
-- 50% less KB taken
+- 10% faster Skill Cd
+- 15% more Kb Given
+- 50% less Kb Taken
 - Strength (2)
 - Fury (1)
 - Healing (2)

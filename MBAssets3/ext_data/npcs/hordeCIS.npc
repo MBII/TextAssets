@@ -1,13 +1,11 @@
 //Dooku's Dark Acolytes and cultists from Thule. Need different models, skins, snds, and hilts. Maybe some variance in stats and saber colors too. Current colors are based on style.
-//TO DO: Dooku, Ventress, Grevious, other named Acolytes? Nikto Morgukai warriors with their plasma tipped cortosis staffs?
-
-//For the sake of testing, sabers are setup to be the color of the style, most stats have been maxed, and each has been given a force power
-//Need to make notes on how dangerous the AI is with each style, and investigate variance between rank, stats, and attributes
+//TO DO: Dooku, Ventress, Grevious, other named Acolytes?
 
 DA1 //saberstyle 1 blue
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	blue
 	weapon	WP_SABER
@@ -52,6 +50,7 @@ DA2 //saberstyle 2 yellow
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	yellow
 	weapon	WP_SABER
@@ -98,6 +97,7 @@ DA3 //saberstyle 3 red
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	red
 	weapon	WP_SABER
@@ -144,6 +144,7 @@ DA4 //saberstyle 4 purple
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	purple
 	weapon	WP_SABER
@@ -189,6 +190,7 @@ DA5 //saberstyle 5 cyan
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	orange
 	weapon	WP_SABER
@@ -234,10 +236,11 @@ DA6 //saberstyle 6 green/duals
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	green
 	saber2	saber_reborn_mp
-	saber2Color	random
+	saber2Color	green
 	weapon	WP_SABER
 	MB_ATT_FORCEBLOCK 3
 	MB_ATT_FP_SABER_DEFENSE 3
@@ -281,6 +284,7 @@ DA7 //saberstyle 7 staff/white
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		dual_1
 	saberColor	silver
 	weapon	WP_SABER
@@ -327,6 +331,7 @@ DA6B //saberstyle 6 green/duals
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	random
 	weapon	WP_SABER
@@ -372,6 +377,7 @@ DA6C //saberstyle 6 green/duals
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber2		saber_reborn_mp
 	saber2Color	random
 	weapon	WP_SABER
@@ -417,6 +423,7 @@ DA7B //saberstyle 7 staff/white
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	saber		saber_reborn_mp
 	saberColor	silver
 	weapon	WP_SABER
@@ -463,6 +470,7 @@ lightning_mage //NNN: Sith cultist from Thule
 {
 	playerModel	reborn_concept
 	customSkin	force
+	MBCLASS 	5
 	weapon		WP_MELEE
 	MB_ATT_FORCEBLOCK 3
 	FP_LEVITATION	3
@@ -497,6 +505,49 @@ lightning_mage //NNN: Sith cultist from Thule
 	dismemberProbHands	30
 	dismemberProbWaist	0
 }
+
+Morgukai //Morgukai warrior, Nikto order of force sensitives that th CIS made a clone army of them.
+{
+	playerModel	weequay
+	customSkin	nikto
+	MBCLASS 	5
+	saber		qstaff //placeholder for their plasma tipped cortosis staffs
+	weapon	WP_SABER
+	saberStyle	7
+	MB_ATT_FP_SABER_DEFENSE 2
+	MB_ATT_FORCEBLOCK 1
+	RESOURCE_FORCE 1
+	forcePowerMax 100
+	Pbchance 20
+	MBchance 2
+	SBchance 45
+	FP_SPEED	3
+	FP_LEVITATION 2
+	reactions	1
+	aim			1
+	move		1
+	aggression	1
+	evasion		1
+	intelligence	1
+	hfov		120
+	vfov		120
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_REBORN
+	snd			nikto
+	sndcombat	nikto
+	sndjedi		nikto
+	yawSpeed	60
+	walkSpeed	45
+	runSpeed	180
+	health		80
+	armor		40
+	dismemberProbHead	0
+	dismemberProbArms	20
+	dismemberProbLegs	0
+	dismemberProbHands	30
+	dismemberProbWaist	0
+}
 //CIS Droids, note need a pass on models, skins, and snds.
 //TO DO: SBDs, Trando Mercs/Slavers (shotgun, smg/ee4, dual knives, minigun) from RC.
 //Future Ideas: Dekas, Crab Droids, Walking Vulture Droid, Organic Seps, and other vehicles?
@@ -505,11 +556,12 @@ MagnaGuard //IG-100 MagnaGuards with electrostaff
 {
 	playerModel	magnaguard
 	//customSkin	default
+	MBClass		11
 	saber		electrostaff_legends
 	weapon	WP_SABER
 	saberStyle	7
 	MB_ATT_FP_SABER_DEFENSE 2
-	FP_LEVITATION	1
+	FP_LEVITATION	2
 	RESOURCE_FORCE 1
 	forcePowerMax	100
 	PBchance 20
@@ -541,10 +593,56 @@ MagnaGuard //IG-100 MagnaGuards with electrostaff
 	dismemberProbWaist	0
 }
 
-BX_Sword2 //AI works best with style 2/yellow.
+B1_Assassin
+{
+	playerModel	battledroid
+	customSkin	assassin
+	MBClass		11
+	saber		droid_shiv
+	saber2		droid_shiv_dual
+	weapon	WP_SABER
+	saberStyle	6
+	MB_ATT_FP_SABER_DEFENSE 1
+	PBchance 10
+	MBchance 1
+	SBchance 30
+	FP_LEVITATION	1
+	RESOURCE_FORCE 1
+	forcePowerMax	100
+	PBchance 20
+	MBchance 2
+	SBchance 45
+	reactions	3
+	aim			1
+	move		3
+	aggression	5
+	evasion		1
+	intelligence	5
+	hfov		120
+	vfov		120
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_SHADOWTROOPER
+	snd			BD_BF2_1
+	sndcombat	BD_BF2_1
+	sndjedi		BD_BF2_1
+	yawSpeed	60
+	walkSpeed	45
+	runSpeed	180
+	health		80
+	armor		40
+	dismemberProbHead	0
+	dismemberProbArms	20
+	dismemberProbLegs	0
+	dismemberProbHands	30
+	dismemberProbWaist	0
+} 
+
+BX_Sword2
 {
 	playerModel	bxdroid
-	customSkin	default
+	customSkin	melee
+	MBClass		11
 	saber		Vibro_bx_legends
 	weapon	WP_SABER
 	saberStyle	2
@@ -585,6 +683,7 @@ BX_EE4 //works better then E-11 because of the bloom
 {
 	playerModel bxdroid
 	customSkin  default
+	MBClass		11
 	weapon		WP_EE4
 	MB_ATT_EE4 3
 	health		80
@@ -619,7 +718,8 @@ BX_EE4 //works better then E-11 because of the bloom
 BX_A280 //animation looks derpy
 {
 	playerModel bxdroid
-	customSkin  default
+	customSkin  capt
+	MBClass		11
 	weapon		WP_A280
 	MB_ATT_A280 3
 	health		80
@@ -654,7 +754,8 @@ BX_A280 //animation looks derpy
 BX_DLT20A //animation looks derpy
 {
 	playerModel bxdroid
-	customSkin  default
+	customSkin  capt
+	MBClass		11
 	weapon		WP_DLT20A
 	MB_ATT_DLT20A 3
 	altFire 1
@@ -690,7 +791,8 @@ BX_DLT20A //animation looks derpy
 BX_T21 //no alt fire but interesting mixup
 {
 	playerModel bxdroid
-	customSkin  default
+	customSkin  capt
+	MBClass		11
 	weapon		WP_T21
 	MB_ATT_T21 3
 	altFire 1
@@ -726,7 +828,8 @@ BX_T21 //no alt fire but interesting mixup
 BX_E22 //possible useful
 {
 	playerModel bxdroid
-	customSkin  default
+	customSkin  capt
+	MBClass		11
 	weapon		WP_E_22
 	MB_ATT_E_22 3
 	altFire 1
@@ -762,7 +865,8 @@ BX_E22 //possible useful
 BX_EE3 //pretty good with it
 {
 	playerModel bxdroid
-	customSkin  default
+	customSkin  capt
+	MBClass		11
 	weapon		WP_EE3
 	MB_ATT_EE3 3
 	health		80
@@ -797,7 +901,8 @@ BX_EE3 //pretty good with it
 BX_AMBAN //WIP: no altFire so useless, only tries to melee and stuck inplace
 {
 	playerModel bxdroid
-	customSkin  default
+	customSkin  citadel
+	MBClass		11
 	weapon		WP_AMBAN
 	MB_ATT_AMBAN 3
 	altFire 1
@@ -833,7 +938,8 @@ BX_AMBAN //WIP: no altFire so useless, only tries to melee and stuck inplace
 BX_Rocket //so jedi have something to push
 {
 	playerModel bxdroid
-	customSkin  default
+	customSkin  citadel
+	MBClass		11
 	weapon		WP_ROCKET_LAUNCHER
 	MB_ATT_ROCKET_LAUNCHER 3
 	altFire 1
@@ -870,6 +976,7 @@ B1_Blaster //the most basic guy, no altFire really kills usefulness but it works
 {
 	playerModel battledroid
 	customSkin  ep1
+	MBClass		11
 	weapon		WP_BLASTER
 	MB_ATT_BLASTER 3
 	altFire 1
@@ -889,11 +996,11 @@ B1_Blaster //the most basic guy, no altFire really kills usefulness but it works
 	class		CLASS_STORMTROOPER
 	height		64
 	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
-	snd			battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	walkSpeed	67
+	runSpeed	187
+	snd			BD_BF1
+	sndcombat	BD_BF1
+	sndextra	BD_BF1
 	yawspeed	70
 	dismemberProbHead	0
 	dismemberProbArms	10
@@ -905,7 +1012,8 @@ B1_Blaster //the most basic guy, no altFire really kills usefulness but it works
 B1_Shotgun //might be annoying to fight, maybe should be on bx or trando merc, pump action sounds terrible on a Star Wars gun too
 {
 	playerModel battledroid
-	customSkin  ep1
+	customSkin  ep1_security
+	MBClass		11
 	weapon		WP_SHOTGUN
 	MB_ATT_SHOTGUN 1
 	health		50
@@ -924,8 +1032,8 @@ B1_Shotgun //might be annoying to fight, maybe should be on bx or trando merc, p
 	class		CLASS_STORMTROOPER
 	height		64
 	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	snd			battledroid
 	sndcombat	battledroid
 	sndextra	battledroid
@@ -940,7 +1048,8 @@ B1_Shotgun //might be annoying to fight, maybe should be on bx or trando merc, p
 B1_Pistol //nice difference from other blasters, maybe should be on an officer or merc
 {
 	playerModel battledroid
-	customSkin  ep1
+	customSkin  ep1_pilot
+	MBClass		11
 	weapon		WP_BLASTER_PISTOL
 	MB_ATT_PISTOL 3
 	health		50
@@ -959,44 +1068,8 @@ B1_Pistol //nice difference from other blasters, maybe should be on an officer o
 	class		CLASS_STORMTROOPER
 	height		64
 	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
-	snd			battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
-	yawspeed	70
-	dismemberProbHead	0
-	dismemberProbArms	10
-	dismemberProbLegs	0
-	dismemberProbHands	20
-	dismemberProbWaist	0
-}
-
-B1_Demp //nice mixup from normal blasters, idk if it makes sense for B1s to have this though, maybe give to a merc
-{
-	playerModel battledroid
-	customSkin  ep1
-	weapon		WP_DEMP2
-	MB_ATT_DEMP2 3
-	MB_ATT_PISTOL 3
-	health		50
-	armor 		15
-	headPitchRangeDown 30
-	reactions	3
-	aim			1
-	move		3
-	aggression	3
-	evasion		1
-	intelligence	5
-	rank		crewman
-	playerTeam	TEAM_PLAYER
-	enemyTeam	TEAM_ENEMY
-//	race		klingon
-	class		CLASS_STORMTROOPER
-	height		64
-	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	snd			battledroid
 	sndcombat	battledroid
 	sndextra	battledroid
@@ -1012,6 +1085,7 @@ B1_Thermal //nice mixup over only blasters but very derpy, works for B1 and untr
 {
 	playerModel	battledroid
 	customSkin	grenadier2
+	MBClass		11
 	weapon		WP_THERMAL
 	weapon		WP_MELEE
 	reactions	3
@@ -1026,12 +1100,12 @@ B1_Thermal //nice mixup over only blasters but very derpy, works for B1 and untr
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			battledroid_cw2
+	sndcombat	battledroid_cw2
+	sndextra	battledroid_cw2
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1043,6 +1117,7 @@ B1_Baton //same as nader but will pull out a stun baton if you get too close wit
 {
 	playerModel	battledroid
 	customSkin	grenadier2
+	MBClass		11
 	weapon		WP_THERMAL
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1058,12 +1133,12 @@ B1_Baton //same as nader but will pull out a stun baton if you get too close wit
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			battledroid_cw2
+	sndcombat	battledroid_cw2
+	sndextra	battledroid_cw2
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1075,6 +1150,7 @@ B1_Frag //WIP: they blow themselves up
 {
 	playerModel	battledroid
 	customSkin	grenadier2
+	MBClass		11
 	weapon		WP_FRAG_NADE
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1090,12 +1166,12 @@ B1_Frag //WIP: they blow themselves up
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			battledroid_cw2
+	sndcombat	battledroid_cw2
+	sndextra	battledroid_cw2
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1106,7 +1182,8 @@ B1_Frag //WIP: they blow themselves up
 B1_Pulse //WIP: they blow themselves up
 {
 	playerModel	battledroid
-	customSkin	grenadier2
+	customSkin	adv
+	MBClass		11
 	weapon		WP_PULSE_NADE
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1122,12 +1199,12 @@ B1_Pulse //WIP: they blow themselves up
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			BD_RC
+	sndcombat	BD_RC
+	sndextra	BD_RC
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1138,7 +1215,8 @@ B1_Pulse //WIP: they blow themselves up
 B1_Fire //WIP: they barely don't light themselves on fire
 {
 	playerModel	battledroid
-	customSkin	grenadier2
+	customSkin	flame
+	MBClass		11
 	weapon		WP_FIRE_NADE
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1154,11 +1232,11 @@ B1_Fire //WIP: they barely don't light themselves on fire
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
+	snd			battledroid
 	sndcombat	battledroid
 	sndextra	battledroid
 	yawspeed	90
-	walkSpeed	55
+	walkSpeed	67
 	runSpeed	200
 	dismemberProbHead	0
 	dismemberProbArms	10
@@ -1171,6 +1249,7 @@ B1_Sonic //WIP: they sonic themselves
 {
 	playerModel	battledroid
 	customSkin	grenadier2
+	MBClass		11
 	weapon		WP_SONIC_NADE
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1186,12 +1265,12 @@ B1_Sonic //WIP: they sonic themselves
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			battledroid_cw2
+	sndcombat	battledroid_cw2
+	sndextra	battledroid_cw2
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1203,6 +1282,7 @@ B1_Conc //WIP: they blow themselves up, barely
 {
 	playerModel	battledroid
 	customSkin	grenadier2
+	MBClass		11
 	weapon		WP_CONC_NADE
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1218,12 +1298,12 @@ B1_Conc //WIP: they blow themselves up, barely
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			battledroid_cw2
+	sndcombat	battledroid_cw2
+	sndextra	battledroid_cw2
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1234,7 +1314,8 @@ B1_Conc //WIP: they blow themselves up, barely
 B1_Cryo //WIP: they cryo themselves, however cryo doesn't work on npcs so this could be useful
 {
 	playerModel	battledroid
-	customSkin	grenadier2
+	customSkin	firefighter
+	MBClass		11
 	weapon		WP_CRYO_NADE
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1250,12 +1331,12 @@ B1_Cryo //WIP: they cryo themselves, however cryo doesn't work on npcs so this c
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			battledroid_cw
+	sndcombat	battledroid_cw
+	sndextra	battledroid_cw
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1266,7 +1347,8 @@ B1_Cryo //WIP: they cryo themselves, however cryo doesn't work on npcs so this c
 B1_TD //WIP: they blow themselves up, funny though, might work as an erzatz suicide NPC in close quaters maps
 {
 	playerModel	battledroid
-	customSkin	grenadier2
+	customSkin	adv
+	MBClass		11
 	weapon		WP_REAL_TD
 	weapon		WP_STUN_BATON
 	MB_ATT_STUN_BATON 3
@@ -1282,12 +1364,12 @@ B1_TD //WIP: they blow themselves up, funny though, might work as an erzatz suic
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_GRAN
-	snd		battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			BD_RC
+	sndcombat	BD_RC
+	sndextra	BD_RC
 	yawspeed	90
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	1
@@ -1299,6 +1381,7 @@ B1_Flame //don't attack perfectly but it's good enough for variety
 {
 	playerModel battledroid
 	customSkin flame
+	MBClass		11
 	weapon		WP_THROWER
 	MB_ATT_THROWER_FLAME 1
 	health		50
@@ -1317,14 +1400,12 @@ B1_Flame //don't attack perfectly but it's good enough for variety
 	class		CLASS_STORMTROOPER
 	height		64
 	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	snd			battledroid
 	sndcombat	battledroid
 	sndextra	battledroid
 	yawspeed	70
-	walkSpeed	55
-	runSpeed	200
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	0
@@ -1335,6 +1416,7 @@ B1_Plasma //don't attack perfectly but it's good enough for variety, plasma don'
 {
 	playerModel battledroid
 	customSkin flame
+	MBClass		11
 	weapon		WP_THROWER
 	MB_ATT_THROWER_PLASMA 1
 	health		50
@@ -1353,14 +1435,12 @@ B1_Plasma //don't attack perfectly but it's good enough for variety, plasma don'
 	class		CLASS_STORMTROOPER
 	height		64
 	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	snd			battledroid
 	sndcombat	battledroid
 	sndextra	battledroid
 	yawspeed	70
-	walkSpeed	55
-	runSpeed	200
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	0
@@ -1370,7 +1450,8 @@ B1_Plasma //don't attack perfectly but it's good enough for variety, plasma don'
 B1_Ice //has a hard time hitting enough times to slow or freeze a player
 {
 	playerModel battledroid
-	customSkin flame 
+	customSkin firefighter
+	MBClass		11
 	weapon		WP_THROWER
 	MB_ATT_THROWER_ICE 1
 	health		50
@@ -1389,14 +1470,12 @@ B1_Ice //has a hard time hitting enough times to slow or freeze a player
 	class		CLASS_STORMTROOPER
 	height		64
 	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
-	snd			battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	walkSpeed	67
+	runSpeed	187
+	snd			battledroid_cw
+	sndcombat	battledroid_cw
+	sndextra	battledroid_cw
 	yawspeed	70
-	walkSpeed	55
-	runSpeed	200
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	0
@@ -1406,7 +1485,8 @@ B1_Ice //has a hard time hitting enough times to slow or freeze a player
 B1_Lightning //don't attack perfectly but it's good enough for variety of attacks
 {
 	playerModel battledroid
-	customSkin  flame
+	customSkin  adv
+	MBClass		11
 	weapon		WP_THROWER
 	MB_ATT_THROWER_LIGHTNING 1
 	health		50
@@ -1425,24 +1505,58 @@ B1_Lightning //don't attack perfectly but it's good enough for variety of attack
 	class		CLASS_STORMTROOPER
 	height		64
 	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
-	snd			battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	walkSpeed	67
+	runSpeed	187
+	snd			BD_RC
+	sndcombat	BD_RC
+	sndextra	BD_RC
 	yawspeed	70
-	walkSpeed	55
-	runSpeed	200
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	0
 	dismemberProbHands	20
 	dismemberProbWaist	0
 }
-B1_Sniper //stands in the back and shoots, not amazing but an ok way to vary up the projectile types
+B1_Poison //don't attack perfectly but it's good enough for variety of attacks, effect is very ugly though
+{
+	playerModel battledroid
+	customSkin  adv
+	MBClass		11
+	weapon		WP_THROWER
+	MB_ATT_THROWER_POISON 1
+	health		50
+	armor 15
+	headPitchRangeDown 30
+	reactions	3
+	aim			1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+//	race		klingon
+	class		CLASS_STORMTROOPER
+	height		64
+	crouchheight 38
+	walkSpeed	67
+	runSpeed	187
+	snd			BD_RC
+	sndcombat	BD_RC
+	sndextra	BD_RC
+	yawspeed	70
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	0
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+B1_Ruptor //stands in the back and shoots, not amazing but an ok way to vary up the projectile types
 {
 	playerModel	battledroid
 	customSkin  sniper
+	MBClass		11
 	weapon	WP_DISRUPTOR
 	MB_ATT_DISRUPTOR 2
 	altFire			1
@@ -1458,12 +1572,12 @@ B1_Sniper //stands in the back and shoots, not amazing but an ok way to vary up 
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_STORMTROOPER
-	snd			battledroid
-	sndcombat	battledroid
-	sndextra	battledroid
+	snd			BD_EP3
+	sndcombat	BD_EP3
+	sndextra	BD_EP3
 	yawSpeed	140
-	walkSpeed	55
-	runSpeed	200
+	walkSpeed	67
+	runSpeed	187
 	health		50
 	armor 		15
 	dismemberProbHead	0
@@ -1477,10 +1591,14 @@ B2 //WIP: needs work and variants
 {
 	playerModel sbd
 	//customSkin  ep1
+	MBClass		11
 	weapon		WP_SBD
 	MB_ATT_FIREPOWER 3
+	MB_ATT_RECHARGE 3
+	RESOURCE_BATTERY 1
+	noLocationalDamage	1
 	health		250
-	scale 		120
+	scale 		110
 	headPitchRangeDown 30
 	reactions	3
 	aim			1
@@ -1495,8 +1613,8 @@ B2 //WIP: needs work and variants
 	class		CLASS_STORMTROOPER
 	height		80
 	crouchheight 60
-	walkSpeed	51
-	runSpeed	200
+	walkSpeed	100
+	runSpeed	100
 	snd			sbd
 	sndcombat	sbd
 	sndextra	sbd
