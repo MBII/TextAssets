@@ -1,8 +1,8 @@
 ClassInfo
 {
 	name  "mfs_survivor22"
-	weapons WP_MELEE|WP_BLASTER_PISTOL|WP_T21
-	attributes MB_ATT_PISTOL,1|MB_ATT_T21,3|MB_ATT_DISP_AMMO,3
+	weapons WP_MELEE|WP_BLASTER_PISTOL|WP_T21|WP_SABER
+	attributes MB_ATT_PISTOL,1|MB_ATT_T21,3|MB_ATT_SUPPLYDROP
 	maxhealth 50
 	maxarmor  50
 	model "sas"
@@ -11,6 +11,10 @@ ClassInfo
 	MBClass MB_CLASS_ELITETROOPER
 	classflags  CFL_STRONGAGAINSTPHYSICAL|
 	classNumberLimit	1
+	saber1			saber_knife
+	saberstyle		SS_TAVION
+	BPmultiplier 0
+	forcepool 0
 }
 
 WeaponInfo0
@@ -82,25 +86,21 @@ WeaponInfo2
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_BLASTER
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/aliens3/null"
-	MuzzleEffect		"battle_rifle/Muzzle_Flash"
-	AltMuzzleEffect		"battle_rifle/Muzzle_Flash"
-	MissileEffect		"battle_rifle/shot"
-	AltMissileEffect	"battle_rifle/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMissileMissEffect "halo_smg/wall_impact"
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/saber_knife/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	NewHandsModel 		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_knife" 	//Required: Weapon change icon
+	WeaponName		"^7Knife"    					//Required: Weapon change display name
 }
 
 description	"CT AUG
 
-Weapons:
-Knife
-FiveSeven
-AUG
+^2Weaponry:^7
+- Knife
+- FiveSeven
+- AUG
 
-Attributes:
-Ammobag"
+^8Attributes:^7
+- Ammobag ^3[USE]"

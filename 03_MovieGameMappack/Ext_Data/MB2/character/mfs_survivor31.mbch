@@ -1,7 +1,7 @@
 ClassInfo
 {
 	name  "mfs_survivor31"
-	weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CLONE_RIFLE
+	weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CLONE_RIFLE|WP_SABER
 	attributes MB_ATT_PISTOL,1|MB_ATT_CLONERIFLE,3|MB_ATT_DISP_HEALTH,3
 	maxhealth 50
 	maxarmor  50
@@ -11,6 +11,10 @@ ClassInfo
 	MBClass MB_CLASS_ELITETROOPER
 	classflags  CFL_STRONGAGAINSTPHYSICAL|
 	classNumberLimit	1
+	saber1			saber_knife
+	saberstyle		SS_TAVION
+	BPmultiplier 0
+	forcepool 0
 }
 
 WeaponInfo0
@@ -76,12 +80,23 @@ WeaponInfo2
 	firingAnim  BOTH_DC15_ATTACK
 }
 
+WeaponInfo3
+{
+	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/saber_knife/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	NewHandsModel 		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_knife" 	//Required: Weapon change icon
+	WeaponName		"^7Knife"    					//Required: Weapon change display name
+}
+
 description	"CT M249
 
-Weapons:
-Knife
-P228
-M249
+^2Weaponry:
+- Knife
+- P228
+- M249
 
-Attributes:
-Medic"
+^8Attributes:
+- Medic ^3[USE on teammate]"
