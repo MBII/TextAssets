@@ -5,12 +5,13 @@ ClassInfo
 	name					"v3_IG88"
 	MBClass					MB_CLASS_WOOKIE
 	classNumberLimit		1
-	weapons					WP_SABER|WP_MANDO_PISTOL|WP_THERMAL|WP_AMBAN|WP_SONIC_NADE|WP_MELEE
+	weapons					WP_SABER|WP_MANDO_PISTOL|WP_THERMAL|WP_SONIC_NADE|WP_MELEE
 
-	WP_AmbanFlags			HELD_DISRUPTIFY|HELD_FLAME|HELD_SONIC
-	WP_MeleeFlags			HELD_SLOW
+	WP_AmbanFlags	HELD_DISRUPTIFY|HELD_FLAME|HELD_SONIC
+	WP_MeleeFlags	HELD_SLOW
+	WP_E22Flags		HELD_POISON|HELD_ALTRELOAD
 
-	attributes				MB_ATT_AMBAN,1|MB_ATT_RECHARGE,3|MB_ATT_THERMALS,1|MB_ATT_BESKAR,3|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_ANTI_MT,2|MB_ATT_TRACKING_BEACON|MB_ATT_SABER_COMBO_NONE|MB_ATT_CORTOSIS,1|MB_ATT_MAGNETIC_PLATING|MB_ATT_THROWER_POISON
+	attributes				MB_ATT_RECHARGE,3|MB_ATT_THERMALS,1|MB_ATT_BESKAR,3|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_ANTI_MT,2|MB_ATT_TRACKING_BEACON|MB_ATT_SABER_COMBO_NONE|MB_ATT_ENV_PROT,1
 
 	special1 EAS_NONE
 	special2	EAS_HI_POISONTHROWER
@@ -23,9 +24,17 @@ ClassInfo
 
 	classflags			CFL_SEEING_STEALTH|CFL_AKIMBOPISTOL3|CFL_STRONGAGAINSTPHYSICAL
 
-	forcepool		40
+	forcepool		25
+	rankForcepool 40,65,90
 	forcepowers FP_SEE,1
  resource RESOURCE_BATTERY
+ 
+ forceregen 0.01
+ 	resourceRegenRate 10000
+    resourceRegenCap 90
+    resourceRegenAmount 10
+	
+	DamageTaken 1
 
 	saber1 				droidmelee_legends
 	saberstyle			SS_STRONG
@@ -50,26 +59,47 @@ ClassInfo
 	model	"IG88"
 	skin		"default"
 	uishader	"models/players/IG88/mb2_icon_default"
-		
+
 	model_1	"IG88"
 	skin_1		"ig88b"
 	uishader_1	"models/players/IG88/mb2_icon_ig88b"
-		
+
 	model_2	"IG88"
 	skin_2		"ig88c"
 	uishader_2	"models/players/IG88/mb2_icon_ig88c"
+
+	isCustomBuild	1
+	mbPoints	3
 	
+c_att_skill_0	MB_ATT_POWER
+c_att_names_0	"Battery Pool (40/65/90)"
+c_att_ranks_0	1,1,1
+
+c_att_skill_1	MB_ATT_E_22
+c_att_names_1	"DAS-430 (E-22)"
+c_att_ranks_1	1,0,0
+c_att_descs_1 "Prim fire: Hitscan, Poisons on hit, 25% more FP Dmg,
+25% faster RoF, 20% slower Mag Reload"
+
+c_att_skill_2	MB_ATT_AMBAN
+c_att_names_2	"Pulse Cannon"
+c_att_ranks_2	1
+c_att_descs_2 "Ignites/stuns on hit,50% more FP Dmg, 20% more Velocity"
+
+c_att_skill_3	MB_ATT_THROWER_POISON
+c_att_names_3	"Wrist Poison Thrower ^3[CS2]"
+c_att_ranks_3	1
 }
 
 WeaponInfo0
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	NewWorldModel	"models/weapons2/dummyblaster/model.glm"
+	NewViewModel	"models/weapons2/dummy/dummy.md3"
 	Icon			"models/weapons2/halo_melee/icon.png"
 	WeaponName		"Droid Slappers"
-	primGore			1
+	primGore		1
 	altGore			1
 }
 
@@ -101,7 +131,7 @@ animRunAttackL BOTH_DUAL_PISTOLS_ATTACK_L
 animWalkAttackR BOTH_ALORA_SPIN
 animWalkAttackL BOTH_ALORA_SPIN
 	selectSound "sound/movers/objects/place_object.mp3"
-		MissileEffect			"Blaster/Shot01R"
+	MissileEffect			"Blaster/Shot01R"
 	altMissileEffect		"Blaster/Shot01R"
 	PowerupShotEffect "blaster/Shot04R"
 }
@@ -124,6 +154,38 @@ WeaponInfo2
 	hasAnimOverrides 1
 	animStand 	BOTH_STAND8
 	selectSound "sound/movers/objects/place_object.mp3"
+}
+
+WeaponInfo3
+{
+	WeaponToReplace	WP_E_22
+	WeaponBasedOff	WP_E_22
+	NewWorldModel	"models/weapons2/blaster_r/blaster_w.glm"
+	NewViewModel	"models/weapons2/blaster_r/blaster.md3"
+	Icon	"gfx/hud/w_icon_E11"
+	WeaponName		"DAS-430 Neural Inhibitor"
+	AltMuzzleEffect	"Blaster/MuzzleFlash01G"
+	AltFlashSound0	"sound/weapons/spy_pistol/fire.wav"
+	AltMissileEffect	"Blaster/Shot11G"
+	AltMissile3Effect	"Blaster/Shot03G"
+	FlashSound0	"sound/weapons/silencedpistol/fire.wav"
+	primHitscanShot 1
+	primHitscanTracer	10
+	primGore	1
+	clipSize  16
+	customAmmo 400
+	FPmult 1.25
+	rateMod 0.75
+	reloadTimeModifier 1.2
+	hasAnimOverrides 1
+	animReadyRun BOTH_MAND_PISTOL_READY
+	animReady BOTH_MAND_PISTOL_READY
+	animReadyWalk BOTH_MAND_PISTOL_READY
+animReadyNoAmmo BOTH_MAND_PISTOL_ATTACK
+	animAttackRun BOTH_ATTACK2
+	animAttack BOTH_ATTACK2
+	animAttackWalk  BOTH_MAND_PISTOL_ATTACK 
+ animStand BOTH_STAND9
 }
 
 ForceInfo0
@@ -155,10 +217,6 @@ A sturdy and heavily armored gunner.
 -- 15% less FP Dmg
 - Thermal Detonator (1)
 - Sonic Detonators (2)
-- Pulse Cannon (Amban Rifle 1)
--- Ignites/stuns on hit
--- 20% more Velocity
--- 50% more FP Dmg
 
 ^5Powers:
 - Radar Scanner (Sense 1)
@@ -166,14 +224,14 @@ A sturdy and heavily armored gunner.
 ^8Attributes:
 - 25% faster Hacking
 - 20% less Kb Taken
+- Recharge (3)
+-- Resource Regen: 10/10s
 - Strength (2)
+- Environmental Protection (1)
 - Beskar (3)
 - Blast Armor
 - Physical Resist
 - Armor Regen (1)
 - Sense Immunity
 - Anti-Mind Trick (2)
-- Tracking Beacon
-
-^3Abilities:
-- Wrist Poisonthrower ^3[CS2]"
+- Tracking Beacon"
