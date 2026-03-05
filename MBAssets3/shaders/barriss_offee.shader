@@ -18,16 +18,6 @@ models/players/barriss_offee/cape
 	}
 }
 
-models/players/barriss_offee/skirt
-{
-	cull	disable
-	{
-		map models/players/barriss_offee/skirt
-		depthWrite
-		rgbGen lightingDiffuse
-	}
-}
-
 models/players/barriss_offee/body_inq
 {
         nopicmip
@@ -124,7 +114,6 @@ models/players/barriss_offee/boots_inq
 
 models/players/barriss_offee/cape_old
 {
-	cull	disable
     {
         map models/players/barriss_offee/cape_old
         rgbGen lightingDiffuse
