@@ -3,16 +3,19 @@ ClassInfo
 	name  	"h2_JynE"
 	MBClass 		MB_CLASS_HERO
 	classNumberLimit	1
-	weapons 			WP_MANDO_PISTOL|WP_MELEE|WP_SABER|WP_BOWCASTER|WP_SONIC_NADE|WP_DET_PACK
+	weapons 			WP_MANDO_PISTOL|WP_MELEE|WP_SABER|WP_CLONE_RIFLE|WP_SONIC_NADE|WP_DET_PACK
 
  WP_SonicNadeFlags HELD_KNOCKBACK|HELD_PULSE
-	WP_BowcasterFlags  HELD_ALTRELOAD|HELD_PULSE|HELD_KNOCKBACK
+	WP_CloneRifleFlags  HELD_KNOCKBACK
 	
-	attributes  	MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FLIPKICK,1|MB_ATT_DASH,2|MB_ATT_BOWCASTER,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DET_PACK,3|MB_ATT_DEXTERITY,1
+	attributes  	MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FLIPKICK,1|MB_ATT_DASH,2|MB_ATT_CLONERIFLE,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DET_PACK,3|MB_ATT_DEXTERITY,1|MB_ATT_STRONGBLOBS,4
 	
 	forcepowers 	FP_SABER_OFFENSE,3
 	maxhealth 150
 	maxarmor  110
+	
+	special1HUD HUD_SONICNADE
+	special2HUD HUD_IONBLOB
 
 	saber1	truncheon_legends
 	saber2     a180_saber_legends
@@ -30,7 +33,7 @@ ClassInfo
 	skin  		"default"
 	uishader  	"models/players/jynerso/mb2_icon_default"
 
-	model_1 		"jyn_impgunner"
+	model_1 	"jyn_impgunner"
 	skin_1 		"default"
 	uishader_1 	"models/players/jyn_impgunner/mb2_icon_default"
 	
@@ -73,7 +76,7 @@ WeaponInfo0
 	ClipSize 			22
 	ReloadTimeModifier 	0.9
 	damageMod 1.1
- velocityMod 1.15
+	velocityMod 1.15
 	FPMult 				1.1
 	CustomAmmo			820
 	hasAnimOverrides 1
@@ -88,22 +91,20 @@ WeaponInfo0
 }
 WeaponInfo1
 {
-	WeaponToReplace 	WP_BOWCASTER
-	WeaponBasedOff  	WP_BOWCASTER
+WeaponToReplace	WP_CLONE_RIFLE
+WeaponBasedOff	WP_MANDO_PISTOL
 	NewWorldModel 		"models/weapons2/a180/a180_ion.glm"
 	NewViewModel		"models/weapons2/a180/model_ion.md3"
-	MissileEffect		 "rockets/MissilePulse" 
-	AltMissileEffect     "rockets/MissilePulse"
-	MuzzleEffect			"blaster/MuzzleFlash01B"
-	AltMuzzleEffect			"blaster/MuzzleFlash01B"
-	FlashSound0			"sound/weapons/rocket/alt_fire.mp3" 
-	AltFlashSound0			"sound/weapons/rocket/alt_fire.mp3" 	
+	AltMuzzleEffect		"blaster/MuzzleFlash01B"
+	AltFlashSound0		"sound/weapons/rocket/alt_fire.mp3" 	
 	Icon  				"gfx/hud/w_icon_a180_ion"
 	WeaponName  		"A180 Ion Attachment"
-	ChargeEffect		"gfx/effects/cloneFrontFlash"
-	clipSize 			4
-	CustomAmmo 		38
-	FPMult 				2.5
+	AltChargeEffect		"gfx/effects/cloneFrontFlash"
+	clipSize 		1
+	customammo 8
+	velocitymod 2.5
+	primFireEnabled	0
+	DamageMod 1.25
 	hasAnimOverrides 1
 	animStand BOTH_STAND1
 	animReadyRun TORSO_WEAPONREADY3
@@ -115,7 +116,6 @@ WeaponInfo1
 	AnimReadyNoAmmo BOTH_WESTARM5_ATTACK
 animCharge BOTH_WESTARM5_ATTACK
 }
-
 WeaponInfo2
 {
 	WeaponToReplace		WP_SABER			
@@ -161,9 +161,12 @@ A damage/fire rate-boosted pistoleer with advanced movement capabilities and a s
 -- 15% faster Velocity
 -- 10% more Dmg/FP Dmg
 -- 10% faster Reload
-- A180 Ion Attachment (Bowcaster 3)
--- Shocks/pushes on hit
--- 150% more FP Dmg
+- A180 Ion Attachment (Clone Rifle 2)
+-- Ion Blobs (8)
+-- Pushes on hit
+-- 125% more Dmg
+-- 250% more Velocity
+-- Sec only
 - Electro-Sonic Flashbangs (2)
 -- Shocks/sonics/blinds/pushes on det
 -- Prim only

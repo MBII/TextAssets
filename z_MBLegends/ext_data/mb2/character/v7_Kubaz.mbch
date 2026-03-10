@@ -1,43 +1,47 @@
 //Legends Mode character file - Created by Frenzy & Leos
 ClassInfo
 {
-	name			"v7_ImpAgent"
+	name			"v7_Kubaz"
 	MBClass			MB_CLASS_BOUNTY_HUNTER
 	classNumberLimit	2
 	extralives			1
 	weapons			WP_MELEE|WP_SABER
 
-	attributes		MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON|MB_ATT_TRACKING_DART,1
+	attributes		MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON|MB_ATT_TRACKING_DART,1|MB_ATT_GRAPPLE_HOP|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_FLIPKICK,1
 
 	maxhealth		90
-	MaxArmor		5
-	rankArmor		10,15,20
+	MaxArmor		10
+	rankArmor		15,60,90
 
 	//ArmourRegenCap 20
-	ArmourRegenRate	20000
+	//ArmourRegenRate	1000
 
-	rankArmourRegenAmount 20
+	//rankArmourRegenAmount 1
 
-	resource	RESOURCE_BATTERY
-	forcepool 65
-	forceregen		2.65
+	resource	RESOURCE_STAMINA
+	forcepool 100
+	forceregen		1
 
 	BPmultiplier    0
 	saber1			Legends_Knife_Spy
+	saber2	Legends_Knife_Spy
+	
 	forcepowers     FP_SABER_OFFENSE,3
-	saberstyle		SS_TAVION|SS_FAST
+	saberstyle		SS_TAVION|SS_DUAL
 	saberDamage 	100
 
-	//WP_BlasterPistolFlags	HELD_POISON
+	special1HUD HUD_TRACKINGDART
+	special2HUD HUD_WRISTLASER
+
+	WP_BlasterPistolFlags	HELD_POISON
 
 	classflags		CFL_HEAVYMELEE|CFL_SEEING_STEALTH
-	holdables		HI_CLOAK
 
 	special1 EAS_HI_WRIST
 	meleespecial2 EAS_HI_TRACKER
  special2 EAS_HI_KICK
 	special3	EAS_HI_DASH
-	special4 EAS_HI_CLOAK
+	special4	EAS_HI_GRAPPLEHOOK
 
 	uioverlay_l "gfx/icons/tactician"
 	uioverlay_c "gfx/icons/spec_infantry"
@@ -49,7 +53,6 @@ ClassInfo
 	gloatAnim TORSO_HANDSIGNAL4
 	flourishAnim BOTH_SPINATTACK7
 	saberStanceAnim BOTH_STAND9
-
 
 model		"tie_pilot"
 skin		"garindan"
@@ -63,26 +66,14 @@ model_2		"tie_pilot"
 skin_2		"kubazb"
 uishader_2	"models/players/tie_pilot/mb2_icon_kubazb"
 
-model_3		"stormie"
-skin_3		"shadow"
-uishader_3	"models/players/stormie/mb2_icon_shadow"
-
-model_4 	"stormie"
-skin_4 		"vader"
-uishader_4	"models/players/stormie/mb2_icon_vader"
-
-model_5		"saboteur" 				
-skin_5		"default"					
-uishader_5	"models/players/saboteur/mb2_icon_default"
-
 	isCustomBuild	1
-	mbPoints	50
+	mbPoints	55
 
 	c_att_skill_0	MB_ATT_PISTOL
 	c_att_names_0	"Assassin Blaster Pistol"
-	c_att_ranks_0	2,1,3
-	c_att_descs_0	"Prim fire: Hitscan, 25% more Velocity, 50% more Charged FP Dmg,
-35% less Dmg, 25% slower RoF, 25% slower Reload"
+	c_att_ranks_0	1,1,3
+	c_att_descs_0	"Prim fire: Hitscan, Poisons on hit, 25% more Velocity,
+50% more Charged FP Dmg, 40% less Dmg, 25% slower RoF"
 
 	c_att_skill_1	MB_ATT_DC_CARBINE
 	c_att_names_1	"E-11 Stun Carbine"
@@ -103,36 +94,45 @@ uishader_5	"models/players/saboteur/mb2_icon_default"
 
 	c_att_skill_5	MB_ATT_RESPAWNS
 	c_att_names_5	"Reinforcement"
-	c_att_ranks_5	20
+	c_att_ranks_5	25
 	c_att_descs_5 "1 default"
 	
 	c_att_skill_6	MB_ATT_ARMOUR
-	c_att_names_6	"Armor (10/15/20)"
-	c_att_ranks_6	1,2,3
+	c_att_names_6	"Armor (30/60/90)"
+	c_att_ranks_6	2,3,3
 
-	c_att_skill_7	MB_ATT_ARMOUR_REGEN_AMOUNT
-	c_att_names_7	"> Armor Regen (20/20s)"
-	c_att_ranks_7	5
+	c_att_skill_7	MB_ATT_DEXTERITY
+	c_att_names_7	"Dexterity"
+	c_att_ranks_7	2,1,4
 
-	c_att_skill_8	MB_ATT_RECHARGE
-	c_att_names_8	"Battery Recharge"
-	c_att_ranks_8	2,2,6
+	c_att_skill_8	MB_ATT_STAMINA
+	c_att_names_8	"Stamina"
+	c_att_ranks_8	4
+	
+	c_att_skill_9 MB_ATT_CLOAK
+	c_att_names_9 "Cloak"
+	c_att_ranks_9 6
 
-	c_att_skill_9	MB_ATT_SPY_DISGUISE
-	c_att_names_9	"Disguise ^3[Toggle Melee]"
-	c_att_ranks_9	3,3,3
+	c_att_skill_10	MB_ATT_SPY_DISGUISE
+	c_att_names_10	"Disguise ^3[Toggle Melee]"
+	c_att_ranks_10	2,2,2
 
-	c_att_skill_10	MB_ATT_WRISTLASER
-	c_att_names_10	"Wrist Laser ^3[CS1]"
-	c_att_ranks_10	5
+	c_att_skill_11	MB_ATT_WRISTLASER
+	c_att_names_11	"Wrist Laser ^3[CS1]"
+	c_att_ranks_11	4
 
-	c_att_skill_11	MB_ATT_TRACKING_DART
-	c_att_names_11	"Tracking Darts ^3[CS2 Melee]"
-	c_att_ranks_11	0,2,2
+	c_att_skill_12	MB_ATT_TRACKING_DART
+	c_att_names_12	"Tracking Darts ^3[CS2 Melee]"
+	c_att_ranks_12	0,2,2
 
-	c_att_skill_12	MB_ATT_DASH
-	c_att_names_12	"Dash ^3[CS3]"
-	c_att_ranks_12	0,1
+	c_att_skill_13	MB_ATT_DASH
+	c_att_names_13	"Dash ^3[CS3]"
+	c_att_ranks_13	2,1
+
+	c_att_skill_14	MB_ATT_GRAPPLE_HOOK
+	c_att_names_14	"Grap. Hook/Hop ^3[CS4 Melee]"
+	c_att_ranks_14	1,3
+	c_att_descs_14 	"Retain momentum from first Grapple"
 }
 
 WeaponInfo0
@@ -150,7 +150,7 @@ WeaponInfo0
 	primHitscanTracer	10
 	primGore	1
 Velocitymod 1.25
-	Damagemod 0.55
+	Damagemod 0.6
 	ratemod 1.25
 	FPChargeMult	1.5
 	reloadTimeModifier 1.25
@@ -192,7 +192,7 @@ WeaponInfo2
 	NewWorldModel	"models/weapons2/vibroknife/model.glm"
 	NewViewModel	"models/weapons2/dummy/dummy.md3"
 	Icon	"gfx/hud/w_icon_prisonknife"
-	WeaponName	"Jagged Vibroknife"
+	WeaponName	"Dual Vibroknives"
 }
 
 ForceInfo0
@@ -204,25 +204,26 @@ ForceInfo0
 	LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
-description	"Imperial Agent
+description	"Kubaz Spy
 
-Mid-ranged elite soldiers who can Disguise themselves and Cloak.
+Versatile assassins who can Disguise themselves and Cloak.
 
 ^2Weaponry:
 - Heavy Melee
-- Jagged Vibroknife (Cyan/Blue Saber)
+- Dual Vibroknives (Dual/Cyan Sabers)
 -- No Saber/Blaster Block
 -- 60% less Reach
 
-^6Inventory:
-- Cloaking Device ^3[CS4]
-
 ^8Attributes:
 - Reinforcement (1)
+- Bunny Hop (1)
+- Slow Faller
+- Grapple Hop
+- Stamina (0)
 - Sense Immunity
 - Tracking Beacon
 
 ^3Abilities:
+- Flipkick (1) ^3[Contact Jump]
 - Gunkick ^3[CS2]
-- Tracking Darts (2) ^3[CS2 Melee]
-- Dash (1) ^3[CS3]"
+- Tracking Darts (2) ^3[CS2 Melee]"
