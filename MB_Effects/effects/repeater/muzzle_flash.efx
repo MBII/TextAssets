@@ -1,24 +1,25 @@
-repeatDelay				300
+// Simple muzzle flash effect
 
 Line
 {
-	origin2				24 0 0 30 0 0
+	life		10
+	origin2	24 0 0 	30 0 0
+
+	width
+	{
+		start 	6.75 	8.5
+		end	5.0
+		flags	linear
+	}
 
 	alpha
 	{
-		start			0.5 0.6
-		end				0.35
-		flags			linear
+		start	0.5	0.6
+		end	0.35
+		flags	linear
 	}
 
-	size
-	{
-		start			6.25 8.5
-		end				5
-		flags			linear
-	}
-
-	shaders
+	shader
 	[
 		gfx/effects/yellow_bryarSideFlash
 	]
@@ -26,52 +27,64 @@ Line
 
 Particle
 {
-	life				60
-
-	origin				2 0 0
-
-	rotation			0 360
-
-	alpha
-	{
-		start			0.8 1
-		end				0.7
-		flags			linear
-	}
+	life	30
+	origin	5 0 0
+	rotation	0	360
 
 	size
 	{
-		start			6 7.5
-		end				7
-		flags			linear
+		start 	8.0 	10.5
+		end	7.0
+		flags	linear
 	}
 
-	shaders
+	alpha
+	{
+		start	0.8	1.0
+		end	0.6
+		flags	linear
+	}
+
+	shader
 	[
 		gfx/effects/yellow_bryarFrontFlash
 	]
 }
 
-CameraShake
-{
-	life				100
-
-	intensity			1.4
-
-	radius				60
-}
-
 Light
 {
-	life				125
+	size
+	{
+		start 	100	150
+	}
 
 	rgb
 	{
-		start			1 0.7 0.2
+		start  1.0 0.7 0.2
 	}
+}
 
-	size
-	{
-		start			75
-	}
+Sound
+{
+	sounds
+	[
+		sound/weapons/repeater/fire.wav
+	]
+}
+
+forcefeedback
+{
+	forces
+	[
+		fffx/weapons/repeater/fire
+	]
+}
+
+CameraShake
+{
+	life				50
+
+	intensity			0.3 0.4
+
+	radius				60
 }
