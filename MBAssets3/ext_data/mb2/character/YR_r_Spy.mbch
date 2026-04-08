@@ -2,84 +2,101 @@
 
 ClassInfo
 {
-	name  			"YR_r_Spy"
-	weapons			WP_MELEE|WP_SABER|WP_FRAG_NADE|WP_THROWER|WP_BLASTER_PISTOL
-	saber1		legends_Knife
-	sabercolor		0
-	forcepowers     FP_SABER_OFFENSE,3
-	saberstyle		SS_TAVION|SS_FAST
-	attributes  	MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_FRAGS,1|MB_ATT_DASH,2|MB_ATT_THROWER_Flame|MB_ATT_PISTOL,2
-	maxhealth 		80
-	maxarmor  		25
-	mbclass 	MB_CLASS_ARCTROOPER
-	forcepool		100
-	holdables		HI_CLOAK
-	speed           1.03
-	classflags 		CFL_SEEING_STEALTH
-	extralives		1
-	classnumberlimit 2
-	//resource		resource_stamina
-	special1		EAS_HI_SPRINT
-	special2		EAS_HI_DEX
-	special3        EAS_HI_DASH
+	name				"YR_r_Spy"
+	weapons				WP_MELEE|WP_SABER|WP_FRAG_NADE|WP_THROWER|WP_BLASTER_PISTOL
+	attributes			MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_STAMINA,2|MB_ATT_FRAGS,1|MB_ATT_DASH,2|MB_ATT_THROWER_Flame|MB_ATT_PISTOL,2
+	holdables			HI_CLOAK
+	saber1				legends_Knife
+	sabercolor			0
+	saberstyle			SS_TAVION|SS_FAST
+	forcepowers			FP_SABER_OFFENSE,3
+	forcepool			100
+	maxhealth			80
+	maxarmor			25
+	extralives			1
+	speed				1.03
+    model				"bothan-spy"
+	skin				"default"
+	uishader			"models/players/bothan-spy/mb2_icon_default"
+	mbclass				MB_CLASS_ARCTROOPER
+	classflags			CFL_SEEING_STEALTH
+	classnumberlimit	2
 	
-	flourishanim BOTH_STAND2TO1
-	WalkBackward BOTH_WALK_DUAL
-	WalkForward BOTH_WALK_DUAL
+	//resource			resource_stamina
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+	special3			EAS_HI_DASH
 	
-    model		"bothan-spy"
-	skin			"default"
-	uishader		"models/players/bothan-spy/mb2_icon_default"
+	flourishanim		BOTH_STAND2TO1
+	WalkBackward		BOTH_WALK_DUAL
+	WalkForward			BOTH_WALK_DUAL
 	
-	respawnCustomTime 10000
+	respawnCustomTime	10000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace			WP_THROWER
-	WeaponBasedOff			WP_CLONE_RIFLE
-	NewWorldModel			"models/weapons2/CR-1_cannon/rifle_w.glm"
-	NewViewModel			"models/weapons2/CR-1_cannon/rifle.md3"
-	Icon					"gfx/hud/w_icon_cr1_blastcannon"
-	WeaponName				"CR-4I Incinerator"
-	customAmmo		480
-	clipsize		60
-	idleAnim  BOTH_DC15_READY
-	firingAnim  BOTH_DC15_ATTACK
-	ReloadTimeModifier 	1.4
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER
+	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
+	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
+	Icon				"gfx/hud/w_icon_sc-10_holdout" 
+	WeaponName			"Holdout Pistol"
+	FlashSound0			"sound/weapons/spy_pistol/fire.wav"
+	AltFlashSound0		"sound/weapons/spy_pistol/alt_fire.wav"
+	hasAnimOverrides	1
+	animReady			BOTH_MAND_PISTOL_IDLE
+	animReadyRun		BOTH_MAND_PISTOL_READY
+	animReadyWalk		BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo		BOTH_MAND_PISTOL_ATTACK
+	animAttack			BOTH_MAND_PISTOL_ATTACK
+	animAttackRun		BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk		BOTH_MAND_PISTOL_ATTACK
+	animStand			BOTH_MAND_PISTOL_IDLE
 }
 
 WeaponInfo1
 {
-	WeaponToReplace	WP_BLASTER_PISTOL
-	WeaponBasedOff	WP_BLASTER
-	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
-	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
-	Icon				"gfx/hud/w_icon_sc-10_holdout" 
-	WeaponName		"Holdout Pistol"
-	FlashSound0		"sound/weapons/spy_pistol/fire.wav"
-	AltFlashSound0	"sound/weapons/spy_pistol/alt_fire.wav"
-	idleAnim			BOTH_MAND_PISTOL_READY
-	firingAnim          BOTH_MAND_PISTOL_ATTACK
+	WeaponToReplace		WP_THROWER
+	WeaponBasedOff		WP_CLONE_RIFLE
+	NewWorldModel		"models/weapons2/CR-1_cannon/rifle_w.glm"
+	NewViewModel		"models/weapons2/CR-1_cannon/rifle.md3"
+	Icon				"gfx/hud/w_icon_cr1_blastcannon"
+	WeaponName			"CR-4I Incinerator"
+	customAmmo			480
+	clipsize			60
+	ReloadTimeModifier 	1.4
+	hasAnimOverrides	1
+	animReady			BOTH_DC15_IDLE
+	animReadyRun		BOTH_DC15_READY
+	animReadyWalk		BOTH_DC15_READY
+	animReadyNoAmmo		BOTH_DC15_ATTACK
+	animAttack			BOTH_DC15_ATTACK
+	animAttackRun		BOTH_DC15_ATTACK
+	animAttackWalk		BOTH_DC15_ATTACK
+	animStand			BOTH_DC15_IDLE
 }
 
 WeaponInfo2
 {
-	WeaponToReplace	WP_SABER
-	WeaponBasedOff	WP_SABER
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
 	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_prisonknife"
-	WeaponName		"Vibroknife"
+	WeaponName			"Vibroknife"
 }
 
 WeaponInfo3
 {
 	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
-	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
-	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
-	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	WeaponBasedOff		WP_CONC_NADE
+	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
+	MissileModel		"models/weapons/Grenade_Concussion/proj.md3"
+	Icon				"gfx/hud/w_icon_stungrenade"
+	WeaponName			"Flashbang Grenades"
+	primFireEnabled		0
 	
 	altMissileMissEffect		"Grenades/EXP_Flash"
 	MissileMissEffect			"Grenades/EXP_Flash"
@@ -87,40 +104,36 @@ WeaponInfo3
 	missileHitHumanEffect		"Grenades/EXP_Flash"
 	altMissileHitDroidEffect	"Grenades/EXP_Flash"
 	missileHitDroidEffect		"Grenades/EXP_Flash"
-	
-	Icon						"gfx/hud/w_icon_stungrenade"
-	WeaponName				"Flashbang Grenades"
-	primFireEnabled			0
 	//needs a different glow
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar Scanner"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/forcepowers/radar"
+	ForcePowerName		"Radar Scanner"
 }
 
 description	"Bothan Spy
 
 ^2Weaponry:
-- Melee
-- CR-4I Incinerator
 - Holdout Pistol (2)
-- Flash Grenade (1)
+- CR-4I Incinerator
+- 1 Flash Grenade
 - Vibroknife
-- Slap ^3[CS2]
+-- Cyan / Blue Styles
 
-^8Attributes:
-- Stamina (2) ^8[CS1]
-- Dex Roll ^3[CS2]
-- Passive Healing (2)
-- Dash (2) ^8[CS3]
-- Reinforcement (1)
-- Force Sense Immunity
-
-^3Inventory:
+^6Inventory:
 - Cloaking Device ^3[CS1]
 
-Details:
-The Rebel Vanguard is the Rebel Alliance unit built for heavy damage towards tanks, turrets, and other objects with lots of health. "
+^8Attributes:
+- Force Sense Immunity
+- Stamina (2)
+- Healing (2)
+- Reinforcement (1)
+
+^3Abilities:
+- Sprint ^8[CS1]
+- Dex Roll ^3[CS2]
+- Dash (2) ^8[CS3]
+"

@@ -3,20 +3,20 @@
 ClassInfo
 {
 	name				"hC_Boss"
-	weapons				WP_MELEE|WP_CLONE_RIFLE|WP_BLASTER_PISTOL|WP_FRAG_NADE
-	attributes			MB_ATT_CLONE_PISTOL,1|MB_ATT_CLONERIFLE,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,3|MB_ATT_CLONEBLOBS,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_BLASTER,1|MB_ATT_FRAGS,3|MB_ATT_DISP_HEALTH,3
+	weapons				WP_MELEE|WP_CLONE_RIFLE|WP_CLONE_PISTOL|WP_FRAG_NADE
+	attributes			MB_ATT_CLONE_PISTOL,1|MB_ATT_CLONERIFLE,1|MB_ATT_AMMO,3|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,3|MB_ATT_CLONEBLOBS,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_FRAGS,3|MB_ATT_DISP_HEALTH,3
+	holdables 			HI_MEDPAC_BIG|HI_EWEB
+	forcepowers			FP_SEE,1
+	forcepool			40
 	maxhealth			100
 	maxarmor			100
+	speed				1
 	model				"clonerc2"
 	skin				"boss"
 	uishader			"models/players/clonerc2/mb2_icon_boss"
+	classflags			CFL_STATVIEWER
 	MBClass				MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	classflags			CFL_STATVIEWER
-	holdables 			HI_MEDPAC_BIG|HI_EWEB
-	speed				1
-	forcepowers			FP_SEE,1
-	forcepool			40
 }
 
 WeaponInfo0
@@ -29,18 +29,20 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_dc-17mB"
 	WeaponName			"DC-17M: Blaster Attachment"
 	customAmmo 			500
+	clipSize			90
+	selectSound			"sound/weapons/dc17m/select.mp3"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponToReplace		WP_CLONE_PISTOL
 	WeaponBasedOff		WP_CLONE_PISTOL
 	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
 	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
 	Icon				"gfx/hud/w_icon_clonepistol"
-	WeaponName			"DC-15s"	
-	FlashSound0			"sound/weapons/clonepistol/fire.mp3"
-	AltFlashSound0 		"sound/weapons/clonepistol/altfire.mp3"
+	WeaponName			"DC-15s Side Arm Blaster"
+	FlashSound0			"sound/weapons/dc-15s/fire.wav"
+	AltFlashSound0		"sound/weapons/dc-15s/fire.wav"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
 	MissileEffect		"Blaster/Shot01B"
@@ -53,29 +55,34 @@ WeaponInfo1
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/hud/RC/radar"
-	ForcePowerName	"Radar"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/hud/RC/radar"
+	ForcePowerName		"Radar"
 }
 
 description	"RC-1138 'Boss'
 
-Weaponary:
-DC-15s
-DC-17M: Blaster Attachment
-Concussive Blasts (9)
+^2Weaponry:
+- DC-15s Side Arm Blaster (1)
+- DC-17M: Blaster Attachment (1)
+-- Concussive Blasts (9)
+- 3 Frag Grenades
 
-Portable E-Web
-Frag Grenades (3)
+^6Inventory:
+- Advanced Medpac (50HP)
+- Portable E-Web
 
-Attributes:
-Dexterity
-Stamina
+^8Attributes:
+- View Ally Stats
+- Recharging Armor
+- Stamina (3)
+- Dexterity (1)
 
-Specials:
-Radar
-Big Bacta
-Can heal squad
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Can Heal Squad [Press Use on Allies]
+- Radar
 
 Even among clones, there is a heirarchy. Three-Eight is undisputed leader of the Deltas.  Relatively taciturn, when he speaks, it's usually to bark out an order to his squad. Three-Eight has earned the respect and loyalty of his squad, and he repays that dedication in strong leadership. Despite being trained by Walon Vau, Three-Eight somehow inherited Jango's strong Concord Dawn accent and speech patterns."
 

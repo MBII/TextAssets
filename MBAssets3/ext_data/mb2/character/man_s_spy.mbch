@@ -2,98 +2,84 @@
 
 ClassInfo
 {
-	name			"man_s_spy"
-	weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_SONIC_NADE|WP_TRIP_MINE
-    saberstyle  	SS_MEDIUM|SS_FAST
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_STAMINA,2|MB_ATT_SONIC_DETONATOR,1|MB_ATT_PISTOL,2|MB_ATT_TRIP_MINES,3|MB_ATT_MICRO_GRENADES,1
-	APmultiplier		0.8	
-    forcepool       65
-	forcepowers		FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1
-	maxhealth		60
-	maxarmor		35
-	extralives		1
-	classflags		CFL_SEEING_STEALTH
-	classNumberLimit 	2
-    MBClass			MB_CLASS_ARCTROOPER
-	holdables		HI_CLOAK
-    speed			1.125
-	saber1			legends_Knife
-	model 			"Selkath"
-	skin  			"red"
-	uishader  		"models/players/Selkath/mb2_icon_red"
-	WP_BlasterPistolFlags	HELD_DISRUPTIFY|HELD_FLAME|HELD_SLOW
-
-	  
+	name				"man_s_spy"
+	weapons				WP_MELEE|WP_SABER|WP_BRYAR_OLD|WP_SONIC_NADE|WP_TRIP_MINE
+	WP_BryarOldFlags	HELD_DISRUPTIFY|HELD_FLAME|HELD_SLOW
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_STAMINA,2|MB_ATT_SONIC_DETONATOR,1|MB_ATT_BRYAR_OLD,2|MB_ATT_TRIP_MINES,3|MB_ATT_MICRO_GRENADES,1
+	holdables			HI_CLOAK
+	saber1				legends_Knife
+	saberstyle			SS_MEDIUM|SS_FAST
+	APmultiplier		0.8
+	forcepowers			FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1
+	forcepool			65
+	maxhealth			60
+	maxarmor			35
+	extralives			1
+	speed				1.125
+	model				"Selkath"
+	skin				"red"
+	uishader			"models/players/Selkath/mb2_icon_red"
+    MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_SEEING_STEALTH
+	classNumberLimit	2
+	resource			RESOURCE_STAMINA
+	special2			EAS_HI_GRAPPLEHOOK
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL					
-	NewWorldModel		"models/weapons2/kotor_pistol1/pistol_w.GLM"
-	NewViewModel		"models/weapons2/kotor_pistol1/model.md3"
-	Icon			"gfx/hud/w_icon_kotor_dispistol"
-	WeaponName		"Disruptor Pistol"
-	MuzzleEffect		"Blaster/MuzzleFlash01Y"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01Y"
-	MissileEffect		"Blaster/Shot02Y"
-	Missile3Effect		"Blaster/Shot02Y"
-	AltMissileEffect	"Blaster/Shot02Y"
-	PowerupShotEffect	"Blaster/Shot04Y"
-	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash"
-	FlashSound0		"sound/weapons/kotor/fire_light.wav"
-	AltFlashSound0		"sound/weapons/kotor/fire_power1.mp3"
+	WeaponToReplace			WP_BRYAR_OLD
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/kotor_pistol1/pistol_w.GLM"
+	NewViewModel			"models/weapons2/kotor_pistol1/model.md3"
+	Icon					"gfx/hud/w_icon_kotor_dispistol"
+	WeaponName				"Disruptor Pistol"
+	MuzzleEffect			"Blaster/MuzzleFlash01Y"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01Y"
+	MissileEffect			"Blaster/Shot02Y"
+	Missile3Effect			"Blaster/Shot02Y"
+	AltMissileEffect		"Blaster/Shot02Y"
+	PowerupShotEffect		"Blaster/Shot04Y"
+	ChargeEffect			"gfx/effects/yellow_bryarFrontFlash"
+	FlashSound0				"sound/weapons/kotor/fire_light.wav"
+	AltFlashSound0			"sound/weapons/kotor/fire_power1.mp3"
 }
 
 WeaponInfo1
 {
-		WeaponToReplace		WP_SABER
-		WeaponBasedOff		WP_SABER
-		NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
-		NewViewModel		"models/weapons2/dummy/dummy.md3"
-		Icon			"gfx/hud/w_icon_prisonknife"
-		WeaponName		"Vibro Knife"
-}
-
-WeaponInfo2
-{           
-	WeaponToReplace        	WP_TRIP_MINE
-	WeaponBasedOff         	WP_TRIP_MINE
-	NewWorldModel		"models/weapons2/laser_trap/laser_trap_w.glm"  	
-	NewViewModel	  	"models/weapons2/laser_trap/laser_trap.md3"  	
-	Icon             	"gfx/hud/w_icon_tripmine"
-	WeaponName		"Trip Mine"
-	customAmmo    		3
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/ct_weapon/ct_knife_F.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_prisonknife"
+	WeaponName				"Vibro Knife"
 }
 
 description	"Selkath Spy
 
-Weaponry:
+^2Weaponry:
+- Vibro Knife
+-- Yellow / Blue Styles
+-- Saber Defense (1)
+- Disruptor Pistol (2)
+-- Based on Bryar Pistol
+-- Sets Targets On Fire
+-- Disintegrates Targets On Death
+-- 15% Slower Movement While Held
+- 1 Concussion Grenade
+- 1 Sonic Detonator
+- 3 Trip Mines
 
-Vibro Knife (Medium & Fast)
-Disruptor Pistol (2)
-- Sets targets on Fire
-Concussion Grenade (1)
-Sonic Grenade (1)
-Trip Mine (3)
+^6Inventory:
+- Stealth Field Generator
 
-Equipment:
+^8Attributes:
+- Immune to Sense
+- Stamina (2)
+- Reinforcements (1)
 
-Stealth field generator [Inventory Use]
+^3Abilities:
+- Sprint ^3[CS1]
+- Grappling Hook (2)
 
-Attributes:
-
-Grappling Hook (2)
-Stamina (2)
-Reinforcements (1)
-Immune to Sense
-
-Vibro Knife Attributes:
-Knife Offense (3)
-Knife Defense (1)
-
-
-Details:
-
-Selkath spies, engaged in concealed partnership with the Republic, overcame their initial aversion to assassination, employing all available methods during the Ahto City uprising to counter the Sith assault.
-"
+Selkath spies, engaged in concealed partnership with the Republic, overcame their initial aversion to assassination, employing all available methods during the Ahto City uprising to counter the Sith assault."

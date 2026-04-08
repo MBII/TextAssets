@@ -2,87 +2,82 @@
 
 ClassInfo
 {
-
-	name					"man_s_Shasa"
-	weapons					WP_BLASTER_PISTOL|WP_MELEE|WP_SABER
-    saberstyle  			SS_MEDIUM|SS_STRONG|SS_FAST
-	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_REPULSE|MB_ATT_FORCEBLOCK,2|MB_ATT_PISTOL,3|MB_ATT_FORCEFOCUS,2|MB_ATT_AMMO,3
-	APmultiplier			1.05
-	BPmultiplier			1.05
-	forcepowers				FP_SABER_DEFENSE,2|FP_SABER_OFFENSE,3|FP_TELEPATHY,3|FP_LEVITATION,2|FP_SEE,3|FP_PUSH,3|FP_GRIP,3|FP_HEAL,2|FP_PULL,3
-	maxhealth				60
-	maxarmor				85
-	MBClass					MB_CLASS_JEDI
-	speed					0.98
-	saber1					kotor_longsword	
-	classNumberLimit		1	
-
-	model 					"Selkath"
-	skin  					"blue"
-	uishader  				"models/players/Selkath/mb2_icon_blue"
-
-    rateoffire          	1.4
-	WP_SaberFlags			HELD_SPEED
-	WP_BlasterPistolFlags 	HELD_SLOW
-	special1				EAS_FP_REPULSE
+	name				"man_s_Shasa"
+	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_SABER
+    WP_SaberFlags		HELD_SPEED
+	WP_BlasterPistolFlags	HELD_SLOW
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_REPULSE|MB_ATT_FORCEBLOCK,2|MB_ATT_PISTOL,3|MB_ATT_FORCEFOCUS,2|MB_ATT_AMMO,3
+	saber1				kotor_longsword
+	saberstyle  		SS_MEDIUM|SS_STRONG|SS_FAST
+	APmultiplier		1.05
+	BPmultiplier		1.05
+	forcepowers			FP_SABER_DEFENSE,2|FP_SABER_OFFENSE,3|FP_TELEPATHY,3|FP_LEVITATION,2|FP_SEE,3|FP_PUSH,3|FP_GRIP,3|FP_HEAL,2|FP_PULL,3
+	maxhealth			60
+	maxarmor			85
+	speed				0.98
+	rateoffire          1.4
+	model 				"Selkath"
+	skin  				"blue"
+	uishader			"models/players/Selkath/mb2_icon_blue"
+	MBClass				MB_CLASS_JEDI
+	classNumberLimit	1
+	special1			EAS_FP_REPULSE
 }
-
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER			
-	WeaponBasedOff		WP_SABER			
-	NewWorldModel		"models/weapons2/kotor_longsword/saber_w.glm"  
-	NewViewModel		"models/weapons2/kotor_longsword/saber_w.md3" 	  
-	Icon				"gfx/hud/w_icon_vibrosword"
-	WeaponName			"Fira"   		
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/kotor_longsword/saber_w.glm"
+	NewViewModel			"models/weapons2/kotor_longsword/saber_w.md3"
+	Icon					"gfx/hud/w_icon_vibrosword"
+	WeaponName				"Fira"
 }
 
 WeaponInfo1
 {
-    WeaponToReplace		WP_BLASTER_PISTOL     			
-    WeaponBasedOff		WP_BLASTER_PISTOL     			
-    NewWorldModel		"models/weapons2/kotor_hpistol/kotor_hpistol_w.glm"  
-    NewViewModel		"models/weapons2/kotor_hpistol/kotor_hpistol.md3"
-	Icon				"gfx/hud/w_icon_kotor_hpistol"
-	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav"
-	FlashSound0			"sound/weapons/kotor/fire_power1.wav"
-    WeaponName			"Mandalorian Heavy Pistol"  
+    WeaponToReplace			WP_BLASTER_PISTOL
+    WeaponBasedOff			WP_BLASTER_PISTOL
+    NewWorldModel			"models/weapons2/kotor_hpistol/kotor_hpistol_w.glm"
+    NewViewModel			"models/weapons2/kotor_hpistol/kotor_hpistol.md3"
+	Icon					"gfx/hud/w_icon_kotor_hpistol"
+	AltFlashSound0			"sound/weapons/kotor/fire_power1.wav"
+	FlashSound0				"sound/weapons/kotor/fire_power1.wav"
+    WeaponName				"Mandalorian Heavy Pistol"
 	
-	idleAnim			BOTH_MAND_PISTOL_READY
-	firingAnim          BOTH_MAND_PISTOL_ATTACK
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	animCharge				BOTH_MAND_PISTOL_READY
 }
-
 
 description	"Shasa
 
-Weaponry:
+^2Weaponry:
+- Fira
+-- Yellow / Red / Blue Styles
+-- Saber / Gun Defense (2)
+- Mandalorian Heavy Pistol (3) 
+-- 15% Slower Movement While Held
 
-Fira (Yellow/Red/Blue)
-Mandalorian Heavy Pistol (3) 
+^5Force Powers:
+- Jump  (2)
+- Push  (3)
+- Pull  (3)
+- Sense (3)
+- Mind Trick (3)
+- Heal  (2)
+- Grip  (3)
+- Waveform (Force Repulse) ^5[CS1]
 
-Force Powers:
+^8Attributes:
+- Force Block (2)
+- Force Focus (2)
 
-Waveform (Force Repulse) ^5[CS1]
-Force Jump (2)
-Force Push (3)
-Force Pull (3)
-Force Sense (3)
-Force Grip (3)
-Force Heal (2)
-Force Focus (2)
-Force Block (2)
-Mind Trick (3)
-
-Attributes:
-
-Fira Offense (3)
-Fira Defense (2)
-
-
-Details:
-
-Shasa was a Force-sensitive Selkath female who lived during the Jedi Civil War. After the Sith brainwashed Shasa and the Selkath youth, she refused to accept anything negative toward the Sith and was convinced that the Sith were victims of Republic lies and half-truths. When she learned that the Sith had tortured and killed her childhood friend Galas, Shasa was initially reluctant to believe this revelation, but she eventually accepted the truth and apologized to Revan for doubting him. Following Malak's death at a redeemed Revan's hands in the Jedi Civil War's final battle, Shasa founded an order of Force adepts that survived for close to four thousand years.
-
-
-"
+Shasa was a Force-sensitive Selkath female who lived during the Jedi Civil War. After the Sith brainwashed Shasa and the Selkath youth, she refused to accept anything negative toward the Sith and was convinced that the Sith were victims of Republic lies and half-truths. When she learned that the Sith had tortured and killed her childhood friend Galas, Shasa was initially reluctant to believe this revelation, but she eventually accepted the truth and apologized to Revan for doubting him. Following Malak's death at a redeemed Revan's hands in the Jedi Civil War's final battle, Shasa founded an order of Force adepts that survived for close to four thousand years."
