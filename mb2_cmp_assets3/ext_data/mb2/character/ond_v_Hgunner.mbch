@@ -2,60 +2,66 @@
 
 ClassInfo
 {
-	name			"ond_v_Hgunner"
-	weapons			WP_CLONE_RIFLE|WP_MELEE
-	attributes		MB_ATT_ASSEMBLE,1|MB_ATT_CLONERIFLE,3|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_STAMINA,1|MB_ATT_CLONEBLOBS,1
-	maxhealth		70
-	maxarmor		70
-	model 			"onderonian"
- 	skin 			"separatist"
- 	uishader 		"models/players/onderonian/mb2_icon_separatist"
-	MBClass			MB_CLASS_CLONETROOPER
+	name				"ond_v_Hgunner"
+	weapons				WP_CLONE_RIFLE|WP_MELEE
+	WP_MeleeFlags		HELD_SPEED
 	WP_CloneRifleFlags	HELD_SLOW
-	WP_Meleeflags		HELD_SPEED
-	rateoffire		1.3
-	speed			.85
+	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_CLONERIFLE,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,1|MB_ATT_CLONEBLOBS,1
+	maxhealth			70
+	maxarmor			70
+	extralives			1
+	speed				.85
+	rateoffire			1.3
+	model 				"onderonian"
+ 	skin 				"separatist"
+ 	uishader 			"models/players/onderonian/mb2_icon_separatist"
+	MBClass				MB_CLASS_CLONETROOPER
 	classNumberLimit	1
-	extralives		1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_CONCUSSION
-	NewWorldModel		"models/weapons2/kotor_repeater/model_w.glm"
-	NewViewModel		"models/weapons2/kotor_repeater/model.md3"
-	Icon				"gfx/hud/w_icon_kotor_repeater"
-	WeaponName			"Heavy Repeating Blaster"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	altMuzzleEffect		"Blaster/MuzzleFlash01R"
-	FlashSound0		"sound/weapons/kotor/fire_hvy.wav"	
-	MissileEffect		"Blaster/Shot01R"
-	clipSize		150
-	ReloadTimeModifier 	1.4
-	customammo		800
-	firingAnim		BOTH_MINIGUN_ATTACK
-	idleAnim		BOTH_MINIGUN_READY
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_CONCUSSION
+	NewWorldModel			"models/weapons2/kotor_repeater/model_w.glm"
+	NewViewModel			"models/weapons2/kotor_repeater/model.md3"
+	Icon					"gfx/hud/w_icon_kotor_repeater"
+	WeaponName				"Heavy Repeating Blaster"
+	FlashSound0				"sound/weapons/kotor/fire_hvy.wav"
 	AltFlashSound0			"sound/weapons/rocket/alt_fire"
+	clipSize				150
+	ReloadTimeModifier		1.4
+	customammo				800
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
+	altMuzzleEffect			"Blaster/MuzzleFlash01R"
+	MissileEffect			"Blaster/Shot01R"
+	altMissileEffect		"sbd/shot_cannon"
 	AltMissileMissEffect        "sbd/impact_cannon"
     AltMissileHitHumanEffect    "sbd/impact_cannon"
     AltMissileHitDroidEffect    "sbd/impact_cannon"
-	altMissileEffect		"sbd/shot_cannon"
+	hasAnimOverrides		1
+	animReady				BOTH_MINIGUN_IDLE
+	animReadyRun			BOTH_MINIGUN_READY
+	animReadyWalk			BOTH_MINIGUN_IDLE
+	animReadyNoAmmo			BOTH_MINIGUN_ATTACK
+	animAttack				BOTH_MINIGUN_ATTACK
+	animAttackRun			BOTH_MINIGUN_ATTACK
+	animAttackWalk			BOTH_MINIGUN_ATTACK
+	animStand				BOTH_MINIGUN_IDLE
+	animCharge				BOTH_MINIGUN_READY
 }
 
 description	"Vaklu Heavy Gunner
 
-Weaponry:
+^2Weaponry:
+- Heavy Repeating Blaster (3)
+-- Based on Clone Rifle
+-- 2 Concussive Blasts
+-- 30% Slower Rate Of Fire
 
-Heavy Repeating Blaster (70% ROF) (3)
-Concussive Blasts (Clone Blobs) (1)
-
-Attributes:
-
-Assemble
-Reinforcements (1)
-Stamina (1)
-
-Details:
+^8Attributes:
+- Stamina (1)
+- Reinforcements (1)
+- Assemble (1)
 
 A Soldier fighting for General Vaklu. This one is armed with a heavy repeating blaster."
