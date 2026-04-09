@@ -1,5 +1,6 @@
 models/players/13thsister/helmet
 {
+	cull	twosided
 	{
 		map models/players/13thsister/helmet
 		rgbGen lightingDiffuse
