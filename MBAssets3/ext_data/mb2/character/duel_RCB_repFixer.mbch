@@ -3,18 +3,21 @@
 ClassInfo
 {
 	name				"duel_RCB_repFixer"
-	weapons				WP_MELEE|WP_CLONE_RIFLE|WP_CLONE_PISTOL|WP_PULSE_NADE
-	attributes			MB_ATT_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_HEALING,1|MB_ATT_STAMINA,2|MB_ATT_PULSE_GRENADES,2
+	weapons				WP_MELEE|WP_CLONE_PISTOL|WP_CLONE_RIFLE|WP_PULSE_NADE
+	attributes			MB_ATT_CLONE_PISTOL,2|MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_DODGE,2|MB_ATT_HEALING,1|MB_ATT_STAMINA,2|MB_ATT_PULSE_GRENADES,2
+	holdables			HI_SHIELD|HI_SENTRY_GUN
 	maxhealth			100
 	maxarmor			120
+	speed				1.08
 	model				"clonerc2"
 	skin				"fixer"
 	uishader			"models/players/clonerc2/mb2_icon_fixer"
+	classflags			CFL_FASTHACKING
 	MBClass				MB_CLASS_CLONETROOPER
 	classNumberLimit	1
-	classflags			CFL_FASTHACKING
-	holdables			HI_SHIELD|HI_SENTRY_GUN
-	speed				1.08
+	resource			resource_stamina
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DODGE
 }
 
 WeaponInfo0
@@ -26,7 +29,9 @@ WeaponInfo0
 	FlashSound0			"sound/weapons/dc17m/fire.wav"
 	Icon				"gfx/hud/w_icon_dc-17mB"
 	WeaponName			"DC-17M: Blaster Attachment"
-	customAmmo 			500
+	customAmmo			500
+	clipSize			90
+	selectSound			"sound/weapons/dc17m/select.mp3"
 }
 
 WeaponInfo1
@@ -36,25 +41,30 @@ WeaponInfo1
 	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
 	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
 	Icon				"gfx/hud/w_icon_clonepistol"
-	WeaponName			"DC-15s"
+	WeaponName			"DC-15s Side Arm Blaster"
+	FlashSound0			"sound/weapons/dc-15s/fire.wav"
+	AltFlashSound0		"sound/weapons/dc-15s/fire.wav"
 	customAmmo 			400
 }
 
 description	"RC-1140 'Fixer'
 
-Weaponary:
-DC-15s (2)
-DC-17M (2)
-EMP Grenades (2)
+^2Weaponry:
+- DC-15s Side Arm Blaster (2)
+- DC-17M: Blaster Attachment (2)
+- 2 Pulse Grenades
 
-Attributes:
-Armour (3)
-Ammo (3)
-Dodge (2)
-Self Heal (1)
-Stamina (2)
-Fast Hacker
-Sentry Gun
-Portable Shield
+^6Inventory:
+- Portable Sentry Gun
+- Portable Shield
+
+^8Attributes:
+- Fast Hacker
+- Stamina (2)
+- Self Heal (1)
+
+^3Abilities:
+- Sprint ^3[CS1]
+- Dodge (2) ^3[CS2]
 
 The acknowledged 'second-in-command' of the Deltas is a gruff, by-the-book type of clone.  He insists on calling his squad mates by their batch designations, rather than the more colorful nicknames they acquired.  In the heat of battle, he's most often the one urging the rest of the group to press onward. Known to the others as 'Fixer,' Delta Four-Oh is the resident technology expert, and often handles computer slicing and code-breaking duties. Four-Oh was a favorite of the borderline sociopathic Vau - as they shared a common obssession with tech and tactics."

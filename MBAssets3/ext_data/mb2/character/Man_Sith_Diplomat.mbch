@@ -2,89 +2,89 @@
 
 ClassInfo
 {
-	name					"Man_Sith_Diplomat"
-	weapons					WP_MELEE|WP_BRYAR_PISTOL|WP_SABER
-	saberstyle				SS_TAVION|SS_FAST
-	saber1					kotor_vibroblade
-	attributes				MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,2|MB_ATT_ANTI_MT,1|MB_ATT_DODGE,2|MB_ATT_DASH,2|MB_ATT_RALLY,1|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE,1
-	forcepowers				FP_ABSORB,1
-	maxhealth				115
-	maxarmor				30
-	MBClass					MB_CLASS_HERO
-	classflags				CFL_FASTHACKING		
-	classNumberLimit		1
-	model 					"sith_officer"
-	skin  					"default"
-	uishader  				"models/players/sith_officer/mb2_icon_default"
-    WP_BRYARPistolFlags 	HELD_POISON
-	resource				resource_energy
-	forcepool				60
-	forceregen				1.25	
+	name				"Man_Sith_Diplomat"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_SABER
+	WP_BlasterPistolFlags 	HELD_POISON
+	attributes			MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_ANTI_MT,1|MB_ATT_DODGE,2|MB_ATT_DASH,2|MB_ATT_RALLY,1|MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_SHIELD_RECHARGE,1
+	saber1				kotor_vibroblade
+	saberstyle			SS_TAVION|SS_FAST
+	forcepowers			FP_ABSORB,1
+	forcepool			60
+	forceregen			1.25
+	maxhealth			115
+	maxarmor			30
+	model				"sith_officer"
+	skin				"default"
+	uishader			"models/players/sith_officer/mb2_icon_default"
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_FASTHACKING
+	classNumberLimit	1
+	resource			resource_energy
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/kotor_hobpistol/kotor_hobpistol_w.GLM"
+	NewViewModel			"models/weapons2/kotor_hobpistol/kotor_hobpistol.md3"
+	Icon					"gfx/hud/w_icon_kotor_hobpistol"
+	WeaponName				"Holdout Blaster Pistol"
+	FlashSound0				"sound/weapons/kotor/fire_light.wav"
+	AltFlashSound0			"sound/weapons/kotor/fire_power1.wav"
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	animCharge				BOTH_MAND_PISTOL_READY
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BRYAR_PISTOL
-	WeaponBasedOff		WP_BRYAR_PISTOL	
-	idleAnim			BOTH_MAND_PISTOL_READY
-	firingAnim          BOTH_MAND_PISTOL_ATTACK
-	NewWorldModel		"models/weapons2/kotor_hobpistol/kotor_hobpistol_w.GLM"
-	NewViewModel		"models/weapons2/kotor_hobpistol/kotor_hobpistol.md3"
-	Icon				"gfx/hud/w_icon_kotor_hobpistol"
-	WeaponName			"Holdout Blaster Pistol"
-		
-	FlashSound0			"sound/weapons/kotor/fire_light.wav"
-	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav" 
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/kotor_vibroblade/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_vibrosword"
+	WeaponName				"Vibroblade"
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_ABSORB
-	Icon		"gfx/hud/w_icon_sithshield.png"
-	ForcePowerName	"Sith Energy Shield (Absorb)"
-	HandShaderRed	59
-	HandShaderBlue	173
-	HandShaderGreen	230
-	HandShader2Red	59
-	HandShader2Blue	173
-	HandShader2Green 230
-}
-
-WeaponInfo2
-{
-	WeaponToReplace		WP_SABER			
-	WeaponBasedOff		WP_SABER			
-	NewWorldModel		"models/weapons2/kotor_vibroblade/saber_w.glm"  
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
-	Icon			"gfx/hud/w_icon_vibrosword"
-	WeaponName		"Vibroblade"    	 			
+	ForceToReplace			FP_ABSORB
+	Icon					"gfx/hud/w_icon_sithshield.png"
+	ForcePowerName			"Sith Energy Shield (Absorb)"
+	HandShaderRed			59
+	HandShaderBlue			173
+	HandShaderGreen			230
+	HandShader2Red			59
+	HandShader2Blue			173
+	HandShader2Green		230
 }
 
 description	"Sith Diplomat
 
-Weaponry:
+^2Weaponry:
+- Holdout Blaster Pistol (2)
+-- Poisons On Hit
+- Vibroblade
+-- Cyan / Blue Styles
+-- Saber Defense (2)
 
-Holdout Blaster Pistol (Poison) (2)
-Vibroblade
-- Blue & Cyan styles
+^8Attributes:
+- Sith Passcard [Fast Hacking]
+- Immune to Mind Trick
+- Recharging Shields (1)
+- Rally
 
-Attributes:
+^3Abilities:
+- Sith Energy Shield [Absorb] (1)
+- Dodge (3) ^3[CS1]
+- Dash (2) ^3[CS2]
 
-Sith Passcard (Fast hacking)
-Immune to Mind Trick
-Dodge (3)
-Dash (2)
-Rally
-Sith Energy Shield (1)(Force Absorb)
-Recharging Shields (1)
-
-Sword Attributes:
-Sword Offense (2)
-Sword Defense (2)
-
-Details:
-
-A Human male Sith diplomat was stationed on the water-covered planet Manaan during the Jedi Civil War. The diplomat believed that Sith victory in the war was inevitable and that Manaan's native sentient species, the Selkath, should abandon their neutrality and align with the Sith, or they might be forced to do so in the future. He also believed that the Selkath, while claiming neutrality on the surface, were actually biased against the Sith. He was completely and utterly loyal to Darth Malak's Sith Empire.
-
-
-"
+A Human male Sith diplomat was stationed on the water-covered planet Manaan during the Jedi Civil War. The diplomat believed that Sith victory in the war was inevitable and that Manaan's native sentient species, the Selkath, should abandon their neutrality and align with the Sith, or they might be forced to do so in the future. He also believed that the Selkath, while claiming neutrality on the surface, were actually biased against the Sith. He was completely and utterly loyal to Darth Malak's Sith Empire."

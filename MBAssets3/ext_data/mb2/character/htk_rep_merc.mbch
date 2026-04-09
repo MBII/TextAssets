@@ -1,79 +1,87 @@
+
+
 ClassInfo
 {
-	name			"htk_rep_merc"
-	MBClass			MB_CLASS_HERO
+	name				"htk_rep_merc"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_CRYO_NADE
+	attributes			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,2|MB_ATT_STAMINA,3|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_TRACKING_DART,3
+	holdables			HI_MEDPAC_BIG
+	saber1				soldierbaton_legends
+	saberstyle			SS_MEDIUM|SS_TAVION
+	forcepowers			FP_PROTECT,3|FP_SABER_OFFENSE,3
+	forcepool			35
+	forceregen			0.5
+	maxhealth			60
+	maxarmor			80
+	rateOfFire			1.35
+	damageGiven			0.9
+
+	model				"serroco"
+	skin				"dxun_cpt"
+	uishader			"models/players/serroco/mb2_icon_dxun_cpt"
+	MBClass				MB_CLASS_HERO
 	classnumberlimit	1
-	maxhealth		60
-	maxarmor		80
-	rateOfFire		1.35
-	damageGiven		0.9
-	attributes		MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,2|MB_ATT_STAMINA,3|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_TRACKING_DART,3
-	forcepowers     FP_PROTECT,3|FP_SABER_OFFENSE,3
-	forceregen		0.5
-	forcepool		35
-	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_CRYO_NADE
-	saber1			soldierbaton_legends
-	saberstyle  	SS_MEDIUM|SS_TAVION
-
-	model 			"serroco"
-	skin  			"dxun_cpt"
-	uishader  		"models/players/serroco/mb2_icon_dxun_cpt"
-	holdables       HI_MEDPAC_BIG
-
-  
-	resource		resource_stamina
-	special2		EAS_HI_SPRINT
-	special1		EAS_HI_DASH
-	special3		EAS_HI_TRACKER
-	special4		EAS_FP_PROTECT
+	
+	resource			resource_stamina
+	special2			EAS_HI_SPRINT
+	special1			EAS_HI_DASH
+	special3			EAS_HI_TRACKER
+	special4			EAS_FP_PROTECT
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL			
-	WeaponBasedOff		WP_BLASTER_PISTOL			
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER_PISTOL
 	NewWorldModel		"models/weapons2/kotor_bpistol1/kotor_bpistol1_w.glm"  
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
-	Icon			"gfx/hud/w_icon_kotor_hpistol_na"
-	WeaponName		"Heavy Pistol"   		
-		FlashSound0		"sound/weapons/kotor/fire_light.wav"
-	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav" 
-		idleAnim			BOTH_MAND_PISTOL_READY
-	firingAnim          BOTH_MAND_PISTOL_ATTACK
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_kotor_hpistol_na"
+	WeaponName			"Heavy Pistol"
+	FlashSound0			"sound/weapons/kotor/fire_light.wav"
+	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav"
+	hasAnimOverrides	1
+	animReady			BOTH_MAND_PISTOL_IDLE
+	animReadyRun		BOTH_MAND_PISTOL_READY
+	animReadyWalk		BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo		BOTH_MAND_PISTOL_ATTACK
+	animAttack			BOTH_MAND_PISTOL_ATTACK
+	animAttackRun		BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk		BOTH_MAND_PISTOL_ATTACK
+	animStand			BOTH_MAND_PISTOL_IDLE
 }
 
 ForceInfo0
 {
-    ForceToReplace   FP_PROTECT
-    Icon            "gfx/hud/w_icon_arkshield.png"
-    ForcePowerName  "Arkanian Energy Shield"
-	HandShaderRed	230
-	HandShaderBlue	2
-	HandShaderGreen	2
-	HandShader2Red	230
-	HandShader2Blue	2
-	HandShader2Green 2
+    ForceToReplace		FP_PROTECT
+    Icon				"gfx/hud/w_icon_arkshield.png"
+    ForcePowerName		"Arkanian Energy Shield"
+	HandShaderRed		230
+	HandShaderBlue		2
+	HandShaderGreen		2
+	HandShader2Red		230
+	HandShader2Blue		2
+	HandShader2Green	2
 }
 
 description	"Republic Mercenary [Hero]
 
-
-^3Weaponry:
+^2Weaponry:
 - Heavy Pistol (3)
 - CryoBan Grenade (2)
 - Stun Baton
--- Offense (3)
 
 ^6Inventory: 
-- Advanced Medpack (50HP)
+- Advanced Medpac (50HP)
 
-^5Attributes:
-- Dash (2)	^3[CS1]
-- Dexterity Implant (Stamina) (3) ^3[CS2]
+^8Attributes:
+- Dexterity Implant (3) (Stamina)
+
+^3Abilities:
+- Dash (2) ^3[CS1]
+- Sprint ^3[CS2]
 - Tracking Darts (3) ^3[CS3]
-- Energy Shield ^4[CS4]
+- Energy Shield ^3[CS4]
 -- Based on Force Protect (3)
 -- Slow Force Regen (0.5x)
 
-Details:
 One of the mercenaries dispatched by the Republic Embassy to investigate an incident at Hrakert Station."

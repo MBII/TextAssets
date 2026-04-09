@@ -2,37 +2,51 @@
 
 ClassInfo
 {
-	name  			"YR_I_DeathT"
-	weapons 		WP_MELEE|WP_EE4|WP_FRAG_NADE|WP_BLASTER_PISTOL
-	attributes  	MB_ATT_EE4,2|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_FRAGS,2|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,3|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_WOOKIE_STRENGTH,1
-  maxhealth 					85
-  maxarmor  					85
-	MBClass 		MB_CLASS_ARCTROOPER
-	modelscale 		1.05
-    WP_EE4Flags					HELD_SLOW
-    WP_BlasterPistolFlags			HELD_LOWDAMAGE
-	extralives		1
-	classnumberlimit 2
-	//resource		resource_stamina
-	
-	 flourishAnim TORSO_HANDSIGNAL4
-	
-  model 			"deathtrooper"
-  skin  			"default"
-  uishader  		"models/players/deathtrooper/mb2_icon_default"
+	name				"YR_I_DeathT"
+	weapons				WP_MELEE|WP_EE4|WP_FRAG_NADE|WP_BLASTER_PISTOL
+	WP_BlasterPistolFlags	HELD_LOWDAMAGE
+    WP_EE4Flags			HELD_SLOW
+	attributes			MB_ATT_EE4,2|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_FRAGS,2|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,3|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_WOOKIE_STRENGTH,1
+	maxhealth			85
+	maxarmor			85
+	extralives			1
+	modelscale			1.05
+    
+	model				"deathtrooper"
+	skin				"default"
+	uishader			"models/players/deathtrooper/mb2_icon_default"
   
-  model_1 			"deathtrooper"
-  skin_1  			"commander"
-  uishader_1  		"models/players/deathtrooper/mb2_icon_commander"
-
+	model_1 			"deathtrooper"
+	skin_1  			"commander"
+	uishader_1  		"models/players/deathtrooper/mb2_icon_commander"
 	
-	respawnCustomTime 10000
-	special1	EAS_HI_SPRINT
-	special2 EAS_HI_DEX
-	special3 EAS_MELEE
+	MBClass				MB_CLASS_ARCTROOPER
+	classnumberlimit	2
+	//resource			resource_stamina
+	
+	flourishAnim		TORSO_HANDSIGNAL4
+
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+	special3			EAS_MELEE
+	
+	respawnCustomTime	10000
 }
 
 WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER_PISTOL   
+	WeaponBasedOff  	WP_BLASTER_PISTOL
+	NewWorldModel 		"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"
+	NewViewModel  		"models/weapons2/se-14c_pistol/blaster_pistol.md3"
+	Icon  				"gfx/hud/w_icon_se-14c"
+	WeaponName  		"SE-14C Blaster Pistol"
+	FlashSound0			"sound/weapons/se-14c/fire.mp3"
+	altFlashSound0		"sound/weapons/se-14c/fire.mp3"
+	MissileEffect		"Blaster/Shot01R"	
+}
+
+WeaponInfo1
 {
 	WeaponToReplace		WP_EE4
 	WeaponBasedOff  	WP_CONCUSSION
@@ -49,21 +63,6 @@ WeaponInfo0
 	customAmmo 			900
 	clipSize			75
 	ReloadTimeModifier	1.0
-	
-}
-
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_BLASTER_PISTOL   
-	WeaponBasedOff  	WP_BLASTER_PISTOL
-	NewWorldModel 	"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"
-	NewViewModel  	"models/weapons2/se-14c_pistol/blaster_pistol.md3"
-	Icon  			"gfx/hud/w_icon_se-14c"
-	WeaponName  	"SE-14C Blaster Pistol"
-	FlashSound0		"sound/weapons/se-14c/fire.mp3"
-	altFlashSound0		"sound/weapons/se-14c/fire.mp3"
-	MissileEffect		"Blaster/Shot01R"	
 }
 
 WeaponInfo2
@@ -72,8 +71,8 @@ WeaponInfo2
 	WeaponBasedOff		WP_FRAG_NADE
 	NewWorldModel		"models/weapons2/Stormi_TD/stormiTD_w.glm"  	
 	NewViewModel		"models/weapons2/Stormi_TD/stormiTD.md3" 
-	MissileModel "models/weapons2/Stormi_TD/stormiTD_proj.md3" 
-	AltMissileModel "models/weapons2/Stormi_TD/stormiTD_proj.md3" 
+	MissileModel		"models/weapons2/Stormi_TD/stormiTD_proj.md3" 
+	AltMissileModel		"models/weapons2/Stormi_TD/stormiTD_proj.md3" 
 	altMissileMissEffect	"grenades/EXP_alt"
 	Icon				"gfx/hud/w_icon_StormiTD" 					
 	WeaponName			"Frag Grenades"    
@@ -82,19 +81,21 @@ WeaponInfo2
 description	"Death Trooper
 
 ^2Weaponry:
-- Melee
 - DLT-19D Blaster Rifle (2)
 - SE-14C Blaster Pistol (2)
-- Frag Grenades (2)
-- Slap ^3[CS3]
+- 2 Frag Grenades
 
 ^8Attributes:
-- Stamina (3) ^8[CS1]
-- Reinforcement (1)
-- Dexterity (1) ^8[CS2]
+- Stamina (3)
+- Dexterity (1)
 - Strength (1)
-- Blast Armor
+- Blast Armour
 - Armor Regen (1)
+- Reinforcements (1)
 
-Details:
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Slap ^3[CS3]
+
 Death troopers were an elite variant of stormtroopers specializing in stealth, espionage and lethality that served the Galactic Empire. Operating under the death trooper division, they acted as a protective detail for significant Imperial officers and members of the Tarkin Initiative, as well as special-assignment commandos for Imperial Intelligence."

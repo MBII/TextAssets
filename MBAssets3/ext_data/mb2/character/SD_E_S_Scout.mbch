@@ -2,28 +2,26 @@
 
 ClassInfo
 {
-	name			"SD_E_S_Scout"
-	weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_PROJ|WP_SABER
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_DODGE,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,1|MB_ATT_PISTOL,2|MB_ATT_ARMOUR,2|MB_ATT_AMMO,3
-	maxhealth		60
-	maxarmor		60
-	model			"scouttrooper"
-	skin			"default"
-	uishader		"models/players/scouttrooper/mb2_icon_default"
-	MBClass			MB_CLASS_CLONETROOPER
-	holdables			HI_BINOCULARS
-	classNumberLimit	2
-	extralives     		1
+	name				"SD_E_S_Scout"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_PROJ|WP_SABER
 	WP_ProjFlags		HELD_LOWDAMAGE
-	forcepool      5
-	saber1			soldierbaton_legends
-	forcepowers 	FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3|FP_LEVITATION,2
-	saberstyle 		SS_MEDIUM|SS_TAVION
-	BPmultiplier 	0.6
-	APmultiplier 	0.8
-	
-	forceregen    1000
-
+	attributes			MB_ATT_PISTOL,2|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_AMMO,3|MB_ATT_DODGE,1|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,1|MB_ATT_FP_SABER_DEFENSE,1
+	holdables			HI_BINOCULARS
+	saber1				soldierbaton_legends
+	saberstyle			SS_MEDIUM|SS_TAVION
+	BPmultiplier		0.6
+	APmultiplier		0.8
+	forcepowers			FP_SABER_DEFENSE,1|FP_LEVITATION,2
+	forcepool			50
+	maxhealth			60
+	maxarmor			60
+	extralives			1
+	model				"scouttrooper"
+	skin				"default"
+	uishader			"models/players/scouttrooper/mb2_icon_default"
+	MBClass				MB_CLASS_CLONETROOPER
+	classNumberLimit	2
+	special3			EAS_HI_DODGE
 }
 
 WeaponInfo0
@@ -32,58 +30,75 @@ WeaponInfo0
 	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/scout_pistol/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons2/scout_pistol/blaster_pistol.md3"   	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_scout_pistol" 					//Required: Weapon change icon
-	WeaponName		"Scout Trooper Pistol"    					//Required: Weapon change display name
-	customAmmo 		600
-	idleAnim	BOTH_MAND_PISTOL_READY 
-	firingAnim	BOTH_MAND_PISTOL_ATTACK
+	Icon				"gfx/hud/w_icon_scout_pistol"		//Required: Weapon change icon
+	WeaponName			"Scout Trooper Pistol"				//Required: Weapon change display name
+	customAmmo			600
+	hasAnimOverrides	1
+	animReady			BOTH_MAND_PISTOL_IDLE
+	animReadyRun		BOTH_MAND_PISTOL_READY
+	animReadyWalk		BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo		BOTH_MAND_PISTOL_ATTACK
+	animAttack			BOTH_MAND_PISTOL_ATTACK
+	animAttackRun		BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk		BOTH_MAND_PISTOL_ATTACK
+	animStand			BOTH_MAND_PISTOL_IDLE
+	animCharge			BOTH_MAND_PISTOL_READY
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_PROJ					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_PROJ					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"   	//Required: New 1st person weapon model
-	//MuzzleEffect		"Weapons/laser_red.efx"   				//Optional: New muzzle effect
+	WeaponToReplace		WP_PROJ
+	WeaponBasedOff		WP_DISRUPTOR
+	NewWorldModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+	Icon				"gfx/hud/w_icon_dlt-18"
+	FlashSound0			"sound/weapons/Glie-44/alt_fire.wav"
+	WeaponName			"Valken-38x Sniper Rifle"
+	CustomAmmo			20
+	Clipsize			3
+	ReloadTimeModifier	.5
+	//MuzzleEffect		"Weapons/laser_red.efx"	//Optional: New muzzle effect
 	//MissileEffect		"Weapons/laser_red.efx" 					
-	//FlashSound0		"sound/weapons2/TFU_Empire/sniper.mp3" 
-	Icon			"gfx/hud/w_icon_dlt-18" 					
-	WeaponName		"DC-15X Sniper Rifle"
-	CustomAmmo 	20
-	Clipsize    3
+	//FlashSound0		"sound/weapons2/TFU_Empire/sniper.mp3"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	MissileEffect		"Blaster/Shot10B"
-	ReloadTimeModifier         .5
 }
+
 WeaponInfo2
 {
 	WeaponToReplace		WP_SABER			
 	WeaponBasedOff		WP_SABER			
 	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
-	Icon			"gfx/hud/w_icon_soldierbaton"
-	WeaponName		"Shock Baton" 
+	Icon				"gfx/hud/w_icon_soldierbaton"
+	WeaponName			"Shock Baton" 
 }
 
-
-description	"Scout Troopers
-
-Summary:
+description	"Scout Troopers:
 Two life sniper class.
 
-Weaponry:
-- Pistol (2)
+^2Weaponry:
 - Stun Baton
+-- Yellow / Cyan Styles
+-- Saber Defense (1)
+- Blaster Pistol (2)
 - Valken 38x Sniper Rifle
-  - Based on Proj Rifle
-  - 3 shots per clip 
-  - Half Damage
+-- Based on Projectile Rifle
+-- 3 Shots Per Clip
+-- 50% Less DMG
 
-Attributes:
-- Extra Life
-- Dodge: (1)
-- Ammo (3)
-- Binoculars (force next button, can use it as a combo with the sniper rifle)
+^6Inventory:
+- Electrobinoculars
+
+^8Attributes:
+- Stamina (2)
+- Dexterity (1)
+- Reinforcements (1)
+
+^3Abilities:
+- Enhanced Jumping [Jump 2]
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Dodge (1) ^3[CS3]
 
 Imperial Scout Troopers are specially trained Stormtroopers in service to the Galactic Empire for a range of missions. They are equipped with light armor for greater mobility and specialized helmets that allow for greater adaptability. Armed with electro riot batons when blasters are identified as insufficient, they are especially skilled in melee combat, crowd control, and defense against a lightsaber."
