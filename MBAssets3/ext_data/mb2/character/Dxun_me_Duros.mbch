@@ -3,8 +3,9 @@
 ClassInfo
 {
 	name				"Dxun_me_Duros"
-	weapons				WP_MELEE|WP_BLASTER
-	attributes			MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1
+	weapons				WP_MELEE|WP_CLONE_RIFLE
+	WP_CloneRifleFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1
 	maxhealth			50
 	maxarmor			35
 	extralives			3
@@ -16,26 +17,36 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_BLASTER
-	NewWorldModel		"models/weapons2/kotor_carbine/model.glm"
-	NewViewModel		"models/weapons2/kotor_carbine/model.MD3"
-	Icon				"gfx/hud/w_icon_kotorcarbine"
-	WeaponName			"Blaster Carbine"
-	FlashSound0			"sound/weapons/kotor_carbine/fire.wav"
-	AltFlashSound0		"sound/weapons/kotor_carbine/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot02R"
-	hasAnimOverrides	1
-	animReady			TORSO_WEAPONIDLE3
-	animReadyWalk		TORSO_WEAPONREADY3
-	animStand			BOTH_STAND1
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_BLASTER
+	NewWorldModel			"models/weapons2/kotor_carbine/model.glm"
+	NewViewModel			"models/weapons2/kotor_carbine/model.MD3"
+	Icon					"gfx/hud/w_icon_kotorcarbine"
+	WeaponName				"Blaster Carbine"
+	FlashSound0				"sound/weapons/kotor_carbine/fire.wav"
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
+	MissileEffect			"Blaster/Shot02R"
+	customAmmo				600
+	clipSize				18
+	ReloadTimeModifier		0.9
+	FPMult					0.9
+	damageMod				0.85
+	rateMod					0.9
+	hasAnimOverrides		1
+	animReady				TORSO_WEAPONIDLE3
+	animReadyWalk			TORSO_WEAPONREADY3
+	animStand				BOTH_STAND1
 }
 
 description	"Duros Mercenary
 
 ^2Weaponry:
 - Blaster Carbine (2)
+-- Based on Clone Rifle
+-- 10% Faster RoF
+-- 10% Faster Mag Reload
+-- 15% Less DMG
+-- 10% Less FP DMG
 
 ^8Attributes:
 - Reinforcements (3)

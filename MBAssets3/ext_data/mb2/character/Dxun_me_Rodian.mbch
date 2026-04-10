@@ -4,10 +4,10 @@ ClassInfo
 {
  	name				"Dxun_me_Rodian"
  	weapons				WP_MELEE|WP_CLONE_PISTOL|WP_BLASTER_PISTOL|WP_PULSE_NADE|WP_CRYO_NADE
- 	attributes			MB_ATT_DODGE,2|MB_ATT_CLONE_PISTOL,2|MB_ATT_AMMO,1|MB_ATT_ASSEMBLE,1|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_DISP_HEALTH,3|MB_ATT_DISP_AMMO,3|MB_ATT_DISP_ARMOR,3
- 	WP_BlasterPistolFlags	HELD_SONIC|HELD_ALTRELOAD
+	WP_BlasterPistolFlags	HELD_SONIC|HELD_ALTRELOAD
 	WP_ClonePistolFlags	HELD_PULSE|HELD_LOWDAMAGE|HELD_SLOW
-	holdables			HI_SENTRY_GUN|HI_SHIELD
+ 	attributes			MB_ATT_DODGE,2|MB_ATT_CLONE_PISTOL,2|MB_ATT_AMMO,1|MB_ATT_ASSEMBLE,1|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_DISP_HEALTH,3|MB_ATT_DISP_AMMO,3|MB_ATT_DISP_ARMOR,3|MB_ATT_SENTRY|MB_ATT_FORCEFIELD
+	//holdables			HI_SENTRY_GUN|HI_SHIELD
  	maxhealth			55
  	maxarmor			35
 	extralives			1
@@ -22,22 +22,24 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/kotor_pistol2/model_w.glm"
-	NewViewModel		"models/weapons2/kotor_pistol2/model.md3"
-	Icon				"gfx/hud/w_icon_sonic_pistol.tga"
-	WeaponName			"Sonic Pistol"
-	CustomAmmo			250
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/kotor_pistol2/model_w.glm"
+	NewViewModel			"models/weapons2/kotor_pistol2/model.md3"
+	Icon					"gfx/hud/w_icon_sonic_pistol.tga"
+	WeaponName				"Sonic Pistol"
+	FlashSound0				"sound/weapons/kotor/fire_sonic.mp3"
+	CustomAmmo				250
 	MissileHitHumanEffect 	"sonic_pistol/k_wall_impact"
-	MissileHitDroid		"sonic_pistol/k_wall_impact"
-	MissileMissEffect	"sonic_pistol/k_wall_impact"
-	MissileEffect		"sonic_pistol/k_projectile"  					
-	AltMissileEffect	"sonic_pistol/k_projectile" 
-	MuzzleEffect		"sonic_pistol/k_muzzle_flash"   			
-	AltMuzzleEffect		"sonic_pistol/k_muzzle_flash"
-	FlashSound0			"sound/weapons/kotor/fire_sonic.mp3"
+	MissileHitDroid			"sonic_pistol/k_wall_impact"
+	MissileMissEffect		"sonic_pistol/k_wall_impact"
+	MissileEffect			"sonic_pistol/k_projectile"  					
+	AltMissileEffect		"sonic_pistol/k_projectile" 
+	MuzzleEffect			"sonic_pistol/k_muzzle_flash"   			
+	AltMuzzleEffect			"sonic_pistol/k_muzzle_flash"
+	
 	ClipSize			4
+	altfireenabled		1
 	hasAnimOverrides	1
 	animReady			BOTH_MAND_PISTOL_IDLE
 	animReadyRun		BOTH_MAND_PISTOL_READY
@@ -47,7 +49,6 @@ WeaponInfo0
 	animAttackRun		BOTH_MAND_PISTOL_ATTACK
 	animAttackWalk		BOTH_MAND_PISTOL_ATTACK
 	animStand			BOTH_MAND_PISTOL_IDLE
-	altfireenabled		1
 }
 
 WeaponInfo1
@@ -74,9 +75,12 @@ description "Rodian Mercenary Mechanic
 
 ^2Weaponry:
 - Sonic Pistol (1)
--- Causes Stun on hit / Manual Reload
+-- Causes Stun on hit
+-- Alt Reload
 - Ion Pistol (2)
--- Causes Stun on hit / Low Damage Output
+-- Causes Pulse Stun On Hit
+-- 50% Less DMG
+-- 15% Slower Movement
 - 2 Ion Grenades
 - 2 Cryoban Grenades
 
@@ -85,15 +89,14 @@ description "Rodian Mercenary Mechanic
 - Portable Shield
 
 ^8Attributes:
-- Can view stats of others
+- View Ally Stats
 - Cannot Pickup Weapons
 - Reinforcements (1)
 - Assemble (1)
 
 ^3Abilities:
-- Armor Repair [Hold Use to restore Allies Armor]
-- Field Medkit [Hold Use to restore Allies Health]
-- Ammunition Supplies
+- Health / Armor / Ammo Supply
+^3[Hold Use on Allies]
 - Dodge (2) ^3[CS1]
 
 This Rodian mercenary is responsible for the other mercenary's logistics and the maintenance of the war droid. He has many ways of assisting allies in combat but is ineffective as a front line combatant."

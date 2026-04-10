@@ -3,46 +3,56 @@
 ClassInfo
 {
 	name				"dxun_me_twilek"
-	weapons				WP_BLASTER_PISTOL|WP_SABER|WP_MELEE
-	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,0|MB_ATT_PISTOL,2|MB_ATT_SPY_DISGUISE,3|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_AMMO,3|MB_ATT_HEALING,2
+	weapons				WP_BRYAR_OLD|WP_SABER|WP_MELEE
 	WP_BlasterPistolFlags	HELD_DISRUPTIFY|HELD_FLAME|HELD_LOWDAMAGE|HELD_SLOW
-	holdables			HI_CLOAK
-	
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,0|MB_ATT_BRYAR_OLD,2|MB_ATT_SPY_DISGUISE,3|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_CLOAK
+	//holdables			HI_CLOAK
 	saber1				kotor_vibrostaff
-	sabercolor			1
 	saberstyle			SS_staff
-	APmultiplier		0.8
 	BPmultiplier		1.5
+	APmultiplier		0.8
 	CSmultiplier		1.5
 	forcepowers			FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3
 	forcepool			100
 	forceregen			0.6
-	
 	maxhealth			125
 	maxarmor			40
 	speed				1.05
 	DamageGiven			1.2
 	modelscale			1
-	
 	model				"jedi_tf"
 	skin				"dxun"
 	uishader			"models/players/jedi_tf/mb2_icon_dxun"
-	
 	MBClass				MB_CLASS_JEDI
 	classflags			CFL_SEEING_STEALTH
 	classnumberlimit	1
+	
+	resource			RESOURCE_ENERGY
 	special1			EAS_HI_DODGE
 	special2			EAS_HI_DASH
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/kotor_vibrostaff/saber_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_vibrosword_staff"
+	WeaponName			"Vibrostaff"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_BRYAR_OLD
+	WeaponBasedOff		WP_BRYAR_OLD
 	NewWorldModel		"models/weapons2/kotor_pistol1/pistol_w.GLM"
 	NewViewModel		"models/weapons2/kotor_pistol1/model.md3"
 	Icon				"gfx/hud/w_icon_kotor_dispistol"
 	WeaponName			"Disruptor Pistol"
+	FlashSound0			"sound/weapons/kotor/fire_light.wav"
+	AltFlashSound0		"sound/weapons/kotor/fire_power1.mp3"
+	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
 	MuzzleEffect		"Blaster/MuzzleFlash01Y"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01Y"
 	MissileEffect		"Blaster/Shot02Y"
@@ -50,18 +60,6 @@ WeaponInfo0
 	AltMissileEffect	"Blaster/Shot02Y"
 	PowerupShotEffect	"Blaster/Shot04Y"
 	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash"
-	FlashSound0			"sound/weapons/kotor/fire_light.wav"
-	AltFlashSound0		"sound/weapons/kotor/fire_power1.mp3"
-}
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_SABER			
-	WeaponBasedOff		WP_SABER			
-	NewWorldModel		"models/weapons2/kotor_vibrostaff/saber_w.glm"  
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
-	Icon				"gfx/hud/w_icon_vibrosword_staff"
-	WeaponName			"Vibrostaff"    			
 }
 
 description	"Twi'lek Bounty Hunter
@@ -71,17 +69,20 @@ description	"Twi'lek Bounty Hunter
 -- Staff Style Only
 -- Saber Defense (3)
 - Disruptor Pistol (2)
--- Can Ignite Targets / Reduced Power Output
+-- Ignite Targets On Hit
+-- Disintegrates Targets On Death
+-- 50% Less DMG
+-- 15% Slower Movement
 
 ^6Inventory:
 - Cloak
-- Disguise (Press Lightsaber Style in Melee)
 
 ^8Attributes:
 - Invisible to Sense
 - Healing (2)
 
 ^3Abilities:
+- Disguise ^3[Press Lightsaber Style in Melee]
 - Dodge (3) ^3[CS1]
 - Dash (2) ^3[CS2]
 
