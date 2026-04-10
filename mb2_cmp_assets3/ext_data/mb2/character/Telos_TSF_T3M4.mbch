@@ -6,7 +6,8 @@ ClassInfo
 	weapons				WP_BLASTER|WP_CLONE_PISTOL|WP_TRIP_MINE
 	meleeMoves			M_JUMPKICK
 	WP_ClonePistolFlags	HELD_PULSE
-	attributes			MB_ATT_TRIP_MINES,8|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLASTER,1|MB_ATT_CLONE_PISTOL,1|MB_ATT_FLAMETHROWER|MB_ATT_RECHARGE,2
+	WP_ThrowerFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_TRIP_MINES,8|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLASTER,1|MB_ATT_CLONE_PISTOL,1|MB_ATT_THROWER_ICE,3|MB_ATT_RECHARGE,2
 	maxhealth			30
 	maxarmor			60
 	modelscale			0.7
@@ -14,7 +15,7 @@ ClassInfo
 	skin				"default"
 	uishader			"models/players/t3m4/mb2_icon_default"
 	MBClass				MB_CLASS_SBD
-	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_ICETHROWER|CFL_FASTHACKING|CFL_NOLOCATIONALDAMAGE|CFL_NOPICKUPS
+	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_FASTHACKING|CFL_NOLOCATIONALDAMAGE|CFL_NOPICKUPS
 	classNumberLimit	1
 }
 
@@ -45,12 +46,31 @@ WeaponInfo1
 	customammo 				500
 }
 
+WeaponInfo2
+{
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_CLONE_RIFLE
+	NewWorldModel			"models/weapons2/dummyblaster/model.glm"
+	NewViewModel			"models/weapons2/noweap/noweap.md3"
+	Icon					"gfx/hud/w_icon_carboniterifle"
+	WeaponName				"CryoBan Projector"
+	primFireEnabled			1
+	AltFireEnabled 			0
+	clipsize				35
+	customammo				350
+	rateMod					1.5
+	reloadTimeModifier		1.5
+}
+
 description	"T3-M4 [Expert Droid]
 
 ^2Weaponry:
 - Mounted Blaster (1)
 - Ion Blaster (1)
 -- Pulse Stun on Hit
+- CryoBan Projector (Icethrower)
+-- 50% slower RoF
+-- 50% slower Mag Reload
 - 8 Trip Mines
 
 ^8Attributes:
@@ -61,7 +81,6 @@ description	"T3-M4 [Expert Droid]
 - Magnetic Plating 
 
 ^3Abilities:
-- Cryo Thrower ^3[CS2]
 - Battery Recharge (2) ^3[CS1]
 
 Originally built as a code-slicing droid and outfitted with numerous weapon attachments for criminal purposes on the planet Taris, T3-M4 was acquired by the amnestic Revan by chance before narrowly escaping the planet's devastation at the hands of Darth Malak. T3-M4 would prove a loyal companion and invaluable asset to Revan and later to the Jedi Exile Meetra Surik."
