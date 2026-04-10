@@ -3,10 +3,11 @@
 ClassInfo
 {
 	name				"Dxun_eh_Baodur"
-	weapons				WP_MELEE|WP_SABER|WP_BLASTER|WP_BOWCASTER
-	attributes			MB_ATT_AMMO,1|MB_ATT_BLASTER,2|MB_ATT_BOWCASTER,1|MB_ATT_SUPPLYDROP,3|MB_ATT_DISP_ARMOR,3
+	weapons				WP_MELEE|WP_SABER|WP_CLONE_RIFLE|WP_BOWCASTER
 	WP_SaberFlags		HELD_KNOCKBACK
+	WP_CloneRifleFlags	HELD_ALTRELOAD
 	WP_BowcasterFlags	HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_SLOW|HELD_PULSE
+	attributes			MB_ATT_AMMO,1|MB_ATT_CLONERIFLE,2|MB_ATT_BOWCASTER,1|MB_ATT_SUPPLYDROP,3|MB_ATT_DISP_ARMOR,3
 	holdables			HI_MEDPAC|HI_SEEKER
 	saber1				powerfist
 	saber2				powerfist
@@ -35,59 +36,72 @@ ForceInfo0
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-  	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  	NewViewModel		"models/weapons2/dummy/dummy.md3"
- 	Icon				"models/weapons2/halo_melee/icon.png"
-	WeaponName			"Power Fist"
-	primGore			1
-	altGore				1
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+  	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+  	NewViewModel			"models/weapons2/dummy/dummy.md3"
+ 	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName				"Power Fist"
+	primGore				1
+	altGore					1
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER    			
-	WeaponBasedOff		WP_BLASTER    			
-	NewWorldModel		"models/weapons2/kotor_carbine/model.glm"
-	NewViewModel		"models/weapons2/kotor_carbine/model.MD3"
-	Icon				"gfx/hud/w_icon_kotorcarbine"
-	WeaponName			"Blaster Carbine"
-	FlashSound0			"sound/weapons/kotor_carbine/fire.wav"
-	altFlashSound0		"sound/weapons/kotor_carbine/fire.wav"
-	MuzzleEffect  		"Blaster/MuzzleFlash01R"
-	MissileEffect 		"Blaster/Shot02R"
-	hasAnimOverrides	1
-	animReady			TORSO_WEAPONIDLE3
-	animReadyWalk		TORSO_WEAPONREADY3
-	animStand			BOTH_STAND1
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_BLASTER
+	NewWorldModel			"models/weapons2/kotor_carbine/model.glm"
+	NewViewModel			"models/weapons2/kotor_carbine/model.MD3"
+	Icon					"gfx/hud/w_icon_kotorcarbine"
+	WeaponName				"Blaster Carbine"
+	FlashSound0				"sound/weapons/kotor_carbine/fire.wav"
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
+	MissileEffect			"Blaster/Shot02R"
+	customAmmo				600
+	clipSize				18
+	ReloadTimeModifier		0.9
+	FPMult					0.9
+	damageMod				0.85
+	rateMod					0.9
+	hasAnimOverrides		1
+	animReady				TORSO_WEAPONIDLE3
+	animReadyWalk			TORSO_WEAPONREADY3
+	animStand				BOTH_STAND1
 }
 
 WeaponInfo2
 {
-	WeaponToReplace 	WP_BOWCASTER
-	WeaponBasedOff  	WP_DISRUPTOR
-	NewWorldModel 		"models/weapons2/kotor_ionrifle/kotor_ionrifle.glm" 
-	NewViewModel  		"models/weapons2/kotor_ionrifle/kotor_ionrifle.md3"
-	MuzzleEffect		"blaster/MuzzleFlash01b"
-	PowerupShotEffect	"blaster/MuzzleFlash01b"
-	MissileEffect		"blaster/shot06B"
-	FlashSound0			"sound/weapons/kotor/fire_power2"
-	MissileMissEffect	"SBD/Cortosis_blue"
+	WeaponToReplace 		WP_BOWCASTER
+	WeaponBasedOff  		WP_DISRUPTOR
+	NewWorldModel 			"models/weapons2/kotor_ionrifle/kotor_ionrifle.glm" 
+	NewViewModel  			"models/weapons2/kotor_ionrifle/kotor_ionrifle.md3"
+	Icon  					"gfx/hud/w_icon_kotor_ionrifle"
+	WeaponName				"Ion Rifle"
+	FlashSound0				"sound/weapons/kotor/fire_power2"
+	MuzzleEffect			"blaster/MuzzleFlash01b"
+	PowerupShotEffect		"blaster/MuzzleFlash01b"
+	MissileEffect			"blaster/shot06B"
+	MissileMissEffect		"SBD/Cortosis_blue"
 	MissileHitHumanEffect	"SBD/Cortosis_blue"
 	MissileHitDroidEffect	"SBD/Cortosis_blue"
-	altfireenabled		0
-	ClipSize 			10
-	Icon  				"gfx/hud/w_icon_kotor_ionrifle"
-	WeaponName			"Ion Rifle"    					//Required: Weapon change display name
+	altfireenabled			0
+	ClipSize 				10
 }
 
 description	"Bao-Dur
 
 ^2Weaponry:
 - Blaster Carbine (2)
+-- Based on Clone Rifle
+-- 10% Faster RoF
+-- 10% Faster Mag Reload
+-- 15% Less DMG
+-- 10% Less FP DMG
 - Ion Rifle (1)
+-- Based on Bowcaster
 -- Causes Pulse Effect Stun
+-- 50% Less DMG
+-- 15% Slower Movement
 - Power Fist
 -- Causes Knockback
 
