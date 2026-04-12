@@ -2,59 +2,69 @@
 
 ClassInfo
 {
-	name			"ascr_pyro"
-	weapons			WP_CLONE_PISTOL|WP_SHOTGUN|WP_MELEE|WP_THROWER
-	attributes		MB_ATT_CLONE_PISTOL,2|MB_ATT_SHOTGUN,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,2|MB_ATT_DODGE,3
-	maxhealth		175
-	model			"cw_arctrooper" 				//this is optional, if it's here it forces the model to this.
-	skin			"red_pyro"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/cw_arctrooper/mb2_icon_red"
-	MBClass			MB_CLASS_ARCTROOPER
+	name				"ascr_pyro"
+	weapons				WP_CLONE_PISTOL|WP_SHOTGUN|WP_MELEE|WP_THROWER
+	WP_ShotgunFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_CLONE_PISTOL,2|MB_ATT_SHOTGUN,2|MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,2|MB_ATT_DODGE,3
+	maxhealth			175
+	maxarmor			100
 	extralives		    3
-    respawnCustomTime   20000
+	model				"cw_arctrooper" 				//this is optional, if it's here it forces the model to this.
+	skin				"red_pyro"					//this is optional, if it's here it forces the skin to this.
+	uishader			"models/players/cw_arctrooper/mb2_icon_red"
+	MBClass				MB_CLASS_ARCTROOPER
 	classnumberlimit	3
-    WP_SHOTGUNFlags HELD_ALTRELOAD
+	
+	resource			RESOURCE_STAMINA
+	special3			EAS_HI_DODGE
+	
+	respawnCustomTime   20000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SHOTGUN
-	WeaponBasedOff		WP_SHOTGUN
-	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
-	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
-    FlashSound0			"sound/weapons/reshotgun/fire.wav"
-    MuzzleEffect		"halo_shotgun/Muzzle_Flash"
-	MissileEffect 		"flechette/shot"
-    MissileMissEffect   "blaster/Impact_Wall01Y"
-	primGore		    1
-    altFireEnabled	    0
-    clipSize            66 //3 shots
-    Icon				"gfx/hud/w_icon_cp-50_repeater"
-	WeaponName			"Shotgun"
-    firingAnim          BOTH_DC15_ATTACK
+	WeaponToReplace			WP_SHOTGUN
+	WeaponBasedOff			WP_SHOTGUN
+	NewWorldModel			"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel			"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+    FlashSound0				"sound/weapons/reshotgun/fire.wav"
+    MuzzleEffect			"halo_shotgun/Muzzle_Flash"
+	MissileEffect			"flechette/shot"
+    MissileMissEffect		"blaster/Impact_Wall01Y"
+	primGore				1
+    altFireEnabled			0
+    clipSize				66 //3 shots
+    Icon					"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName				"Shotgun"
+	hasAnimOverrides		1
+    animReadyNoAmmo			BOTH_DC15_ATTACK
+    animAttackRun			BOTH_DC15_ATTACK
+    animAttack				BOTH_DC15_ATTACK
+    animAttackWalk			BOTH_DC15_ATTACK
 }
 
 WeaponInfo1
 {
-    WeaponToReplace		WP_THROWER
-    WeaponBasedOff		WP_THROWER
-    NewWorldModel		"models/weapons2/CR-24_flamerifle/rifle_w.glm"
-    NewViewModel		"models/weapons2/CR-24_flamerifle/rifle.md3"
-    Icon				"gfx/hud/w_icon_cr-24_flamerifle"
-    WeaponName			"Flamethrower"
+    WeaponToReplace			WP_THROWER
+    WeaponBasedOff			WP_THROWER
+    NewWorldModel			"models/weapons2/CR-24_flamerifle/rifle_w.glm"
+    NewViewModel			"models/weapons2/CR-24_flamerifle/rifle.md3"
+    Icon					"gfx/hud/w_icon_cr-24_flamerifle"
+    WeaponName				"Flamethrower"
 }
 
 description	"Pyro [Arc Trooper]
 
-Weapon:
+^2Weapons:
 - Pistol (2)
-- Flame Thrower (3)
 - Shotgun (2)
+- Flame Thrower (3)
 
-Attributes:
-- Dexterity (2)
+^8Attributes:
 - Stamina (2)
+- Dexterity (2)
 
-Abilites:
-- Evasive Roll
-- Dodge (3)"
+^3Abilites:
+- Sprint ^3[CS1]
+- Evasive Roll ^3[CS2]
+- Dodge (3) ^3[CS3]"

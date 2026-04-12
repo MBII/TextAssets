@@ -2,68 +2,79 @@
 
 ClassInfo
 {
-	name			"ascr_eng"
-	weapons			WP_BLASTER_PISTOL|WP_SHOTGUN|WP_MELEE|WP_SABER
-	attributes		MB_ATT_PISTOL,2|MB_ATT_SHOTGUN,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_STAMINA,2|MB_ATT_DISP_AMMO,3|MB_ATT_SENTRY|MB_ATT_EWEB
-	maxhealth		125
-	model			"cw_sbdroid"
-	skin			"red_eng"
-	uishader		"models/players/cw_sbdroid/mb2_icon_red"
-	MBClass			MB_CLASS_CLONETROOPER
+	name				"ascr_eng"
+	weapons				WP_BLASTER_PISTOL|WP_SHOTGUN|WP_MELEE|WP_SABER
+	WP_ShotgunFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_PISTOL,2|MB_ATT_SHOTGUN,3|MB_ATT_AMMO,3|MB_ATT_DASH,2|MB_ATT_STAMINA,3|MB_ATT_SUPPLYDROP,3|MB_ATT_SENTRY|MB_ATT_EWEB
+	//holdables			HI_SENTRY_GUN|HI_EWEB
+	saber1				Wrench_Legends
+	sabercolor			0
+	saberstyle			SS_STRONG
+	forcepool			25
+    forceregen			1.1
+	maxhealth			125
+	maxarmor			80
 	extralives		    3
-    respawnCustomTime   20000
+	model				"cw_sbdroid"
+	skin				"red_eng"
+	uishader			"models/players/cw_sbdroid/mb2_icon_red"
+	MBClass				MB_CLASS_CLONETROOPER
 	classnumberlimit	3
-	//holdables		HI_SENTRY_GUN|HI_EWEB
-    WP_SHOTGUNFlags HELD_ALTRELOAD
-
-    forcepool 25
-    forceregen 1.1
-
-	saber1			Wrench_Legends
-	sabercolor		0
-	saberstyle		SS_STRONG
+	
+	special2			EAS_HI_DASH
+	
+	respawnCustomTime   20000
 }
 
 WeaponInfo0
-{
-	WeaponToReplace		WP_SHOTGUN
-	WeaponBasedOff		WP_SHOTGUN
-	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
-	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
-    FlashSound0			"sound/weapons/reshotgun/fire.wav"
-    MuzzleEffect		"halo_shotgun/Muzzle_Flash"
-	MissileEffect 		"flechette/shot"
-    MissileMissEffect   "blaster/Impact_Wall01Y"
-	primGore		    1
-    altFireEnabled	    0
-    clipSize            36 //3 shots - no clue why clip size needs to be different to pyro
-    Icon				"gfx/hud/w_icon_cp-50_repeater"
-	WeaponName			"Shotgun"
-    firingAnim          BOTH_DC15_ATTACK
+{	
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/mwrench/mwrench.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_mwrench"
+	WeaponName				"Wrench"
 }
 
 WeaponInfo1
-{	
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_mwrench"
-	WeaponName		"Wrench"
+{
+	WeaponToReplace			WP_SHOTGUN
+	WeaponBasedOff			WP_SHOTGUN
+	NewWorldModel			"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel			"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+    FlashSound0				"sound/weapons/reshotgun/fire.wav"
+    MuzzleEffect			"halo_shotgun/Muzzle_Flash"
+	MissileEffect			"flechette/shot"
+    MissileMissEffect		"blaster/Impact_Wall01Y"
+	primGore				1
+    altFireEnabled			0
+    clipSize				36 //3 shots - no clue why clip size needs to be different to pyro
+    Icon					"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName				"Shotgun"
+	hasAnimOverrides		1
+    animReadyNoAmmo			BOTH_DC15_ATTACK
+    animAttackRun			BOTH_DC15_ATTACK
+    animAttack				BOTH_DC15_ATTACK
+    animAttackWalk			BOTH_DC15_ATTACK
 }
 
 description	"Engineer [Clone Trooper]
 
-Weapon:
-- Wrench *
---- Based on Lightsaber, can perform special spin RDFA move
+^2Weapons:
+- Wrench
+-- ^1Red ^7Style Only
+-- Can perform special spin RDFA move
 - Pistol (2)
 - Shotgun (3)
 
-Utility:
-- E-Web
-- Sentry Gun
-- Can drop Ammo dispensers to team
+^6Utility:
+- Portable E-Web Cannon
+- Portable Sentry Gun
 
-Abilities:
-- Dash (2) [Alt Ability 1]"
+^8Attributes:
+- Stamina (3)
+
+^3Abilities:
+- Ammo Drop [Press Use to Drop Ammo]
+- Sprint ^3[CS1]
+- Dash (2) ^3[CS2]"

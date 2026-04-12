@@ -1,68 +1,77 @@
+
+
 ClassInfo
 {
-	name			"Arena_geo"
-	weapons		WP_BOWCASTER
-	maxhealth		100
-	attributes  MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_BOWCASTER,1
-	model			"geonosian"
-	skin			"default"
-	uishader		"models/players/geonosian/mb2_icon_default"
-	modelscale .95
-	MBClass			MB_CLASS_MANDALORIAN
+	name				"Arena_geo"
+	weapons				WP_BOWCASTER
+	WP_BowcasterFlags	HELD_DISRUPTIFY|HELD_KNOCKBACK
+	attributes			MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_BOWCASTER,1
+	maxhealth			100
+	extralives			1
+	damageGiven			0.6
+	modelscale			.95
+	model				"geonosian"
+	skin				"default"
+	uishader			"models/players/geonosian/mb2_icon_default"
+	MBClass				MB_CLASS_MANDALORIAN
+	classflags			CFL_NO_JETPACK_OVERHEAT|CFL_NO_JETPACK_COOLDOWN
 	classNumberLimit	3
-	classflags	CFL_NO_JETPACK_OVERHEAT|CFL_NO_JETPACK_COOLDOWN
-	extralives	1
-	damageGiven 0.6
+	
 	jetpackThrustEffect	""
-	jetpackIdleEffect		""
+	jetpackIdleEffect	""
 	jetpackJetTag		"*r_leg_foot"
 	jetpackJet2Tag		"*l_leg_foot"
-	jetpackJetOffset		"0, 0, 21"
-	jetpackJet2Offset		"0, 0, 21"
+	jetpackJetOffset	"0, 0, 21"
+	jetpackJet2Offset	"0, 0, 21"
 	jetpackJetAngles	"0, -70, 0"
 	jetpackJet2Angles	"0, 50, 0"
-	jetpackThrustSound 	"sound/effects/woosh4"
-	jetpackIdleSound		"sound/effects/woosh4"
-	jetpackStartSound 	"sound/effects/woosh22"
-	WP_BowcasterFlags HELD_DISRUPTIFY|HELD_KNOCKBACK
+	jetpackThrustSound	"sound/effects/woosh4"
+	jetpackIdleSound	"sound/effects/woosh4"
+	jetpackStartSound	"sound/effects/woosh22"
+	
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/geonosian/sonicrifle.glm" 
-	NewViewModel		"models/weapons2/geonosian/sonicrifle.md3"
-	Icon				"gfx/hud/w_icon_sonicrifle" 			
-	WeaponName			"Geonosian Sonic Blaster"    				
-	MissileHitHumanEffect "sonic_pistol/hit"
-	MissileHitDroidEffect "sonic_pistol/hit"
-	MissileMissEffect 	"sonic_pistol/wall_impact"
-	MissileEffect		"sonic_pistol/projectile"  					
-	MuzzleEffect		"sonic_pistol/muzzle_flash"   	
-	CustomAmmo 	300
-	ClipSize 		8
-	ReloadTimeModifier 	.85
-	ProjSpeedModifier .4
-	PrimHitscanShot 	0
-	PrimHitscanTracer 	9
-	FlashSound0		"sound/weapons/geonosian/fire.mp3"
-	FlashSound1		"sound/weapons/geonosian/fire.mp3"
-	FlashSound2		"sound/weapons/geonosian/fire.mp3"
-	FlashSound3		"sound/weapons/geonosian/fire.mp3"
-	AltFireEnabled 0
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/geonosian/sonicrifle.glm" 
+	NewViewModel			"models/weapons2/geonosian/sonicrifle.md3"
+	Icon					"gfx/hud/w_icon_sonicrifle" 			
+	WeaponName				"Geonosian Sonic Blaster"    	
+	FlashSound0				"sound/weapons/geonosian/fire.mp3"
+	FlashSound1				"sound/weapons/geonosian/fire.mp3"
+	FlashSound2				"sound/weapons/geonosian/fire.mp3"
+	FlashSound3				"sound/weapons/geonosian/fire.mp3"	
+	MissileHitHumanEffect	"sonic_pistol/hit"
+	MissileHitDroidEffect	"sonic_pistol/hit"
+	MissileMissEffect		"sonic_pistol/wall_impact"
+	MissileEffect			"sonic_pistol/projectile"  					
+	MuzzleEffect			"sonic_pistol/muzzle_flash"   	
+	CustomAmmo				300
+	ClipSize				8
+	ReloadTimeModifier		.85
+	ProjSpeedModifier		.4
+	PrimHitscanShot			0
+	PrimHitscanTracer		9
+	
+	AltFireEnabled			0
 }
 
 description "Geonosian
 
-Weaponry:
-Sonic Blaster
-- Causes brief stun on successful hit
-- 8 Shots per Clip / Magazine Reload
+^2Weaponry:
+- Sonic Blaster (1)
+-- Briefly Stuns On Successful Hit
+-- 8 Shots Per Clip
+-- Magazine Reload
 
-Abilities:
-The Gift of Flight
-Flight Stamina (Fuel 3)
-Reinforcements (1)
+^8Attributes:
+- Flight Stamina [Fuel 3]
+- Reinforcements (1)
+
+^3Abilities:
+- The Gift of Flight
+-- Does Not Overheat or Cool Down
 
 Geonosians were a winged, semi-insectoid species native to the planet Geonosis that created nests in large, spire-like colonies on their homeworld."

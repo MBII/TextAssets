@@ -2,76 +2,91 @@
 
 ClassInfo
 {
-	name			"ascr_spy"
-	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_SABER
-	attributes		MB_ATT_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2|MB_ATT_SPY_DISGUISE,3|MB_ATT_FLIPKICK,3|MB_ATT_CLOAK
-	saber1			saber_knife
-	saberstyle		SS_TAVION
-	maxhealth		125
-	forcepowers		FP_TELEPATHY,3
-	forcepool		80
-	forceregen		4
-	model			"cw_bdroid" 				//this is optional, if it's here it forces the model to this.
-	skin			"red_spy"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/cw_bdroid/mb2_icon_red"
-	MBClass			MB_CLASS_CLONETROOPER
-	speed			1.2
+	name				"ascr_spy"
+	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_SABER
+	attributes			MB_ATT_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_AMMO,2|MB_ATT_SPY_DISGUISE,3|MB_ATT_FLIPKICK,3|MB_ATT_CLOAK
+	//holdables			HI_CLOAK
+	saber1				saber_knife
+	saberstyle			SS_TAVION
+	forcepowers			FP_TELEPATHY,3
+	forcepool			80
+	forceregen			4
+	maxhealth			125
+	maxarmor			80
 	extralives		    6
-    respawnCustomTime   20000
-	//holdables		HI_CLOAK
+	speed				1.2
+	model				"cw_bdroid" 				//this is optional, if it's here it forces the model to this.
+	skin				"red_spy"					//this is optional, if it's here it forces the skin to this.
+	uishader			"models/players/cw_bdroid/mb2_icon_red"
+	MBClass				MB_CLASS_CLONETROOPER
 	classnumberlimit	2
+	
+	respawnCustomTime	20000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/saber_knife/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_knife" 	//Required: Weapon change icon
-	WeaponName			"Knife"    					//Required: Weapon change display name
+	WeaponToReplace			WP_SABER					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff			WP_SABER					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel			"models/weapons2/saber_knife/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel			"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
+	Icon					"gfx/hud/w_icon_knife" 	//Required: Weapon change icon
+	WeaponName				"Knife"    					//Required: Weapon change display name
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/dc_jokergun/joker_gun.glm"
-	NewViewModel		"models/weapons2/dc_jokergun/joker_gun.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/mplevels/dc_universe/joker_gun"
-	WeaponName		"Revolver"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/silver_serpent/fire.wav"
-	SelectSound		"Sound/weapons/aliens_sw39/select.wav"
-	customAmmo		300
-	clipSize  10
-	primHitscanShot		1
-	primHitscanTracer	5
-	altHitscanShot		1
-	altHitscanTracer	5
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim BOTH_MAND_PISTOL_READY 
-  firingAnim  BOTH_MAND_PISTOL_ATTACK
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/dc_jokergun/joker_gun.glm"
+	NewViewModel			"models/weapons2/dc_jokergun/joker_gun.md3"
+	NewHandsModel			"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon					"gfx/mplevels/dc_universe/joker_gun"
+	WeaponName				"Revolver"
+	FlashSound0				"Sound/weapons/silver_serpent/fire.wav"
+	SelectSound				"Sound/weapons/aliens_sw39/select.wav"
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	customAmmo				300
+	clipSize				10
+	primHitscanShot			1
+	primHitscanTracer		5
+	altHitscanShot			1
+	altHitscanTracer		5
+	altFireEnabled 			0
+	primGore				1
+	altGore					1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	animCharge				BOTH_MAND_PISTOL_READY
 }
 
 description	"Spy [Clone Trooper]
 
-Weapons:
+^2Weapons:
 - Hitscan Revolver (3)
-- Knife * 
---- Based on Lightsaber
+- Knife
+-- ^5Cyan ^7Style Only
 
-Force Powers:
+^6Utility:
+- Cloak [Inventory Use]
+
+^5Force Powers:
 - Mind Trick (3)
 
-Abilities:
-- Disguise (3) [Saber style button in melee]
-- Cloak [Inventory use]
-- Flipkick (3)"
+^8Attributes:
+- Stamina (3)
+
+^3Abilities:
+- Disguise (3) [Toggle Saber Style In Melee]
+- Flipkick (3)
+- Sprint ^3[CS1]"
