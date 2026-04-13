@@ -1,66 +1,76 @@
+
+
 ClassInfo
 {
-	name			"ns_e_Mira"
-	MBClass			MB_CLASS_MANDALORIAN
-	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_SONIC_NADE|WP_FIRE_NADE|WP_CRYO_NADE|WP_REAL_TD
-	maxhealth		90
-	maxarmor		50
-	speed			1.05
-	attributes		MB_ATT_WHISTLINGBIRD,1|MB_ATT_DODGE,3|MB_ATT_POISON_DART,3|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_FUEL,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_FIRE_GRENADES,2|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_THERMALS,1
-	classNumberLimit	1
-	resource		resource_energy
-	forcepool		100	
-	speed			1.1
-	rateoffire		1
-	model			"mira"
-	skin			"default"
-	uishader		"models/players/mira/mb2_icon_default"
-	
+	name				"ns_e_Mira"
+	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_SONIC_NADE|WP_FIRE_NADE|WP_CRYO_NADE|WP_REAL_TD
 	WP_BlasterPistolFlags	HELD_ALTRELOAD
 //	WP_RocketLauncherFlags	HELD_ALTRELOAD|HELD_HIGHDAMAGE|HELD_FLAME
-	holdables				HI_BINOCULARS
-	special1	EAS_HI_POISON
-	special2	EAS_HI_WHISTLING_BIRDS
-	special3	EAS_HI_DODGE
-	special4	EAS_HI_SPRINT
+	attributes			MB_ATT_WHISTLINGBIRD,1|MB_ATT_DODGE,3|MB_ATT_POISON_DART,3|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_STAMINA,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_FIRE_GRENADES,2|MB_ATT_CRYOBAN_GRENADES,2|MB_ATT_FRAGS,2|MB_ATT_THERMALS,1|MB_ATT_BINOCULARS
+	//holdables			HI_BINOCULARS
+	forcepool			100
+	maxhealth			90
+	maxarmor			50
+	//speed				1.05
+	speed				1.1
+	rateoffire			1
+	model				"mira"
+	skin				"default"
+	uishader			"models/players/mira/mb2_icon_default"
+	
+	MBClass				MB_CLASS_MANDALORIAN
+	classNumberLimit	1
+	
+	resource			resource_energy
+	special1			EAS_HI_POISON
+	special2			EAS_HI_WHISTLING_BIRDS
+	special3			EAS_HI_DODGE
+	special4			EAS_HI_SPRINT
 }
 
 WeaponInfo0
 {
-    WeaponToReplace		WP_BLASTER_PISTOL      			
-    WeaponBasedOff		WP_BRYAR_PISTOL      			
-    NewWorldModel		"models/weapons2/kotor_bpistol3/kotor_bpistol3_w.glm"  
-    NewViewModel		"models/weapons2/kotor_bpistol3/kotor_bpistol3.md3"
-	Icon			"gfx/hud/w_icon_kotor_bpistol3"
-    WeaponName		"Mira's Blaster Pistol"  
-	idleAnim 		BOTH_MAND_PISTOL_READY 
-	firingAnim 		BOTH_MAND_PISTOL_ATTACK
-	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav"
-	FlashSound0		"sound/weapons/kotor/fire_power1.wav"	
+    WeaponToReplace			WP_BLASTER_PISTOL      			
+    WeaponBasedOff			WP_BLASTER_PISTOL      			
+    NewWorldModel			"models/weapons2/kotor_bpistol3/kotor_bpistol3_w.glm"  
+    NewViewModel			"models/weapons2/kotor_bpistol3/kotor_bpistol3.md3"
+	Icon					"gfx/hud/w_icon_kotor_bpistol3"
+    WeaponName				"Mira's Blaster Pistol"
+	FlashSound0				"sound/weapons/kotor/fire_power1.wav"
+	AltFlashSound0			"sound/weapons/kotor/fire_power1.wav"
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	animCharge				BOTH_MAND_PISTOL_READY
 }
 
 description	"Mira - The Huntress
 
-Weaponry:
+^2Weaponry:
+- Blaster Pistol (3)
+- 1 Thermal Detonator
+- 2 Frag Grenades
+- 2 Fire Grenades
+- 2 Cryoban Grenades
+- 2 Sonic Detonators
 
-Blaster Pistol (3)
-Thermal Detonator (1)
-Frag Grenade (2)
-Fire Grenade (2)
-Cryo Grenade (2)
-Sonic Detonator (2)
+^6Inventory: 
+- Electrobinoculars 
 
-Equipment: 
-Poison Darts (3) ^3[CS1]
-Whistling Birds ^3[CS2]
-Binoculars 
+^8Attributes:
+- Healing (2)
+- Stamina (2)
 
-Attributes:
-
-Healing (2)
-Dodge (3) ^3[CS3]
-Stamina (2) ^3[CS4]
-
-Details:
+^3Abilities:
+- Poison Darts (3) ^3[CS1]
+- Whistling Birds ^3[CS2]
+- Dodge (3) ^3[CS3]
+- Sprint ^3[CS4]
 
 Mira was a female Human bounty hunter and one of the Lost Jedi from the moon Nar Shaddaa, serving as one of the followers of Meetra Surik."

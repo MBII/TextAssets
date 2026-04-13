@@ -2,43 +2,42 @@
 
 ClassInfo
 {
-	name			"Tat_RSniper"
-	weapons			WP_BLASTER_PISTOL|WP_PROJ|WP_MELEE|WP_SABER
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_HEALING,2|MB_ATT_GRAPPLE_HOOK,2
-	saber1 			vk_right
-	saberstyle		SS_TAVION
-	forcepowers FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
-	maxhealth		100
-	maxarmor		75
-	holdables 		HI_CLOAK
-	forcepool       05
+	name				"Tat_RSniper"
+	weapons				WP_BLASTER_PISTOL|WP_PROJ|WP_MELEE|WP_SABER
+	WP_ProjFlags		HELD_STUN 
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_HEALING,2|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_CLOAK
+	//holdables			HI_CLOAK
+	saber1				vk_right
+	saberstyle			SS_TAVION
+	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	forcepool			50
+	maxhealth			100
+	maxarmor			75
+	speed				1.09
+	modelscale			0.97
 	model				"gwethenea"
 	skin				"rebel"
 	uishader			"models/players/gwethenea/mb2_icon_rebel"
-	MBClass			MB_CLASS_ARCTROOPER
+	MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_SEEING_STEALTH
 	classNumberLimit	1
-	
-	classflags     CFL_SEEING_STEALTH
-	
-	WP_ProjFlags 	HELD_STUN 
+	resource			RESOURCE_STAMINA
+	special3			EAS_HI_GRAPPLEHOOK
 	
 	saberStanceAnim		BOTH_MELEE_STAND2
-	
-	speed             1.09
-	
-	modelscale        0.97
 }
 
 WeaponInfo0
 {
 	WeaponToReplace		WP_BLASTER_PISTOL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplace
+	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/DE-10/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons2/DE-10/blaster_pistol.md3"   	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_DE-10" 			//Required: Weapon change icon
-	WeaponName		"DE-10 Blaster Pistol"    					//Required: Weapon change display name
-	FlashSound0		"sound/weapons/de10/fire.wav"
+	Icon				"gfx/hud/w_icon_DE-10" 			//Required: Weapon change icon
+	WeaponName			"DE-10 Blaster Pistol"    					//Required: Weapon change display name
+	FlashSound0			"sound/weapons/de10/fire.wav"
 	AltFlashSound0 		"sound/weapons/de10/alt_fire.wav"
+	customAmmo			600
 	MuzzleEffect		"Blaster/MuzzleFlash01B"	   				//Optional: New muzzle effect
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 					//Optional: New alt muzzle effect
 	MissileEffect		"blaster/shot03b" 					//Optional: New effect to be displayed on the projectile
@@ -46,7 +45,6 @@ WeaponInfo0
 	AltMissileEffect	"blaster/shot03b" 					//Optional: Ditto for the alt fire
 	PowerupShotEffect	"blaster/shot03b" 					//Optional: Ditto for the alt fire
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
-	customAmmo 		600
 }
 
 WeaponInfo1
@@ -56,11 +54,11 @@ WeaponInfo1
 	NewWorldModel		"models/weapons2/tusken_sniper/model_w.glm"  	
 	NewViewModel		"models/weapons2/tusken_sniper/model.md3"  	
 	FlashSound0			"sound/weapons/tusken_cycler/fire.wav"  			
-	Icon				"gfx/hud/w_icon_tuskenSniper" 				//Required
-	WeaponName			"Cycler Rifle"    					//Required
-	clipsize    2
-	CustomAmmo 	18
-	ReloadTimeModifier 	.75
+	Icon				"gfx/hud/w_icon_tuskenSniper"
+	WeaponName			"Cycler Rifle"
+	clipsize			2
+	CustomAmmo			18
+	ReloadTimeModifier	.75
 }
 
 WeaponInfo2
@@ -69,43 +67,35 @@ WeaponInfo2
 	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
 	NewWorldModel		"models/weapons2/vibroknuckler/saber_vk.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_vibroknuckler" 	//Required: Weapon change icon
-	WeaponName		"Vibro-Knuckler"    					//Required: Weapon change display name
+	Icon				"gfx/hud/w_icon_vibroknuckler" 	//Required: Weapon change icon
+	WeaponName			"Vibro-Knuckler"    					//Required: Weapon change display name
 }
 
-description	"Rebel Sniper Jaelee Kalse [Arc Trooper]
+description	"Rebel Sniper Jaelee Kalse
 
+^2Weaponry:
+- DE-10 Blaster Pistol (3)
+- Cycler Rifle
+-- Based on Projectile Rifle
+-- 2 Shots Per Clip
+-- Faster Reload Time
+-- Staggers Enemies On Hit
+- Vibro-Knuckler
+-- Cyan Style Only
+-- Saber Defense (1)
 
-
-Weaponry:
-- DE-10 (Based on Pistol level 3)
-- Cycler Rifle *
-- Vibro-Knuckler *
-
-* Special Weapon Descriptions:
---- Cycler Rifle
-- Based on Projectile Rifle
-- Two shots per clip
-- Faster reload time
-- Staggers enemies on successful hits
-
---- Vibro-Knuckler
-- Based on lightsaber
-- Defense (1)
-- Cannot block blasters
-- Can use Cyan style
-
-Inventory:
+^6Inventory:
 - Cloaking Device
 
-Attributes:
-- Heal (2)
-- Invisible to Radars 
+^8Attributes:
+- Invisible to Radars
+- Stamina (3)
+- Dexterity (3)
+- Healing (2)
 
-Abilities:
-- Stamina (3) ^3[CS1]
-- Dexterity	(3) [Alt Ability 1]
---- Grappling Hook (2)
-- Hold Class Special 2 while melee is equipped, then hold spacebar to ascend or crouch to descend.
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Grappling Hook (2) ^3[CS3]
 
 One of the new recruits being smuggled off-planet, Jaelee has proven herself an excellent marksman on the Dune Sea by picking off stormtroopers with her cycler rifle. Never caught by the local Imperials, reports of missing patrols presumably lost to 'Tusken Raider attacks' have steadily risen near Mos Eisley."

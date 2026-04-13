@@ -2,23 +2,25 @@
 
 ClassInfo
 {
-	name 			"tat_RTechnician"
-	weapons 			WP_MELEE|WP_CLONE_PISTOL|WP_M5|WP_PULSE_NADE|WP_FRAG_NADE
-	attributes		MB_ATT_WESTARM5,1|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_CLONE_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,3|MB_ATT_FRAGS,1|MB_ATT_DODGE,1|MB_ATT_QUICKTHROW,2|MB_ATT_DISP_ARMOR,3
+	name				"tat_RTechnician"
+	weapons				WP_MELEE|WP_CLONE_PISTOL|WP_M5|WP_PULSE_NADE|WP_FRAG_NADE
+	attributes			MB_ATT_WESTARM5,1|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_CLONE_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,3|MB_ATT_FRAGS,1|MB_ATT_DODGE,1|MB_ATT_QUICKTHROW,2|MB_ATT_DISP_ARMOR,3|MB_ATT_BACTA_BIG|MB_ATT_SENTRY|MB_ATT_FORCEFIELD
+	//holdables			HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_SHIELD
 	maxhealth			100
-	maxarmor				80
-	
-	holdables              HI_MEDPAC_BIG|HI_SENTRY_GUN|HI_SHIELD
-	
+	maxarmor			80
+	speed				1.08
+	modelscale			0.93
 	model				"rebel_commando"
-	skin					"sullustan_desert"
-	uishader				"models/players/rebel_commando/mb2_icon_sullustan_desert"
-	MBClass 				MB_CLASS_ARCTROOPER
+	skin				"sullustan_desert"
+	uishader			"models/players/rebel_commando/mb2_icon_sullustan_desert"
+	MBClass				MB_CLASS_ARCTROOPER
 	classflags			CFL_STATVIEWER
-	classnumberlimit		1
-	
-	speed              1.08
-	modelscale          0.93
+	classnumberlimit	1
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+	special3			EAS_HI_DODGE
+	special4			EAS_HI_QUICKTHROW
 }
 
 WeaponInfo0
@@ -28,7 +30,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/hera_p/pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
 	NewViewModel		"models/weapons2/hera_p/pistol_w.md3"   	//Required: New 1st person weapon model
 	Icon				"gfx/hud/w_icon_herapistols" 						//Required: Weapon change icon
-	WeaponName			"Blurrg-1120 Pistols"    					//Required: Weapon change display name
+	WeaponName			"Blurrg-1120 Holdout Blasters"    					//Required: Weapon change display name
 	FlashSound0			"sound/weapons/lvl3pistol/fire.mp3" 			
 	AltFlashSound0		"sound/weapons/lvl3pistol/fire.mp3"
 	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
@@ -39,49 +41,49 @@ WeaponInfo0
 	AltMissileEffect	"Blaster/Shot04r"
 	PowerupShotEffect	"Blaster/Shot04r"
 	ChargeEffect		"gfx/effects/bryarfrontflash"
-	MissileMissEffect "effects/blaster/Impact_Wall01R"
+	MissileMissEffect	"blaster/Impact_Wall01R"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace			WP_FRAG_NADE
-	WeaponBasedOff			WP_FRAG_NADE
-	NewWorldModel			"models/weapons2/Stormi_TD/StormiTD_w.glm"
-	NewViewModel			"models/weapons2/Stormi_TD/StormiTD.md3"
-	MissileModel 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_FRAG_NADE
+	NewWorldModel		"models/weapons2/Stormi_TD/StormiTD_w.glm"
+	NewViewModel		"models/weapons2/Stormi_TD/StormiTD.md3"
+	MissileModel		"models/weapons2/Stormi_TD/StormiTD_proj.md3"
 	altMissileMissEffect		"Grenades/EXP_Flash"
 	altMissileHitHumanEffect	"Grenades/EXP_Flash"
 	altMissileHitDroidEffect	"Grenades/EXP_Flash"
 	Icon				"gfx/hud/w_icon_StormiTD"
 	WeaponName			"Flashbang Grenade"
 	customammo			1
-	primFireEnabled			0
+	primFireEnabled		0
 }
 
+description	"Rebel Technician Tien Neb
 
-description	"Rebel Technician Tien Neb [Arc Trooper]
+^2Weaponry:
+- Blurrg-1120 Holdout Blasters (3)
+-- Based on Clone Pistols
+- Westar M5 [Grenade Launcher] (1)
+- 2 Pulse Grenades
+- 1 Flashbang Grenade
 
+^6Inventory:
+- Advanced Medpac (50HP+)
+- Portable Shield
+- Portable Sentry Gun
 
+^8Attributes:
+- View Ally Stats
+- Stamina (3)
+- Dexterity (2)
 
-Weaponry:
-- Blurrg-1120 Pistols (Based on Clone Pistols)
-- Westar M5 w/Pulse Attachment (1)
-- Pulse Grenades (2)
-- Flashbang Grenade (1)
-
-Inventory:
-- Big Bacta (+50 hp)
-- Deployable Shield
-- Sentry Gun
-
-Attributes:
-- Can view Health/Shield status of allies
-
-Abilities:
-- Can heal ally armor [Press the 'use' key when close to and facing wounded teammates]
-- Stamina (3) ^3[CS1]
-- Dodge (1) [CS1, activates simultaneously with Stamina]
-- Dexterity (2) ^3[CS2]
-- Quick Throw (1) [Alt Ability 1]
+^3Abilities:
+- Armor Dispenser [Press Use on Allies]
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Dodge (1) ^3[CS3]
+- Quick Throw (1) ^3[CS4]
 
 Tien Neb, an engineer by trade and a native of Sullust, serves as the chief technician under Commander Sorlil. Forced into combat due to the untimely retirement of his old ship, he now uses his expertise to maintain the shields on his allies - becoming a makeshift 'medic.'"

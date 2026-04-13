@@ -1,26 +1,37 @@
+
+
 ClassInfo
 {
 	name  				"bs_b_impgunner"
 	weapons				WP_BLASTER_PISTOL|WP_FRAG_NADE|WP_MELEE|WP_BLASTER|WP_SABER
 	attributes			MB_ATT_DODGE,3|MB_ATT_PISTOL,2|MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_FRAGS,1|MB_ATT_BLASTER,1|MB_ATT_HEALING,2|MB_ATT_DASH,2
-	saber1				"base_baton_citadel"
-	saber2				"base_baton_citadel"
+	saber1				base_baton_citadel
+	saber2				base_baton_citadel
 	saberstyle			SS_DUAL
-	sabercolor 			0
-	saber2color 		0
 	maxhealth			100
 	maxarmor			50
+	speed				1.05
 	model				"imperial_army"
 	skin				"gunner"
-	speed				1.05
 	uishader 			"models/players/imperial_army/mb2_icon_gunner"
-	classNumberLimit  	4
 	MBClass				MB_CLASS_HERO
-	holdables			CFL_SEEING_STEALTH
+	classFlags			CFL_SEEING_STEALTH
+	classNumberLimit  	4
+	
 	respawnCustomTime 	20000
 }
 
 WeaponInfo0
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"
+	NewViewModel		"models/weapons2/stun_baton/baton.md3"
+	Icon				"gfx/hud/w_icon_dual_stun_baton"
+	WeaponName			"Dual Batons"
+}
+
+WeaponInfo1
 {
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_BLASTER_PISTOL
@@ -29,16 +40,6 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_se-14c"
 	WeaponName			"SE-14c Blaster Pistol"
 	customAmmo 			600
-}
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"
-	NewViewModel		"models/weapons2/stun_baton/baton.md3"
-	Icon				"gfx/hud/w_icon_dual_stun_baton"
-	WeaponName			"Dual Batons"
 }
 
 WeaponInfo2
@@ -55,15 +56,19 @@ WeaponInfo2
 
 description	"Imperial Gunnner
 
-Weaponry:
-SE-14c Blaster Pistol (2)
-Dual Batons
-Frag Grenade
+^2Weaponry:
+- SE-14c Blaster Pistol (2)
+- E-11 Blaster Rifle (1)
+- Dual Batons
+-- Dual Style Only
+- 1 Frag Grenade
 
-Attributes:
-Assemble
-Dodge (3)
-Dash (2)
-Cannot be seen by Sense
+^8Attributes:
+- Assemble (1)
+- Invisible To Sense
+
+^3Abilities:
+- Dodge (3) ^3[CS1]
+- Dash (2) ^3[CS2]
 
 20 Second Respawn Timer"

@@ -2,72 +2,84 @@
 
 ClassInfo
 {
-	name			"Man_Sith_Elite"
-  	saber1			"kotor_shortsword"
-	weapons			WP_CLONE_RIFLE|WP_SABER|WP_MELEE
-	saberstyle  	SS_MEDIUM|SS_STRONG
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_CLONE_RIFLE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,1|MB_ATT_DEXTERITY,1
-	APmultiplier	.8	
-	BPmultiplier	.7
-	forcepowers		FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
-	maxhealth		65
-	maxarmor		65
-	MBClass			MB_CLASS_ARCTROOPER
-	rateOfFire		0.7
-	DamageGiven     0.5
+	name				"Man_Sith_Elite"
+	weapons				WP_CLONE_RIFLE|WP_SABER|WP_MELEE
+	WP_CloneRifleFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,1|MB_ATT_DODGE,2|MB_ATT_DEXTERITY,1
+	saber1				kotor_shortsword
+	saberstyle			SS_MEDIUM|SS_STRONG
+	APmultiplier		.8	
+	BPmultiplier		.7
+	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3
+	maxhealth			65
+	maxarmor			65
+	extraLives			2
+	rateOfFire			0.7
+	DamageGiven			0.5
+	model				"sithtrooper"
+	skin				"red"
+	uishader			"models/players/sithtrooper/mb2_icon_red"
+	MBClass				MB_CLASS_ARCTROOPER
 	classNumberLimit	4
-	extralives		2
-	model			"sithtrooper"
-	skin			"red"
-	uishader		"models/players/sithtrooper/mb2_icon_red"
-	special3		EAS_HI_DODGE
-	resource		resource_stamina
+	resource			resource_stamina
+	special3			EAS_HI_DODGE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_CLONE_RIFLE   			
-	WeaponBasedOff		WP_BLASTER    			
-	NewWorldModel		"models/weapons2/kotor_carbine/model.glm"
-	NewViewModel		"models/weapons2/kotor_carbine/model.MD3"
-	Icon				"gfx/hud/w_icon_kotorcarbine"
-	WeaponName			"Sith Carbine"
-	FlashSound0			"sound/weapons/kotor_carbine/fire.wav"
-	MuzzleEffect  		"Blaster/MuzzleFlash01R"
-	MissileEffect 		"Blaster/Shot02R"
-	customAmmo			600
-	clipSize			15
-	idleAnim  			TORSO_WEAPONREADY3
-	ReloadTimeModifier  1.2		
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/kotor_shortsword/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_vibrosword"
+	WeaponName				"Short Sword"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace			WP_SABER			
-	WeaponBasedOff			WP_SABER			
-	NewWorldModel			"models/weapons2/kotor_shortsword/saber_w.glm"  
-	NewViewModel			"models/weapons2/dummy/dummy.md3" 	  
-	Icon					"gfx/hud/w_icon_vibrosword"
-	WeaponName				"Short Sword"    			
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_BLASTER
+	NewWorldModel			"models/weapons2/kotor_carbine/model.glm"
+	NewViewModel			"models/weapons2/kotor_carbine/model.MD3"
+	Icon					"gfx/hud/w_icon_kotorcarbine"
+	WeaponName				"Sith Carbine"
+	FlashSound0				"sound/weapons/kotor_carbine/fire.wav"
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
+	MissileEffect			"Blaster/Shot02R"
+	customAmmo				600
+	clipSize				18
+	ReloadTimeModifier		0.9
+	FPMult					0.9
+	damageMod				0.85
+	rateMod					0.9
+	hasAnimOverrides		1
+	animReady				TORSO_WEAPONIDLE3
+	animReadyWalk			TORSO_WEAPONREADY3
+	animStand				BOTH_STAND1
 }
 
 description	"Sith Elite Trooper
 
-Weaponry:
+^2Weaponry:
+- Sith Carbine (2)
+-- Based on Clone Rifle
+-- 10% Faster RoF
+-- 10% Faster Mag Reload
+-- 15% Less DMG
+-- 10% Less FP DMG
+- Short Sword
+-- Yellow / Red Styles
+-- Saber Defense (1)
 
-Sith Carbine (2)
-- Clone rifle, 15 rapid shot burst 50% dmg output
-Short Sword
-- Yellow & Red styles
+^8Attributes:
+- Stamina (1)
+- Dexterity (1)
+- Reinforcements (2)
+- Assemble (1)
 
-Attributes:
-
-Dexterity (1)
-Dodge (2) ^3[CS3]
-Reinforcements (2)
-Stamina (1)
-Assemble
-
-Details:
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Dodge (2) ^3[CS3]
 
 The Sith Elite Trooper was a specialized class of Sith Trooper that was highly trained in all forms of combat."

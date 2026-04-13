@@ -2,61 +2,70 @@
 
 ClassInfo
 {
-	name			"Man_Sith_Heavy"
-	weapons			WP_CLONE_RIFLE|WP_MELEE
-	attributes		MB_ATT_ASSEMBLE,1|MB_ATT_CLONERIFLE,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,1|MB_ATT_CLONEBLOBS,3
-	maxhealth		65
-	maxarmor		80
-	model			"sithtrooper"
-	skin			"red"
-	uishader		"models/players/sithtrooper/mb2_icon_red"
-	MBClass			MB_CLASS_CLONETROOPER
-	rateoffire		1.33
+	name				"Man_Sith_Heavy"
+	weapons				WP_CLONE_RIFLE|WP_MELEE
+	WP_MeleeFlags		HELD_SPEED
+	WP_CloneRifleFlags	HELD_SLOW
+	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_CLONERIFLE,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,1|MB_ATT_CLONEBLOBS,3
+	maxhealth			80
+	maxarmor			65
+	extralives			1
+	speed				.95
+	rateoffire			1.33
+	model				"sithtrooper"
+	skin				"red"
+	uishader			"models/players/sithtrooper/mb2_icon_red"
+	MBClass				MB_CLASS_CLONETROOPER
 	classNumberLimit	2
-	extralives		1
-	speed			.95
-	WP_MELEEflags	HELD_SPEED
-	WP_CloneRifleflags	HELD_SLOW
-	
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_CLONE_RIFLE
-	NewWorldModel		"models/weapons2/kotor_repeater/model_w.glm"
-	NewViewModel		"models/weapons2/kotor_repeater/model.md3"
-	Icon				"gfx/hud/w_icon_kotor_repeater"
-	WeaponName			"Heavy Repeating Blaster"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	FlashSound0			"sound/weapons/minigun/fire.wav"	
-	MissileEffect		"Blaster/Shot01R"
-	clipSize		250
-	ReloadTimeModifier 	1.75
-	customammo		800
-	firingAnim		BOTH_MINIGUN_ATTACK
-	idleAnim		BOTH_MINIGUN_READY
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_CLONE_RIFLE
+	NewWorldModel			"models/weapons2/kotor_repeater/model_w.glm"
+	NewViewModel			"models/weapons2/kotor_repeater/model.md3"
+	Icon					"gfx/hud/w_icon_kotor_repeater"
+	WeaponName				"Heavy Repeating Blaster"
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
+	FlashSound0				"sound/weapons/minigun/fire.wav"
 	AltFlashSound0			"sound/weapons/rocket/alt_fire"
-	AltMissileMissEffect        "sbd/impact_cannon"
-    AltMissileHitHumanEffect    "sbd/impact_cannon"
-    AltMissileHitDroidEffect    "sbd/impact_cannon"
-	altMissileEffect		"sbd/shot_cannon"
+	MissileEffect			"Blaster/Shot01R"
+	altMissileEffect			"sbd/shot_cannon"
+	AltMissileMissEffect		"sbd/impact_cannon"
+    AltMissileHitHumanEffect	"sbd/impact_cannon"
+    AltMissileHitDroidEffect	"sbd/impact_cannon"
+	
+	clipSize				250
+	ReloadTimeModifier		1.75
+	customammo				800
+	hasAnimOverrides		1
+	animReadyRun			BOTH_DC15_IDLE
+	animReady				BOTH_DC15_IDLE
+	animReadyWalk			TORSO_WEAPONREADY3
+	animReadyNoAmmo			BOTH_ATTACK3
+	animAttackRun			BOTH_ATTACK3
+	animAttack				BOTH_ATTACK3
+	animAttackWalk			BOTH_ATTACK3
+	animStand				BOTH_STAND1
 }
 
 description	"Sith Heavy Trooper
 
-Weaponry:
+^2Weaponry:
+- Heavy Repeating Blaster (3)
+-- Based on Clone Rifle
+-- 3 Concussive Blasts
+-- 33% Slower Rate of Fire
+-- 15% Slower Movement While Held
 
-Heavy Repeating Blaster: (3)
-Concussive Blasts (Clone Blobs): (3)
--33% Slower Rate of Fire
+^8Attributes:
+- Runs Faster With Melee
+- Stamina (1)
+- Reinforcements (1)
+- Assemble (1)
 
-Attributes:
-
-Assemble (1)
-Reinforcements (1)
-Stamina (1)
-
-Details:
+^3Abilities:
+- Sprint ^3[CS1]
 
 The Sith Troopers were infantry units in the armed forces of the Sith Empire during the Jedi Civil War. The Heavy troopers are equipped with heavy repeating blasters."

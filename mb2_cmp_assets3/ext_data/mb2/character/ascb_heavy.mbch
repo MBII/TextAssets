@@ -2,56 +2,66 @@
 
 ClassInfo
 {
-	name			"ascb_heavy"
-	weapons			WP_CLONE_PISTOL|WP_MINIGUN|WP_MELEE|WP_SHOTGUN
-	attributes		MB_ATT_CLONE_PISTOL,2|MB_ATT_SHOTGUN,3|MB_ATT_ARMOUR,3|MB_ATT_AMMO,2|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_WOOKIEE_FURY,2|MB_ATT_MINIGUN,3
-	maxhealth		300
-	model			"cw_durge"
-	skin			"blue_heavy"
-	uishader		"models/players/cw_durge/mb2_icon_blue"
-	MBClass			MB_CLASS_WOOKIE
-	extralives		6
-    respawnCustomTime   	20000
-	classnumberlimit	2
+	name				"ascb_heavy"
+	weapons				WP_MINIGUN|WP_MELEE|WP_SHOTGUN
+	attributes			MB_ATT_SHOTGUN,3|MB_ATT_AMMO,2|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_WOOKIEE_FURY,2|MB_ATT_MINIGUN,3
+	maxhealth			400
+	extralives			6
 	modelscale		    1.25
+	model				"cw_durge"
+	skin				"blue_heavy"
+	uishader			"models/players/cw_durge/mb2_icon_blue"
+	MBClass				MB_CLASS_WOOKIE
+	classnumberlimit	2
+	
+	respawnCustomTime	20000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MINIGUN
-	WeaponBasedOff		WP_MINIGUN
-	NewWorldModel		"models/weapons2/mgun/heavy_repeater_w.glm"
-	NewViewModel		"models/weapons2/mgun/heavy_repeater.md3"
-	Icon			    "gfx/hud/w_icon_mgun"
-	WeaponName		    "Minigun"
-	FlashSound0	    	"sound/weapons/mgun/fire.wav" 
-	customAmmo 		    999
+	WeaponToReplace			WP_MINIGUN
+	WeaponBasedOff			WP_MINIGUN
+	NewWorldModel			"models/weapons2/mgun/heavy_repeater_w.glm"
+	NewViewModel			"models/weapons2/mgun/heavy_repeater.md3"
+	Icon					"gfx/hud/w_icon_mgun"
+	WeaponName				"Minigun"
+	FlashSound0				"sound/weapons/mgun/fire.wav" 
+	customAmmo				999
+	isMinigun				1
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SHOTGUN
-	WeaponBasedOff		WP_SHOTGUN
-	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
-	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
-    FlashSound0			"sound/weapons/reshotgun/fire.wav"
-    MuzzleEffect		"halo_shotgun/Muzzle_Flash"
-	MissileEffect 		"flechette/shot"
-    MissileMissEffect   "blaster/Impact_Wall01Y"
-	primGore		    1
-    altFireEnabled	    0
-    clipSize            36 //3 shots - no clue why clip size needs to be different to pyro
-    Icon				"gfx/hud/w_icon_cp-50_repeater"
-	WeaponName			"Shotgun"
-    firingAnim          BOTH_DC15_ATTACK
+	WeaponToReplace			WP_SHOTGUN
+	WeaponBasedOff			WP_SHOTGUN
+	NewWorldModel			"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel			"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+    FlashSound0				"sound/weapons/reshotgun/fire.wav"
+    MuzzleEffect			"halo_shotgun/Muzzle_Flash"
+	MissileEffect			"flechette/shot"
+    MissileMissEffect		"blaster/Impact_Wall01Y"
+	primGore				1
+    altFireEnabled			0
+    clipSize				36 //3 shots - no clue why clip size needs to be different to pyro
+    Icon					"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName				"Shotgun"
+	hasAnimOverrides		1
+    animReadyNoAmmo			BOTH_DC15_ATTACK
+    animAttackRun			BOTH_DC15_ATTACK
+    animAttack				BOTH_DC15_ATTACK
+    animAttackWalk			BOTH_DC15_ATTACK
 }
 
 description	"Heavy [Wookiee]
 
-Weapons:
+^2Weapons:
+- Clone Pistol (2)
 - Minigun (3)
 - Shotgun (3)
 
-Attributes:
+^8Attributes:
 - Strength (3)
-- Fury (2)"
+
+^3Abilities
+- Fury (2) ^3[CS1 Melee]
+- Shoulder Barge ^3[CS2]"

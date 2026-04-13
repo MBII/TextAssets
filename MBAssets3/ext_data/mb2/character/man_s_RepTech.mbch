@@ -2,95 +2,95 @@
 
 ClassInfo
 {
-	name					"man_s_RepTech"
-	weapons					WP_MELEE|WP_BOWCASTER|WP_PULSE_NADE|WP_BRYAR_PISTOL
-	WP_BryarPistolFlags	HELD_ALTRELOAD
+	name				"man_s_RepTech"
+	weapons				WP_MELEE|WP_BOWCASTER|WP_PULSE_NADE|WP_BLASTER_PISTOL
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
 	WP_BowcasterFlags	HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_SLOW|HELD_PULSE
-	classNumberLimit 		2
-	rateOfFire				1.25
-	speed 					1
-	attributes				MB_ATT_AMMO,2|MB_ATT_BOWCASTER,1|MB_ATT_ASSEMBLE,1|MB_ATT_PULSE_GRENADES,3|MB_ATT_PISTOL,3
-	maxhealth				60
-	maxarmor				65
-	MBClass					MB_CLASS_MANDALORIAN
-	extralives				1
-	holdables      		  	HI_SENTRY_GUN
-	model 					"prisoner"
-	skin  					"oldrepsold"
-	uishader  				"gfx/hud/fa_icons/mb2_icon_oldrepsold"
-
-	  
+	attributes			MB_ATT_AMMO,2|MB_ATT_BOWCASTER,1|MB_ATT_ASSEMBLE,1|MB_ATT_PULSE_GRENADES,3|MB_ATT_PISTOL,3|MB_ATT_SENTRY
+	//holdables			HI_SENTRY_GUN
+	maxhealth			60
+	maxarmor			65
+	extralives			1
+	speed				1
+	rateOfFire			1.25
+	model				"prisoner"
+	skin				"oldrepsold"
+	uishader			"models/players/prisoner/mb2_icon_oldrepsold"
+	MBClass				MB_CLASS_MANDALORIAN
+	classNumberLimit	2
 }
 
 WeaponInfo0
 {
 	WeaponToReplace 		WP_BOWCASTER
 	WeaponBasedOff  		WP_DISRUPTOR
-	NewWorldModel 			"models/weapons2/kotor_ionrifle/kotor_ionrifle.glm" 
+	NewWorldModel 			"models/weapons2/kotor_ionrifle/kotor_ionrifle.glm"
 	NewViewModel  			"models/weapons2/kotor_ionrifle/kotor_ionrifle.md3"
+	Icon  					"gfx/hud/w_icon_kotor_ionrifle"
+	WeaponName				"Ion Rifle"
+	FlashSound0				"sound/weapons/kotor/fire_power2"
 	MuzzleEffect			"blaster/MuzzleFlash01b"
 	PowerupShotEffect		"blaster/MuzzleFlash01b"
 	MissileEffect			"blaster/shot06B"
-	FlashSound0				"sound/weapons/kotor/fire_power2"
 	MissileMissEffect		"SBD/Cortosis_blue"
 	MissileHitHumanEffect	"SBD/Cortosis_blue"
 	MissileHitDroidEffect	"SBD/Cortosis_blue"
 	altfireenabled			0
 	ClipSize 				15
-	Icon  					"gfx/hud/w_icon_kotor_ionrifle"
-	WeaponName				"Ion Rifle"
-
 }
 
 WeaponInfo1
 {
  	WeaponToReplace			WP_PULSE_NADE
-	WeaponBasedOff			WP_PULSE_NADE
-	NewWorldModel	"models/weapons2/b17polaritypulse/laser_trap_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	MissileModel	"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
-	altMissileModel	"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
-	Icon	"gfx/hud/w_icon_polarity"
-	WeaponName			"Ion Grenade"
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons2/b17polaritypulse/laser_trap_w.glm"
+	NewViewModel			"models/weapons2/b17polaritypulse/laser_trap.md3"
+	MissileModel			"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
+	altMissileModel			"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
+	Icon					"gfx/hud/w_icon_polarity"
+	WeaponName				"Ion Grenade"
 }
 
 WeaponInfo2
 {
-    WeaponToReplace		WP_BRYAR_PISTOL      			
-    WeaponBasedOff		WP_BRYAR_PISTOL      			
-    NewWorldModel		"models/weapons2/kotor_bpistol3/kotor_bpistol3_w.glm"  
-    NewViewModel		"models/weapons2/kotor_bpistol3/kotor_bpistol3.md3"
-	Icon			"gfx/hud/w_icon_kotor_bpistol3"
-    WeaponName		"Blaster Pistol"  
-	AltFlashSound0		"sound/weapons/kotor/fire_power1.wav"
-	FlashSound0		"sound/weapons/kotor/fire_power1.wav"
-	idleAnim 		BOTH_MAND_PISTOL_READY 
-	firingAnim 		BOTH_MAND_PISTOL_ATTACK
-	clipSize 		12	
+    WeaponToReplace			WP_BLASTER_PISTOL
+    WeaponBasedOff			WP_BLASTER_PISTOL
+    NewWorldModel			"models/weapons2/kotor_bpistol3/kotor_bpistol3_w.glm"
+    NewViewModel			"models/weapons2/kotor_bpistol3/kotor_bpistol3.md3"
+	Icon					"gfx/hud/w_icon_kotor_bpistol3"
+    WeaponName				"Blaster Pistol"
+	AltFlashSound0			"sound/weapons/kotor/fire_power1.wav"
+	FlashSound0				"sound/weapons/kotor/fire_power1.wav"
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	clipSize				12
 }
+
 description	"Republic Technician
 
-Weaponry:
+^2Weaponry:
+- Ion Rifle (1)
+-- Based on Bowcaster
+-- Pulse Effect on Hit
+-- 50% Less DMG
+-- Alt Reload
+-- 15% Slower Movement While Held
+- Blaster Pistol (3)
+-- Alt Reload
+- 3 Ion Grenades
 
-Ion Rifle (1)
-- Based on a Bowcaster
-- Pulse Effect on Hit
-- Does 50% Less Damage
-Ion Grenades (3)
-Blaster Pistol (3)
+^6Inventory:
+- Portable Sentry Gun
 
-Equipment:
+^8Attributes:
+- Reinforcements (1)
+- Assemble (1)
 
-Portable Assault Sentry
-
-Attributes:
-
-Reinforcements (1)
-Assemble
-
-Details:
-
-Republic technicians stationed within the Republic Embassy on Manaan played a vital role in bolstering the Embassy's defenses during the Ahto City uprising against the Sith.
-
-
-"
+Republic technicians stationed within the Republic Embassy on Manaan played a vital role in bolstering the Embassy's defenses during the Ahto City uprising against the Sith."

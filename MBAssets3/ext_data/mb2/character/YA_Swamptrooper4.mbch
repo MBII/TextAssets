@@ -1,55 +1,34 @@
+
+
 ClassInfo
 {
-	name			"YA_Swamptrooper4"
-	weapons			WP_BLASTER_PISTOL|WP_MELEE|WP_THROWER|WP_FIRE_NADE
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_FIRE_GRENADES,2|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,2|MB_ATT_QUICKTHROW,2
-	maxhealth		80
-	maxarmor		80
+	name				"YA_Swamptrooper4"
+	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_THROWER|WP_FIRE_NADE
+	WP_ThrowerFlags		HELD_SLOW
+	attributes			MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_FIRE_GRENADES,2|MB_ATT_ASSEMBLE,1|MB_ATT_STAMINA,2|MB_ATT_QUICKTHROW,2
+	maxhealth			80
+	maxarmor			80
+	extralives			1 				
+	speed				0.95
+	model				"swamptrooper"
+	skin				"camo_red"
+	uishader			"models/players/st_swamptrooper/mb2_icon_camo_red"
+	MBClass				MB_CLASS_CLONETROOPER
 	classNumberLimit	1
-	extralives		1 				
-	
-	model			"swamptrooper"
-	skin			"camo_red"
-	uishader		"models/players/st_swamptrooper/mb2_icon_camo_red"
-	
-	speed			0.95
-
-	WP_THROWERFlags	HELD_SLOW
-	
-	MBClass			MB_CLASS_CLONETROOPER
-	
-
 }
 
 WeaponInfo0
 {
-	WeaponToReplace	WP_BLASTER					
-	WeaponBasedOff	WP_BLASTER					
-	NewWorldModel	"models/weapons2/blaster_r/blaster_w.glm"  	
-	NewViewModel	"models/weapons2/blaster_r/blaster.md3"   	
-	Icon		"gfx/hud/w_icon_E11" 					
-	WeaponName	"E-11 Blaster Carbine"    					
-	customAmmo 	600
-	MuzzleEffect	"blaster/altmuzzle_flash"
-	MissileEffect	"blaster/Shot01R"
-	
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"
+	NewViewModel		"models/weapons2/se-14c_pistol/blaster_pistol.md3"
+	Icon				"gfx/hud/w_icon_se-14c"
+	WeaponName			"SE-14R Repeating Blaster"
+	customAmmo			300
 }
-
 
 WeaponInfo1
-{
-	WeaponToReplace	WP_BLASTER_PISTOL					
-	WeaponBasedOff	WP_BOWCASTER					
-	NewWorldModel	"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"  	
-	NewViewModel	"models/weapons2/se-14c_pistol/blaster_pistol.md3"   	
-	Icon		"gfx/hud/w_icon_se-14c" 					
-	WeaponName	"SE-14R Repeating Blaster"    			
-	customAmmo	300
-}
-
-
-
-WeaponInfo2
 {
 	WeaponToReplace		WP_THROWER			//Required: Weapon Slot of weapon you're replacing
 	WeaponBasedOff		WP_CLONE_RIFLE					//Required: For future use, should be the same as WeaponToReplace
@@ -57,31 +36,34 @@ WeaponInfo2
 	NewViewModel		"models/weapons2/CR-24_flamerifle/rifle.md3"		
 	Icon				"gfx/hud/w_icon_cr-24_flamerifle" 				//Required: Weapon change icon
 	WeaponName			"CR-24 Flamerifle"    					//Required: Weapon change display name
-	customAmmo		480
-	clipsize		80
-	idleAnim  BOTH_DC15_READY
-	firingAnim  BOTH_DC15_ATTACK
+	customAmmo			480
+	clipsize			80
 	ReloadTimeModifier 	1.4
+	hasAnimOverrides	1
+	animReady			BOTH_DC15_IDLE
+	animReadyRun		BOTH_DC15_READY
+	animReadyWalk		BOTH_DC15_READY
+	animReadyNoAmmo		BOTH_DC15_ATTACK
+	animAttack			BOTH_DC15_ATTACK
+	animAttackRun		BOTH_DC15_ATTACK
+	animAttackWalk		BOTH_DC15_ATTACK
+	animStand			BOTH_DC15_IDLE
 }
-
-
 
 description	"Remnant Swamptrooper - Defoliator
 
-Weapons:
+^2Weaponry:
+- Blaster Pistol (2)
+- CR-24 Flamerifle (2)
+- 2 Fire Grenade
 
-CR-24 Flamerifle (2)
-Fire Grenade (2)
-Blaster Pistol (2)
-Melee 
+^8Attributes:
+- Blast Armour
+- Stamina (2)
+- Reinforcements (1)
+- Assemble (1)
 
-Attributes:
-
-Stamina (2)
-Reinforcements (1)
-Assemble 
-Blast Armor
-
-Details: 
+^3Abilities:
+- Sprint ^3[CS1]
 
 An imperial Remnant Swamptrooper armed with a flamethrower and incendiary grenades; a kit more commonly associated with imperial flametroopers"
