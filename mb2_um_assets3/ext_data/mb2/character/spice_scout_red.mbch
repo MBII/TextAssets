@@ -1,105 +1,103 @@
 //Siege class def file.
 
-
 ClassInfo
 {
-	name "spice_scout_red"
-	weapons 		WP_MELEE|WP_FLECHETTE|WP_BRYAR_OLD|WP_SABER|WP_FIRE_NADE
+	name				"spice_scout_red"
+	weapons				WP_MELEE|WP_FLECHETTE|WP_MANDO_PISTOL|WP_SABER|WP_FIRE_NADE
+	WP_FlechetteFlags	HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_KNOCKBACK
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_FLECHETTE,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_GRAPPLE_HOOK,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ASSEMBLE,1|MB_ATT_FUELREGEN,3|MB_ATT_DODGE,2|MB_ATT_BACTA|MB_ATT_BACTA_BIG
 	//holdables			HI_MEDPAC|HI_MEDPAC_BIG
-	WP_FLECHETTEFlags 		HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_KNOCKBACK
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_AMMO,3|MB_ATT_FLECHETTE,3|MB_ATT_HEALING,1|MB_ATT_FIRE_GRENADES,3|MB_ATT_GRAPPLE_HOOK,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ASSEMBLE,1|MB_ATT_FUELREGEN,3|MB_ATT_PISTOL,3|MB_ATT_DODGE,2|MB_ATT_BACTA|MB_ATT_BACTA_BIG
 	saber1				um_spice_baton
-	saberstyle  			SS_MEDIUM
+	saberstyle			SS_MEDIUM
 	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3|FP_PULL,1
-	forceregen			0.00001
 	forcepool			44
-	maxhealth 100
-	maxarmor 50
-	speed 1.25
-    model                   "rebel_guerilla"
-    skin                    "default"
-    uishader                "models/players/rebel_guerilla/mb2_icon_default"
-	extralives 3
-	MBClass                 MB_CLASS_MANDALORIAN
-	classNumberLimit        4
+	forceregen			0.00001
+	maxhealth			100
+	maxarmor			50
+	speed				1.25
+    model				"rebel_guerilla"
+    skin				"default"
+    uishader			"models/players/rebel_guerilla/mb2_icon_default"
+	extralives			3
+	MBClass				MB_CLASS_MANDALORIAN
+	classNumberLimit	4
 
+	resource			RESOURCE_FUEL
+	special1			EAS_HI_DODGE
+	special3			EAS_HI_GRAPPLEHOOK
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"
-	NewViewModel		"models/weapons2/stun_baton/baton.md3"
-	Icon			"gfx/hud/w_icon_stun_baton"
-	WeaponName		"Stun baton"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/stunbaton/stun_w.glm"
+	NewViewModel			"models/weapons2/stun_baton/baton.md3"
+	Icon					"gfx/hud/w_icon_stun_baton"
+	WeaponName				"Stun baton"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace 	WP_FLECHETTE
-	WeaponBasedOff 		WP_FLECHETTE
-	NewWorldModel		"models/weapons2/golan_arms/golan_arms_w.glm"
-	NewViewModel		"models/weapons2/golan_arms/golan_arms.md3"
-	NewBarrelModel		"models/weapons2/golan_arms/golan_arms_barrel.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/hud/w_icon_golancr1"
-    FlashSound0			"sound/weapons/flechette/fire.mp3"  			
-	AltFlashSound0		"sound/weapons/flechette/fire.mp3"
-	WeaponName 			"FC-99 Flechette"
-	MuzzleEffect 		"flechette/muzzle_flash"
-	MissileEffect 		"flechette/shot"
+	WeaponToReplace 		WP_FLECHETTE
+	WeaponBasedOff 			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/golan_arms/golan_arms_w.glm"
+	NewViewModel			"models/weapons2/golan_arms/golan_arms.md3"
+	NewBarrelModel			"models/weapons2/golan_arms/golan_arms_barrel.md3"
+	Icon					"gfx/hud/w_icon_golancr1"
+	WeaponName 				"FC-99 Flechette"
+	
+	MissileHitHumanEffect	"Grenades/EXP_Alt"
+	MissileHitDroid			"Grenades/EXP_Alt"
 
-	MissileHitHumanEffect 	"Grenades/EXP_Alt"
-	MissileHitDroid 	"Grenades/EXP_Alt"
-
-	CustomAmmo 132
-	clipSize 	22
-	AltFireEnabled 		0
+	CustomAmmo				132
+	clipSize				22
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_BRYAR_OLD
-	WeaponBasedOff		WP_BRYAR_OLD
-	NewWorldModel		"models/weapons2/westar35/westar35.glm"
-	NewViewModel		"models/weapons2/westar35/model.md3"
-
-	Icon				"gfx/hud/w_icon_westar35"
-	WeaponName			"Dual XX-1"
-	
+	WeaponToReplace			WP_MANDO_PISTOL
+	WeaponBasedOff			WP_MANDO_PISTOL
+	NewWorldModel			"models/weapons2/westar35/westar35.glm"
+	NewViewModel			"models/weapons2/westar35/model.md3"
+	Icon					"gfx/hud/w_icon_westar35"
+	WeaponName				"Dual XX-1"
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_PULL
-	Icon		"gfx/forcepowers/push"
-	ForcePowerName	"Magnetic pull"
-	ConeEffect	"arc_caster/SpiceShock"
+	ForceToReplace		FP_PULL
+	Icon				"gfx/forcepowers/push"
+	ForcePowerName		"Magnetic pull"
+	ConeEffect			"arc_caster/SpiceShock"
 }
 
 description "Fighter
 
-Weapons:
+^2Weapons:
 - Stun baton
+  ^3+ Yellow ^7Style Only
   ^3+ Defense (1)
 - FC-99 Flechette (3)
   ^3+ Knockdowns foes
-- Dual XX-1 (3)
-- Fire grenade's (3)
+  ^3+ Mag Reload
+- Dual XX-1 Pistols (3)
+- 3 Fire grenades
 
-Special equipment:
-- Magnetic armor
+^5Special equipment:
 - Magnetic pull (1)
+- Medpac (25HP+)
+- Advanced Medpac (50HP+)
+
+^8Attributes:
 - Energy battery (44)
-- Grappling hook (3)
-- Bacta (2)
-
-Attributes:
 - Energy doesn't regenerate
-- Dodge (2)
+- Magnetic armor
 - Heal (1)
-- Assemble
-- Extralives (3)
+- Extra lives (3)
+- Assemble (1)
 
+^3Abilities:
+- Dodge (2) ^3[CS1]
+- Grappling hook (3) ^3[CS3 Melee]
 "

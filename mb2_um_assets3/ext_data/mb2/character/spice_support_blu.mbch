@@ -1,156 +1,155 @@
 //Siege class def file.
 
-
 ClassInfo
 {
-name 		"spice_support_blu"
-	weapons 	WP_MELEE|WP_SABER|WP_CLONE_PISTOL
-	WP_ClonePistolFlags       	HELD_POISON|HELD_ALTRELOAD|HELD_IGNOREBLOCK|HELD_STUN|HELD_EXPLOSIVE
-
-
+	name				"spice_support_blu"
+	weapons				WP_MELEE|WP_SABER|WP_CLONE_PISTOL
+	WP_ClonePistolFlags	HELD_POISON|HELD_ALTRELOAD|HELD_IGNOREBLOCK|HELD_STUN|HELD_EXPLOSIVE
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_CLONE_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,1
+	//holdables			HI_MEDKIT
 	saber1				spice_stuff
 	saberstyle			SS_STAFF
-
-attributes		MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_PISTOL,2|MB_ATT_HEALING,1
-
-maxhealth 	100
-maxarmor 	100
-speed 		1
-//holdables 	HI_MEDKIT
-
+	forcepowers			FP_SEE,3|FP_GRIP,3|FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,3|FP_PULL,3|FP_PUSH,3|FP_LIGHTNING,3|FP_LEVITATION,3|FP_SPEED,3
+	forcepool			125
+	forceregen			1.2
+	maxhealth			100
+	maxarmor 			100
+	speed				1
 	model				"magnaguard"
 	skin				"default_magutapau"
 	uishader			"models/players/magnaguard/mb2_icon_default_magutapau"
+	MBClass				MB_CLASS_JEDI
+	//classflags		CFL_HEALER
+	classNumberLimit	2
 
-	forcepowers		FP_SEE,3|FP_GRIP,3|FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,3|FP_PULL,3|FP_PUSH,3|FP_LIGHTNING,3|FP_LEVITATION,3|FP_SPEED,3
-	forcepool 	125
-	forceregen 	1.2
-
-
-MBClass                 MB_CLASS_JEDI
-//classflags              CFL_HEALER
-classNumberLimit        2
-
+	resource			RESOURCE_FORCE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_CLONE_PISTOL
-	idleAnim			BOTH_MAND_FLAME_ATTACK
-
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
-
-//	FlashSound0          	"sound/weapons/rocket/alt_fire.mp3" 
-	FlashSound0		"sound/weapons/clawshield/block_wood2.wav"
-
-	MuzzleEffect		"Blaster/MuzzleFlash01G"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01G"
-	MissileEffect		"Blaster/Shot03G"
-	Missile3Effect		"Blaster/Shot01G"
-	AltMissileEffect	"Blaster/Shot01G"
-	PowerupShotEffect	"Blaster/Shot04G"
-
-	ChargeEffect		"gfx/effects/greenFrontFlash"
-	OverchargeEffect	"Blaster/MuzzleCharge01G"
-
-	MissileMissEffect        "noghri_stick/gas_cloud"
-    	MissileHitHumanEffect    "noghri_stick/gas_cloud"
-    	MissileHitDroidEffect    "noghri_stick/gas_cloud"
-
-	WeaponName		"Poison dart's"
-	clipSize 10
-	CustomAmmo 180
-	ReloadTimeModifier 		1
-	AltFireEnabled 		0
+	WeaponToReplace			WP_SABER			
+	WeaponBasedOff			WP_SABER			
+	NewWorldModel			"models/weapons2/sword/double_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"	  
+	Icon					"gfx/hud/w_icon_vibrosword_staff"
+	WeaponName				"Vibrostaff"    			
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER			
-	WeaponBasedOff		WP_SABER			
-	NewWorldModel		"models/weapons2/sword/double_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"	  
-	Icon			"gfx/hud/w_icon_vibrosword_staff"
-	WeaponName		"Vibrostaff"    			
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_CLONE_PISTOL
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_sbdarm"
+	WeaponName				"Poison darts"
+
+//	FlashSound0				"sound/weapons/rocket/alt_fire.mp3" 
+	FlashSound0				"sound/weapons/clawshield/block_wood2.wav"
+
+	MuzzleEffect			"Blaster/MuzzleFlash01G"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01G"
+	MissileEffect			"Blaster/Shot03G"
+	Missile3Effect			"Blaster/Shot01G"
+	AltMissileEffect		"Blaster/Shot01G"
+	PowerupShotEffect		"Blaster/Shot04G"
+
+	ChargeEffect			"gfx/effects/greenFrontFlash"
+	OverchargeEffect		"Blaster/MuzzleCharge01G"
+
+	MissileMissEffect		"noghri_stick/gas_cloud"
+	MissileHitHumanEffect	"noghri_stick/gas_cloud"
+	MissileHitDroidEffect	"noghri_stick/gas_cloud"
+
+	clipSize				10
+	CustomAmmo				180
+	ReloadTimeModifier		1
+	AltFireEnabled			0
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_FLAME_IDLE
+	animReadyRun			BOTH_MAND_FLAME_IDLE
+	animReadyWalk			BOTH_MAND_FLAME_IDLE
+	animReadyNoAmmo			BOTH_MAND_FLAME_READY
+	animAttack				BOTH_MAND_FLAME_READY
+	animAttackRun			BOTH_MAND_FLAME_READY
+	animAttackWalk			BOTH_MAND_FLAME_READY
+	animStand				BOTH_MAND_FLAME_IDLE
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Scanner"
-	LoopSound  	"sound/weapons/baton/idle.wav"
-	StartSound 	"sound/chars/deathtrooper/victory2.wav"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/forcepowers/radar"
+	ForcePowerName		"Scanner"
+	LoopSound			"sound/weapons/baton/idle.wav"
+	StartSound			"sound/chars/deathtrooper/victory2.wav"
 }
 
 ForceInfo1
 {
-	ForceToReplace	FP_GRIP
-	Icon  		"gfx/hud/w_icon_dekaarm"
-	ForcePowerName	"Magnetic grip"
-	ConeEffect	"arc_caster/ArcCasterShock2"
+	ForceToReplace		FP_GRIP
+	Icon				"gfx/hud/w_icon_dekaarm"
+	ForcePowerName		"Magnetic grip"
+	ConeEffect			"arc_caster/ArcCasterShock2"
 }
-
 
 ForceInfo2
 {
-	ForceToReplace	FP_PUSH
-	Icon		"gfx/forcepowers/push"
-	ForcePowerName	"Magnetic push"
-	ConeEffect	"Force/lightning_impact"
+	ForceToReplace		FP_PUSH
+	Icon				"gfx/forcepowers/push"
+	ForcePowerName		"Magnetic push"
+	ConeEffect			"Force/lightning_impact"
 }
 
 ForceInfo3
 {
-	ForceToReplace	FP_PULL
-	Icon		"gfx/forcepowers/lightning"
-	ForcePowerName	"Magnetic pull"
-	ConeEffect	"arc_caster/ArcCasterShock2"
+	ForceToReplace		FP_PULL
+	Icon				"gfx/forcepowers/lightning"
+	ForcePowerName		"Magnetic pull"
+	ConeEffect			"arc_caster/ArcCasterShock2"
 }
 
 ForceInfo4
 {
-	ForceToReplace	FP_LIGHTNING
-	Icon		"gfx/forcepowers/lightning"
-	ForcePowerName	"Energy overload"
+	ForceToReplace		FP_LIGHTNING
+	Icon				"gfx/forcepowers/lightning"
+	ForcePowerName		"Energy overload"
 }
 
 ForceInfo5
 {
-	ForceToReplace	FP_SPEED
-	Icon		"gfx/hud/i_icon_cloak"
-	ForcePowerName	"Hydraulic accelerators"
+	ForceToReplace		FP_SPEED
+	Icon				"gfx/hud/i_icon_cloak"
+	ForcePowerName		"Hydraulic accelerators"
 }
-
-
 
 description "Killer-droid
 
 Weapons:
 - Vibrostaff:
-  ^3+ Defense (3)
-- Poison dart's (2)
+  ^3+ ^7Staff Style Only
+  ^3+ Saber Defense (3)
+  ^3+ Blaster Defense (2)
+- Poison darts (2)
+  ^3+ Poisons & Staggers On Hit
+  ^3+ Explosive rounds
+  ^3+ Ignores Blaster Defense
+  ^3+ Mag Reload
 
-Special equipment:
-- Blast armor (1)
-- Energy battery (125)
+^5Special equipment:
 - Magnetic boot's (3)
-- Magnetic grip (3)
-- Magnetic pull (3)
 - Magnetic push (3)
-- Energy overload (3)
-- Hydraulic accelerators (3)
+- Magnetic pull (3)
 - Scanner (3)
-- Force block (3)
+- Hydraulic accelerators (3)
+- Energy overload (3)
+- Magnetic grip (3)
 
-Attributes:
+^8Attributes:
+- Energy battery (125)
 - 120 percent energy regeneration
+- Blast armor (1)
 - Self-repair (1)
-
-
+- Force block (3)
 "
-
-

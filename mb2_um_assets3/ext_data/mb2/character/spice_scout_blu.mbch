@@ -1,110 +1,116 @@
 //Siege class def file.
 
-
 ClassInfo
 {
-	name "spice_scout_blu"
-	weapons 		WP_MELEE|WP_CLONE_RIFLE|WP_BLASTER_PISTOL|WP_SABER|WP_CRYO_NADE
+	name				"spice_scout_blu"
+	weapons				WP_MELEE|WP_CLONE_RIFLE|WP_BLASTER_PISTOL|WP_SABER|WP_CRYO_NADE
+	WP_BlasterPistolFlags	HELD_SONIC
+	WP_CloneRifleFlags	HELD_ALTRELOAD|HELD_STUN|HELD_KNOCKBACK
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_PISTOL,1|MB_ATT_CLONERIFLE,3|MB_ATT_CRYOBAN_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ASSEMBLE,1|MB_ATT_FUELREGEN,3
 //	holdables			HI_MEDPAC|HI_MEDPAC_BIG
-	WP_CloneRifleFlags 		HELD_ALTRELOAD|HELD_STUN|HELD_KNOCKBACK
-	WP_BlasterPistolFlags  		HELD_SONIC
-
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_CRYOBAN_GRENADES,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ASSEMBLE,1|MB_ATT_FUELREGEN,3|MB_ATT_PISTOL,1
 	saber1				um_spice_baton
-	saberstyle  			SS_MEDIUM
+	saberstyle			SS_MEDIUM
 	forcepowers			FP_SABER_DEFENSE,1|FP_SABER_OFFENSE,3|FP_PROTECT,2|FP_LEVITATION,3
-	forceregen			0.4
 	forcepool			25
-	maxhealth 100
-	maxarmor 50
-	speed 1.25
+	forceregen			0.4
+	maxhealth			100
+	maxarmor			50
+	extralives			3
+	speed				1.25
 	model				"mark3"
 	skin				"default"
 	uishader			"models/players/mark3/mb2_icon_default_rax"
-	extralives 3
-	MBClass                 MB_CLASS_MANDALORIAN
-	classNumberLimit        4
+	MBClass				MB_CLASS_MANDALORIAN
+	classNumberLimit	4
+	
+	resource			RESOURCE_FUEL
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/stunbaton/stun_w.glm"
-	NewViewModel		"models/weapons2/stun_baton/baton.md3"
-	Icon			"gfx/hud/w_icon_stun_baton"
-	WeaponName		"Stun baton"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/stunbaton/stun_w.glm"
+	NewViewModel			"models/weapons2/stun_baton/baton.md3"
+	Icon					"gfx/hud/w_icon_stun_baton"
+	WeaponName				"Stun baton"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_CLONE_RIFLE  			
-	WeaponBasedOff		WP_BLASTER    			
-	NewWorldModel		"models/weapons2/kotor_brifle2/kotor_brifle2_w.glm"
-	NewViewModel		"models/weapons2/kotor_brifle2/kotor_brifle2.md3"
-	Icon			"gfx/hud/w_icon_kotor_brifle2"
-	WeaponName		"DS-89 Carbine"
-	FlashSound0		"sound/weapons/kotor_carbine/fire.wav"
-	MuzzleEffect  "Blaster/MuzzleFlash01R"
-	MissileEffect "Blaster/Shot02R"
-	customAmmo			900
-	clipSize			24
-	idleAnim  TORSO_WEAPONREADY3
-	ReloadTimeModifier  0.9
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+//	NewWorldModel			"models/weapons2/kotor_pistol2/model_w.glm"
+//	NewViewModel			"models/weapons2/kotor_pistol2/model.md3"
+//	Icon					"gfx/hud/w_icon_sonic_pistol.tga"
+
+	NewWorldModel			"models/weapons2/kotor_hpistol/kotor_hpistol_w.glm"
+	NewViewModel			"models/weapons2/kotor_hpistol/kotor_hpistol.md3"
+	Icon					"gfx/hud/w_icon_kotor_hpistol_dual_na"
+	WeaponName				"JH-77"
+	FlashSound0				"sound/weapons/geonosian/fire.mp3"
+	MissileMissEffect		"sonic_pistol/wall_impact"
+	MissileEffect			"sonic_pistol/projectile"  					
+	MuzzleEffect			"geonosian/muzzle_flash"   	
+	
+//	CustomAmmo				100
+//	idleAnim				TORSO_WEAPONIDLE2
+	hasAnimOverrides		1
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReady				BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+//	firingAnim				BOTH_ATTACK1
+	AltFireEnabled			0
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-//	NewWorldModel		"models/weapons2/kotor_pistol2/model_w.glm"
-//	NewViewModel		"models/weapons2/kotor_pistol2/model.md3"
-//	Icon				"gfx/hud/w_icon_sonic_pistol.tga"
-
-	NewWorldModel 		"models/weapons2/kotor_hpistol/kotor_hpistol_w.glm"
-	NewViewModel  		"models/weapons2/kotor_hpistol/kotor_hpistol.md3"
-	Icon  			"gfx/hud/w_icon_kotor_hpistol_dual_na"
-
-	WeaponName			"JH-77"
-	MissileMissEffect 	"sonic_pistol/wall_impact"
-	MissileEffect		"sonic_pistol/projectile"  					
-	MuzzleEffect		"geonosian/muzzle_flash"   	
-	FlashSound0		"sound/weapons/geonosian/fire.mp3"
-//	CustomAmmo           100
-//	idleAnim		TORSO_WEAPONIDLE2
-	idleAnim	BOTH_MAND_PISTOL_READY 
-//	firingAnim	BOTH_ATTACK1
-	AltFireEnabled 		0
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_BLASTER
+	NewWorldModel			"models/weapons2/kotor_brifle2/kotor_brifle2_w.glm"
+	NewViewModel			"models/weapons2/kotor_brifle2/kotor_brifle2.md3"
+	Icon					"gfx/hud/w_icon_kotor_brifle2"
+	WeaponName				"DS-89 Carbine"
+	FlashSound0				"sound/weapons/kotor_carbine/fire.wav"
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
+	MissileEffect			"Blaster/Shot02R"
+	customAmmo				900
+	clipSize				24
+	hasAnimOverrides		1
+	animReady				TORSO_WEAPONREADY3
+	animReadyWalk			TORSO_WEAPONREADY3
+	ReloadTimeModifier		0.9
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_PROTECT
-	Icon		"gfx/hud/i_icon_shieldwall"
-	ForcePowerName	"Energy shields"
+	ForceToReplace		FP_PROTECT
+	Icon				"gfx/hud/i_icon_shieldwall"
+	ForcePowerName		"Energy shields"
 }
 
 description "Fighter
 
-Weapons:
+^2Weapons:
 - Stun baton
-  ^3+ Defense (1)
+  ^3+ Yellow ^7Style Only
+  ^3+ Saber / Blaster Defense (1)
 - DS-89 Carbine (3)
-  ^3+ Hard hit's
-- JH-77 (1)
-  ^3+ Sonic blaster
-- Cryo grenade's (3)
+  ^3+ Pushes & Staggers On Hit
+  ^3+ Mag Reload
+- JH-77 Sonic Pistol (1)
+  ^3+ Stuns on hit
+- 3 Cryo grenades
 
-Special equipment:
-- Magnetic armor
-- Energy shields (2)
-- Energy battery (25)
+^5Special equipment:
 - Magnetic boot's (3)
+- Energy shields (2)
 
-Attributes:
+^8Attributes:
+- Energy battery (25)
 - 40 percent energy regeneration
+- Magnetic armor
 - Self-repair (1)
-- Assemble
-- Extralives (3)
-
+- Extra lives (3)
+- Assemble (1)
 "
