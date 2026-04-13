@@ -2,106 +2,112 @@
 
 ClassInfo
 {
-    name                    "spice_engineer_red"
-    weapons                 WP_MELEE|WP_BOWCASTER|WP_BLASTER_PISTOL|WP_SABER|WP_TRIP_MINE|WP_PULSE_NADE
-	//holdables				HI_SENTRY_GUN|HI_SEEKER|HI_SHIELD
-
-	WP_BowcasterFlags 		HELD_PULSE
-
-    attributes              MB_ATT_AMMO,3|MB_ATT_TRIP_MINES,3|MB_ATT_GRAPPLE_HOOK,3|MB_ATT_BOWCASTER,2|MB_ATT_PISTOL,2|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PULSE_GRENADES,3|MB_ATT_SENTRY|MB_ATT_DRONE|MB_ATT_FORCEFIELD
-
-    MBClass                 MB_CLASS_HERO
-    classflags              CFL_FASTHACKING
-
-	saber1			Batonwhite
-	sabercolor		2
-	saberstyle		SS_MEDIUM
-
-	forceregen			0.00001
-	forcepool			100
+    name				"spice_engineer_red"
+    weapons				WP_MELEE|WP_BOWCASTER|WP_BLASTER_PISTOL|WP_SABER|WP_TRIP_MINE|WP_PULSE_NADE
+	WP_BowcasterFlags	HELD_PULSE
+    attributes			MB_ATT_PISTOL,2|MB_ATT_BOWCASTER,2|MB_ATT_TRIP_MINES,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_GRAPPLE_HOOK,3|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_SENTRY|MB_ATT_DRONE|MB_ATT_FORCEFIELD
+	//holdables			HI_SENTRY_GUN|HI_SEEKER|HI_SHIELD
+	saber1				Batonwhite
+	sabercolor			2
+	saberstyle			SS_MEDIUM
 	forcepowers			FP_ABSORB,3|FP_TEAM_FORCE,3
-    maxhealth               70
-    maxarmor                150
-    Speed           1
-    model                   "rebel_guerilla"
-    skin                    "ishitib"
-    uishader                "models/players/rebel_guerilla/mb2_icon_ishitib"
-    classNumberLimit        2
+	forcepool			100
+	forceregen			0.00001
+    maxhealth			70
+    maxarmor			150
+    speed				1
+    model				"rebel_guerilla"
+    skin				"ishitib"
+    uishader			"models/players/rebel_guerilla/mb2_icon_ishitib"
+	MBClass				MB_CLASS_HERO
+    classflags			CFL_FASTHACKING
+    classNumberLimit	2
+	
+	resource			RESOURCE_ENERGY
+	special3			EAS_HI_GRAPPLEHOOK
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER			
-	WeaponBasedOff		WP_CONCUSSION				
-	NewWorldModel		"models/weapons2/kotor_ionrifle/kotor_ionrifle.glm"
-	NewViewModel		"models/weapons2/kotor_ionrifle/kotor_ionrifle.MD3"
-	Icon			"gfx/hud/w_icon_kotor_ionrifle"
-	FlashSound0		"sound/weapons/base_demp2/fire.mp3" 
-	WeaponName			"DDX-01"    		
-	altFireEnabled	1
-	FPMult			2
-	ReloadTimeModifier 	1
-	idleAnim	TORSO_WEAPONREADY3
-	firingAnim	BOTH_ATTACK3
-
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot04B"
-	Missile3Effect		"Blaster/Shot04B"
-	AltMissileEffect	"Blaster/Shot04B"
-	PowerupShotEffect	"base_demp2/projectile"
-	ChargeEffect		"gfx/effects/bluefrontflash"
-	OverchargeEffect	"Blaster/MuzzleFlash01B"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/sword_asp/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_stun_baton"
+	WeaponName				"Stun Baton"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/sword_asp/saber_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_stun_baton"
-	WeaponName			"Stun Baton"
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_CONCUSSION
+	NewWorldModel			"models/weapons2/kotor_ionrifle/kotor_ionrifle.glm"
+	NewViewModel			"models/weapons2/kotor_ionrifle/kotor_ionrifle.MD3"
+	Icon					"gfx/hud/w_icon_kotor_ionrifle"
+	FlashSound0				"sound/weapons/demp2/fire.mp3"
+	WeaponName				"DDX-01"
+	
+	MuzzleEffect			"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01B"
+	MissileEffect			"Blaster/Shot04B"
+	Missile3Effect			"Blaster/Shot04B"
+	AltMissileEffect		"Blaster/Shot04B"
+	PowerupShotEffect		"demp2/projectile"
+	ChargeEffect			"gfx/effects/bluefrontflash"
+	OverchargeEffect		"Blaster/MuzzleFlash01B"
+	
+	altFireEnabled			1
+	FPMult					2
+	ReloadTimeModifier		1
+	
+	hasAnimOverrides		1
+	animReadyRun			TORSO_WEAPONREADY3
+	animReady				TORSO_WEAPONREADY3
+	animReadyWalk			TORSO_WEAPONREADY3
+	animAttackRun			BOTH_ATTACK3
+	animAttack				BOTH_ATTACK3
+	animAttackWalk			BOTH_ATTACK3
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_ABSORB
-	Icon		"gfx/hud/i_icon_cloak"
-	ForcePowerName	"Self recharge protocol"
+	ForceToReplace		FP_ABSORB
+	Icon				"gfx/hud/i_icon_cloak"
+	ForcePowerName		"Self recharge protocol"
 }
 
 ForceInfo1
 {
-	ForceToReplace	FP_TEAM_FORCE
-	Icon		"gfx/hud/i_icon_battery"
-	ForcePowerName	"Energy recharge"
+	ForceToReplace		FP_TEAM_FORCE
+	Icon				"gfx/hud/i_icon_battery"
+	ForcePowerName		"Team Energy recharge"
 }
 
+description	"Engineer
 
-description                     "Engineer
-
-Weapons:
-- DDX-01 (2)
-  ^3+ Stun foes
+^2Weapons:
+- DDX-01 Ion Rifle (2)
+  ^3+ Pulse Stun foes
 - Blaster Pistol (2)
-- Pulse grenade's (3)
-- Trip mine's (3)
+- 3 Pulse grenades
+- 3 Trip mines
 - Baton
-  ^3+ Defense (0)
+  ^3+ Yellow ^7Style Only
+  ^3+ Saber / Blaster Defense (0)
 
-Special equipment:
+^5Special equipment:
 - Anti-force energy shield (3)
-- Energy recharge (3)
-- Energy battery (100)
-- Shield recharge (3)
+- Team Energy recharge (3)
 - Sentry gun
 - Seeker drone
 - Energy wall
-- Grappling hook (3)
 
-Attributes:
+^8Attributes:
 - Fast Hack
+- Shield recharge (3)
+- Energy battery (100)
 - Energy doesn't regenerate
 
+^3Abilities:
+- Grappling hook (3) ^3[CS3 Melee]
 "
