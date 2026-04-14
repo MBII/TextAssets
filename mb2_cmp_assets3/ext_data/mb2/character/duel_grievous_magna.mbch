@@ -1,35 +1,26 @@
 
+
 ClassInfo
 {
-	name					"duel_grievous_magna"
-	saber1					electrostaff_grievousfa
-	sabercolor				5
-	saberstyle				SS_STAFF
-	weapons					WP_MELEE|WP_SABER|WP_BOWCASTER
-	attributes				MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_BOWCASTER,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,3|MB_ATT_AMMO,2|MB_ATT_ASSEMBLE,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ANTI_MT,2|MB_ATT_DRONE
-	forcepowers				FP_LEVITATION,3
-	//holdables				HI_SEEKER
-	maxhealth				100
-	maxarmor            	50
- 	speed 		       	 	1.05
-	APmultiplier			0.5
-	BPmultiplier			0.8
-	MBClass					MB_CLASS_JEDI
-	classNumberLimit		2
-	rateOfFire          	0.8
-	modelscale				1.13
-	forcepool				80
-	classflags				CFL_BPFREEJUMPS
-	
-	WP_BowcasterFlags   HELD_KNOCKBACK|HELD_PULSE|HELD_STUN|HELD_SONIC|HELD_ALTRELOAD
+	name				"duel_grievous_magna"
+	weapons				WP_MELEE|WP_SABER|WP_BOWCASTER
 	WP_SaberFlags		HELD_PULSE|HELD_LOWDAMAGE
-
-	special1 EAS_NONE
-	
-	//meditateAnim BOTH_SBD_DEAD1
-	deathAnim	BOTH_SBD_DEATH1
-	
-	damageTaken 			0.9
+	WP_BowcasterFlags   HELD_KNOCKBACK|HELD_PULSE|HELD_STUN|HELD_SONIC|HELD_ALTRELOAD
+	attributes				MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_BOWCASTER,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,3|MB_ATT_AMMO,2|MB_ATT_ASSEMBLE,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ANTI_MT,2|MB_ATT_DRONE
+	//holdables			HI_SEEKER
+	saber1				electrostaff_grievousfa
+	sabercolor			5
+	saberstyle			SS_STAFF|SS_MEDIUM
+	BPmultiplier		0.8
+	APmultiplier		0.5
+	forcepowers			FP_LEVITATION,3
+	forcepool			80
+	maxhealth			100
+	maxarmor			50
+ 	speed				1.05
+	rateOfFire			0.8
+	damageTaken			0.9
+	modelscale			1.13
 	
 	model				"magnaguard"
 	skin				"default_magutapau"
@@ -43,7 +34,16 @@ ClassInfo
 	skin_2				"default"
 	uishader_2			"models/players/magnaguard/mb2_icon_default"
 	
-	respawnCustomTime 		30000
+	MBClass				MB_CLASS_JEDI
+	classflags			CFL_BPFREEJUMPS
+	classNumberLimit	2
+	
+	special1			EAS_NONE
+	
+	//meditateAnim		BOTH_SBD_DEAD1
+	deathAnim			BOTH_SBD_DEATH1
+	
+	respawnCustomTime	30000
 }
 
 WeaponInfo0
@@ -58,48 +58,61 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_BOWCASTER
 	NewWorldModel			"models/weapons2/e5/e5_w.glm"
 	NewViewModel			"models/weapons2/e5/e5.md3"
 	Icon					"gfx/hud/w_icon_e5.tga"			
-	WeaponName			"IG-100 Pulse Shock Blaster"
-
-	idleAnim		BOTH_MAND_PISTOL_READY 
-	firingAnim		BOTH_MAND_PISTOL_ATTACK  			
+	WeaponName				"IG-100 Pulse Shock Blaster"
+	FlashSound0				"sound/weapons/E-5s/alt_fire.mp3"
 	
-	MissileHitHumanEffect "sonic_pistol/k_wall_impact"
-	MissileHitDroid 	"sonic_pistol/k_wall_impact"
-	MissileMissEffect 	"sonic_pistol/k_wall_impact"
-	MissileEffect		"sonic_pistol/k_projectile"  					
-	MuzzleEffect		"sonic_pistol/k_muzzle_flash"  	
-	FlashSound0		"sound/weapons/E-5s/alt_fire.mp3"
+	MissileHitHumanEffect	"sonic_pistol/k_wall_impact"
+	MissileHitDroid			"sonic_pistol/k_wall_impact"
+	MissileMissEffect		"sonic_pistol/k_wall_impact"
+	MissileEffect			"sonic_pistol/k_projectile"  					
+	MuzzleEffect			"sonic_pistol/k_muzzle_flash"  	
 
-	CustomAmmo 	300
-	ClipSize 		6
-	FPmult              1.25
-	AltFireEnabled 0
+	CustomAmmo				300
+	ClipSize				6
+	FPmult					1.25
+	AltFireEnabled			0
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	animCharge				BOTH_MAND_PISTOL_READY
 }
 
-description 	"IG-100 MagnaGuard
+description	"IG-100 MagnaGuard
 
 Defend General Grievous!!!
 
-Weapons:
+^2Weapons:
 - Magnaguard Electrostaff*
-- Droid Pistol
+-- ^7Staff / ^3Medium ^7Styles
+-- Saber / Blaster Defense (1)
+-- Pulse Stuns On Hit
+-- 50% Less DMG
+- IG-100 Pulse Shock Blaster (1)
+-- Pushes / Pulse Stuns / Sonic Stuns On Hit
+-- 3 Shots Per Clip
+-- Mag Reload
 
-Weapon Info:
-- Staff and Yellow styles,
-Defense 1
-- Blaster Defense 1
+^6Inventory:
+- Seeker Drone
 
-Force Powers:
-- Jump 3
+^5Force Powers:
+- Jump (3)
 
-Attributes:
-- Magnetic Plating
+^8Attributes:
 - Self Repairing Armor 1
+- Magnetic Plating
 - Anti-Mind Trick 2
-- BP free jumps
-- Assemble"
+- BP Free Jumps
+- Assemble (1)"
