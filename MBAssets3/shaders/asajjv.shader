@@ -62,3 +62,78 @@ models/players/assajv/cape
 		rgbGen lightingDiffuse
 	}
 }
+
+
+// BH
+
+models/players/assajv_bh/belt
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/belt
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/assajv_bh/pad
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/pad
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/assajv_bh/mask
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/mask
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/assajv_bh/hands_04_wrist_armor
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/hands_04_wrist_armor
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/assajv_bh/torso_01_lower
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/torso_01_lower
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/assajv_bh/torso_01_lower2a
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/torso_01_lower2a
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/assajv_bh/torso_01_lowera
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/torso_01_lowera
+		rgbGen lightingDiffuse
+	}
+}
+
+models/players/assajv_bh/torso_03_lowera
+{
+	cull	disable
+	{
+		map models/players/assajv_bh/torso_03_lowera
+		rgbGen lightingDiffuse
+	}
+}

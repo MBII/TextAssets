@@ -5,7 +5,7 @@ classNumberLimit 4
 extralives 1
 MBClass MB_CLASS_HERO
 weapons WP_SABER|WP_MANDO_PISTOL|WP_THERMAL
-attributes MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_DEXTERITY,1|MB_ATT_DODGE,3|MB_ATT_STAMINA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_BASE_TD,2|MB_ATT_SABER_COMBO,1
+attributes MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_DEXTERITY,1|MB_ATT_DODGE,3|MB_ATT_STAMINA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_BASE_TD,2|MB_ATT_SABER_COMBO,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_TRACKING_BEACON
 maxhealth 100
 maxarmor	75
 BPmultiplier	0
@@ -13,15 +13,15 @@ rankBP	0.75
 APmultiplier	1.3
 CSmultiplier	1.1
 saberMaxChain 2
-rankSaberMaxChain 4
+rankSaberMaxChain 3,4
 resource RESOURCE_STAMINA
-forcepool 75
+forcepool 80
 forceregen .75
 rankROF .8
 rateOfFire_Melee .91
 rankKbGiven 1.3
 basespeed 220
-rankbasespeed	235
+rankbasespeed	235,240
 special1HUD HUD_POISONDART
 special2HUD HUD_FRAGNADE
 WP_SaberFlags	HELD_PULSE|HELD_POISON
@@ -29,9 +29,8 @@ WP_FragNadeFlags HELD_POISON|HELD_TRACKING
 WP_DLT20AFlags HELD_ALTRELOAD
 WP_DEMP2Flags HELD_POISON|HELD_ALTRELOAD|HELD_STUN
 uioverlay_r "gfx/icons/infantry"
-uioverlay_l "gfx/icons/spec_infantry"
 uioverlay_c "gfx/icons/tactician"
-holdables HI_MEDPAC|HI_BASESEEKER|HI_STIMPACK
+uioverlay_l "gfx/icons/spec_infantry"
 saber1	Legends_Knife_Jagged
 saberstyle	SS_TAVION|SS_FAST
 rankSaberDamage	140
@@ -39,9 +38,8 @@ ArmourRegenCap 10
 ArmourRegenRate	500
 ArmourRegenAmount 1
 rankArmourRegenCap 25
-special1 EAS_NONE
+special1 EAS_HI_DODGE
 special2 EAS_HI_DEX
-special3 EAS_HI_DODGE
 special4 EAS_HI_POISON
 modelScale 1.02
 model "sithtrooper_tor"
@@ -74,7 +72,7 @@ customSpecIcon_3 "gfx/menus/alpha/icon_playermodel"
 customSpecDesc_3 "Stealth Operative"
 c_att_skill_0	MB_ATT_DLT20A
 c_att_names_0	"Sith Sniper Rifle (DLT20A)"
-c_att_ranks_0	3,2,0
+c_att_ranks_0	2,2,0
 c_att_descs_0 	"Prim fire: Hitscan, 10% more Dmg, 10% more FP Dmg,
 25% slower RoF, 25% faster Velocity, 70% slower Mag Reload"
 c_att_skill_1	MB_ATT_TRIP_MINES
@@ -91,21 +89,24 @@ c_att_names_4	"RoF (120%)"
 c_att_ranks_4	2
 c_att_skill_5	MB_ATT_KB_GIVEN_MULTIPLIER
 c_att_names_5	"Kb Given (130%)"
-c_att_ranks_5 	1
-c_att_skill_6	MB_ATT_POISON_DART
-c_att_names_6	"Poison Dart ^3[CS4 Melee]"
-c_att_ranks_6	1
-c_att_skill_15 	MB_ATT_RESPAWNS
-c_att_names_15 	"Reinforcement"
-c_att_ranks_15 	8
-c_att_descs_15 	"1 default"
-c_att_skill_16 	MB_ATT_CR2
-c_att_names_16 	"Sith Blaster Rifle (CR-2)"
-c_att_ranks_16 	2,1,1
-c_att_skill_17 	MB_ATT_DEMP2
-c_att_names_17 	"Poison Launcher (DEMP2)"
-c_att_ranks_17 	3
-c_att_descs_17 	"Poisons/staggers on hit, 50% more Velocity, 80% faster RoF,
+c_att_ranks_5	1
+c_att_skill_6	MB_ATT_BASESEEKER
+c_att_names_6 "Base Seeker"
+c_att_ranks_6 1
+c_att_skill_7	MB_ATT_POISON_DART
+c_att_names_7	"Poison Dart ^3[CS4 Melee]"
+c_att_ranks_7	1
+c_att_skill_15	MB_ATT_RESPAWNS
+c_att_names_15	"Reinforcement"
+c_att_ranks_15	8
+c_att_descs_15	"1 default"
+c_att_skill_16	MB_ATT_CR2
+c_att_names_16	"Sith Blaster Rifle (CR-2)"
+c_att_ranks_16	2,1,1
+c_att_skill_17	MB_ATT_DEMP2
+c_att_names_17	"Poison Launcher (DEMP2)"
+c_att_ranks_17	3
+c_att_descs_17	"Poisons/staggers on hit, 50% more Velocity, 80% faster RoF,
 25% more Dmg, 25% more FP Dmg, 25% slower Mag Reload"
 c_att_skill_18 MB_ATT_FRAGS
 c_att_names_18 "Corrosive Grenades (Frags)"
@@ -124,25 +125,25 @@ c_att_skill_30 MB_ATT_SABER_DAMAGE
 c_att_names_30 "Saber Dmg (140)"
 c_att_ranks_30 2
 c_att_descs_30 "120 default"
-c_att_skill_31 MB_ATT_FP_SABER_DEFENSE
-c_att_names_31 "Saber Defense"
-c_att_ranks_31 0
-c_att_skill_32 MB_ATT_BP_MULTIPLIER
-c_att_names_32 "Saber BP (75%)"
-c_att_ranks_32 2
-c_att_skill_33 MB_ATT_SABER_MAXCHAIN
-c_att_names_33 "Saber Chain Limit (4)"
-c_att_ranks_33 2
-c_att_skill_34 MB_ATT_ARMOUR_REGEN_CAP
-c_att_names_34 "Armor Regen Cap (25)"
-c_att_ranks_34 2
-c_att_descs_34 "10 default"
-c_att_skill_35 MB_ATT_BASESPEED
-c_att_names_35 "Speed (235)"
-c_att_ranks_35 2
-c_att_skill_36 MB_ATT_DEXTERITY
-c_att_names_36 "Dexterity"
-c_att_ranks_36 0,0,1
+c_att_skill_31 MB_ATT_BP_MULTIPLIER
+c_att_names_31 "Saber BP (75%)"
+c_att_ranks_31 2
+c_att_skill_32 MB_ATT_SABER_MAXCHAIN
+c_att_names_32 "Saber Chain Limit (3/4)"
+c_att_ranks_32 1,1
+c_att_skill_33 MB_ATT_ARMOUR_REGEN_CAP
+c_att_names_33 "Armor Regen Cap (25)"
+c_att_ranks_33 1
+c_att_descs_33 "10 default"
+c_att_skill_34 MB_ATT_BASESPEED
+c_att_names_34 "Speed (240)"
+c_att_ranks_34 2,0
+c_att_skill_35 MB_ATT_DEXTERITY
+c_att_names_35 "Dexterity"
+c_att_ranks_35 0,0,1
+c_att_skill_36 MB_ATT_STIMPACK
+c_att_names_36 "Stimpack"
+c_att_ranks_36 1
 c_att_skill_37 MB_ATT_CLOAK
 c_att_names_37 "Cloak"
 c_att_ranks_37 2
@@ -249,6 +250,7 @@ Multi-life elite troopers specializing in assassination.
 - Melee
 -- 9% faster RoF
 - Acidic Vibroknife (Cyan/Blue Saber)
+--	Saber Defense (1)
 -- No Blaster Block
 -- Chain Limit: 2
 -- EX Saber Training (1)
@@ -257,18 +259,14 @@ Multi-life elite troopers specializing in assassination.
 -- 25% more Charged FP Dmg
 - Thermal Grenades (2)
 
-^6Inventory:
-- Medpac
-- Defense Seeker
-- Stimpak
-
 ^8Attributes:
 - Reinforcement (1)
 - Armor Regen: 1/.5s to 10
 - Force Block (1)
 - Stamina (1)
 - Dexterity (1)
+- Tracking Beacon
 
 ^3Abilities:
-- Dex roll ^3[CS2]
-- Dodge (3) ^3[CS3]"
+- Dodge (3) ^3[CS1]
+- Dex roll ^3[CS2]"

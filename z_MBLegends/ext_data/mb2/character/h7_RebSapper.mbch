@@ -5,16 +5,14 @@ MBClass MB_CLASS_ELITETROOPER
 classNumberLimit 2
 extralives 1
 
-weapons WP_MELEE|WP_BLASTER_PISTOL|WP_CR2|WP_M5|WP_DET_PACK|WP_PULSE_NADE|WP_FRAG_NADE
-attributes MB_ATT_PISTOL,2|MB_ATT_CR2,2|MB_ATT_DET_PACK,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1
+weapons WP_MELEE|WP_BLASTER_PISTOL|WP_DET_PACK|WP_PULSE_NADE|WP_FRAG_NADE
+attributes MB_ATT_PISTOL,2|MB_ATT_DET_PACK,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,3|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_DRONE,1|MB_ATT_STIMPACK,1
 
-forcepowers FP_LIGHTNING,1|FP_PULL,1
-holdables HI_SEEKER|HI_STIMPACK
+forcepowers FP_LIGHTNING,1|FP_SEE,1
 
 resource RESOURCE_FUEL
 forcepool 65
 forceregen 1
-skilltimermod 3
 
 resourceRegenRate 1000
 resourceRegenAmount 5
@@ -39,7 +37,6 @@ knockbackTaken 1.1
 damageGiven 1.3 //IMPORTANT: This is to increase lightning and detpack damage by 30%. Set all other weapons' damageMod to the inverse, 1/damageGiven. (1/1.3 = 0.77)
 WP_MeleeFlags HELD_LOWDAMAGE|HELD_TRACKING
 WP_FragNadeFlags HELD_TRACKING
-WP_DetPackFlags HELD_KNOCKBACK
 rateOfFire_Melee    .8
 
 modelscale 1.02
@@ -56,6 +53,26 @@ special4 EAS_FP_LIGHTNING
 
 flourishAnim BOTH_ENGAGETAUNT
 //flourishAnim BOTH_MINDTRICK1
+
+isCustomBuild 1
+mbPoints 2
+
+c_att_skill_0   MB_ATT_CR2
+c_att_names_0   "E-11 Blaster Carbine (CR2)"
+c_att_ranks_0   1,0
+c_att_descs_0   "10% more Velocity, 15% less Dmg"
+
+//required to be separate from a280, unfortunately,
+//because there is a bug that causes A280 level 2 to disable the Grenade Launcher..
+c_att_skill_1   MB_ATT_WESTARM5
+c_att_names_1   "Pulse Grenade Launcher"
+c_att_ranks_1   1
+c_att_descs_1   "25% faster RoF, Sec only"
+
+c_att_skill_2   MB_ATT_A280
+c_att_names_2   "A280 Blaster Rifle"
+c_att_ranks_2   2,0
+c_att_descs_2   "20% less Dmg, Secretly Scoped"
 }
 
 WeaponInfo0
@@ -78,15 +95,15 @@ NewWorldModel "models/weapons2/blaster_r/blaster_w_stock.GLM"
 NewViewModel "models/weapons2/blaster_r/blaster.md3"
 Icon "gfx/hud/w_icon_e11_extendedstock"
 WeaponName "E-11 Blaster Carbine"
-FlashSound0 "sound/weapons/blasterMB/alt_fire.mp3"
-FlashSound1 "sound/weapons/blasterMB/alt_fire.mp3"
-FlashSound2 "sound/weapons/blasterMB/alt_fire.mp3"
-FlashSound3 "sound/weapons/blasterMB/alt_fire.mp3"
+FlashSound0 "sound/weapons/blaster/alt_fire.mp3"
+FlashSound1 "sound/weapons/blaster/alt_fire.mp3"
+FlashSound2 "sound/weapons/blaster/alt_fire.mp3"
+FlashSound3 "sound/weapons/blaster/alt_fire.mp3"
 MuzzleEffect "Blaster/MuzzleFlash01R"
 MissileEffect "Blaster/Shot02R"
 damageMod 0.85
 velocityMod 1.10
-customAmmo 360
+customAmmo 420
 clipSize 60
 }
 
@@ -118,7 +135,7 @@ WeaponInfo3
     NewViewModel   "models/weapons2/cw-w5/dc-15_ext.md3"
     Icon  "gfx/hud/w_icon_cw-w5g"
     WeaponName  "Pulse Grenade Launcher"
-    customAmmo 2
+    customAmmo 3
     primFireEnabled  0
     hasAnimOverrides 1
     animReady TORSO_WEAPONREADY3
@@ -127,17 +144,17 @@ WeaponInfo3
     animAttackRun     BOTH_ATTACK3
     animAttack     BOTH_ATTACK3
     animAttackWalk  BOTH_ATTACK3
-    ratemod 0.35
+    ratemod 0.75
 }
 
 WeaponInfo4
 {
 WeaponToReplace WP_FRAG_NADE
 WeaponBasedOff WP_FRAG_NADE
-	NewWorldModel				"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel				"models/weapons2/thermal/thermal.md3"
-	NewHandsModel				"models/weapons2/thermal/thermal_hand.md3"
-	Icon							"gfx/hud/w_thermal_grenade"
+NewWorldModel               "models/weapons2/thermal/thermal_w.glm"
+NewViewModel                "models/weapons2/thermal/thermal.md3"
+NewHandsModel               "models/weapons2/thermal/thermal_hand.md3"
+Icon                            "gfx/hud/w_thermal_grenade"
 WeaponName  "Tracker Grenade"
 MissileModel "models/weapons2/thermal/thermal_proj.md3"
 MissileEffect   "effects/flechette/alt_shot" 
@@ -145,14 +162,25 @@ MissileMissEffect   "slime_explosion_new"
 //FlashSound0 "sound/effects/woosh8.mp3"
 altFireEnabled 0
 damageMod 0.01
-	hasAnimOverrides 1
-	animReadyRun BOTH_THERMAL_READY2
-	animReady BOTH_THERMAL_READY2
-	animReadyWalk BOTH_THERMAL_READY2
-	animReadyNoAmmo BOTH_THERMAL_READY2
-	animAttackRun BOTH_THERMAL_THROW2
-	animAttack BOTH_THERMAL_THROW2
-	animAttackWalk BOTH_THERMAL_THROW2
+    hasAnimOverrides 1
+    animReadyRun BOTH_THERMAL_READY2
+    animReady BOTH_THERMAL_READY2
+    animReadyWalk BOTH_THERMAL_READY2
+    animReadyNoAmmo BOTH_THERMAL_READY2
+    animAttackRun BOTH_THERMAL_THROW2
+    animAttack BOTH_THERMAL_THROW2
+    animAttackWalk BOTH_THERMAL_THROW2
+}
+
+WeaponInfo5
+{
+WeaponToReplace WP_A280
+WeaponBasedOff WP_A280
+NewWorldModel "models/weapons2/a280/a280_w.glm"
+NewViewModel "models/weapons2/a280/a280.md3"
+Icon "gfx/hud/w_icon_a280"
+WeaponName "A280 Blaster Rifle"
+damageMod 0.8
 }
 
 ForceInfo0
@@ -166,11 +194,11 @@ LoopSound null
 
 ForceInfo1
 {
-ForceToReplace FP_PULL
-Icon "gfx/forcepowers/push"
-ForcePowerName "Magna-Glove"
-HandShader "gfx/effects/dekashield2"
-StartSound "sound/effects/woosh7.mp3"
+ForceToReplace FP_SEE
+Icon "gfx/forcepowers/radar"
+ForcePowerName "Radar Scanner"
+StartSound "sound/ambience/kotor/console08.mp3"
+LoopSound "sound/ambience/cp_02_lp.wav"
 }
 
 description "Rebel Sapper 
@@ -183,23 +211,16 @@ description "Rebel Sapper
 -- 20% faster RoF
 - DL-44 Blaster Pistol (2)
 -- 20% less Dmg
-- E-11 Blaster Carbine (CR-2 2)
--- 10% more Velocity
--- 15% less Dmg
-- Pulse Grenade Launcher (M5)
--- 65% faster RoF
--- Sec only
 - Tracker Grenade (1) (Frag)
 -- Tracks on hit
 -- 99.9% less Dmg
 -- Prim only
-- Pulse Grenades (2)
+- Pulse Grenades (3)
 - Det Packs (3)
--- Pushes on det
 -- 40% faster RoF
 
 ^5Powers:
-- Magna-Glove (Pull 1)
+- Radar Scanner (Sense 1)
 - Wrist Shocker (Lightning 1) ^3[CS4]
 
 ^6Inventory:
@@ -210,7 +231,6 @@ description "Rebel Sapper
 - Reinforcement (1)
 - 15% faster Hacking
 - 10% more Kb Taken
-- 200% slower Skill Cd
 - Resource Regen: 5/s
 - Dexterity (1)
 - Armor Regen: 2/s to 20
