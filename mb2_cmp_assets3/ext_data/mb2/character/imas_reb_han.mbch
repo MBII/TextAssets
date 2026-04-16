@@ -2,86 +2,92 @@
 
 ClassInfo
 {
-	name 						"iMas_reb_han"
-	weapons 					WP_MELEE|WP_BLASTER_PISTOL|WP_FRAG_NADE
-	attributes 					MB_ATT_PISTOL,3|MB_ATT_DODGE,3|MB_ATT_CCTRAINING,2|MB_ATT_HEALING,2|MB_ATT_ARMOUR,2|MB_ATT_RALLY,1|MB_ATT_DASH,2|MB_ATT_FRAGS,2|MB_ATT_QUICKTHROW,2|MB_ATT_BINOCULARS|MB_ATT_BACTA
-	maxhealth 					150
-	maxarmor 					60
-	model 						"han_solo"
-	skin 						"default"
-	uishader 					"models/players/han_solo/mb2_icon_default"
-	MBClass						MB_CLASS_HERO
-	classNumberLimit			1
-	
-	WP_FragNadeFlags			HELD_KNOCKDOWN	
-	//holdables					HI_BINOCULARS|HI_MEDPAC
-	WP_BlasterPistolFlags		HELD_HIGHDAMAGE|HELD_SLOW
-	rateoffire					1.3
+	name				"iMas_reb_han"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_FRAG_NADE
+	WP_BlasterPistolFlags	HELD_HIGHDAMAGE|HELD_SLOW
+	WP_FragNadeFlags	HELD_KNOCKDOWN	
+	attributes			MB_ATT_PISTOL,3|MB_ATT_DODGE,3|MB_ATT_HEALING,2|MB_ATT_RALLY,1|MB_ATT_DASH,2|MB_ATT_FRAGS,2|MB_ATT_QUICKTHROW,2|MB_ATT_BINOCULARS|MB_ATT_BACTA
+	//holdables			HI_BINOCULARS|HI_MEDPAC
+	maxhealth			150
+	maxarmor			60
+	rateoffire			1.3
+	model				"han_solo"
+	skin				"default"
+	uishader			"models/players/han_solo/mb2_icon_default"
+	MBClass				MB_CLASS_HERO
+	classNumberLimit	1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL        					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER_PISTOL      					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/blaster_three/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/blaster_three/blaster_pistol.md3"   	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_blaster_pistol_3" 				//Required: Weapon change icon
-	WeaponName			"DL-44"    					//Required: Weapon change display name
-	CustomAmmo			800
-	clipSize       		16
-	idleAnim			BOTH_MAND_PISTOL_READY 
-	firingAnim			BOTH_MAND_PISTOL_ATTACK
-	FlashSound0			"sound/weapons/han_pistol/fire.mp3"  
-	altFlashSound0			"sound/weapons/han_pistol/alt_fire.mp3"  
-	FPMult     			0.6
-	ProjSpeedModifier 	1.25
-	ReloadTimeModifier 	2.5
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/blaster_three/blaster_pistol_w.glm"
+	NewViewModel			"models/weapons2/blaster_three/blaster_pistol.md3"
+	Icon					"gfx/hud/w_icon_blaster_pistol_3"
+	WeaponName				"DL-44 Blaster Pistol"
+	FlashSound0				"sound/weapons/han_pistol/fire.mp3"
+	altFlashSound0			"sound/weapons/han_pistol/alt_fire.mp3"
+	CustomAmmo				800
+	clipSize				16
+	FPMult     				0.6
+	ProjSpeedModifier		1.25
+	ReloadTimeModifier		2.5
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	animCharge				BOTH_MAND_PISTOL_READY
 }
 
 WeaponInfo1
 {
-	WeaponToReplace	WP_BLASTER					
-	WeaponBasedOff	WP_BLASTER					
-	NewWorldModel	"models/weapons2/blaster_r/blaster_w.glm"  	
-	NewViewModel	"models/weapons2/blaster_r/blaster.md3"   	
-	Icon		"gfx/hud/w_icon_E11" 					
-	WeaponName	"E-11 Blaster Carbine"    					
-	customAmmo 	600
-	
+	WeaponToReplace			WP_BLASTER					
+	WeaponBasedOff			WP_BLASTER					
+	NewWorldModel			"models/weapons2/blaster_r/blaster_w.glm"  	
+	NewViewModel			"models/weapons2/blaster_r/blaster.md3"   	
+	Icon					"gfx/hud/w_icon_E11" 					
+	WeaponName				"E-11 Blaster Carbine"    					
+	customAmmo				600
 }
 
 WeaponInfo2
-{	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_THERMAL
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_CONC_NADE
 	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
 	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
-	Icon							"gfx/hud/w_icon_stungrenade"
+	Icon					"gfx/hud/w_icon_stungrenade"
 	WeaponName				"Stun Grenade"
 	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
-	primFireEnabled		0
-	CustomAmmo			3
+	primFireEnabled			0
+	CustomAmmo				3
 }
 
 description  "Han Solo
 
-Weaponry:
+^2Weaponry:
+- DL-44 Blaster Pistol (3)
+- 3 Stun Grenades
+-- Alt-Fire Only
+-- Detonates On Contact With Surfaces
 
-DL-44 Pistol   (3)
-Stun Grenade (3)
+^6Equipment: 
+- Electrobinoculars
+- Medpac (25HP+)
 
-Equipment: 
+^8Attributes:
+- Heal (2)
+- Rally
 
-Binoculars
-Bacta Kit (1)
-
-Attributes:
-
-Dodge (3)
-Dash (2)
-Quickthrow (2)
-Healing (2)
-Rally
-
-Details:
+^3Abilities:
+- Dodge (3) ^3[CS1]
+- Dash (2) ^3[CS2]
+- Quick Throw (2) ^3[CS3]
 
 The cocky Corellian was quickly caught up in the Rebel evacuation of Yavin IV.  Captain Solo needed to help Princess Leia evacuate Yavin, but found himself defending the base against the incoming Imperials.  With Chewie at his side he is practically unstoppable against the Imperials, and with the help of Luke Skywalker and Leia Organa, he should be able to hold them off long enough to get the important parts & personnel out of the base and onto a transport."
