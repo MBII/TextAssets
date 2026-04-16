@@ -2,28 +2,50 @@
 
 ClassInfo
 {
-name			"iMas_Reb_Spy"
-weapons			WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE
-attributes		MB_ATT_PISTOL,2|MB_ATT_ARMOUR,3|MB_ATT_SPY_DISGUISE,3|MB_ATT_AMMO,3|MB_ATT_FRAGS,3|MB_ATT_HEALING,2|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_TRACKING_DART,3
-saber1			legends_Knife
-saberstyle		SS_TAVION
-maxhealth		90
-maxarmor		30
-
-model			"bothan-spy"
-skin			"default"
-uishader		"models/players/bothan-spy/mb2_icon_default"
-
-MBClass			MB_CLASS_HERO
-classNumberLimit	1
-
-extralives		1
-
-speed			1.05
-classflags		CFL_SEEING_STEALTH
+	name				"iMas_Reb_Spy"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE
+	attributes			MB_ATT_PISTOL,2|MB_ATT_SPY_DISGUISE,3|MB_ATT_AMMO,3|MB_ATT_FRAGS,3|MB_ATT_HEALING,2|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_TRACKING_DART,3
+	saber1				legends_Knife
+	saberstyle			SS_TAVION
+	maxhealth			90
+	maxarmor			30
+	extralives			1
+	speed				1.05
+	model				"bothan-spy"
+	skin				"default"
+	uishader			"models/players/bothan-spy/mb2_icon_default"
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_SEEING_STEALTH
+	classNumberLimit	1
+	
+	special3			EAS_HI_TRACKER
 }
 
 WeaponInfo0
+{
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/ct_weapon/ct_knife_F.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_prisonknife"
+	WeaponName				"Vibro Knife"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
+	NewViewModel			"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
+	Icon					"gfx/hud/w_icon_sc-10_holdout"
+	WeaponName				"Modified SC-10 Holdout Pistol"
+	FlashSound0				"sound/weapons/silencedpistol/fire.wav"
+	AltFlashSound0			"sound/weapons/silencedpistol/fire.wav"
+	customAmmo				600
+	ProjSpeedModifier 		2
+}
+
+WeaponInfo2
 {
 	WeaponToReplace			WP_FRAG_NADE
 	WeaponBasedOff			WP_FRAG_NADE
@@ -31,63 +53,32 @@ WeaponInfo0
 	NewViewModel			"models/weapons2/Stormi_TD/StormiTD.md3"
 	MissileModel 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
 	MissileModel2 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
+	Icon					"gfx/hud/w_icon_StormiTD"
+	WeaponName				"Flashbang Grenade"
 	altMissileMissEffect		"Grenades/EXP_Flash"
 	MissileMissEffect			"Grenades/EXP_Flash"
 	altMissileHitHumanEffect	"Grenades/EXP_Flash"
 	missileHitHumanEffect		"Grenades/EXP_Flash"
 	altMissileHitDroidEffect	"Grenades/EXP_Flash"
 	missileHitDroidEffect		"Grenades/EXP_Flash"
-	Icon				"gfx/hud/w_icon_StormiTD"
-	WeaponName			"Flashbang Grenade"
-	customammo			3
+	customammo				3
 	primFireEnabled			0
-}
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_prisonknife"
-	WeaponName			"Vibro Knife"
-}
-
-WeaponInfo2
-{
-	WeaponToReplace		WP_BLASTER_PISTOL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"   	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_sc-10_holdout" 					//Required: Weapon change icon
-	WeaponName		"Modified SC-10 Holdout Pistol"    					//Required: Weapon change display name
-	customAmmo 		600
-	FlashSound0		"sound/weapons/silencedpistol/fire.wav"
-	AltFlashSound0		"sound/weapons/silencedpistol/fire.wav"
-	
-	ProjSpeedModifier 		2
-	
 }
 
 description	"Rebel Spy
 
-Weapons:
+^2Weapons:
+- Modified SC-10 Holdout Pistol (2)
+- Combat Knife
+- 3 Flashbang Grenades
 
-Modified SC-10 Holdout Pistol: (2)
-Combat Knife
-Flashbang Grenades: (3) 
-Melee: (X)
+^8Attributes:
+- Heal (2)
 
-Equipment:
-
-Tracking Darts (3)
-
-Attributes:
-
-Dodge (3)
-Health Regeneration (2)
-Spy Disguise
-
-Details:
+^3Abilities:
+- Spy Disguise [Weapon Mode In Melee]
+- Dodge (3) ^3[CS1]
+- Dash (2) ^3[CS2]
+- 9 Tracking Darts ^3[CS3 Melee]
 
 Rebel Spies are informants hired to gather intel on the Empire's Activities. The spies were critical in the destruction of the first deathstar. Now, on Yavin, they must use their talents in tactical evasion and misdirrection to hold back the empire. This spy is quick and agile, carrying only a combat knife, a silenced blaster pistol, and flashbang grenades."

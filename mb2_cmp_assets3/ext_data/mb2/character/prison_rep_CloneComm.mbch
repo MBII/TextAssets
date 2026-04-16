@@ -1,104 +1,109 @@
 
+
 ClassInfo
 {
 	name				"prison_rep_CloneComm"
 	weapons				WP_SABER|WP_MELEE|WP_BLASTER|WP_CLONE_PISTOL
-	attributes			MB_ATT_CLONE_PISTOL,1|MB_ATT_BLASTER,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_DASH,2|MB_ATT_BINOCULARS|MB_ATT_BACTA
-	maxhealth			125
-	maxarmor			40
+	WP_MeleeFlags		HELD_LOWDAMAGE
+	WP_ClonePistolFlags	HELD_LOWDAMAGE|HELD_ALTRELOAD
+	WP_BlasterFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_CLONE_PISTOL,1|MB_ATT_BLASTER,2|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_DASH,2|MB_ATT_BINOCULARS|MB_ATT_BACTA
+	//holdables			HI_BINOCULARS|HI_MEDPAC
 	saber1 				"arc_shiv_legends"
 	saberstyle			SS_TAVION
-	MBClass				MB_CLASS_HERO
+	ASmultiplier		0.9
+	maxhealth			125
+	maxarmor			40
 	speed				.9
-	//holdables			HI_BINOCULARS|HI_MEDPAC
-	WP_Blasterflags			HELD_ALTRELOAD
-	WP_ClonePistolflags		HELD_LOWDAMAGE|HELD_ALTRELOAD
-	WP_MeleeFlags			HELD_LOWDAMAGE
 	rateOfFire			0.65
-	ASmultiplier			0.9
-	classflags			CFL_SEEING_STEALTH
-	respawnCustomTime  		30000
-	classNumberLimit		2
-	saberStanceAnim			BOTH_STAND9
 	model				"clonerc2"
 	skin				"default"
 	uishader			"models/players/clonerc2/mb2_icon_default"
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_SEEING_STEALTH
+	classNumberLimit	2
+	
+	saberStanceAnim		BOTH_STAND9
+	
+	respawnCustomTime	30000
 }
 
 WeaponInfo0
-{
-	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/DC-17m/blaster.glm"
-	NewViewModel		"models/weapons2/DC-17m/blaster.md3"
-	FlashSound0		"sound/weapons/dc17m/fire.wav"
-	AltFlashSound0 		"sound/weapons/dc17m/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"blaster/Shot01B"
-	AltMissileEffect 	"blaster/Shot01B"
-	Icon			"gfx/hud/w_icon_dc-17mB"
-	WeaponName		"DC-17M"
-	customAmmo 		999
-	clipSize		180
-	primFireEnabled		0
-	firingAnim  		BOTH_ATTACK3
+{           
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/arc_shiv_short/shiv_short_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon             		"gfx/hud/w_icon_arc_shiv"
+	WeaponName				"Cortosis Shiv"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_CLONE_PISTOL
-	NewWorldModel		"models/weapons2/DC-15/dc-15_w.glm"
-	NewViewModel		"models/weapons2/DC-15/dc-15.md3"
-	Icon				"gfx/hud/w_icon_clonepistol"
-	WeaponName			"DC-15s"	
-	FlashSound0			"sound/weapons/clonepistol/fire.mp3"
-	AltFlashSound0 		"sound/weapons/clonepistol/altfire.mp3"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot01B"
-	Missile3Effect		"Blaster/Shot04B"
-	AltMissileEffect	"Blaster/Shot04B"
-	PowerupShotEffect	"Blaster/Shot04B"
-	ChargeEffect		"gfx/effects/cloneFrontFlash"
-	clipSize		5
-	
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_CLONE_PISTOL
+	NewWorldModel			"models/weapons2/DC-15/dc-15_w.glm"
+	NewViewModel			"models/weapons2/DC-15/dc-15.md3"
+	Icon					"gfx/hud/w_icon_clonepistol"
+	WeaponName				"DC-15s Side Arm Blaster"	
+	FlashSound0				"sound/weapons/clonepistol/fire.mp3"
+	AltFlashSound0 			"sound/weapons/clonepistol/altfire.mp3"
+	MuzzleEffect			"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01B"
+	MissileEffect			"Blaster/Shot01B"
+	Missile3Effect			"Blaster/Shot04B"
+	AltMissileEffect		"Blaster/Shot04B"
+	PowerupShotEffect		"Blaster/Shot04B"
+	ChargeEffect			"gfx/effects/cloneFrontFlash"
+	clipSize				5
 }
 
 WeaponInfo2
-{           
-	WeaponToReplace        WP_SABER
-	WeaponBasedOff         WP_SABER
-	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon             	"gfx/hud/w_icon_arc_shiv"
-	WeaponName			"Cortosis Shiv"
+{
+	WeaponToReplace			WP_BLASTER
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/DC-17m/blaster.glm"
+	NewViewModel			"models/weapons2/DC-17m/blaster.md3"
+	Icon					"gfx/hud/w_icon_dc-17mB"
+	WeaponName				"DC-17M: Blaster Attachment"
+	FlashSound0				"sound/weapons/dc17m/fire.wav"
+	AltFlashSound0 			"sound/weapons/dc17m/fire.wav"
+	MuzzleEffect			"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01B"
+	MissileEffect			"blaster/Shot01B"
+	AltMissileEffect 		"blaster/Shot01B"
+	customAmmo				999
+	clipSize				180
+	primFireEnabled			0
+	
+	hasAnimOverrides		1
+	animReadyNoAmmo  		BOTH_ATTACK3
+	animAttack  			BOTH_ATTACK3
+	animAttackRun  			BOTH_ATTACK3
+	animAttackWalk  		BOTH_ATTACK3
 }
 
 description	"Clone Commando
 
-Weapons:
+^2Weapons:
+- DC-15s Side Arm Blaster (1)
+-- Low Power Output [50% Less DMG]
+-- Clip Reload
+- DC-17M: Blaster Attachment (2)
+-- Clip Reload
+- Cortosis Shiv
+-- ^5Cyan ^7Style Only
 
-DC-17M: (2)
-- Clip Style Reload
-DC-15s: (1)
-- Clip Style Reload
-- Low Power Output (Reduced Damage)
-Cortosis Shiv
+^6Equipment:
+- Medpac (25HP+)
+- Electrobinoculars
 
-Equipment:
+^8Attributes:
+- Cannot be detected by Sense
+- Shield Regeneration (1)
+- 50% Less Melee DMG
 
-Medpack
-Binoculars
-Bacta Pack (25HP+)
-
-Attributes:
-
-Shield Regeneration: (1)
-Dash: (2)
-Cannot be detected by Sense
-
-Details:
+^3Abilities:
+- Dash (2) ^3[CS2]
 
 Clone troopers were identical, genetically-modified soldiers bred and trained to serve in the Republic's army during the Clone Wars. blaster Rifles as their primary weapon. The Clone Commander is the most high ranking officers of the group and also among the best trained, even when compared to the Arc Troopers."
