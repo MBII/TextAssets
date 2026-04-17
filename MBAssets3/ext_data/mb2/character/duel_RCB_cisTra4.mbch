@@ -4,6 +4,7 @@ ClassInfo
 {
 	name				"duel_RCB_cisTra4"
 	weapons				WP_MELEE|WP_BLASTER|WP_BLASTER_PISTOL|WP_FRAG_NADE|WP_CONCUSSION
+	WP_ConcussionFlags	HELD_SLOW|HELD_ALTRELOAD
 	attributes			MB_ATT_PISTOL,3|MB_ATT_BLASTER,2|MB_ATT_FRAGS,1|MB_ATT_CONCUSSION,2|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_STAMINA,2|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_BACTA|MB_ATT_BINOCULARS
 	//holdables			HI_MEDPAC|HI_BINOCULARS
 	maxhealth			200
@@ -45,12 +46,35 @@ WeaponInfo1
 	WeaponName			"CP-50"
 }
 
+WeaponInfo2
+{
+	WeaponToReplace			WP_CONCUSSION
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/lj-50_concussion/lj-50_concussion_w.glm"
+	NewViewModel			"models/weapons2/lj-50_concussion/lj-50_concussion.md3"
+	Icon					"gfx/hud/w_icon_lj-50_concussion"
+	WeaponName				"LJ-50 Concussion Rifle"
+	flashSound0				"sound/weapons/T-21/fire.mp3"
+	MissileMissEffect		"concussion/explosion_new"
+	MissileHitHumanEffect	"concussion/explosion_new"
+	MissileHitDroidEffect	"concussion/explosion_new"
+	clipsize				30
+	customammo				800
+	Altfireenabled			0
+	rateMod					1.8
+	reloadTimeModifier		1.8
+	velocityMod				.5
+}
+
 description	"Trandoshan
 
 ^2Weaponry:
 - CP-50 Blaster (2)
 - Blaster Pistol (3)
-- Concussion Rifle (2)
+- LJ-50 Concussion Rifle (2)
+-- 50% Less Velocity
+-- 80% Slower RoF
+-- 80% Slower Mag Reload
 - 1 Frag Grenade
 
 ^6Inventory:
