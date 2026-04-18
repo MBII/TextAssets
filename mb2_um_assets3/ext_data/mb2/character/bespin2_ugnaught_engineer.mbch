@@ -6,10 +6,10 @@ ClassInfo
 	weapons				WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_CONC_NADE|WP_DEMP2
 	attributes			MB_ATT_CCTRAINING,2|MB_ATT_MICRO_GRENADES,1|MB_ATT_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_DODGE,1|MB_ATT_SHIELD_RECHARGE|MB_ATT_DEMP2,1|MB_ATT_FORCEFIELD|MB_ATT_SENTRY
 	//holdables			HI_SHIELD|HI_SENTRY_GUN
-	forcepool			25
 	saber1				mwrench
 	sabercolor			0
 	saberstyle			SS_TAVION
+	forcepool			25
 	maxhealth			80
 	maxarmor			60
 	extraLives			1
@@ -31,6 +31,16 @@ ClassInfo
 
 WeaponInfo0
 {
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/mwrench/mwrench.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_mwrench"
+	WeaponName				"Monkeywrench"
+}
+
+WeaponInfo1
+{
 	WeaponToReplace			WP_BLASTER_PISTOL
 	WeaponBasedOff			WP_BLASTER_PISTOL
 	NewWorldModel			"models/weapons2/Glie-44/Glie-44_w.glm"
@@ -39,8 +49,6 @@ WeaponInfo0
 	WeaponName				"Glie-44"
 	FlashSound0				"sound/weapons/glie-44/fire.wav"
 	AltFlashSound0			"sound/weapons/glie-44/alt_fire.wav"
-	customAmmo				200
-	clipSize				5
 	MuzzleEffect			"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect			"Blaster/MuzzleFlash03B"
 	MissileEffect			"Blaster/Shot10B"
@@ -48,16 +56,8 @@ WeaponInfo0
 	AltMissileEffect		"Blaster/Shot04B"
 	PowerupShotEffect		"Blaster/Shot04B"
 	ChargeEffect			"gfx/effects/cloneFrontFlash"
-}
-
-WeaponInfo1
-{
-	WeaponToReplace			WP_SABER
-	WeaponBasedOff			WP_SABER
-	NewWorldModel			"models/weapons2/mwrench/mwrench.glm"
-	NewViewModel			"models/weapons2/dummy/dummy.md3"
-	Icon					"gfx/hud/w_icon_mwrench"
-	WeaponName				"Monkeywrench"
+	customAmmo				200
+	clipSize				5
 }
 
 WeaponInfo2
@@ -70,8 +70,8 @@ WeaponInfo2
 	MissileModel2 			"models/weapons2/oldfraggrenade/thermal_proj.md3"
 	Icon					"gfx/hud/w_icon_oldfraggrenade"
 	WeaponName				"Concussion Grenade"
-	altMissileMissEffect	"conc_nade/concussion_nade"
-	MissileMissEffect		"conc_nade/concussion_nade"
+	altMissileMissEffect		"conc_nade/concussion_nade"
+	MissileMissEffect			"conc_nade/concussion_nade"
 	altMissileHitHumanEffect	"conc_nade/concussion_nade"
 	missileHitHumanEffect		"conc_nade/concussion_nade"
 	altMissileHitDroidEffect	"conc_nade/concussion_nade"
@@ -82,10 +82,10 @@ description	"Ugnaught Engineer
 
 ^2Weaponry:
 - Wrench
--- Cyan Style Only
-- DEMP 2 (1)
--- Secondary Fire causes Charged AOE
+-- ^5Cyan ^7Style Only
+-- Cannot Block Anything
 - Glie-44 Pistol (2)
+- DEMP-2 (1)
 - 1 Concussion Grenade
 
 ^6Inventory:
@@ -93,12 +93,12 @@ description	"Ugnaught Engineer
 - Portable Sentry Gun
 
 ^8Attributes:
-- One extra life
+- Close Combat Training (2)
+- One (1) Reinforcement
 - Assemble (1)
 
 ^3Abilities:
-- Poison Darts (2) ^3[CS1]
-- Tracker Darts (2) ^3[CS2]
+- 2 Poison Darts ^3[CS1 Melee]
+- 6 Tracker Darts ^3[CS2 Melee]
 - Shin Kick ^3[CS3]
-- Dodge (1) ^3[CS4]
-"
+- Dodge (1) ^3[CS4]"
