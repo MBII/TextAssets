@@ -1,0 +1,155 @@
+//Legends Mode character file - Created by Frenzy & Leos
+ClassInfo
+{
+	name				"h2_CrimsonC"
+	weapons				WP_MELEE|WP_FRAG_NADE|WP_PISTOL|WP_SABER
+
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_AMBAN,1|MB_ATT_PISTOL,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,3|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_GRAPPLE_HOP
+	classflags			CFL_BPFREEJUMPS
+
+	MBClass				MB_CLASS_ARCTROOPER
+
+	saber1      	Cutlass_legends
+	saberstyle 	SS_MEDIUM|SS_TAVION
+
+	CSmultiplier      1.05
+	ASmultiplier      1.1
+	APmultiplier 1.05
+ saberDamageStyle SS_MEDIUM,200|SS_TAVION,120
+	maxhealth			125
+	maxarmor			125
+	model				"Sidon_Ithano"
+	skin				"default"
+	uishader			"models/players/Sidon_Ithano/mb2_icon_default" 
+	classNumberLimit	1	
+	modelscale			1.03
+	speed				1.05
+	forcepool			140
+	WP_DLT20AFlags HELD_ALTRELOAD
+
+	gloatAnim BOTH_TALKCOMM1START
+	tauntAnim BOTH_ENGAGETAUNT
+	flourishAnim BOTH_STAND1_TALK1
+
+	special1		EAS_HI_SPRINT
+	special2		EAS_HI_DEX
+	special3		EAS_HI_DODGE
+	special4		EAS_HI_GRAPPLEHOOK
+
+	rateOfFire          0.95
+
+	uioverlay_l "gfx/icons/spec_infantry"
+	uioverlay_r "gfx/icons/hybrid"
+	
+	//respawncustomtime 50000
+
+	c_att_skill_0	MB_ATT_DLT20A
+	c_att_names_0	"Weequay Blaster Pistol"
+	c_att_ranks_0	1
+	c_att_descs_0 "25% more Dmg/FP Dmg, 10% faster Reload"
+	
+	c_att_skill_1	MB_ATT_AMBAN
+	c_att_names_1	"Longswat-44 sniper blaster rifle"
+	c_att_ranks_1	1
+	c_att_descs_1 "WESTAR-M5 (1) + Scope"
+}
+
+WeaponInfo0
+{
+
+	WeaponToReplace WP_AMBAN
+	WeaponBasedOff  WP_AMBAN
+	NewWorldModel "models/weapons2/mando_rifle/mando_rifle.glm"
+	NewViewModel  "models/weapons2/mando_rifle/mando_rifle.md3"
+	Icon  "gfx/hud/w_icon_mandorifle"
+	WeaponName  "sniper"
+	clipsize 3
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_SHOTGUN
+	WeaponBasedOff		WP_SHOTGUN
+	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+	MuzzleEffect		"acp_array/muzzle_flash"
+	MissileEffect		"acp_array/shot"
+	FlashSound0			"sound/weapons/acparray/fire.wav"
+	Icon				"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName			"ACP Array Gun"
+	clipSize            12
+	//primHitscanShot		1
+	//primHitscanTracer	10
+	altFireEnabled		0
+	ReloadTimeModifier  0.95
+	CustomAmmo 660
+}
+
+WeaponInfo2
+{
+	WeaponToReplace	WP_SABER
+	WeaponBasedOff	WP_SABER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_hondocutlass"
+	WeaponName		"Vibrocutlass"
+	SelectSound 		"s/w/v/swish1.wav"
+}
+
+WeaponInfo3
+{
+	WeaponToReplace WP_BLASTER_PISTOL
+	WeaponBasedOff  WP_BLASTER_PISTOL
+	NewWorldModel "models/weapons2/bp_dt29/dt29.glm"
+	NewViewModel  "models/weapons2/bp_dt29/dt29.md3"
+	NewBarrelModel "models/weapons2/bp_dt29/dt29_barrel.md3"
+	NewHandsModel  "models/weapons2/bp_dt29/dt29_hand.md3"
+	Icon  		"gfx/hud/w_icon_dt29"
+	WeaponName  "Blaster Pistol"
+	ClipSize 		21
+	CustomAmmo		700
+	ChargeSound 	"sound/weapons/leia_pistol/altcharge.mp3"
+	FlashSound0		"sound/weapons/LPA_NN-14/fire.wav"
+	altFlashSound0	"sound/weapons/han_pistol/alt_fire.mp3"
+	ReloadTimeModifier 1
+	hasAnimOverrides 1
+animReadyRun BOTH_MAND_PISTOL_READY
+animReady BOTH_MAND_PISTOL_READY
+animReadyWalk BOTH_MAND_PISTOL_READY
+animReadyNoAmmo BOTH_MAND_PISTOL_ATTACK
+animAttackRun BOTH_MAND_PISTOL_ATTACK
+animAttack BOTH_MAND_PISTOL_ATTACK
+animAttackWalk BOTH_MAND_PISTOL_ATTACK
+animCharge BOTH_MAND_PISTOL_ATTACK
+animStand BOTH_MAND_PISTOL_READY
+}
+
+description	"Sidon Ithano aka the Crimson Corsair
+
+A reckless, mobile hybrid with a one-tap Shotgun and a Grappling Hook.
+
+^2Weaponry:
+- Melee
+- Vibrocutlass
+-- Saber Defense (1)
+--- BP-Free Jumps
+-- No Blaster Block
+- ACP Array Gun (Shotgun 2)
+-- 100% more Dmg
+-- 5% faster Mag Reload
+- Pulse Grenades (3)
+
+^6Inventory:
+- Portable E-Web Cannon
+- Stimpak
+
+^8Attributes:
+- Stamina (3)
+- Dexterity (3)
+
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Dodge (3) ^3[CS3]
+- Grappling Hook/Hop (2) ^3[CS4 Melee]
+-- Retain momentum from first Grapple"
