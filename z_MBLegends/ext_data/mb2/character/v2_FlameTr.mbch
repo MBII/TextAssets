@@ -8,46 +8,65 @@ Classinfo
 	classNumberLimit	2
 	extralives		1
 
-	weapons	WP_MELEE|WP_THROWER|WP_FIRE_NADE|WP_UGL|WP_DLT20A
+	weapons	WP_MELEE|WP_THROWER|WP_FIRE_NADE
 
  WP_UGLFlags HELD_EXPLOSIVE|HELD_KNOCKBACK
  //WP_ThrowerFlags HELD_FLAME
 
-	attributes	MB_ATT_AMMO,4|MB_ATT_FIRE_GRENADES,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_UGL|MB_ATT_DLT20A,2|MB_ATT_WRISTLASER|MB_ATT_ENV_PROT,1|MB_ATT_BACTA,1|MB_ATT_SENTRY,1
+	attributes	MB_ATT_AMMO,4|MB_ATT_FIRE_GRENADES,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_UGL|MB_ATT_WRISTLASER|MB_ATT_ENV_PROT,1|MB_ATT_SENTRY,1|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_GETUPS,2
 
-	maxhealth	80
-	maxarmor		80
+	maxhealth	100
+	maxarmor		75
 
 	knockbacktaken .9
 	speed  1.06
-	
+
 	special1HUD HUD_FIRENADE
 	special2HUD HUD_WRISTLASER
-	
-	resource		RESOURCE_ENERGY
+
+	resource		RESOURCE_FUEL
 	forcepool	100
-	
+
 	special1	EAS_HI_DODGE
 	special2 EAS_HI_WRIST
 	special4	EAS_HI_SENTRY_GUN
-	special3 EAS_HI_MEDPAC
 
 	WP_BlasterFlags HELD_FLAME
 	WP_ThrowerFlags HELD_ALTRELOAD
-	
+	AB_WLaserFlags	HELD_FLAME
+
+	classflags	CFL_EXTRAFLAMEDAMAGE|CFL_DISMEMBERFRAGILE
+
 	flourishAnim TORSO_HANDSIGNAL3
-	
+
 	modelScale  1.00
-	model	"stormie"
-	skin		"incinerator"
-	uishader	"models/players/stormie/mb2_icon_incinerator"
-	
+
+	model	"battledroid" 				
+	skin	"flame"					
+	uishader "models/players/battledroid/mb2_icon_flame"
+
 	model_1	"battledroid" 				
-	skin_1	"flame"					
-	uishader_1 "models/players/battledroid/mb2_icon_flame"
-	
+	skin_1	"plasma"					
+	uishader_1 "models/players/battledroid/mb2_icon_plasma"
+
  uioverlay_r "gfx/icons/infantry"
 	uioverlay_l "gfx/icons/spec_infantry"
+	
+	isCustomBuild 1
+mbPoints 7
+
+c_att_skill_0   MB_ATT_BLASTER
+c_att_names_0   "E-5 Blaster Rifle"
+c_att_ranks_0   1,1,2
+
+c_att_skill_1   MB_ATT_DLT20A
+c_att_names_1   "DLT-20A"
+c_att_ranks_1   3,2,1
+
+c_att_skill_2   MB_ATT_UGL
+c_att_names_2   "Modified Grenade Launcher (UGL)"
+c_att_ranks_2   2
+c_att_descs_2   "Overblasts/pushes on det, 100% more Dmg"
 }
 
 WeaponInfo0
@@ -57,10 +76,10 @@ WeaponInfo0
 	NewWorldModel	"models/weapons2/CR-24_flamerifle/rifle_w.glm"
 	NewViewModel	"models/weapons2/CR-24_flamerifle/rifle.md3"		
 	Icon	"gfx/hud/w_icon_cr-24_flamerifle"
-	WeaponName "CR-24 Flame Rifle"
+	WeaponName "CR-24 Plasma Rifle"
 	customAmmo 700
 	clipsize 140
-	ReloadTimeModifier 1.30
+	ReloadTimeModifier 1.4
 }
 
 WeaponInfo1
@@ -88,27 +107,43 @@ animAttackWalk BOTH_ATTACK3
 damageMod 2
 }
 
-Description 	"Flame Trooper  
+WeaponInfo3
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BLASTER 
+	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
+	NewViewModel 		"models/weapons2/e5/e5.md3"
+	Icon				"gfx/hud/w_icon_e5"
+	WeaponName			"E-5 Blaster Rifle"
+	hasAnimOverrides 1
+	animReadyRun BOTH_STAND3
+	animReady BOTH_STAND3
+	animReadyWalk BOTH_STAND3
+	animReadyNoAmmo BOTH_ATTACK3 
+	animAttackRun BOTH_ATTACK3 
+	animAttack BOTH_ATTACK3 
+	animAttackWalk BOTH_ATTACK3 
+	animStand BOTH_WOOKIEE_RAGE_STAND
+}
+
+Description 	"B1 Flame Droid
 
 A 2-life class specializing in incendiary support. Launched Grenades deal bonus damage.
 
 ^2Weaponry:
 - Melee
-- CR-24 Flame Rifle (Flamethrower)
--- 30% slower Mag Reload
-- DLT-20A Blaster Rifle (2)
+- CR-24 Plasma Rifle (Flamethrower)
+-- 100% more DMG
+-- 40% slower Mag Reload
 - Fire Grenades (3)
-- Modified Grenade Launcher (UGL)
--- Overblasts/pushes on det
--- 100% more Dmg
 
 ^6Inventory:
 - Assault Sentry ^3[CS4]
-- Medpac ^3[CS3]
 
 ^8Attributes:
 - Reinforcement (1)
 - 10% less Kb Taken
+- Fuel Regen (3)
 - Dexterity (1)
 - Environmental Protection (1)
 - Blast Armor
@@ -117,4 +152,5 @@ A 2-life class specializing in incendiary support. Launched Grenades deal bonus 
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
-- Wrist Laser ^3[CS2]"
+- Wrist Laser ^3[CS2]
+-- Ignites on hit"
