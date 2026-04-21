@@ -3,51 +3,54 @@
 ClassInfo
 {
 	name				"nar_redgrapple"
-	weapons				WP_MELEE|WP_PROJ|WP_SABER|WP_BLASTER_PISTOL 
+	weapons				WP_MELEE|WP_PROJ|WP_SABER|WP_BLASTER_PISTOL
 	WP_MeleeFlags		HELD_SPEED
-	attributes			MB_ATT_GRAPPLE_HOOK,3|MB_ATT_ASSEMBLE|MB_ATT_RALLY|MB_ATT_PISTOL,2|MB_ATT_PROJECTILE_RIFLE|MB_ATT_AMMO,3|MB_ATT_FLIPKICK|MB_ATT_DISP_HEALTH,3|MB_ATT_BINOCULARS
-	classflags			CFL_STATVIEWER|CFL_BLOODYMELEE
+	WP_ProjFlags		HELD_SLOW|HELD_POISON
+	attributes			MB_ATT_GRAPPLE_HOOK,3|MB_ATT_ASSEMBLE|MB_ATT_RALLY|MB_ATT_PISTOL,2|MB_ATT_PROJECTILE_RIFLE|MB_ATT_AMMO,3|MB_ATT_FLIPKICK|MB_ATT_DISP_HEALTH,3|MB_ATT_STAMINA,1|MB_ATT_BINOCULARS
+	//holdables			HI_BINOCULARS
+	saber1				vibrosword_nar
+	saberstyle			SS_MEDIUM
+	forcepowers			FP_LEVITATION,3
+	forcepool			60
+	forceregen			2
 	maxhealth			100
 	maxarmor			75
-	forcepowers			FP_LEVITATION,3
-	forceregen			2
-	forcepool			80
-	saberstyle			SS_MEDIUM
-	saber1				vibrosword_nar
-	model				"Rodian" 
-	skin				"red"
-	uishader			"models/players/Rodian/MB2_Icon_red"
-	speed 				1.15
 	extralives			1
-	//holdables			HI_BINOCULARS
-	MBClass				MB_CLASS_MANDALORIAN
-	WP_StunBatonFlags	HELD_SLOW|HELD_POISON
+	speed 				1.15
+	model				"rodian" 
+	skin				"red"
+	uishader			"models/players/rodian/mb2_icon_red"
+	MBClass				MB_CLASS_ELITETROOPER
+	classflags			CFL_STATVIEWER|CFL_BLOODYMELEE
 	
-	
-
-	
+	resource			RESOURCE_STAMINA
+	meleespecial3		EAS_HI_GRAPPLEHOOK
 }
+
 WeaponInfo0
 {      
-WeaponToReplace        WP_SABER
-WeaponBasedOff         WP_SABER
-NewWorldModel		"models/weapons2/vibrosword_BX/vibrosword_BX.glm"  	//Required: New 3rd person/dropped weapon model
-NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-Icon             "gfx/hud/w_icon_vibroswordBX"
-WeaponName		"Vibro Blade"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/vibrosword_BX/vibrosword_BX.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_vibroswordBX"
+	WeaponName				"Vibro Blade"
 }
-
 
 description	"Rodian Gang Member
 
-Weapons:
-Vibro Sword
-Poisonous Projectile Rifle
+^2Weapons:
+- Vibro Sword
+- Poisonous Projectile Rifle
 
-Abilities:
-Flipkick
-Can heal others
-Grapple Hook
+^6Inventory:
+- Electrobinoculars
 
-Extra Life
-"
+^8Attributes:
+- Stamina [Grapple Hook Only] (1)
+- 1 Extra Life
+
+^3Abilities:
+- Flipkick (1)
+- Can heal others [Hold Use on Allies]
+- Grapple Hook (3) ^3[CS3 Melee]"
