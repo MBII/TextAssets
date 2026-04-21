@@ -1,12 +1,9 @@
-//Legends Mode character file - Created by Frenzy & Leos
 ClassInfo
 {
 	name				"h2_CrimsonC"
 	weapons				WP_MELEE|WP_FRAG_NADE|WP_PISTOL|WP_SABER
-
 	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_PISTOL,3|MB_ATT_FRAGS,2|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,2|MB_ATT_STAMINA,3|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_GRAPPLE_HOP
 	classflags			CFL_BPFREEJUMPS
-
 	MBClass				MB_CLASS_ARCTROOPER
 
 	saber1      	Cutlass_legends
@@ -25,9 +22,10 @@ ClassInfo
 	modelscale			1.03
 	speed				1.05
 	forcepool			140
-	WP_DLT20AFlags HELD_ALTRELOAD
+	WP_ShotgunFlags HELD_ALTRELOAD|HELD_HIGHDAMAGE
 	WP_FragNadeFlags HELD_FLAME
-	
+	AB_GHookFlags HELD_PULL|HELD_STUN
+
 	flourishAnim BOTH_STAND1_TALK1
 
 	special1		EAS_HI_SPRINT
@@ -42,16 +40,15 @@ ClassInfo
 	
 	//respawncustomtime 50000
 
-	c_att_skill_0	MB_ATT_DLT20A
-	c_att_names_0	"Kanjiklub Rifle (DLT-20A)"
-	c_att_ranks_0	1
-	c_att_descs_0 "25% more Dmg/FP Dmg, Mag Reload"
+	c_att_skill_0	MB_ATT_SHOTGUN
+	c_att_names_0	"Kanjiklub Rifle (Shotgun)"
+	c_att_ranks_0	1,0
+	c_att_descs_0 "100% more Dmg, 5% faster Mag reload"
 	
 	c_att_skill_1	MB_ATT_AMBAN
 	c_att_names_1	"Longswat-44 Rifle (Amban)"
 	c_att_ranks_1	1
 }
-
 WeaponInfo0
 {
 	WeaponToReplace WP_AMBAN
@@ -62,23 +59,22 @@ WeaponInfo0
 	WeaponName  "Longswat-44 Blaster Sniper Rifle"
 	clipsize 3
 }
-
 WeaponInfo1
 {
-	WeaponToReplace		WP_DLT20A
-	WeaponBasedOff		WP_DLT20A
-	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
-	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
-	MuzzleEffect		"acp_array/muzzle_flash"
-	MissileEffect		"acp_array/shot"
-	FlashSound0			"sound/weapons/acparray/fire.wav"
-	Icon				"gfx/hud/w_icon_cp-50_repeater"
-	WeaponName			"Kanjiklub Rifle"
-	//primHitscanShot		1
-	//primHitscanTracer	10
-	CustomAmmo 650
+	WeaponToReplace	WP_SHOTGUN
+	WeaponBasedOff	WP_SHOTGUN
+	NewWorldModel	"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel	"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+	MuzzleEffect	"acp_array/muzzle_flash"
+	MissileEffect "acp_array/shot"
+	FlashSound0	"sound/weapons/acparray/fire.wav"
+	Icon	"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName	"ACP Array Gun"
+	clipSize 12
+	altFireEnabled	0
+	ReloadTimeModifier 0.95
+	CustomAmmo 660
 }
-
 WeaponInfo2
 {
 	WeaponToReplace	WP_SABER
@@ -89,18 +85,17 @@ WeaponInfo2
 	WeaponName	"Vibrocutlass"
 	SelectSound "s/w/v/swish1.wav"
 }
-
 WeaponInfo3
 {
 WeaponToReplace WP_BLASTER_PISTOL
-WeaponBasedOff  WP_BLASTER_PISTOL
+WeaponBasedOff WP_BLASTER_PISTOL
 NewWorldModel "models/weapons2/bp_dt29/dt29.glm"
-NewViewModel  "models/weapons2/bp_dt29/dt29.md3"
+NewViewModel "models/weapons2/bp_dt29/dt29.md3"
 NewBarrelModel "models/weapons2/bp_dt29/dt29_barrel.md3"
-NewHandsModel  "models/weapons2/bp_dt29/dt29_hand.md3"
-Icon  		"gfx/hud/w_icon_dt29"
+NewHandsModel "models/weapons2/bp_dt29/dt29_hand.md3"
+Icon	"gfx/hud/w_icon_dt29"
 WeaponName  "Blaster Pistol"
-ClipSize 	21
+ClipSize	21
 CustomAmmo	700
 ChargeSound	"sound/weapons/leia_pistol/altcharge.mp3"
 FlashSound0	"sound/weapons/LPA_NN-14/fire.wav"
@@ -127,13 +122,9 @@ A reckless, mobile hybrid with a one-tap Shotgun and a Grappling Hook.
 -- Saber Defense (1)
 --- BP-Free Jumps
 -- No Blaster Block
-
+- Blaster Pistol (3)
 - Frag Grenades (2)
 -- Ignites on hit
-
-^6Inventory:
-- Portable E-Web Cannon
-- Stimpak
 
 ^8Attributes:
 - Stamina (3)
@@ -144,4 +135,5 @@ A reckless, mobile hybrid with a one-tap Shotgun and a Grappling Hook.
 - Dex Roll ^3[CS2]
 - Dodge (3) ^3[CS3]
 - Grappling Hook/Hop (2) ^3[CS4 Melee]
--- Retain momentum from first Grapple"
+-- Retain momentum from first Grapple
+-- Pulls/staggers on hit"
