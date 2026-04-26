@@ -2,28 +2,27 @@
 
 ClassInfo
 {
-	name			"pb2_1_b_hk47"
-	model			"hk47" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/hk47/mb2_icon_default"
-	MBClass			MB_CLASS_BOUNTY_HUNTER
-	
-	weapons			WP_MELEE|WP_BRYAR_OLD|WP_BLASTER|WP_CONC_NADE|WP_A280|WP_DEMP2
-	attributes		MB_ATT_ASSEMBLE|MB_ATT_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_A280,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_DEMP2,3
-	maxhealth		100
-	maxarmor		80
-	extraLives		3
-	resource	RESOURCE_ENERGY
-	special3	EAS_HI_DODGE
-	special2	EAS_HI_KICK
-
+	name				"pb2_1_b_hk47"
+	weapons				WP_MELEE|WP_MANDO_PISTOL|WP_BLASTER|WP_CONC_NADE|WP_A280|WP_DEMP2
 	WP_ConcNadeFlags	HELD_HIGHDAMAGE
-	speed        1.1
+	attributes			MB_ATT_ASSEMBLE|MB_ATT_MANDO_PISTOL,2|MB_ATT_BLASTER,3|MB_ATT_A280,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_DEMP2,3|MB_ATT_DEMP2_BLASTS,3|MB_ATT_RECHARGE,3|MB_ATT_CCTRAINING,1
+	maxhealth			100
+	maxarmor			80
+	extraLives			3
+	basespeed			275
+	model				"hk47"
+	skin				"default"
+	uishader			"models/players/hk47/mb2_icon_default"
+	MBClass				MB_CLASS_BATTLEDROID
+	
+	resource			RESOURCE_BATTERY
+	special1			EAS_HI_DODGE
+	special3			EAS_HI_KICK
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BRYAR_OLD
+	WeaponToReplace		WP_MANDO_PISTOL
 	WeaponBasedOff		WP_BLASTER_PISTOL
 	NewWorldModel		"models/weapons2/blaster_r/projpistol.glm"
 	NewViewModel		"models/weapons2/blaster_r/projpistol.md3"
@@ -37,58 +36,30 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_A280        					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BOWCASTER      					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/junglerifle/jungerifle.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/junglerifle/jungerifle_w.md3"   	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_junglerifle" 				//Required: Weapon change icon
-	WeaponName			"Jungle Rifle"    					//Required: Weapon change display name
-}
-
-WeaponInfo2
-{
-	WeaponToReplace		WP_DEMP2
-	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/demp2/demp2_w.glm"
-	NewViewModel		"models/weapons2/demp2/demp2.md3"
-	Icon				"gfx/hud/w_icon_demp2"
-	WeaponName			"DEMP2"
-	//Efx
-	MissileHitHumanEffect "effects/demp2/altdetonate"
-	MissileHitDroid 	"effects/demp2/altdetonate"
-	MissileMissEffect 			"effects/demp2/wall_impact"
-	MissileEffect		"effects/demp2/projectile"  					
-	AltMissileEffect 	"effects/demp2/projectile" 
-	MuzzleEffect		"effects/demp2/muzzle_flash"
-	AltMuzzleEffect		"effects/demp2/altmuzzle_flash"
-	firingAnim		BOTH_ATTACK3
-	idleAnim		TORSO_WEAPONREADY3
-	PrimHitscanShot 	0
-	//PrimHitscanTracer 	9
-	FlashSound0		"sound/weapons/clonepistol/fire.mp3"
-	AltFlashSound0	"sound/weapons/clonepistol/altfire.mp3"
-	ChargeSound		"sound/weapons/demp2/altcharge.mp3"
-	CustomAmmo 	9
-	ClipSize 		3
-	ReloadTimeModifier 	1	// default is 1 - 100%
-	ProjSpeedModifier 1
-	AltFireEnabled 1
-	PrimFireEnabled 0
+	WeaponToReplace		WP_A280
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/junglerifle/jungerifle.glm"
+	NewViewModel		"models/weapons2/junglerifle/jungerifle_w.md3"
+	Icon				"gfx/hud/w_icon_junglerifle"
+	WeaponName			"Jungle Rifle"
 }
 
 description	"HK-47
 
-Weapons:
-Pistol (2)
-E-11 (3)
-DEMP2 (3)
-Jungle Rifle (A280 3)
-Conc Nades (2) (x2 damage)
+^2Weapons:
+- Blaster Pistol (2)
+- E-11 Blaster Rifle (3)
+- Jungle Rifle [A280] (3)
+- DEMP 2 (3)
+-- 6 Alt Fire Blasts
+- 2 Conc Nades [100% More DMG]
 
-Abilities:
-Dodge (3) ^3[CS3]
-Assemble
-Gun Kick ^3[CS2]
+^8Attributes:
+- Battery Recharge (3)
+- Close Combat Training (1)
+- 3 Extra Lives
+- Assemble (1)
 
-3 Respawns
-"
+^3Abilities:
+- Dodge (3) ^3[CS1]
+- Gun Kick ^3[CS3]"
