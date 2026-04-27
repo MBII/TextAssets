@@ -11,13 +11,13 @@ Classinfo
 	weapons	WP_MELEE|WP_THROWER|WP_FIRE_NADE
 
  WP_UGLFlags HELD_EXPLOSIVE|HELD_KNOCKBACK
- //WP_ThrowerFlags HELD_FLAME
+ WP_PLX1Flags HELD_SLOW|HELD_FLAME
 
 	attributes	MB_ATT_AMMO,4|MB_ATT_FIRE_GRENADES,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_UGL|MB_ATT_WRISTLASER|MB_ATT_ENV_PROT,1|MB_ATT_SENTRY,1|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_GETUPS,2|MB_ATT_THROWER
 
 	maxhealth	100
-	maxarmor		75
-	rankArmor		100
+	maxarmor	75
+	rankArmor	100
 
 	knockbacktaken .9
 	basespeed  225
@@ -26,7 +26,7 @@ Classinfo
 	special1HUD HUD_FIRENADE
 	special2HUD HUD_WRISTLASER
 
-	resource		RESOURCE_FUEL
+	resource	RESOURCE_FUEL
 	forcepool	50
 	rankforcepool	75,100
 
@@ -37,7 +37,7 @@ Classinfo
 	WP_ThrowerFlags HELD_ALTRELOAD
 	AB_WLaserFlags	HELD_FLAME|HELD_LOWDAMAGE|HELD_STUN
 
-	classflags	CFL_EXTRAFLAMEDAMAGE|CFL_DISMEMBERFRAGILE
+	classflags	CFL_DISMEMBERFRAGILE
 
 	flourishAnim TORSO_HANDSIGNAL3
 
@@ -72,28 +72,33 @@ c_att_descs_2   "Overblasts/pushes on det, 100% more Dmg"
 
 c_att_skill_3	MB_ATT_THROWER_PLASMA
 c_att_names_3	"CR-24 Plasma Upgrade"
-c_att_ranks_3	20
+c_att_ranks_3	25
 
-c_att_skill_4	MB_ATT_ARMOUR
-c_att_names_4	"Armor (100)"
-c_att_ranks_4	15
+c_att_skill_4	MB_ATT_PLX1
+c_att_names_4	"E-60R Missile Launcher (PLX)"
+c_att_ranks_4	10,15
+c_att_descs_4	"Ignites on hit, 15% slower Movement, 75% less dmg"
 
-c_att_skill_5	MB_ATT_POWER
-c_att_names_5	"Energy Pool (75/100)"
-c_att_ranks_5	5,5
+c_att_skill_5	MB_ATT_ARMOUR
+c_att_names_5	"Armor (100)"
+c_att_ranks_5	15
+
+c_att_skill_6	MB_ATT_POWER
+c_att_names_6	"Energy Pool (75/100)"
+c_att_ranks_6	5,5
 }
 
 WeaponInfo0
 {
-	WeaponToReplace WP_THROWER
-	WeaponBasedOff WP_THROWER
-	NewWorldModel	"models/weapons2/CR-24_flamerifle/rifle_w.glm"
-	NewViewModel	"models/weapons2/CR-24_flamerifle/rifle.md3"		
-	Icon	"gfx/hud/w_icon_cr-24_flamerifle"
-	WeaponName "CR-24 Flame Rifle"
-	customAmmo 700
-	clipsize 140
-	ReloadTimeModifier 1.5
+WeaponToReplace WP_THROWER
+WeaponBasedOff WP_THROWER
+NewWorldModel	"models/weapons2/CR-24_flamerifle/rifle_w.glm"
+NewViewModel	"models/weapons2/CR-24_flamerifle/rifle.md3"		
+Icon	"gfx/hud/w_icon_cr-24_flamerifle"
+WeaponName "CR-24 Flame Rifle"
+customAmmo 700
+clipsize 140
+ReloadTimeModifier 1.5
 }
 
 WeaponInfo1
@@ -123,21 +128,32 @@ damageMod 2
 
 WeaponInfo2
 {
-	WeaponToReplace	WP_BLASTER
-	WeaponBasedOff	WP_BLASTER 
-	NewWorldModel	"models/weapons2/e5/e5_w.glm"
-	NewViewModel	"models/weapons2/e5/e5.md3"
-	Icon	"gfx/hud/w_icon_e5"
-	WeaponName	"E-5 Blaster Rifle"
-	hasAnimOverrides 1
-	animReadyRun BOTH_STAND3
-	animReady BOTH_STAND3
-	animReadyWalk BOTH_STAND3
-	animReadyNoAmmo BOTH_ATTACK3 
-	animAttackRun BOTH_ATTACK3 
-	animAttack BOTH_ATTACK3 
-	animAttackWalk BOTH_ATTACK3 
-	animStand BOTH_WOOKIEE_RAGE_STAND
+WeaponToReplace	WP_BLASTER
+WeaponBasedOff	WP_BLASTER 
+NewWorldModel	"models/weapons2/e5/e5_w.glm"
+NewViewModel	"models/weapons2/e5/e5.md3"
+Icon	"gfx/hud/w_icon_e5"
+WeaponName	"E-5 Blaster Rifle"
+hasAnimOverrides 1
+animReadyRun BOTH_STAND3
+animReady BOTH_STAND3
+animReadyWalk BOTH_STAND3
+animReadyNoAmmo BOTH_ATTACK3 
+animAttackRun BOTH_ATTACK3 
+animAttack BOTH_ATTACK3 
+animAttackWalk BOTH_ATTACK3 
+animStand BOTH_WOOKIEE_RAGE_STAND
+}
+
+WeaponInfo3
+{
+WeaponToReplace	WP_PLX1
+WeaponBasedOff	WP_PLX1
+NewWorldModel	"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+NewViewModel	"models/weapons2/e60r_launcher/e60r_launcher.md3"
+Icon	"gfx/hud/w_icon_e60r_launcher"
+WeaponName	"E-60R Missile Launcher"
+Damagemod .25
 }
 
 Description 	"B1 Flame Droid
