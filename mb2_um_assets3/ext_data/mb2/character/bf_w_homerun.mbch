@@ -6,25 +6,27 @@ ClassInfo
 	name				"bf_w_homerun"
 	weapons				WP_MELEE|WP_CONCUSSION|WP_SABER
 	WP_MeleeFlags		HELD_SPEED
-	maxhealth			300
-	maxarmor			0
-	model				"wookieev2"			//this is optional, if it's here it forces the model to this.
-	skin				"default5"
-	attributes			MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FLIPKICK,1|MB_ATT_CONCUSSION,3
-	classflags 			CFL_HEAVYMELEE|CFL_BLOODYMELEE
-	uishader			"models/players/wookieev2/mb2_icon_default5"
-	MBClass				MB_CLASS_WOOKIE
-	classNumberLimit	2
-	meleeknockback		2
-	damageTaken			0.01
-	special2			EAS_HI_BARGE
-	resource      		RESOURCE_ENERGY
-	forcepowers			FP_SABER_OFFENSE,3
-	forcepool			36
-	saber1 				poop_stick
+	WP_ConcussionFlags 	HELD_ALTRELOAD|HELD_KNOCKBACK
+	attributes			MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FLIPKICK,1|MB_ATT_CONCUSSION,3|MB_ATT_BARGE
+	saber1  			poop_stick
 	saberstyle			SS_STRONG|SS_DESANN	
 	saberDamage			40
-	WP_ConcussionFlags 	HELD_ALTRELOAD|HELD_KNOCKBACK
+	forcepowers			FP_SABER_OFFENSE,3
+	forcepool			36
+	maxhealth			300
+	maxarmor			0
+	damageTaken			0.01
+	meleeknockback		2
+	model				"wookieev2"
+	skin				"default5"
+	uishader			"models/players/wookieev2/mb2_icon_default5"
+	MBClass				MB_CLASS_WOOKIE
+	classflags 			CFL_HEAVYMELEE|CFL_BLOODYMELEE
+	classNumberLimit	2
+	
+	resource      		RESOURCE_ENERGY
+	meleespecial2		EAS_HI_BARGE
+	
 	saberStanceAnim		BOTH_STAND5TOSTAND8
 	idleAnim			BOTH_STAND10
 	tauntAnim			BOTH_STAND10
@@ -36,43 +38,53 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER  
-	WeaponName			"Poop Stick"
-	NewWorldModel		"models/weapons2/wooden_stick/wooden_stick.glm"
-	NewViewModel		"models/weapons2/wooden_stick/wooden_stick.md3"
-	Icon				"models/weapons2/wooden_stick/w_icon_wooden_stick.png"
-	SelectSound			"sound/css_wep/buttonclickrelease.wav"
-	primGore			1
-	altFireEnabled 		1
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER  
+	NewWorldModel			"models/weapons2/wooden_stick/wooden_stick.glm"
+	NewViewModel			"models/weapons2/wooden_stick/wooden_stick.md3"
+	Icon					"models/weapons2/wooden_stick/w_icon_wooden_stick.png"
+	WeaponName				"Poop Stick"
+	
+	SelectSound				"sound/css_wep/buttonclickrelease.wav"
+	primGore				1
+	altFireEnabled 			1
 }
 
 WeaponInfo1
 {
-	WeaponToReplace 	WP_CONCUSSION
-	WeaponBasedOff 		WP_CONCUSSION
-	WeaponName 			"Forbidden Bat and Illegal Balls"
-	NewWorldModel		"models/weapons2/saber_slugger/saber_slugger.glm"
-	NewViewModel		"models/weapons2/saber_slugger/saber_slugger.md3"
-	Icon				"gfx/hud/breakfloor/w_icon_bf_ball1.tga"
-	altFireEnabled 		1
-	customAmmo 			90
-	clipSize 			30
-	firingAnim 			BOTH_PULL_IMPALE_SWING
+	WeaponToReplace 		WP_CONCUSSION
+	WeaponBasedOff 			WP_CONCUSSION
+	NewWorldModel			"models/weapons2/saber_slugger/saber_slugger.glm"
+	NewViewModel			"models/weapons2/saber_slugger/saber_slugger.md3"
+	Icon					"gfx/hud/breakfloor/w_icon_bf_ball1.tga"
+	WeaponName 				"Forbidden Bat and Illegal Balls"
+	
+	customAmmo 				90
+	clipSize 				30
+	
+	hasAnimOverrides		1
+	animReadyNoAmmo 		BOTH_PULL_IMPALE_SWING
+	animAttack 				BOTH_PULL_IMPALE_SWING
+	animAttackRun 			BOTH_PULL_IMPALE_SWING
+	animAttackWalk 			BOTH_PULL_IMPALE_SWING
 }
 
 description "Homerun Wookiee
 
-Weapons:
-Melee
-Forbidden Bat and Illegal Balls
-Poop Stick
+^2Weapons:
+- Heavy Melee
+- Forbidden Bat and Illegal Balls (3)
+-- Pushes on hit
+-- Mag Reload
+- Poop Stick
+-- ^1Red ^7/ ^6Purple ^7Styles
 
-Attributes:
-Strength (1)
-Barge
-Flipkick (1) [Tip: You can climb blocks by using this wisely]
-High launch power
+^8Attributes:
+- Flipkick (1) [Tip: You can climb blocks by using this wisely]
+- High launch power
+- Strength (1)
 
-Former star hitters of Kashyyyk United. Kicked off the team for bringing into question the umpire's authority.
-"
+^3Abilities:
+- Shoulder Barge ^3[CS2 Melee]
+
+Former star hitters of Kashyyyk United. Kicked off the team for bringing into question the umpire's authority."

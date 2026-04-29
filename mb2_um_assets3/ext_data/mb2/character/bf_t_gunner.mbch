@@ -1,35 +1,37 @@
-
 //Siege class def file. Created by Goosto
 
 ClassInfo
 {
-	name					"bf_t_gunner"
-	weapons					WP_MELEE|WP_SHOTGUN|WP_BOWCASTER
+	name				"bf_t_gunner"
+	weapons				WP_MELEE|WP_SHOTGUN|WP_BOWCASTER
 	WP_MeleeFlags		HELD_SPEED
-	maxhealth				300
-	maxarmor				0
-	model					"trandoshan"			//this is optional, if it's here it forces the model to this.
-	skin					"merc"
-	attributes				MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_PISTOL,1|MB_ATT_FLIPKICK,1|MB_ATT_BOWCASTER,1
-	classflags 				CFL_HEAVYMELEE|CFL_BLOODYMELEE
-	rageSoundOverride 		"sound/chars/trandoshan1/misc/taunt3.mp3"
-	bargeSoundOverride 		"sound/chars/trandoshan1/misc/taunt5.mp3"
-	uishader				"gfx/um_icons/tti_trand"
-	MBClass					MB_CLASS_WOOKIE
-	classNumberLimit		6
-	damageTaken				0.01
-	special2			EAS_HI_BARGE
-	resource      			RESOURCE_ENERGY
-	forcepool				1
-	WP_BowcasterFlags		HELD_ALTRELOAD	
-	WP_SHOTGUNFlags 		HELD_ALTRELOAD|HELD_HIGHDAMAGE
-	//idleAnim				BOTH_RIGHTHANDCHOPPEDOFF
-	gloatAnim				BOTH_STAND10
-	flourishAnim 			BOTH_VT_ATF_G
-	tauntAnim				BOTH_VT_ATR_S
-	bowAnim					BOTH_FORCE_PROTECT_FAST
-	//meditateAnim			BOTH_DEATHBACKWARD2
-	meditateAnim			BOTH_RUNBACK_STAFF
+	WP_BowcasterFlags	HELD_ALTRELOAD	
+	WP_SHOTGUNFlags 	HELD_ALTRELOAD|HELD_HIGHDAMAGE
+	attributes			MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_SHOTGUN,2|MB_ATT_FLIPKICK,1|MB_ATT_BOWCASTER,1|MB_ATT_BARGE
+	forcepool			1
+	maxhealth			300
+	maxarmor			0
+	damageTaken			0.01
+	model				"trandoshan"
+	skin				"merc"
+	uishader			"gfx/um_icons/tti_trand"
+	MBClass				MB_CLASS_WOOKIE
+	classflags 			CFL_HEAVYMELEE|CFL_BLOODYMELEE
+	classNumberLimit	6
+	
+	resource      		RESOURCE_ENERGY
+	meleespecial2		EAS_HI_BARGE
+	
+	rageSoundOverride 	"sound/chars/trandoshan1/misc/taunt3.mp3"
+	bargeSoundOverride 	"sound/chars/trandoshan1/misc/taunt5.mp3"
+	
+	//idleAnim			BOTH_RIGHTHANDCHOPPEDOFF
+	gloatAnim			BOTH_STAND10
+	flourishAnim 		BOTH_VT_ATF_G
+	tauntAnim			BOTH_VT_ATR_S
+	bowAnim				BOTH_FORCE_PROTECT_FAST
+	//meditateAnim		BOTH_DEATHBACKWARD2
+	meditateAnim		BOTH_RUNBACK_STAFF
 }
 
 WeaponInfo0
@@ -40,11 +42,14 @@ WeaponInfo0
 	NewViewModel			"models/weapons2/css_wep/m3super90.md3"
 	Icon					"models/weapons2/css_wep/m3super90.png"
 	WeaponName				"Shotgun"
+	
+	FlashSound0				"sound/css_wep/m3super90_fire.wav"
+	SelectSound				"sound/css_wep/buttonclickrelease.wav"
+	
 	MuzzleEffect			"halo_shotgun/Muzzle_Flash"
 	MissileEffect			"halo_shotgun/shot"
 	MissileMissEffect		"halo_smg/wall_impact"
-	FlashSound0				"sound/css_wep/m3super90_fire.wav"
-	SelectSound				"sound/css_wep/buttonclickrelease.wav"
+	
 	customAmmo				120
 	clipSize  				24
 	primHitscanShot			1
@@ -57,43 +62,57 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/css_wep/usp.glm"
-	NewViewModel		"models/weapons2/css_wep/usp.md3"
-	Icon				"models/weapons2/css_wep/usp.png"
-	WeaponName			"Pistol"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect 	"halo_smg/wall_impact"
-	FlashSound0			"sound/css_wep/usp_fire.wav"
-	SelectSound			"sound/css_wep/buttonclickrelease.wav"
-	customAmmo			24
-	clipSize  			8
-	primHitscanShot		1
-	primHitscanTracer	10
-	altFireEnabled 		0
-	primGore			1
-	altGore				1
-	idleAnim  			BOTH_VT_IDLE
-	firingAnim			BOTH_MAND_PISTOL_ATTACK
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/css_wep/usp.glm"
+	NewViewModel			"models/weapons2/css_wep/usp.md3"
+	Icon					"models/weapons2/css_wep/usp.png"
+	WeaponName				"Pistol"
+	
+	FlashSound0				"sound/css_wep/usp_fire.wav"
+	SelectSound				"sound/css_wep/buttonclickrelease.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect 		"halo_smg/wall_impact"
+	
+	customAmmo				24
+	clipSize  				8
+	primHitscanShot			1
+	primHitscanTracer		10
+	altFireEnabled 			0
+	primGore				1
+	altGore					1
 	ReloadTimeModifier 		1.1
+	
+	hasAnimOverrides		1
+	animReady  				BOTH_VT_IDLE
+	animReadyWalk  			BOTH_VT_IDLE
+	animReadyRun  			BOTH_VT_IDLE
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
 }
 
 description	"Trandoshan Gunner
 
-Weapons:
-Melee
-Shotgun
-Pistol
+^2Weapons:
+- Heavy Melee
+- Shotgun (2)
+-- 100% More DMG
+-- Mag Reload
+- Pistol (1)
+-- Mag Reload
 
-Attributes:
-Strength (1)
-Barge
-Flipkick (1) [Tip: You can climb blocks by using this wisely]
-Firearms proficiency
+^8Attributes:
+- Flipkick (1) [Tip: You can climb blocks by using this wisely]
+- Firearms proficiency
+- Strength (1)
 
-Trandoshan Gunners were known for kicking people's fucking asses
-"
+^3Abilities:
+- Shoulder Barge ^3[CS2 Melee]
+
+Trandoshan Gunners were known for kicking people's fucking asses"
