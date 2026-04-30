@@ -1,0 +1,295 @@
+Teams
+{
+	team1 NewRepublic
+	team2 ImperialRemnants
+}
+
+mapgraphic "gfx/vjun_bastcastle/mapVEH"
+missionname  "Battle of Vjun"
+radartopleft ""
+radarbottomright ""
+roundbegin_target ""
+
+HelpIcons
+{
+        //ion
+        HelpIcon1
+	{
+		end0     "i-relay"
+		origin   "-2184 -3632 -2480"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   5000
+	}
+
+        //main array
+        HelpIcon2
+	{
+		end0     "a-relay"
+		origin   "5304 816 4112"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        //reserve array 1
+        HelpIcon3
+	{
+		end0     "c-relay1"
+		origin   "2728 7200 -1424"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        //reserve array 2
+        HelpIcon4
+	{
+		end0     "c-relay2"
+		origin   "-6512 744 -6200"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        //reserve array 3
+        HelpIcon5
+	{
+		end0     "c-relay3"
+		origin   "11872 -6744 -3728"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        //reserve array 4
+        HelpIcon6
+	{
+		end0     "c-relay4"
+		origin   "12656 280 -8456"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        HelpIcon7
+	{
+		end0     "t-relay1"
+		origin   "-400 1168 136"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        HelpIcon8
+	{
+		end0     "t-relay2"
+		origin   "-400 -2192 136"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        HelpIcon9
+	{
+		end0     "t-relay3"
+		origin   "7816 -2256 -160"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        HelpIcon10
+	{
+		end0     "t-relay4"
+		origin   "7816 1232 -160"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        HelpIcon11
+	{
+		end0     "t-relay5"
+		origin   "11840 -7256 -3792"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        HelpIcon12
+	{
+		end0     "t-relay6"
+		origin   "2752 6688 -1488"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        HelpIcon13
+	{
+		end0     "t-relay7"
+		origin   "-6920 776 -6264"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+                radius   10000
+	}
+
+        //imp ship 1
+        HelpIcon14
+	{
+		origin   "904 96 48"
+		redicon  HLP_NONE
+		blueicon HLP_HACK_SUB
+		specicon HLP_NONE
+                radius   1000
+                sideobjective 1
+	}
+
+        //imp ship 2
+        HelpIcon15
+	{
+		origin   "7384 -512 -144"
+		redicon  HLP_NONE
+		blueicon HLP_HACK_SUB
+		specicon HLP_NONE
+                radius   1000
+                sideobjective 1
+	}
+
+        //reb ship
+        HelpIcon16
+	{
+		origin   "-30104 -30760 3128"
+		redicon  HLP_HACK_SUB
+		blueicon HLP_NONE
+		specicon HLP_NONE
+                radius   1000
+                sideobjective 1
+	}
+}
+
+NewRepublic
+{
+	RequiredObjectives 4	
+        Timed 300							
+	UseTeam "vbast_vehR" 							
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"	
+
+	Objective1
+	{
+		goalname "Destroy all defence turrets"
+		final 0
+		message_team1 "All defence turrets have been destroyed!"
+		message_team2 "All defence turrets have been destroyed!"
+		objdesc "Destroy all Bastcastle's defence turrets"
+		objgfx "gfx/vjun_bastcastle/turret_obj"
+	}
+
+        Objective2
+	{
+		goalname "Destroy all reserve communication arrays"
+		final 0
+		message_team1 "All reserve communications destroyed!"
+		message_team2 "All reserve communications destroyed!"
+		objdesc "Destroy all Bastcastle's reserve communication arrays"
+		objgfx "gfx/vjun_bastcastle/exarray_obj"
+	}
+
+        Objective3
+	{
+		goalname "Destroy the main communication array"
+		final 0
+		message_team1 "Main communication array has been destroyed!"
+		message_team2 "Main communication array has been destroyed!"
+		objdesc "Destroy Bastcastle's main communication array"
+		objgfx "gfx/vjun_bastcastle/array_obj"
+	}
+
+        Objective4
+	{
+		goalname "Destroy the Ion Cannon"
+		final 0
+		message_team1 "The Ion Cannon has been destroyed!"
+		message_team2 "The Ion Cannon has been destroyed!"
+		objdesc "Destroy Bastcastle's Ion Cannon"
+		objgfx "gfx/vjun_bastcastle/ion_obj"
+	}
+
+	wonround "We did it!" 						
+	lostround "We have lost..." 					
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1 
+
+	briefing "" 
+}
+
+ImperialRemnants
+{
+	RequiredObjectives 1
+	UseTeam "vbast_vehI"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+
+	Objective1
+	{
+		goalname "Defend the defence turrets"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defend Bastcastle's defence turrets"
+		objgfx "gfx/vjun_bastcastle/turret_obj"
+	}
+
+        Objective2
+	{
+		goalname "Defend reserve communication arrays"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defend Bastcastle's reserve communication arrays"
+		objgfx "gfx/vjun_bastcastle/exarray_obj"
+	}
+
+        Objective3
+	{
+		goalname "Defend the main communication array"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defend Bastcastle's main communication array"
+		objgfx "gfx/vjun_bastcastle/array_obj"
+	}
+
+        Objective4
+	{
+		goalname "Defend the Ion Cannon"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Defend Bastcastle's Ion Cannon"
+		objgfx "gfx/vjun_bastcastle/ion_obj"
+	}
+	
+	wonround "Long live the Empire!"
+	lostround "Bastcastle's defences are destroyed..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0
+	briefing ""
+}

@@ -1,0 +1,84 @@
+//Siege class def file.
+
+ClassInfo
+{
+	name			"bast_Efield"
+	weapons			WP_MELEE|WP_SHOTGUN|WP_BLASTER_PISTOL|WP_FRAG_NADE|WP_THERMAL
+        attributes	        MB_ATT_AMMO,3|MB_ATT_HEALING,3|MB_ATT_RALLY,1|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_LIGHTS_BEACON,1|MB_ATT_SHOTGUN,1|MB_ATT_PISTOL,3|MB_ATT_BASE_TD,3|MB_ATT_FRAGS,1
+        forcepowers             FP_PROTECT,1
+        forcepool               200
+        resource                RESOURCE_ENERGY
+	maxhealth		120
+        maxarmor                120
+        WP_ShotgunFlags         HELD_ALTRELOAD
+        WP_BlasterPistolFlags   HELD_AMMOREGEN
+
+	model			"imperial_army" 				
+	skin			"default"					
+        uishader	        "models/players/imperial_army/mb2_icon_default"
+
+        model_1                 "imperial_army"
+        skin_1                  "atst"
+        uishader_1	        "models/players/imperial_army/mb2_icon_atst"
+
+	MBClass			MB_CLASS_HERO
+	classNumberLimit	1
+        gloatAnim               BOTH_STAND1_TALK3
+        flourishAnim            BOTH_STAND5STARTLEDLOOKLEFT
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_BLASTER_PISTOL
+	NewWorldModel		"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"  	
+	NewViewModel		"models/weapons2/se-14c_pistol/blaster_pistol.md3"   	
+	Icon			"gfx/hud/w_icon_se-14c" 					
+	WeaponName		"SE-14C Modified"
+	FlashSound0		"sound/weapons/SE-14c/fire.mp3" 		
+	altFlashSound0		"sound/weapons/SE-14c/fire.mp3"  
+	ChargeSound		"sound/weapons/leia_pistol/altcharge.mp3"
+        RateMod                 0.5	
+        altFireEnabled          0
+        clipSize                200
+        customAmmo              1000
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_SHOTGUN					//Required: Weapon Slot of weapon you're replacing
+	WeaponBasedOff		WP_SHOTGUN					//Required: For future use, should be the same as WeaponToReplace
+	NewWorldModel		"models/weapons2/CR-1_cannon/rifle_w.glm"  	//Required: New 3rd person/dropped weapon model
+	NewViewModel		"models/weapons2/CR-1_cannon/rifle.md3" 	  	//Required: New 1st person weapon model
+	Icon			"gfx/hud/w_icon_cr1_blastcannon" 	//Required: Weapon change icon
+	WeaponName		"Shotgun"    					//Required: Weapon change display name
+        customAmmo              600
+        clipSize                25 
+}
+
+ForceInfo0
+{
+        ForceToReplace FP_PROTECT
+	Icon	"gfx/2d/mp_imp_symbol_2"
+	ForcePowerName "Battle Command"
+}
+
+description	"Imperial Field Commander
+
+Weaponry:
+Shotgun
+SE-14C Modified (Increased rate of fire)
+3 Thermal Grenades
+Frag Grenade
+
+Abilities:
+Battle Command (Protects himself and teammates)
+
+Attributes:
+Healing 3
+Rally
+Dash 2 ^3CS2^7
+Dodge 3 ^3CS1^7
+Increased energy pool"
+
+
