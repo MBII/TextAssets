@@ -2,61 +2,65 @@
 
 ClassInfo
 {
-	name			"bast_ren_tech"
-	weapons			WP_MELEE|WP_DEMP2|WP_STUN_BATON|WP_PULSE_NADE
-        attributes	        MB_ATT_AMMO,3|MB_ATT_DEMP2,3|MB_ATT_STUN_BATON,3|MB_ATT_DASH,3|MB_ATT_SPAWNER,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_DISP_ARMOR,2|MB_ATT_SENTRY,1|MB_ATT_SPAWNER,3|MB_ATT_ARMOUR_REGEN_AMOUNT,1
-	maxhealth		120
-        maxarmor                120
-        armourRegenRate         20000	
-	armourRegenAmount       20
-        hackRate                0.4
-        baseSpeed               220
-        holdables               HI_SHIELD
-        WP_DEMP2Flags           HELD_DISRUPTIFY
-        WP_StunBatonFlags       HELD_SPEED|HELD_DISRUPTIFY
-        classflags              CFL_BUBBLESHIELD
-        spawnerNPC              "ren_tech_droid"
+	name				"bast_ren_tech"
+	weapons				WP_MELEE|WP_DEMP2|WP_STUN_BATON|WP_PULSE_NADE
+	WP_StunBatonFlags	HELD_SPEED|HELD_DISRUPTIFY
+	WP_DEMP2Flags		HELD_DISRUPTIFY
+	attributes			MB_ATT_AMMO,3|MB_ATT_DEMP2,3|MB_ATT_STUN_BATON,3|MB_ATT_DASH,3|MB_ATT_SPAWNER,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_DISP_ARMOR,2|MB_ATT_SENTRY,1|MB_ATT_SPAWNER,3|MB_ATT_ARMOUR_REGEN_AMOUNT,1
+	holdables			HI_SHIELD
+	maxhealth			120
+	maxarmor			120
+	armourRegenRate		20000	
+	armourRegenAmount	20
+	baseSpeed			220
+	hackRate			0.4
+	
+	model				"renegade_female2"
+	skin				"default"
+	uishader	        "models/players/renegade_female2/mb2_icon_default"
 
-	model			"renegade_female2" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"					//this is optional, if it's here it forces the skin to this.
-        uishader	        "models/players/renegade_female2/mb2_icon_default"
-
-	MBClass			MB_CLASS_HERO
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_BUBBLESHIELD
 	classNumberLimit	1
-        flourishAnim            TORSO_RAISEWEAP4
+	
+	spawnerNPC			ren_tech_droid
+	
+	flourishAnim		TORSO_RAISEWEAP4
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_DEMP2					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_DEMP2				//Required: For future use, should be the same as WeaponToReplace
-        NewWorldModel		"models/weapons2/demp2/demp2_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/demp2/demp2.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_demp2" 	//Required: Weapon change icon
-	WeaponName		"DEMP2"    					//Required: Weapon change display name
-        clipSize                60
-	altFireEnabled          0
+	WeaponToReplace			WP_DEMP2
+	WeaponBasedOff			WP_DEMP2
+	NewWorldModel			"models/weapons2/demp2/demp2_w.glm"
+	NewViewModel			"models/weapons2/demp2/demp2.md3"
+	Icon					"gfx/hud/w_icon_demp2"
+	WeaponName				"DEMP2"
+	
+	clipSize                60
 }
 
 description	"Renegade Squadron: Tech
 
-Weaponry:
-Demp2 (Primary only)
-Stun Baton
-3 Pulse Grenades
+^2Weaponry:
+- Stun Baton (3)
+-- Disintegrates on kill
+-- 15% Faster Movement
+- DEMP2 (3)
+-- Disintegrates on kill
 
-Items:
-Shield 
-Sentry Gun
-Droid Spawner
-Shockfield
+^6Inventory:
+- Portable Sentry Gun
+- Portable Shield
 
-Abilities:
-Dash 3 ^3CS1^7
-Fast Hacking
-Armor regen (slow)
-Can restore allies' armor (use key on ally)
+^8Attributes:
+- Droid Support Spawn
+- Shock Field [Bubble Shield]
+- Fast Hacking
+- Armor Regen (slow)
+
+^3Abilities:
+- Can restore allies' armor [Hold Use on Allies]
+- Dash (3) ^3[CS2]"
 
 The Renegade Squadron was a Rebel Alliance military unit of pirates, smugglers, and other types of fringers assembled and commanded by Col Serra at Han Solo's request. The unit consisted of underworlders recruited by Serra from around the galaxy."
-
-
