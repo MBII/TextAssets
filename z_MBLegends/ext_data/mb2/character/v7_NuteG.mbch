@@ -7,7 +7,7 @@ ClassInfo
 
  weapons  WP_MELEE|WP_SABER|WP_DC_CARBINE|WP_MINIGUN
 
- WP_MinigunFlags HELD_TRACKING|HELD_ALTRELOAD|HELD_POISON|HELD_LIFESTEAL
+ WP_MinigunFlags HELD_TRACKING|HELD_ALTRELOAD|HELD_POISON|HELD_LIFESTEAL|HELD_IGNOREBLOCK
  WP_SaberFlags HELD_STUN|HELD_KNOCKDOWN|HELD_DISARM|HELD_SLOW
  
  attributes MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_RALLY|MB_ATT_SABER_COMBO_NONE|MB_ATT_DC_CARBINE,1|MB_ATT_MINIGUN,3|MB_ATT_BACTA|MB_ATT_BACTA_BIG|MB_ATT_SPAWNER|MB_ATT_ROUNDSPAWNER|MB_ATT_PETCONTROL|MB_ATT_SHOCKFIELD|MB_ATT_PSHIELD|MB_ATT_LIGHTS_BEACON|MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON
@@ -58,7 +58,7 @@ ClassInfo
 
  model  "gunray"
  skin   "default"
- uishader "gfx/hud/FA_icons/mb2_icon_gunray"
+ uishader "models/players/gunray/mb2_icon_default"
  uioverlay  "gfx/icons/tactician"
  modelscale 1.01
 
@@ -122,7 +122,7 @@ WeaponInfo2
  AltFlashSound0  "sound/interface/pickup_battery.mp3"
  FlashSound0  "sound/chars/gunray/misc/taunt4.mp3"
  isMinigun 0
- damageMod 0
+ damageMod 0.01
  velocityMod 99999
  clipSize 10
  rateMod 31
@@ -166,8 +166,8 @@ A cowardly slimeball who'd prefer to observe the battle from far away. Lets his 
 
 ^2Weaponry:
 - Limited Melee
--- 15% less Kb
--- 100% slower RoF
+-- 15% less knockback
+-- 100% slower rate of fire
 -- Slap only
 - DC-15S Clone Carbine (Yellow Saber)
 -- No Block
@@ -177,14 +177,15 @@ A cowardly slimeball who'd prefer to observe the battle from far away. Lets his 
 -- 50% shorter
 -- 33% thicker
 - EC-17 Hold-Out Blaster Pistol (DC Carb 1)
--- 10% less Dmg
--- 50% slower RoF
--- 400% less Rld Spd
+-- 10% less damage
+-- 50% slower rate of fire
+-- 400% slower reload 
 - Security Resolution (Minigun 3)
 -- Tracks/poisons/drains on hit
+-- Ignores Saber Block
 -- Hitscan charges
--- 99% less Dmg
--- 3000% slower RoF
+-- 99% less damage
+-- 3000% slower rate of fire
 
 ^5Powers:
 - Protective Wealth (2)^3* ^3[CS3]
@@ -197,14 +198,14 @@ A cowardly slimeball who'd prefer to observe the battle from far away. Lets his 
 - Shockfield
 
 ^8Attributes:
-- 100% slower Skill Cd
+- 100% slower skill cooldown
 ^9- ^3*^9Dark's Beacon
 - B1-series Battle Droid (Bodyguard)
 - Healing (3)
-- 40% less Kb Given
-- 25% more Kb Taken
+- 40% less knockback given
+- 25% more knockback taken
 - No Gunbash
-- No Weapon Pickups
+- No weapon pickups
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]"
