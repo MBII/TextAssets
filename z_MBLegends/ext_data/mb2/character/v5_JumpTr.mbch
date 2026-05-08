@@ -1,4 +1,4 @@
-//Siege class def file.
+
 
 ClassInfo
 {
@@ -9,7 +9,6 @@ ClassInfo
 	weapons					WP_MELEE|WP_ROCKET_LAUNCHER|WP_FRAG_NADE
 
 	WP_RocketLauncherFlags HELD_STUN|HELD_KNOCKBACK
-	WP_RepeaterFlags		HELD_ALTRELOAD
 
 	attributes				MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FUEL,3|MB_ATT_ASSEMBLE,3|MB_ATT_ROCKET_LAUNCHER|MB_ATT_FRAGS,1|MB_ATT_QUICKTHROW,1
 
@@ -22,10 +21,11 @@ ClassInfo
 	
 	special1 EAS_HI_NONE
 	special2 	EAS_HI_BARGE
+	meleespecial2 	EAS_HI_BARGE
 	special3		EAS_HI_QUICKTHROW
 
-	bargeSoundOverride "null"
-
+	bargeSoundOverride "sound/jetpack/rocket.mp3"
+ bargeAnim TORSO_MELEE2_SWIMFORWARD
 	skilltimerMod 1.2
 
 	knockbackTaken 0.75
@@ -83,12 +83,12 @@ c_att_skill_3	MB_ATT_REPEATER
 c_att_names_3	"Imperial Heavy Repeater"
 c_att_ranks_3	4,0
 c_att_descs_3 "5% less damage, 25% less FP damage, 20% slower rate of fire,
-15% slower mag reload"
+15% slower reload"
 c_att_skill_4	MB_ATT_REPEATER_NADES
 c_att_names_4	"> Repeater Blobs"
 c_att_ranks_4	2,0,0
 c_att_skill_5	MB_ATT_BARGE
-c_att_names_5	"Shoulder Barge ^3[Melee CS2]"
+c_att_names_5	"Jet Tackle (Barge) ^3[Melee CS2]"
 c_att_ranks_5	2
 }
 
@@ -161,7 +161,7 @@ animStand BOTH_STAND1
 
 description	"Imperial Jumptrooper 
 
-A 2-life Jetpack user with a unique suppression tools and a micro-Rocket Launcher.
+Jetpack soldiers with a variety of suppression tools and explosives.
 
 ^2Weaponry:
 - Melee
@@ -173,11 +173,11 @@ A 2-life Jetpack user with a unique suppression tools and a micro-Rocket Launche
 
 ^8Attributes:
 - Reinforcement (1)
-- 20% slower skill cooldown
-- 25% less knockback taken
 - Strength (1)
 - Blast Armor
 - Assemble (3)
+- 20% slower skill cooldown
+- 25% less knockback taken
 
 ^3Abilities:
 - Jetpack
