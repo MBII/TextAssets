@@ -2,14 +2,15 @@ ClassInfo
 {
 name	"v3_HeavyStorm"
 weapons	WP_MELEE|WP_BLASTER_PISTOL
-attributes	MB_ATT_AMMO,3|MB_ATT_PISTOL,2|MB_ATT_ASSEMBLE,2|MB_ATT_GETUPS,2|MB_ATT_BACTA,1
+attributes	MB_ATT_AMMO,4|MB_ATT_PISTOL,2|MB_ATT_ASSEMBLE,1|MB_ATT_GETUPS,2|MB_ATT_BACTA,1
 MBClass	MB_CLASS_CLONETROOPER
 modelscale 1.01
 classNumberLimit	4
-extralives		1
-maxhealth		100
-maxArmor 		60
-rankArmor		80
+maxhealth	100
+maxArmor	80
+rankArmor	80
+basespeed 187
+rankbasespeed	200
 special1HUD HUD_CONCBLOB
 special2HUD HUD_IONBLOB
 resource RESOURCE_STAMINA
@@ -17,30 +18,41 @@ forcepool 100
 flourishAnim 	BOTH_STAND5TOAIM
 knockbacktaken 0.9
 special1	EAS_HI_SPRINT
-special3	EAS_HI_MEDPAC
+special2	EAS_HI_MEDPAC
+special3	EAS_HI_DODGE
 special4 	EAS_HI_GRAPPLEHOOK
+	meleespecial4		EAS_HI_GRAPPLEHOOK
+WP_disruptorFlags HELD_SLOW|HELD_DISRUPTIFY|HELD_ALTRELOAD
+WP_UGLFlags HELD_STUN|HELD_CRIPPLE
+WP_CryoNadeFlags HELD_CRIPPLE
+WP_ThrowerFlags HELD_ALTRELOAD
+WP_SonicNadeFlags HELD_HIGHDAMAGE|HELD_PULL
+classflags	CFL_DISRUPTOR_WALLS
+armourRegenAmount	1
+armourRegenRate	500
+armourRegenCap	20
+rankArmourRegenCap	40,50
 uioverlay_l "gfx/icons/heavy"
 uioverlay_r "gfx/icons/infantry"
-
-model 		"stormie"
-skin  		"officer_rgb"
-uishader  	"models/players/stormie/mb2_icon_officer_rgb"
-userRGB 	1
-customred 	0.471
+model	"stormie"
+skin	"officer_rgb"
+uishader	"models/players/stormie/mb2_icon_officer_rgb"
+userRGB	1
+customred	0.471
 customgreen	0.237
-customblue 	0.08 //def brown
+customblue	0.08 //def brown
 
-model_1		"stormie"
-skin_1		"sarge"
-uishader_1 	"models/players/stormie/mb2_icon_sarge"
+model_1	"stormie"
+skin_1	"sarge"
+uishader_1	"models/players/stormie/mb2_icon_sarge"
 
-model_2		"stormie"
-skin_2		"sandtrooper_rgb"
-uishader_2  	"models/players/stormie/mb2_icon_sandtrooper_rgb"
+model_2	"stormie"
+skin_2	"sandtrooper_rgb"
+uishader_2	"models/players/stormie/mb2_icon_sandtrooper_rgb"
 userRGB_2	1
-customred_2 	0.471
+customred_2 0.471
 customgreen_2	0.237
-customblue_2 	0.08 //def brown
+customblue_2 0.08 //def brown
 
 model_3	"stormie"
 skin_3	"sullust"
@@ -69,51 +81,48 @@ uishader_7 	"models/players/stormie/mb2_icon_shock"
 model_8	"stormie"
 skin_8	"novatrooper"
 uishader_8	"models/players/stormie/mb2_icon_novatrooper"
-
-armourRegenAmount	1
-armourRegenRate	500
-armourRegenCap	20
-rankArmourRegenCap	40
-
-isCustomBuild		1
-mbPoints			65
-hasCustomSpec 2
+isCustomBuild	1
+mbPoints	65
+hasCustomSpec 3
 isOnlyOneSpec 1
 customSpecName_1 "Heavy"
 customSpecIcon_1 "gfx/menus/alpha/icon_weap_crouch"
 customSpecDesc_1 ""
-customSpecName_2 "Commander"
+customSpecName_2 "Grenadier"
 customSpecIcon_2 "gfx/menus/alpha/icon_saberdual"
 customSpecDesc_2 ""
+customSpecName_3 "Commander"
+customSpecIcon_3 "gfx/menus/alpha/icon_saberdual"
+customSpecDesc_3 ""
 
 c_att_skill_0	MB_ATT_CLONERIFLE
 c_att_names_0	"DLT-19 (CR)"
-c_att_ranks_0	2,4
+c_att_ranks_0	5,5,30
 
 c_att_skill_1	MB_ATT_CLONEBLOBS
 c_att_names_1	"> DLT-19 (CR) Conc Blobs"
-c_att_ranks_1	2,2
+c_att_ranks_1	1,1,2
 
 c_att_skill_2	MB_ATT_STRONGBLOBS
 c_att_names_2	"> DLT-19 (CR) Ion Blobs"
-c_att_ranks_2	2,2
+c_att_ranks_2	1,1,2
 
 c_att_skill_3	MB_ATT_T21
 c_att_names_3	"T-21 Heavy Blaster"
-c_att_ranks_3	4,4,1
+c_att_ranks_3	2,4,1
 
 c_att_skill_4	MB_ATT_MINIGUN
 c_att_names_4	"Z-6 Rotary Cannon (Minigun)"
-c_att_ranks_4	10
-c_att_descs_4	"24% slower RoF, 5% more Dmg, 10% more FP Dmg"
+c_att_ranks_4	8
+c_att_descs_4	"24% slower rate of fire, 5% more damage, 10% more FP damage"
 
 c_att_skill_5	MB_ATT_PLX1
 c_att_names_5	"MiniMag PTL Launcher (PLX)"
-c_att_ranks_5	8,28
+c_att_ranks_5	8,18,22
 
 c_att_skill_6	MB_ATT_FRAGS
 c_att_names_6	"Frag Grenade"
-c_att_ranks_6	6
+c_att_ranks_6	4
 
 c_att_skill_7	MB_ATT_FIRE_GRENADES
 c_att_names_7	"Fire Grenade"
@@ -121,76 +130,147 @@ c_att_ranks_7	4
 
 c_att_skill_8	MB_ATT_RESPAWNS
 c_att_names_8	"Reinforcement"
-c_att_ranks_8	30
-c_att_descs_8 	"1 default"
+c_att_ranks_8	20,20
 
-c_att_skill_9	MB_ATT_ARMOUR
-c_att_names_9	"Armor (80)"
-c_att_ranks_9	4
+c_att_skill_9	MB_ATT_ASSEMBLE
+c_att_names_9	"Assemble"
+c_att_ranks_9 0,1,2
 
 c_att_skill_10	MB_ATT_ARMOUR_REGEN_CAP
 c_att_names_10	"Armor Regen Cap (40)"
 c_att_ranks_10	4
 
-c_att_skill_11	MB_ATT_DEXTERITY
-c_att_names_11	"Dexterity"
-c_att_ranks_11	1
-
-c_att_skill_12	MB_ATT_STAMINA
-c_att_names_12	"Stamina ^3[CS1]"
-c_att_ranks_12	2,4,2
-
+c_att_skill_11	MB_ATT_STAMINA
+c_att_names_11	"Stamina ^3[CS1]"
+c_att_ranks_11	3,3,3
 
 
 c_att_skill_15	MB_ATT_BLASTER
 c_att_names_15	"E-11 Blaster Rifle"
-c_att_ranks_15	2,4,6
+c_att_ranks_15	1,2,3
 
 c_att_skill_16	MB_ATT_T21
 c_att_names_16	"T-21 Heavy Blaster"
-c_att_ranks_16	5,10,4
+c_att_ranks_16	2,4,1
 
-c_att_skill_17	MB_ATT_THROWER
-c_att_names_17	"CR-24 Flame Rifle"
+c_att_skill_17	MB_ATT_REPEATER
+c_att_names_17	"Imperial Heavy Repeater"
 c_att_ranks_17	8
-c_att_descs_17	"40% slower Mag Reload"
+c_att_descs_17	"50% less damage, 50% less FP damage,
+75% more velocity, 50% slower mag reload"
 
-c_att_skill_18	MB_ATT_REPEATER
-c_att_names_18	"Imperial Heavy Repeater"
-c_att_ranks_18	12
-c_att_descs_18	"50% less Dmg, 50% less FP Dmg, 75% more Velocity, 50% slower Mag reload"
+c_att_skill_18  MB_ATT_UGL
+c_att_names_18  "Grenade Launcher (UGL)"
+c_att_ranks_18  0
+c_att_descs_18 "Staggers/slows on det"
 
-c_att_skill_19  MB_ATT_UGL
-c_att_names_19  "Grenade Launcher (UGL)"
-c_att_ranks_19  4
+c_att_skill_19	MB_ATT_FRAGS
+c_att_names_19	"Frag Grenades"
+c_att_ranks_19	4,4
 
-c_att_skill_20	MB_ATT_FRAGS
-c_att_names_20	"Frag Grenades"
-c_att_ranks_20	7,8
+c_att_skill_20	MB_ATT_FIRE_GRENADES
+c_att_names_20	"Fire Grenades"
+c_att_ranks_20	4,4
 
-c_att_skill_21	MB_ATT_FIRE_GRENADES
-c_att_names_21	"Fire Grenades"
-c_att_ranks_21	6,7
+c_att_skill_21	MB_ATT_SONIC_DETONATOR
+c_att_names_21	"Sonic Imploders"
+c_att_ranks_21	4,4
+c_att_descs_21 "Pulls on det, 100% more damage"
 
-c_att_skill_22	MB_ATT_ARMOUR
-c_att_names_22	"Armor (80)"
-c_att_ranks_22	4
+c_att_skill_22	MB_ATT_MICRO_GRENADES
+c_att_names_22	"V-59 Conc Grenades"
+c_att_ranks_22	2,2,2
 
-c_att_skill_23	MB_ATT_ARMOUR_REGEN_CAP
-c_att_names_23	"Armor Regen Cap (40)"
-c_att_ranks_23	6
+c_att_skill_23	MB_ATT_CRYOBAN_GRENADES
+c_att_names_23	"Cryo Grenades"
+c_att_ranks_23	3,3
+c_att_descs_23 "slows on det"
 
-c_att_skill_24	MB_ATT_RALLY
-c_att_names_24	"Rally"
-c_att_ranks_24	10
+c_att_skill_24	MB_ATT_PSHIELD
+c_att_names_24	"Personnal Energy Shield"
+c_att_ranks_24	5
 
-c_att_skill_25	MB_ATT_DEXTERITY
-c_att_names_25	"Dexterity"
-c_att_ranks_25	2
+c_att_skill_25	MB_ATT_RESPAWNS
+c_att_names_25	"Reinforcement"
+c_att_ranks_25	30
 
-c_att_skill_26	MB_ATT_STAMINA
-c_att_names_26	"Stamina ^3[CS1]"
-c_att_ranks_26	2,2,2
+c_att_skill_26	MB_ATT_BLAST_ARMOUR
+c_att_names_26	"Blast Armor"
+c_att_ranks_26	4
+
+c_att_skill_27	MB_ATT_ARMOUR_REGEN_CAP
+c_att_names_27	"Armor Regen Cap (40)"
+c_att_ranks_27	4
+
+c_att_skill_28	MB_ATT_STAMINA
+c_att_names_28	"Stamina ^3[CS1]"
+c_att_ranks_28	2,2,2
+
+
+c_att_skill_30	MB_ATT_BLASTER
+c_att_names_30	"E-11 Blaster Rifle"
+c_att_ranks_30	10,0,0
+
+c_att_skill_31	MB_ATT_SHOTGUN
+c_att_names_31	"Blast Cannon (Shotgun)"
+c_att_ranks_31	10,8,4
+c_att_descs_31	"50% less damage, 50% more rate of fire,
+20% more velocity, 200% slower Reload"
+
+c_att_skill_32	MB_ATT_DISRUPTOR
+c_att_names_32	"Beam Cannon (Disruptor)"
+c_att_ranks_32	25,5
+c_att_descs_32	"Shoots through walls at full charge, 90% lower damage, 
+90% lower FP damage, 90% faster rate of fire, 300% slower mag Reload"
+
+c_att_skill_33	MB_ATT_THROWER
+c_att_names_33	"CR-24 Flame Rifle"
+c_att_ranks_33	8
+c_att_descs_33	"30% slower mag reload"
+
+c_att_skill_34	MB_ATT_FRAGS
+c_att_names_34	"Frag Grenades"
+c_att_ranks_34	4,4
+
+c_att_skill_35	MB_ATT_FIRE_GRENADES
+c_att_names_35	"Fire Grenades"
+c_att_ranks_35	4,4
+
+c_att_skill_36	MB_ATT_TRIP_MINES
+c_att_names_36	"Trip Mines"
+c_att_ranks_36	2,2
+
+c_att_skill_37	MB_ATT_RESPAWNS
+c_att_names_37	"Reinforcement"
+c_att_ranks_37	30
+
+c_att_skill_38 MB_ATT_BASESPEED
+c_att_names_38 "Speed (200)"
+c_att_ranks_38 4
+
+c_att_skill_39	MB_ATT_SHOCKFIELD
+c_att_names_39	"Shockfield"
+c_att_ranks_39	28
+
+c_att_skill_40	MB_ATT_RALLY
+c_att_names_40	"Rally"
+c_att_ranks_40	5
+
+c_att_skill_41	MB_ATT_ARMOUR_REGEN_CAP
+c_att_names_41	"Armor Regen Cap (40/50)"
+c_att_ranks_41	4,2
+
+c_att_skill_42	MB_ATT_DODGE
+c_att_names_42	"Dodge ^3[CS3]"
+c_att_ranks_42	1,2,3
+
+c_att_skill_43	MB_ATT_DEXTERITY
+c_att_names_43	"Dexterity"
+c_att_ranks_43	1
+
+c_att_skill_44	MB_ATT_GRAPPLE_HOOK
+c_att_names_44	"Grappling Hook ^3[Melee CS4]"
+c_att_ranks_44	2,4
 }
 WeaponInfo0
 {
@@ -203,7 +283,7 @@ NewBarrelModel	"models/weapons2/z6_rotary/rotary_cannon_barrel.md3"
 MuzzleEffect  	"Blaster/MuzzleFlash01R"
 altMuzzleEffect "Blaster/MuzzleFlash01R"
 MissileEffect 	"Blaster/Shot02R"
-MissileMissEffect	"Blaster/Impact_Wall01R.efx"
+MissileMissEffect	"Blaster/Impact_Wall01R"
 FlashSound0	"sound/weapons/minigun/fire.wav"
 isMinigun	1
 Icon	"gfx/hud/w_icon_rotary_cannon"
@@ -238,6 +318,7 @@ FlashSound0	"sound/weapons/SE-14c/fire.mp3"
 altFlashSound0	"sound/weapons/SE-14c/fire.mp3"
 ChargeSound	"sound/weapons/leia_pistol/altcharge.mp3"
 FPChargeMult	1.1
+customAmmo 600
 }
 WeaponInfo3
 {
@@ -261,7 +342,7 @@ Icon	"gfx/hud/w_icon_cr-24_flamerifle"
 WeaponName "CR-24 Flame Rifle"
 customAmmo 700
 clipsize 140
-ReloadTimeModifier 1.4
+ReloadTimeModifier 1.3
 }
 WeaponInfo5
 {
@@ -279,7 +360,7 @@ FPMult 0.5
 clipSize 200
 ReloadTimeModifier 	1.5
 damageMod 0.5
-velocitymod 1.75
+velocityMod 1.75
 customammo 800
 }
 WeaponInfo6
@@ -294,6 +375,42 @@ FlashSound0	"sound/weapons/DLT19/fire.wav"
 MuzzleEffect  "Blaster/MuzzleFlash01R"
 MissileEffect	"Blaster/Shot01R"
 }
+WeaponInfo7
+{
+WeaponToReplace	WP_SHOTGUN
+WeaponBasedOff	WP_SHOTGUN
+NewWorldModel	"models/weapons2/dc-15_ext/dc-15_ext_w.glm"
+NewViewModel	"models/weapons2/dc-15_ext/dc-15_ext.md3"
+Icon	"gfx/hud/w_icon_clonerifle_blobs"
+WeaponName	"Blast Cannon"
+MuzzleEffect	"Blaster/MuzzleFlash01R"
+MissileEffect	"Blaster/Shot01R"
+FlashSound0 "sound/weapons/enfo_pistol/fire.mp3"
+AltFlashSound0 "sound/weapons/enfo_pistol/fire.mp3"
+rateMod 0.5
+damageMod 0.5
+VelocityMod	1.2
+ReloadTimeModifier 2
+clipsize 60
+}
+WeaponInfo8
+{
+WeaponToReplace	WP_DISRUPTOR
+WeaponBasedOff	WP_BOWCASTER
+NewWorldModel	"models/weapons2/canderous_blaster/cand_blaster_w.glm"
+NewViewModel	"models/weapons2/canderous_blaster/cand_blaster.md3"
+MuzzleEffect	"Blaster/MuzzleFlash01R"
+altMuzzleEffect	"Blaster/MuzzleFlash01R"
+MissileEffect	"repeater/projectile"
+Icon	"gfx/hud/w_icon_cand_blaster"
+WeaponName	"Beam Cannon"
+clipsize	600
+customammo	6000
+reloadtimemodifier	3
+fpmult 0.1
+damageMod 0.1
+rateMod 0.1
+}
 
 description	"Heavy Stormtrooper
 
@@ -302,13 +419,12 @@ A slow, but heavily armed soldier specializing in suppression and area denial.
 ^2Weaponry:
 - Melee
 - SE-14C Blaster Pistol (2)
--- 10% more charged FP Dmg
+-- 10% more charged FP damage
+
+^6Inventory:
+- Medpac ^3[CS2]
 
 ^8Attributes:
-- Reinforcement (1)
-- 10% less Kb Taken
-- Stamina (0)
-- Armor Regen: 1/.5s to 20
-
-^3Abilities:
-- Sprint ^3[CS1]"
+- 10% less knockback Taken
+- Getup (2)
+- Armor Regen: 1/.5s to 20"

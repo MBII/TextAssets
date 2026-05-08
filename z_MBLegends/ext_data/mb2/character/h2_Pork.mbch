@@ -20,7 +20,10 @@ ClassInfo
  sabercolor  6
  saberstyle  SS_MEDIUM|SS_STRONG
 
- attributes MB_ATT_AMMO,3|MB_ATT_SHOTGUN,3|MB_ATT_FRAGS,3|MB_ATT_EE3,1|MB_ATT_ENV_PROT,1|MB_ATT_REPEATER_NADES,6|MB_ATT_REPEATER,3|MB_ATT_RECHARGE,1|MB_ATT_BACTA,1|MB_ATT_BASESEEKER|MB_ATT_BARGE|MB_ATT_HEALING,1
+ attributes MB_ATT_AMMO,3|MB_ATT_SHOTGUN,3|MB_ATT_FRAGS,3|MB_ATT_EE3,1|MB_ATT_ENV_PROT,1|MB_ATT_REPEATER_NADES,3|MB_ATT_REPEATER,3|MB_ATT_RECHARGE,1|MB_ATT_BACTA,1|MB_ATT_BASESEEKER|MB_ATT_BARGE|MB_ATT_HEALING,1
+
+ special1HUD HUD_REPEATERNADE
+ special2HUD HUD_FRAGNADE
  
  maxhealth  400
  maxarmor   50 
@@ -39,10 +42,11 @@ ClassInfo
 
  skilltimerMod 1.25
  special1 EAS_HI_BASESEEKER
+ meleespecial2 EAS_HI_BARGE
  special2 EAS_HI_BARGE
  special3 EAS_HI_MEDPAC
 
-	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
+ meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
  
  RunForward BOTH_RUN_DUAL
  RunBackward BOTH_RUNBACK_DUAL
@@ -82,7 +86,7 @@ WeaponInfo0
  WeaponName   "CR-1 Blast Cannon"
  clipSize    60
  CustomAmmo 800
- altFireEnabled  1
+ altFireEnabled  0
  velocityMod 1.2
  damageMod 1.1
  fpMult 1.1
@@ -161,6 +165,8 @@ WeaponInfo2
  MissileHitDroidEffect null
  MuzzleEffect   null
  MissileEffect null
+ customAmmo -1
+ clipsize -1
  primfireenabled 0
  velocityMod 0
  hasAnimOverrides 1
@@ -184,7 +190,7 @@ WeaponInfo3
  MuzzleEffect  null
  MissileModel    "models/weapons/Grenade_Concussion/proj.md3"
  MissileEffect  "grenades/glowempb"
- MissileMissEffect "rockets/explosionpulse" 
+ MissileMissEffect "rockets/explosionpulse"  //"concussion/explosion_new" 
  MissileHitHumanEffect "rockets/explosionpulse" 
  MissileHitDroidEffect "rockets/explosionpulse" 
  altMuzzleEffect  null
@@ -212,10 +218,10 @@ WeaponInfo4
 {
  WeaponToReplace  WP_FIRE_NADE
  WeaponBasedOff WP_FIRE_NADE
-	NewWorldModel		"models/weapons2/plasma/plasma_w.glm" 	
-	NewViewModel		"models/weapons2/plasma/plasma.md3"   	
-	MissileModel		"models/weapons2/plasma/plasma_proj.md3"
-	Icon				"gfx/hud/w_icon_plasma" 	
+ NewWorldModel  "models/weapons2/plasma/plasma_w.glm"  
+ NewViewModel  "models/weapons2/plasma/plasma.md3"    
+ MissileModel  "models/weapons2/plasma/plasma_proj.md3"
+ Icon    "gfx/hud/w_icon_plasma"  
  WeaponName   "Hot Air Grenade"
  altMuzzleEffect  null
  altMissileModel    "models/weapons/Grenade_Concussion/proj.md3"
@@ -229,11 +235,11 @@ WeaponInfo4
  WeaponBasedOff  WP_MINIGUN
  NewWorldModel  "models/weapons2/dummyblaster/model.glm"
  NewViewModel  "models/weapons2/dummy/dummy.md3"
- MissileMissEffect  "effects/sonic_pistol/k_wall_impact"
+ MissileMissEffect  "sonic_pistol/k_wall_impact"
  MissileHitHumanEffect "sonic_pistol/k_wall_impact"
  MissileHitDroidEffect  "sonic_pistol/k_wall_impact"
- MissileEffect  "effects/sonic_pistol/k_projectile"       
- MuzzleEffect  "effects/sonic_pistol/k_muzzle_flash"   
+ MissileEffect  "sonic_pistol/k_projectile"       
+ MuzzleEffect  "sonic_pistol/k_muzzle_flash"   
  FlashSound0 "sarlaccgobble.wav" //"sound/mb2/repulsivebelch.wav"
  altFlashSound0 "sarlaccgobble.wav" //"sound/mb2/repulsivebelch.wav"
  isMinigun   0
@@ -303,24 +309,25 @@ I'm a big man. A big, BIG man.
 ^2Weaponry:
 - Meathooks (Melee)
 -- Drains on hit
--- 200% more Dmg
--- 90% more Kb
--- 15% less RoF
+-- 200% more damage
+-- 90% more knockback
+-- 15% slower rate of fire
 - Emergency Eject (6) (Repeater)
 -- Trips/pushes/lifts/burns on det
--- 100% less Veloc
--- Sec only
+-- 100% less velocity
+-- Secondary fire only
 - CR-1 Blast Cannon (Shotgun 3)
--- 20% more Veloc
--- 10% more Dmg/FP Dmg
--- 100% less Rld Spd
-- Thermal Imploder (3) (Frag)
+-- 20% more velocity
+-- 10% more damage/FP damage
+-- 100% slower reload
+-- Primary fire only
+- Thermal Imploders (3) (Frags)
 -- Pulls on det
 - Porkins' S3 Blaster Pistol (EE-3 1)
--- 75% more RoF
--- 30% less Dmg
--- 20% less FP Dmg
--- 100% less Rld Spd
+-- 75% faster rate of fire
+-- 30% less damage
+-- 20% less FP damage
+-- 100% slower reload 
 
 ^6Inventory:
 - Defense Seeker ^3[CS1]
@@ -328,12 +335,12 @@ I'm a big man. A big, BIG man.
 
 ^8Attributes:
 - Melee Resist
-- Enviro Protect (1)
+- Elemental Resist (1)
 - Healing (1)
 - Recharge (1)
-- 25% more Kb Given
-- 50% less Kb Taken
-- 25% slower Skill Cd
+- 25% slower skill cooldown
+- 25% more knockback given
+- 50% less knockback taken
 
 ^3Abilities:
-- Belly Roll (Shoulder Barge) ^3[Melee CS2]"
+- Wrecking Ball (Shoulder Barge) ^3[Melee CS2]"
