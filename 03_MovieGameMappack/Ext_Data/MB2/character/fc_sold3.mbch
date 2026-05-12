@@ -4,65 +4,78 @@ ClassInfo
 {
 	name				"fc_sold3"
 	weapons				WP_MELEE|WP_BOWCASTER|WP_SABER
+	WP_BowcasterFlags	HELD_FLAME
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_BOWCASTER,1|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,1|MB_ATT_CCTRAINING,1
 	saber1				sai
 	saberstyle			SS_MEDIUM
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_BOWCASTER,1|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,1|MB_ATT_CCTRAINING,1
-	forcepowers			FP_SABER_DEFENSE,1
 	bpmultiplier		0.2
-	forcepool			10
-	forceregen			0.4
+	forcepowers			FP_SABER_DEFENSE,1
+	forcepool			35
 	maxhealth			60
 	maxarmor			0
-	model				"cultist" 				//this is optional, if it's here it forces the model to this.
-	skin				"red"					//this is optional, if it's here it forces the skin to this.
+	extralives			1
+	model				"cultist"
+	skin				"red"
 	uishader			"models/players/cultist/icon_red"
 	MBClass				MB_CLASS_SOLDIER
-	classNumberLimit 		1
-	extralives			1
-	WP_BOWCASTERFlags	HELD_FLAME
-	special2 EAS_MELEE
+	classNumberLimit	1
+	
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+	special3			EAS_MELEE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace 		WP_BOWCASTER
-	WeaponBasedOff 			WP_BOWCASTER
-	NewWorldModel 			"models/weapons2/bow/bowcaster_w.glm"
-	NewViewModel 			"models/weapons2/bow/bowcaster.md3"
-  Icon 				"gfx/hud/w_icon_bow"
-	WeaponName 			"Bow"
-	MuzzleEffect  "bow/shot"
-	AltMuzzleEffect "bow/shot"
-	MissileModel  "models/chunks/shinshinobi/shuriken.md3"
-	MissileEffect "bow/firearrow"
-	MissileMissEffect "bow/explosion"
-	AltMissileModel  "models/chunks/shinshinobi/shuriken.md3"
-	AltMissileEffect "bow/firearrow"
-	AltMissileMissEffect "bow/explosion"
-	FlashSound0 "sound/300/wpn_bow_fire_01.wav"
-	FlashSound1 "sound/300/wpn_bow_fire_02.wav"
-	FlashSound2 "sound/300/wpn_bow_fire_03.wav"
-	customAmmo		12
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/bow/bowcaster_w.glm"
+	NewViewModel			"models/weapons2/bow/bowcaster.md3"
+	MissileModel			"models/chunks/shinshinobi/shuriken.md3"
+	AltMissileModel			"models/chunks/shinshinobi/shuriken.md3"
+	Icon					"gfx/hud/w_icon_bow"
+	WeaponName				"Bow"
+	
+	FlashSound0				"sound/300/wpn_bow_fire_01.wav"
+	FlashSound1				"sound/300/wpn_bow_fire_02.wav"
+	FlashSound2				"sound/300/wpn_bow_fire_03.wav"
+	
+	MuzzleEffect			"bow/shot"
+	MissileEffect			"bow/firearrow"
+	MissileMissEffect		"bow/explosion"
+	AltMuzzleEffect			"bow/shot"
+	AltMissileEffect		"bow/firearrow"
+	AltMissileMissEffect	"bow/explosion"
+	
+	customAmmo				12
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/sai/sai.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/icon_sai" 	//Required: Weapon change icon
-	WeaponName		"Sai"    					//Required: Weapon change display name
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/sai/sai.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/icon_sai"
+	WeaponName				"Sai"
 }
 
-description				"Footclan Archer
+description	"Footclan Archer
 
 ^2Weaponry: 
 - Sai
-- Bow & Burning Arrows
+-- ^3Yellow ^7Style Only
+-- Sai Defense (1)
+- Bow & Burning Arrows (1)
+-- Ignites on hit
 
 ^8Attributes:
-- Saber Defense (1)
-- Dexterity (1)
-- Stamina (1)
-- Close Combat Training (1)"
+- Stamina + Dexterity (1)
+- Close Combat Training (1)
+- 1 Reinforcement
+
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Slap ^3[CS3 / Gunbash]"

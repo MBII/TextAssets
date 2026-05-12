@@ -2,110 +2,122 @@
 
 ClassInfo
 {
-name			"helmsdeep_RhBowmen"
-weapons			WP_MELEE|WP_SABER|WP_PROJ|WP_FRAG_NADE|WP_FIRE_NADE
-saber1			HelmsDeepSword
-saberstyle		SS_MEDIUM
-attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_ARMOUR,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FIRE_GRENADES,1
-forcepowers		FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2
-maxhealth		60
-maxarmor		60
-model			"rohirrim_elite" 				
-skin			"default"				
-uishader		"models/players/rohirrim_elite/rohan"
-MBClass			MB_CLASS_JEDI
-speed			1.02
-extralives		1
-classNumberLimit	4
-//Crap Arrow defence//
-forceregen		0.3
-forcepool		35
-Classflags      CFL_BPFREEJUMPS
-WP_FragNadeFlags HELD_KNOCKDOWN //old secondary AOE knockdown frags
-WP_PROJFlags	HELD_SLOWPROJ|HELD_LOWDAMAGE
+	name				"helmsdeep_RhBowmen"
+	weapons				WP_MELEE|WP_SABER|WP_PROJ|WP_FRAG_NADE|WP_FIRE_NADE
+	WP_PROJFlags		HELD_SLOWPROJ|HELD_LOWDAMAGE
+	WP_FragNadeFlags	HELD_KNOCKDOWN //old secondary AOE knockdown frags
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FRAGS,2|MB_ATT_FIRE_GRENADES,1
+	saber1				HelmsDeepSword
+	saberstyle			SS_MEDIUM
+	forcepowers			FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2
+	//Crap Arrow defence//
+	forcepool			35
+	forceregen			0.3
+	maxhealth			60
+	maxarmor			60
+	extralives			1
+	speed				1.02
+	model				"rohirrim_elite" 				
+	skin				"default"				
+	uishader			"models/players/rohirrim_elite/rohan"
+	MBClass				MB_CLASS_ELITETROOPER
+	Classflags			CFL_BPFREEJUMPS
+	classNumberLimit	4
+	
+	resource			RESOURCE_FORCE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace 		WP_PROJ
-	WeaponBasedOff 			WP_BOWCASTER
-	NewWorldModel 			"models/weapons2/bow/bowcaster_w.glm"
-	NewViewModel 			"models/weapons2/bow/bowcaster.md3"
-  Icon 				"gfx/hud/w_icon_bow"
-	WeaponName 			"Bow"
-	MuzzleEffect  "halo_smg/rings"
-	AltMuzzleEffect "halo_smg/rings"
-	MissileModel  "models/chunks/shinshinobi/shuriken.md3"
-	MissileEffect "halo_smg/rings"
-	MissileMissEffect "dc/explosion"
-	AltMissileModel  "models/weapons2/dc_gabow/greenarrow_arrow.md3"
-	AltMissileEffect "halo_smg/rings"
-	AltMissileMissEffect "dc/explosion"
-	FlashSound0 "sound/300/wpn_bow_fire_01.wav"
-	FlashSound1 "sound/300/wpn_bow_fire_02.wav"
-	FlashSound2 "sound/300/wpn_bow_fire_03.wav"
-	customAmmo		8
-	clipSize        1
-    firingAnim  BOTH_MAND_PISTOL_READY  
+	WeaponToReplace			WP_PROJ
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/bow/bowcaster_w.glm"
+	NewViewModel			"models/weapons2/bow/bowcaster.md3"
+	MissileModel			"models/chunks/shinshinobi/shuriken.md3"
+	AltMissileModel			"models/weapons2/dc_gabow/greenarrow_arrow.md3"
+	Icon					"gfx/hud/w_icon_bow"
+	WeaponName				"Bow"
+	
+	FlashSound0				"sound/300/wpn_bow_fire_01.wav"
+	FlashSound1				"sound/300/wpn_bow_fire_02.wav"
+	FlashSound2				"sound/300/wpn_bow_fire_03.wav"
+	
+	MuzzleEffect			"halo_smg/rings"
+	AltMuzzleEffect			"halo_smg/rings"
+	MissileEffect			"halo_smg/rings"
+	MissileMissEffect		"dc/explosion"
+	AltMissileEffect		"halo_smg/rings"
+	AltMissileMissEffect	"dc/explosion"
+	
+	customAmmo				8
+	clipSize				1
+	
+	hasAnimOverrides		1
+    animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+    animAttack				BOTH_MAND_PISTOL_ATTACK
+    animAttackRun			BOTH_MAND_PISTOL_ATTACK
+    animAttackWalk			BOTH_MAND_PISTOL_ATTACK
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-  	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/mplevels/lotr/shortsword"
-	WeaponName		"Sword"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+  	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/lotr/shortsword"
+	WeaponName				"Sword"
 }
+
 WeaponInfo2
 {
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
-	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
-	NewViewModel		"models/weapons2/stone/thermal.md3"
-	Icon				"gfx/hud/w_icon_stone"
-	WeaponName			"Stones"
-	MuzzleEffect		"stone/muzzle_flash"
-	AltMuzzleEffect		"stone/muzzle_flash"
-	MissileModel 		"models/weapons2/stone/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	primFireEnabled		0
-	customammo          2
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
+	NewViewModel			"models/weapons2/stone/thermal.md3"
+	MissileModel			"models/weapons2/stone/thermal_proj.md3"
+	altMissileModel			"models/weapons2/stone/thermal_proj.md3"
+	Icon					"gfx/hud/w_icon_stone"
+	WeaponName				"Stones"
+	
+	AltMuzzleEffect			"stone/muzzle_flash"
+	AltMissileEffect		"stone/missile1"
+	AltMissileMissEffect	"stone/explosion"
+	AltMissileHitHumanEffect	"stone/explosion"
+	AltMissileHitDroidEffect	"stone/explosion"
+	MuzzleEffect			"stone/muzzle_flash"
+	MissileEffect			"stone/missile1"
+	MissileMissEffect		"stone/explosion"
+	MissileHitHumanEffect	"stone/explosion"
+	MissileHitDroidEffect	"stone/explosion"
+	
+	primFireEnabled			0
 }
+
 WeaponInfo3
 {
-	WeaponToReplace		WP_FIRE_NADE
-	WeaponBasedOff		WP_FIRE_NADE
-	NewWorldModel		"models/weapons2/grenado/thermal_pirate_w.glm"
-	NewViewModel		"models/weapons2/grenado/thermal_pirate.md3"
-	MissileModel 			"models/weapons2/grenado/thermal_pirate_proj.md3"
-	MissileModel2 			"models/weapons2/grenado/thermal_pirate_proj.md3"
-	Icon				"gfx/hud/w_icon_bomb"
-	WeaponName			"Oil Pot"
-    customammo             1
+	WeaponToReplace			WP_FIRE_NADE
+	WeaponBasedOff			WP_FIRE_NADE
+	NewWorldModel			"models/weapons2/grenado/thermal_pirate_w.glm"
+	NewViewModel			"models/weapons2/grenado/thermal_pirate.md3"
+	MissileModel			"models/weapons2/grenado/thermal_pirate_proj.md3"
+	altMissileModel			"models/weapons2/grenado/thermal_pirate_proj.md3"
+	Icon					"gfx/hud/w_icon_bomb"
+	WeaponName				"Oil Pot"
 }
 
 description	"Rohirrim Bowman
 
-Weaponry:
-Sword
-*Bow and Arrows
-2 Stones
-1 Oil Pot (Incendiary)
+^2Weaponry:
+- Sword
+-- ^3Yellow ^7Style Only
+-- Sword Defense (2)
+-- Jump + Fwd + Attack = Jumping Rollstab
+- Bow and Arrows [Proj Rifle]
+-- 50% Less DMG
+-- 75% less Velocity
+- 2 Stones
+- 1 Oil Pot (Incendiary)
 
-*Based on a Projectile Rifle
-- 8 Ammo Max
-- 1 Arrow per Clip
-- Slow moving
-- Does Half Damage
-
-Sword Training:
-Yellow Style Only
-Offense (2)
-Defense (2)
-Jump + Fwd + Attack = Jumping Rollstab
-
-Attributes:
-Forceregen (0.3x)
-2 Lives"
+^8Attributes:
+- 1 Extra Life"

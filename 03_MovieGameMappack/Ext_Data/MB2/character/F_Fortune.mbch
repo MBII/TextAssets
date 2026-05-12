@@ -2,35 +2,44 @@
 
 ClassInfo
 {
-	name			"F_Fortune"
-	weapons			WP_T21|WP_MELEE
-	attributes		MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CONCUSSION
-	maxhealth		100
-	maxarmor		80
-	model			"gwethenea" 					//this is optional, if it's here it forces the model to this.
-	skin			"fortune"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/fortune/mb2_icon_default"
-	MBClass			MB_CLASS_HERO
-	modelscale 		1.00
+	name				"F_Fortune"
+	weapons				WP_CONCUSSION|WP_MELEE
+	WP_ConcussionFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_AMMO,3|MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CONCUSSION,3
+	maxhealth			100
+	maxarmor			80
+	modelscale			1.00
+	model				"gwethenea"
+	skin				"fortune"
+	uishader			"models/players/fortune/mb2_icon_default"
+	MBClass				MB_CLASS_HERO
 	classNumberLimit	1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_T21
-	WeaponBasedOff		WP_T21
-	NewWorldModel		"models/weapons2/rgun/bowcaster_w.glm"
-	NewViewModel		"models/weapons2/rgun/bowcaster.md3"
-	Icon			"models/weapons2/rgun/icon.png"
-	WeaponName		"Railgun"
-	MuzzleEffect		"base_concussion/muzzle_flash"
-	AltMuzzleEffect		"base_concussion/altmuzzle_flash"
-	MissileEffect		"base_concussion/shot"
-	FlashSound0		"sound/weapons/rgun/fire"
-	altfireenabled		0
+	WeaponToReplace			WP_CONCUSSION
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/rgun/bowcaster_w.glm"
+	NewViewModel			"models/weapons2/rgun/bowcaster.md3"
+	Icon					"models/weapons2/rgun/icon.png"
+	WeaponName				"Railgun"
+	
+	FlashSound0				"sound/weapons/rgun/fire"
+	altFlashSound0			"sound/weapons/rgun/fire"
+	
+	primfireenabled			0
 }
 
 description	"Fortune
 
-Weaponry:
-Railgun"
+^2Weaponry:
+- Railgun (Conc Rifle 3)
+-- Alt Fire Only
+
+^8Attributes:
+- Cortosis 1 + Blast Armour + Mag Plating
+- Heal (3)
+
+^3Abilities:
+- Dodge (3) ^3[CS1]"

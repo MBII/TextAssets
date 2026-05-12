@@ -2,93 +2,98 @@
 
 ClassInfo
 {
-	name			"a3m_drake"
-	weapons		WP_MELEE|WP_THROWER|WP_T21
-	attributes	MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_T21,3
-	maxhealth		120
-	maxarmor		100
-	model			"colonial_marine"
-	skin			"drake"
-	uishader		"gfx/mplevels/aliens3/aliens_cmdrake"
-	MBClass			MB_CLASS_CLONETROOPER
+	name				"a3m_drake"
+	weapons				WP_MELEE|WP_THROWER|WP_T21
+	WP_T21Flags			HELD_ALTRELOAD
+	WP_ThrowerFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_T21,3
+	maxhealth			120
+	maxarmor			100
+	model				"colonial_marine"
+	skin				"drake"
+	uishader			"gfx/mplevels/aliens3/aliens_cmdrake"
+	MBClass				MB_CLASS_CLONETROOPER
 	classnumberlimit	1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_THROWER
-	WeaponBasedOff		WP_THROWER
-	NewWorldModel		"models/weapons2/flamethrower/flamethrower.glm"
-	NewViewModel		"models/weapons2/flamethrower/flamethrower.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon			"gfx/mplevels/aliens3/aliens_flamethrower"
-	WeaponName		"M240 Flamethrower"
-	customAmmo		500
-	idleAnim  BOTH_DC15_READY
-	firingAnim  BOTH_DC15_ATTACK
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/aliens_ripley/ripley_fp.glm"
+	NewViewModel			"models/weapons2/aliens_ripley/ripley_fp.md3"
+	NewHandsModel			"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_ripley"
+	WeaponName				"M240 Flamethrower"
+	
+	customAmmo				500
+	
+	hasAnimOverrides		1
+	animReady				BOTH_DC15_IDLE
+	animReadyRun			BOTH_DC15_READY
+	animReadyWalk			BOTH_DC15_READY
+	animReadyNoAmmo			BOTH_DC15_ATTACK
+	animAttack				BOTH_DC15_ATTACK
+	animAttackRun			BOTH_DC15_ATTACK
+	animAttackWalk			BOTH_DC15_ATTACK
+	animCharge				BOTH_DC15_READY
+	animStand				BOTH_DC15_IDLE
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_T21
-	WeaponBasedOff		WP_CONCUSSION
-	NewWorldModel		"models/weapons2/smartgun/smartgun_w.glm"
-	NewViewModel		"models/weapons2/smartgun/smartgun.md3"
-	MuzzleEffect		"assault_rifle/muzzle_flash"
-	MissileEffect		"assault_rifle/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMuzzleEffect		"assault_rifle/muzzle_flash"
+	WeaponToReplace			WP_T21
+	WeaponBasedOff			WP_CONCUSSION
+	NewWorldModel			"models/weapons2/smartgun/smartgun_w.glm"
+	NewViewModel			"models/weapons2/smartgun/smartgun.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_smartgun"
+	WeaponName				"M56 Smartgun"
+	
+	SelectSound				"Sound/weapons/aliens_smartgun/select.wav"
+	FlashSound0				"Sound/weapons/aliens_smartgun/fire2.wav"
+	altFlashSound0			"Sound/weapons/aliens_smartgun/fire2.wav"
+	
+	MuzzleEffect			"assault_rifle/muzzle_flash"
+	MissileEffect			"assault_rifle/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"assault_rifle/muzzle_flash"
 	altMissileEffect		"assault_rifle/shot"
-	altMissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/aliens_smartgun/fire2.wav"
-	altFlashSound0		"Sound/weapons/aliens_smartgun/fire2.wav"
-	SelectSound		"Sound/weapons/aliens_smartgun/select.wav"
-	Icon			"gfx/mplevels/aliens3/aliens_smartgun"
-	WeaponName		"M56 Smartgun"
-	customAmmo		700
-	clipSize  80
-	altHitscanShot		1
-	altHitscanTracer	5
-  primFireEnabled 0
-	primGore		1
-	altGore			1
-	idleAnim  BOTH_MINIGUN_READY
-	firingAnim  BOTH_MINIGUN_ATTACK
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	customAmmo				700
+	clipSize				80
+	altHitscanShot			1
+	altHitscanTracer		5
+	primFireEnabled			0
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MINIGUN_IDLE
+	animReadyWalk			BOTH_MINIGUN_READY
+	animReadyRun			BOTH_MINIGUN_READY
+	animReadyNoAmmo			BOTH_MINIGUN_ATTACK
+	animAttack				BOTH_MINIGUN_ATTACK
+	animAttackRun			BOTH_MINIGUN_ATTACK
+	animAttackWalk			BOTH_MINIGUN_ATTACK
+	animStand				BOTH_MINIGUN_IDLE
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"models/weapons2/halo_melee/icon.png"
-	WeaponName		"Melee"
-	primGore		1
-	altGore			1
-}
-
-WeaponInfo3
-{
-	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_BLASTER
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/aliens3/null"
-  MuzzleEffect		"assault_rifle/muzzle_flash"
-	MissileEffect		"assault_rifle/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMuzzleEffect		"assault_rifle/muzzle_flash"
-	altMissileEffect		"assault_rifle/shot"
-	altMissileMissEffect "halo_smg/wall_impact"
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName				"Melee"
+	
+	primGore				1
+	altGore					1
 }
 
 description	"Pvt. Mark Drake
 
-Weaponry:
-M240 Flamethrower (3)
-M56 Smartgun (3)
-
-Attributes:
-Armour (2)
-Ammo (3)"
+^2Weaponry:
+- M240 Flamethrower (3)
+- M56 Smartgun (T-21 3)"

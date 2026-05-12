@@ -1,50 +1,66 @@
+
+
 ClassInfo
 {
-	name  "ush_lara"
-	weapons WP_MELEE|WP_MANDO_PISTOL
-	attributes MB_ATT_PISTOL,3|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1
-	maxhealth 150
-	maxarmor  50
-	forcepowers		FP_LEVITATION,3
-	forcepool		100
-	model "jan"
-	skin  "lara"
-	uishader  "gfx/mplevels/ultimate_showdown/lara"
-	MBClass MB_CLASS_JEDI
-	classflags  CFL_AKIMBOPISTOL3
+	name				"ush_lara"
+	weapons				WP_MELEE|WP_CLONE_PISTOL
+	WP_ClonePistolFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1|MB_ATT_DEXTERITY,3|MB_ATT_DASH,2|MB_ATT_CLONE_PISTOL,3
+	forcepowers			FP_LEVITATION,3
+	forcepool			100
+	maxhealth			150
+	maxarmor			50
+	speed				1.2
+	model				"jan"
+	skin				"lara"
+	uishader			"gfx/mplevels/ultimate_showdown/lara"
+	MBClass				MB_CLASS_ELITETROOPER
+	classflags			CFL_AKIMBOPISTOL3
 	classNumberLimit	1
+	
+	resource			RESOURCE_FORCE
+	special2			EAS_HI_DEX
+	special3			EAS_HI_DASH
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MANDO_PISTOL
-	WeaponBasedOff		WP_MANDO_PISTOL
-	NewWorldModel		"models/weapons2/usp_match/usp_match.glm"
-	NewViewModel		"models/weapons2/usp_match/usp_match.md3"
-	Icon				"gfx/mplevels/ultimate_showdown/usp_match"
-	WeaponName		"Dual Pistols"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"sound/weapons/remp5/fire.wav"
-	SelectSound		"sound/css_wep/buttonclickrelease.wav"
-	customAmmo		600
-	clipSize  60
-	primHitscanShot		1
-	primHitscanTracer	10
-	altHitscanShot		1
-	altHitscanTracer	10
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim  TORSO_WEAPONIDLE2
-	idleAnim BOTH_DUAL_PISTOLS_DRAW 
-//  firingAnim  DUAL_RUNNING_FIRE_RIGHT
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/usp_match/usp_match.glm"
+	NewViewModel			"models/weapons2/usp_match/usp_match.md3"
+	Icon					"gfx/mplevels/ultimate_showdown/usp_match"
+	WeaponName				"Dual Pistols"
+	
+	SelectSound				"sound/css_wep/buttonclickrelease.wav"
+	FlashSound0				"sound/weapons/remp5/fire.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				600
+	clipSize				60
+	primHitscanShot			1
+	primHitscanTracer		10
+	altHitscanShot			1
+	altHitscanTracer		10
+	altFireEnabled			0
+	primGore				1
+	altGore					1
 }
 
 description	"Lara Croft - Tomb Raider
 
-Weapons:
-Dual Pistols"
+^2Weapons:
+- Dual Pistols (4)
+-- Mag Reload
+
+^8Attributes:
+- Dexterity (3)
+
+^3Abilities:
+- Dex Roll ^3[CS2]
+- Dash (2) ^3[CS3]"

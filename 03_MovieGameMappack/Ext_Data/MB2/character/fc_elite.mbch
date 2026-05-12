@@ -2,40 +2,51 @@
 
 ClassInfo
 {
-	name			"fc_elite"
-	weapons		WP_MELEE|WP_SABER
-	saber1		Katana
-	saberstyle		SS_MEDIUM
-	forcepowers		FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2|FP_LEVITATION,1
-	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_POISON_DART,2|MB_ATT_GUN_DEFENSE,1
-	maxhealth		60
-	maxarmor		50
-	model			"cultist" 				//this is optional, if it's here it forces the model to this.
-	skin			"brown"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/cultist/icon_brown"
-	MBClass			MB_CLASS_JEDI
-	forcepool 		25
-	forceregen 		6
+	name				"fc_elite"
+	weapons				WP_MELEE|WP_SABER
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_POISON_DART,2|MB_ATT_GUN_DEFENSE,1|MB_ATT_STAMINA,1|MB_ATT_DEXTERITY,1
+	saber1				Katana
+	saberstyle			SS_MEDIUM
+	forcepowers			FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2|FP_LEVITATION,1
+	forcepool			35
+	forceregen			6
+	maxhealth			60
+	maxarmor			50
+	model				"cultist"
+	skin				"brown"
+	uishader			"models/players/cultist/icon_brown"
+	MBClass				MB_CLASS_ELITETROOPER
 	classNumberLimit	2
-	meleespecial1 EAS_HI_POISON
-	special1HUD HUD_POISONDART
+	
+	resource			RESOURCE_STAMINA
+	special1HUD			HUD_POISONDART
+	meleespecial1		EAS_HI_POISON
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+	special3			EAS_MELEE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/saber_GreyFox/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_fox" 	//Required: Weapon change icon
-	WeaponName		"Katana"    					//Required: Weapon change display name
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_GreyFox/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_fox"
+	WeaponName				"Katana"
 }
 
 description	"Foot Clan Elite
 
 ^2Weaponry:
 - Sword
+-- ^3Yellow ^7Style Only
+-- Sword Defense (2)
+-- Gun Defense (1)
 
-^8Attributes:
-- Saber Defense (2)
-- Poison Dart (2) ^3[CS1 M]"
+^3Abilities:
+- Jump (1)
+- 2 Poison Darts ^3[CS1 Melee]
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Slap ^3[CS3 / Gunbash]"

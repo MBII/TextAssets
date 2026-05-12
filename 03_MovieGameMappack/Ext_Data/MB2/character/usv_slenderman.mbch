@@ -2,49 +2,87 @@
 
 ClassInfo
 {
-	name			"usv_slenderman"
-	weapons		WP_MELEE
-  forcepowers FP_DEADLYSIGHT,3|FP_BLIND,3|FP_LEVITATION,3
-  attributes	|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1
-	maxhealth		200
-	model			"slender"
-	skin			"default"
-	uishader		"gfx/mplevels/ultimate_showdown/slenderman"
-	MBClass			MB_CLASS_JEDI
+	name				"usv_slenderman"
+	weapons				WP_MELEE
+	meleeMoves			M_PUNCH|M_BLOCK
+	attributes			MB_ATT_FP_MIRALUKA|MB_ATT_FORCEBLOCK,1|MB_ATT_FORCEFOCUS,1|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1|MB_ATT_ROSHTAUNT
+	forcepowers			FP_DEADLYSIGHT,3|FP_BLIND,3|FP_SEE,3|FP_TELEPATHY,3|FP_LEVITATION,3
+	forcepool			200
+	forceregen			1.2
+	maxhealth			200
+	speed				1.1
+	modelscale			1.5
+	model				"slender"
+	skin				"default"
+	uishader			"gfx/mplevels/ultimate_showdown/slenderman"
+	MBClass				MB_CLASS_SITH
+	classflags			CFL_HEAVYMELEE|CFL_SEEING_STEALTH
 	classnumberlimit	1
-  modelscale  1.25
-  forcepool		200
-  forceregen	1.2
-  classflags  CFL_HEAVYMELEE
+	
+	special2			EAS_FP_DEADLYSIGHT
+	special3			EAS_FP_BLIND
+	special4			EAS_FP_TELEPATHY
+	
+	RunForward			BOTH_WALK7
+	RunBackward			BOTH_WALKBACK1
+	WalkForward			BOTH_WALK1
+	WalkBackward		BOTH_WALKBACK2
+	
+	tauntAnim			BOTH_STAND5SHIFTWEIGHT
+	gloatAnim			BOTH_BUTTON2
+	flourishAnim		BOTH_BUTTON2
+	
+	punchAnim			BOTH_WOOKIEE_RAGE_MELEE1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/revil/null"
-	WeaponName		"Melee"
-	altFireEnabled 		0
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/revil/null"
+	WeaponName				"Melee"
+	
+	hasAnimOverrides		1
+	animStand				BOTH_STAND5
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/mplevels/slender/slenderman"
-	ForcePowerName	"Deadly Sight"
+	ForceToReplace		FP_DEADLYSIGHT
+	Icon				"gfx/mplevels/slender/slenderman"
+	ForcePowerName		"Deadly Sight"
 }
 
 ForceInfo1
 {
-	ForceToReplace	FP_TELEPATHY
-	Icon		"gfx/mplevels/slender/slenderman"
-	ForcePowerName	"Static"
+	ForceToReplace		FP_BLIND
+	Icon				"gfx/mplevels/slender/slenderman"
+	ForcePowerName		"Static"
+}
+
+ForceInfo2
+{
+	ForceToReplace		FP_TELEPATHY
+	Icon				"gfx/mplevels/slender/slenderman"
+	ForcePowerName		"Teleport"
 }
 
 description	"Slender Man - Slender
 
-Attributes:
-Deadly Sight
-Static"
+^2Weaponry:
+- Heavy Melee
+-- Punching / Blocking Only
+
+^5Powers:
+- Jump (3)
+- Miraluka Sense (3)
+- Teleport (Mind Trick 3) ^5[CS4]
+- Static (Blind 3) ^5[CS3]
+- Deadly Sight (3) ^5[CS2]
+
+^8Attributes:
+- Toxic Taunt
+- Force Sense Immunity
+- Force Block / Focus (1)"
