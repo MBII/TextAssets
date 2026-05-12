@@ -4,7 +4,7 @@ ClassInfo
 {
 	name				"PB3_B_Slender"
 	weapons				WP_MELEE
-	attributes			MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,3|MB_ATT_CLOAK,3|MB_ATT_RECHARGE,2
+	attributes			MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,3|MB_ATT_CLOAK,3|MB_ATT_RECHARGE,2|MB_ATT_ROSHTAUNT
 	//holdables			HI_CLOAK
 	forcepowers			FP_LEVITATION,3|FP_SEE,3|FP_DRAIN,3|FP_DEADLYSIGHT,1|FP_TELEPATHY,3
 	forcepool			200
@@ -16,8 +16,8 @@ ClassInfo
 	model				"slender"
 	skin				"default"
 	uishader			"models/players/slendy/mb2_icon_slendy"
-	classflags			CFL_SEEING_STEALTH
 	MBClass				MB_CLASS_SITH
+	classflags			CFL_SEEING_STEALTH
 	//classNumberLimit	1
 	
 	resource			RESOURCE_BATTERY
@@ -27,7 +27,29 @@ ClassInfo
 	special3			EAS_FP_DEADLYSIGHT
 	special4			EAS_FP_DRAIN
 	
+	RunForward			BOTH_WALK7
+	RunBackward			BOTH_WALKBACK1
+	WalkForward			BOTH_WALK1
+	WalkBackward		BOTH_WALKBACK2
+	
+	tauntAnim			BOTH_STAND5SHIFTWEIGHT
+	gloatAnim			BOTH_BUTTON2
+	flourishAnim		BOTH_BUTTON2
+	
 	respawnCustomTime	75000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_melee"
+	WeaponName				"Melee"
+	
+	hasAnimOverrides		1
+	animStand				BOTH_STAND5
 }
 
 description	"Slenderman
@@ -35,6 +57,9 @@ description	"Slenderman
 Don't look at him
 
 1 look and you're dead
+
+^2Weaponry:
+- Melee
 
 ^6Inventory:
 - Cloak (3)
@@ -47,6 +72,7 @@ Don't look at him
 - Deadly Sight (1) ^5[CS3]
 
 ^8Attributes:
+- Toxic Taunt
 - Force Sense Immunity
 - Scare Recharge (3)
 - Force Block / Focus (3)"
