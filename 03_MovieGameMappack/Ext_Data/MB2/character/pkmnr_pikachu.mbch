@@ -2,44 +2,47 @@
 
 ClassInfo
 {
-	name			"pkmnr_pikachu"
-	weapons		WP_MELEE|WP_SHOTGUN
-	maxhealth		80
-	attributes  MB_ATT_SHOTGUN,1
-	forcepowers	FP_LIGHTNING,2|FP_PUSH,2|FP_SPEED,3
-	model			"pikachu" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/icons/pkmn_pikachu"
-	modelscale 0.55
-	forcepool 100
-	MBClass		MB_CLASS_JEDI
-	speed     1.4
+	name				"pkmnr_pikachu"
+	weapons				WP_MELEE|WP_SHOTGUN
+	attributes			MB_ATT_SHOTGUN,1
+	forcepowers			FP_LIGHTNING,2|FP_PUSH,2|FP_SPEED,3
+	forcepool			100
+	maxhealth			80
+	speed				1.4
+	modelscale			0.55
+	model				"pikachu"
+	skin				"default"
+	uishader			"models/players/icons/pkmn_pikachu"
+	MBClass				MB_CLASS_JEDI
+	
+	special2			EAS_FP_PUSH
+	special4			EAS_FP_LIGHTNING
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_LIGHTNING
-	Icon		"gfx/hud/pokemon/icon_electric"
-	ForcePowerName	"Thundershock"
-	SelectSound "Sound/pokemon/select.wav"
-	ConeEffect	"pokemon/pikachu/thundershock.efx"
+	ForceToReplace		FP_LIGHTNING
+	Icon				"gfx/hud/pokemon/icon_electric"
+	ForcePowerName		"Thundershock"
+	//SelectSound			"Sound/pokemon/select.wav"
+	ConeEffect			"pokemon/pikachu/thundershock.efx"
 }
 
 ForceInfo1
 {
-	ForceToReplace	FP_PUSH
-	Icon		"gfx/hud/pokemon/icon_electric"
-	ForcePowerName	"Thunderwave"
-	SelectSound "Sound/pokemon/select.wav"
-	ConeEffect	"pokemon/pikachu/thunderwave.efx"
+	ForceToReplace		FP_PUSH
+	Icon				"gfx/hud/pokemon/icon_electric"
+	ForcePowerName		"Thunderwave"
+	//SelectSound			"Sound/pokemon/select.wav"
+	ConeEffect			"pokemon/pikachu/thunderwave.efx"
 }
 
 ForceInfo2
 {
-	ForceToReplace	FP_SPEED
-	Icon		"gfx/hud/pokemon/icon_normal"
-	ForcePowerName	"Agility"
-	SelectSound "Sound/pokemon/select.wav"
+	ForceToReplace		FP_SPEED
+	Icon				"gfx/hud/pokemon/icon_normal"
+	ForcePowerName		"Agility"
+	//SelectSound			"Sound/pokemon/select.wav"
 }
 
 WeaponInfo0
@@ -48,41 +51,43 @@ WeaponInfo0
 	WeaponBasedOff		WP_MELEE
 	NewWorldModel		"models/weapons2/noweap/noweap.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon		"gfx/hud/pokemon/icon_normal"
-	WeaponName		"Tackle"
-	SelectSound "Sound/pokemon/select.wav"
+	Icon				"gfx/hud/pokemon/icon_normal"
+	WeaponName			"Tackle"
+	
+	SelectSound			"Sound/pokemon/select.wav"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SHOTGUN
-	WeaponBasedOff		WP_SHOTGUN
-	NewWorldModel		"models/weapons2/noweap/noweap.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	MuzzleEffect		"pokemon/pikachu/thunderbolt"
-	AltMuzzleEffect		"pokemon/pikachu/thunderbolt"
-	MissileEffect		"pokemon/pikachu/thundershock"
+	WeaponToReplace			WP_SHOTGUN
+	WeaponBasedOff			WP_SHOTGUN
+	NewWorldModel			"models/weapons2/noweap/noweap.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/pokemon/icon_electric"
+	WeaponName				"Thunderbolt"
+	
+	SelectSound				"Sound/pokemon/select.wav"
+	FlashSound0				"sound/ambience/thunder1.mp3"
+	altFlashSound0			"sound/ambience/thunder1.mp3"
+	
+	MuzzleEffect			"pokemon/pikachu/thunderbolt"
+	AltMuzzleEffect			"pokemon/pikachu/thunderbolt"
+	MissileEffect			"pokemon/pikachu/thundershock"
 	altMissileEffect		"pokemon/pikachu/thundershock"
-  MissileMissEffect "pokemon/pikachu/thundershock"
-  altMissileMissEffect  "pokemon/pikachu/thundershock"
-	FlashSound0		"sound/ambience/thunder1.mp3"
-	altFlashSound0 "sound/ambience/thunder1.mp3"
-	altfireenabled		0
-	primfireenabled 1
-	customAmmo 150
-	Icon		"gfx/hud/pokemon/icon_electric"
-	WeaponName		"Thunderbolt"
-	SelectSound "Sound/pokemon/select.wav"
+	MissileMissEffect		"pokemon/pikachu/thundershock"
+	altMissileMissEffect	"pokemon/pikachu/thundershock"
+	
+	altfireenabled			0
+	customAmmo				150
 }
-
 
 description	"Pikachu
 
-Moves:
-Tackle (Normal)
-Agility (Normal)
-Thundershock (Electric)
-Thunderwave (Electric)
-Thunderbolt (Electric)
+^2Moves:
+- Tackle (Normal)
+- Thunderbolt (Electric - Shotgun 1)
 
-HP:80"
+^5Powers:
+- Agility (Normal - Speed 3) ^5[CS3]
+- Thundershock (Electric - Lightning 2) ^5[CS4]
+- Thunderwave (Electric - Push 2) ^5[CS2]"

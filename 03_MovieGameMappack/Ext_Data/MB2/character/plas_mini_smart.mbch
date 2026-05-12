@@ -2,87 +2,110 @@
 
 ClassInfo
 {
-	name			"plas_mini_smart"
-	weapons			WP_MELEE|WP_CLONE_RIFLE|WP_BLASTER_PISTOL
-	attributes		MB_ATT_PISTOL,1|MB_ATT_CLONERIFLE,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_BLASTER,2
-	maxhealth		80
-	maxarmor		100
-	model			"colonial_marine"
-	skin			"drake"
-	uishader		"gfx/mplevels/aliens3/aliens_cmmarine"
-	MBClass			MB_CLASS_CLONETROOPER
-	speed			0.95
+	name				"plas_mini_smart"
+	weapons				WP_MELEE|WP_CLONE_RIFLE|WP_BLASTER_PISTOL
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
+	WP_CloneRifleFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_PISTOL,1|MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1
+	maxhealth			80
+	maxarmor			80
+	speed				0.95
+	model				"colonial_marine"
+	skin				"drake"
+	uishader			"gfx/mplevels/aliens3/aliens_cmmarine"
+	MBClass				MB_CLASS_CLONETROOPER
 	classNumberlimit	2
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/aliens_vp70/vp70.glm"
-	NewViewModel		"models/weapons2/aliens_vp70/vp70.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/mplevels/aliens3/aliens_vp70"
-	WeaponName		"VP-70 Pistol"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/aliens_vp70/fire.wav"
-	SelectSound		"Sound/weapons/aliens_sw39/select.wav"
-	customAmmo		300
-	clipSize  25
-	primHitscanShot		1
-	primHitscanTracer	10
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim  TORSO_WEAPONIDLE2
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/aliens_vp70/vp70.glm"
+	NewViewModel			"models/weapons2/aliens_vp70/vp70.md3"
+	NewHandsModel			"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_vp70"
+	WeaponName				"VP-70 Pistol"
+	
+	SelectSound				"Sound/weapons/aliens_sw39/select.wav"
+	FlashSound0				"Sound/weapons/aliens_vp70/fire.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				300
+	clipSize				25
+	primHitscanShot			1
+	primHitscanTracer		10
+	altFireEnabled 			0
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				TORSO_WEAPONIDLE2
+	animReadyWalk			TORSO_WEAPONIDLE2
+	animReadyRun			TORSO_WEAPONIDLE2
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_SBD
-	NewWorldModel		"models/weapons2/smartgun/smartgun_w.glm"
-	NewViewModel		"models/weapons2/smartgun/smartgun.md3"
-	MuzzleEffect		"assault_rifle/muzzle_flash"
-	MissileEffect		"assault_rifle/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/aliens_smartgun/fire2.wav"
-	SelectSound		"Sound/weapons/aliens_smartgun/select.wav"
-	Icon			"gfx/mplevels/aliens3/aliens_smartgun"
-	WeaponName		"M56 Smartgun"
-	customAmmo		700
-	clipSize  80
-	primHitscanShot		1
-	primHitscanTracer	5
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim  BOTH_MINIGUN_READY
-	firingAnim  BOTH_MINIGUN_ATTACK
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_CONCUSSION
+	NewWorldModel			"models/weapons2/smartgun/smartgun_w.glm"
+	NewViewModel			"models/weapons2/smartgun/smartgun.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_smartgun"
+	WeaponName				"M56 Smartgun"
+	
+	SelectSound				"Sound/weapons/aliens_smartgun/select.wav"
+	FlashSound0				"Sound/weapons/aliens_smartgun/fire2.wav"
+	
+	MuzzleEffect			"assault_rifle/muzzle_flash"
+	MissileEffect			"assault_rifle/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"assault_rifle/muzzle_flash"
+	altMissileEffect		"assault_rifle/shot"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	customAmmo				700
+	clipSize				80
+	altHitscanShot			1
+	altHitscanTracer		5
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MINIGUN_IDLE
+	animReadyWalk			BOTH_MINIGUN_READY
+	animReadyRun			BOTH_MINIGUN_READY
+	animReadyNoAmmo			BOTH_MINIGUN_ATTACK
+	animAttack				BOTH_MINIGUN_ATTACK
+	animAttackRun			BOTH_MINIGUN_ATTACK
+	animAttackWalk			BOTH_MINIGUN_ATTACK
+	animStand				BOTH_MINIGUN_IDLE
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"models/weapons2/halo_melee/icon.png"
-	WeaponName		"Melee"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName				"Melee"
+	
+	primGore				1
+	altGore					1
 }
 
 description	"Marine (Smartgun)
 
-Weaponry:
-M4A3 Pistol
-M56 Smartgun
+^2Weaponry:
+- VP-70 Pistol (1)
+- M56 Smartgun (Clone Rifle 2)
 
-Attributes:
-Armour (3)
-Ammo (3)"
+^8Attributes:
+- 1 Reinforcement
+- Assemble (1)"

@@ -1,76 +1,96 @@
+
+
 ClassInfo
 {
-	name  "ush_legion"
-	weapons WP_BLASTER_PISTOL|WP_PROJ|WP_MELEE
-	attributes MB_ATT_PISTOL,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1|MB_ATT_FP_MIRALUKA
-	maxhealth 100
-	maxarmor  150
-	forcepowers		FP_LEVITATION,3|FP_SEE,1
-	forcepool		100
-	model "me3-geth-if"
-	skin  "default_legion"
-	uishader  "gfx/mplevels/ultimate_showdown/legion"
-	MBClass MB_CLASS_JEDI
-	classflags  CFL_BLOODYMELEE|CFL_HEAVYMELEE
+	name				"ush_legion"
+	weapons				WP_BLASTER_PISTOL|WP_AMBAN|WP_MELEE|WP_PULSE_NADE
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_PISTOL,3|MB_ATT_AMBAN,1|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1|MB_ATT_FP_MIRALUKA|MB_ATT_PULSE_GRENADES,2
+	maxhealth			100
+	maxarmor			150
+	speed				1.2
+	forcepowers			FP_LEVITATION,3|FP_SEE,1
+	forcepool			100
+	model				"me3-geth-if"
+	skin				"default_legion"
+	uishader			"gfx/mplevels/ultimate_showdown/legion"
+	MBClass				MB_CLASS_ELITETROOPER
+	classflags			CFL_BLOODYMELEE|CFL_HEAVYMELEE
 	classNumberLimit	1
+	
+	resource			RESOURCE_FORCE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/me2-pistol/blaster_pistol_w.glm"
-	NewViewModel		"models/weapons2/me2-pistol/blaster_pistol.md3"
-	Icon				"gfx/mplevels/ultimate_showdown/m6_carnifex"
-	WeaponName		"M6 Carnifex"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"sound/weapons/me3_carnifex/fire.wav"
-	SelectSound		"sound/weapons/me3_carnifex/select.wav"
-	customAmmo		150
-	clipSize  15
-	primHitscanShot		1
-	primHitscanTracer	10
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim  TORSO_WEAPONIDLE2
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/me2-pistol/blaster_pistol_w.glm"
+	NewViewModel			"models/weapons2/me2-pistol/blaster_pistol.md3"
+	Icon					"gfx/mplevels/ultimate_showdown/m6_carnifex"
+	WeaponName				"M6 Carnifex"
+	
+	SelectSound				"sound/weapons/me3_carnifex/select.wav"
+	FlashSound0				"sound/weapons/me3_carnifex/fire.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				150
+	clipSize				15
+	primHitscanShot			1
+	primHitscanTracer		10
+	altFireEnabled			0
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				TORSO_WEAPONIDLE2
+	animReadyRun			TORSO_WEAPONIDLE2
+	animReadyWalk			TORSO_WEAPONIDLE2
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_PROJ
-	WeaponBasedOff		WP_DISRUPTOR
-	NewWorldModel		"models/weapons2/me3-widow/disruptor_w.glm"
-	NewViewModel		"models/weapons2/me3-widow/disruptor.md3"
-	Icon			"gfx/mplevels/ultimate_showdown/widow"
-	WeaponName		"M-98 Widow"
-	MuzzleEffect		"halo_sniper/Muzzle_Flash"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"sound/weapons/me3_widow/fire.wav"
-	SelectSound		"sound/weapons/me3_widow/select.wav"
-	customAmmo		6
-	primHitscanShot		1
-	primHitscanTracer	10
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_AMBAN
+	WeaponBasedOff			WP_DISRUPTOR
+	NewWorldModel			"models/weapons2/me3-widow/disruptor_w.glm"
+	NewViewModel			"models/weapons2/me3-widow/disruptor.md3"
+	Icon					"gfx/mplevels/ultimate_showdown/widow"
+	WeaponName				"M-98 Widow"
+	
+	SelectSound				"sound/weapons/me3_widow/select.wav"
+	AltFlashSound0			"sound/weapons/me3_widow/fire.wav"
+	
+	MuzzleEffect			"halo_sniper/Muzzle_Flash"
+	altMuzzleEffect			"halo_sniper/Muzzle_Flash"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	customAmmo				10
+	primHitscanShot			1
+	primHitscanTracer		10
+	primGore				1
+	altGore					1
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Geth Radar"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/forcepowers/radar"
+	ForcePowerName		"Geth Radar"
 }
 
 description	"Legion - Mass Effect
 
-Weapons:
-M6 Carnifex
-M-98 Widow
+^2Weapons:
+- M6 Carnifex (3)
+-- Mag Reload
+- M-98 Widow (Amban 1)
+- 2 Pulse Grenades
 
-Abilities:
-Geth Radar (2)"
+^8Attributes:
+- Geth Radar [Perma Sense 2]"

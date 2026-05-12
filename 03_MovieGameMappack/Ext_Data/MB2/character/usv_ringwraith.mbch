@@ -2,32 +2,45 @@
 
 ClassInfo
 {
-	name			"usv_ringwraith"
-	weapons			WP_MELEE|WP_SABER
-	saber1			HelmsDeepSword
-	saberstyle		SS_MEDIUM
-	forcepowers		FP_LEVITATION,3|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3
-  attributes		MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_HEALING,1|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1
-	maxhealth		150
-	model			"ringwraith"
-	skin			"default"
-	uishader		"gfx/mplevels/ultimate_showdown/ringwraith"
-	MBClass			MB_CLASS_JEDI
-	forcepool 		100
+	name				"usv_ringwraith"
+	weapons				WP_MELEE|WP_SABER
+	WP_SaberFlags		HELD_POISON
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_HEALING,1|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1
+	saber1				saber_morgulblade
+	saberstyle			SS_STRONG
+	forcepowers			FP_LEVITATION,3|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3|FP_DRAIN,3
+	forcepool			200
+	maxhealth			150
+	speed				1.2
+	model				"ringwraith"
+	skin				"default"
+	uishader			"gfx/mplevels/ultimate_showdown/ringwraith"
+	MBClass				MB_CLASS_SITH
 	classNumberLimit	1
+	
+	resource			RESOURCE_FORCE
+	special4			EAS_FP_DRAIN
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-  	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/mplevels/lotr/longsword"
-	WeaponName		"Sword"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+  	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/lotr/longsword"
+	WeaponName				"Sword"
 }
 
 description	"Ringwraith - Lord of the Rings
 
-Weaponry:
-Sword"
+^2Weapons:
+- Morgul Blade
+-- Poisons On Hit
+-- ^1Red ^7Style Only
+-- Sword Defense (3)
+-- Gun Defense   (2)
+
+^5Powers:
+- Jump (3)
+- Drain (3) ^5[CS4]"

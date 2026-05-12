@@ -2,55 +2,106 @@
 
 ClassInfo
 {
-	name			"usv_terminator"
-	weapons			WP_MELEE|WP_MINIGUN
-	attributes		MB_ATT_MINIGUN,3|MB_ATT_CORTOSIS,1|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1
-	forcepowers 	FP_LEVITATION,3
-	maxhealth		150
-	maxarmor    200
-	model			"terminator"
-	skin			"default"
-	uishader		"gfx/mplevels/ultimate_showdown/terminator"
-	MBClass			MB_CLASS_JEDI
-	modelscale		1.1
+	name				"usv_terminator"
+	weapons				WP_MELEE|WP_MINIGUN|WP_SHOTGUN
+	WP_MinigunFlags		HELD_SLOW|HELD_LOWDAMAGE
+	WP_ShotgunFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_MINIGUN,3|MB_ATT_CORTOSIS,1|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1|MB_ATT_SHOTGUN,3
+	forcepowers			FP_LEVITATION,3
+	forcepool			80
+	maxhealth			150
+	maxarmor			200
+	basespeed			225
+	speed				1.1
+	modelscale			1.1
+	model				"terminator"
+	skin				"default"
+	uishader			"gfx/mplevels/ultimate_showdown/terminator"
+	MBClass				MB_CLASS_BATTLEDROID
+	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_HEAVYMELEE|CFL_BLOODYMELEE
 	classNumberLimit	1
-	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_HEAVYMELEE|CFL_BLOODYMELEE
-
+	
+	resource			RESOURCE_FORCE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MINIGUN
-	WeaponBasedOff		WP_MINIGUN
-	NewWorldModel		"models/weapons2/mgun/heavy_repeater_w.glm"
-	NewViewModel		"models/weapons2/mgun/heavy_repeater.md3"
-	Icon				"gfx/hud/w_icon_mgun"
-	WeaponName			"Minigun"
-	MuzzleEffect		"halo_smg/Muzzle_Flash"
-	MissileEffect		"halo_smg/projectile"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMuzzleEffect		"halo_smg/Muzzle_Flash"
-	altMissileEffect		"halo_smg/projectile"
-	altMissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/mgun/fire.wav"
-	FlashSound1		"Sound/weapons/mgun/fire.wav"
-	FlashSound2		"Sound/weapons/mgun/fire.wav"
-	FlashSound3		"Sound/weapons/mgun/fire.wav"
-	AltFlashSound0		"Sound/weapons/mgun/fire.wav"
-	AltFlashSound1		"Sound/weapons/mgun/fire.wav"
-	AltFlashSound2		"Sound/weapons/mgun/fire.wav"
-	AltFlashSound3		"Sound/weapons/mgun/fire.wav"
-	primHitscanShot		1
-	primHitscanTracer	5
-	altHitscanShot		1
-	altHitscanTracer	5
-	primGore		1
-	altGore			1
-	customammo  150
+	WeaponToReplace			WP_MINIGUN
+	WeaponBasedOff			WP_MINIGUN
+	NewWorldModel			"models/weapons2/mgun/heavy_repeater_w.glm"
+	NewViewModel			"models/weapons2/mgun/heavy_repeater.md3"
+	Icon					"gfx/hud/w_icon_mgun"
+	WeaponName				"Minigun"
+	
+	FlashSound0				"Sound/weapons/mgun/fire.wav"
+	FlashSound1				"Sound/weapons/mgun/fire.wav"
+	FlashSound2				"Sound/weapons/mgun/fire.wav"
+	FlashSound3				"Sound/weapons/mgun/fire.wav"
+	AltFlashSound0			"Sound/weapons/mgun/fire.wav"
+	AltFlashSound1			"Sound/weapons/mgun/fire.wav"
+	AltFlashSound2			"Sound/weapons/mgun/fire.wav"
+	AltFlashSound3			"Sound/weapons/mgun/fire.wav"
+	
+	MuzzleEffect			"halo_smg/Muzzle_Flash"
+	//MissileEffect			"halo_smg/projectile"
+	MissileEffect			"blaster/Shot02Y"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"halo_smg/Muzzle_Flash"
+	//altMissileEffect		"halo_smg/projectile"
+	altMissileEffect		"blaster/Shot02Y"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	customammo				150
+	//primHitscanShot		1	//Minigun Hitscan is super bugged & can't hit anything, disabled for now
+	primHitscanTracer		5
+	//altHitscanShot		1
+	altHitscanTracer		5
+	primGore				1
+	altGore					1
+	isMinigun				1
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_SHOTGUN
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/reshotgun_new/reshotgun.glm"
+	NewViewModel			"models/weapons2/reshotgun_new/reshotgun.md3"
+	Icon					"gfx/mplevels/revil/icon_reshotgun_new"
+	WeaponName				"Shotgun"
+	
+	SelectSound				"sound/weapons/reshotgun/select.wav"
+	FlashSound0				"Sound/weapons/reshotgun/fire.wav"
+	
+	MuzzleEffect			"halo_shotgun/Muzzle_Flash"
+	MissileEffect			"halo_shotgun/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				700
+	clipSize				100
+	primHitscanShot			1
+	primHitscanTracer		5
+	altFireEnabled			0
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReadyNoAmmo			BOTH_DC15_ATTACK
+	animAttack				BOTH_DC15_ATTACK
+	animAttackRun			BOTH_DC15_ATTACK
+	animAttackWalk			BOTH_DC15_ATTACK
 }
 
 description	"T-800 - Terminator
 
-Weaponry:
-Strong Melee
-Minigun"
+^2Weapons:
+- Strong Melee
+- Shotgun (3)
+-- Mag Reload
+- Minigun (3)
+-- 50% Less DMG
+-- 15% Slower Movement
+
+^8Attributes:
+- Melee Resistance
+- Cortosis (1)"
