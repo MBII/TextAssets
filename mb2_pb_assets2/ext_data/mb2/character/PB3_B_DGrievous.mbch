@@ -4,7 +4,7 @@ Classinfo
 {
 	name				"PB3_B_DGrievous"
 	weapons				WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
-	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,2|MB_ATT_CORTOSIS,2|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DEXTERITY,3|MB_ATT_DASH,3
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_FORCEBLOCK,2|MB_ATT_CORTOSIS,2|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_DASH,3|MB_ATT_BARGE,2
 	saber1				grievb4_wacky
 	saber2				grievg4_wacky
 	sabercolor			4
@@ -23,16 +23,43 @@ Classinfo
 	damageGiven			1.1
 	damageTaken 		0.9
 	modelscale			1.2
-	model				"darthgrievous"
-	skin				"default"
-	uishader			"models/players/darthgrievous/mb2_icon_default"
+	
+	model				"grievous"
+	skin				"darth"
+	uishader			"models/players/grievous/mb2_icon_darth"
+
+	model_1				"grievous"
+	skin_1				"darth_nocape"
+	uishader_1			"models/players/grievous/mb2_icon_darth_nocape"
+	
 	MBclass				MB_CLASS_SITH
 	Classflags			CFL_BLOODYMELEE|CFL_HEAVYMELEE
 	//classNumberLimit	1
 	
-	resource			RESOURCE_FORCE
-	special1			EAS_HI_DASH
-	meleespecial2		EAS_HI_GRAPPLEHOOK
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	meleespecial1		EAS_HI_SPRINT
+	special2			EAS_HI_BARGE
+	meleespecial2		EAS_HI_BARGE
+	special3			EAS_HI_DASH
+	meleespecial3		EAS_HI_DASH
+	special4			EAS_HI_GRAPPLEHOOK
+	meleespecial4		EAS_HI_GRAPPLEHOOK
+	
+	rageSoundOverride	"sound/chars/wrecker/misc/anger1.mp3"
+	bargeSoundOverride	"sound/chars/grievous4/misc/combat2.mp3"
+	
+	runForward			BOTH_GRIEVOUS_RUN 
+	runBackward			BOTH_GRIEVOUS_RUNBACK  
+	walkForward			BOTH_GRIEVOUS_WALK 
+	walkBackward		BOTH_GRIEVOUS_WALKBACK
+	tauntAnim			BOTH_ENGAGETAUNT
+	flourishAnim		BOTH_GRIEVOUS_TAUNT 
+	bowAnim				BOTH_GRIEVOUS_BOW //BOTH_REACHFORSABER1
+	saberStanceAnim		BOTH_GRIEVOUS_STANCE //BOTH_WOOKIEE_RAGE_STAND_IDLE
+	//crouchAnim		BOTH_GRIEVOUS_CRAWL_LOOP
+	//punchAnim			BOTH_WOOKIEE_RAGE_MELEE2
+	bargeAnim			BOTH_GRIEVOUS_CRAWL
 	
 	respawnCustomTime	50000
 }
@@ -44,18 +71,19 @@ WeaponInfo0
 	NewWorldModel			"models/weapons2/e5/e5_w.glm"
 	NewViewModel			"models/weapons2/e5/e5.md3"
 	Icon					"gfx/hud/w_icon_e5.tga"
-	WeaponName				"Grievous' Blaster"
+	WeaponName				"DT-57 'Annihilator' Blaster"
 	
-	hasAnimOverrides		1
-	animReady				BOTH_MAND_PISTOL_IDLE
-	animReadyRun			BOTH_MAND_PISTOL_READY
-	animReadyWalk			BOTH_MAND_PISTOL_READY
-	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
-	animAttack				BOTH_MAND_PISTOL_ATTACK
-	animAttackRun			BOTH_MAND_PISTOL_ATTACK
-	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
-	animStand				BOTH_MAND_PISTOL_IDLE
-	animCharge				BOTH_MAND_PISTOL_READY
+	ChargeSound				"sound/weapons/leia_pistol/altcharge.mp3"
+	
+	hasAnimOverrides	1
+	animReadyRun		TORSO_WEAPONIDLE2
+	animReady			TORSO_WEAPONIDLE2
+	animReadyWalk		TORSO_WEAPONIDLE2
+	animReadyNoAmmo		BOTH_ATTACK2 
+	animAttackRun		BOTH_ATTACK2 
+	animAttack			BOTH_ATTACK2 
+	animAttackWalk		BOTH_ATTACK2
+	animCharge			BOTH_ATTACK2
 }
 
 Description	"Darth Grievous
@@ -65,15 +93,15 @@ Yeah, you're best off to just stay away
 A killing machine with insane raw power
 
 ^2Weaponry:
-- Lightsabers
+- Four Lightsabers
 -- ^2Dual ^7Style Only
 -- Saber / Blaster Defense (2)
-- Grievous' Blaster (Pistol 3)
+- DT-57 'Annihilator' Blaster (Pistol 3)
 - Heavy Melee
 
 ^5Force Powers:
 - Jump (3)
-- Lightning (3)
+- Lightning (3) ^5[CS4]
 
 ^8Attributes:
 - Cortosis (2)
@@ -84,5 +112,7 @@ A killing machine with insane raw power
 - Force Block (2)
 
 ^3Abilities:
-- Dash (3) ^3[CS1]
-- Grapple Hook (4) ^3[CS2 Melee]"
+- Sprint ^3[CS1]
+- Claw Rush (Barge) ^3[CS2]
+- Dash (3) ^3[CS3]
+- Grapple Hook (4) ^3[CS4 Melee]"
