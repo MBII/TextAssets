@@ -8,22 +8,22 @@ ClassInfo
 
  weapons   WP_MELEE|WP_DC_CARBINE|WP_FRAG_NADE|WP_REPEATER
  WP_DCCarbineFlags HELD_ALTRELOAD
- WP_RepeaterFlags HELD_PULL //this disables knockdown, kewl
+ WP_RepeaterFlags HELD_EXPLOSIVE|HELD_FORCEFOCUS|HELD_POISON
 
- attributes  MB_ATT_AMMO,1|MB_ATT_DC_CARBINE,1|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH_JUMP|MB_ATT_REPEATER_NADES,6|MB_ATT_REPEATER
+ attributes  MB_ATT_AMMO,1|MB_ATT_DC_CARBINE,1|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH_JUMP|MB_ATT_REPEATER_NADES,3|MB_ATT_REPEATER
 
  maxhealth  90
 
  forcepool   115
  forceregen  1.25
- forcepowers  FP_SEE,1|FP_LEVITATION,1
+ forcepowers  FP_SEE,1
  
  resource   RESOURCE_STAMINA
 
  rateOfFire_Melee .9
 
  skilltimermod 1.75
- knockbackGiven 1
+ knockbackGiven .9
  knockbackTaken 1.5
  baseSpeed 195
 
@@ -58,19 +58,23 @@ ClassInfo
  uioverlay_l "gfx/icons/brawler"
 
  isCustomBuild  1
- mbPoints   1
+ mbPoints   3
 
  c_att_skill_0 MB_ATT_FP_LEVITATION
  c_att_names_0 "Crumb (Force) Jump"
- c_att_ranks_0 0,1,0
+ c_att_ranks_0 0,2,0
 
- c_att_skill_1 MB_ATT_DASH
- c_att_names_1 "Dash/Dash Jump ^3[CS3]"
+ c_att_skill_1 MB_ATT_BUNNY_HOP
+ c_att_names_1 "Bunny Hop"
  c_att_ranks_1 1
 
- c_att_skill_2 MB_ATT_GRAPPLE_HOOK
- c_att_names_2 "Grap. Hook/Hop ^3[CS4 Melee]"
- c_att_ranks_2 1
+ c_att_skill_2 MB_ATT_DASH
+ c_att_names_2 "Dash/Dash Jump ^3[CS3]"
+ c_att_ranks_2 3
+
+ c_att_skill_3 MB_ATT_GRAPPLE_HOOK
+ c_att_names_3 "Grap. Hook/Hop ^3[CS4 Melee]"
+ c_att_ranks_3 3
 }
 
 WeaponInfo0
@@ -98,9 +102,10 @@ WeaponInfo0
  rateMod 1.75
  damageMod 1.18
  velocityMod 1.5
+ reloadTimeModifier 1.1
 
  hasAnimOverrides 1
- animReadyWalk TORSO_WEAPONREADY3
+ animReadyWalk BOTH_WESTARM5_SCOPED_READY
  animReadyRun TORSO_WEAPONREADY3
  animReady TORSO_WEAPONREADY3
  animReadyNoAmmo BOTH_WESTARM5_ATTACK
@@ -136,7 +141,7 @@ WeaponInfo1
  MissileEffect  "stone/missile1"
  FlashSound0  "sound/weapons/stone/fire.mp3"
 
- damageMod 0.5
+ damageMod 0.01
  splashRadius 0
  customAmmo -1
  clipsize -1
@@ -152,6 +157,19 @@ WeaponInfo1
  animAttackWalk BOTH_THERMAL_THROW2
  animStand BOTH_TRIPLE3_DUALSTANCE
  selectSound "sound/player/footsteps/mud_walk4.mp3"
+}
+
+WeaponInfo2
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/fraggrenade/thermal_w.glm"
+	NewViewModel			"models/weapons2/fraggrenade/thermal_hand.md3"
+	MissileModel 			"models/weapons2/fraggrenade/thermal_proj.md3"
+	Icon						"gfx/hud/w_icon_fraggrenade"
+	WeaponName					"Foraged Class B Frag Grenade"
+ splashRadius 250
+ altFireEnabled 0
 }
 
 ForceInfo0
@@ -174,16 +192,18 @@ Cackling pests with nothing better to do than annoy anyone they see. Heard any g
 -- 18% more damage
 -- 50% more velocity
 -- 175% slower rate of fire
+-- 10% slower mag reload
 -- Primary fire only
-- ... (12) (IHR)
--- Pulls on hit
--- 50% less damage
+- ... (6) (IHR)
+-- Poisons/focuses on hit
+-- 95% less damage
 -- 100% smaller splash
 -- Secondary fire only
-- Frag Grenade (1)
+- Foraged Class B Frag Grenade (1)
+-- 28% smaller splash
+-- Primary fire only
 
 ^5Powers:
-- Crumb Jump (1)
 - Animal Instinct (Sense 1)
 
 ^8Attributes:
@@ -192,6 +212,7 @@ Cackling pests with nothing better to do than annoy anyone they see. Heard any g
 - Dexterity (1)
 - Strength (1)
 - Assemble (2)
+- 10% less knockback given
 - 50% more knockback taken
 - 75% slower skill cooldown
 
