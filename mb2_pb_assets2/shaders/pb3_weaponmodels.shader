@@ -110,7 +110,6 @@ models/weapons2/armgun_if/arm
 
 models/weapons2/baseball_bat/tex
 {
-	cull	twosided
     {
         map models/weapons2/baseball_bat/tex
         rgbGen lightingDiffuse

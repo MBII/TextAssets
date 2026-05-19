@@ -18,7 +18,7 @@ models/players/Kyle_DF2_MP/kyle_extras_red
         rgbGen lightingDiffuse
     }
     {
-        map gfx/effects/envmap
+        map models/players/Kyle_DF2_MP/envmap
         blendFunc GL_DST_COLOR GL_SRC_COLOR
         tcGen environment
     }

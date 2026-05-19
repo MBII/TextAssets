@@ -86,53 +86,6 @@ models/players/fluttershy/hair_cel
 	}
 }
 
-// Gus Fring
-
-models/players/gus_fring/torso
-{
-	q3map_nolightmap
-	cull twosided
-	{
-		map models/players/gus_fring/torso
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/gus_fring/body
-{
-	q3map_nolightmap
-	{
-		map models/players/gus_fring/body
-		rgbGen lightingDiffuse
-	}
-}
-
-models/players/gus_fring/torsoarmor
-{
-	cull	twosided
-	{
-		map models/players/gus_fring/torsoarmor
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/gus_fring/torsoarmor_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/gus_fring/torsoarmor_glow
-		blendFunc GL_ONE GL_ONE
-		rgbGen wave square 0 1 0 2
-	}
-}
-
 //Hitler
 
 models/players/hitlermodel/mouth_eyes
@@ -182,7 +135,6 @@ models/players/hitlermodel/icon_kickme
 models/players/inferno/boots_hips
 {
 	q3map_material	Fabric
-	cull	disable
     {
         map models/players/inferno/boots_hips
         alphaFunc GE192
@@ -199,7 +151,6 @@ models/players/inferno/boots_hips
 models/players/inferno/hand
 {
 	q3map_material	Fabric
-	cull	disable
     {
         map models/players/inferno/hand
         alphaFunc GE192
@@ -216,7 +167,6 @@ models/players/inferno/hand
 models/players/inferno/helmet
 {
 	q3map_material	Fabric
-	cull	disable
     {
         map models/players/inferno/helmet
         alphaFunc GE192
@@ -233,7 +183,6 @@ models/players/inferno/helmet
 models/players/inferno/helmet_emp
 {
 	q3map_material	Fabric
-	cull	disable
     {
         map models/players/inferno/helmet_emp
         alphaFunc GE192
@@ -250,7 +199,6 @@ models/players/inferno/helmet_emp
 models/players/inferno/lifesupport
 {
 	q3map_material	Fabric
-	cull	disable
     {
         map models/players/inferno/lifesupport
         alphaFunc GE192
@@ -267,7 +215,6 @@ models/players/inferno/lifesupport
 models/players/inferno/pilot_leg
 {
 	q3map_material	Fabric
-	cull	disable
     {
         map models/players/inferno/pilot_leg
         alphaFunc GE192
@@ -284,7 +231,6 @@ models/players/inferno/pilot_leg
 models/players/inferno/pilot_torso
 {
 	q3map_material	Fabric
-	cull	disable
     {
         map models/players/inferno/pilot_torso
         alphaFunc GE192
@@ -301,7 +247,6 @@ models/players/inferno/pilot_torso
 models/players/inferno/belt
 {
 	q3map_material	Fabric
-	cull	twosided
     {
         map models/players/inferno/belt
         //alphaFunc GE192
@@ -312,15 +257,6 @@ models/players/inferno/belt
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
-    }
-}
-
-models/players/inferno/armor
-{
-	cull	twosided
-    {
-        map models/players/inferno/armor
-        rgbGen lightingDiffuse
     }
 }
 
@@ -393,7 +329,6 @@ models/players/invis_ventress/hair
 
 models/players/mcSteve/char
 {
-	cull twosided
     {
         map models/players/mcSteve/char
         alphaFunc GE128
@@ -405,7 +340,6 @@ models/players/mcSteve/char
 
 models/players/mcSteve/herobrine
 {
-	cull twosided
     {
         map models/players/mcSteve/herobrine
         alphaFunc GE128
@@ -447,7 +381,6 @@ models/players/mcSteve/diamond_2
 
 models/players/mcSteve/cape
 {
-	cull twosided
     {
         map models/players/mcSteve/cape
         alphaFunc GE128
@@ -739,7 +672,6 @@ models/players/Night_King_v2/hips
 
 models/players/rainbow_marka_ragnos/marka_torso
 {
-cull disable
     {
         map models/players/rainbow_marka_ragnos/marka_torso
         alphaFunc GE192
@@ -750,7 +682,6 @@ cull disable
 
 models/players/rainbow_marka_ragnos/marka_hips
 {
-cull disable
     {
         map models/players/rainbow_marka_ragnos/marka_hips
         alphaFunc GE192
@@ -761,7 +692,6 @@ cull disable
 
 models/players/rainbow_marka_ragnos/marka_torso_rainbow
  {
-cull disable	
 	
     {
 	map models/players/rainbow_marka_ragnos/marka_torso
@@ -781,7 +711,6 @@ cull disable
 
 models/players/rainbow_marka_ragnos/marka_arms_rainbow
  {	
-cull disable	
     {
 	map models/players/rainbow_marka_ragnos/marka_arms
 	rgbGen lightingDiffuse
@@ -799,7 +728,6 @@ cull disable
 
 models/players/rainbow_marka_ragnos/marka_head_rainbow
  {
-cull disable	
 	
     {
 	map models/players/rainbow_marka_ragnos/marka_head
@@ -819,7 +747,6 @@ cull disable
 
 models/players/rainbow_marka_ragnos/marka_hips_rainbow
  {
-cull disable	
 	
     {
 	map models/players/rainbow_marka_ragnos/marka_hips
@@ -939,7 +866,6 @@ models/players/pyramid_head/skirt_blue
 
 models/players/stormurai/basic_hand_stormy
 {
-cull twosided
    {
        map models/players/stormurai/basic_hand_stormy
        rgbGen lightingDiffuse
@@ -954,7 +880,6 @@ cull twosided
 }
 models/players/stormurai/face_stormy
 {
-cull twosided
    {
        map models/players/stormurai/face_stormy
        rgbGen lightingDiffuse
@@ -969,7 +894,6 @@ cull twosided
 }
 models/players/stormurai/head_stormy
 {
-cull twosided
    {
        map models/players/stormurai/head_stormy
        rgbGen lightingDiffuse
@@ -984,7 +908,6 @@ cull twosided
 }
 models/players/stormurai/kabuto_stormy
 {
-cull twosided
    {
        map models/players/stormurai/kabuto_stormy
        rgbGen lightingDiffuse
@@ -999,7 +922,6 @@ cull twosided
 }
 models/players/stormurai/katana_stormy
 {
-cull twosided
    {
        map models/players/stormurai/katana_stormy
        rgbGen lightingDiffuse
@@ -1014,7 +936,6 @@ cull twosided
 }
 models/players/stormurai/menpo_stormy
 {
-cull twosided
    {
        map models/players/stormurai/menpo_stormy
        rgbGen lightingDiffuse
@@ -1029,7 +950,6 @@ cull twosided
 }
 models/players/stormurai/torso_stormy2
 {
-cull twosided
    {
        map models/players/stormurai/torso_stormy2
        rgbGen lightingDiffuse
@@ -1044,7 +964,6 @@ cull twosided
 }
 models/players/stormurai/torso_stormy
 {
-cull twosided
    {
        map models/players/stormurai/torso_stormy
        rgbGen lightingDiffuse
@@ -1059,7 +978,6 @@ cull twosided
 }
 models/players/stormurai/trainer_legs_stormy
 {
-cull twosided
    {
        map models/players/stormurai/trainer_legs_stormy
        rgbGen lightingDiffuse
@@ -1074,7 +992,6 @@ cull twosided
 }
 models/players/stormurai/trainer_parts_stormy
 {
-cull twosided
    {
        map models/players/stormurai/trainer_parts_stormy
        rgbGen lightingDiffuse
@@ -1092,30 +1009,79 @@ cull twosided
 
 models/players/zuko/tot
 {
-q3map_normalimage models/players/zuko/tots
-qer_editorimage models/players/zuko/tot
-q3map_lightmapsamplesize 1x1
-{
-map $lightmap
-rgbGen identity
-}
-{
-map models/players/zuko/tot
-blendFunc GL_DST_COLOR GL_ZERO
-}
+	q3map_normalimage models/players/zuko/tots
+	qer_editorimage models/players/zuko/tot
+	q3map_lightmapsamplesize 1x1
+	{
+		map $lightmap
+		rgbGen identity
+	}
+	{
+		map models/players/zuko/tot
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
 }
 
 models/players/zuko/arm
 {
-q3map_normalimage models/players/zuko/tots
-qer_editorimage models/players/zuko/arm
-q3map_lightmapsamplesize 1x1
-{
-map $lightmap
-rgbGen identity
+	q3map_normalimage models/players/zuko/tots
+	qer_editorimage models/players/zuko/arm
+	q3map_lightmapsamplesize 1x1
+	{
+		map $lightmap
+		rgbGen identity
+	}
+	{
+		map models/players/zuko/arm
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
 }
+
+// Darth Grievous Remake
+models/players/darthgrievous/g02
 {
-map models/players/zuko/arm
-blendFunc GL_DST_COLOR GL_ZERO
+    {
+        map models/players/darthgrievous/g02
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/grievous/metal_env
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+        tcGen environment
+		detail
+    }
+    {
+        map models/players/grievous/metal_env2
+        blendFunc GL_ONE GL_ONE
+        tcGen environment
+		detail
+    }
+    {
+        map models/players/darthgrievous/g02
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen lightingDiffuse
+		detail
+    }
+    {
+        map models/players/grievous/g02_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
 }
+
+models/players/darthgrievous/g01
+{
+	cull	twosided
+    {
+        map models/players/darthgrievous/g01
+        rgbGen lightingDiffuse
+		alphaFunc GE128
+    }
+	{
+        map models/players/darthgrievous/g01_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
 }
