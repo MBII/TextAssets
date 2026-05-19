@@ -2128,3 +2128,31 @@ models/weapons2/sab_hilts/ispdvb/base
     }
 }
 
+// KOTOR Frag Grenade
+models/weapons2/kotor_gfrag/grenade
+{
+	{
+		map models/weapons2/kotor_gfrag/grenade
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/kotor_gfrag/grenade_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/weapons2/kotor_gfrag/core
+{
+	{
+		map models/weapons2/kotor_gfrag/core
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/kotor_gfrag/core_glow
+		blendFunc GL_ONE GL_ONE
+		glow
+		rgbGen identity
+	}
+}
