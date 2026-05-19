@@ -1,11 +1,9 @@
 
-
 ClassInfo
 {
 	name	"v8_GamoPig"
 
 	MBClass	MB_CLASS_WOOKIE
-	classNumberLimit	4
 	extralives		1
 
 	weapons	WP_SABER|WP_MELEE|WP_A280|WP_THERMAL
@@ -25,6 +23,7 @@ ClassInfo
 	resource		RESOURCE_FORCE
 	forcepool	25
 	knockbackTaken 0.85
+ meleeknockback_flat 50
 
 	classflags CFL_STRONGAGAINSTPHYSICAL
 
@@ -34,7 +33,8 @@ ClassInfo
 	saberDamage 200
 	saberstyle	SS_MEDIUM|SS_STRONG
 	saber1			gamo_axe_legends
-	saber1_1			bardiche_legends
+	saber1_2		bardiche_legends
+ saber1_1 gamo_staff_legends
 
 	special2 EAS_HI_BARGE
 	meleespecial2 	EAS_HI_BARGE
@@ -50,7 +50,8 @@ ClassInfo
 	uioverlay_r "gfx/icons/infantry"
 	uioverlay_l "gfx/icons/brawler"
 	uioverlay_c "gfx/icons/heavy"
-
+ RunForward BOTH_RUN_DUAL
+ RunBackward BOTH_RUNBACK_DUAL
 	gloatAnim BOTH_VICTORY_FAST
 	WalkBackward BOTH_WALKBACK_DUAL
 	WalkForward BOTH_WALK_DUAL
@@ -95,26 +96,30 @@ WeaponInfo2
 	damagemod 2.5
 }
 
-description	"Gamorrean Guard 
+description	"Gamorrean Guard
 
-Versatile 2-life gunners with Strength and a heavy Saber.
+Absolute pigs with hard-hitting Sabers and fast shoulder checks.
 
 ^2Weaponry:
 - Melee
+-- 50% more knockback
 -- 15% slower movement 
 - Gamorrean Saber (Red/Yellow)
 -- No Saber/Blaster Block
 -- Chain Limit: 2
--- Staggers on hit
+-- Staggers/pushes on hit
 > Gamorrean Axe
--- 15% more attack speed
+-- 15% more AS
 -- 20% more knockback
 -- 50% shorter
 -- 100% thicker
+> Gamorrean Staff
+-- 12% longer
+-- 20% more knockback
 > Gamorrean Bardiche
 -- 15% longer
 -- 25% more knockback
--- 5% less attack speed
+-- 5% less AS
 -- 67% thicker
 - Modified E-11 Blaster Rifle (A280 3)
 - Heavy Thermal Grenades (2)
@@ -123,13 +128,13 @@ Versatile 2-life gunners with Strength and a heavy Saber.
 
 ^8Attributes:
 - Reinforcement (1)
-- 60% faster skill cooldown
-- 15% less knockback taken
 - Strength (2)
 - Blast Armor
 - Melee Resist
 - Healing (2)
 - Assemble (2)
+- 60% faster skill cooldown
+- 15% less knockback taken
 
 ^3Abilities:
 - Shoulder Barge ^3[Melee CS2]"
