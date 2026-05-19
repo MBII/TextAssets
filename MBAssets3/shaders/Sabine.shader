@@ -1,3 +1,80 @@
+// mandalorian
+
+models/players/sabinewren/addons
+{
+	cull twosided
+	{
+		map models/players/sabinewren/addons
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/sabinewren/addons_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/sabinewren/body
+{
+	{
+		map models/players/sabinewren/body
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/sabinewren/body_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/sabinewren/body_cull
+{
+	cull twosided
+	{
+		map models/players/sabinewren/body
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/sabinewren/body_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/sabinewren/helmet
+{
+	cull twosided
+	{
+		map models/players/sabinewren/helmet
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/sabinewren/helmet_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+models/players/sabinewren/jetpack
+{
+	{
+		map models/players/sabinewren/jetpack
+		rgbGen lightingDiffuse
+	}
+ 	{
+        map models/players/sabinewren/jetpack_spec
+       	blendFunc GL_SRC_ALPHA GL_ONE
+      	detail
+       	alphaGen lightingSpecular
+	}
+}
+
+// jedi training
+
 models/players/sabine/jedi_trainer
 {
     {
