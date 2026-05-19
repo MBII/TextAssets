@@ -839,7 +839,7 @@ gfx/2d/kotor_gfrag/spark1
     }
 }
 
-models/chunks/kotor_gfrag/shrapnel
+models/weapons2/kotor_gfrag/shrapnel
 {
 	q3map_nolightmap
 	cull	twosided
@@ -848,7 +848,7 @@ models/chunks/kotor_gfrag/shrapnel
         rgbGen lightingDiffuse
     }
     {
-        map models/chunks/kotor_gfrag/shrapnel
+        map models/weapons2/kotor_gfrag/shrapnel
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen vertex
         alphaGen vertex
