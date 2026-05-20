@@ -16,7 +16,8 @@ jobs:
       - name: Package Files
         shell: powershell
         run: |
-          Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber
+          $winver = Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber
+          Write-Host $winver
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
           svn cleanup --vacuum-pristines $GAMEDATA
