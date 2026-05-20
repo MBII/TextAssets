@@ -16,9 +16,7 @@ jobs:
       - name: Package Files
         shell: powershell
         run: |
-          $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-          Write-Host $user
-          net user github
+          Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
           svn cleanup --vacuum-pristines $GAMEDATA
