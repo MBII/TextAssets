@@ -19,7 +19,7 @@ jobs:
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
           $SvnDirs = Get-ChildItem -Recurse -Directory -Filter ".svn" "C:\Program Files (x86)\LucasArts" | Select-Object -ExpandProperty FullName
-          Write-Host "Found SVN dirs:"
+          Write-Host "Found .SVN dirs: $($SvnDirs.Count)"
           $SvnDirs | ForEach-Object { Write-Host $_ }
           svn cleanup --vacuum-pristines $GAMEDATA
           svn update $MBII
