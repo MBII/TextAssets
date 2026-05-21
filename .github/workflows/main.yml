@@ -20,6 +20,11 @@ jobs:
           $MBII = $GAMEDATA + "\MBIITest"
           $SvnDirs = Get-ChildItem -Recurse -Directory -Filter ".svn" "C:\Program Files (x86)\LucasArts" | Select-Object -ExpandProperty FullName
           Write-Host "Found .SVN dirs: $($SvnDirs.Count)"
+          Write-Host "ACL for: $path"
+          $acl = Get-Acl $GAMEDATA
+          foreach ($entry in $acl.Access) {
+            Write-Host ("{0} : {1} ({2})" -f $entry.IdentityReference, $entry.FileSystemRights, $entry.AccessControlType)
+          }
           $SvnDirs | ForEach-Object { Write-Host $_ }
           svn cleanup --vacuum-pristines $GAMEDATA
           svn update $MBII
