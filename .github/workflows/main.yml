@@ -20,6 +20,9 @@ jobs:
           Write-Host $winver
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
+          $SVN = $GAMEDATA + "\.svn"
+          Remove-Item $SVN -Recurse -Force
+          svn checkout svn://dev.moviebattles.org/moviebattles $GAMEDATA
           svn cleanup --vacuum-pristines $GAMEDATA
           svn update $MBII
           $LegendsPk3 = $MBII + "\z_MBLegends.pk3"
