@@ -1,0 +1,899 @@
+/* mouse_vehicle
+{
+name			Mouse
+type			VH_ANIMAL
+numHands		0
+lookYaw			360
+lookPitch		360
+length			128
+width			16
+height		8
+centerOfGravity	"0 0 0"
+
+///speed
+speedMax		200
+speedMin		-200
+turboSpeed		400
+turboDuration		1500
+turboRecharge		15000
+acceleration		10
+decelIdle		20
+strafePerc		0.0
+fuelMax 100  
+fuelRate 100
+//accelIdle
+//throttleSticks
+
+///handling
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			100
+mouseYaw		1
+mousePitch 1
+turningSpeed		120
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.75
+//speedDependantTurning
+//landingHeight
+
+///durability
+mass	20
+armor 250
+toughness 	0
+shields 0
+shieldRechargeMS 0
+malfunctionArmorLevel 25
+surfDestruction 0
+
+///misc
+gravity  1200 //1 lol
+hoverHeight     0
+hoverStrength   0
+waterProof     1
+bouyancy 1       
+//visibility        
+//loudness           
+explosionRadius    100
+explosionDamage   75  
+maxPassengers  0
+hideRider  0
+killRiderOnDeath 1
+flammable   1 
+explosionDelay 0
+
+//MBFstopprimaryfiring    0  
+//MBFstopaltfiring        0  
+//MBFdisableshields       0   
+
+//CantKnockoutShields    0/1    // Used for Deka shield toggle (Deka?)
+AllWeaponsDoDamageToArmor    1   // If damage do direct damage to Health (Deka?)
+AllWeaponsDoDamageToShields  1   // If damage do direct damage to Shields (Deka?)
+ResistsMarking               1    // Whether to paint damage marks on vehicle
+SpeedMultiplierForRamDamage  0 //0.000175
+RamDamage      1 //1
+VehicleScale     100
+NoDamageWalls   1 //keep 1 or crash!
+
+///visuals
+model			mouse
+riderAnim	 BOTH_SIT1	//BOTH_VS_IDLE
+//g2radius
+
+///Hud and Radar
+radarIcon           "gfx/menus/radar/tauntaun"
+//dmgIndicFrame         "directory/nameoffile"   
+//dmgIndicShield        "directory/nameoffile"   
+//dmgIndicBackground    "directory/nameoffile"   
+//icon_front            "directory/nameoffile"   
+//icon_back             "directory/nameoffile"    
+//icon_right            "directory/nameoffile"    
+//icon_left             "directory/nameoffile"    
+//crosshairShader       "directory/nameoffile"    
+//shieldShader          "directory/nameoffile"
+
+///Sounds
+    soundOn             "sound/chars/mouse/misc/mousego1.mp3"    //Sound to play when get on it
+    soundOff           "sound/chars/mouse/misc/mousego3.mp3"   //Sound to play when get off
+    soundLoop           "sound/chars/mouse/misc/mouse_lp.wav"    //Sound to loop while riding it
+    //soundTakeOff        "sound/directory/nameofsound.mp3"    //Sound to play when ship takes off
+    //soundEngineStart    "sound//nameofsound.mp3"             //Sound to play when ship's thrusters first activate
+    //soundSpin           "sound/directory/nameofsound.mp3"    //Sound to loop while spiraling out of control
+    soundTurbo          "sound/chars/mouse/misc/pain75.mp3"  //Sound to play when turbo/afterburner kicks in
+   // soundHyper          "sound/directory/nameofsound.mp3"    //Sound to play when hits hyperspace
+    //soundLand           "sound/directory/nameofsound.mp3"    //Sound to play when ship lands
+   // soundFlyBy          "sound/directory/nameofsound.mp3"    //Sound to play when they buzz you
+   // soundFlyBy2         "sound/directory/nameofsound.mp3"    //Alternate sound to play when they buzz you
+    soundShift1         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+    soundShift2         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+    soundShift3         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+    soundShift4         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+
+///Effects
+    //exhaustFX       "directory/nameofeffect"    //Exhaust effect, played from "*exhaust" bolt(s)
+   //turboFX         "flechette/flesh_impact"  //Turbo exhaust effect, played from "*exhaust" bolt(s) when ship is in "turbo" mode
+    //turboStartFX   "flechette/flesh_impact"    //Turbo start effect, played from "*exhaust" bolt(s) when ship is in "turbo" mode
+    trailFX         "stone/missile1"  //Trail effect, played from "*trail" bolt(s)
+    impactFX        "sparks/bluesparks_w_sound"       //Impact effect, for when it bumps into something
+    explodeFX        "grenades/exp_alt"     //Explosion effect, for when it blows up (should have the sound built into explosion effect)
+    //wakeFX          "directory/nameofeffect"    //Effect it makes when going across water
+    dmgFX          "sparks/bluesparks_w_sound"       //Effect to play on damage from a weapon or something
+
+    //injureFX        "directory/nameofeffect"    //Effect to play on partially damaged ship surface
+    //noseFX          "directory/nameofeffect"    //Effect for nose piece flying away when blown off
+    //lwingFX         "directory/nameofeffect"    //Effect for left wing piece flying away when blown off
+    //rwingFX         "directory/nameofeffect"    //Effect for right wing piece flying away when blown off
+    armorLowFX     "sparks/bluesparks_w_sound"     //Effect to play on damage from a weapon or something
+    armorGoneFX    "sparks/bluesparks_w_sound"         //Effect to play on damage from a weapon or something
+
+    noFireball    0    //Whether to play death effects
+    HanHack       0    //Special indicator to make boarding the vehicle impossible
+    GroundTrace   1   //Enabled by Droidekas, allows swoops and fighters to keep their natural base physics.
+	
+    PlayerAsVehicleEject  0   //Allows ejecting from custom FA vehicles which players auto board at spawn (unless VH_DEKA).
+
+///Primary Attack
+    weap1                  veh_wpn_name    //Name of weapon (must be inside ext_data/vehicles/weapons or it won't be read)
+    weap1Aim               0/1             //Whether or not to auto-aim the projectiles at the thing under the crosshair when we fire
+    weap1Delay             #               //The delay between shots for this weapon, in msec
+    weap1Link              0/1/2           //0 for unlinkable, 1 for linkable, 2 for always linked (linked delay = weapon delay * number of muzzles linked!)
+    weap1AmmoMax           #               //Max amount of ammo
+    weap1AmmoRechargeMS    #               //Ammo recharge rate - milliseconds per unit (minimum of 100, which is 10 ammo per second)
+    weap1SoundNoAmmo    "sound/directory/nameofsound.mp3"    //Sound to play when try to fire weapon 1 with no ammo
+
+    // Secondary Attack
+    weap2                  veh_wpn_name    //Name of weapon 2 (must be inside ext_data/vehicles/weapons or it won't be read)
+    weap2Aim               0/1             //Whether or not to auto-aim the projectiles at the thing under the crosshair when we fire
+    weap2Delay             #               //The delay between shots for this weapon, in msec
+    weap2Link              0/1/2           //0 for unlinkable, 1 for linkable, 2 for always linked (linked delay = weapon delay * number of muzzles linked!)
+    weap2AmmoMax           #               //Max amount of ammo
+    weap2AmmoRechargeMS    #               //Ammo recharge rate - milliseconds per unit (minimum of 100, which is 10 ammo per second)
+    weap2SoundNoAmmo    "sound/directory/nameofsound.mp3"    //Sound to play when try to fire weapon 2 with no ammo
+
+    // Where the vehicle fires from, must have tags in model. Up to 10 (has to match one of the weapons this vehicle has).
+    weapMuzzle1     veh_wpn_name
+    weapMuzzle2     veh_wpn_name
+    weapMuzzle3     veh_wpn_name
+    weapMuzzle4     veh_wpn_name
+    weapMuzzle5     veh_wpn_name
+    weapMuzzle6     veh_wpn_name
+    weapMuzzle7     veh_wpn_name
+    weapMuzzle8     veh_wpn_name
+    weapMuzzle9     veh_wpn_name
+    weapMuzzle10    veh_wpn_name
+
+///Camera
+    cameraOverride                   1   //Override the third person camera with the below values - normal is 0 (off)
+    cameraRange                  120   //How far back the camera should be - normal is 80
+    cameraVertOffset              48 //How high over the vehicle origin the camera should be - normal is 16
+    //cameraHorzOffset       #.#    //How far to left/right (negative/positive) of of the vehicle origin the camera should be - normal is 0
+    //cameraPitchOffset      #.#    //A modifier on the camera's pitch (up/down angle) to the vehicle - normal is 0
+    cameraFOV         100   //Third person camera FOV, default is 80
+    cameraAlph        0.1   //Fade out the vehicle to this alpha (0.1-1.0f) if it's in the way of the crosshair
+    //cameraPitchDependantVertOffset    0/1    //Use the hacky AT-ST pitch dependant vertical offset
+
+    firstPersonCameraMode             1      //Enable first person camera, 1 = eyeview, 2 = offset
+    //firstPersonCameraRange            #.#    //How far back the camera should be
+    //firstPersonCameraVertOffset       #.#    //How high over the vehicle origin the camera should be
+    //firstPersonCameraHorzOffset       #.#    //How far to left/right (negative/positive) of of the vehicle origin the camera should be - normal is 0
+   // firstPersonCameraPitchOffset      #.#    //A modifier on the camera's pitch (up/down angle) to the vehicle
+    //firstPersonCameraFOV              #.#    //First person camera FOV, default is 80
+    //firstPersonHideBone1              #      //Hide these bones if in first person.
+    //firstPersonHideBone2              #
+   // firstPersonHideBone3              #
+   // firstPersonHideBone4              #
+}
+
+gonk_vehicle
+{
+name			Gonk
+type			VH_ANIMAL //VH_SPEEDER VH_WALKER VH_ANIMAL VH_FIGHTER lol VH_DEKA
+class		CLASS_VEHICLE
+numHands		0
+lookYaw			360
+lookPitch		360
+length		100
+height 100
+crouchheight 48
+width 100
+centerOfGravity	"0 0 0"
+VehicleScale   100
+
+///visuals
+model			gonk
+riderAnim	 BOTH_VS_IDLE
+//g2radius
+
+///speed
+speedMax		200
+speedMin		-200
+turboSpeed		400
+turboDuration		1500
+turboRecharge		15000
+acceleration		10
+decelIdle		20
+strafePerc		0.0
+fuelMax 100  
+fuelRate 100
+//accelIdle
+//throttleSticks
+
+///handling
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			100
+mouseYaw		1
+mousePitch 1
+turningSpeed		120
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.75
+//speedDependantTurning
+//landingHeight
+
+///durability
+mass	20
+armor 250
+toughness 	0
+shields 0
+shieldRechargeMS 0
+malfunctionArmorLevel 25
+surfDestruction 0
+
+///misc
+gravity  1200 //1 lol
+hoverHeight     0
+hoverStrength   0
+waterProof     1
+bouyancy 1       
+//visibility        
+//loudness           
+explosionRadius    100
+explosionDamage   75  
+maxPassengers  0
+hideRider  0
+killRiderOnDeath 1
+flammable   1 
+explosionDelay 0
+
+//MBFstopprimaryfiring    0  
+//MBFstopaltfiring        0  
+//MBFdisableshields       0   
+
+//CantKnockoutShields    0/1    // Used for Deka shield toggle (Deka?)
+AllWeaponsDoDamageToArmor    1   // If damage do direct damage to Health (Deka?)
+AllWeaponsDoDamageToShields  1   // If damage do direct damage to Shields (Deka?)
+ResistsMarking               1    // Whether to paint damage marks on vehicle
+SpeedMultiplierForRamDamage  0 //0.000175
+RamDamage      1 //1
+
+NoDamageWalls   1 //keep 1 or crash!
+
+///Hud and Radar
+radarIcon           "gfx/menus/radar/tauntaun"
+//dmgIndicFrame         "directory/nameoffile"   
+//dmgIndicShield        "directory/nameoffile"   
+//dmgIndicBackground    "directory/nameoffile"   
+//icon_front            "directory/nameoffile"   
+//icon_back             "directory/nameoffile"    
+//icon_right            "directory/nameoffile"    
+//icon_left             "directory/nameoffile"    
+//crosshairShader       "directory/nameoffile"    
+//shieldShader          "directory/nameoffile"
+
+///Sounds
+    soundOn             "sound/chars/mouse/misc/mousego1.mp3"    //Sound to play when get on it
+    soundOff           "sound/chars/mouse/misc/mousego3.mp3"   //Sound to play when get off
+    soundLoop           "sound/chars/mouse/misc/mouse_lp.wav"    //Sound to loop while riding it
+    //soundTakeOff        "sound/directory/nameofsound.mp3"    //Sound to play when ship takes off
+    //soundEngineStart    "sound//nameofsound.mp3"             //Sound to play when ship's thrusters first activate
+    //soundSpin           "sound/directory/nameofsound.mp3"    //Sound to loop while spiraling out of control
+    soundTurbo          "sound/chars/mouse/misc/pain75.mp3"  //Sound to play when turbo/afterburner kicks in
+   // soundHyper          "sound/directory/nameofsound.mp3"    //Sound to play when hits hyperspace
+    //soundLand           "sound/directory/nameofsound.mp3"    //Sound to play when ship lands
+   // soundFlyBy          "sound/directory/nameofsound.mp3"    //Sound to play when they buzz you
+   // soundFlyBy2         "sound/directory/nameofsound.mp3"    //Alternate sound to play when they buzz you
+    soundShift1         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+    soundShift2         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+    soundShift3         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+    soundShift4         "sound/chars/mouse/misc/mousego1.mp3"  //Sound to play when changing speeds
+
+///Effects
+    //exhaustFX       "directory/nameofeffect"    //Exhaust effect, played from "*exhaust" bolt(s)
+   //turboFX         "flechette/flesh_impact"  //Turbo exhaust effect, played from "*exhaust" bolt(s) when ship is in "turbo" mode
+    //turboStartFX   "flechette/flesh_impact"    //Turbo start effect, played from "*exhaust" bolt(s) when ship is in "turbo" mode
+    trailFX         "stone/missile1"  //Trail effect, played from "*trail" bolt(s)
+    impactFX        "sparks/bluesparks_w_sound"       //Impact effect, for when it bumps into something
+    explodeFX        "grenades/exp_alt"     //Explosion effect, for when it blows up (should have the sound built into explosion effect)
+    //wakeFX          "directory/nameofeffect"    //Effect it makes when going across water
+    dmgFX          "sparks/bluesparks_w_sound"       //Effect to play on damage from a weapon or something
+
+    //injureFX        "directory/nameofeffect"    //Effect to play on partially damaged ship surface
+    //noseFX          "directory/nameofeffect"    //Effect for nose piece flying away when blown off
+    //lwingFX         "directory/nameofeffect"    //Effect for left wing piece flying away when blown off
+    //rwingFX         "directory/nameofeffect"    //Effect for right wing piece flying away when blown off
+    armorLowFX     "sparks/bluesparks_w_sound"     //Effect to play on damage from a weapon or something
+    armorGoneFX    "sparks/bluesparks_w_sound"         //Effect to play on damage from a weapon or something
+
+    noFireball    0    //Whether to play death effects
+    HanHack       0    //Special indicator to make boarding the vehicle impossible
+    GroundTrace   1   //Enabled by Droidekas, allows swoops and fighters to keep their natural base physics.
+	
+    PlayerAsVehicleEject  0   //Allows ejecting from custom FA vehicles which players auto board at spawn (unless VH_DEKA).
+
+///Primary Attack
+    weap1                  veh_wpn_name    //Name of weapon (must be inside ext_data/vehicles/weapons or it won't be read)
+    weap1Aim               0/1             //Whether or not to auto-aim the projectiles at the thing under the crosshair when we fire
+    weap1Delay             #               //The delay between shots for this weapon, in msec
+    weap1Link              0/1/2           //0 for unlinkable, 1 for linkable, 2 for always linked (linked delay = weapon delay * number of muzzles linked!)
+    weap1AmmoMax           #               //Max amount of ammo
+    weap1AmmoRechargeMS    #               //Ammo recharge rate - milliseconds per unit (minimum of 100, which is 10 ammo per second)
+    weap1SoundNoAmmo    "sound/directory/nameofsound.mp3"    //Sound to play when try to fire weapon 1 with no ammo
+
+    // Secondary Attack
+    weap2                  veh_wpn_name    //Name of weapon 2 (must be inside ext_data/vehicles/weapons or it won't be read)
+    weap2Aim               0/1             //Whether or not to auto-aim the projectiles at the thing under the crosshair when we fire
+    weap2Delay             #               //The delay between shots for this weapon, in msec
+    weap2Link              0/1/2           //0 for unlinkable, 1 for linkable, 2 for always linked (linked delay = weapon delay * number of muzzles linked!)
+    weap2AmmoMax           #               //Max amount of ammo
+    weap2AmmoRechargeMS    #               //Ammo recharge rate - milliseconds per unit (minimum of 100, which is 10 ammo per second)
+    weap2SoundNoAmmo    "sound/directory/nameofsound.mp3"    //Sound to play when try to fire weapon 2 with no ammo
+
+    // Where the vehicle fires from, must have tags in model. Up to 10 (has to match one of the weapons this vehicle has).
+    weapMuzzle1     veh_wpn_name
+    weapMuzzle2     veh_wpn_name
+    weapMuzzle3     veh_wpn_name
+    weapMuzzle4     veh_wpn_name
+    weapMuzzle5     veh_wpn_name
+    weapMuzzle6     veh_wpn_name
+    weapMuzzle7     veh_wpn_name
+    weapMuzzle8     veh_wpn_name
+    weapMuzzle9     veh_wpn_name
+    weapMuzzle10    veh_wpn_name
+
+///Camera
+    cameraOverride                   1   //Override the third person camera with the below values - normal is 0 (off)
+    cameraRange                  120   //How far back the camera should be - normal is 80
+    cameraVertOffset              48 //How high over the vehicle origin the camera should be - normal is 16
+    //cameraHorzOffset       #.#    //How far to left/right (negative/positive) of of the vehicle origin the camera should be - normal is 0
+    //cameraPitchOffset      #.#    //A modifier on the camera's pitch (up/down angle) to the vehicle - normal is 0
+    cameraFOV         100   //Third person camera FOV, default is 80
+    cameraAlph        0.1   //Fade out the vehicle to this alpha (0.1-1.0f) if it's in the way of the crosshair
+    //cameraPitchDependantVertOffset    0/1    //Use the hacky AT-ST pitch dependant vertical offset
+
+    firstPersonCameraMode             1      //Enable first person camera, 1 = eyeview, 2 = offset
+    //firstPersonCameraRange            #.#    //How far back the camera should be
+    //firstPersonCameraVertOffset       #.#    //How high over the vehicle origin the camera should be
+    //firstPersonCameraHorzOffset       #.#    //How far to left/right (negative/positive) of of the vehicle origin the camera should be - normal is 0
+   // firstPersonCameraPitchOffset      #.#    //A modifier on the camera's pitch (up/down angle) to the vehicle
+    //firstPersonCameraFOV              #.#    //First person camera FOV, default is 80
+    //firstPersonHideBone1              #      //Hide these bones if in first person.
+    //firstPersonHideBone2              #
+   // firstPersonHideBone3              #
+   // firstPersonHideBone4              #
+}
+
+/* a-wing_mini
+{
+name		a-wing_mini
+type			VH_FIGHTER
+numHands		2
+hideRider	0
+killRiderOnDeath 	1
+lookYaw			45
+length			75
+width			50
+height			35
+g2radius			95
+centerOfGravity		"-0.222 0 -0.222"
+
+//test: speed stays at whatever you last set it to...
+throttleSticks	1
+
+
+//ms per point of recharge
+
+model			a-wing
+riderAnim		BOTH_VS_IDLE
+droidNPC		"random"
+radarIcon		"gfx/menus/radar/aw"
+dmgIndicFrame	"gfx/menus/radar/circle_base_frame_reb"
+dmgIndicShield	"gfx/menus/radar/circle_base_shield"
+dmgIndicBackground "gfx/menus/radar/circle_base"
+icon_front		"gfx/menus/radar/aw_front"
+icon_back		"gfx/menus/radar/aw_back"
+icon_right		"gfx/menus/radar/aw_right"
+icon_left		"gfx/menus/radar/aw_left"
+crosshairShader	"gfx/menus/radar/aw_reticle"
+//shieldShader	"gfx/misc/shields_green"
+shieldShader	"gfx/misc/shields_blue"
+soundOn 		"sound/vehicles/a-wing/on.wav"
+soundLoop 		"sound/vehicles/a-wing/loop.wav"
+soundOff 		"sound/vehicles/a-wing/off.wav"
+soundFlyBy 		"sound/vehicles/a-wing/flyby.wav"
+soundFlyBy2 	"sound/vehicles/a-wing/flyby2.wav"
+soundHyper		"sound/vehicles/common/hyperstartreb.wav"
+soundTurbo 		"sound/vehicles/a-wing/flyby.wav"
+exhaustFX		"ships/exhaust/awing_exhaust_mini"
+turboFX		"ships/exhaust/awing_exhaust_turbo_mini"
+impactFX		"ships/damage/scrape_sparks_mini"
+explodeFX		"explosions/wedge_explosion1"
+//explodeFX		"ships/ship_explosion2"
+//trailFX		"ships/wingtrail"
+dmgFX			"ships/damage/heavydmg_mini"
+injureFX		"ships/damage/lightdmg_mini"
+noseFX		"Grenades/EXP_Alt"
+lwingFX		"Grenades/EXP_Alt"
+rwingFX	     "Grenades/EXP_Alt"
+flammable		1
+
+
+surfDestruction		1
+
+
+mass			750
+armor 		1000
+malfunctionArmorLevel	0
+health_front	64000
+health_back		64000
+health_right	64000
+health_left		64000
+shields		700
+toughness 		80.0
+explosionRadius 	400
+explosionDamage 	400
+CantKnockoutShields    1
+shieldRechargeMS    100
+
+
+strafePerc		0.065
+bankingSpeed	0.51
+rollLimit		85
+pitchLimit	85
+braking		26
+mouseYaw		0.0031
+mousePitch		0.0031
+turningSpeed	6.25
+turnWhenStopped	0
+traction		18
+friction		0.76
+speedDependantTurning	1
+maxSlope		40
+speedMax		1150
+turboSpeed		1225
+turboDuration	2500
+turboRecharge	5000
+speedMin		0
+acceleration	3
+decelIdle		10
+accelIdle		10
+speedIdle		100
+hoverHeight		80
+hoverStrength	10
+
+
+landingHeight		100
+
+
+
+weap1			rebel_laser_mini
+weap1Delay		180
+weap1Aim		1
+weap1AmmoMax		30
+weap1AmmoRechargeMS	350
+weap1Link		1
+
+weap2			concussion_missile_mini
+weap2Delay		400
+weap2Aim		1
+weap2AmmoMax	4
+weap2AmmoMax	4
+weap2Link		1
+
+weapMuzzle1		rebel_laser_mini
+weapMuzzle2		rebel_laser_mini
+weapMuzzle3		concussion_missile_mini
+weapMuzzle4		concussion_missile_mini
+
+
+
+cameraOverride		1
+cameraRange		     140
+cameraVertOffset	30
+cameraPitchOffset	0
+cameraFOV			80
+cameraAlpha			0
+vehiclescale               25
+
+firstPersonCameraMode 1
+firstPersonCameraVertOffset 40.0
+firstPersonCameraRange 0.000000001
+}
+
+Rancor_Legends
+{
+	name			Rancor_Legends
+	type			VH_ANIMAL
+	numHands		2
+	lookYaw			45
+	lookPitch		45
+	length			128
+	width			32
+	height			32
+	centerOfGravity	"-0.222 0 0"
+	speedMax		100
+	speedMin		-80
+	acceleration	8
+	decelIdle		20
+	strafePerc		0.0
+	bankingSpeed	0.0
+	rollLimit		2
+	pitchLimit		0
+	braking			10
+	mouseYaw		0.006
+	turningSpeed	5
+	turnWhenStopped	0
+	traction		100
+	friction		100
+	maxSlope		0.65
+	mass			200
+	armor 			200
+	toughness 		30.0
+	model			rancor
+	riderAnim		BOTH_FORCEHEAL_START
+	radarIcon		"gfx/menus/radar/rancor"
+	soundOn 		"sound/vehicles/rancor/on.mp3"
+	maxPassengers 4 
+	cameraOverride		1
+	cameraRange			150
+	cameraVertOffset	0
+	cameraPitchOffset	-30
+	cameraFOV			80
+	cameraAlpha			0
+	PlayerAsVehicleEject   1
+}
+
+kaadu
+{
+name			kaadu
+type			VH_ANIMAL
+numHands		2
+lookYaw			45
+lookPitch		45
+length			128
+width			32
+height			32
+centerOfGravity		"-0.222 0 0"
+
+speedMax		500
+speedMin		-50
+turboSpeed		800
+turboDuration		3000
+turboRecharge		8000
+acceleration		10
+decelIdle		20
+
+
+strafePerc		0.0
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			10
+mouseYaw		0.006
+turningSpeed		5
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.55
+mass			200
+armor 			300
+toughness 		30.0
+model			kaadu
+riderAnim		BOTH_VS_IDLE
+radarIcon		"gfx/menus/radar/tauntaun"
+
+cameraOverride		1
+cameraRange			125
+cameraVertOffset	0
+cameraPitchOffset	0
+cameraFOV			80
+cameraAlpha			0
+
+
+soundOn			"sound/chars/tauntaun/misc/buck1.mp3"
+soundOff		"sound/chars/tauntaun/misc/buck2.mp3"
+soundTurbo		"sound/chars/tauntaun/misc/anger1.mp3"
+soundShift1		"sound/chars/tauntaun/misc/anger3.mp3"
+soundShift2		"sound/chars/tauntaun/misc/chatter1.mp3"
+soundShift3		"sound/chars/tauntaun/misc/chatter3.mp3"
+soundShift4		"sound/chars/tauntaun/misc/pant1.mp3"
+}
+
+kaadu_pink
+{
+name			kaadu_pink
+type			VH_ANIMAL
+numHands		2
+lookYaw			45
+lookPitch		45
+length			128
+width			32
+height			32
+centerOfGravity		"-0.222 0 0"
+
+speedMax		310
+speedMin		-124
+turboSpeed		465
+turboDuration		2000
+turboRecharge		18000
+acceleration		10
+decelIdle		20
+
+
+strafePerc		0.0
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			10
+mouseYaw		0.006
+turningSpeed		5
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.55
+mass			200
+armor 			300
+toughness 		1
+model			kaadu
+riderAnim		BOTH_VS_IDLE
+radarIcon		"gfx/menus/radar/tauntaun"
+skin			"pink"
+
+cameraOverride		1
+cameraRange			125
+cameraVertOffset	0
+cameraPitchOffset	0
+cameraFOV			80
+cameraAlpha			0
+
+
+soundOn			"sound/chars/tauntaun/misc/buck1.mp3"
+soundOff		"sound/chars/tauntaun/misc/buck2.mp3"
+soundTurbo		"sound/chars/tauntaun/misc/anger1.mp3"
+soundShift1		"sound/chars/tauntaun/misc/anger3.mp3"
+soundShift2		"sound/chars/tauntaun/misc/chatter1.mp3"
+soundShift3		"sound/chars/tauntaun/misc/chatter3.mp3"
+soundShift4		"sound/chars/tauntaun/misc/pant1.mp3"
+}
+
+kaadu_green
+{
+name			kaadu_green
+type			VH_ANIMAL
+numHands		2
+lookYaw			45
+lookPitch		45
+length			128
+width			32
+height			32
+centerOfGravity		"-0.222 0 0"
+
+speedMax		500
+speedMin		-50
+turboSpeed		800
+turboDuration		3000
+turboRecharge		8000
+acceleration		10
+decelIdle		20
+
+
+strafePerc		0.0
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			10
+mouseYaw		0.006
+turningSpeed		5
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.55
+mass			200
+armor 			300
+toughness 		30.0
+model			kaadu
+riderAnim		BOTH_VS_IDLE
+radarIcon		"gfx/menus/radar/tauntaun"
+skin			"green"
+
+cameraOverride		1
+cameraRange			125
+cameraVertOffset	0
+cameraPitchOffset	0
+cameraFOV			80
+cameraAlpha			0
+
+
+soundOn			"sound/chars/tauntaun/misc/buck1.mp3"
+soundOff		"sound/chars/tauntaun/misc/buck2.mp3"
+soundTurbo		"sound/chars/tauntaun/misc/anger1.mp3"
+soundShift1		"sound/chars/tauntaun/misc/anger3.mp3"
+soundShift2		"sound/chars/tauntaun/misc/chatter1.mp3"
+soundShift3		"sound/chars/tauntaun/misc/chatter3.mp3"
+soundShift4		"sound/chars/tauntaun/misc/pant1.mp3"
+}
+
+kaadu_wild
+{
+name			kaadu_wild
+type			VH_ANIMAL
+numHands		2
+lookYaw			45
+lookPitch		45
+length			128
+width			32
+height			32
+centerOfGravity		"-0.222 0 0"
+
+speedMax		500
+speedMin		-50
+turboSpeed		800
+turboDuration		3000
+turboRecharge		8000
+acceleration		10
+decelIdle		20
+
+
+strafePerc		0.0
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			10
+mouseYaw		0.006
+turningSpeed		5
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.55
+mass			200
+armor 			300
+toughness 		30.0
+model			kaadu
+riderAnim		BOTH_VS_IDLE
+radarIcon		"gfx/menus/radar/tauntaun"
+skin			"wild"
+
+cameraOverride		1
+cameraRange			125
+cameraVertOffset	0
+cameraPitchOffset	0
+cameraFOV			80
+cameraAlpha			0
+
+
+soundOn			"sound/chars/tauntaun/misc/buck1.mp3"
+soundOff		"sound/chars/tauntaun/misc/buck2.mp3"
+soundTurbo		"sound/chars/tauntaun/misc/anger1.mp3"
+soundShift1		"sound/chars/tauntaun/misc/anger3.mp3"
+soundShift2		"sound/chars/tauntaun/misc/chatter1.mp3"
+soundShift3		"sound/chars/tauntaun/misc/chatter3.mp3"
+soundShift4		"sound/chars/tauntaun/misc/pant1.mp3"
+}
+
+kaadu_pink_wild
+{
+name			kaadu_pink_wild
+type			VH_ANIMAL
+numHands		2
+lookYaw			45
+lookPitch		45
+length			128
+width			32
+height			32
+centerOfGravity		"-0.222 0 0"
+
+speedMax		500
+speedMin		-50
+turboSpeed		800
+turboDuration		3000
+turboRecharge		8000
+acceleration		10
+decelIdle		20
+
+
+strafePerc		0.0
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			10
+mouseYaw		0.006
+turningSpeed		5
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.55
+mass			200
+armor 			300
+toughness 		30.0
+model			kaadu
+riderAnim		BOTH_VS_IDLE
+radarIcon		"gfx/menus/radar/tauntaun"
+skin			"pink_wild"
+
+cameraOverride		1
+cameraRange			125
+cameraVertOffset	0
+cameraPitchOffset	0
+cameraFOV			80
+cameraAlpha			0
+
+
+soundOn			"sound/chars/tauntaun/misc/buck1.mp3"
+soundOff		"sound/chars/tauntaun/misc/buck2.mp3"
+soundTurbo		"sound/chars/tauntaun/misc/anger1.mp3"
+soundShift1		"sound/chars/tauntaun/misc/anger3.mp3"
+soundShift2		"sound/chars/tauntaun/misc/chatter1.mp3"
+soundShift3		"sound/chars/tauntaun/misc/chatter3.mp3"
+soundShift4		"sound/chars/tauntaun/misc/pant1.mp3"
+}
+
+kaadu_green_wild
+{
+name			kaadu_green_wild
+type			VH_ANIMAL
+numHands		2
+lookYaw			45
+lookPitch		45
+length			128
+width			32
+height			32
+centerOfGravity		"-0.222 0 0"
+
+speedMax		500
+speedMin		-50
+turboSpeed		800
+turboDuration		3000
+turboRecharge		8000
+acceleration		10
+decelIdle		20
+
+
+strafePerc		0.0
+bankingSpeed		0.0
+rollLimit		2
+pitchLimit		0
+braking			10
+mouseYaw		0.006
+turningSpeed		5
+turnWhenStopped		0
+traction		100
+friction		100
+maxSlope		0.55
+mass			200
+armor 			300
+toughness 		30.0
+model			kaadu
+riderAnim		BOTH_VS_IDLE
+radarIcon		"gfx/menus/radar/tauntaun"
+skin			"green_wild"
+
+cameraOverride		1
+cameraRange			125
+cameraVertOffset	0
+cameraPitchOffset	0
+cameraFOV			80
+cameraAlpha			0
+
+
+soundOn			"sound/chars/tauntaun/misc/buck1.mp3"
+soundOff		"sound/chars/tauntaun/misc/buck2.mp3"
+soundTurbo		"sound/chars/tauntaun/misc/anger1.mp3"
+soundShift1		"sound/chars/tauntaun/misc/anger3.mp3"
+soundShift2		"sound/chars/tauntaun/misc/chatter1.mp3"
+soundShift3		"sound/chars/tauntaun/misc/chatter3.mp3"
+soundShift4		"sound/chars/tauntaun/misc/pant1.mp3"
+} */
