@@ -36,3 +36,36 @@ models/players/geonosian/torso
     }
 }
 
+models/players/geonosian/wings1
+{
+	cull twosided
+    {
+        map models/players/geonosian/legs
+        alphaFunc GT0
+        rgbGen lightingDiffuse
+        alphaGen wave square 0 1 0 15
+    }
+}
+
+models/players/geonosian/wings2
+{
+	cull twosided
+    {
+        map models/players/geonosian/legs
+        alphaFunc GT0
+        rgbGen lightingDiffuse
+        alphaGen wave square 0 1 0 30
+    }
+}
+
+models/players/geonosian/wings3
+{
+	cull twosided
+    {
+        map models/players/geonosian/legs
+        alphaFunc GT0
+        rgbGen lightingDiffuse
+        alphaGen wave square 0 1 .4 30
+    }
+}
+

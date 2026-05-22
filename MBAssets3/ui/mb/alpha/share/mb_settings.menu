@@ -2550,7 +2550,7 @@ itemDef
 			type				ITEM_TYPE_MULTI
 			text				" "
 			cvar				"cl_allowAltEnter"
-			text2 "Full SCreen Quick Toggle:"
+			text2 "Full Screen Quick Toggle:"
 			cvarFloatList
 			{
 				@MENUS_OFF	0
@@ -6908,7 +6908,7 @@ itemDef
 				"Icon, Bars, Name, & Location"		5
 				"Icon, Numbers, Name, & Location"	6
 			}
-			rect				142 230 230 14
+			rect				142 215 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			text2alignx 		-118
@@ -6921,7 +6921,84 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
+				setitemrect		button_glow	142 216 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				duelanalysis
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_MULTI
+			text				" "
+			text2 "Duel Analysis Overlay:"
+			cvar				"cg_duelAnalysisTime"
+			cvarFloatList
+			{
+				@MENUS_Off							0
+				"3 seconds"							3000
+				"5 seconds"							5000
+				"6.5 seconds"						6500
+				"8 seconds"							8000
+				"10 seconds"						10000
+			}
+			rect				142 230 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			text2alignx 		-118
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"For how long should the private duel analysis be displayed for after duel ends."
+			mouseenter
+			{
+				show			button_glow 
 				setitemrect		button_glow	142 231 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+				itemDef
+		{
+			name				killfeed
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_YESNO
+			text				" "
+			text2 "Draw Kill Feed:"
+			cvar				"cg_drawKillfeed"
+			rect				142 245 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			text2alignx 		-118
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Display killfeed at the top right in supported gamemodes"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 246 230 15			
 			}
 			mouseExit
 			{
@@ -6942,40 +7019,6 @@ itemDef
 			text				" "
 			text2 "Widescreen UI:"
 			cvar				"mov_ratioFix"
-			rect				142 260 230 14
-			textalign			ITEM_ALIGN_RIGHT
-			textalignx			140
-			text2alignx 		-118
-			textaligny			-5
-			font				5
-			textscale			0.15
-			forecolor			0.5 0.5 0.5 1
-			visible				0
-			descText			"Corrects the aspect ratio of the HUD for widescreen resolutions."
-			mouseenter
-			{
-				show			button_glow 
-				setitemrect		button_glow	142 261 230 15			
-			}
-			mouseExit
-			{
-				hide			button_glow			
-			}	
-			action
-			{
-				play			"sound/interface/button1.wav"
-			}
-		}
-
-		itemDef
-		{
-			name				forceratiofix
-			group				uioptions2
-			style				WINDOW_STYLE_TEXT_RGB2
-			type				ITEM_TYPE_YESNO
-			text				" "
-			text2 "OpenJK Force Widescreen UI:"
-			cvar				"cg_forceRatioFix"
 			rect				142 275 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
@@ -6985,9 +7028,7 @@ itemDef
 			textscale			0.15
 			forecolor			0.5 0.5 0.5 1
 			visible				0
-			descText			"Forces the correction of the aspect ratio for the HUD in OpenJK based clients."
-			cvarTest			cl_renderer
-			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+			descText			"Corrects the aspect ratio of the HUD for widescreen resolutions."
 			mouseenter
 			{
 				show			button_glow 
@@ -7010,9 +7051,45 @@ itemDef
 			style				WINDOW_STYLE_TEXT_RGB2
 			type				ITEM_TYPE_YESNO
 			text				" "
+			text2 "OpenJK Force Widescreen UI:"
+			cvar				"cg_forceRatioFix"
+			rect				142 290 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			text2alignx 		-118
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Forces the correction of the aspect ratio for the HUD in OpenJK based clients."
+			cvarTest			cl_renderer
+			showcvar			{ "rd-vanilla-mbii", "rd-rend2-mbii", "rd-vulkan-mbii" }
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 291 230 15			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}	
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				forceratiofix
+			group				uioptions2
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_YESNO
+			text				" "
 			text2 "OpenJK Circle Shader Adjust:"
 			cvar				"r_aspectCorrectRotatePic2"
-			rect				142 290 230 14
+			rect				142 305 230 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			140
 			text2alignx 		-118
@@ -7027,7 +7104,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 291 230 15			
+				setitemrect		button_glow	142 306 230 15			
 			}
 			mouseExit
 			{
@@ -12448,6 +12525,41 @@ itemDef
 			}
 		}
 
+				itemDef
+		{
+			group				forcecontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"force_stasis"
+			text2				"Stasis:"
+			rect				142 185 130 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			60
+			text2alignx -37
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Uses Force Stasis ability."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 186 140 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
 
 		itemDef
 		{
@@ -12494,7 +12606,7 @@ itemDef
 			text				" "
 			cvar				"use_electrobinoculars"//"+force_grip"
 			text2				@MENUS_FORCE_GRIP
-			rect				142 185 130 14
+			rect				142 200 130 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			60
 			text2alignx -37
@@ -12507,7 +12619,7 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 186 140 15			
+				setitemrect		button_glow	142 201 140 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -12529,7 +12641,7 @@ itemDef
 			text				" "
 			cvar				"use_ammodisp"//"+force_lightning"
 			text2				@MENUS_FORCE_LIGHTNING
-			rect				142 200 130 14
+			rect				142 215 130 14
 			textalign			ITEM_ALIGN_RIGHT
 			textalignx			60
 			text2alignx -37
@@ -12542,7 +12654,42 @@ itemDef
 			mouseenter
 			{
 				show			button_glow 
-				setitemrect		button_glow	142 201 140 15			
+				setitemrect		button_glow	142 216 140 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+				itemDef
+		{
+			group				forcecontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"force_darkrage"//"+force_lightning"
+			text2				"Dark Rage:"
+			rect				142 230 130 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			60
+			text2alignx -37
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Uses the Force Dark Rage power."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 231 140 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -12718,6 +12865,41 @@ itemDef
 			{
 				show			button_glow 
 				setitemrect		button_glow	272 201 140 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}
+
+						itemDef
+		{
+			group				forcecontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"force_destruction"
+			text2 "Destruction:"
+			rect				280 215 130 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			78
+			text2alignx -55
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Uses Force Destruction. Only available in Full Authentic mode."
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	272 216 140 15			
 				show			keybindstatus
 			}
 			mouseExit
@@ -14012,11 +14194,46 @@ itemDef
 
 		itemDef
 		{
+			group				othercontrols
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_BIND
+			text				" "
+			cvar				"cg_drawwheel !"
+			text2 "Emote Wheel:"
+			rect				142 320 230 14
+			textalign			ITEM_ALIGN_RIGHT
+			textalignx			140
+			text2alignx 		-118
+			textaligny			-5
+			font				5
+			textscale			0.15
+			forecolor			0.5 0.5 0.5 1
+			visible				0
+			descText			"Toggle button for drawing the Pie Menu for Emotes"
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	142 321 230 15			
+				show			keybindstatus
+			}
+			mouseExit
+			{
+				hide			button_glow			
+				hide			keybindstatus
+			}
+			action
+			{
+				play			"sound/interface/go.mp3"
+			}
+		}	
+
+		itemDef
+		{
 			name				keyBindStatus
 			group				none
 			ownerdraw			250
 			text				@MENUS_BLANK_1
-			rect				172 320 0 0
+			rect				172 340 0 0
 			textStyle			0
 			font				5
 			textscale			0.15

@@ -836,11 +836,101 @@ models/players/rebel_pathfinder/torso_urban
 
 // rebel_pilot
 
-models/players/rebel_pilot/googles
+models/players/rebel_pilot/bu/body
+{
+	{
+		map models/players/rebel_pilot/bu/body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/bu/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/bx/body
+{
+	{
+		map models/players/rebel_pilot/bx/body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/bx/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/bx/body_rgb
+{
+	{
+		map models/players/rebel_pilot/bx/body_rgb
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rebel_pilot/bx/body_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen lightingDiffuse
+	}
+	{	
+		map models/players/rebel_pilot/bx/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/gear/equip
+{
+	{
+		map models/players/rebel_pilot/gear/equip
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/gear/equip_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/gear/x
+{
+	{
+		map models/players/rebel_pilot/gear/x
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/gear/x_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet/x_un
+{
+	{
+		map models/players/rebel_pilot/helmet/x_un
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/helmet/x_un_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet/x_vo
 {
 	cull	twosided
 	{
-		map models/players/rebel_pilot/googles
+		map models/players/rebel_pilot/helmet/x_vo
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		rgbGen lightingDiffuse
 	}
@@ -852,13 +942,19 @@ models/players/rebel_pilot/googles
 		detail
 		alphaGen lightingSpecular
 	}
+	{
+		map models/players/rebel_pilot/helmet/x_v_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
 }
 
-models/players/rebel_pilot/googles2
+models/players/rebel_pilot/helmet/x_vy
 {
 	cull	twosided
 	{
-		map models/players/rebel_pilot/googles2
+		map models/players/rebel_pilot/helmet/x_vy
 		blendFunc GL_DST_COLOR GL_SRC_COLOR
 		rgbGen lightingDiffuse
 	}
@@ -870,204 +966,164 @@ models/players/rebel_pilot/googles2
 		detail
 		alphaGen lightingSpecular
 	}
-}
-
-models/players/rebel_pilot/googles3
-{
-	cull	twosided
 	{
-		map models/players/rebel_pilot/googles3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/common/spec2
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
+		map models/players/rebel_pilot/helmet/x_v_s
 		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
 		alphaGen lightingSpecular
+		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap
+models/players/rebel_pilot/helmet/xh_biggs
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap
+		map models/players/rebel_pilot/helmet/xh_biggs
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap2
+models/players/rebel_pilot/helmet/xh_blue
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap2
+		map models/players/rebel_pilot/helmet/xh_blue
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap3
+models/players/rebel_pilot/helmet/xh_gleader
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap3
+		map models/players/rebel_pilot/helmet/xh_gleader
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap4
+models/players/rebel_pilot/helmet/xh_luke
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap4
+		map models/players/rebel_pilot/helmet/xh_luke
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap5
+models/players/rebel_pilot/helmet/xh_nr
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap5
+		map models/players/rebel_pilot/helmet/xh_nr
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		map models/players/rebel_pilot/helmet/xh_sc
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap6
+models/players/rebel_pilot/helmet/xh_porkins
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap6
+		map models/players/rebel_pilot/helmet/xh_porkins
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap7
+models/players/rebel_pilot/helmet/xh_rgb
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap7
+		map models/players/rebel_pilot/helmet/xh_rgb
+		blendFunc GL_ONE GL_ZERO
+		rgbGen lightingDiffuseEntity
+	}
+	{
+		map models/players/rebel_pilot/helmet/xh_rgb
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec2
+	{	
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/rebel_pilot/helmet_chinstrap8
+models/players/rebel_pilot/helmet/xh_rleader
 {
 	cull	disable
 	{
-		map models/players/rebel_pilot/helmet_chinstrap8
+		map models/players/rebel_pilot/helmet/xh_rleader
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/spec3
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
 		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet/xh_training
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet/xh_training
+		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/rebel_pilot/helmet_chinstrap_spec2
+		map models/players/rebel_pilot/helmet/xh_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/rebel_pilot/helmet/xh_wedge
+{
+	cull	disable
+	{
+		map models/players/rebel_pilot/helmet/xh_wedge
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_pilot/helmet/xh_s
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
