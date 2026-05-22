@@ -5,27 +5,31 @@ Classinfo
  MBclass    MB_CLASS_JEDI
  classNumberLimit 1
 
- weapons    WP_SABER|WP_MELEE|WP_MINIGUN
- WP_MinigunFlags HELD_LIFT
+ weapons    WP_SABER|WP_MELEE
+ WP_MinigunFlags HELD_LIFT|HELD_NODISARM
 
- attributes   MB_ATT_FORCEBLOCK,3|MB_ATT_DEFLECT,0|MB_ATT_FORCEFOCUS,2|MB_ATT_INAIR_FORCE_REGEN|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_FLIPKICK,1|MB_ATT_BUNNY_HOP,1|MB_ATT_DEXTERITY,3|MB_ATT_HEALING,1|MB_ATT_SPEEDLUNGE,1|MB_ATT_MINIGUN,1
+ attributes   MB_ATT_FORCEBLOCK,3|MB_ATT_DEFLECT,0|MB_ATT_FORCEFOCUS,2|MB_ATT_INAIR_FORCE_REGEN|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_FLIPKICK,1|MB_ATT_BUNNY_HOP,1|MB_ATT_DEXTERITY,3|MB_ATT_HEALING,1|MB_ATT_SPEEDLUNGE,1
 
- forcepowers   FP_SABER_OFFENSE,3|FP_PUSH,2|FP_PULL,3|FP_SEE,3|FP_PROTECT,1|FP_ABSORB,1|FP_SABERTHROW,2|FP_SPEED,2
+ forcepowers   FP_SABER_OFFENSE,3|FP_PUSH,2|FP_PULL,3|FP_SEE,3|FP_PROTECT,1|FP_ABSORB,1|FP_SABERTHROW,2
 
- APmultiplier  1.3
  BPmultiplier  0.7
- CSmultiplier   1.12
- ASmultiplier   1.12
- 
- saberThrowDamage 40
+ APmultiplier  1.3
+ CSmultiplier  1.12
+ ASmultiplier  1.12
  saberstyle  SS_STRONG
  saberDamage 240
  saberSpecialDamage 1.25
+ saberThrowDamage 40
+
  maxhealth   75
+
  forcepool   75
  forceregen   1.45
+
  rateOfFire_Melee .9
+
  damageGiven 0.8
+
  //special1 EAS_FP_SABERTHROW game chooses spec1 if not defined, leave as is
  special2 EAS_FP_ABSORB
  special3 EAS_FP_SPEED
@@ -33,12 +37,14 @@ Classinfo
  
  classflags CFL_NOPICKUPS|CFL_BPFREEJUMPS
  
+ deathAnim BOTH_FAINT
  gloatAnim BOTH_FORCE_DRAIN_GRAB_HOLD
  flourishAnim BOTH_FORCE_DRAIN_HOLD
  //WalkBackward  BOTH_WALK2
  WalkForward  BOTH_WALK2
  RunForward BOTH_RUN_STAFF
  saberStanceAnim BOTH_B1_TR___
+ //gunbashAnim BOTH_FORCE_DRAIN_START
 
  modelscale    0.58
  uioverlay "gfx/icons/frontline"
@@ -73,11 +79,25 @@ Classinfo
  //sabercolor_2  4
 
  isCustomBuild  1
- mbPoints  0
+ mbPoints  1
 
- c_att_skill_0  MB_ATT_FP_LEVITATION
- c_att_names_0  "Force Jump"
+ c_att_skill_0  MB_ATT_MINIGUN
+ c_att_names_0  "Force Lift (Minigun)"
  c_att_ranks_0  0,0,0
+ c_att_descs_0 "Lifts on hit, Hitscan power, 100% less damage, 100% slower RoF"
+
+ c_att_skill_1  MB_ATT_FP_LEVITATION
+ c_att_names_1  "Force Jump"
+ c_att_ranks_1  0,0,0
+
+ c_att_skill_2  MB_ATT_FP_STASIS
+ c_att_names_2  "Force Stasis"
+ c_att_ranks_2  1,0,0
+
+ c_att_skill_3  MB_ATT_FP_SPEED
+ c_att_names_3  "Force Speed ^3[CS3]"
+ c_att_ranks_3  1,0
+ c_att_descs_3  "Includes Speedlunge"
 }
 
 WeaponInfo0
@@ -88,13 +108,16 @@ WeaponInfo0
  NewViewModel  "models/weapons2/dummy/dummy.md3"    
  Icon "models/weapons2/halo_melee/icon.png"
  WeaponName   "Force Lift"
- AltFlashSound0   "sound/weapons/force/speedloop.wav"
- FlashSound0  "sound/weapons/force/speedloop.wav"
+ AltFlashSound0   "sound/weapons/force/jumpbuild.mp3"
+ FlashSound0  "sound/weapons/force/jumpbuild.mp3"
  selectSound "sound/chars/t_yoda/misc/pain50.wav"
+
  isMinigun 0
  damageMod 0
+ rateMod 2
  velocityMod 99999
  customAmmo -1
+
  altMuzzleEffect "force/pushblur"
  altMissileEffect null
  altMissileMissEffect "force/pushblur"
@@ -110,10 +133,10 @@ WeaponInfo0
  MissileModel null
 
  hasAnimOverrides 1
- animReadyRun BOTH_RUN_STAFF
- animReady BOTH_STAND1
- animReadyWalk BOTH_STAND1
- animReadyNoAmmo BOTH_STAND1
+ animReadyRun BOTH_MELEE_STAND2
+ animReady  BOTH_MELEE_STAND2
+ animReadyWalk  BOTH_MELEE_STAND2
+ animReadyNoAmmo  BOTH_MELEE_STAND2
  animAttackRun BOTH_FORCE_DRAIN_GRAB_HOLD
  animAttack BOTH_FORCE_DRAIN_GRAB_HOLD
  animAttackWalk BOTH_FORCE_DRAIN_GRAB_HOLD
@@ -136,10 +159,6 @@ A glass cannon duelist and Force user with exceptional offensive and evasive ski
 -- 26% thinner
 -- EX Saber Throw (2) ^3[CS1]
 --- 33% more damage
-- Force Lift (Minigun 3)
--- Lifts on hit
--- Hitscan power
--- 100% less damage
 
 ^5Force Powers:
 - Push (2)
@@ -147,8 +166,6 @@ A glass cannon duelist and Force user with exceptional offensive and evasive ski
 - Sense (3)
 - Absorb (1) ^3[CS2]
 - Protect (1) ^3[CS4]
-- Speed (2) ^3[CS3]
--- Speedlunge
 
 ^8Attributes:
 - Bunny Hop (1)
