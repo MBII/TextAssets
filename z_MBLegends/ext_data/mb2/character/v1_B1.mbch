@@ -1,4 +1,4 @@
-//Legends Mode character file - Created by Frenzy & Leos
+
 
 ClassInfo
 {
@@ -6,7 +6,7 @@ ClassInfo
 	extralives	2
 	MBClass		MB_CLASS_SOLDIER
 	weapons			WP_MELEE
-
+ //WP_BlasterFlags HELD_ALTRELOAD
 	attributes		MB_ATT_AMMO,1|MB_ATT_RECHARGE,2|MB_ATT_ASSEMBLE,1
 
 	knockbackTaken	1.1 	
@@ -24,8 +24,8 @@ ClassInfo
 
 	damageGiven	1
 
-	special1HUD HUD_FRAGNADE
-	special2HUD HUD_PLX1ROCKETS
+	special2HUD HUD_FRAGNADE
+	special1HUD HUD_PLX1ROCKETS
 	
 	classflags CFL_DISMEMBERFRAGILE
 	
@@ -147,7 +147,6 @@ ClassInfo
 	c_att_skill_1	MB_ATT_BLASTER
 	c_att_names_1	"E-5 Blaster Rifle"
 	c_att_ranks_1	1,3,5
-	
 	c_att_skill_2	MB_ATT_AMMO
 	c_att_names_2	"> E-5 Blaster Rifle Ammo"
 	c_att_ranks_2 	0,2,3
@@ -156,8 +155,8 @@ ClassInfo
 	c_att_skill_3	MB_ATT_WESTARM5
 	c_att_names_3	"E-5s Sniper Rifle (M5)"
 	c_att_ranks_3	15
-	c_att_descs_3 "50% faster RoF, 45% more Velocity, 25% less Dmg,
-50% less FP Dmg, 50% slower Reload"
+	c_att_descs_3 "50% faster RoF, 45% more velocity, 25% less damage,
+50% less FP damage, 50% slower reload"
 
 	c_att_skill_4	MB_ATT_ARC_RIFLE_SCOPE
 	c_att_names_4	"> E-5s Scope Upgrade"
@@ -166,18 +165,19 @@ ClassInfo
 	c_att_skill_5	MB_ATT_PLX1
 	c_att_names_5	"E-60R Missile Launcher (PLX)"
 	c_att_ranks_5	22
-	c_att_descs_5	"25% less dmg, 35% slower reload"
+	c_att_descs_5	"25% less damage, 35% slower reload"
 	c_att_skill_6	MB_ATT_FRAGS
-	c_att_names_6	"Frag Grenade"
+	c_att_names_6	"Class B Frag Grenade"
 	c_att_ranks_6	5
-	
+	c_att_ranks_6	"28% smaller splash, Primary fire only"
+
 	c_att_skill_7	MB_ATT_RESPAWNS
 	c_att_names_7	"Reinforcements"
 	c_att_ranks_7	16,16
 	c_att_descs_7 "2 default"
 
 	c_att_skill_8	MB_ATT_HEALTH
-	c_att_names_8	"HP (35/50)"
+	c_att_names_8	"Health (35/50)"
 	c_att_ranks_8	1,3
 				
 	c_att_skill_9	MB_ATT_ARMOUR
@@ -203,6 +203,7 @@ WeaponInfo0
 	WeaponName			"E-60R Missile Launcher"
  Damagemod .75
  reloadTimeModifier 1.35
+ flashSound0 "sound/weapons/upl/fire_rocket.wav"
 }
 
 WeaponInfo1
@@ -236,7 +237,9 @@ WeaponInfo2
 	AltMissileModel		"models/weapons2/oldfraggrenade/thermal_proj.md3"
 	altMissileMissEffect	"grenades/EXP_alt"
 	Icon					"gfx/hud/w_icon_oldfraggrenade"
-	WeaponName			"Frag Grenade"
+	WeaponName			"Class B Frag Grenade"
+ altFireEnabled 0
+ splashRadius 250
 }
 
 WeaponInfo3
@@ -244,7 +247,7 @@ WeaponInfo3
 	WeaponToReplace		WP_M5
 	WeaponBasedOff		WP_PLX1
 	NewWorldModel		"models/weapons2/som3_rifle/som3_rifle_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 
+	NewViewModel		"models/weapons2/som3_rifle/som3_rifle.md3"
 	Icon				"gfx/hud/w_icon_som3_rifle"
 	WeaponName			"E-5s Sniper Rifle"
 	FlashSound0 		"sound/weapons/E-5s/fire.mp3"
@@ -280,7 +283,7 @@ Mass-produced, fragile combatants with superior reinforcement potential.
 
 ^8Attributes:
 - Reinforcements (2)
-- 10% less Kb Given
-- 10% more Kb Taken
+- 10% less knockback given
+- 10% more knockback taken
 - Battery Recharge (2)
 - Assemble (1)"

@@ -1,0 +1,346 @@
+
+ClassInfo
+{
+ name   "h2_Pork"
+ MBClass    MB_CLASS_WOOKIE
+ classNumberLimit  1
+ 
+ weapons  WP_MELEE|WP_REPEATER|WP_SHOTGUN|WP_FRAG_NADE|WP_EE3
+
+ //WP_ConcussionFlags HELD_LIFT|HELD_PULL
+ //WP_MinigunFlags
+ //WP_ConcNadeFlags HELD_LIFT
+ //WP_FireNadeFlags HELD_LIFT|HELD_KNOCKBACK
+ WP_MeleeFlags    HELD_LIFESTEAL
+ WP_FragNadeFlags HELD_PULL
+ WP_RepeaterFlags HELD_KNOCKBACK|HELD_KNOCKDOWN|HELD_LIFT|HELD_FLAME
+
+ WP_SaberFlags HELD_FLAME|HELD_KNOCKBACK|HELD_SPEED|HELD_LIFT|HELD_LIFESTEAL //spin only
+ saber1   frying_pan
+ sabercolor  6
+ saberstyle  SS_MEDIUM|SS_STRONG
+
+ attributes MB_ATT_AMMO,3|MB_ATT_SHOTGUN,3|MB_ATT_FRAGS,3|MB_ATT_EE3,1|MB_ATT_ENV_PROT,1|MB_ATT_REPEATER_NADES,3|MB_ATT_REPEATER,3|MB_ATT_RECHARGE,1|MB_ATT_BACTA,1|MB_ATT_BASESEEKER|MB_ATT_BARGE|MB_ATT_HEALING,1
+
+ special1HUD HUD_REPEATERNADE
+ special2HUD HUD_FRAGNADE
+ 
+ maxhealth  400
+ maxarmor   50 
+
+ rateoffire_melee 1.15
+ meleeknockback_flat 90
+
+ knockbackGiven 1.25
+ knockbackTaken 0.5
+//damagegiven
+
+ resource RESOURCE_BATTERY
+ forcepool 50
+
+ classflags CFL_STRONGAGAINSTPHYSICAL
+
+ skilltimerMod 1.25
+ special1 EAS_HI_BASESEEKER
+ meleespecial2 EAS_HI_BARGE
+ special2 EAS_HI_BARGE
+ special3 EAS_HI_MEDPAC
+
+ meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
+ 
+ RunForward BOTH_RUN_DUAL
+ RunBackward BOTH_RUNBACK_DUAL
+ walkForward BOTH_WALK1TALKCOMM1
+ walkBackward BOTH_WALKBACK_DUAL
+ tauntAnim BOTH_SALUTE
+ gloatAnim  BOTH_STAND_INJURED_IDLE //grievous_taunt //sound/stomach.wav //sound/vehicles/weapons/shark/yumm.mp3 steps: "sound/effects/thud.mp3"
+ flourishanim BOTH_INJURED_TO_COLLAPSED
+ bowAnim BOTH_ROSH_PAIN
+ bargeAnim BOTH_ROLL_F  //BOTH_ALORA_SPIN
+ 
+ rageSoundOverride  "sound/chars/porkins/misc/victory1.mp3"
+ bargeSoundOverride "sound/chars/porkins/misc/victory1.mp3"
+ 
+ modelscale  1.02
+ uioverlay_r "gfx/icons/spec_infantry"
+ uioverlay_l  "gfx/icons/brawler"
+ uioverlay_c  "gfx/icons/heavy"
+ model   "porkins"
+ skin    "default"
+ uishader "models/players/porkins/mb2_icon_default"
+ //pain "sound/mb2/repulsivebelch.wav"
+ //SOUNDS/MOVERS/OBJECTS/WALKWAY_CREAK.MP3 WITH INJURED ANIMATION //sound/orbs_omaha/metal_stress
+
+}
+
+WeaponInfo0
+{
+ WeaponToReplace  WP_SHOTGUN
+ WeaponBasedOff  WP_SHOTGUN
+ NewWorldModel  "models/weapons2/cr-1_cannon/rifle_w.glm"
+ NewViewModel  "models/weapons2/cr-1_cannon/rifle.md3"
+ MuzzleEffect  "Blaster/MuzzleFlash01Y"
+ MissileEffect  "Blaster/Shot02Y"
+ FlashSound0 "sound/weapons/pulse_cannon/fire.wav" 
+ Icon    "gfx/hud/w_icon_cr1_blastcannon"
+ WeaponName   "CR-1 Blast Cannon"
+ clipSize    60
+ CustomAmmo 800
+ altFireEnabled  0
+ velocityMod 1.2
+ damageMod 1.1
+ fpMult 1.1
+ reloadTimeModifier 2
+ hasAnimOverrides 1
+ animReady BOTH_WESTARM5_READY
+ animReadyRun BOTH_WESTARM5_READY
+ animReadyWalk BOTH_WESTARM5_READY
+ animReadyNoAmmo  BOTH_STAND_INJURED_IDLE
+ animAttack BOTH_WESTARM5_ATTACK
+ animAttackWalk BOTH_WESTARM5_ATTACK
+ animAttackRun BOTH_WESTARM5_ATTACK
+}
+
+WeaponInfo1
+{
+ WeaponToReplace WP_EE3
+ WeaponBasedOff WP_BLASTER_PISTOL
+ NewWorldModel  "models/weapons2/blaster_three/blaster_pistol_w.glm"   
+ NewViewModel  "models/weapons2/blaster_three/blaster_pistol.md3" 
+ Icon    "gfx/hud/w_icon_blaster_pistol_3"
+ FlashSound0 "sound/weapons/tusken_rifle/fire_gun.wav"
+ FlashSound1 "sound/weapons/tusken_rifle/fire_gun.wav"
+ FlashSound2 "sound/weapons/tusken_rifle/fire_gun.wav"
+ FlashSound3 "sound/weapons/tusken_rifle/fire_gun.wav"
+ altFlashSound0 "sound/weapons/tusken_rifle/fire_gun.wav"
+ altFlashSound1 "sound/weapons/tusken_rifle/fire_gun.wav"
+ altFlashSound2 "sound/weapons/tusken_rifle/fire_gun.wav"
+ altFlashSound3 "sound/weapons/tusken_rifle/fire_gun.wav" 
+ missileEffect "blaster/Shot01R"
+ muzzleEffect "flechette/flesh_impact"
+ MissileMissEffect "Blaster/Impact_Wall01R"
+ altMuzzleEffect null
+ WeaponName  "Porkins' S3 Blaster Pistol"
+ hasAnimOverrides 1
+ animReady TORSO_WEAPONREADY3
+ animReadyRun TORSO_WEAPONREADY3
+ animReadyWalk TORSO_WEAPONREADY3
+ animReadyNoAmmo  BOTH_ATTACK3
+ animAttack BOTH_ATTACK3
+ animAttackWalk BOTH_ATTACK3
+ animAttackRun BOTH_ATTACK3
+ animReadyZoom  TORSO_WEAPONREADY3
+ animReadyZoomRun TORSO_WEAPONREADY3
+ animAttackZoom BOTH_ATTACK3
+ animAttackZoomRun BOTH_ATTACK3
+ clipSize 56
+ customAmmo 840
+ damageMod 0.7
+ fpmult 0.8
+ rateMod 0.25
+ reloadTimeModifier 2
+//primHitscanShot 1
+//primHitscanTracer 10
+//primGore 1
+}
+WeaponInfo2
+{
+ WeaponToReplace  WP_REPEATER
+ WeaponBasedOff  WP_REPEATER
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"  
+ NewViewModel  "models/weapons2/dummy/dummy.md3"  
+ Icon   "models/weapons2/halo_melee/icon.png"
+ WeaponName   "Emergency Eject"
+ altFlashSound0 "sound/weapons/atst/atstfire2.mp3"
+ altMissileModel    null
+ altMissileMissEffect  null
+ altMissileHitHumanEffect  null
+ altMissileHitDroidEffect null
+ altMuzzleEffect   null
+ altMissileEffect  null
+ FlashSound0 "sound/weapons/atst/atstfire2.mp3"
+ MissileModel    null
+ MissileMissEffect  null
+ MissileHitHumanEffect  null
+ MissileHitDroidEffect null
+ MuzzleEffect   null
+ MissileEffect null
+ customAmmo -1
+ clipsize -1
+ primfireenabled 0
+ velocityMod 0
+ hasAnimOverrides 1
+ animReady BOTH_STAND_INJURED_IDLE
+ animReadyWalk BOTH_STAND_INJURED_IDLE
+ animReadyRun BOTH_STAND_INJURED_IDLE
+ animReadyNoAmmo  BOTH_STAND_INJURED_IDLE
+ animAttackRun BOTH_DEATH1
+ animAttack BOTH_DEATH1
+ animAttackWalk BOTH_DEATH1
+}
+
+WeaponInfo3
+{
+ WeaponToReplace  WP_FRAG_NADE
+ WeaponBasedOff WP_FRAG_NADE
+ NewWorldModel   "models/weapons/Grenade_Concussion/model.glm"
+ NewViewModel   "models/weapons/Grenade_Concussion/viewmodel.md3"
+ Icon     "gfx/hud/w_icon_stungrenade"
+ WeaponName   "Thermal Imploder"
+ MuzzleEffect  null
+ MissileModel    "models/weapons/Grenade_Concussion/proj.md3"
+ MissileEffect  "grenades/glowempb"
+ MissileMissEffect "rockets/explosionpulse"  //"concussion/explosion_new" 
+ MissileHitHumanEffect "rockets/explosionpulse" 
+ MissileHitDroidEffect "rockets/explosionpulse" 
+ altMuzzleEffect  null
+ altMissileModel    "models/weapons/Grenade_Concussion/proj.md3"
+ altMissileEffect  "grenades/glowempb"
+ altMissileMissEffect "concussion/explosion"
+ altMissileHitHumanEffect "concussion/explosion"
+ altMissileHitDroidEffect "concussion/explosion"
+}
+
+WeaponInfo4
+{
+ WeaponToReplace  WP_MELEE
+ WeaponBasedOff  WP_MELEE
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"
+ NewViewModel  "models/weapons2/dummy/dummy.md3"
+ Icon   "gfx/hud/w_icon_melee"
+ WeaponName  "Meathooks"
+ primFireEnabled  1
+ AltFireEnabled   1
+ damageMod 3
+}
+
+/* WeaponInfo5
+{
+ WeaponToReplace  WP_FIRE_NADE
+ WeaponBasedOff WP_FIRE_NADE
+ NewWorldModel  "models/weapons2/plasma/plasma_w.glm"  
+ NewViewModel  "models/weapons2/plasma/plasma.md3"    
+ MissileModel  "models/weapons2/plasma/plasma_proj.md3"
+ Icon    "gfx/hud/w_icon_plasma"  
+ WeaponName   "Hot Air Grenade"
+ altMuzzleEffect  null
+ altMissileModel    "models/weapons/Grenade_Concussion/proj.md3"
+ altMissileEffect  "grenades/glowconcb"
+ altMissileMissEffect null
+ primFireEnabled 0
+} */
+/* WeaponInfo4
+{
+ WeaponToReplace  WP_MINIGUN
+ WeaponBasedOff  WP_MINIGUN
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"
+ NewViewModel  "models/weapons2/dummy/dummy.md3"
+ MissileMissEffect  "sonic_pistol/k_wall_impact"
+ MissileHitHumanEffect "sonic_pistol/k_wall_impact"
+ MissileHitDroidEffect  "sonic_pistol/k_wall_impact"
+ MissileEffect  "sonic_pistol/k_projectile"       
+ MuzzleEffect  "sonic_pistol/k_muzzle_flash"   
+ FlashSound0 "sarlaccgobble.wav" //"sound/mb2/repulsivebelch.wav"
+ altFlashSound0 "sarlaccgobble.wav" //"sound/mb2/repulsivebelch.wav"
+ isMinigun   0
+ Icon    "models/weapons2/halo_melee/icon.png"
+ WeaponName   "Blast"
+ damageMod 3.9
+ clipsize 10
+ customAmmo -1
+ rateMod 10
+ velocityMod 2
+ hasAnimOverrides 1
+ animReadyRun BOTH_STAND_INJURED_IDLE
+ animReady BOTH_STAND_INJURED_IDLE
+ animReadyWalk BOTH_STAND_INJURED_IDLE
+ animReadyNoAmmo BOTH_STAND_INJURED_IDLE
+ animAttackRun BOTH_WOOKIEE_ENRAGE
+ animAttack BOTH_WOOKIEE_ENRAGE
+ animAttackWalk BOTH_WOOKIEE_ENRAGE
+ AnimStand BOTH_STAND1
+ selectSound "sarlaccgobble.wav"
+} */
+
+
+/* WeaponInfo5
+{
+ WeaponToReplace  WP_CONCUSSION
+ WeaponBasedOff  WP_CONCUSSION
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"  
+ NewViewModel  "models/weapons2/dummy/dummy.md3"  
+ Icon   "models/weapons2/halo_melee/icon.png"
+ WeaponName   "Emergency Eject"
+ altFlashSound0  "sound/mb2/repulsivebelch.wav"
+ altMissileModel    null
+ altMissileMissEffect  null
+ altMissileHitHumanEffect  null
+ altMissileHitDroidEffect null
+ altMuzzleEffect   null
+ altMissileEffect  null
+ FlashSound0 "sound/mb2/repulsivebelch.wav"
+ MissileModel    null
+ MissileMissEffect  null
+ MissileHitHumanEffect  null
+ MissileHitDroidEffect null
+ MuzzleEffect   null
+ MissileEffect null
+ customammo 10
+ clipsize  20
+ rateMod 0.5
+ damageMod 0
+ primFireEnabled 0
+ hasAnimOverrides 1
+ animReady TORSO_SURRENDER_START
+ animReadyWalk TORSO_SURRENDER_START
+ animReadyRun TORSO_SURRENDER_START
+ animReadyNoAmmo  BOTH_STAND_INJURED_IDLE
+ animAttack BOTH_WRISTSHOT //BOTH_DEATH_FLIP
+ animAttackWalk BOTH_WRISTSHOT //BOTH_DEATHBACKWARD1
+ animAttackRun BOTH_WRISTSHOT
+disruptorBeam1 "gfx/effects/disrupt_beam_blue"
+disruptorBeam2 "gfx/effects/disrupt_beam_blue"
+} */
+
+description "Jek Tono Porkins aka 'Piggy'
+
+I'm a big man. A big, BIG man.
+
+^2Weaponry:
+- Meathooks (Melee)
+-- Drains on hit
+-- 200% more damage
+-- 90% more knockback
+-- 15% slower RoF
+- Emergency Eject (6) (IHR)
+-- Trips/pushes/lifts/burns on det
+-- 100% less velocity
+-- Secondary fire only
+- CR-1 Blast Cannon (Shotgun 3)
+-- 20% more velocity
+-- 10% more damage/FP damage
+-- 100% slower reload
+-- Primary fire only
+- Thermal Imploders (3) (Frags)
+-- Pulls on det
+- Porkins' S3 Blaster Pistol (EE-3 1)
+-- 75% faster RoF
+-- 30% less damage
+-- 20% less FP damage
+-- 100% slower reload 
+
+^6Inventory:
+- Defense Seeker ^3[CS1]
+- Medpac ^3[CS3]
+
+^8Attributes:
+- Melee Resist
+- Elemental Resist (1)
+- Healing (1)
+- Recharge (1)
+- 25% slower skill cooldown
+- 25% more knockback given
+- 50% less knockback taken
+
+^3Abilities:
+- Wrecking Ball (Shoulder Barge) ^3[Melee CS2]"
