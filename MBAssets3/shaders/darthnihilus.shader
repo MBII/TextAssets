@@ -40,6 +40,15 @@ models/players/darthnihilus/cape
     }
 }
 
+models/players/darthnihilus/hood
+{
+	cull	twosided
+    {
+        map models/players/darthnihilus/hood
+        rgbGen lightingDiffuse
+    }
+}
+
 models/players/darthnihilus/mask
 {
 	q3map_nolightmap
