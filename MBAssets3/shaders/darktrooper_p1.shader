@@ -18,11 +18,11 @@ models/players/darktrooper_p1/head
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/headref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
     {
         map models/players/darktrooper_p1/headglow
         blendFunc GL_SRC_ALPHA GL_ONE
@@ -38,11 +38,11 @@ models/players/darktrooper_p1/torso
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/torsoref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
     {
         map models/players/darktrooper_p1/torsoglow
         blendFunc GL_SRC_ALPHA GL_ONE
@@ -58,11 +58,11 @@ models/players/darktrooper_p1/hips
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/hipsref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
 models/players/darktrooper_p1/arms
@@ -73,11 +73,11 @@ models/players/darktrooper_p1/arms
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/armsref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
 models/players/darktrooper_p1/legs
@@ -88,11 +88,11 @@ models/players/darktrooper_p1/legs
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/legsref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
 models/players/darktrooper_p1/shoulder_pads
@@ -103,11 +103,11 @@ models/players/darktrooper_p1/shoulder_pads
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/shoulder_padsref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
 models/players/darktrooper_p1/r_forearm
@@ -118,11 +118,11 @@ models/players/darktrooper_p1/r_forearm
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/r_forearmref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
 models/players/darktrooper_p1/fists
@@ -132,11 +132,11 @@ models/players/darktrooper_p1/fists
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/fistsref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
 models/players/darktrooper_p1/feet
@@ -146,11 +146,11 @@ models/players/darktrooper_p1/feet
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/feetref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
 models/players/darktrooper_p1/lowerlegs
@@ -160,11 +160,11 @@ models/players/darktrooper_p1/lowerlegs
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/lowerlegsref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
     {
         map models/players/darktrooper_p1/lowerlegsglow
         blendFunc GL_SRC_ALPHA GL_ONE
@@ -181,10 +181,10 @@ models/players/darktrooper_p1/l_forearm
         rgbGen lightingDiffuse
     }
     {
-        map models/players/darktrooper_p1/l_forearmref
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
+		map models/players/darktrooper_p1/env_chrome
+		blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 1
+		tcGen environment
+	}
 }
 
