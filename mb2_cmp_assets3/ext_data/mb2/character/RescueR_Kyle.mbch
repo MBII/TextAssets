@@ -3,9 +3,10 @@
 ClassInfo
 {
 	name				"RescueR_Kyle"
-	weapons				WP_MELEE|WP_BRYAR_OLD|WP_BLASTER|WP_STUN_BATON|WP_THERMAL
+	weapons				WP_MELEE|WP_BRYAR_OLD|WP_BLASTER|WP_STUN_BATON|WP_THERMAL|WP_DET_PACK
 	WP_ThermalFlags		HELD_HIGHDAMAGE|HELD_KNOCKBACK
-	attributes			MB_ATT_STUN_BATON,2|MB_ATT_BRYAR_OLD,3|MB_ATT_BLASTER,3|MB_ATT_BASE_TD,4|MB_ATT_AMMO,2|MB_ATT_STAMINA,3|MB_ATT_FLOAT_HOP|MB_ATT_BUNNY_HOP,1|MB_ATT_DEXTERITY,1
+	WP_DetPackFlags		HELD_HIGHDAMAGE
+	attributes		MB_ATT_BRYAR_OLD,3|MB_ATT_BLASTER,2|MB_ATT_BASE_TD,2|MB_ATT_DET_PACK,3|MB_ATT_AMMO,2|MB_ATT_FORCEFOCUS,1|MB_ATT_DEFLECT,2|MB_ATT_STUN_BATON,2|MB_ATT_FLOAT_HOP|MB_ATT_BUNNY_HOP,1|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,1
 	forcepowers			FP_LEVITATION,1
 	forcepool			40
 	maxhealth			100
@@ -30,7 +31,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/briar_pistol/briar_pistol_w.glm"
 	NewViewModel		"models/weapons2/briar_pistol/briar_pistol.md3"
 	Icon				"gfx/hud/w_icon_briar"
-	WeaponName			"Kyle's Bryar Pistol"
+	WeaponName			"Kyle's Modified Bryar Pistol"
 	
 	SelectSound			"sound/weapons/bryar/select_df2.mp3"
 	FlashSound0			"sound/weapons/bryar/fire_df2.mp3"
@@ -73,21 +74,38 @@ WeaponInfo1
 	rateMod					0.8
 }
 
+WeaponInfo2
+{
+	WeaponToReplace			WP_DET_PACK
+	WeaponBasedOff			WP_TRIP_MINE
+	NewWorldModel			"models/weapons2/im_mine/laser_trap_w.glm"
+	NewViewModel			"models/weapons2/im_mine/laser_trap.md3"
+	NewHandsModel			"models/weapons2/im_mine/laser_trap_hand.md3"
+	MissileModel			"models/weapons2/im_mine/laser_trap.md3"
+	AltMissileModel			"models/weapons2/im_mine/laser_trap.md3"
+	Icon					"gfx/hud/w_icon_immine"
+	WeaponName				"I.M. Mines (Remote Detonation)"
+	
+	rateMod					0.9
+}
+
 description	"Kyle Katarn
 
-An elite mercenary equipped with a Bryar Pistol, specialized E-11, tougher armor & fast reflexes.
+An elite mercenary equipped for Run and Gun combat with tougher armor & fast reflexes.
 
 ^2Weaponry:
 - Melee
 -- 10% faster RoF
-- Bryar Blaster Pistol (3)
+- Kyle's Modified Bryar Pistol (3)
 -- 20% more charged FP damage
 -- 20% less velocity
 - E-11 Blaster Rifle (2)
 -- 20% faster RoF
-- 4 Heavy Thermal Grenades
+- 2 Heavy Thermal Grenades
 -- 100% more damage
 -- Pushes on det
+- 3 I.M. Mines (Manual Detonation)
+-- 100% more damage
 - Stun Baton (2)
 
 ^5Force Powers:
