@@ -4,46 +4,58 @@ name "v1_TORagent"
 classNumberLimit 4
 extralives 1
 MBClass MB_CLASS_HERO
+
 weapons WP_SABER|WP_MANDO_PISTOL|WP_THERMAL
+
+WP_SaberFlags HELD_PULSE|HELD_POISON
+WP_FragNadeFlags HELD_POISON|HELD_TRACKING|HELD_CRIPPLE
+WP_DLT20AFlags HELD_ALTRELOAD
+WP_DEMP2Flags HELD_POISON|HELD_ALTRELOAD|HELD_STUN
+
 attributes MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_DEXTERITY,1|MB_ATT_DODGE,3|MB_ATT_STAMINA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_BASE_TD,2|MB_ATT_SABER_COMBO,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_TRACKING_BEACON
+
+special1 EAS_HI_DODGE
+meleespecial1 EAS_HI_DODGE
+special2 EAS_HI_DEX
+special3 EAS_HI_POISON
+meleespecial3  EAS_HI_POISON
+
 maxhealth 100
 maxarmor 75
+ArmourRegenCap 10
+ArmourRegenRate 500
+ArmourRegenAmount 1
+rankArmourRegenCap 25
+
 BPmultiplier 0
 rankBP 0.75
 APmultiplier 1.3
 CSmultiplier 1.1
 saberMaxChain 2
 rankSaberMaxChain 3,4
-resource RESOURCE_STAMINA
-forcepool 80
-forceregen .8
-rankROF .8
-rateOfFire_Melee .91
-rankKbGiven 1.3
-basespeed 220
-rankbasespeed 235,240
-special1HUD HUD_POISONDART
-special2HUD HUD_FRAGNADE
-WP_SaberFlags HELD_PULSE|HELD_POISON
-WP_FragNadeFlags HELD_POISON|HELD_TRACKING|HELD_CRIPPLE
-WP_DLT20AFlags HELD_ALTRELOAD
-WP_DEMP2Flags HELD_POISON|HELD_ALTRELOAD|HELD_STUN
-uioverlay_r "gfx/icons/infantry"
-uioverlay_c "gfx/icons/tactician"
-uioverlay_l "gfx/icons/spec_infantry"
 saber1 Legends_Knife_Jagged
 saberstyle SS_TAVION|SS_FAST
 saberDamage 120
 rankSaberDamage 140
-ArmourRegenCap 10
-ArmourRegenRate 500
-ArmourRegenAmount 1
-rankArmourRegenCap 25
-special1 EAS_HI_DODGE
-meleespecial1 EAS_HI_DODGE
-special2 EAS_HI_DEX
-special3 EAS_HI_POISON
-meleespecial3  EAS_HI_POISON
+
+resource RESOURCE_STAMINA
+forcepool 80
+forceregen .8
+
+rankROF .8
+rateOfFire_Melee .91
+
+rankKbGiven 1.3
+basespeed 220
+rankbasespeed 235,240
+
+special1HUD HUD_POISONDART
+special2HUD HUD_FRAGNADE
+
+uioverlay_r "gfx/icons/infantry"
+uioverlay_c "gfx/icons/tactician"
+uioverlay_l "gfx/icons/spec_infantry"
+
 modelScale 1.02
 model "sithtrooper_tor"
 skin "default"
@@ -60,6 +72,7 @@ uishader_3 "models/players/sithtrooper_tor/mb2_icon_korriban"
 model_4 "sithtrooper_tor"
 skin_4 "yavin"
 uishader_4 "models/players/sithtrooper_tor/mb2_icon_yavin"
+
 isCustomBuild 1
 mbPoints 13
 hasCustomSpec 3
@@ -73,6 +86,7 @@ customSpecDesc_2 "Poison Expert"
 customSpecName_3 "Concealment"
 customSpecIcon_3 "gfx/menus/alpha/icon_playermodel"
 customSpecDesc_3 "Stealth Operative"
+
 c_att_skill_0 MB_ATT_DLT20A
 c_att_names_0 "Sith Sniper Rifle (DLT-20A)"
 c_att_ranks_0 2,2,0
@@ -100,6 +114,7 @@ c_att_ranks_6 1
 c_att_skill_7 MB_ATT_POISON_DART
 c_att_names_7 "Poison Dart ^3[CS3]"
 c_att_ranks_7 1
+
 c_att_skill_15 MB_ATT_RESPAWNS
 c_att_names_15 "Reinforcement"
 c_att_ranks_15 8
@@ -125,6 +140,7 @@ c_att_ranks_20 1
 c_att_skill_21 MB_ATT_POISON_DART
 c_att_names_21 "Poison Darts ^3[CS3]"
 c_att_ranks_21 1,1,1
+
 c_att_skill_30 MB_ATT_SABER_DAMAGE
 c_att_names_30 "Saber Damage (140)"
 c_att_ranks_30 2
@@ -158,7 +174,9 @@ c_att_skill_39 MB_ATT_POISON_DART
 c_att_names_39 "Poison Dart ^3[CS3]"
 c_att_ranks_39 1
 }
-WeaponInfo0{
+
+WeaponInfo0
+{
 WeaponToReplace WP_SABER
 WeaponBasedOff WP_SABER
 NewWorldModel "models/weapons2/vibroknife/model.glm"
@@ -166,7 +184,9 @@ NewViewModel "models/weapons2/dummy/dummy.md3"
 Icon "gfx/hud/w_icon_prisonknife"
 WeaponName "Acidic Vibroknife"
 }
-WeaponInfo1{
+
+WeaponInfo1
+{
 WeaponToReplace WP_DLT20A
 WeaponBasedOff WP_DLT20A
 NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
@@ -175,7 +195,7 @@ Icon "gfx/hud/w_icon_dlt-18"
 WeaponName "Sith Sniper Rifle"
 MissileMissEffect "tusken/hitwall"
 MissileHitHumanEffect "tusken/hit"
-MissileHitDroidEffect "tusken/hit"
+MissileHitDroidEffect "tusken/hitwall"
 FlashSound0 "sound/weapons/EL-16/fire.wav"
 AltFlashSound0 "sound/weapons/EL-16/alt_fire.wav"
 customAmmo 380
@@ -189,7 +209,9 @@ damageMod 1.1
 velocityMod 1.25
 ReloadTimeModifier 1.7
 }
-WeaponInfo2{
+
+WeaponInfo2
+{
 WeaponToReplace WP_CR2
 WeaponBasedOff WP_CONCUSSION
 NewWorldModel "models/weapons2/relby_v10/model_w.glm"
@@ -198,7 +220,9 @@ Icon "gfx/hud/w_icon_relby_v10"
 WeaponName "Sith Blaster Rifle"
 customAmmo 650
 }
-WeaponInfo3{
+
+WeaponInfo3
+{
 WeaponToReplace WP_DEMP2
 WeaponBasedOff WP_MANDO_PISTOL
 NewWorldModel "models/weapons2/CR-1_cannon/rifle_w.glm"
@@ -219,7 +243,9 @@ ratemod 0.2
 velocityMod 1.5
 ReloadTimeModifier 1.25
 }
-WeaponInfo4{
+
+WeaponInfo4
+{
 WeaponToReplace WP_FRAG_NADE
 WeaponBasedOff WP_THERMAL
 NewWorldModel "models/weapons/Grenade_Concussion/model.glm"
@@ -234,7 +260,9 @@ altMissileMissEffect "slime_explosion_new"
 altMissileEffect "sonic_pistol/projectile"
 damageMod 0.25
 }
-WeaponInfo5{
+
+WeaponInfo5
+{
 WeaponToReplace WP_MANDO_PISTOL
 WeaponBasedOff  WP_MANDO_PISTOL
 NewWorldModel "models/weapons2/kotor_bpistol3/kotor_bpistol3_w.glm"
@@ -247,6 +275,7 @@ WeaponName "Sith Blaster Pistol"
 clipSize 20
 FPChargeMult 1.25
 }
+
 description "Sith Operative 
 
 Multi-life elite troopers specializing in assassination.
