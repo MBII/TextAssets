@@ -116,3 +116,36 @@ gfx/effects/df/crifle_blueflare
         rgbGen vertex
     }
 }
+
+
+// Shadows of the Empire Pulse Cannon
+gfx/effects/df/pulseSideFlash
+{
+	cull	twosided
+    {
+        map gfx/effects/df/pulseSideFlash
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/effects/df/pulseFrontFlash
+{
+	cull	twosided
+    {
+        map gfx/effects/df/pulseFrontFlash
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/effects/df/Pulse_spark5
+{
+	cull	twosided
+    {
+        map gfx/effects/df/Pulse_spark5
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+    }
+}
