@@ -573,6 +573,35 @@ models/weapons2/briar_pistol/briar_pistol
 	}
 }
 
+// Upgraded model
+models/weapons2/briar_pistol/world
+{
+    {
+        map models/weapons2/briar_pistol/world
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/briar_pistol/world_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
+models/weapons2/briar_pistol/view
+{
+    {
+        map models/weapons2/briar_pistol/view
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/briar_pistol/view_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        alphaGen lightingSpecular
+		detail
+    }
+}
+
 
 ///////////// T-21 Rifle /////////////
 models/weapons2/t-21/t21_diff
