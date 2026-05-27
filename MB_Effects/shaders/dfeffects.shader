@@ -19,17 +19,6 @@ gfx/effects/df/imprepFrontFlash
     }
 }
 
-gfx/effects/df/imprepspark3
-{
-	cull	twosided
-    {
-        map gfx/effects/df/imprepspark3
-        blendFunc GL_ONE GL_ONE
-        glow
-        rgbGen vertex
-    }
-}
-
 // Jeron Fusion Cutter
 gfx/effects/df/jeron_greenLine
 {
