@@ -21,7 +21,7 @@ models/players/darthnihilus/face
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
-        alphaGen wave sin 0.7 0.225 0.1 0.1
+        alphaGen wave sin 0.7 0.3 0.1 0.175
     }
     {
         map gfx/effects/sith_smoke
