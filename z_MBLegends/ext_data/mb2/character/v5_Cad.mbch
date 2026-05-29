@@ -3,13 +3,13 @@ ClassInfo
 	name				"v5_Cad"
 	MBClass		MB_CLASS_ARCTROOPER
 	classNumberLimit	1
-	weapons				WP_CLONE_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_M5|WP_MANDO_PISTOL|WP_THROWER|WP_FRAG_NADE
+	weapons				WP_CLONE_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_CLONE_RIFLE|WP_MANDO_PISTOL|WP_THROWER|WP_FRAG_NADE
 
- WP_M5Flags HELD_SLOW
+ WP_CloneRifleFlags HELD_SLOW|HELD_LIFESTEAL|HELD_ALTRELOAD
  WP_MandoPistolFlags HELD_KNOCKBACK|HELD_ALTRELOAD
  //WP_StunBatonFlags HELD_KNOCKDOWN|HELD_STUN
 
-	attributes		|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON|MB_ATT_MANDO_PISTOL,3|MB_ATT_FLAMETHROWER|MB_ATT_WESTARM5,2|MB_ATT_FRAGS,2|MB_ATT_QUICKTHROW,1
+	attributes		|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,3|MB_ATT_TRACKING_BEACON|MB_ATT_MANDO_PISTOL,3|MB_ATT_FLAMETHROWER|MB_ATT_CLONERIFLE,1|MB_ATT_FRAGS,2|MB_ATT_QUICKTHROW,1
 
 	maxhealth	125
 	maxarmor		125
@@ -80,11 +80,13 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace	WP_M5
-	WeaponBasedOff	WP_M5
+	WeaponToReplace	WP_CLONE_RIFLE
+	WeaponBasedOff	WP_MANDO_PISTOL
 	NewWorldModel    "models/weapons2/cb_pistol/pistol_w.glm"
 	NewViewModel     "models/weapons2/cb_pistol/pistol_w.md3"
 	Icon            "gfx/hud/w_icon_cb_pistol"
+	WeaponName	"Quick Draw"
+
 	FlashSound0		"sound/chars/cadbane/misc/cadblast" 			
 	AltFlashSound0	"sound/chars/cadbane/misc/cadblast"
 	ChargeSound		"sound/weapons/bryar/altcharge.mp3"
@@ -96,20 +98,22 @@ WeaponInfo1
 	PowerupShotEffect	"Blaster/Shot04r"
 	ChargeEffect		"gfx/effects/bryarfrontflash"
  MissileMissEffect "Blaster/Impact_Wall01"
- MissileHitHumanEffect "Blaster/Impact_Wall01"
+ MissileHitHumanEffect "saber/saber_cut"
  MissileHitDroidEffect "Blaster/Impact_Wall01"
  altMissileMissEffect "Blaster/Impact_Wall01"
  altMissileHitHumanEffect "Blaster/Impact_Wall01"
  altMissileHitDroidEffect "Blaster/Impact_Wall01"
-	WeaponName	"Quick Draw"
-	customAmmo	10
- clipSize 2
+
+
+	customAmmo	5
+ clipSize 1
  altFireEnabled 0
 	velocityMod 99999
  rateMod 3
- damageMod 3
- FPMult 3
- reloadTimeModifier 2.5
+ damageMod 4.25
+ FPMult 4.25
+ reloadTimeModifier 1.75
+
 	hasAnimOverrides 1
 	animReadyRun BOTH_STAND9
 	animReady BOTH_STAND9
@@ -187,23 +191,24 @@ WeaponInfo3
 
 	WeaponName	"Wrist Gauntlet Flamethrower"
 	customAmmo 1
- clipSize 100
+ clipSize 150
  altFireEnabled 0
  rateMod 1
 	hasAnimOverrides 1
- animReadyRun 	BOTH_MELEE_STAND1
- animReady 	BOTH_MELEE_STAND1
- animReadyWalk BOTH_MELEE_STAND1
+ animReadyRun 	BOTH_TRIPLE3_DUALSTANCE
+ animReady 	BOTH_TRIPLE3_DUALSTANCE
+ animReadyWalk BOTH_SABERDUAL_STANCE
 	animReadyNoAmmo BOTH_MELEE_STAND1
-	animAttackRun BOTH_MELEE2
-	animAttack BOTH_MELEE2
-	animAttackWalk BOTH_MELEE2
+
+	animAttackRun BOTH_TRIPLE3_STAFFSTANCE
+	animAttack BOTH_TRIPLE3_STAFFSTANCE
+	animAttackWalk BOTH_TRIPLE3_STAFFSTANCE
 	animStand BOTH_STAND1
 }
 
 description	"Cad Bane 
 
-A callous, quick-footed, Dual Pistol-wielding Bounty Hunter. 
+A callous, quick-footed, Dual Pistol-wielding Bounty Hunter. Nice hat. 
 
 ^2Weaponry:
 - Melee
@@ -217,13 +222,14 @@ A callous, quick-footed, Dual Pistol-wielding Bounty Hunter.
 -- 30% less velocity
 -- Mag reload
 -- Primary fire only
-- Wrist Gauntlet Flamethrower
-- Quick Draw (M5 2)
+- Quick Draw (Clone Rifle 1)
+-- Drains on hit
 -- Hitscan rounds
--- 200% more damage/FP damage
+-- 325% more damage/FP damage
 -- 200% slower RoF
--- 150% slower reload
+-- 75% slower reload
 -- 15% slower movement
+- Wrist Gauntlet Flamethrower
 - Frag Grenades (2)
 
 ^8Attributes:
