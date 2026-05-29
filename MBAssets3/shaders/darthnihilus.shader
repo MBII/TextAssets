@@ -21,7 +21,7 @@ models/players/darthnihilus/face
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
-        alphaGen wave sin 0.7 0.1 0.1 0.1
+        alphaGen wave sin 0.7 0.225 0.1 0.1
     }
     {
         map gfx/effects/sith_smoke
@@ -36,6 +36,15 @@ models/players/darthnihilus/cape
     {
         map models/players/darthnihilus/cape
 	alphaFunc	GE192
+        rgbGen lightingDiffuse
+    }
+}
+
+models/players/darthnihilus/hood
+{
+	cull	twosided
+    {
+        map models/players/darthnihilus/hood
         rgbGen lightingDiffuse
     }
 }
