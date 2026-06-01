@@ -5,9 +5,9 @@ ClassInfo
 	MBClass				MB_CLASS_JEDI
 	classNumberLimit	1
 	
-	weapons				WP_MELEE|WP_STUN_BATON|WP_REPEATER
+	weapons				WP_MELEE|WP_STUN_BATON|WP_REPEATER|WP_CLONE_PISTOL
 
-	attributes			MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_STUN_BATON,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_BASESEEKER,1|MB_ATT_REPEATER|MB_ATT_REPEATER_NADES,2
+	attributes			MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_STUN_BATON,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_BASESEEKER,1|MB_ATT_REPEATER|MB_ATT_REPEATER_NADES,2|MB_ATT_CLONE_PISTOL,2
 	
 	maxhealth			70
 	maxarmor			30
@@ -30,12 +30,6 @@ ClassInfo
 	WP_StunBatonFlags	HELD_SPEED|HELD_FLAME
 
 	baseSpeed			260
-
-	saber1				Jawa_Wrench_Legends
-	saberstyle			SS_FAST
-	
-	saber1_1			Jawa_Wrench_Legends_2
-	saberstyle_1		SS_FAST
 	
 	//saberMaxChain		1
 	saberDamage			50
@@ -129,7 +123,7 @@ WeaponInfo2
 	
 	FlashSound0			"sound/weapons/fusioncutter/cutter_hit.mp3"
 	
-	//MissileMissEffect	"sparks/spark_exp_nosnd"
+	//MissileMissEffect		"sparks/spark_exp_nosnd"
 	//MissileHitHumanEffect	"sparks/spark_exp_nosnd"
 	//MissileHitDroidEffect	"sparks/spark_exp_nosnd"
 	
@@ -144,6 +138,41 @@ WeaponInfo2
 	animAttackRun		BOTH_ATTACK2
 	animAttack			BOTH_ATTACK2
 	animAttackWalk		BOTH_ATTACK2
+}
+
+WeaponInfo3
+{
+	WeaponToReplace		WP_CLONE_PISTOL
+	WeaponBasedOff		WP_CLONE_PISTOL
+	NewWorldModel		"models/weapons2/pitdroid_saber/saber_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_pitdroidsaber"
+	WeaponName			"Makeshift Servo Launcher"
+	
+	SelectSound			"sound/chars/pitdroid/misc/land1.mp3"
+	FlashSound0			null
+	AltFlashSound0		"sound/chars/pitdroid/misc/pain75.mp3"
+	ChargeSound			"sound/weapons/socom/altcharge.mp3"
+	
+	AltMissileModel				"models/map_objects/aliens3/bolt.md3"
+	AltMissileEffect			"stone/missile1"
+	altMissileMissEffect		"effects/flechette/wall_impact"
+	//altMissileEffect			"effects/flechette/shot"
+	altMuzzleEffect				"effects/mp5k/sparks"
+	altMissileHitHumanEffect	"effects/flechette/flesh_impact"
+	altMissileHitDroidEffect	"effects/flechette/wall_impact"
+	MissileModel				"models/map_objects/aliens3/bolt.md3"
+	MissileEffect				"stone/missile1"
+	MissileMissEffect			"effects/flechette/wall_impact"
+	//MissileEffect				"effects/flechette/shot"
+	MuzzleEffect				"effects/mp5k/sparks"
+	MissileHitHumanEffect		"effects/flechette/flesh_impact"
+	MissileHitDroidEffect		"effects/flechette/wall_impact"
+	
+	damageMod			1.20
+	primfireenabled		0
+	clipSize			33
+	customAmmo			792
 }
 
 description	"Anakin Skywalker
@@ -163,6 +192,9 @@ The Saga Begins...
 -- Lightweight
 -- 80% faster RoF
 -- 65% less damage
+- Makeshift Servo Launcher (Clone Pistol 2)
+-- Secondary fire only
+-- 20% more damage
 
 ^6Inventory:
 - Defense Seeker
