@@ -45,6 +45,7 @@ models/players/gwethenea/hairc_f_black
     {
         map models/players/gwethenea/hairc_f_black
         alphaFunc GE192
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
     }
@@ -56,6 +57,7 @@ models/players/gwethenea/hairc_f_brown
     {
         map models/players/gwethenea/hairc_f_brown
         alphaFunc GE192
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
     }
@@ -67,6 +69,7 @@ models/players/gwethenea/hairc_s_black
     {
         map models/players/gwethenea/hairc_s_black
         alphaFunc GE192
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
     }
@@ -78,6 +81,7 @@ models/players/gwethenea/hairc_s_brown
     {
         map models/players/gwethenea/hairc_s_brown
         alphaFunc GE192
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
     }
