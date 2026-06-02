@@ -1,9 +1,9 @@
-//Galatic Empire
-//TO DO: Vader, Palpy, other named Imperials
-//Future Ideas: Jettroopers, Army/COMPForce troopers, ISB thugs, Imp Officers, Engineers, vehicles, etc.
-//Note: Probe, sentry, seeker, mark1, mark2, and at-st NPCs all exist elsewhere
+//Galatic Empire NPCs for MB2
+//TO DO: Officer variants (pistol and heavy pistol),  dark stormtrooper (healing + ?), blackhole stormtroopers (cloak + DLT-20a), named characters
+//Future Ideas: Jettroopers, Army Troopers, Engineers, Vehicles, etc.
+//Note: Probe, Sentry, Seeker, Mark1, Mark2, and AT-ST NPCs all exist elsewhere
 
-GE_StormTrooper //
+GE_StormTrooper //basic trooper, better then police and army I guess
 {
 	playerModel stormie
 	customSkin 	legends
@@ -41,7 +41,7 @@ GE_StormTrooper //
 	dismemberProbWaist	0
 }
 
-GE_COMPTrooper //
+GE_COMPTrooper //slightly better equipped
 {
 	playerModel mudtrooper
 	customSkin 	security
@@ -78,7 +78,43 @@ GE_COMPTrooper //
 	dismemberProbWaist	0
 }
 
-GE_StormSerg //
+GE_NavyShotgun //shotgunners to mixup attacks, better at close quaters inside of Navy ships/stations/bases
+{
+	playerModel imperial
+	customSkin  navy
+	weapon		WP_SHOTGUN
+	MB_ATT_SHOTGUN 1
+	//altFire 1
+	health		50
+	armor 		15
+	headPitchRangeDown 30
+	reactions	3
+	aim			1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+//	race		klingon
+	class		CLASS_STORMTROOPER
+	height		64
+	crouchheight 38
+	walkSpeed	51
+	runSpeed	200
+	snd			ic_df2
+	sndcombat	ic_df2
+	sndextra	ic_df2
+	yawspeed	70
+	dismemberProbHead	0
+	dismemberProbArms	10
+	dismemberProbLegs	0
+	dismemberProbHands	20
+	dismemberProbWaist	0
+}
+
+GE_StormSergeant //Sergeant with the bigger blaster
 {
 	playerModel stormie
 	customSkin 	sarge
@@ -115,7 +151,7 @@ GE_StormSerg //
 	dismemberProbHands	20
 	dismemberProbWaist	0
 }
-GE_NovaTrooper //
+GE_NovaTrooper //elites with heavy rifles
 {
 	playerModel stormie
 	customSkin 	novatrooper
@@ -152,7 +188,7 @@ GE_NovaTrooper //
 	dismemberProbHands	20
 	dismemberProbWaist	0
 }
-GE_StormRocket //so jedi have something they can't block
+GE_StormRocket //projectile mixup
 {
 	playerModel stormie
 	customSkin  sandtrooper_rgb
@@ -264,7 +300,7 @@ GE_PlasmaTrooper //something jedi can't block x2, doesn't look good though
 GE_IceTrooper //something jedi can't block x3, doesn't look good though
 {
 	playerModel stormie
-	customSkin tfushadow
+	customSkin mortar
 	weapon		WP_THROWER
 	MB_ATT_THROWER_ICE 1
 	health		80
@@ -298,44 +334,7 @@ GE_IceTrooper //something jedi can't block x3, doesn't look good though
 	dismemberProbWaist	0
 }
 
-GE_LightningTrooper //something jedi can't block x4, doesn't look good though
-{
-	playerModel stormie
-	customSkin mortar
-	weapon		WP_THROWER
-	MB_ATT_THROWER_LIGHTNING 1
-	health		80
-	armor 20
-	headPitchRangeDown 30
-	reactions	3
-	aim			1
-	move		3
-	aggression	3
-	evasion		1
-	intelligence	5
-	rank		crewman
-	playerTeam	TEAM_PLAYER
-	enemyTeam	TEAM_ENEMY
-//	race		klingon
-	class		CLASS_STORMTROOPER
-	height		64
-	crouchheight 38
-	walkSpeed	51
-	runSpeed	200
-	snd			stormie_bf1
-	sndcombat	stormie_bf1
-	sndextra	stormie_bf1
-	yawspeed	70
-	walkSpeed	55
-	runSpeed	200
-	dismemberProbHead	0
-	dismemberProbArms	10
-	dismemberProbLegs	0
-	dismemberProbHands	20
-	dismemberProbWaist	0
-}
-
-GE_PoisonTrooper //something jedi can't block x5, doesn't look good though
+GE_PoisonTrooper //something jedi can't block x4, doesn't look good though
 {
 	playerModel stormie
 	customSkin mortar
@@ -372,15 +371,14 @@ GE_PoisonTrooper //something jedi can't block x5, doesn't look good though
 	dismemberProbWaist	0
 }
 
-GE_NavyShotgun //
+GE_LightningTrooper //dangerous to gunners at close range by locking the targets down
 {
-	playerModel imperial
-	customSkin  navy
-	weapon		WP_SHOTGUN
-	MB_ATT_SHOTGUN 1
-	//altFire 1
-	health		50
-	armor 		15
+	playerModel stormie
+	customSkin mortar
+	weapon		WP_THROWER
+	MB_ATT_THROWER_LIGHTNING 1
+	health		80
+	armor 20
 	headPitchRangeDown 30
 	reactions	3
 	aim			1
@@ -397,10 +395,12 @@ GE_NavyShotgun //
 	crouchheight 38
 	walkSpeed	51
 	runSpeed	200
-	snd			ic_df2
-	sndcombat	ic_df2
-	sndextra	ic_df2
+	snd			stormie_bf1
+	sndcombat	stormie_bf1
+	sndextra	stormie_bf1
 	yawspeed	70
+	walkSpeed	55
+	runSpeed	200
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	0
@@ -408,7 +408,7 @@ GE_NavyShotgun //
 	dismemberProbWaist	0
 }
 
-GE_ScoutSniper //
+GE_ScoutSniper //snipers to mixup attack types
 {
 	playerModel	scouttrooper
 	customSkin  commando
@@ -433,8 +433,8 @@ GE_ScoutSniper //
 	yawSpeed	140
 	walkSpeed	55
 	runSpeed	200
-	health		50
-	armor 		15
+	health		80
+	armor 		20
 	dismemberProbHead	0
 	dismemberProbArms	10
 	dismemberProbLegs	0
@@ -442,7 +442,7 @@ GE_ScoutSniper //
 	dismemberProbWaist	0
 }
 
-GE_EVOTrooper //
+GE_EVOTrooper //anti-melee troopers with shock fields and flechettes
 {
 	playerModel stormie
 	customSkin tfucomm
@@ -479,7 +479,7 @@ GE_EVOTrooper //
 	dismemberProbWaist	0
 }
 
-GE_KX //
+GE_KX //melee tanks
 {
 	playerModel k2so
 	customSkin  default
@@ -514,7 +514,7 @@ GE_KX //
 	dismemberProbWaist	0
 }
 
-GE_KX_E22 //
+GE_KX_E22 //ranged tanks
 {
 	playerModel k2so
 	customSkin  default
@@ -550,7 +550,7 @@ GE_KX_E22 //
 	dismemberProbWaist	0
 }
 
-GE_ScoutBaton //leaving this here for now but the AI type doesn't feel right for Clones
+GE_ScoutBaton //melee fodder, can saber but can't block blasters
 {
 	playerModel	scouttrooper
 	customSkin	default
@@ -587,7 +587,7 @@ GE_ScoutBaton //leaving this here for now but the AI type doesn't feel right for
 	dismemberProbWaist	0
 }
 
-GE_ScoutDual //leaving this here for now but the AI type doesn't feel right for Clones
+GE_ScoutDual //melee fodder x2, can saber but can't block blasters
 {
 	playerModel	scouttrooper
 	customSkin	default
@@ -625,28 +625,178 @@ GE_ScoutDual //leaving this here for now but the AI type doesn't feel right for 
 	dismemberProbWaist	0
 }
 
-GE_RoyalGuard
+GE_RoyalGuard //normal melee enemy, can saber but can't block blasters
 {
-	
+	playerModel	royal
+	customSkin	melee
+	MBCLASS 	5
+	saber		royal_pike_legends
+	weapon	WP_SABER
+	saberStyle	2
+	MB_ATT_FP_SABER_DEFENSE 1
+	MB_ATT_FORCEBLOCK 1
+	FP_LEVITATION	1
+	RESOURCE_FORCE 1
+	forcePowerMax	50
+	PBchance 20
+	MBchance 2
+	SBchance 45
+	reactions	3
+	aim			1
+	move		3
+	aggression	5
+	evasion		1
+	intelligence	5
+	hfov		120
+	vfov		120
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_REBORN
+	snd			royal
+	sndcombat	royal
+	sndjedi		royal
+	yawSpeed	60
+	walkSpeed	45
+	runSpeed	180
+	health		80
+	armor		60
+	dismemberProbHead	0
+	dismemberProbArms	20
+	dismemberProbLegs	0
+	dismemberProbHands	30
+	dismemberProbWaist	0
 }
 
-GE_ShadowGuard
+GE_ShadowGuard //basic armored Sith
 {
-	
-}
-
-GE_ProtectorGuard
-{
-	
+	playerModel	royal
+	customSkin	default_b
+	MBCLASS 	5
+	saber		lightsaber_pike_legends
+	weapon	WP_SABER
+	saberStyle	3
+	MB_ATT_FP_SABER_DEFENSE 2
+	MB_ATT_GUN_DEFENSE 2
+	MB_ATT_FORCEBLOCK 1
+	MB_ATT_FP_LIGHTNING 1
+	FP_LEVITATION	3
+	MB_ATT_FP_PULL 2
+	RESOURCE_FORCE 1
+	forcePowerMax	200
+	PBchance 20
+	MBchance 2
+	SBchance 45
+	reactions	3
+	aim			1
+	move		3
+	aggression	5
+	evasion		1
+	intelligence	5
+	hfov		120
+	vfov		120
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_REBORN
+	snd			royal
+	sndcombat	royal
+	sndjedi		royal
+	yawSpeed	60
+	walkSpeed	45
+	runSpeed	180
+	health		100
+	armor		100
+	dismemberProbHead	0
+	dismemberProbArms	20
+	dismemberProbLegs	0
+	dismemberProbHands	30
+	dismemberProbWaist	0
 }
 
 GE_InquisitorSaber
 {
-	
+	playerModel	reborn_concept
+	customSkin	force
+	MBCLASS 	5
+	saber		saber_reborn_mp
+	saberColor	yellow
+	weapon	WP_SABER
+	MB_ATT_FORCEBLOCK 1
+	MB_ATT_FP_SABER_DEFENSE 3
+	MB_ATT_GUN_DEFENSE 3
+	MB_ATT_DEFLECT 3
+	RESOURCE_FORCE 1
+	Pbchance 30
+	MBchance 3
+	SBchance 50
+	saberStyle	2
+	FP_LEVITATION	3
+	FP_SABERTHROW	3
+	FP_PROTECT		3
+	FP_ABSORB		3
+	FP_GRIP			3
+	rank		captain
+	forcePowerMax 200
+	reactions	5
+	aim			5
+	move		5
+	aggression	5
+	evasion		5
+	intelligence	5
+	hfov		120
+	vfov		120
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_REBORN
+	snd			cultist2
+	sndcombat	cultist2
+	sndjedi		cultist2
+	yawSpeed	60
+	walkSpeed	45
+	runSpeed	180
+	health		150
+	dismemberProbHead	0
+	dismemberProbArms	20
+	dismemberProbLegs	0
+	dismemberProbHands	30
+	dismemberProbWaist	0
 }
 
 GE_InquisitorMage
 {
-	
+	playerModel	reborn_concept
+	customSkin	force
+	MBCLASS 	5
+	weapon		WP_MELEE
+	MB_ATT_FORCEBLOCK 1
+	FP_LEVITATION	3
+	FP_PUSH		3
+	FP_LIGHTNING	3
+	RESOURCE_FORCE 1
+	forcePowerMax	200
+	forceRegenAmount	2
+	rank		captain
+	reactions	1
+	aim			1
+	move		1
+	aggression	5
+	evasion		3
+	intelligence	1
+	hfov		120
+	vfov		120
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+//	race		human
+	class		CLASS_MAGE
+	snd			cultist3
+	sndcombat	cultist3
+	sndjedi		cultist3
+	yawSpeed	60
+	walkSpeed	45
+	runSpeed	180
+	health		150
+	dismemberProbHead	0
+	dismemberProbArms	20
+	dismemberProbLegs	0
+	dismemberProbHands	30
+	dismemberProbWaist	0
 }
-// Officers (pistol or heavy pistol),  dark stormtrooper (healing + ?), ? (T-21), ? (DLT-20a)
