@@ -2,21 +2,21 @@
 
 ClassInfo
 {
-	name				"TheedTF_B1STAP"
+	name				"DOTFTF_B1Pilot"
 	extralives			1
-	MBClass				MB_CLASS_DROIDEKA
+	MBClass				MB_CLASS_BATTLEDROID
 	classNumberLimit	1
-	weapons				WP_MELEE|WP_BLASTER
+	weapons				WP_MELEE|WP_BLASTER|WP_PLX1|WP_FRAG_NADE
 	//WP_BlasterFlags		HELD_ALTRELOAD
-	attributes			MB_ATT_AMMO,3|MB_ATT_RECHARGE,2|MB_ATT_ASSEMBLE,3|MB_ATT_BLASTER,3
+	attributes			MB_ATT_AMMO,3|MB_ATT_RECHARGE,2|MB_ATT_ASSEMBLE,2|MB_ATT_BLASTER,3|MB_ATT_CCTRAINING,1|MB_ATT_PLX1,1|MB_ATT_DISP_HEALTH,3|MB_ATT_DISP_AMMO,3
 
 	knockbackTaken		1.1 	
 	knockbackGiven		0.9
 
-	Maxhealth			150
+	Maxhealth			50
 	rankHealth			35,50
 
-	MaxArmor			45
+	MaxArmor			35
 	rankArmor			20,35,45
 	
 	forcepool			30
@@ -36,10 +36,8 @@ ClassInfo
 	//uioverlay			"gfx/icons/infantry"
 
 	model				"battledroid"     
-	skin				"ep1"    
-	uishader  			"models/players/battledroid/mb2_icon_ep1_stap"
-	
-	customveh			STAP_theed
+	skin				"ep1_pilot"    
+	uishader  			"models/players/battledroid/mb2_icon_ep1_pilot"
 }
 
 WeaponInfo0
@@ -50,9 +48,6 @@ WeaponInfo0
 	NewViewModel 		"models/weapons2/e5/e5.md3"
 	Icon				"gfx/hud/w_icon_e5"
 	WeaponName			"E-5 Blaster Rifle"
-	
-	FlashSound0			"sound/weapons/e-5/fire.mp3"
-	AltFlashSound0		"sound/weapons/e-5/alt_fire.mp3"
 	
 	hasAnimOverrides	1
 	animReadyRun		BOTH_STAND3
@@ -84,19 +79,40 @@ WeaponInfo1
 	splashRadius		250
 }
 
-description	"B1-series Battle Droid (STAP Driver)
+WeaponInfo2
+{
+	WeaponToReplace		WP_PLX1
+	WeaponBasedOff		WP_PLX1
+	NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon				"gfx/hud/w_icon_e60r_launcher"
+	WeaponName			"E-60R Missile Launcher"
+	
+	flashSound0			"sound/weapons/upl/fire_rocket.wav"
+	
+	Damagemod			.75
+	reloadTimeModifier	1.35
+}
 
-Mass-produced, fragile combatant with STAP driving capability.
+description	"B1-series Pilot Battle Droid
+
+Mass-produced, fragile combatants armed with a missile launcher and healing capabilities.
 
 ^2Weaponry:
 - Melee
 - E-5 Blaster Rifle (3)
+- E-60R Missile Launcher (PLX) (1)
 
 ^8Attributes:
-- 1 Reinforcement
+- 2 Reinforcements
+- Close Combat Training (1)
 - 10% less knockback given
 - 10% more knockback taken
 - Battery Recharge (2)
-- Assemble (3)
+- Assemble (2)
 
-It was the invasion of Naboo by the Trade Federation that showed the galaxy not only the effectiveness of battle droids, but also the glaring oversights in their design. Against a peaceful populace, the Trade Federation army of battle droids was able to quickly conquer and take control of the Naboo population centers. These droids would blindly obey orders given to them by their commanders or from an orbiting Droid Control Ship."
+^3Abilities:
+- Fusion Cutter / Ammo Dispenser (3) ^3[Use]
+
+The OOM pilot battle droids, distinguished by blue shoulders, had advanced programming to pilot vehicles and vessels. In order to accommodate their piloting and engineering tasks, these droids had advanced specialization programming that allowed them to easily understand the control systems of any vehicle. 
+They also carried supplies such as emergency tools and ammunition dispensers."
