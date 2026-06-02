@@ -1,16 +1,16 @@
 
 ClassInfo
 {
-	name				"TheedTF_RuneH"
+	name				"DOTFTF_NuteG"
 	MBClass				MB_CLASS_SOLDIER
 	classNumberLimit	1
 
-	weapons				WP_MELEE|WP_DC_CARBINE|WP_MINIGUN
+	weapons				WP_MELEE|WP_SABER|WP_DC_CARBINE
 
 	WP_MinigunFlags		HELD_TRACKING|HELD_ALTRELOAD|HELD_POISON|HELD_LIFESTEAL|HELD_IGNOREBLOCK
 	WP_SaberFlags		HELD_STUN|HELD_KNOCKDOWN|HELD_DISARM|HELD_SLOW
 
-	attributes			MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_RALLY|MB_ATT_SABER_COMBO_NONE|MB_ATT_DC_CARBINE,3|MB_ATT_MINIGUN,3|MB_ATT_BACTA|MB_ATT_SPAWNER|MB_ATT_ROUNDSPAWNER|MB_ATT_SENTRY|MB_ATT_FORCEFIELD|MB_ATT_DRONE|MB_ATT_LIGHTS_BEACON|MB_ATT_AMMO,3|MB_ATT_RECHARGE,2
+	attributes			MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_RALLY|MB_ATT_SABER_COMBO_NONE|MB_ATT_DC_CARBINE,1|MB_ATT_BACTA_BIG|MB_ATT_SPAWNER|MB_ATT_ROUNDSPAWNER|MB_ATT_SHOCKFIELD|MB_ATT_PSHIELD|MB_ATT_LIGHTS_BEACON|MB_ATT_AMMO,3|MB_ATT_RECHARGE,2
 
 	spawnerNPC			"b1_leg2"
 	roundNPC			"b1_leg"
@@ -30,21 +30,22 @@ ClassInfo
 	maxhealth			150
 	maxarmor			50
 
-	forcepowers			FP_ABSORB,2
+	forcepowers			FP_PROTECT,2
 	resource			RESOURCE_BATTERY
 	forcepool			120
 
 	special1			EAS_HI_DODGE
 	meleespecial1		EAS_HI_DODGE
 	special2			EAS_HI_SPAWNER
-	special3			EAS_HI_SENTRY_GUN
-	special4			EAS_HI_SHIELD
+	special3			EAS_HI_SHOCKFIELD
+	special4			EAS_HI_PSHIELD
 
 	//special4			EAS_HI_PETCONTROL
 
 	meleemoves			M_BLOCK|M_PUNCH
 	disableGunbash		1
 
+	saber1				nute_cc2
 	saberstyle			SS_MEDIUM
 	saberMaxChain		1
 	saberDamage			40
@@ -55,9 +56,9 @@ ClassInfo
 
 	classFlags			CFL_NOPICKUPS
 	modelscale			1.01
-	model				"rune"
+	model				"gunray"
 	skin				"default"
-	uishader			"models/players/rune/mb2_icon_default"
+	uishader			"models/players/gunray/mb2_icon_default"
 	//uioverlay			"gfx/icons/tactician"
 
 	punchAnim			BOTH_MELEE_BACKHAND  //
@@ -73,16 +74,11 @@ ClassInfo
 WeaponInfo0
 {
 	WeaponToReplace		WP_DC_CARBINE
-	WeaponBasedOff		WP_BLASTER
-	NewWorldModel 		"models/weapons2/e5/e5_w.glm"
-	NewViewModel 		"models/weapons2/e5/e5.md3"
-	Icon				"gfx/hud/w_icon_e5"
-	WeaponName			"E-5 Blaster Rifle"
-	
-	FlashSound0			"sound/weapons/e-5/fire.mp3"
-	FlashSound1			"sound/weapons/e-5/fire.mp3"
-	FlashSound2			"sound/weapons/e-5/fire.mp3"
-	FlashSound3			"sound/weapons/e-5/fire.mp3"
+	WeaponBasedOff		WP_DC_CARBINE
+	NewWorldModel		"models/weapons2/scout_pistol/blaster_pistol_w.glm"
+	NewViewModel		"models/weapons2/scout_pistol/blaster_pistol.md3"
+	Icon				"gfx/hud/w_icon_scout_pistol"
+	WeaponName			"EC-17 Hold-Out Blaster Pistol"
 	
 	MissileEffect		"Blaster/Shot01R"
 	MuzzleEffect		"Blaster/MuzzleFlash01R"
@@ -92,18 +88,22 @@ WeaponInfo0
 	altMissileMissEffect	"Blaster/Impact_Wall01"
 	altMissileHitHumanEffect	"Blaster/Impact_Wall01"
 	altMissileHitDroidEffect	"Blaster/Impact_Wall01"
-	rateMod				2
+	FlashSound0			"sound/weapons/spy_pistol/fire.wav"
+	FlashSound1			"sound/weapons/spy_pistol/fire.wav"
+	FlashSound2			"sound/weapons/spy_pistol/fire.wav"
+	FlashSound3			"sound/weapons/spy_pistol/fire.wav"
+	rateMod				3
 	reloadTimeModifier	5
 	
 	hasAnimOverrides	1
-	animReadyRun		BOTH_STAND3
-	animReady			BOTH_STAND3
-	animReadyWalk		BOTH_STAND3
+	animReadyNoAmmo		BOTH_PISTOL_ATTACK
+	animAttackRun		BOTH_PISTOL_ATTACK
+	animAttack			BOTH_PISTOL_ATTACK
+	animAttackWalk		BOTH_PISTOL_ATTACK
 	animStand			BOTH_STAND1
-	animReadyNoAmmo		BOTH_ATTACK3 
-	animAttackRun		BOTH_ATTACK3 
-	animAttack			BOTH_ATTACK3 
-	animAttackWalk		BOTH_ATTACK3 
+	animReadyRun		BOTH_PISTOL_IDLE2
+	animReady			BOTH_PISTOL_IDLE2
+	animReadyWalk		BOTH_PISTOL_READY
 }
 
 WeaponInfo1
@@ -162,38 +162,38 @@ WeaponInfo2
 
 ForceInfo0
 {
-	ForceToReplace		FP_ABSORB
+	ForceToReplace		FP_PROTECT
 	Icon				"gfx/2d/logos/mb_tradefed"
-	ForcePowerName		"Absorbing Wealth"
+	ForcePowerName		"Protective Wealth"
 }
 
-description "Settlement Officer Rune Haako
+description "Viceroy Nute Gunray
 
-A stunted slimeball who'd prefer to advise the other guy.
+A cowardly slimeball who'd prefer to observe the battle from far away.
 
 ^2Weaponry:
 - Unskilled Melee
 -- 100% slower RoF
 -- Punch/block only
-- E-5 Blaster Rifle (DC Carb 3)
--- 100% slower RoF
+- E-5 Blaster (Yellow Saber)
+-- No Block
+-- No Saber Training
+-- Chain Limit: 1
+-- Staggers/trips/disarms on hit
+-- 50% shorter
+-- 33% thicker
+- EC-17 Hold-Out Blaster Pistol (DC Carb 1)
+-- 200% slower RoF
 -- 400% slower reload
-- Security Resolution (Minigun 3)
--- Tracks/poisons/drains on hit
--- Unblockable
--- Hitscan charges
--- 99% less damage
--- 3000% slower RoF
 
 ^5Powers:
-- Absorbing Wealth (2) ^9{Dark's Beacon}
+- Protective Wealth (2) ^9{Dark's Beacon}
 
 ^6Inventory:
-- Medpac
+- Advanced Medpac
 - OOM-series Security Droid (Support Beacon) ^3[CS2]
-- Portable Forcefield ^3[CS4]
-- Assault Sentry ^3[CS3]
-- Seeker Drone
+- Personal Energy Shield ^3[CS4]
+- Shockfield ^3[CS3]
 
 ^8Attributes:
 - OOM-series Security Droid (Bodyguard)
@@ -208,4 +208,4 @@ A stunted slimeball who'd prefer to advise the other guy.
 ^3Abilities:
 - Dodge (3) ^3[CS1]
 
-Rune Haako is significantly more paranoid than Gunray and more pessimistic; however, he is able to provide sound advice to the often panic-stricken Viceroy, and often prevents a bad situation from becoming worse."
+Following a stint as Minister for the Trade Federation, he rose in power after the Stark Hyperspace War in 44 BBY, eventually becoming Viceroy of the Trade Federation. Gunray is pessimistic, intolerant, highly concerned for his own welfare, and often trying to shift blame onto others. He is openly fearful of Sidious and the Sith in general."

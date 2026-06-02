@@ -1,17 +1,18 @@
 
 ClassInfo
 {
-	name				"TheedN_Sabe"
+	name				"DOTFN_Padme"
 	MBClass				MB_CLASS_HERO
 	classNumberLimit	1
-	weapons				WP_A280|WP_MELEE|WP_PULSE_NADE|WP_BLASTER_PISTOL|WP_FRAG_NADE
+	weapons				WP_MELEE|WP_CONC_NADE|WP_BLASTER_PISTOL|WP_FRAG_NADE
+	WP_FragNadeFlags	HELD_BACTA
 
-	attributes			MB_ATT_HEALING,2|MB_ATT_DASH,2|MB_ATT_A280,0|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_PULSE_GRENADES,3|MB_ATT_DODGE,3|MB_ATT_PISTOL,3|MB_ATT_QUICKTHROW,3|MB_ATT_DEXTERITY,1|MB_ATT_ANTI_MT,2|MB_ATT_SPY_DISGUISE,1|MB_ATT_BACTA_BIG,1|MB_ATT_FRAGS,3
+	attributes			MB_ATT_HEALING,2|MB_ATT_DASH,2|MB_ATT_A280,0|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_MICRO_GRENADES,1|MB_ATT_DODGE,3|MB_ATT_PISTOL,3|MB_ATT_QUICKTHROW,3|MB_ATT_DEXTERITY,1|MB_ATT_ANTI_MT,2|MB_ATT_USE_DISTANCE,3|MB_ATT_DISP_BLOCK,3|MB_ATT_DISP_FORCE,2|MB_ATT_BACTA_BIG,1|MB_ATT_FRAGS,3
 
-	maxhealth			90
+	maxhealth			180
 	maxarmor			85
 
-	forcepowers			FP_TEAM_HEAL,1
+	forcepowers			FP_TEAM_FORCE,1
 	resource			RESOURCE_ENERGY
 	forcepool			100
 	forceregen			1.25
@@ -37,9 +38,9 @@ ClassInfo
 	special4			EAS_HI_MEDPAC_BIG
 	meleespecial4		EAS_HI_MEDPAC_BIG
 	
-	model				"sabe"
+	model				"queen_amidala"
 	skin				"default"
-	uishader			"models/players/sabe/mb2_icon_default"
+	uishader			"models/players/queen_amidala/mb2_icon_default"
 	modelscale			0.933
 	//uioverlay			"gfx/icons/spec_infantry"
 
@@ -47,35 +48,6 @@ ClassInfo
 }
 
 WeaponInfo0
-{
-	WeaponToReplace		WP_A280
-	WeaponBasedOff		WP_BLASTER
-	NewWorldModel		"models/weapons2/e5/e5_w.glm"
-	NewViewModel		"models/weapons2/e5/e5.md3"
-	Icon				"gfx/hud/w_icon_e5"
-	WeaponName			"Looted E-5 Blaster Rifle"
-	
-	FlashSound0			"sound/weapons/e-5/fire.mp3"
-	AltFlashSound0		"sound/weapons/ee3/sniperfire.mp3"
-	
-	customAmmo			720
-	clipsize			80
-	damageMod			1.1
-	rateMod				.8
-	altFireEnabled		0
-	
-	hasAnimOverrides	1
-	animReadyRun		BOTH_JANGO_PISTOL_IDLE
-	animReady			BOTH_JANGO_PISTOL_IDLE
-	animReadyWalk		TORSO_WEAPONREADY2
-	animReadyNoAmmo		BOTH_ATTACK2 
-	animAttackRun		BOTH_ATTACK2
-	animAttack			BOTH_ATTACK2
-	animAttackWalk		BOTH_ATTACK2
-	animStand			BOTH_STAND1
-}
-
-WeaponInfo1
 {
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_BLASTER_PISTOL
@@ -113,7 +85,31 @@ WeaponInfo1
 	animAttackWalk		BOTH_ATTACK2 
 }
 
-description	"Sabe
+WeaponInfo1
+{
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_FRAG_NADE
+	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel		"models/map_objects/mp/bacta.md3"
+	MissileModel		"models/map_objects/mp/bacta.md3"
+	altMissileModel		"models/map_objects/mp/bacta.md3"
+	Icon				"gfx/hud/w_icon_stungrenade"
+	WeaponName			"Bacta Grenades"
+	
+	MissileEffect				"force/pushblur"
+	MissileMissEffect			"grenades/exp_heal"
+	MissileHitHumanEffect		"grenades/exp_heal"
+	MissileHitDroidEffect		"grenades/exp_heal"
+
+	altMissileEffect			"force/pushblur"
+	altMissileMissEffect		"droideka/shieldimpact"
+	altMissileHitHumanEffect	"droideka/shieldimpact"
+	altMissileHitDroidEffect	"droideka/shieldimpact"
+	
+	damageMod			0
+}
+
+description	"Padme Naberrie Amidala
 
 An aggressive negotiator suited for both frontline and support. Powerful in proximity to friendly Saberists.
 
@@ -123,13 +119,13 @@ An aggressive negotiator suited for both frontline and support. Powerful in prox
 - ELG-3A Diplomat's Pistol (3)
 -- 10% more damage/FP damage
 -- 20% faster RoF
-- Looted E-5 Blaster Rifle (A280 1)
--- 10% more damage
--- 20% faster RoF
-- 2 Pulse Grenades
+- 3 Bacta Grenades (Frags)
+-- Heals allies on det
+-- 100% less damage
+- 1 V-59 Conc Grenade
 
 ^5Powers:
-- Team Heal (1)
+- Team Energize (1)
 
 ^6Inventory:
 - Advanced Medpac ^3[CS4]
@@ -143,9 +139,10 @@ An aggressive negotiator suited for both frontline and support. Powerful in prox
 - Ally Stat Viewer
 
 ^3Abilities:
-- Disguise (1) ^3[Melee Weap Mode]
+- BP/Resource Dispenser (3)/(2) ^3[Use]
+-- +3 range
 - Dodge (3) ^3[CS1]
 - Dash (2) ^3[CS2]
 - Quick Throw (3) ^3[CS3]
 
-Sabe was a female human who served as a Royal Handmaiden during the Trade Federation's invasion of Naboo. As a handmaiden for Queen Padme Amidala, Sabe doubled as the queen's decoy, often switching roles for her monarch's protection. Sabe carried out this role during the invasion, using it to trick the Federation into believing she was the queen."
+Born Padme Naberrie, Queen Amidala was the formal name of the royal leader of Naboo. As a child, Amidala was prodigiously talented and extremely well educated. She had long been interested in public service, volunteering in the Refugee Relief Movement in her youth. Her efforts helped in the Shadda-Bi-Boran exodus. At the age of eight, she joined the Apprentice Legislature and became an Apprentice Legislator at age 11. By 14, she was elected Queen of Naboo."
