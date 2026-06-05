@@ -15,4 +15,4 @@ Special thanks to nomad phantom for giving ideas & always being supportive~
 
 Notes:
 This version was distributed on 5 June 2026 for release into the uM pack of Movie Battles II!
-If you would like to redistribute or modify this map for any purpose, please contact me by email: heraredd@protonmail.com
+If you would like to redistribute or modify this map for any purpose, please contact me by email: star.librarian470@passmail.net
