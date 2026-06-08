@@ -1,0 +1,692 @@
+// SETUP MENU
+{
+	menuDef
+	{
+		name					"ingame_votemenu"
+		fullScreen				0// MENU_TRUE
+		rect					53 50 494 418
+		visible					0
+		focusColor				1 1 1 0.6
+		disableColor			0.5 0.5 0.5 1
+		appearanceIncrement		75
+		descX					320
+		descY					383
+		descScale				0.15
+		descColor				0.5 0.5 0.5 0.5
+		descAlignment			ITEM_ALIGN_CENTER
+		outOfBoundsClick
+		onESC
+		{
+			play					"sound/interface/back.mp3"
+			close					ingame_about
+			open					ingame		
+		}
+		onOpen
+		{
+			uiScript drawrtvmenu
+		}
+
+// BACKGROUND 
+		
+		itemDef
+		{
+			name				bg_mission
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 534 418
+			background			"gfx/menus/alpha/Menu_Mission"
+			forecolor			0 0 0 0.77
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				btn_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Btn_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+		
+// OBJECTIVE MENU
+		itemDef
+		{
+			name				menu_rtv
+			group				none
+			type ITEM_TYPE_BUTTON
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			text "^7ROCK THE VOTE"
+			font 7
+			textscale 0.18
+			rect				15 22 120 30
+			background			"gfx/menus/alpha/btn2_bg"
+			backcolor 			1 1 1 0.05
+			forecolor			1 1 1 1
+			notextblink 1
+			visible				1
+			textalign ITEM_ALIGN_MIDDLE
+			mouseenter{
+				setcolor backcolor 1 1 1 0.2
+			}
+			mouseexit{
+				setcolor backcolor 1 1 1 0.05
+			}
+			action{
+				setcolor backcolor 1 1 1 0.5
+				exec "rtv"
+			}
+		}
+
+		itemDef
+		{
+			name				menu_mission
+			group				none
+			type ITEM_TYPE_BUTTON
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			text "^7NOMINATE MAP"
+			font 7
+			textscale 0.18
+			rect				15 63 120 30
+			background			"gfx/menus/alpha/btn2_bg"
+			backcolor 			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible				1
+			notextblink 1
+			textalign ITEM_ALIGN_MIDDLE
+			mouseenter{
+				setcolor backcolor 1 1 1 0.2
+			}
+			mouseexit{
+				setcolor backcolor 1 1 1 0.05
+			}
+			action{
+				setcolor backcolor 1 1 1 0.5
+				uiscript rtvnominate
+			}
+		}
+
+
+		itemDef
+		{
+			name				entermap
+			type ITEM_TYPE_EDITFIELD
+			textstyle				WINDOW_STYLE_TEXT_RGB2
+			style WINDOW_STYLE_FILLED
+			font 7
+			maxChars 48
+			text "Map: "
+			cvar ui_nominatemap
+			textscale 0.18
+			rect				150 63 140 25
+			backcolor 			1 1 1 0.05
+			forecolor			1 1 1 1
+			backcolor 0 0 0 1
+			visible				1
+			notextblink 1
+			textaligny -3
+			textalign ITEM_ALIGN_LEFT
+		}
+
+		itemDef
+		{
+			name				map1BgTest
+			group				none
+			type ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			font 7
+			textscale 0.4
+			text " "
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m1"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m1"}
+			cvarSubstring
+			rect				8 108 172 148
+			bg2rect				8 108 172 148
+			bordercolor		    1 1 1 1
+			bordersize 2
+			border 1
+			background2			"gfx/menus/alpha/btn2_bg"
+			background2			"gfx/maps/*"
+			forecolor			1 1 1 1
+			visible				1
+			visibleLoop{
+				uiScript drawrtvmenu
+			}
+			mouseenter{
+				setcolor bordercolor 1 0.8 0.1 1
+			}
+			mouseexit{
+				setcolor bordercolor 1 1 1 1
+			}
+			action{
+				exec "rtv vote 1"
+			}
+		}	
+
+		itemDef
+		{
+			name				map2BgTest
+			group				none
+			type ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			font 7
+			textscale 0.4
+			text " "
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m2"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m2"}
+			cvarSubstring
+			rect				181 108 172 148
+			bg2rect				181 108 172 148
+			bordercolor		    1 1 1 1
+			bordersize 2
+			border 1
+			background2			"gfx/menus/alpha/btn2_bg"
+			background2			"gfx/maps/*"
+			forecolor			1 1 1 1
+			visible				1
+			mouseenter{
+				setcolor bordercolor 1 0.8 0.1 1
+			}
+			mouseexit{
+				setcolor bordercolor 1 1 1 1
+			}
+			action{
+				exec "rtv vote 2"
+			}
+		}	
+
+		itemDef
+		{
+			name				map3BgTest
+			group				none
+			type ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			font 7
+			textscale 0.4
+			text " "
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m3"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m3"}
+			cvarSubstring
+			rect				355 108 172 148
+			bg2rect				355 108 172 148
+			bordercolor		    1 1 1 1
+			bordersize 2
+			border 1
+			background2			"gfx/menus/alpha/btn2_bg"
+			background2			"gfx/maps/*"
+			forecolor			1 1 1 1
+			visible				1
+			mouseenter{
+				setcolor bordercolor 1 0.8 0.1 1
+			}
+			mouseexit{
+				setcolor bordercolor 1 1 1 1
+			}
+			action{
+				exec "rtv vote 3"
+			}
+		}
+				itemDef
+		{
+			name				map4BgTest
+			group				none
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			font 7
+			textscale 0.4
+			text " "
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m4"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m4"}
+			cvarSubstring
+			rect				8 258 172 148
+			bg2rect				8 258 172 148
+			bordercolor		    1 1 1 1
+			bordersize 2
+			border 1
+			background2			"gfx/menus/alpha/btn2_bg"
+			background2			"gfx/maps/*"
+			forecolor			1 1 1 1
+			visible				1
+			mouseenter{
+				setcolor bordercolor 1 0.8 0.1 1
+			}
+			mouseexit{
+				setcolor bordercolor 1 1 1 1
+			}
+			action{
+				exec "rtv vote 4"
+			}
+		}
+				itemDef
+		{
+			name				map5BgTest
+			group				none
+			type				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			font 7
+			textscale 0.4
+			text " "
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m5"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m5"}
+			cvarSubstring
+			rect				181 258 172 148
+			bg2rect				181 258 172 148
+			bordercolor		    1 1 1 1
+			bordersize 2
+			border 1
+			background2			"gfx/menus/alpha/btn2_bg"
+			background2			"gfx/maps/*"
+			forecolor			1 1 1 1
+			visible				1
+			mouseenter{
+				setcolor bordercolor 1 0.8 0.1 1
+			}
+			mouseexit{
+				setcolor bordercolor 1 1 1 1
+			}
+			action{
+				exec "rtv vote 5"
+			}
+		}
+
+		itemDef
+		{
+			name				mapName1
+			group				time
+			type				ITEM_TYPE_TEXT
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			rect				12 230 168 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m1"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m1"}
+			backcolor 			0 0 0 0.65
+			forecolor			1 1 1 1
+			cvarSubstring
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			font				6
+			textscale			.2
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mapVotes1
+			group				time
+			type				ITEM_TYPE_TEXT
+			rect				157 116 20 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"v1"
+			cvarTest 			ui_rtvstatus
+			showCvar {"v1"}
+			cvarSubstring
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			backcolor 			0 0 0 0.65
+			textalignx -1
+			forecolor			1 1 0 1
+			font				7
+			textscale			.2
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mapName2
+			group				time
+			type				ITEM_TYPE_TEXT
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			rect				185 230 168 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m2"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m2"}
+			backcolor 			0 0 0 0.65
+			forecolor			1 1 1 1
+			cvarSubstring
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			font				6
+			textscale			.2
+			forecolor			1 1 1 1
+			visible				1
+		}
+
+		itemDef
+		{
+			name				mapVotes2
+			group				time
+			type				ITEM_TYPE_TEXT
+			rect				330 116 20 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"v2"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"v2"}
+			cvarSubstring
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			backcolor 			0 0 0 0.65
+			textalignx -1
+			forecolor			1 1 0 1
+			font				7
+			textscale			.2
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mapName3
+			group				time
+			type				ITEM_TYPE_TEXT
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			rect				359 230 168 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m3"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m3"}
+			backcolor 			0 0 0 0.65
+			forecolor			1 1 1 1
+			cvarSubstring
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			font				6
+			textscale			.2
+			forecolor			1 1 1 1
+			visible				1
+		}
+
+		itemDef
+		{
+			name				mapVotes3
+			group				time
+			type				ITEM_TYPE_TEXT
+			rect				503 116 20 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"v3"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"v3"}
+			cvarSubstring
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			backcolor 			0 0 0 0.65
+			font				7
+			textscale			.2
+			textalignx -1
+			forecolor			1 1 0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mapName4
+			group				time
+			type				ITEM_TYPE_TEXT
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			rect				12 380 168 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m4"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m4"}
+			backcolor 			0 0 0 0.65
+			forecolor			1 1 1 1
+			cvarSubstring
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			font				6
+			textscale			.2
+			forecolor			1 1 1 1
+			visible				1
+		}
+
+		itemDef
+		{
+			name				mapVotes4
+			group				time
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				157 265 20 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"v4"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"v4"}
+			cvarSubstring
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			backcolor 			0 0 0 0.65
+			forecolor			1 1 1 1
+			font				7
+			textscale			.2
+			textalignx -1
+			forecolor			1 1 0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				mapName5
+			group				time
+			type				ITEM_TYPE_TEXT
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			rect				185 380 168 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"m5"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"m5"}
+			backcolor 			0 0 0 0.65
+			forecolor			1 1 1 1
+			cvarSubstring
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			font				6
+			textscale			.2
+			forecolor			1 1 1 1
+			visible				1
+		}
+
+		itemDef
+		{
+			name				mapVotes5
+			group				time
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				330 265 20 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"v5"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"v5"}
+			cvarSubstring
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			backcolor 			0 0 0 0.65
+			font				7
+			textscale			.2
+			textalignx -1
+			forecolor			1 1 0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				infoPrint
+			group				time
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				240 52 140 20
+			text				"No map has been selected. Vote ended."
+			cvarTest 			"ui_rtvstatus"
+			showCvar 			{"nomap"}
+			textalign			ITEM_ALIGN_CENTER
+			textalignx			70
+			textaligny			-6
+			font				8
+			textscale			.2
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+
+		itemDef
+		{
+			name				winnerMapBg
+			group				none
+			type ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			font 7
+			textscale 0.4
+			text " "
+			cvar 				ui_rtvstatus
+			cvarSubKey			"wonmap"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"wonmap"}
+			cvarSubstring
+			rect				132 131 272 214
+			bg2rect				132 131 272 214
+			bordercolor		    0 1 0 1
+			bordersize 2
+			border 1
+			background2			"gfx/menus/alpha/btn2_bg"
+			background2			"gfx/maps/*"
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+				itemDef
+		{
+			name				winnerMapName
+			group				time
+			type				ITEM_TYPE_TEXT
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			rect				186 313 168 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"wonmap"
+			cvarTest 			"ui_rtvstatus"
+			showCvar {"wonmap"}
+			backcolor 			0 0 0 0.65
+			forecolor			1 1 1 1
+			cvarSubstring
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			font				6
+			textscale			.2
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				winnerMapVotes
+			group				time
+			type				ITEM_TYPE_TEXT
+			rect				264 80 20 20
+			cvar 				ui_rtvstatus
+			cvarSubKey			"votecount"
+			cvarTest 			ui_rtvstatus
+			showCvar {"wonmap"}
+			cvarSubstring
+			textstyle WINDOW_STYLE_TEXT_RGB2
+			style				WINDOW_STYLE_FILLED
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-8
+			forecolor			0.25 0.25 0.25 1
+			font				6
+			textscale			.2
+			visible				1
+			decoration
+		}
+
+				itemDef
+		{
+			name				winnerMap
+			group				time
+			type				ITEM_TYPE_TEXT
+			style				WINDOW_STYLE_TEXT_RGB1
+			rect				165 30 200 45
+			text				"WINNER MAP!"
+			cvarTest 			"ui_rtvstatus"
+			showCvar 			{"wonmap"}
+			cvarSubstring
+			text2alignx 100
+			text2aligny 18
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-6
+			font				8
+			textscale			.4
+			forecolor			1 1 1 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name				winnerMapWonWith
+			group				time
+			type				ITEM_TYPE_TEXT
+			rect				219 78 90 20
+			text "Won with       votes"
+			cvarTest "ui_rtvstatus"
+			showCvar {"wonmap"}
+			cvarSubstring
+			textalign			ITEM_ALIGN_MIDDLE
+			textaligny			-6
+			font				6
+			textscale			.2
+			forecolor			0.25 0.25 0.25 1
+			visible				1
+			decoration
+		}
+	}
+}
