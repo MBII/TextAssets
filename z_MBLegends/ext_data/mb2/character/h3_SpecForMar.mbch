@@ -7,7 +7,7 @@ extralives		1
 
 weapons	WP_FRAG_NADE
 
-WP_MeleeFlags HELD_LIFT
+WP_MeleeFlags HELD_LIFT|HELD_SLOW
 WP_StunBatonFlags HELD_SPEED|HELD_LIFESTEAL|HELD_PULL
 WP_BlasterPistolFlags HELD_ALTRELOAD
 WP_CR2Flags HELD_KNOCKBACK|HELD_ALTRELOAD|HELD_STUN|HELD_SLOW
@@ -28,6 +28,8 @@ maxhealth	 90
 maxarmor	30
 damageTaken 0.6  //fall dr
 
+rateOfFire_Melee 1.25
+
 basespeed 218
 resource		RESOURCE_FUEL
 forcepool 25
@@ -47,9 +49,9 @@ skin  "default"
 uishader "gfx/um_icons/PrisonRaidPack/SpecForce_Marine"
 uioverlay_r "gfx/icons/infantry"
 
-	tauntAnim		TORSO_HANDSIGNAL4
-	gloatAnim  BOTH_HAN_TAUNT
-	flourishAnim 	BOTH_ENGAGETAUNT
+tauntAnim		TORSO_HANDSIGNAL4
+gloatAnim  BOTH_HAN_TAUNT
+flourishAnim 	BOTH_ENGAGETAUNT
 
 isCustomBuild	1
 mbPoints 3
@@ -102,7 +104,7 @@ c_att_skill_8 MB_ATT_PROJECTILE_RIFLE
 c_att_names_8	"SF Projectile Battle Rifle"
 c_att_ranks_8	1
 c_att_descs_8 "Pushes on hit, Lightweight, 80% faster RoF, 90% less damage,
-50% less FP damage, 20% slower velocity, Mag reload"
+60% less FP damage, 20% slower velocity, Mag reload"
 
 c_att_skill_9 MB_ATT_STUN_BATON
 c_att_names_9	"Molecular Stiletto (Stun Baton)"
@@ -120,7 +122,7 @@ WeaponToReplace	WP_STUN_BATON
 WeaponBasedOff	WP_STUN_BATON
 NewWorldModel	"models/items/datapad.glm"
 NewViewModel "models/items/datapad.md3"
-Icon	"gfx/mb2/radar/datapad"
+Icon "models/weapons2/halo_pgren/icon.png"
 WeaponName	"MSW-9 Molecular Stiletto"
 
 selectsound "sound/interface/zoomstart.mp3"
@@ -406,7 +408,7 @@ rateMod 0.2
 clipSize 10
 customAmmo 240
 damageMod 0.1
-fpmult 0.5
+fpmult 0.4
 velocityMod 0.8
 
 hasAnimOverrides 1
@@ -458,6 +460,8 @@ Battle-hardened Rebels sporting low-gravity suits and intimidating weapons.
 ^2Weaponry:
 - Heavy Melee
 -- Lifts on hit
+-- 25% slower RoF
+-- Heavyweight
 - Frag Grenade (1)
 
 ^6Inventory:
@@ -466,8 +470,6 @@ Battle-hardened Rebels sporting low-gravity suits and intimidating weapons.
 ^8Attributes:
 - Reinforcements (1)
 - Getup (1)
-- 8% more knockback given
-- 15% more knockback taken
 - Resource Regen: 25/.5s
 - Bunny Hop (1)
 - Slow Faller
@@ -475,4 +477,6 @@ Battle-hardened Rebels sporting low-gravity suits and intimidating weapons.
 - Flipkick (1)
 - Blast Armor
 - Beskar (3)
-- Elemental Resist (1)"
+- Elemental Resist (1)
+- 8% more knockback given
+- 15% more knockback taken"
