@@ -4,7 +4,7 @@ ClassInfo
 {
 	name				"RescueE_DarkTrP3"
 	weapons				WP_MELEE|WP_BOWCASTER|WP_TRAD_BOWCASTER|WP_ROCKET_LAUNCHER
-	WP_TradBowcasterFlags	HELD_ALTRELOAD|HELD_NODISARM
+	WP_TradBowcasterFlags	HELD_ALTRELOAD|HELD_NODISARM|HELD_EXPLOSIVE
 	WP_RocketLauncherFlags	HELD_KNOCKBACK|HELD_DISRUPTIFY
 	meleeMoves			M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
 	attributes			MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BOWCASTER,3|MB_ATT_TRAD_BOWCASTER,2|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,3|MB_ATT_ENV_PROT,1
@@ -40,11 +40,19 @@ WeaponInfo0
 	AltFlashSound0 			"sound/weapons/assault_cannon/fire.mp3"
 	ChargeSound 			"sound/weapons/leia_pistol/altcharge.mp3"
 	
-	MuzzleEffect			"blaster/MuzzleFlash01B"
-	AltMuzzleEffect			"blaster/MuzzleFlash01B"
-	MissileEffect			"Demp2/projectile"
-	AltMissileEffect		"Demp2/projectile"
-	ChargeEffect			"gfx/effects/cloneFrontFlash"
+	MuzzleEffect				"blaster/MuzzleFlash01B"
+	AltMuzzleEffect				"blaster/MuzzleFlash01B"
+	MissileEffect				"Demp2/projectile"
+	AltMissileEffect			"Demp2/projectile"
+	MissileEffect				"Demp2/projectile"
+	AltMissileEffect			"Demp2/projectile"
+	MissileMissEffect			"Demp2/wall_impact"
+	MissileHitHumanEffect		"Demp2/flesh_impact"
+	MissileHitDroidEffect		"Demp2/flesh_impact"
+	AltMissileMissEffect		"Demp2/wall_impact"
+	AltMissileHitHumanEffect	"Demp2/flesh_impact"
+	AltMissileHitDroidEffect	"Demp2/flesh_impact"
+	ChargeEffect				"gfx/effects/cloneFrontFlash"
 	
 	CustomAmmo 				800
 	damageMod				1.1
@@ -95,8 +103,8 @@ WeaponInfo2
 {
 	WeaponToReplace			WP_TRAD_BOWCASTER
 	WeaponBasedOff			WP_MANDO_PISTOL
-	NewWorldModel			"models/weapons2/dummy/dummy.glm"
-	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	NewWorldModel			"models/weapons2/assault_cannon/model_w.glm"
+	NewViewModel			"models/weapons2/assault_cannon/model.md3"
 	Icon					"gfx/hud/w_icon_rocketpod"
 	WeaponName				"Shoulder Missiles"
 	
@@ -108,12 +116,18 @@ WeaponInfo2
 	AltMuzzleEffect			null
 	MissileEffect			"blaster/MuzzleFlash01Y"
 	AltMissileEffect		"blaster/MuzzleFlash01Y"
+	MissileMissEffect			"thermal/explosion"
+	MissileHitHumanEffect		"thermal/explosion"
+	MissileHitDroidEffect		"thermal/explosion"
+	AltMissileMissEffect		"thermal/explosion"
+	AltMissileHitHumanEffect	"thermal/explosion"
+	AltMissileHitDroidEffect	"thermal/explosion"
 	
 	CustomAmmo 				108
 	clipSize				12
 	damageMod				1.8
 	rateMod					2
-	velocityMod				0.02
+	velocityMod				0.09
 	reloadTimeModifier		2
 	altFireEnabled			0
 	
@@ -144,8 +158,8 @@ A Jetpack-equipped tank with a high-powered Assault Cannon, Rocket Launcher, and
 -- 60% slower reload
 - Shoulder Missile Launchers (Tradcaster 2)
 -- 80% more damage
--- 98% less velocity
--- 12 second proj lifetime
+-- Explodes on hit
+-- 91% less velocity
 -- 100% slower mag reload
 
 ^8Attributes:
