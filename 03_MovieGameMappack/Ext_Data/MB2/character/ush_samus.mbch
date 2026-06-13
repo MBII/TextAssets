@@ -2,76 +2,92 @@
 
 ClassInfo
 {
-	name			"ush_samus"
-	weapons			WP_MELEE|WP_BLASTER_PISTOL
-	forcepowers		FP_LEVITATION,3|FP_DESTRUCTION,2|FP_SEE,1
-	attributes		MB_ATT_FORCEFOCUS,1|MB_ATT_PISTOL,3|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1|MB_ATT_FP_MIRALUKA
-	maxhealth		100
-	maxarmor		150
-	model			"samus"
-	skin			"default"
-	uishader		"gfx/mplevels/ultimate_showdown/samus"
-	MBClass			MB_CLASS_JEDI
+	name				"ush_samus"
+	weapons				WP_MELEE|WP_BRYAR_OLD
+	WP_BryarOldFlags	HELD_NODISARM
+	attributes			MB_ATT_FORCEFOCUS,1|MB_ATT_BRYAR_OLD,3|MB_ATT_INAIR_FORCE_REGEN,1|MB_ATT_FP_MIRALUKA|MB_ATT_BUNNY_HOP,2|MB_ATT_DASH,1|MB_ATT_DASH_JUMP,1
+	forcepowers			FP_LEVITATION,3|FP_DESTRUCTION,2|FP_SEE,1
+	forcepool			100
+	maxhealth			100
+	maxarmor			150
+	speed				1.25
+	model				"samus"
+	skin				"default"
+	uishader			"gfx/mplevels/ultimate_showdown/samus"
+	MBClass				MB_CLASS_ELITETROOPER
 	classNumberLimit	1
+	
+	resource			RESOURCE_FORCE
+	special2			EAS_HI_DASH
+	special3			EAS_FP_DESTRUCTION
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE
-	NewWorldModel		"models/weapons2/noweap/noweap.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/mplevels/ssb/wep"
-	WeaponName		"Melee"
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE
+	NewWorldModel			"models/weapons2/noweap/noweap.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/ssb/wep"
+	WeaponName				"Melee"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon  "gfx/mplevels/ssb/wep"
-	MuzzleEffect		"Blaster/MuzzleFlash01Y"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01Y"
-	MissileEffect		"Blaster/Shot02Y"
-	Missile3Effect		"Blaster/Shot02Y"
-	AltMissileEffect	"Blaster/Shot02Y"
-	PowerupShotEffect	"Blaster/Shot04Y"
-	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash"
-	OverchargeEffect	"Blaster/MuzzleFlash01Y"
-	FlashSound0		"sound/ushowdown/samus_fire.wav"
-	AltFlashSound0		"sound/ushowdown/samus_altfire.wav"
-	ChargeEffect		"gfx/effects/covfrontflash"
-	ChargeSound 		"sound/ushowdown/samus_charge.wav"
-	SelectSound		"sound/weapons/plasma_pistol/select.wav"
-	WeaponName		"Arm Cannon"
-	customAmmo		300
-	clipSize  30
-	idleAnim BOTH_SABERSTAFF_STANCE
-  firingAnim  BOTH_SABERSTAFF_STANCE
+	WeaponToReplace			WP_BRYAR_OLD
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/ssb/wep"
+	WeaponName				"Arm Cannon"
+	
+	SelectSound				"sound/weapons/plasma_pistol/select.wav"
+	FlashSound0				"sound/ushowdown/samus_fire.wav"
+	AltFlashSound0			"sound/ushowdown/samus_altfire.wav"
+	ChargeSound				"sound/ushowdown/samus_charge.wav"
+	
+	customAmmo				300
+	clipSize				30
+	rateMod					0.6
+	
+	hasAnimOverrides		1
+	animReady				BOTH_SABERSTAFF_STANCE
+	animReadyRun			BOTH_SABERSTAFF_STANCE
+	animReadyWalk			BOTH_SABERSTAFF_STANCE
+	animReadyNoAmmo			BOTH_SABERSTAFF_STANCE
+	animAttack				BOTH_SABERSTAFF_STANCE
+	animAttackRun			BOTH_SABERSTAFF_STANCE
+	animAttackWalk			BOTH_SABERSTAFF_STANCE
+	animCharge				BOTH_SABERSTAFF_STANCE
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_DESTRUCTION
-	Icon		"gfx/mplevels/ssb/wep"
-	ForcePowerName	"Missle"
+	ForceToReplace		FP_DESTRUCTION
+	Icon				"gfx/mplevels/ssb/wep"
+	ForcePowerName		"Missile"
 }
 
 ForceInfo1
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Radar"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/forcepowers/radar"
+	ForcePowerName		"Radar"
 }
 
 description	"Samus Aran - Metroid
 
+^2Weapons:
+- Arm Cannon (3)
+-- 40% Faster RoF
+- Fists
 
-Weaponry:
-Arm Cannon
-Missle
-Fists
-Radar"
+^5Powers:
+- Missile (Destruction 2) ^5[CS3]
+
+^8Attributes:
+- Bunny Hop (2)
+- Radar
+
+^3Abilities:
+- Dash-Jump (1) ^3[CS2]"

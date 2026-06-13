@@ -7,8 +7,9 @@ ClassInfo
 
  WP_SonicNadeFlags HELD_KNOCKBACK|HELD_PULSE
 	WP_CloneRifleFlags  HELD_KNOCKBACK
+	WP_DetPackFlags HELD_STUN
 	
-	attributes  	MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FLIPKICK,1|MB_ATT_DASH,2|MB_ATT_CLONERIFLE,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DET_PACK,3|MB_ATT_DEXTERITY,1|MB_ATT_STRONGBLOBS,4|MB_ATT_BACTA_BIG,1|MB_ATT_BINOCULARS,1
+	attributes  	MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FLIPKICK,1|MB_ATT_DASH,2|MB_ATT_CLONERIFLE,2|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DET_PACK,3|MB_ATT_DEXTERITY,1|MB_ATT_STRONGBLOBS,4|MB_ATT_BACTA_BIG,1|MB_ATT_BINOCULARS,1|MB_ATT_SABER_COMBO,2
 	
 	forcepowers 	FP_SABER_OFFENSE,3
 	maxhealth 150
@@ -53,7 +54,9 @@ ClassInfo
 	gloatAnim	BOTH_SHOWOFF_FAST
 	tauntAnim	BOTH_ENGAGETAUNT
 	
-	special1	EAS_HI_DODGE
+	special1 EAS_HI_DODGE
+	
+	meleespecial1 EAS_HI_DODGE
 	special2 EAS_HI_DASH
 	special3 EAS_HI_KICK
 	special4	EAS_HI_MEDPAC_BIG
@@ -71,7 +74,7 @@ WeaponInfo0
 	WeaponName  		"A180 Blaster Pistol"
 	FlashSound0			"sound/weapons/SE-14c/fire.mp3" 		
 	altFlashSound0		"sound/weapons/SE-14c/fire.mp3" 
-	ChargeSound			"sound/weapons/leia_pistol/altcharge.mp3"	
+	ChargeSound			"sound/weapons/bryar/altcharge.mp3"	
 	ClipSize 			22
 	ReloadTimeModifier 	0.9
 	damageMod 1.1
@@ -94,21 +97,21 @@ WeaponToReplace	WP_CLONE_RIFLE
 WeaponBasedOff	WP_MANDO_PISTOL
 	NewWorldModel 		"models/weapons2/a180/a180_ion.glm"
 	NewViewModel		"models/weapons2/a180/model_ion.md3"
-	AltMuzzleEffect		"blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltFlashSound0		"sound/weapons/rocket/alt_fire.mp3" 	
 	Icon  				"gfx/hud/w_icon_a180_ion"
 	WeaponName  		"A180 Ion Attachment"
 	AltChargeEffect		"gfx/effects/cloneFrontFlash"
 	clipSize 		1
 	customammo 8
-	velocitymod 2.5
+	velocityMod 2.5
 	primFireEnabled	0
 	DamageMod 1.25
 	hasAnimOverrides 1
 	animStand BOTH_STAND1
 	animReadyRun TORSO_WEAPONREADY3
 	animReady TORSO_WEAPONREADY3
-	amimReadyWalk BOTH_WESTARM5_READY
+	animReadyWalk BOTH_WESTARM5_READY
 	animAttackRun BOTH_WESTARM5_ATTACK
 	animAttack BOTH_WESTARM5_ATTACK
 	animAttackWalk BOTH_WESTARM5_ATTACK
@@ -119,7 +122,7 @@ WeaponInfo2
 {
 	WeaponToReplace		WP_SABER			
 	WeaponBasedOff		WP_SABER			
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"    
 	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
 	Icon			"gfx/hud/w_icon_truncheon"
 	WeaponName		"Jyn's Truncheon" 
@@ -142,6 +145,7 @@ WeaponInfo3
 	altFireEnabled 0
 	Icon						"gfx/hud/w_icon_polarity"
 	WeaponName					"Electro-Sonic Flashbangs"
+	damageMod 1.1
 }
 description	"Jyn Erso 
 
@@ -152,24 +156,27 @@ A damage/fire rate-boosted pistoleer with advanced movement capabilities and a s
 -- 15% faster RoF
 - Jyn's Truncheon (Dual/Cyan Saber)
 -- No Saber/Blaster Block
+-- EX Saber Training (2)
 -- Chain Limit: 2
--- 10/20% more L/R Kb
--- 125% Spec Dmg mult
--- 30% less Reach
+-- 10/20% more L/R knockback
+-- 25% more special damage
+-- 30% shorter
 - A180 Blaster Pistol (WESTAR 2)
--- 15% faster Velocity
--- 10% more Dmg/FP Dmg
--- 10% faster Reload
+-- 15% more velocity
+-- 10% more damage/FP damage
+-- 10% faster reload 
 - A180 Ion Attachment (Clone Rifle 2)
 -- Ion Blobs (8)
 -- Pushes on hit
--- 125% more Dmg
--- 250% more Velocity
--- Sec only
+-- 125% more damage
+-- 250% more velocity
+-- Secondary fire only
 - Electro-Sonic Flashbangs (2)
 -- Shocks/sonics/blinds/pushes on det
--- Prim only
+-- 10% more damage
+-- Primary fire only
 - Det Packs (3)
+-- Staggers on det
 
 ^6Inventory:
 - Advanced Medpac ^3[CS4]

@@ -11,6 +11,7 @@ ClassInfo
 	WP_MandoPistolFlags HELD_ALTRELOAD
 	WP_A280Flags		HELD_ALTRELOAD
 	WP_MinigunFlags	HELD_FLAME|HELD_DISRUPTIFY|HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_STUN
+ WP_SaberFlags HELD_NODISARM
 	
 	attributes	MB_ATT_JETPACK|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_WRISTLASER|MB_ATT_WOOKIEE_FURY,3|MB_ATT_ROCKET,1|MB_ATT_AMMO,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_BESKAR,2|MB_ATT_TRACKING_BEACON|MB_ATT_DEFLECT,0|MB_ATT_FIRE_GRENADES,1
 	
@@ -56,28 +57,28 @@ ClassInfo
 	c_att_skill_0	MB_ATT_MANDO_PISTOL
 	c_att_names_0	"DX-13 Pistol(s) (WESTARs)"
 	c_att_ranks_0	2,0,1
-	c_att_descs_0 "20% faster RoF, 20% more Velocity, 10% more FP Dmg, 
-10% less Dmg, Mag Reload"
+	c_att_descs_0 "20% faster RoF, 20% more velocity, 10% more FP damage, 
+10% less damage, Mag reload"
 	c_att_skill_1	MB_ATT_MINIGUN
 	c_att_names_1	"Vornax Cannon (Minigun)"
 	c_att_ranks_1	5,0
- c_att_descs_1 "Ignites/staggers/pushes on hit, 300% more Dmg/FP Dmg,
-788% slower RoF, 24% less Velocity, 100% slower Mag Reload"
+ c_att_descs_1 "Burns/staggers/pushes on hit, 300% more damage/FP damage,
+788% slower RoF, 24% less velocity, 100% slower mag reload"
 	c_att_skill_2	MB_ATT_A280
 	c_att_names_2	"Concordian Rifle (A280)"
 	c_att_ranks_2	1,2,0
-	c_att_descs_2 "25% more FP Dmg, 25% more Velocity, 25% slower RoF, 
-40% slower Mag Reload"
+	c_att_descs_2 "25% more FP damage, 25% more velocity, 25% slower RoF, 
+40% slower mag reload"
 	c_att_skill_3	MB_ATT_EE3
 	c_att_names_3	"Sundari Repeater (EE-3)"
 	c_att_ranks_3	2,0,1
-	c_att_descs_3 "30% faster RoF, 20% more Velocity, 40% slower Mag Reload"
+	c_att_descs_3 "30% faster RoF, 20% more velocity, 40% slower mag reload"
 	c_att_skill_4 MB_ATT_RESPAWNS
 	c_att_names_4	"Reinforcement"
 	c_att_ranks_4 2
 
 	c_att_skill_5	MB_ATT_FLAMETHROWER
-	c_att_names_5	"Wrist Flamethrower ^3[CS2 TM]"
+	c_att_names_5	"Wrist Flamethrower ^3[MWM CS2]"
 	c_att_ranks_5	1
 	c_att_descs_5 "Toggle Melee Weapon Mode to swap Wrist Laser/Flamethrower"
 }
@@ -85,7 +86,7 @@ WeaponInfo0
 {
 	WeaponToReplace	WP_SABER		
 	WeaponBasedOff	WP_SABER			
-	NewWorldModel	"models/weapons2/dummy/dummy.glm"  
+	NewWorldModel	"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel	"models/weapons2/dummy/dummy.md3" 	  
 	Icon		"gfx/hud/w_icon_gunganshield"
 	WeaponName	"Mandalorian Personal Energy Shield" 
@@ -107,7 +108,7 @@ WeaponInfo1
 	AltMissileEffect	"Blaster/Shot04Y"
 	FlashSound0		"sound/weapons/LPA_NN-14/fire.wav"
 	altFlashSound0	"sound/weapons/LPA_NN-14/alt_fire.wav"	
-	ChargeSound		"sound/weapons/leia_pistol/altcharge.mp3"
+	ChargeSound		"sound/weapons/bryar/altcharge.mp3"
 	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash" 
 	hasAnimOverrides 	1
 	animReadyRun 		BOTH_PAIN16   
@@ -138,9 +139,9 @@ WeaponInfo2
 	MuzzleEffect  	"Blaster/MuzzleFlash01R"
 	altMuzzleEffect  "Blaster/MuzzleFlash01R"
 	MissileEffect 		"Blaster/Shot04R"
-	missileMissEffect 	"effects/Grenades/EXP_BaseThermal"
-	MissileHitHumanEffect	"effects/Grenades/EXP_BaseThermal"
-	MissileHitDroidEffect 	"effects/Grenades/EXP_BaseThermal"
+	missileMissEffect 	"Grenades/EXP_BaseThermal"
+	MissileHitHumanEffect	"Grenades/EXP_BaseThermal"
+	MissileHitDroidEffect 	"Grenades/EXP_BaseThermal"
 	FlashSound0	"sound/weapons/MWC-35c/fire.wav"
 	isMinigun 1
 	Icon	 "gfx/hud/w_icon_rotary_cannon"
@@ -210,17 +211,17 @@ Enforcers with brutal burst fire/area control.
 - Mandalorian Personal Energy Shield (Cyan Saber)
 -- Saber Defense (0)
 -- Blaster Defense (3)
--- 150% more Kb
--- 12% less Reach
--- 66% more Radius
+-- 150% more knockback
+-- 12% shorter
+-- 66% thicker
 - Fire Grenade (1)
 
 ^5Powers:
-- Dark Rage (3) ^3[CS4]
+- Rage (3) ^3[CS4]
 
 ^8Attributes:
 - Fury (3)
--- Resource Regen: 2/.75s to 50
+-- Regen: 2/.75s to 50
 - Strength (1)
 - Dexterity (3)
 - Beskar (2)
@@ -228,6 +229,6 @@ Enforcers with brutal burst fire/area control.
 
 ^3Abilities:
 - Jetpack
-- Rocket ^3[CS1]
-- Wrist Laser ^3[CS2 Toggle Melee]
+-- Rocket ^3[CS1]
+- Wrist Laser ^3[Melee Weap Mode CS2]
 - Dex Roll ^3[CS3]"

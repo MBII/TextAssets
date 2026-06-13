@@ -7,10 +7,10 @@ ClassInfo
 
 	weapons 		WP_SABER|WP_MELEE|WP_T21|WP_DEMP2|WP_TRIP_MINE|WP_FLECHETTE
 
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,3|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_FP_MIRALUKA|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT,2|MB_ATT_DEMP2,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_BEACON|MB_ATT_TRIP_MINES,3|MB_ATT_FLECHETTE,4|MB_ATT_GETUPS,3|MB_ATT_FLECHETTE_NADES,1
+	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_FP_MIRALUKA|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT,2|MB_ATT_DEMP2,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_BEACON|MB_ATT_TRIP_MINES,3|MB_ATT_FLECHETTE,4|MB_ATT_GETUPS,3|MB_ATT_FLECHETTE_NADES,1|MB_ATT_FLECHETTE_ALT_NUM,5|MB_ATT_WATER_BREATHING|MB_ATT_ENV_PROT,1
 
 	saber1  		qstaff_legends
-	saberstyle  	SS_DESANN|SS_STAFF|SS_MEDIUM
+	saberstyle  	SS_DESANN|SS_STAFF
 	forcepowers		FP_SEE,1|FP_SABER_OFFENSE,3
 
 	maxhealth 		125
@@ -19,8 +19,8 @@ ClassInfo
 	forcepool		 150
 	forceregen		1.15
 
-	special1HUD HUD_FRAGNADE
-	special2HUD HUD_FLECHETTENADE
+	//special2HUD HUD_TRIPMINE
+	special1HUD HUD_FLECHETTENADE
 
 	baseSpeed 194
 
@@ -37,13 +37,15 @@ ClassInfo
 	
 	WP_T21Flags   HELD_KNOCKBACK
 	WP_SaberFlags HELD_PULSE|HELD_TRACKING
- WP_Demp2Flags HELD_FREEZE|HELD_STUN|HELD_PULSE|HELD_TRACKING
-	WP_FlechetteFlags HELD_POISON|HELD_ALTRELOAD|HELD_TRACKING
+ WP_Demp2Flags HELD_FREEZE|HELD_STUN|HELD_PULSE|HELD_LIFESTEAL
+	WP_FlechetteFlags HELD_POISON|HELD_TRACKING|HELD_CRIPPLE
+ WP_TripMineFlags HELD_DISARM
 	
 	special1 EAS_HI_SPRINT
+	meleespecial1 EAS_HI_SPRINT
 	special2 EAS_HI_DEX
 	special3  EAS_HI_DODGE
-	classFlags CFL_NOPICKUPS
+	//classFlags CFL_NOPICKUPS
 
 	modelscale  0.93	
 	model			"zuckuss" 
@@ -69,21 +71,19 @@ WeaponInfo1
 	WeaponBasedOff		WP_CONCUSSION
 	NewWorldModel		"models/weapons/W-90_Concussion/w-90_w.glm"
 	NewViewModel		"models/weapons/W-90_Concussion/w-90.md3"
-	MuzzleEffect		"concussion/muzzle_flash"
 	FlashSound0			"sound/weapons/base_conc/fire.wav"
+	MuzzleEffect		"concussion/muzzle_flash"
 	MissileEffect		"concussion/shot"
-	AltMissileEffect	"concussion/shot"
-	Missile3Effect		"concussion/shot"
-	PowerupShotEffect	"concussion/shot"
-	MissileMissEffect "concussion/alt_hit"
-	MissileHitHumanEffect "concussion/alt_hit"
-	MissileHitDroidEffect	"concussion/alt_hit"
+	MissileMissEffect "concussion/explosion"
+	MissileHitHumanEffect "concussion/explosion"
+	MissileHitDroidEffect	"concussion/explosion"
 	Icon				"gfx/hud/w_icon_w90conc"
 	WeaponName			"W-90 Concussion Rifle"
 	customAmmo   384
 	clipsize     64
-	rateMod 0.75
-	FPmult   1.85
+	rateMod 0.8
+ damageMod 1.1
+	FPmult   1.75
 	altfireenabled 0
  hasAnimOverrides 1
 	animReadyRun BOTH_DC15_IDLE
@@ -136,7 +136,7 @@ WeaponInfo3
 	altMissileMissEffect	"noghri_stick/flesh_impact"
 	altMissileHitDroidEffect	"noghri_stick/flesh_impact"
 	altMissileHitHumanEffect	"noghri_stick/flesh_impact"
-	altMissileEffect		"effects/flechette/alt_shot" 
+	altMissileEffect		"sonic_pistol/projectile"
 	MuzzleEffect null
 	altMuzzleEffect null
 	altFlashSound0 "sound/weapons/stone/fire.mp3"
@@ -151,11 +151,11 @@ WeaponInfo3
 	MissileMissEffect	"noghri_stick/flesh_impact"
 	MissileHitDroidEffect	"noghri_stick/flesh_impact"
 	MissileHitHumanEffect	"noghri_stick/flesh_impact"
-	MissileEffect "effects/flechette/alt_shot" 
+	MissileEffect "sonic_pistol/projectile"
 	primFireEnabled  0
-	clipSize 15
-	customAmmo 15
- damageMod .25
+	clipSize -1
+	customAmmo -1
+ damageMod 1.75
 	hasAnimOverrides 1
 	animReadyRun BOTH_STAND10
 	animReady BOTH_STAND10
@@ -179,37 +179,42 @@ A hunter focused on disruption.
 
 ^2Weaponry:
 - Melee
-- Gand Shockprod Staff (Staff/Yellow/Purple Saber)
+- Gand Shockprod Staff (Staff/Purple Saber)
 -- Saber Defense (1)
 -- No Blaster Block
 -- No Saber Training
 -- Shocks/tracks on hit
--- 105% more Kb
--- 16/33% less Reach
+-- 105% more knockback
+-- 16/33% shorter
 - GRS-1 Snare Rifle (DEMP2 1)
--- Shocks/freezes/staggers/tracks on hit
--- 65% faster Shot Swap
--- 350% more FP Dmg
--- 4400% slower Reload
-- Ammonia Bombs (8) (Flechette 4)
--- Poisons/tracks on det
--- 75% less Dmg
--- Sec only
+-- Shocks/freezes/staggers/drains on hit
+-- Unblockable
+-- 65% faster RoF
+-- 350% more FP damage
+-- 4400% slower reload
+- Ammonia Bombs (2/5) (Flechette 4)
+-- Poisons/tracks/slows on det
+-- 75% more damage
+-- Secondary fire only
 - W-90 Concussion Rifle (T-21 1)
 -- Pushes on hit
--- 25% faster RoF
--- 85% more FP Dmg
+-- 20% faster RoF
+-- 10% more damage
+-- 75% more FP damage
 - Trip Mines (3)
+-- Disarms on det
 
 ^8Attributes:
 - Getup (3)
 - Stamina (3)
 - Dexterity (3)
-- Healing (3)
+- Elemental Resist (1)
+- Healing (2)
 - Findsman Precognition (Miraluka 1)
 - Anti-Mind Trick (2)
 - Tracking Beacon
 - Force Block (3)
+- Respirator (Underwater Breathing)
 
 ^3Abilities:
 - Sprint ^3[CS1]

@@ -2,110 +2,129 @@
 
 ClassInfo
 {
-	name			"cov_elitespecops"
-	saber1			single_plasma_sword
-	saberstyle		SS_TAVION|SS_DESANN
-	forcepowers		FP_SABER_OFFENSE,3
-	weapons			WP_MELEE|WP_CLONE_RIFLE|WP_SABER|WP_ROCKET_LAUNCHER
-	attributes		MB_ATT_PLX1,1|MB_ATT_CLONERIFLE,3|MB_ATT_SHIELD_RECHARGE2,2|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_CLOAK
-	maxhealth		100
-	maxarmor		100
-	model			"CovElite"
-	skin			"default"
-	uishader		"models/players/CovElite/icon_default"
-	MBClass			MB_CLASS_CLONETROOPER
-	speed			0.95
+	name				"cov_elitespecops"
+	weapons				WP_MELEE|WP_CLONE_RIFLE|WP_SABER|WP_ROCKET_LAUNCHER
+	WP_RocketLauncherFlags	HELD_HIGHDAMAGE|HELD_ALTRELOAD|HELD_SLOW
+	attributes			MB_ATT_ROCKET_LAUNCHER,2|MB_ATT_CLONERIFLE,3|MB_ATT_SHIELD_RECHARGE2,2|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	saber1				single_plasma_sword
+	saberstyle			SS_TAVION|SS_DESANN
+	forcepowers			FP_SABER_OFFENSE,3
+	maxhealth			100
+	maxarmor			100
+	speed				0.95
+	modelscale			1.2
+	model				"CovElite"
+	skin				"default"
+	uishader			"models/players/CovElite/icon_default"
+	MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_HEAVYMELEE
 	classnumberlimit	2
-	classflags		CFL_HEAVYMELEE
-	//holdables		HI_CLOAK
-	modelscale		1.2
-	WP_RocketLauncherFlags	HELD_ALTRELOAD|HELD_HIGHDAMAGE
-	WP_CloneRifleFlags	HELD_ALTRELOAD
+	
 	Resource			RESOURCE_ENERGY
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/saber_plasma_sword/sword_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"models/weapons2/saber_plasma_sword/icon"
-	WeaponName		"Plasma Sword"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_plasma_sword/sword_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/saber_plasma_sword/icon"
+	WeaponName				"Plasma Sword"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_CLONE_RIFLE
-	NewWorldModel		"models/weapons2/plasma_rifle/heavy_repeater_w.glm"
-	NewViewModel		"models/weapons2/plasma_rifle/heavy_repeater.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	MuzzleEffect		"dc-15s/muzzle_flash"
-	AltMuzzleEffect		"dc-15s/altmuzzle_flash"
-	MissileEffect		"dc-15s/shot"
-	AltMissileEffect 	"dc-15s/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"sound/weapons/plasma_rifle/fire.mp3"
-	AltFlashSound0		"sound/weapons/plasma_rifle/fire.mp3"
-	SelectSound		"sound/weapons/plasma_pistol/select.wav"
-	Icon			"models/weapons2/plasma_rifle/icon"
-	WeaponName		"Plasma Rifle"
-	customAmmo		400
-	clipSize  40
+	WeaponToReplace			WP_CLONE_RIFLE
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/plasma_rifle/heavy_repeater_w.glm"
+	NewViewModel			"models/weapons2/plasma_rifle/heavy_repeater.md3"
+	Icon					"models/weapons2/plasma_rifle/icon"
+	WeaponName				"Plasma Rifle"
+	
+	SelectSound				"sound/weapons/plasma_pistol/select.wav"
+	FlashSound0				"sound/weapons/plasma_rifle/fire.mp3"
+	AltFlashSound0			"sound/weapons/plasma_rifle/fire.mp3"
+	
+	MuzzleEffect			"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01B"
+	MissileEffect			"Blaster/Shot01B"
+	AltMissileEffect		"Blaster/Shot01B"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				400
+	clipSize				40
 	//primHitscanShot		1
-	//primHitscanTracer	5
-	altFireEnabled 0
-	primGore		1
-	altGore			1
+	//primHitscanTracer		5
+	altFireEnabled			0
+	primGore				1
+	altGore					1
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
-	NewWorldModel		"models/weapons2/plasma_cannon/c_rifle_W.glm"
-	NewViewModel		"models/weapons2/plasma_cannon/c_rifle_W.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon			"models/weapons2/plasma_cannon/icon"
-	WeaponName		"Plasma Cannon"
-	MuzzleEffect		"noghri_stick/muzzle_flash"
-	AltMuzzleEffect		"noghri_stick/muzzle_flash"
-	MissileEffect		"noghri_stick/shot"
-	Missile3Effect		"noghri_stick/shot"  		
-	AltMissileEffect	"noghri_stick/shot" 
-	PowerupShotEffect	"noghri_stick/shot" 
-	ChargeEffect		"gfx/effects/greenFrontFlash"
-	OverchargeEffect	"greenblaster/altmuzzle_flash"
-	MissileMissEffect	"noghri_stick/gas_cloud"
+	WeaponToReplace			WP_ROCKET_LAUNCHER
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/plasma_cannon/c_rifle_W.glm"
+	NewViewModel			"models/weapons2/plasma_cannon/c_rifle_W.md3"
+	Icon					"models/weapons2/plasma_cannon/icon"
+	WeaponName				"Fuel Rod Cannon"
+	
+	MuzzleEffect			"noghri_stick/muzzle_flash"
+	AltMuzzleEffect			"noghri_stick/muzzle_flash"
+	MissileEffect			"noghri_stick/shot"
+	Missile3Effect			"noghri_stick/shot"  		
+	AltMissileEffect		"noghri_stick/shot" 
+	PowerupShotEffect		"noghri_stick/shot" 
+	ChargeEffect			"gfx/effects/greenFrontFlash"
+	OverchargeEffect		"greenblaster/altmuzzle_flash"
+	MissileMissEffect		"noghri_stick/gas_cloud"
 	altMissileMissEffect	"noghri_stick/gas_cloud"
-	customAmmo				4
-	clipSize				1
-	reloadtimemodifier		1.2
+	
+	altFireEnabled			0
+	customAmmo				5
+	clipSize				5
+	reloadtimemodifier		2
+	
+	hasAnimOverrides		1
+	animAttack				BOTH_PLX1_ATTACK
+	animAttackRun			BOTH_PLX1_ATTACK
+	animAttackWalk			BOTH_PLX1_ATTACK
+	animReadyNoAmmo			BOTH_PLX1_ATTACK
+	animReady				BOTH_PLX1_IDLE
+	animReadyRun			BOTH_PLX1_READY
+	animReadyWalk			BOTH_PLX1_READY
+	animStand				BOTH_PLX1_IDLE
 }
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"models/weapons2/halo_melee/icon.png"
-	WeaponName		"Melee"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName				"Melee"
+	primGore				1
+	altGore					1
 }
 
 description	"Elite Spec Ops
 
-Weaponry:
-Plasma Rifle (3)
-Plasma Cannon (1)
-Plasma Sword
+^2Weaponry:
+- Plasma Rifle (Clone Rifle 3)
+- Fuel Rod Cannon (PLX-2M 2)
+-- 100% More DMG
+-- 5 Shots Per Clip
+-- 100% Longer Mag Reload
+- Plasma Sword
+-- ^6Purple ^7/ ^5Cyan ^7Styles
+- Heavy Melee
 
-Attributes:
-Elite Cloaking Generator
-Armour (2)
-Armour Recharge
-Rally
-Ammo (3)"
+^6Equipment:
+- Elite Cloaking Generator (2)
+
+^8Attributes:
+- Armour Recharge
+- Rally"

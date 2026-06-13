@@ -6,14 +6,14 @@ ClassInfo
 	weapons				WP_SABER|WP_MELEE|WP_FRAG_NADE
 	WP_MeleeFlags		HELD_SPEED
 	WP_FragNadeFlags	HELD_EXPLOSIVE|HELD_STUN|HELD_KNOCKDOWN
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_PISTOL,1|MB_ATT_AMMO,2|MB_ATT_HEALING,1|MB_ATT_FP_MIRALUKA|MB_ATT_FRAGS,1|MB_ATT_BINOCULARS
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_AMMO,2|MB_ATT_HEALING,1|MB_ATT_FP_MIRALUKA|MB_ATT_FRAGS,1|MB_ATT_BINOCULARS
 	//holdables			HI_BINOCULARS
-	saber1				"tusken_vibro_staff"
+	saber1				tusken_vibro_staff
 	saberstyle			SS_STAFF
 	bpmultiplier		.69
 	forcepowers			FP_SABER_DEFENSE,1|FP_LEVITATION,3|FP_SEE,1
 	forcepool			8
-	forgeregen 			5
+	forceregen 			5
 	maxhealth			100
 	maxArmor 			35
 	speed				1
@@ -34,42 +34,44 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/tusken_staff_sar/tusken_staff3.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_vibrosword_staff"
-	WeaponName			"Vibro Staff"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/tusken_staff_sar/tusken_staff3.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_vibrosword_staff"
+	WeaponName				"Vibro Staff"
 }
 
 WeaponInfo1
-{	
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_CONC_NADE
-	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
-	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
-	Icon				"gfx/hud/w_icon_stungrenade"
-	WeaponName			"Stun Grenade"
-	MissileModel		"models/weapons/Grenade_Concussion/proj.md3"
-	//altMissileMissEffect		"smokenade/explosion"
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_CONC_NADE
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	MissileModel			"models/weapons/Grenade_Concussion/proj.md3"
+	altMissileModel			"models/weapons/Grenade_Concussion/proj.md3"
+	Icon					"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Stun Grenade"
+	
+	//MuzzleEffect				null
+	//AltMuzzleEffect			null
 	//MissileMissEffect			"smokenade/explosion"
-//	altMissileHitHumanEffect	"smokenade/explosion"
-//	missileHitHumanEffect		"smokenade/explosion"
-//	altMissileHitDroidEffect	"smokenade/explosion"
-//	missileHitDroidEffect		"smokenade/explosion"
-	altFireEnabled			0
-	MissileMissEffect		"sarlacc/smoke_explosion"
-	altMissileMissEffect	"sarlacc/smoke_explosion"
-	//MuzzleEffect			""
-	//AltMuzzleEffect		""
-
+	//altMissileMissEffect		"smokenade/explosion"
+	MissileMissEffect			"sarlacc/smoke_explosion"
+	altMissileMissEffect		"sarlacc/smoke_explosion"
+	altMissileHitHumanEffect	"sarlacc/smoke_explosion"
+	missileHitHumanEffect		"sarlacc/smoke_explosion"
+	altMissileHitDroidEffect	"sarlacc/smoke_explosion"
+	missileHitDroidEffect		"sarlacc/smoke_explosion"
+	
+	primFireEnabled			0
 }
 
-description	"Tusken Raider Assasin
+description	"Tusken Raider Assassin
 
 ^2Weaponry:
 - Double-Sided Vibro Sword
--- Staff Style Only
+-- ^7Staff Style Only
 -- Saber / Blaster Defense (1)
 - 1 Stun Bomb
 -- Based on Frag Grenade

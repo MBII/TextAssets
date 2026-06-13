@@ -2,58 +2,69 @@
 
 ClassInfo
 {
-	name			"taspir_bluerocket"
-	weapons			WP_MELEE|WP_ROCKET_LAUNCHER|WP_FRAG_NADE
-	attributes		MB_ATT_FUELREGEN,3|MB_ATT_PLX1,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_AMMO,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_FRAGS,1
-	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|CFL_NO_FUEL_USE
-	maxhealth		100
-	maxarmor		25
-	modelscale		1.2
-	speed			0.85
-	model			"darktrooper_p3"
-	skin			"default"
-	uishader		"models/players/darktrooper_p3/mb2_icon_default"
-	extralives		1
+	name				"taspir_bluerocketeer"
+	weapons				WP_MELEE|WP_PLX1|WP_FRAG_NADE
+	WP_PLX1Flags		HELD_ALTRELOAD|HELD_LOWDAMAGE
+	//WP_ThermalFlags	HELD_LOWDAMAGE
+	attributes			MB_ATT_FUELREGEN,3|MB_ATT_PLX1,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_AMMO,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_FRAGS,1
+	maxhealth			100
+	maxarmor			25
+	extralives			1
+	speed				0.85
+	modelscale			1.2
+	model				"darktrooper_p3"
+	skin				"default"
+	uishader			"models/players/darktrooper_p3/mb2_icon_default"
+	MBClass				MB_CLASS_MANDALORIAN
+	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|CFL_NO_FUEL_USE
 	
-	MBClass			MB_CLASS_MANDALORIAN
-	WP_ThermalFlags	HELD_LOWDAMAGE
-	WP_RocketLauncherFlags	HELD_ALTRELOAD|HELD_LOWDAMAGE
-	jetpackJetTag			*jet1
-	jetpackJet2Tag			*jet2
+	resource			RESOURCE_FUEL
+	special2			EAS_HI_SPRINT
+	special3			EAS_HI_DEX
+	
 	jetpackThrustSound 	"sound/vehicles/tie/loop"
-	jetpackIdleSound		"sound/vehicles/tie/loop"
+	jetpackIdleSound	"sound/vehicles/tie/loop"
 	jetpackStartSound 	"sound/vehicles/x-wing/flyby"
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	//NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
-	//NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
-	WeaponName		"Wrist Rocket"
-	customAmmo		30
-	ReloadTimeModifier 	1.5
-    ProjSpeedModifier 	2.75
-	idleanim	BOTH_STAND3
-	firinganim	BOTH_WRISTBLASTER_ATTACK
-
+	WeaponToReplace			WP_PLX1
+	WeaponBasedOff			WP_PLX1
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	//NewWorldModel			"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	//NewViewModel			"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon					"gfx/hud/w_icon_sbdarm"
+	WeaponName				"Wrist Rocket"
+	customAmmo				30
+	ReloadTimeModifier 		1.5
+    velocityMod				2.75
+	hasAnimOverrides		1
+	animReady				BOTH_STAND3
+	animReadyRun			BOTH_STAND3
+	animReadyWalk			BOTH_STAND3
+	animReadyNoAmmo			BOTH_WRISTBLASTER_ATTACK
+	animAttack				BOTH_WRISTBLASTER_ATTACK
+	animAttackRun			BOTH_WRISTBLASTER_ATTACK
+	animAttackWalk			BOTH_WRISTBLASTER_ATTACK
 }
-
 
 description	"Rocket Troopah
 
-Weaponry:
-Jetpack
-Wrist Rocket (half damage)
-Nade
+^2Weaponry:
+- Wrist Rocket
+-- 50% Less DMG
+-- 175% more Velocity
+-- 50% Longer Mag Reload
+- 1 Frag Nade
 
-Abilities:
-Jetpack 
-Melee Damage Reduction
+^8Attributes:
+- Melee Resistance
+- Stamina + Dexterity (3)
+- 3 Extra Lives
 
-3 Extra Lives
-"
+^3Abilities:
+- Jetpack [No Fuel Use / Cooldown]
+- Sprint ^3[CS2]
+- Dex Roll ^3[CS3]"

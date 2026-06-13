@@ -1,5 +1,4 @@
-//Legends Mode character file - Created by Frenzy & Leos
-
+//smokies?
 ClassInfo
 {
 	name			"h7_Spy"
@@ -16,7 +15,7 @@ ClassInfo
 
 	BPmultiplier		0
 	
-	attributes	MB_ATT_AMMO,3|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_TRACKING_BEACON|MB_ATT_GRAPPLE_HOP|MB_ATT_TRACKING_DART,1|MB_ATT_BACTA,1|MB_ATT_CLOAK,1
+	attributes	MB_ATT_AMMO,3|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_TRACKING_BEACON|MB_ATT_GRAPPLE_HOP|MB_ATT_TRACKING_DART,1|MB_ATT_BACTA,1|MB_ATT_CLOAK,2|MB_ATT_SPRINT
 	forcepowers     FP_SABER_OFFENSE,3
 	maxhealth	80
 	MaxArmor		0
@@ -31,7 +30,9 @@ ClassInfo
 	special2HUD HUD_TRACKINGDART
 
 	speed  1.03
-	
+
+	powerups 	PW_CLOAKED
+
 	uioverlay_l "gfx/icons/tactician"
 	uioverlay_r "gfx/icons/infantry"
 	tauntAnim	BOTH_SABERKILLER1
@@ -53,7 +54,9 @@ ClassInfo
 	special1		EAS_HI_SPRINT
 	special2		EAS_HI_DEX
 	special3		EAS_HI_TRACKER
+	meleespecial3 	EAS_HI_TRACKER
 	special4		EAS_HI_GRAPPLEHOOK
+	meleespecial4		EAS_HI_GRAPPLEHOOK
 
  isCustomBuild	1
 	mbPoints	60
@@ -61,16 +64,16 @@ ClassInfo
 	c_att_skill_0	MB_ATT_PISTOL
 	c_att_names_0	"Hold-out Spy Pistol"
 	c_att_ranks_0	1,1,6
-	c_att_descs_0 	"Sec fire: Suppressed shots"
+	c_att_descs_0 	"Secondary fire: Suppressed shots"
+
+	c_att_skill_1	MB_ATT_TRIP_MINES
+	c_att_names_1	"Trip Mines"
+	c_att_ranks_1	2,2,2
 	
-	c_att_skill_1	MB_ATT_SONIC_DETONATOR
-	c_att_names_1	"Sonic Flashbang Grenades"
-	c_att_ranks_1	4,4,4
-	c_att_descs_1 	"Blind/stun on det"
-	
-	c_att_skill_2	MB_ATT_TRIP_MINES
-	c_att_names_2	"Trip Mines"
-	c_att_ranks_2	2,2,2
+	c_att_skill_2	MB_ATT_SONIC_DETONATOR
+	c_att_names_2	"Sonic Flashbang Grenades"
+	c_att_ranks_2	4,4,4
+	c_att_descs_2 	"Blinds/stuns on det"
 	
 	c_att_skill_3	MB_ATT_AMBAN
 	c_att_names_3	"Pulse Rifle (Amban)"
@@ -94,7 +97,7 @@ ClassInfo
 	c_att_ranks_7	12
 	
 	c_att_skill_8	MB_ATT_SPY_DISGUISE
-	c_att_names_8	"Disguise ^3[Toggle Melee]"
+	c_att_names_8	"Disguise ^3[Melee Weap Mode]"
 	c_att_ranks_8	3,3,3
 		
 	c_att_skill_9	MB_ATT_FLIPKICK
@@ -102,21 +105,20 @@ ClassInfo
 	c_att_ranks_9	2
 	
 	c_att_skill_10	MB_ATT_STAMINA
-	c_att_names_10	"Stamina ^3[CS1]"
+	c_att_names_10	"Stamina"
 	c_att_ranks_10	2,2,2
 	
 	c_att_skill_11	MB_ATT_DEXTERITY
-	c_att_names_11	"Dexterity ^3[CS2]"
+	c_att_names_11	"Dexterity/Dex Roll ^3[CS2]"
 	c_att_ranks_11	2,2,3
 
 	c_att_skill_12	MB_ATT_TRACKING_DART
-	c_att_names_12	"Tracking Darts ^3[CS3 Melee]"
+	c_att_names_12	"Tracking Darts ^3[Melee CS3]"
 	c_att_ranks_12	0,2,2
 	
 	c_att_skill_13	MB_ATT_GRAPPLE_HOOK
-	c_att_names_13	"Grap. Hook/Hop ^3[CS4 Melee]"
+	c_att_names_13	"Grap. Hook/Hop ^3[Melee CS4]"
 	c_att_ranks_13	1,3
-	c_att_descs_13 	"Retain momentum from first Grapple"
 }
 
 WeaponInfo0
@@ -131,11 +133,11 @@ WeaponInfo0
 	AltFlashSound0	"sound/weapons/silencedpistol/fire.wav"
 	AltMuzzleEffect null
 	ChargeEffect null
-	PowerupShotEffect "halo_smg/projectile"
-	AltMissileEffect "halo_smg/projectile"
-	AltMissileMissEffect "flechette/wall_impact"
-	AltMissileHitHumanEffect "flechette/flesh_impact"
-	AltMissileHitDroidEffect "flechette/wall_impact"
+	PowerupShotEffect "halo_shotgun/shot"
+	AltMissileEffect "halo_shotgun/shot"
+	AltMissileMissEffect "tusken/hit"
+	AltMissileHitHumanEffect "tusken/hit"
+	AltMissileHitDroidEffect "tusken/hitwall"
 	CustomAmmo 460
 }
 
@@ -191,17 +193,17 @@ ForceInfo0
 
 description	"Rebel Spy 
 
-A 2-life custom class focused on cloak-and-dagger tactics.
+Agents who specialize in cloak-and-dagger tactics.
 
 ^2Weaponry:
 - Heavy Melee
 - Vibroknife (Cyan/Blue Saber)
 -- No Saber/Blaster Block
--- 60% less Reach
+-- 60% shorter
 
 ^6Inventory:
 - Medpac
-- Cloaking Device
+- Cloaking Device (2)
 
 ^8Attributes:
 - Reinforcement (1)
@@ -214,4 +216,4 @@ A 2-life custom class focused on cloak-and-dagger tactics.
 
 ^3Abilities:
 - Sprint ^3[CS1]
-- Tracking Darts (2) ^3[CS3 Melee]"
+- Tracking Darts (2) ^3[Melee CS3]"

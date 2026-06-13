@@ -1,25 +1,22 @@
-//Legends Mode character file - Created by Frenzy & Leos
+
 
 ClassInfo
 {
 	name				"h10_LukeSky"
 	MBClass			MB_CLASS_JEDI
 	classNumberLimit	1
-
+ WP_SaberFlags HELD_NODISARM
 	weapons				WP_SABER|WP_MELEE
-
-	attributes			MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_LIGHTS_BEACON|MB_ATT_HEALING,1
-
-	forcepowers			FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_PUSH,2|FP_SEE,3|FP_SABERTHROW,2|FP_LIGHTNING,1|FP_PULL,1
+	attributes			MB_ATT_DEFLECT,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1
+	forcepowers			FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_PUSH,2|FP_SEE,3|FP_SABERTHROW,2
 
  rateOfFire_Melee 0.9
  damageGiven 1.1
 
 	basespeed  240
-
 	maxhealth		135
-
 	skilltimermod 	1.9
+	rankSTM   0.9
 
 	forcepool		130
 	forceregen 1.05
@@ -28,14 +25,15 @@ ClassInfo
 	saberDamageStyle SS_FAST,130|SS_STRONG,300|SS_MEDIUM,240
 	saberstyle			SS_FAST|SS_MEDIUM|SS_STRONG
 	saberThrowDamage 40
-	BPmultiplier		1.3
+	BPmultiplier	1.3
 	APmultiplier  1.0
-	CSmultiplier		1.1
-	ASmultiplier		1.05
+	CSmultiplier	1.1
+	ASmultiplier	1.05
 
-	special4	EAS_FP_LIGHTNING
-	special3	EAS_FP_ABSORB
+
 	special2 EAS_FP_PROTECT
+	special3	EAS_FP_GRIP
+	special4	EAS_FP_LIGHTNING
 	
 	classflags CFL_NOPICKUPS
 
@@ -72,13 +70,13 @@ model_7      "luke_anh"
 skin_7       "helmet"
 uishader_7   "models/players/luke_anh/mb2_icon_helmet"
 
-model_8      "luke_pilot"
-skin_8       "default"
-uishader_8   "models/players/luke_pilot/mb2_icon_default"
+model_8      "rebel_pilot"
+skin_8       "luke"
+uishader_8   "models/players/rebel_pilot/mb2_icon_luke"
 
-model_9      "luke_pilot"
-skin_9       "helmet"
-uishader_9   "models/players/luke_pilot/mb2_icon_helmet"
+model_9      "rebel_pilot"
+skin_9       "luke_helmet"
+uishader_9   "models/players/rebel_pilot/mb2_icon_luke_helmet"
 
 model_10     "luke_ceremonial"
 skin_10      "default"
@@ -143,22 +141,69 @@ uishader_20  "models/players/luke_gm/mb2_icon_default"
 	sabercolor_5		3
 	
 	isCustomBuild	1
-	mbPoints		1
-	
-	c_att_skill_0		MB_ATT_FP_TELEPATHY
-	c_att_names_0		"Force Mind Trick^3*"
-	c_att_ranks_0		1
- c_att_descs_0 "Effect is shared with a targeted/nearby ally"
+	mbPoints		65
+	hasCustomSpec 2
+	isOnlyOneSpec 1
+	customSpecName_1 "Obi-Wan"
+	customSpecIcon_1 "gfx/menus/alpha/icon_stats_armor"
+	customSpecDesc_1 "Defensive/supportive skills"
 
-	c_att_skill_1		MB_ATT_FP_ABSORB
-	c_att_names_1		"Force Absorb^3* ^3[CS3]"
-	c_att_ranks_1		1
-	c_att_descs_1 "Effect is shared with a targeted/nearby ally"
+	customSpecName_2 "Yoda"
+	customSpecIcon_2 "gfx/menus/alpha/icon_stats_movespeed"
+	customSpecDesc_2 "Offensive/mobility skills"
+
+	c_att_skill_0		MB_ATT_BP_MULTIPLIER
+	c_att_names_0		"Saber BP (130%)"
+	c_att_ranks_0		5
+	c_att_descs_0		"110% default"
+
+	c_att_skill_1	MB_ATT_FP_PULL
+	c_att_names_1	"Force Pull"
+	c_att_ranks_1	5
+
+	c_att_skill_2	MB_ATT_FP_LIGHTNING
+	c_att_names_2	"Force Emerald Lightning ^3[CS4]"
+	c_att_ranks_2	5
+
+	c_att_skill_3		MB_ATT_FP_TELEPATHY
+	c_att_names_3		"Force Mind Trick ^5{LB}"
+	c_att_ranks_3		20
+
+	c_att_skill_4		MB_ATT_FP_ABSORB
+	c_att_names_4		"Force Absorb ^5{LB}"
+	c_att_ranks_4		20
 	
-	c_att_skill_2		MB_ATT_FP_PROTECT
-	c_att_names_2		"Force Protect^3* ^3[CS2]"
-	c_att_ranks_2		1
-	c_att_descs_2 "Effect is shared with a targeted/nearby ally"
+	c_att_skill_5		MB_ATT_FP_PROTECT
+	c_att_names_5		"Force Protect ^5{LB} ^3[CS2]"
+	c_att_ranks_5		20
+
+	c_att_skill_6		MB_ATT_LIGHTS_BEACON
+	c_att_names_6		"^5Light's Beacon"
+	c_att_ranks_6		30
+	c_att_descs_6		"Shares Force Powers with a targeted/nearby ally"
+
+
+
+	c_att_skill_15	MB_ATT_AP_MULTIPLIER
+	c_att_names_15	"Saber AP (120%)"
+	c_att_ranks_15	15
+
+	c_att_skill_16	MB_ATT_FP_PUSH
+	c_att_names_16	"Force Push"
+	c_att_ranks_16	0,0,15
+
+	c_att_skill_17	MB_ATT_FP_GRIP
+	c_att_names_17	"Force Grip ^3[CS3]"
+	c_att_ranks_17	10,5
+
+	c_att_skill_18	MB_ATT_FP_SPEED
+	c_att_names_18	"Force Speed"
+	c_att_ranks_18	10,5,5
+	
+	c_att_skill_19	MB_ATT_STM_MULTIPLIER
+	c_att_names_19	"Skill Cooldown (110%)"
+	c_att_ranks_19	5
+	c_att_descs_19 "10% default"	
 }
 
 ForceInfo0
@@ -166,12 +211,12 @@ ForceInfo0
 ForceToReplace  FP_LIGHTNING
 Icon  "gfx/forcepowers/lightning_judge"
 ForcePowerName "Emerald Lightning"
-ConeEffect  "effects/force/lightning_judge_el"
+ConeEffect  "force/lightning_judge_el"
 }
 
-description	"Luke Skywalker 
+description	"Luke Skywalker
 
-A defensive duelist/support who can share his Force Powers with allies.
+The first of the new Jedi. A seasoned master with sharply honed skills.
 
 ^2Weaponry:
 - Melee
@@ -180,21 +225,18 @@ A defensive duelist/support who can share his Force Powers with allies.
 -- Saber Defense (3)
 -- Blaster Defense (2)
 -- Blaster Deflect (3)
--- 42% less Red/8% more Blue Dmg
--- 125% Spec Dmg mult
+-- 42% less Red/8% more Blue damage
+-- 25% more special damage
 -- EX Saber Throw (2) ^3[CS1]
---- 33% more Dmg
+--- 33% more damage
 
 ^5Force Powers:
 - Jump (3)
 - Push (2)
-- Pull (1)
 - Sense (3)
-- Emerald Lightning (1) ^3[CS4]
 
 ^8Attributes:
-^7- ^3*^7Light's Beacon (Shares Force Powers with a ^7targeted/nearby ally)
-- 90% slower Skill Cd
+- 90% slower skill cooldown
 - Healing (1)
 - Force Block (2)
 - Force Focus (3)"

@@ -1,4 +1,4 @@
-//Legends Mode character file - Created by Frenzy & Leos
+
 //tutaminis one day//MB_ATT_ROSHTAUNT//CFL_DISRUPTOR_WALLS//bats
 
 Classinfo
@@ -7,7 +7,7 @@ Classinfo
 	MBclass		MB_CLASS_WOOKIE
 	classNumberLimit  	1
 	weapons		WP_MELEE|WP_SABER|WP_SHOTGUN
-	
+
 	attributes	MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FORCEBLOCK,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DEFLECT,1|MB_ATT_JETPACK,1|MB_ATT_CORTOSIS,1|MB_ATT_WATER_BREATHING|MB_ATT_FLOAT_HOP|MB_ATT_BUNNY_HOP,1|MB_ATT_FORCEFOCUS,1|MB_ATT_SHOTGUN,1|MB_ATT_WOOKIEE_FURY,1|MB_ATT_ENV_PROT,1
 	
 	forcepowers		FP_LIGHTNING,3|FP_PUSH,3|FP_PULL,3|FP_GRIP,3|FP_DRAIN,3|FP_SEE,2|FP_SABER_OFFENSE,3|FP_RAGE,3|FP_ABSORB,2|FP_LEVITATION,2
@@ -16,6 +16,10 @@ Classinfo
 	special2 EAS_FP_DRAIN
 	special3 EAS_FP_GRIP
 	special4 EAS_FP_LIGHTNING
+	meleespecial1 EAS_FP_RAGE
+	meleespecial2 EAS_FP_DRAIN
+	meleespecial3 EAS_FP_GRIP
+	meleespecial4 EAS_FP_LIGHTNING
 
 	saber1 		force_deflection
 	saber2 		force_deflection
@@ -24,8 +28,8 @@ Classinfo
 	saberSpecialDamage 2 //160
 	APmultiplier    0.8
 	
-	WP_SaberFlags HELD_PULSE|HELD_DISRUPTIFY
-	WP_ShotgunFlags HELD_FLAME|HELD_DISRUPTIFY
+	WP_SaberFlags HELD_PULSE|HELD_DISRUPTIFY|HELD_NODISARM
+	WP_ShotgunFlags HELD_FLAME|HELD_DISRUPTIFY|HELD_NODISARM
 	WP_MeleeFlags HELD_DISRUPTIFY
  //WP_DisruptorFlags HELD_KNOCKBACK
 	
@@ -73,7 +77,7 @@ WeaponInfo0
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon			"models/weapons2/halo_melee/icon.png"
 	WeaponName		"Lightning Fists"
@@ -82,7 +86,7 @@ WeaponInfo1
 {
 	WeaponToReplace 	WP_SHOTGUN
 	WeaponBasedOff    WP_SHOTGUN
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"models/weapons2/halo_melee/icon.png"
  FlashSound0			"sound/weapons/impacts/hit23.wav"  			
@@ -99,38 +103,40 @@ WeaponInfo1
 	customAmmo     -1
 	rateMod 1.75
 	AltFireEnabled 		0
-	MuzzleEffect 		"flamethrower/flameburn"
+	MuzzleEffect 		null
 	MissileEffect 		"flamethrower/flamethrowerwide"
 	selectSound "sound/chars/ragnos/misc/land1.mp3"
 }
-/* WeaponInfo2
-{
-	WeaponToReplace WP_DISRUPTOR
-	WeaponBasedOff  WP_DISRUPTOR
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"models/weapons2/halo_melee/icon.png"
-	WeaponName		"Force Haunt"
-	disruptorBeam1 "gfx/effects/disrupt_beam_blue"
-	disruptorBeam2 "gfx/effects/disrupt_beam_blue"
- flashSound0 "sound/chars/ragnos/misc/pain75.mp3"
- altflashSound0 "sound/chars/ragnos/misc/pain75.mp3"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	altMuzzleEffect "Blaster/MuzzleFlash01B"
-	hasAnimOverrides 1
-	animReadyRun BOTH_FORCE_2HANDEDLIGHTNING_START
-	animReady BOTH_FORCE_2HANDEDLIGHTNING_START
-	animReadyWalk BOTH_FORCE_2HANDEDLIGHTNING_START
-	animReadyNoAmmo BOTH_FORCE_2HANDEDLIGHTNING
-	animAttackRun BOTH_FORCE_2HANDEDLIGHTNING
-	animAttack BOTH_FORCE_2HANDEDLIGHTNING
-	animAttackWalk BOTH_FORCE_2HANDEDLIGHTNING
- animReadyZoom BOTH_FORCE_2HANDEDLIGHTNING_START
- animReadyZoomRun BOTH_FORCE_2HANDEDLIGHTNING_START
- animAttackZoom BOTH_FORCE_2HANDEDLIGHTNING
- animAttackZoomRun BOTH_FORCE_2HANDEDLIGHTNING //BOTH_GUNGAN_TAUNT
-	selectSound "sound/chars/ragnos/misc/confuse3.mp3"
-} */
+
+//WeaponInfo2
+//{
+//	WeaponToReplace WP_DISRUPTOR
+//	WeaponBasedOff  WP_DISRUPTOR
+//NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+//NewViewModel		"models/weapons2/dummy/dummy.md3"
+//Icon			"models/weapons2/halo_melee/icon.png"
+//	WeaponName		"Force Haunt"
+//	disruptorBeam1 "gfx/effects/disrupt_beam_blue"
+	//disruptorBeam2 "gfx/effects/disrupt_beam_blue"
+ //flashSound0 "sound/chars/ragnos/misc/pain75.mp3"
+ //altflashSound0 "sound/chars/ragnos/misc/pain75.mp3"
+	//MuzzleEffect		"Blaster/MuzzleFlash01B"
+	//altMuzzleEffect "Blaster/MuzzleFlash01B"
+	//hasAnimOverrides 1
+	//animReadyRun BOTH_FORCE_2HANDEDLIGHTNING_START
+	//animReady BOTH_FORCE_2HANDEDLIGHTNING_START
+	//animReadyWalk BOTH_FORCE_2HANDEDLIGHTNING_START
+	//animReadyNoAmmo BOTH_FORCE_2HANDEDLIGHTNING
+	//animAttackRun BOTH_FORCE_2HANDEDLIGHTNING
+	//animAttack BOTH_FORCE_2HANDEDLIGHTNING
+	//animAttackWalk BOTH_FORCE_2HANDEDLIGHTNING
+ //animReadyZoom BOTH_FORCE_2HANDEDLIGHTNING_START
+ //animReadyZoomRun BOTH_FORCE_2HANDEDLIGHTNING_START
+ //animAttackZoom BOTH_FORCE_2HANDEDLIGHTNING
+ //animAttackZoomRun BOTH_FORCE_2HANDEDLIGHTNING //BOTH_GUNGAN_TAUNT
+	//selectSound "sound/chars/ragnos/misc/confuse3.mp3"
+//}
+
 Description 	"Marka Ragnos 
 
 A flying hybrid class that combines Melee brawling abilities and dark side powers.
@@ -139,15 +145,15 @@ A flying hybrid class that combines Melee brawling abilities and dark side power
 - Melee
 - Lightning Fists (Dual Saber)
 -- Saber/Blaster Defense (1)
+--- BP-Free Jumps
 -- Blaster Deflect (1)
--- BP-Free Jumps
 -- Shocks on hit
--- 150% more Kb
--- 200% Spec Dmg mult
--- 45% less Reach
--- 33% more Radius
+-- 150% more knockback
+-- 100% more special damage
+-- 45% shorter
+-- 33% thicker
 - Force Incinerate (Shotgun 1)
--- Ignites on hit
+-- Burns on hit
 -- Fires focused blasts while hovering
 -- 75% slower RoF
 
@@ -158,15 +164,15 @@ A flying hybrid class that combines Melee brawling abilities and dark side power
 - Sense (2) 
 - Lightning (3) ^3[CS4]
 - Drain (3) ^3[CS2]
-- Dark Rage (3) ^3[CS1]
+- Rage (3) ^3[CS1]
 - Grip (3) ^3[CS3]
 - Absorb (2)
 
 ^8Attributes:
 - Strength (2)
-- Environmental Protection (1)
+- Elemental Resist (1)
 - Cortosis (1)
-- Physical Resist
+- Melee Resist
 - Underwater Breathing
 - Force Block/Focus (1)
 - Fury (1)

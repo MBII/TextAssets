@@ -4,72 +4,77 @@ ClassInfo
 {
 	name				"PB3_B_Wampa"
 	weapons 			WP_MELEE|WP_BLASTER_PISTOL
-	attributes  		MB_ATT_WOOKIE_HEALTH,3|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_PISTOL,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_CORTOSIS,1
+	attributes			MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_PISTOL,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_CORTOSIS,1
 	maxhealth			850
 	maxarmor			850
-	modelscale  		2
-	MBClass 			MB_CLASS_WOOKIE
-	classflags		CFL_STRONGAGAINSTPHYSICAL
-	//classNumberLimit	1
 	speed               1.3
-	DamageGiven		1.5
-	respawnCustomTime 75000
-	rateOfFire		0.95
-	DamageTaken		0.75
-	special1	EAS_HI_FURY
-	special2	EAS_HI_BARGE
-	model			"wampa_pl" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"
-	uishader		"models/players/wampa_pl/icon_default"
+	DamageGiven			1.5
+	damageTaken			0.75
+	rateOfFire			0.95
+	modelscale  		2
+	model				"wampa_pl"
+	skin				"default"
+	uishader			"models/players/wampa_pl/icon_default"
+	MBClass 			MB_CLASS_WOOKIE
+	classFlags			CFL_STRONGAGAINSTPHYSICAL
+	//classNumberLimit	1
+	
+	meleespecial1		EAS_HI_FURY
+	meleespecial2		EAS_HI_BARGE
+	
+	respawnCustomTime	75000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	idleAnim			BOTH_JET_FORWARD
-	firingAnim          BOTH_MAND_FLAME_ATTACK
-	MissileMissEffect        "ships/swoop_explosion"
-    MissileHitHumanEffect    "ships/swoop_explosion"
-    MissileHitDroidEffect    "ships/swoop_explosion"
-	MissileEffect		 "rockets/missile" 
-	FlashSound0		"sound/weapons/rock/rock_throw.mp3"
-	altFlashSound0		"sound/weapons/rock/rock_throw.mp3"
-	SelectSound		"sound/effects/stone_bounce.wav"
-	ChargeSound 		"sound/weapons/rock/rock_select.mp3"
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/wpn_rock"
-	WeaponName		"Boulders"
-	clipSize 8
-	CustomAmmo 500
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/wpn_rock"
+	WeaponName				"Boulders"
+	
+	SelectSound				"sound/effects/stone_bounce.wav"
+	FlashSound0				"sound/weapons/rock/rock_throw.mp3"
+	altFlashSound0			"sound/weapons/rock/rock_throw.mp3"
+	ChargeSound				"sound/weapons/rock/rock_select.mp3"
+	
+	MissileMissEffect		"ships/swoop_explosion"
+    MissileHitHumanEffect	"ships/swoop_explosion"
+    MissileHitDroidEffect	"ships/swoop_explosion"
+	MissileEffect			"rockets/missile" 
+	
+	clipSize				8
+	CustomAmmo				500
+	
+	hasAnimOverrides		1
+	animReady				BOTH_JET_FORWARD
+	animReadyRun			BOTH_JET_FORWARD
+	animReadyWalk			BOTH_JET_FORWARD
+	animReadyNoAmmo			BOTH_MAND_FLAME_READY
+	animAttack				BOTH_MAND_FLAME_READY
+	animAttackRun			BOTH_MAND_FLAME_READY
+	animAttackWalk			BOTH_MAND_FLAME_READY
 }
 
 description	"Wampa
 
 Gigantamax or whatever
 
-
-Class: Wookiee
-Class summary: 
 Insanely tall and tanky powerhouse
 
-Weaponry:
-- Thrown boulders
+^2Weaponry:
+- Thrown Boulders (1)
+-- Specialised effects
 
---- Thrown boulders
-- Based on Pistol 
-- Specialised effects
-
-Attributes
-- Cortosis (1)
-- Magnetic Plating
-- Blast Armour
-- Wookiee Strength (3)
-- Wookiee Health (3)
-- Wookiee Fury (2) [CS1]
-- Decreased received melee damage
+^8Attributes:
+- Melee Resistance
 - Increased dealt damage
+- Cortosis (1)
+- Blast Armour
+- Magnetic Plating
+- Strength (3)
 
-Abilities:
-- Barge [CS2]"
+^3Abilities:
+- Fury (2) ^3[CS1]
+- Shoulder Barge ^3[CS2]"

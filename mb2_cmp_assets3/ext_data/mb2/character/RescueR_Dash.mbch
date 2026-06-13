@@ -1,0 +1,157 @@
+
+
+ClassInfo
+{
+	name				"RescueR_Dash"
+	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_ROCKET_LAUNCHER|WP_FRAG_NADE
+	WP_RocketLauncherFlags	HELD_KNOCKBACK|HELD_STUN
+	attributes			MB_ATT_FUELREGEN,2|MB_ATT_PISTOL,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_HEALING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FRAGS,3|MB_ATT_DASH,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ROCKET_LAUNCHER|MB_ATT_DASH_JUMP|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_TRACKING_BEACON|MB_ATT_REPEATER,2
+	forcepool			30
+	maxhealth			135
+	maxarmor			135
+	basespeed			230
+	rateOfFire_Melee	1.05
+	skilltimermod		1.5
+	modelscale			1.01
+	model				"dash_rendar"
+	skin				"jet"
+	uishader			"models/players/dash_rendar/mb2_icon_default"
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_HEAVYMELEE
+	classNumberLimit	1
+	
+	special2			EAS_HI_FLAME
+	special3			EAS_HI_DASH
+	
+	bowAnim				BOTH_HAN_TAUNT
+	flourishAnim		BOTH_STAND5TOAIM
+	
+	//respawncustomtime	50000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL 
+	NewWorldModel			"models/weapons2/blaster_two/blaster_pistol_w.glm" 
+	NewViewModel			"models/weapons2/blaster_two/blaster_pistol.md3"  
+	Icon					"gfx/hud/w_icon_blaster_pistol_2"
+	WeaponName				"Dash's DL-44 Heavy Blaster Pistol"
+	
+	SelectSound				"sound/weapons/dl44/select_sote"
+	FlashSound0				"sound/weapons/han_pistol/fire"
+	altFlashSound0			"sound/weapons/han_pistol/alt_fire"
+	
+	MuzzleEffect			null
+	AltMuzzleEffect			null
+	MissileEffect			"blaster/dash_bolt"
+	AltMissileEffect		"blaster/dash_bolt"
+	MissileHitHumanEffect	"blaster/dash_impact"
+	MissileHitDroidEffect	"blaster/dash_impact"
+	MissileMissEffect		"blaster/dash_impact"
+	
+	clipSize				18
+	customAmmo				720
+	altFireEnabled			0
+	damageMod				.85
+	rateMod					0.43
+	
+	hasAnimOverrides		1
+	animReadyRun			BOTH_JANGO_PISTOL_IDLE
+	animReady				BOTH_JANGO_PISTOL_IDLE
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_ATTACK2
+	animAttack				BOTH_ATTACK2
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK 
+	animStand				BOTH_STAND9
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_ROCKET_LAUNCHER
+	WeaponBasedOff			WP_ROCKET_LAUNCHER
+	NewWorldModel			"models/weapons2/merr_sonn/merr_sonn_w.glm"
+	NewViewModel			"models/weapons2/merr_sonn/merr_sonn.md3"
+	NewBarrelModel			"models/weapons2/merr_sonn/merr_sonn_barrel.md3"
+	Icon					"gfx/hud/w_icon_merrsonn"
+	WeaponName				"PLX-2M Rocket Launcher"
+	
+	clipSize				1
+	CustomAmmo				7
+	ReloadTimeModifier		1.5
+	velocityMod				1.15
+}
+
+WeaponInfo2
+{
+	WeaponToReplace			WP_REPEATER
+	WeaponBasedOff			WP_BLASTER_PISTOL 
+	NewWorldModel			"models/weapons2/blaster_two/blaster_pistol_w.glm" 
+	NewViewModel			"models/weapons2/blaster_two/blaster_pistol.md3"  
+	Icon					"gfx/hud/w_icon_blaster_pistol_2"
+	WeaponName				"Dash's Pulse Cannon"
+	
+	SelectSound				"sound/weapons/dl44/select_sote"
+	FlashSound0				"sound/weapons/repeater/fire_df2"
+	altFlashSound0			"sound/weapons/ee4/sniperfire"
+	
+	MuzzleEffect			"df/pulse_muzzle_flash"
+	AltMuzzleEffect			"df/pulse_muzzle_flash"
+	MissileEffect			"df/pulse_projectile"
+	MissileHitHumanEffect	"df/pulse_wall_impact"
+	MissileHitDroidEffect	"df/pulse_wall_impact"
+	MissileMissEffect		"df/pulse_wall_impact"
+	
+	clipSize				50
+	customAmmo				150
+	altFireEnabled			0
+	damageMod				1.1
+	rateMod					1.40
+	
+	hasAnimOverrides		1
+	animReadyRun			BOTH_JANGO_PISTOL_IDLE
+	animReady				BOTH_JANGO_PISTOL_IDLE
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_ATTACK2
+	animAttack				BOTH_ATTACK2
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK 
+	animStand				BOTH_STAND9
+}
+
+description	"Dash Rendar 
+
+A highly mobile Jetpacker with regenerating Fuel, a rapid-fire, low damage Pistol and a Pulse Cannon.
+
+^2Weaponry:
+- Heavy Melee
+-- 5% slower RoF
+- Dash's DL-44 Heavy Blaster Pistol (1)
+-- 57% faster RoF
+-- 15% less damage
+- Dash's Pulse Cannon (Repeater 2)
+-- 10% more damage
+-- 40% slower RoF
+- PLX-2M Rocket Launcher (8)
+-- Staggers/pushes on hit
+-- 15% more velocity
+-- 50% slower reload
+- 3 Frag Grenades
+
+^8Attributes:
+- Bunny Hop (1)
+- Slow Faller
+- 50% slower skill cooldown
+- Blast Armor
+- Armor Regen (1)
+- Healing (1)
+- Fuel Regen (2)
+- Tracking Beacon
+
+^3Abilities:
+- Jetpack
+- Wrist Flamethrower ^3[CS2]
+- Dash / Dash Jump (2) ^3[CS3]
+
+One of the many smugglers-cum-heroes that the Rebellion has produced, Dash Rendar is a man similar to Lando Calrissian and Han Solo in that his first loyalty is to himself. However, the Empire serves to stifle his freedom, so he fights it whenever and wherever he can."

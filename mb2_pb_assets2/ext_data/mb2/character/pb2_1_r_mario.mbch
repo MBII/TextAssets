@@ -1,0 +1,147 @@
+//Power Battles II - Created by FrenzY
+
+ClassInfo
+{
+	name				"pb2_1_r_mario"
+	weapons				WP_MELEE|WP_SABER|WP_THROWER|WP_FLECHETTE
+	WP_FlechetteFlags	HELD_FLAME|HELD_LOWDAMAGE
+	attributes			MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_FUEL,2|MB_ATT_THROWER_FLAME,3|MB_ATT_DASH,2|MB_ATT_BUNNY_HOP,1|MB_ATT_FLOAT_HOP|MB_ATT_FLECHETTE,3|MB_ATT_FLECHETTE_NADES,99
+	saber1				plunger
+	sabercolor			6
+	saberstyle			SS_DESANN|SS_STRONG
+	saberdamage			80
+	forcepowers			FP_LEVITATION,3|FP_SPEED,2|FP_DESTRUCTION,3
+	forcepool			110
+	forceregen			1.8
+	maxhealth			80
+	maxarmor			20
+	extraLives			2
+	speed				1.15
+	meleeknockback_flat 50
+	meleeknockback_mult 2
+	modelscale			0.7
+	model				"mario"
+	skin				"pb"
+	uishader			"models/players/mario/mb2_icon_default_pb"
+	MBClass				MB_CLASS_HERO
+	//classNumberLimit	64
+	
+	resource			RESOURCE_ENERGY
+	special1HUD			HUD_FLECHETTENADE
+	
+	isCustomBuild		1
+	mbPoints			0
+	
+	rankModelScale		0.3,0.55,1.9
+	c_att_skill_0		MB_ATT_MODELSCALE_MULTIPLIER
+	c_att_names_0		"Tiny/Small/Mega:"
+	c_att_ranks_0		0,0,0
+	
+	meditateAnim		BOTH_DEATHBACKWARD1
+	bowAnim				BOTH_ALORA_SPIN
+	flourishAnim		BOTH_VICTORY_STRONG
+	tauntAnim			BOTH_FORCEWALLRUNFLIP_START
+	gloatAnim			BOTH_TALK1
+	RunForward			BOTH_RUN_DUAL
+	RunBackward			BOTH_RUN_DUAL
+	//WalkForward		BOTH_WALK5
+	//WalkBackward		BOTH_WALK5
+	
+	respawnCustomTime	20000
+}
+	
+WeaponInfo0
+{
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/plunger/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/plunger"
+	WeaponName				"Plunger"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_THROWER
+	NewWorldModel			"models/weapons2/noweap/noweap.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/marvel/fireball"
+	WeaponName				"Fiyah Flowah"
+	
+	AltFlashSound0			"sound/detpack/fire.mp3"
+	
+	MuzzleEffect			"repeater/muzzle_flash"
+	//MissileEffect			"firegrenades/napalm"
+	//AltMissileEffect		"firegrenades/napalm"
+	//AltMissileHitHumanEffect	"firegrenades/largenapalm_new"
+	//MuzzleEffect			"blaster/MuzzleFlash01R"
+	customAmmo				300
+	
+	hasAnimOverrides		1
+	animAttack				BOTH_MAND_FLAME_READY
+	animAttackRun			BOTH_MAND_FLAME_READY
+	animAttackWalk			BOTH_MAND_FLAME_READY
+	animReadyNoAmmo			BOTH_MAND_FLAME_READY
+	animReady				BOTH_MELEE_STAND1
+	animReadyRun			BOTH_MELEE_STAND1
+	animReadyWalk			BOTH_MELEE_STAND1
+}
+
+WeaponInfo2
+{
+	WeaponToReplace			WP_FLECHETTE
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/marvel/fireball"
+	WeaponName				"Fiyah Bawllz"
+	AltFlashSound0			"sound/detpack/fire.mp3"
+	
+	altMissileModel				null
+	AltMissileEffect			"grenades/glowfireb"
+	AltMissileHitHumanEffect	"firegrenade/largenapalm_new"
+	AltMissileHitDroidEffect	"firegrenade/largenapalm_new"
+	altMuzzleEffect				"blaster/MuzzleFlash01R"
+	
+	primFireEnabled			0
+	customAmmo				300
+	
+	hasAnimOverrides		1
+	animReady				BOTH_SABERDUAL_STANCE //upper
+	animReadyWalk			BOTH_SABERDUAL_STANCE
+	animReadyNoAmmo			BOTH_SABERDUAL_STANCE
+	animAttack				BOTH_FORCEPUSH
+	animAttackWalk			BOTH_FORCEPUSH
+	animStand				BOTH_STAND1 //lower
+}
+
+ForceInfo0
+{
+	ForceToReplace		FP_DESTRUCTION
+	Icon				"gfx/mp/force_destruction"
+	ForcePowerName		"Supah Fiyah Bawll"
+	ConeEffect			"force/destruction"
+}
+
+description	"Supah Mayrio
+
+^2Weaponry:
+- Plunger
+-- ^1Red ^7/ ^6Purple ^7Styles
+- Fiyah Flowah
+- Fiyah Bawllz (3)
+
+^5Powers:
+- Jump (3)
+- Speed (2)
+- Supah Fiyah Bawll (3)
+
+^8Attributes:
+- Bunny Hop (1)
+- Float Hop
+- Strength (3)
+- 2 Extra Lives
+
+^3Abilities:
+- Dash (2) ^3[CS2]"

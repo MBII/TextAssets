@@ -1,0 +1,116 @@
+//Power Battles II - Created by FrenzY
+
+ClassInfo
+{
+	name				"pb2_4_b_rockettroopah"
+	weapons				WP_MELEE|WP_PLX1|WP_T21
+	WP_PLX1Flags		HELD_ALTRELOAD|HELD_LOWDAMAGE
+	attributes			MB_ATT_FUELREGEN,3|MB_ATT_PLX1,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_AMMO,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_ROCKET|MB_ATT_BLAST_ARMOUR|MB_ATT_MAGNETIC_PLATING
+	maxhealth			100
+	maxarmor			100
+	extralives			1
+	speed				0.85
+	modelscale			1.2
+	model				"darktrooper_p3"
+	skin				"default"
+	uishader			"models/players/DarkTrooper_p3/mb2_icon_default"
+	MBClass				MB_CLASS_MANDALORIAN
+	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|CFL_NO_FUEL_USE
+	//classNumberLimit	2
+	
+	resource			RESOURCE_FUEL
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+	special3			EAS_HI_ROCKET
+	
+	jetpackThrustEffect	"Jetpack/thrust"
+	jetpackIdleEffect	"Jetpack/idle"
+	jetpackThrustSound 	"sound/vehicles/tie/loop"
+	jetpackIdleSound	"sound/vehicles/tie/loop"
+	jetpackStartSound	"sound/vehicles/x-wing/flyby"
+	
+	respawnCustomTime	50000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_PLX1
+	WeaponBasedOff			WP_PLX1
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	//NewWorldModel			"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	//NewViewModel			"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon					"gfx/hud/w_icon_sbdarm"
+	WeaponName				"Wrist Rocket"
+	customAmmo				50
+	ReloadTimeModifier 		.20
+    velocityMod				1.75
+	
+//	MissileModel			"models/weapons2/pumpkin/thermal_proj.md3"
+//	MuzzleEffect			"turret/turb_muzzle_flash"
+//	AltMuzzleEffect
+//	MissileEffect			"halo_smg/rings"
+	
+	hasAnimOverrides		1
+	animReady				BOTH_STAND3
+	animReadyRun			BOTH_STAND3
+	animReadyWalk			BOTH_STAND3
+	animReadyNoAmmo			BOTH_MAND_FLAME_READY
+	animAttack				BOTH_MAND_FLAME_READY 
+	animAttackRun			BOTH_MAND_FLAME_READY 
+	animAttackWalk			BOTH_MAND_FLAME_READY
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_T21
+	WeaponBasedOff			WP_T21
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_sbdarm"
+	WeaponName				"Wrist Blast"
+	ReloadTimeModifier		2
+    velocityMod				.25
+	isMinigun				1
+	
+	hasAnimOverrides		1
+	animAttack				BOTH_STAND1_BLASTER
+	animAttackRun			BOTH_STAND1_BLASTER
+	animAttackWalk			BOTH_STAND1_BLASTER
+	animReadyNoAmmo			BOTH_STAND1_BLASTER
+	animReady				BOTH_MINIGUN_IDLE
+	animReadyRun			BOTH_MINIGUN_IDLE
+	animReadyWalk			BOTH_MINIGUN_IDLE
+	
+// 	MissileEffect			"turret/shot"	
+//	MuzzleEffect			"concussion/muzzle_flash"
+//	AltMuzzleEffect			"concussion/altmuzzle_flash"
+//	FlashSound0				"sound/weapons/concussion/fire"
+//	AltFlashSound0			"sound/weapons/concussion/alt_fire"
+
+	customammo				500
+}
+
+description	"Rocket Trooper
+
+^2Weaponry:
+- Wrist Blast [T-21] (1)
+-- 75% less Velocity
+- Wrist Rocket [PLX-1] (50 Rockets)
+-- 50% Less DMG
+-- 75% more Velocity
+-- 80% Faster Mag Reload
+- Jetpack Rocket ^3[CS3]
+
+^8Attributes:
+- Melee Resistance
+- Stamina (3)
+- Dexterity (3)
+- Blast Armour
+- Magnetic Plating
+- 1 Extra Life
+
+^3Abilities:
+- Infinite Jetpack
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]"
