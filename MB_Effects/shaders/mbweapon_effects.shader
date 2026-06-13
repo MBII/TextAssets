@@ -11,7 +11,7 @@ gfx/effects/acpflashshot
 }
 
 gfx/effects/acpbfrontflash
-{ 
+{
 	cull	disable
 	{
 		map gfx/effects/acpbfrontflash
