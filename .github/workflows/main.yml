@@ -40,9 +40,9 @@ jobs:
         run: |
           $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
           $MBII = $GAMEDATA + "\MBIITest"
-          svn revert $GAMEDATA
+          svn revert -R $GAMEDATA
           svn cleanup --vacuum-pristines $GAMEDATA
-          svn update $MBII
+          svn update --accept=theirs-full $MBII
           Move-Item -Force -Path MBAssets3.pk3 -Destination $MBII\MBAssets3.pk3
           Move-Item -Force -Path 03_MovieGameMappack.pk3 -Destination $MBII\03_MovieGameMappack.pk3
           Move-Item -Force -Path mb2_cmp_assets3.pk3 -Destination $MBII\mb2_cmp_assets3.pk3
