@@ -237,19 +237,6 @@ gfx/blood/slash6
 	}
 }
 
-// Poisonthrower Smoke
-gfx/effects/poison_smoke
-{
-	cull	twosided
-	{
-		map gfx/effects/alpha_smoke_noalpha
-		blendFunc GL_ONE GL_ONE
-		glow
-		rgbGen vertex
-		alphaGen vertex
-	}
-}
-
 //	clone blob
 
 gfx/effects/clone_blob
