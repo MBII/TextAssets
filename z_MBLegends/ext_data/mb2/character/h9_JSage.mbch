@@ -11,7 +11,7 @@ Classinfo
 
  attributes   MB_ATT_FORCEBLOCK,3|MB_ATT_DEFLECT,0|MB_ATT_FORCEFOCUS,2|MB_ATT_INAIR_FORCE_REGEN|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_FLIPKICK,1|MB_ATT_BUNNY_HOP,1|MB_ATT_DEXTERITY,3|MB_ATT_HEALING,1|MB_ATT_SPEEDLUNGE,1
 
- forcepowers   FP_SABER_OFFENSE,3|FP_PUSH,2|FP_PULL,2|FP_SEE,3|FP_PROTECT,1|FP_ABSORB,1|FP_SABERTHROW,2
+ forcepowers   FP_SABER_OFFENSE,3|FP_PUSH,1|FP_PULL,1|FP_SEE,3|FP_PROTECT,1|FP_ABSORB,1|FP_SABERTHROW,2
 
  BPmultiplier  0.7
  APmultiplier  1.3
@@ -30,6 +30,8 @@ Classinfo
  rateOfFire_Melee .9
 
  damageGiven 0.8
+ knockbackGiven .5
+ knockbackTaken 1.1
 
  //special1 EAS_FP_SABERTHROW game chooses spec1 if not defined, leave as is
  special2 EAS_FP_ABSORB
@@ -80,34 +82,58 @@ Classinfo
  //sabercolor_2  4
 
  isCustomBuild  1
- mbPoints  3
+ mbPoints  4
 
- c_att_skill_0  MB_ATT_MINIGUN
- c_att_names_0  "Force Lift (Minigun)"
- c_att_ranks_0  1,0,0
- c_att_descs_0 "Lifts on hit, Hitscan power, 100% less damage, 99% less FP damage,
+	hasCustomSpec 2
+	isOnlyOneSpec 1
+	customSpecName_1 "Grandmaster"
+	customSpecIcon_1 "gfx/2d/logos/mb_jediorder"
+	customSpecDesc_1 ""
+
+	customSpecName_2 "Hermit"
+	customSpecIcon_2 "gfx/menus/alpha/icon_weap_stun"
+	customSpecDesc_2 ""
+
+ c_att_skill_0  MB_ATT_FP_LEVITATION
+ c_att_names_0 "Force Jump"
+ c_att_ranks_0  0,0,0
+
+ c_att_skill_1  MB_ATT_FP_PUSH
+ c_att_names_1  "Force Push"
+ c_att_ranks_1  0,0,3
+
+ c_att_skill_2  MB_ATT_FP_PULL
+ c_att_names_2 "Force Pull"
+ c_att_ranks_2  0,0,3
+
+ c_att_skill_3  MB_ATT_FP_SPEED
+ c_att_names_3  "Force Speed ^3[CS3]"
+ c_att_ranks_3  1,0
+ c_att_descs_3  "Includes Speedlunge"
+
+
+
+ c_att_skill_15  MB_ATT_MINIGUN
+ c_att_names_15  "Force Lift (Minigun)"
+ c_att_ranks_15  3,0,0
+ c_att_descs_15 "Lifts on hit, Hitscan power, 100% less damage, 99% less FP damage,
 100% slower RoF, Heavyweight"
 
- c_att_skill_1  MB_ATT_FP_LEVITATION
- c_att_names_1  "Force Jump"
- c_att_ranks_1  0,0,0
+ c_att_skill_16  MB_ATT_FP_LEVITATION
+ c_att_names_16  "Force Jump"
+ c_att_ranks_16  0,0,0
 
- c_att_skill_2  MB_ATT_FP_PUSH
- c_att_names_2  "Force Push"
- c_att_ranks_2  0,0,1
+ c_att_skill_17  MB_ATT_FP_PUSH
+ c_att_names_17  "Force Push"
+ c_att_ranks_17  0,2,0
 
- c_att_skill_3  MB_ATT_FP_PULL
- c_att_names_3 "Force Pull"
- c_att_ranks_3  0,0,1
+ c_att_skill_18  MB_ATT_FP_PULL
+ c_att_names_18 "Force Pull"
+ c_att_ranks_18  0,2,0
 
- c_att_skill_4  MB_ATT_FP_STASIS
- c_att_names_4  "Force Stasis"
- c_att_ranks_4  2,0,0
-
- c_att_skill_5  MB_ATT_FP_SPEED
- c_att_names_5  "Force Speed ^3[CS3]"
- c_att_ranks_5  2,0
- c_att_descs_5  "Includes Speedlunge"
+ c_att_skill_19  MB_ATT_FP_STASIS
+ c_att_names_19  "Force Stasis"
+ c_att_ranks_19  1,0,0
 }
 
 WeaponInfo0
@@ -134,21 +160,21 @@ WeaponInfo0
  FPBlockMaxMult 1
  FPNoBlockMinMult 1
  FPNoBlockMaxMult 1
- FPMult 0.2
+ FPMult 0.1
  rateMod 2
  velocityMod 99999
- clipSize 75
+ clipSize 90
  customAmmo -1
 
  altMuzzleEffect "force/pushblur"
- altMissileEffect null
+ altMissileEffect "force/pushblur"
  altMissileMissEffect "force/pushblur"
  AltMissileHitHumanEffect "force/pushblur"
  AltMissileHitDroidEffect "force/pushblur"
  AltMissileModel "models/weapons2/dummy/dummy.md3"
 
  MuzzleEffect "force/pushblur"
- MissileEffect null
+ MissileEffect "force/pushblur"
  MissileMissEffect "force/pushblur"
  MissileHitHumanEffect "force/pushblur"
  MissileHitDroidEffect "force/pushblur"
@@ -183,8 +209,8 @@ A glass cannon duelist and Force user with exceptional offensive and evasive ski
 --- 33% more damage
 
 ^5Force Powers:
-- Push (2)
-- Pull (2)
+- Push (1)
+- Pull (1)
 - Sense (3)
 - Absorb (1) ^3[CS2]
 - Protect (1) ^3[CS4]
@@ -196,6 +222,8 @@ A glass cannon duelist and Force user with exceptional offensive and evasive ski
 - Aerial Force Regen
 - Force Block (3)
 - Force Focus (2)
+- 50% less knockback given
+- 10% more knockback taken
 
 ^3Abilities:
 - Flipkick (1) ^3[Contact Jump]"
