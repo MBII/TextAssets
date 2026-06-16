@@ -8,7 +8,7 @@ saber1 "comm_bat"
 saberstyle SS_FAST
 saberDamage 60
 BPMultiplier 0
-APMultiplier 0
+APMultiplier 0.1
 ASMultiplier 0.9
 CSMultiplier 2
 saberMaxChain 2
@@ -17,7 +17,7 @@ saberMaxChain 2
 
  WP_SaberFlags HELD_CRIPPLE
  WP_BlasterPistolFlags HELD_ALTRELOAD|HELD_STUN
- WP_MinigunFlags HELD_TRACKING|HELD_ALTRELOAD|HELD_FORCEFOCUS|HELD_IGNOREBLOCK
+ WP_MinigunFlags HELD_TRACKING|HELD_ALTRELOAD|HELD_FORCEFOCUS|HELD_IGNOREBLOCK|HELD_EXPLOSIVE
  WP_PulseNadeFlags HELD_FLAME|HELD_KNOCKBACK
 
  attributes MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,2|MB_ATT_FRAGS,2|MB_ATT_QUICKTHROW,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BACTA,1|MB_ATT_FORCEFIELD,1|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_MINIGUN,3
@@ -116,15 +116,20 @@ WeaponInfo2
  NewViewModel  "models/weapons2/dummy/dummy.md3"    
  Icon "models/weapons2/halo_melee/icon.png"
  WeaponName   "Strike Order"
- SelectSound "sound/weapons/knife/knifespin.mp3"
+ selectSound "s/w/claws/swing1.mp3"
  AltFlashSound0   "sound/items/respawn1.wav"
  FlashSound0  "sound/items/respawn1.wav"
+
  isMinigun 0
+
+ splashRadius 42
  damageMod 0.01
+ fpmult 0.01
  velocityMod 99999
  clipSize 8
- rateMod 31
+ rateMod 29
  customAmmo -1
+
  altMuzzleEffect null
  altMissileEffect null
  altMissileMissEffect "sbd/impact_cannon"
@@ -159,7 +164,9 @@ WeaponInfo3
  WeaponName  "Command Baton"
  primFireEnabled 1
  AltFireEnabled  0
+ selectSound "s/w/claws/swing1.mp3"
 }
+
 description "General Crix Madine
 
 A strong tactician who can paint targets for destruction.
@@ -178,11 +185,12 @@ A strong tactician who can paint targets for destruction.
 -- 25% slower RoF
 -- 30% slower mag reload
 - Strike Order (8) (Minigun 3)
--- Tracks/focuses on hit
+-- Tracks/focuses/explodes on hit
 -- Unblockable
 -- Hitscan charges
--- 99% less damage
--- 3000% slower RoF
+-- 99% less damage/FP damage
+-- 2800% slower RoF
+-- 67% smaller splash
 - Frag Grenades (2)
 - Electro-Flare Grenades (2) (Pulses)
 -- Burns/pushes on det
@@ -195,12 +203,12 @@ A strong tactician who can paint targets for destruction.
 - Medpac ^3[CS4]
 
 ^8Attributes:
-- 10% more knockback given
 - Dexterity (1)
 - Healing (2)
 - Rally
 - Tracking Beacon
 - Getup (2)
+- 10% more knockback given
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
