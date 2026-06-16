@@ -7,7 +7,7 @@ ClassInfo
 
  weapons  WP_MELEE|WP_SABER|WP_DC_CARBINE|WP_MINIGUN
 
- WP_MinigunFlags HELD_TRACKING|HELD_ALTRELOAD|HELD_POISON|HELD_LIFESTEAL|HELD_IGNOREBLOCK
+ WP_MinigunFlags HELD_TRACKING|HELD_ALTRELOAD|HELD_POISON|HELD_LIFESTEAL|HELD_IGNOREBLOCK|HELD_EXPLOSIVE
  WP_SaberFlags HELD_STUN|HELD_KNOCKDOWN|HELD_DISARM|HELD_SLOW
  
  attributes MB_ATT_HEALING,3|MB_ATT_DODGE,3|MB_ATT_RALLY|MB_ATT_SABER_COMBO_NONE|MB_ATT_DC_CARBINE,1|MB_ATT_MINIGUN,3|MB_ATT_BACTA|MB_ATT_BACTA_BIG|MB_ATT_SPAWNER|MB_ATT_ROUNDSPAWNER|MB_ATT_SHOCKFIELD|MB_ATT_PSHIELD|MB_ATT_LIGHTS_BEACON|MB_ATT_AMMO,3|MB_ATT_RECHARGE,2
@@ -20,7 +20,7 @@ ClassInfo
  knockbackGiven 0.6
  knockbackTaken 1.25
 
- baseSpeed 220
+ baseSpeed 218
 
  //rateOfFire 2
  rateOfFire_Melee 2
@@ -51,7 +51,7 @@ ClassInfo
  saberMaxChain 1
  saberDamage 40
  ASMultiplier 0.85
- APMultiplier 0
+ APMultiplier 0.1
  BPMultiplier 0
  CSMultiplier 0
 
@@ -63,7 +63,7 @@ ClassInfo
  uioverlay  "gfx/icons/tactician"
  modelscale 1.01
 
- punchAnim  BOTH_MELEE_BACKHAND  //
+ punchAnim  BOTH_MELEE_BACKHAND 
  tauntAnim BOTH_STAND5STARTLEDLOOKLEFT
  gloatAnim BOTH_STAND1_TALK1
  flourishAnim BOTH_COWER1
@@ -129,11 +129,15 @@ WeaponInfo2
  SelectSound "sound/weapons/bryar/select.mp3"
  AltFlashSound0  "sound/interface/pickup_battery.mp3"
  FlashSound0  "sound/chars/gunray/misc/taunt4.mp3"
+
  isMinigun 0
+
  damageMod 0.01
+ fpmult 0.01
  velocityMod 99999
+ splashRadius 42
  clipSize 10
- rateMod 31
+ rateMod 29
  customAmmo -1
  altMuzzleEffect null
  altMissileEffect null
@@ -187,11 +191,12 @@ A cowardly slimeball who'd prefer to observe the battle from far away.
 -- 200% slower RoF
 -- 400% slower reload
 - Security Resolution (Minigun 3)
--- Tracks/poisons/drains on hit
+-- Tracks/poisons/drains/explodes on hit
 -- Unblockable
 -- Hitscan charges
--- 99% less damage
--- 3000% slower RoF
+-- 99% less damage/FP damage
+-- 2800% slower RoF
+-- 67% smaller splash
 
 ^5Powers:
 - Protective Wealth (2) ^9{Dark's Beacon}
