@@ -10,9 +10,9 @@ ClassInfo
 
  weapons   WP_MELEE|WP_BLASTER
 
- WP_MeleeFlags HELD_KNOCKBACK //allahu
+ WP_MeleeFlags HELD_KNOCKBACK|HELD_SLOW //allahu
  WP_StunBatonFlags HELD_DISARM|HELD_LIFESTEAL|HELD_SLOW|HELD_HIGHDAMAGE|HELD_TRACKING|HELD_SLIPPERY
- WP_ClonePistolFlags HELD_CRIPPLE|HELD_ALTRELOAD|HELD_STUN|HELD_IGNOREBLOCK
+ WP_ClonePistolFlags HELD_CRIPPLE|HELD_ALTRELOAD|HELD_STUN|HELD_IGNOREBLOCK|HELD_FORCEFOCUS|HELD_FLASH
  WP_DetPackFlags HELD_PULSE|HELD_FLAME
  WP_MGLFlags HELD_KNOCKBACK|HELD_ALTRELOAD
  WP_SonicNadeFlags HELD_TRACKING|HELD_FORCEFOCUS
@@ -45,7 +45,7 @@ ClassInfo
  baseSpeed 240
 
  hackRate 0.9
-
+ rateOfFire_Melee 1.2
  skilltimermod  2
 
  classflags  CFL_SEEING_STEALTH|CFL_DISRUPTOR_WALLS
@@ -79,7 +79,8 @@ ClassInfo
  customgreen_2 1
  customblue_2  1 
    
- uioverlay "gfx/icons/tactician"
+ uioverlay_l "gfx/icons/tactician"
+ uioverlay_r "gfx/icons/infantry"
 
  isCustomBuild 1
  mbPoints  8
@@ -92,8 +93,8 @@ ClassInfo
  c_att_skill_1 MB_ATT_CLONE_PISTOL
  c_att_names_1 "Tranquilizer (Clone) Pistol"
  c_att_ranks_1 1
- c_att_descs_1 "Staggers/slows on hit, Unblockable, 25% faster RoF,
-80% less damage/FP damage, 50% less velocity, Mag reload"
+ c_att_descs_1 "Staggers/slows/focuses/blinds on hit, Unblockable, 25% faster RoF,
+80% less damage, 50% less velocity, Mag reload"
 
  c_att_skill_2  MB_ATT_DEMP2
  c_att_names_2 "Remote EMP (2) (DEMP2)"
@@ -153,7 +154,7 @@ Self-Destruct (1) ^3[CS2]"
  c_att_skill_12 MB_ATT_SELFEXPLODE
  c_att_names_12 "Bomb Vest ^3[Melee CS2]"
  c_att_ranks_12 3
- c_att_descs_12 "Pushes on det"
+ c_att_descs_12 "Pushes on det, 75% more damage"
 }
 
 WeaponInfo0
@@ -164,18 +165,30 @@ WeaponInfo0
  NewViewModel  "models/weapons2/kotor_ionpistol/kotor_ionpistol.md3"
  Icon    "gfx/hud/w_icon_kotor_ionpistol"
  WeaponName   "Tranquilizer Pistol"
- CustomAmmo    36
- clipSize    2
+
  FlashSound0   "sound/weapons/mgun/alt_fire.wav" 
  AltFlashSound0   "sound/weapons/mgun/alt_fire.wav"
  MuzzleEffect  "Blaster/MuzzleFlash01B"
  AltMuzzleEffect  "Blaster/MuzzleFlash01B"
  MissileEffect  "blaster/Shot04B"
  AltMissileEffect  "blaster/Shot04B" 
- FPMult      0.2
+
+ CustomAmmo    8
+ clipSize    2
+
  damageMod   0.2
  velocityMod  0.5
  rateMod 0.75
+ reloadTimeModifier 2.5
+
+ hasAnimOverrides 1
+ animReadyRun BOTH_PISTOL_IDLE
+ animReady BOTH_PISTOL_IDLE
+ animReadyWalk BOTH_PISTOL_IDLE2
+ animReadyNoAmmo BOTH_PISTOL_ATTACK
+ animAttackRun BOTH_PISTOL_ATTACK
+ animAttack BOTH_PISTOL_ATTACK
+ animAttackWalk BOTH_PISTOL_ATTACK
 }
 
 WeaponInfo1
@@ -345,6 +358,19 @@ WeaponInfo6
  altfireEnabled 1
 }
 
+WeaponInfo7
+{
+	WeaponToReplace		WP_MELEE
+	WeaponBasedOff		WP_MELEE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_melee"
+	WeaponName		"Melee"
+	primFireEnabled		1
+	AltFireEnabled 		1
+	damageMod 1.75
+}
+
 
 description "Rebel Saboteur
 
@@ -352,6 +378,9 @@ Elite agents armed with tools to bring the opposition down from the inside.
 
 ^2Weaponry:
 - Melee
+-- 75% more damage
+-- 20% slower RoF
+-- Heavyweight
 - Requisitioned Repeater (Blaster Rifle 1)
 -- 30% faster RoF
 -- 15% less damage
