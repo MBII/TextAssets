@@ -34,14 +34,14 @@ GE_StormTrooper //basic trooper, better then police and army I guess
 	yawspeed	70
 }
 
-GE_COMPTrooper //slightly better equipped
+GE_ScoutTrooper
 {
-	playerModel mudtrooper
-	customSkin 	tactician
+	playerModel	scouttrooper
+	//customSkin 	tactician
 	weapon		WP_EE4
 	MB_ATT_EE4 2
-	health		50
-	armor 15
+	health		80
+	armor 20
 	headPitchRangeDown 30
 	reactions	3
 	aim			1
@@ -58,41 +58,39 @@ GE_COMPTrooper //slightly better equipped
 	crouchheight 38
 	walkSpeed	51
 	runSpeed	225
-	snd			io_bf2
-	sndcombat	io_bf2
-	sndextra	io_bf2
+	snd			scouttrooper
+	sndcombat	scouttrooper
+	sndextra	scouttrooper
 	yawspeed	70
 }
 
-GE_NavyShotgun //shotgunners to mixup attacks, better at close quaters inside of Navy ships/stations/bases
+GE_ScoutSniper //snipers to mixup attack types
 {
-	playerModel imperial_army
-	customSkin  navy
-	weapon		WP_SHOTGUN
-	MB_ATT_SHOTGUN 1
-	//altFire 1
-	health		50
-	armor 		15
-	headPitchRangeDown 30
+	playerModel	scouttrooper
+	//customSkin  novaofficer
+	weapon	WP_DISRUPTOR
+	MB_ATT_DISRUPTOR 2
+	altFire			1
+	rank		crewman
 	reactions	3
 	aim			1
 	move		3
 	aggression	3
 	evasion		1
 	intelligence	5
-	rank		crewman
+	hfov		160
+	vfov		160
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
-//	race		klingon
 	class		CLASS_STORMTROOPER
-	height		64
-	crouchheight 38
-	walkSpeed	51
-	runSpeed	186
-	snd			ic_df2
-	sndcombat	ic_df2
-	sndextra	ic_df2
-	yawspeed	70
+	snd			scouttrooper
+	sndcombat	scouttrooper
+	sndextra	scouttrooper
+	yawSpeed	140
+	walkSpeed	55
+	runSpeed	225
+	health		80
+	armor 		20
 }
 
 GE_StormSergeant //Sergeant with the bigger blaster
@@ -119,21 +117,21 @@ GE_StormSergeant //Sergeant with the bigger blaster
 	height		64
 	crouchheight 38
 	walkSpeed	51
-	runSpeed	200
+	runSpeed	225
 	snd			st2
 	sndcombat	st2
 	sndextra	st2
 	yawspeed	70
 }
-GE_NovaTrooper //elites with heavy rifles
+GE_StormSergeant2 //elites with heavy rifles
 {
 	playerModel stormie
-	customSkin 	novatrooper
+	customSkin 	sarge
 	weapon		WP_DLT19
 	MB_ATT_DLT19 3
 	altFire 1
 	health		80
-	armor 40
+	armor 20
 	headPitchRangeDown 30
 	reactions	3
 	aim			1
@@ -166,7 +164,7 @@ GE_ShadowTrooper //cloakers with rifles
 	RESOURCE_ENERGY 1
 	forcePowerMax	100
 	health		80
-	armor 40
+	armor 20
 	headPitchRangeDown 30
 	reactions	3
 	aim			1
@@ -197,11 +195,11 @@ GE_StormRocket //projectile mixup
 	health		80
 	armor 		20
 	headPitchRangeDown 30
-	reactions	3
-	aim			1
-	move		3
+	reactions	5
+	aim			5
+	move		5
 	aggression	5
-	evasion		1
+	evasion		5
 	intelligence	5
 	rank		crewman
 	playerTeam	TEAM_PLAYER
@@ -368,34 +366,6 @@ GE_LightningTrooper //dangerous to gunners at close range by locking the targets
 	yawspeed	70
 }
 
-GE_ScoutSniper //snipers to mixup attack types
-{
-	playerModel	scouttrooper
-	customSkin  novaofficer
-	weapon	WP_DISRUPTOR
-	MB_ATT_DISRUPTOR 2
-	altFire			1
-	rank		crewman
-	reactions	3
-	aim			1
-	move		3
-	aggression	3
-	evasion		1
-	intelligence	5
-	hfov		160
-	vfov		160
-	playerTeam	TEAM_PLAYER
-	enemyTeam	TEAM_ENEMY
-	class		CLASS_STORMTROOPER
-	snd			scouttrooper
-	sndcombat	scouttrooper
-	sndextra	scouttrooper
-	yawSpeed	140
-	walkSpeed	55
-	runSpeed	225
-	health		80
-	armor 		20
-}
 
 GE_EVOTrooper //anti-melee troopers with shock fields and flechettes
 {
@@ -488,10 +458,41 @@ GE_KX_E22 //ranged tanks
 	yawspeed	70
 }
 
-GE_ScoutBaton //melee fodder, can saber but can't block blasters
+GE_NavyShotgun //shotgunners to mixup attacks, better at close quaters inside of Navy ships/stations/bases
 {
-	playerModel	scouttrooper
-	customSkin	default
+	playerModel imperial_army
+	customSkin  navy
+	weapon		WP_SHOTGUN
+	MB_ATT_SHOTGUN 1
+	//altFire 1
+	health		50
+	armor 		15
+	headPitchRangeDown 30
+	reactions	3
+	aim			1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+//	race		klingon
+	class		CLASS_STORMTROOPER
+	height		64
+	crouchheight 38
+	walkSpeed	51
+	runSpeed	186
+	snd			ic_df2
+	sndcombat	ic_df2
+	sndextra	ic_df2
+	yawspeed	70
+}
+
+GE_NavyBaton //melee fodder, can saber but can't block blasters
+{
+	playerModel imperial_army
+	customSkin  navy
 	saber		riot_baton_b_legends
 	weapon	WP_SABER
 	saberStyle	4
@@ -510,9 +511,9 @@ GE_ScoutBaton //melee fodder, can saber but can't block blasters
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_REBORN
-	snd			scouttrooper
-	sndcombat	scouttrooper
-	sndjedi		scouttrooper
+	snd			ic_df2
+	sndcombat	ic_df2
+	sndjedi		ic_df2
 	yawSpeed	60
 	walkSpeed	45
 	runSpeed	225
@@ -520,10 +521,10 @@ GE_ScoutBaton //melee fodder, can saber but can't block blasters
 	armor		15
 }
 
-GE_ScoutDual //melee fodder x2, can saber but can't block blasters
+GE_NavyBatonDual //melee fodder x2, can saber but can't block blasters
 {
-	playerModel	scouttrooper
-	customSkin	default
+	playerModel imperial_army
+	customSkin  navy
 	saber		riot_baton_b_legends
 	saber2		riot_shield_legends
 	weapon	WP_SABER
@@ -543,9 +544,9 @@ GE_ScoutDual //melee fodder x2, can saber but can't block blasters
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_REBORN
-	snd			scouttrooper
-	sndcombat	scouttrooper
-	sndjedi		scouttrooper
+	snd			ic_df2
+	sndcombat	ic_df2
+	sndjedi		ic_df2
 	yawSpeed	60
 	walkSpeed	45
 	runSpeed	225
@@ -652,12 +653,12 @@ GE_Inquisitor
 	FP_PULL			3
 	rank		captain
 	forcePowerMax 200
-	reactions	5
-	aim			5
-	move		5
+	reactions	1
+	aim			1
+	move		1
 	aggression	5
-	evasion		5
-	intelligence	5
+	evasion		3
+	intelligence	1
 	hfov		120
 	vfov		120
 	playerTeam	TEAM_PLAYER
@@ -695,12 +696,12 @@ GE_Inquisitor2
 	FP_TELEPATHY	3
 	rank		captain
 	forcePowerMax 200
-	reactions	5
-	aim			5
-	move		5
+	reactions	1
+	aim			1
+	move		1
 	aggression	5
-	evasion		5
-	intelligence	5
+	evasion		3
+	intelligence	1
 	hfov		120
 	vfov		120
 	playerTeam	TEAM_PLAYER
@@ -793,7 +794,7 @@ GE_Mage3
 	MB_ATT_FORCEBLOCK 1
 	FP_LEVITATION	3
 	FP_TEAM_HEAL	3
-	FP_DEADLYSIGHT	3
+	FP_BLIND		3
 	RESOURCE_FORCE 1
 	forcePowerMax	200
 	forceRegenAmount	2
@@ -833,7 +834,7 @@ GE_Mage4
 	MB_ATT_FORCEBLOCK 1
 	FP_LEVITATION	3
 	FP_STASIS		3
-	FP_BLIND		3
+	FP_DEADLYSIGHT	3
 	RESOURCE_FORCE 1
 	forcePowerMax	200
 	forceRegenAmount	2
