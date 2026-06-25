@@ -250,6 +250,7 @@ models/players/palpatine/robe-partsen2
 	}
 }
 
+
 // TRoS
 models/players/palpatine_tros/robe
 {
@@ -257,5 +258,52 @@ models/players/palpatine_tros/robe
 	{
 		map models/players/palpatine_tros/robe
 		rgbGen lightingDiffuse
+	}
+}
+
+
+// Senator
+
+models/players/palpatine_senator/body
+{
+	cull	twosided
+	{
+		map models/players/palpatine_senator/body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/palpatine_senator/body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/palpatine_senator/body2
+{
+	cull	twosided
+	{
+		map models/players/palpatine_senator/body2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/palpatine_senator/body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/palpatine_senator/ep1
+{
+	{
+		map models/players/palpatine_senator/ep1
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/palpatine_senator/ep1_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }

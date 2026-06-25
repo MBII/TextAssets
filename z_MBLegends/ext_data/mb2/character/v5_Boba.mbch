@@ -1,4 +1,4 @@
-//Legends Mode character file - Created by Frenzy & Leos
+
 
 ClassInfo
 {
@@ -20,12 +20,14 @@ ClassInfo
 	basespeed	225
 
 	rateoffire			0.8
+
+	knockbackTaken 0.9
 	
 	special1HUD HUD_ROCKET
 	special2HUD HUD_WRISTLASER
 
 	WP_ShotgunFlags     HELD_ALTRELOAD|HELD_DISRUPTIFY
-	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_STUN
+	WP_RocketLauncherFlags HELD_KNOCKBACK|HELD_STUN|HELD_NODISARM
 	
 	modelscale          1.02
 	model	"bobafett"
@@ -52,11 +54,16 @@ ClassInfo
 	skin_5		"hs"
 	uishader_5	"models/players/bobafett/mb2_icon_hs"
 	
-	//respawncustomtime 50000
+	model_6		"boba_fett"
+	skin_6		"default"
+	uishader_6	"models/players/boba_fett/mb2_icon_default"
 	
 	special1	EAS_HI_ROCKET
+	meleespecial1	EAS_HI_ROCKET
 	special2	EAS_HI_FLAME
+	meleespecial2	EAS_HI_FLAME
 	special3	EAS_HI_WRIST
+	meleespecial3 EAS_HI_WRIST
 	
 	uioverlay_r "gfx/icons/aerial"
 	uioverlay_l "gfx/icons/spec_infantry"
@@ -73,8 +80,8 @@ WeaponInfo0
  FlashSound0			"sound/weapons/flechette/fire.mp3"  			
 	WeaponName 			"FWG-5 Flechette Pistol"
 	hasAnimOverrides 1
-	animReadyRun TORSO_WEAPONIDLE2
-	animReady TORSO_WEAPONIDLE2
+	animReadyRun BOTH_JANGO_PISTOL_IDLE
+	animReady BOTH_JANGO_PISTOL_IDLE
 	animReadyWalk TORSO_WEAPONIDLE2
 	animReadyNoAmmo BOTH_ATTACK2 
 	animAttackRun BOTH_ATTACK2 
@@ -95,7 +102,7 @@ WeaponInfo1
 	WeaponBasedOff		WP_ROCKET_LAUNCHER
 	MissileMissEffect      "Grenades/EXP_Alt"
 	MissileEffect		"rockets/missile" 
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon			"gfx/hud/w_icon_wristrocket"
 	WeaponName		"Wrist Rockets"
@@ -125,25 +132,27 @@ WeaponInfo2
 	customAmmo 800
 }
 
-description	"Boba Fett 
+description	"Boba Fett
 
-A versatile Jetpack gunner with an arsenal of Mandalorian abilities.
+No disintegrations.
 
 ^2Weaponry:
 - Melee
 - EE-3 Carbine Rifle (3)
 - FWG-5 Flechette Pistol (Shotgun 2)
 -- Fires focused blasts while hovering
--- 10% less FP Dmg
--- 40% slower Mag Reload
+-- 10% less FP damage
+-- 40% slower mag reload
+-- Primary fire only
 - Wrist Rockets (5) (Rocket Launcher)
 -- Staggers/pushes on det
--- 10% more Velocity
--- 40% slower Mag Reload
+-- 10% more velocity
+-- 40% slower reload
 - Sonic Detonator (1)
 - Frag Grenades (2)
 
 ^8Attributes:
+- 10% less knockback taken
 - Beskar (2)
 - Blast Armor
 - Healing (2)
@@ -151,6 +160,6 @@ A versatile Jetpack gunner with an arsenal of Mandalorian abilities.
 
 ^3Abilities:
 - Jetpack
-- Rocket ^3[CS1]
+-- Rocket ^3[CS1]
 - Wrist Flamethrower ^3[CS2]
 - Wrist Laser ^3[CS3]"

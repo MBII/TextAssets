@@ -2,96 +2,90 @@
 
 ClassInfo
 {
-	name			"PB3_B_Jacks"
-	weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
+	name				"PB3_B_Jacks"
+	weapons				WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
 	WP_MeleeFlags		HELD_SPEED
-	attributes		MB_ATT_FUELREGEN,3|MB_ATT_FUEL,3|MB_ATT_PISTOL,3|MB_ATT_ROSHTAUNT|MB_ATT_DASH,3|MB_ATT_ANTI_MT,2|MB_ATT_FLIPKICK,3|MB_ATT_ROCKET|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3
-    forcepowers     FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3
-	saber1          jacksword_wacky
-	sabercolor	1 
-	saberstyle      SS_MEDIUM|SS_FAST
-	maxhealth		150
-	maxarmor        50
-	rateofFire	0.85
-	speed           5
-	forcepool       50
-	forceregen      1.1
-	special1	EAS_HI_DASH
-	special2	EAS_HI_ROCKET
-	APmultiplier		2
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_FUELREGEN,3|MB_ATT_FUEL,3|MB_ATT_PISTOL,3|MB_ATT_ROSHTAUNT|MB_ATT_DASH,3|MB_ATT_ANTI_MT,2|MB_ATT_FLIPKICK,3|MB_ATT_ROCKET|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3
+	saber1				jacksword_wacky
+	sabercolor			1 
+	saberstyle			SS_MEDIUM|SS_FAST
 	BPmultiplier		1
+	APmultiplier		2
 	ASmultiplier 		1.7
 	CSmultiplier 		1.7
-	classFlags	CFL_THERMALROCKETS
-	model			"quinlan_vos2"
-	skin			"sparrow"
-	uishader		"models/players/jacks/mb2_icon_default"
-
-	MBClass			MB_CLASS_MANDALORIAN
+	forcepowers			FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3
+	forcepool			50
+	forceregen			1.1
+	maxhealth			150
+	maxarmor			50
+	speed				5
+	rateofFire			0.85
+	model				"quinlan_vos2"
+	skin				"sparrow"
+	uishader			"models/players/quinlan_vos2/mb2_icon_sparrow_pb3"
+	MBClass				MB_CLASS_MANDALORIAN
+	classFlags			CFL_THERMALROCKETS
 	//classNumberLimit	1
+	
+	special1			EAS_HI_DASH
+	special2			EAS_HI_ROCKET
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	primHitscanTracer     10
-	primHitscanShot       1	
-	NewWorldModel		"models/weapons2/demp2_pirate/demp2_pirate_w.glm"
-	NewViewModel		"models/weapons2/demp2_pirate/demp2_W.md3"
-	NewHandsModel       "models/weapons2/demp2_pirate/demp2_hand.md3"
-	Icon				"gfx/hud/w_icon_flintlock.png"
-	WeaponName			"Flintlock Pistol"
-	MuzzleEffect		"blaster/MuzzleFlash01R"
-	FlashSound0		"sound/weapons/flintlock/fire.wav"
-	customammo		800
-	clipSize		36
-	altFireEnabled  0
-	primFireEnabled 1
-	FPmult		3
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_DEMP2
+	NewWorldModel			"models/weapons2/demp2_pirate/demp2_pirate_w.glm"
+	NewViewModel			"models/weapons2/demp2_pirate/demp2_W.md3"
+	Icon					"gfx/hud/w_icon_flintlock.png"
+	WeaponName				"Flintlock Pistol"
+	
+	FlashSound0				"sound/weapons/flintlock/fire.wav"
+	
+	MuzzleEffect			"blaster/MuzzleFlash01R"
+	
+	customammo				800
+	clipSize				36
+	altFireEnabled			0
+	primFireEnabled			1
+	primHitscanTracer		10
+	primHitscanShot			1
+	FPmult					3
 }
+
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER
-    primGore              1
-    altGore               1	
-	NewWorldModel		"models/weapons2/saber_rapier/rapier_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_rapier" 	//Required: Weapon change icon
-	WeaponName		"Captain's Sword"    					//Required: Weapon change display name
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_rapier/rapier_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_rapier"
+	WeaponName				"Captain's Sword"
+	primGore				1
+	altGore					1
 }
 
 description	"Sir Muis Sparrow
 
 He's a pirate and that's all he's gotta be
 
+Quick pirate
 
-Class: Mandalorian
-Class summary: Quick pirate
-
-Weaponry:
+^2Weaponry:
 - Rapier
+-- ^3Yellow ^7/ ^4Blue ^7Styles
+-- Saber Defense   (3)
+-- Blaster Defense (2)
 - Flintlock Pistol (3)
+-- 200% Higher FP DMG
+- Thermal Rocket ^3[CS2]
 
---- Rapier
-- Defense (3)
-- Offense (3)
-- Can block lightsabers and blaster bolts
-- Can use Yellow and Blue styles
-
---- Flintlock
-- Based on Pistol
-- Increased force drain
-
-Attributes:
-- Fuel (3)
-- Fuel regen (3)
-- Increased speed in melee
-- Immune to Mind Trick
-- Thermal Rocket [CS2]
-
-Abilities:
+^8Attributes:
 - Toxic Taunt
-- Dash (3) [CS1]
-- Flipkick (3)" 
+- 15% Faster Movement In Melee
+- Immune to Mind Trick
+- Flipkick (3)
+- Fuel + Fuel Regen (3)
+
+^3Abilities:
+- Dash (3) ^3[CS1]" 

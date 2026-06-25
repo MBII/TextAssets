@@ -1,0 +1,188 @@
+
+Classinfo
+{
+	name		"v2_FlameB1"
+	MBclass		MB_CLASS_MANDALORIAN
+
+	classNumberLimit	2
+	extralives		1
+
+	weapons	WP_MELEE|WP_THROWER|WP_FIRE_NADE
+
+ WP_UGLFlags HELD_EXPLOSIVE|HELD_KNOCKBACK|HELD_STUN
+ WP_PLX1Flags HELD_SLOW|HELD_FLAME|HELD_KNOCKBACK
+ WP_ThrowerFlags HELD_ALTRELOAD
+ AB_WLaserFlags	HELD_FLAME|HELD_LOWDAMAGE
+
+	attributes	MB_ATT_AMMO,4|MB_ATT_FIRE_GRENADES,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ASSEMBLE,2|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_WRISTLASER|MB_ATT_ENV_PROT,1|MB_ATT_SENTRY,1|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_GETUPS,2|MB_ATT_THROWER
+
+	maxhealth	100
+	maxarmor	75
+	rankArmor	100
+
+	knockbacktaken .9
+	basespeed  225
+
+	special1HUD HUD_FIRENADE
+	special2HUD HUD_WRISTLASER
+
+	resource	RESOURCE_FUEL
+	forcepool	50
+	rankforcepool	75,100
+
+	special1 EAS_HI_DODGE
+	meleespecial1 EAS_HI_DODGE
+	special2 EAS_HI_WRIST
+	meleespecial2 EAS_HI_WRIST
+	special4	EAS_HI_SENTRY_GUN
+
+	classflags	CFL_DISMEMBERFRAGILE
+
+	flourishAnim TORSO_HANDSIGNAL3
+
+	modelScale   1.035
+
+	model	"battledroid" 				
+	skin	"flame"					
+	uishader "models/players/battledroid/mb2_icon_flame"
+
+	model_1	"battledroid" 				
+	skin_1	"plasma"					
+	uishader_1 "models/players/battledroid/mb2_icon_plasma"
+
+ uioverlay_r "gfx/icons/infantry"
+	uioverlay_l "gfx/icons/spec_infantry"
+	
+	isCustomBuild 1
+ mbPoints 35
+
+c_att_skill_0   MB_ATT_BLASTER
+c_att_names_0   "E-5 Blaster Rifle"
+c_att_ranks_0   5,5,10
+
+c_att_skill_1   MB_ATT_DLT20A
+c_att_names_1   "DLT-20A Blaster Rifle"
+c_att_ranks_1   15,10,5
+
+c_att_skill_2	MB_ATT_THROWER_PLASMA
+c_att_names_2	"CR-24 Plasma Upgrade"
+c_att_ranks_2	25
+
+c_att_skill_3	MB_ATT_PLX1
+c_att_names_3	"E-60R Missile Launcher (PLX)"
+c_att_ranks_3	10,15
+c_att_descs_3	"Burns/pushes/staggers on det, 75% less damage, Heavyweight"
+
+c_att_skill_4   MB_ATT_UGL
+c_att_names_4  "Grenade Launcher (UGL)"
+c_att_ranks_4   5
+c_att_descs_4   "Overblasts/pushes on det, 100% more damage"
+
+c_att_skill_5	MB_ATT_ARMOUR
+c_att_names_5	"Armor (100)"
+c_att_ranks_5	15
+
+c_att_skill_6	MB_ATT_POWER
+c_att_names_6	"Energy Pool (75/100)"
+c_att_ranks_6	5,5
+}
+
+WeaponInfo0
+{
+WeaponToReplace WP_THROWER
+WeaponBasedOff WP_THROWER
+NewWorldModel	"models/weapons2/CR-24_flamerifle/rifle_w.glm"
+NewViewModel	"models/weapons2/CR-24_flamerifle/rifle.md3"		
+Icon	"gfx/hud/w_icon_cr-24_flamerifle"
+WeaponName "CR-24 Flame Rifle"
+customAmmo 700
+clipsize 140
+ReloadTimeModifier 1.5
+}
+
+WeaponInfo1
+{
+WeaponToReplace WP_UGL
+WeaponBasedOff WP_UGL
+Icon	"gfx/hud/w_icon_upl"
+NewWorldModel	"models/weapons2/upl/upl_w.glm"
+NewViewModel	"models/weapons2/upl/upl.md3"
+NewHandsModel "models/weapons2/upl/upl_hand.md3"
+NewBarrelModel "models/weapons2/upl/upl_barrel.md3"
+WeaponName "Modified Grenade Launcher"
+flashSound0 "sound/weapons/upl/fire_mortar.wav"
+flashSound1 "sound/weapons/upl/fire_mortar.wav"
+flashSound2 "sound/weapons/upl/fire_mortar.wav"
+flashSound3 "sound/weapons/upl/fire_mortar.wav"
+hasAnimOverrides 1
+animReadyRun BOTH_AMBAN_IDLE
+animReady BOTH_AMBAN_IDLE
+animReadyWalk	TORSO_WEAPONREADY3
+animReadyNoAmmo BOTH_ATTACK3
+animAttackRun BOTH_ATTACK3
+animAttack BOTH_ATTACK3
+animAttackWalk BOTH_ATTACK3
+animStand BOTH_WOOKIEE_RAGE_STAND
+
+damageMod 2
+}
+
+WeaponInfo2
+{
+WeaponToReplace	WP_BLASTER
+WeaponBasedOff	WP_BLASTER 
+NewWorldModel	"models/weapons2/e5/e5_w.glm"
+NewViewModel	"models/weapons2/e5/e5.md3"
+Icon	"gfx/hud/w_icon_e5"
+WeaponName	"E-5 Blaster Rifle"
+hasAnimOverrides 1
+animReadyRun BOTH_STAND3
+animReady BOTH_STAND3
+animReadyWalk BOTH_STAND3
+animReadyNoAmmo BOTH_ATTACK3 
+animAttackRun BOTH_ATTACK3 
+animAttack BOTH_ATTACK3 
+animAttackWalk BOTH_ATTACK3 
+animStand BOTH_WOOKIEE_RAGE_STAND
+}
+
+WeaponInfo3
+{
+WeaponToReplace	WP_PLX1
+WeaponBasedOff	WP_PLX1
+NewWorldModel	"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+NewViewModel	"models/weapons2/e60r_launcher/e60r_launcher.md3"
+Icon	"gfx/hud/w_icon_e60r_launcher"
+WeaponName	"E-60R Missile Launcher"
+Damagemod .25
+}
+
+Description 	"B1-series Flame Battle Droid
+
+Battle Droids specializing in incendiary support.
+
+^2Weaponry:
+- Melee
+- CR-24 Flame Rifle (Flamethrower)
+-- 50% slower mag reload
+- Fire Grenades (3)
+
+^6Inventory:
+- Assault Sentry ^3[CS4]
+
+^8Attributes:
+- Reinforcement (1)
+- 10% less knockback taken
+- Fuel Regen (3)
+- Dexterity (1)
+- Getup (2)
+- Elemental Resist (1)
+- Blast Armor
+- Armor Regen (1)
+- Assemble (2)
+
+^3Abilities:
+- Dodge (3) ^3[CS1]
+- Wrist Laser ^3[CS2]
+-- Burns on hit
+-- 50% less damage"

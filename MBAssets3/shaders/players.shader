@@ -3263,6 +3263,7 @@ models/players/jedi_zf/icon_head_c1
 
 models/players/saboteur/saboteur_face_plate
 {
+	cull	twosided
 	{
 		map textures/colors/black
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA

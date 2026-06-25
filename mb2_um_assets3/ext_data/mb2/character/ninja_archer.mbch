@@ -2,74 +2,85 @@
 
 ClassInfo
 {
-	name			"ninja_archer"
-	weapons			WP_MELEE|WP_SABER|WP_T21
-	maxhealth		80
-	maxarmor        35
-	saberstyle      SS_TAVION
-	saber1          ninjato
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_BLASTeR,1|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,2|MB_ATT_CLOAK
-	forcepowers     FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1
-	model			"san" 				//this is optional, if it's here it forces the model to this.
-	skin			"archer"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/san/mb2_icon_archer"
-	BPmodifier      0.75
-	APmodifier      0.8
-	MBClass			MB_CLASS_ARCTROOPER
-	//holdables       HI_CLOAK 
-	forcepool         25
-	speed             1.05
+	name				"ninja_archer"
+	weapons				WP_MELEE|WP_SABER|WP_T21
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_BLASTER,1|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,2|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	saber1				ninjato
+	saberstyle			SS_TAVION
+	BPmultiplier			0.75
+	APmultiplier			0.8
+	forcepowers			FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1
+	forcepool			25
+	maxhealth			80
+	maxarmor			35
+	speed				1.05
+	model				"san"
+	skin				"archer"
+	uishader			"models/players/san/mb2_icon_archer"
+	MBClass				MB_CLASS_ARCTROOPER
 	classNumberLimit	2
+	
+	resource			RESOURCE_STAMINA
 }
+
 WeaponInfo0
 {
-	WeaponToReplace 		WP_T21
-	WeaponBasedOff 			WP_BOWCASTER
-	NewWorldModel 			"models/weapons2/bow/bowcaster_w.glm"
-	NewViewModel 			"models/weapons2/bow/bowcaster.md3"
-	Icon 				"gfx/hud/w_icon_bow"
-	WeaponName 			"Bow"
-	MuzzleEffect 			"bow/shot"
-	AltMuzzleEffect 		"bow/shot"
-	MissileModel 			"models/chunks/shinshinobi/shuriken.md3"
-	MissileEffect 			"bow/firearrow"
-	MissileMissEffect 		"bow/explosion"
-	FlashSound0 			"sound/weapons/fire.mp3"
-	customAmmo		65
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_-Ninja-/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_ninja"
+	WeaponName				"Ninjato"
 }
+
 WeaponInfo1
+{
+	WeaponToReplace			WP_T21
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/bow/bowcaster_w.glm"
+	NewViewModel			"models/weapons2/bow/bowcaster.md3"
+	Icon 					"gfx/hud/w_icon_bow"
+	WeaponName 				"Bow"
+	FlashSound0				"sound/weapons/fire.mp3"
+	MuzzleEffect			"bow/shot"
+	AltMuzzleEffect			"bow/shot"
+	MissileModel			"models/chunks/shinshinobi/shuriken.md3"
+	MissileEffect			"bow/firearrow"
+	MissileMissEffect		"bow/explosion"
+	customAmmo				65
+}
+
+WeaponInfo2
 {
 	WeaponToReplace 		WP_BLASTER
 	WeaponBasedOff 			WP_BOWCASTER
 	NewWorldModel 			"models/weapons2/bow/bowcaster_w.glm"
 	NewViewModel 			"models/weapons2/bow/bowcaster.md3"
-	Icon 				"gfx/hud/w_icon_bow"
-	WeaponName 			"Bow"
+	Icon 					"gfx/hud/w_icon_bow"
+	WeaponName 				"Bow"
+	FlashSound0 			"sound/weapons/fire.mp3"
 	MuzzleEffect 			"bow/shot"
 	AltMuzzleEffect 		"bow/shot"
 	MissileModel 			"models/chunks/shinshinobi/shuriken.md3"
 	MissileEffect 			"bow/firearrow"
 	MissileMissEffect 		"bow/explosion"
-	FlashSound0 			"sound/weapons/fire.mp3"
-	customAmmo		1
-}
-WeaponInfo2
-{
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/saber_-Ninja-/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_ninja" 	//Required: Weapon change icon
-	WeaponName		"Ninjato"    					//Required: Weapon change display name
+	customAmmo				1
 }
 
 description	"Ninja Archer
 
-Weaponry:
-Ninjato
-Bow & Arrow
+^2Weaponry:
+- Ninjato
+-- ^5Cyan ^7Style Only
+-- Melee / Ranged Defense (1)
+- Bow & Arrow
 
-Attributes:
-Camoflage
+^8Attributes:
+- Stamina (2)
+
+^3Abilities:
+- Camoflage [Cloak 2]
+- Sprint ^3[CS1]
 
 The bow and arrow was an integral tool in the ninja's arsenal. Ninja would often hide in foliage or among the trees to take out their enemies from afar."

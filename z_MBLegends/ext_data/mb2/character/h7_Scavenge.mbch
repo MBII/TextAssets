@@ -1,13 +1,15 @@
-//Siege class def file
 
 ClassInfo
 {
 	name			"h7_Scavenge"	
 	MBClass			MB_CLASS_HERO
-	
-	weapons			WP_MELEE|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_FRAG_NADE|WP_STUN_BATON|WP_SABER
 
-	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_BLASTER,1|MB_ATT_DODGE,2|MB_ATT_DASH,1|MB_ATT_TRIP_MINES,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_SENTRY,1|MB_ATT_DRONE,1
+	extralives		2
+	classNumberLimit	6
+	
+	weapons			WP_MELEE|WP_SABER|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_STUN_BATON|WP_REPEATER
+
+	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_BLASTER,1|MB_ATT_DODGE,3|MB_ATT_TRIP_MINES,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_DRONE,1|MB_ATT_REPEATER|MB_ATT_REPEATER_NADES,2|MB_ATT_DEXTERITY,1|MB_ATT_GETUPS,2
 	
 	maxhealth		70
 	maxarmor			30
@@ -18,17 +20,61 @@ ClassInfo
 	rateOfFire_Melee	0.5
 	
 	BPmultiplier		0
-	knockbackTaken 1.3
+ APmultiplier  .5
+	knockbackTaken 1.4
+ knockbackGiven 0.9
 	resource			RESOURCE_ENERGY
-	forcepool       	65
+	forcepool 65
+	
+	special1HUD HUD_REPEATERNADE
+	special2HUD HUD_PULSENADE
 	
 	WP_BlasterFlags 	HELD_PULSE|HELD_ALTRELOAD
-	WP_FragNadeFlags	HELD_KNOCKDOWN|HELD_LOWDAMAGE
 	WP_MeleeFlags		HELD_LOWDAMAGE
+ WP_StunBatonFlags HELD_DISARM|HELD_CRIPPLE
+ WP_RepeaterFlags HELD_CRIPPLE|HELD_EXPLOSIVE
 
-	extralives		2
-	classNumberLimit	4
- baseSpeed 260
+	WP_BlasterPistolFlags HELD_SPEED
+	WP_ClonePistolFlags HELD_SPEED
+	WP_MandoPistolFlags HELD_SPEED
+	WP_EE3Flags HELD_SPEED
+	WP_EE4Flags HELD_SPEED
+	WP_AmbanFlags HELD_SPEED
+	WP_BowcasterFlags HELD_SPEED
+	WP_CloneRifleFlags HELD_SPEED
+	WP_MinigunFlags HELD_SPEED
+	WP_DEMP2Flags HELD_SPEED
+	WP_ThrowerFlags HELD_SPEED
+	WP_T21Flags HELD_SPEED
+	WP_ProjFlags HELD_SPEED
+	WP_DisruptorFlags HELD_SPEED
+	WP_FlechetteFlags HELD_SPEED
+	WP_M5Flags HELD_SPEED
+	WP_A280Flags HELD_SPEED
+	WP_DLT20AFlags HELD_SPEED
+	WP_PLX1Flags HELD_SPEED
+	WP_RocketLauncherFlags HELD_SPEED
+	WP_RealTDFlags HELD_SPEED
+ WP_FragNadeFlags HELD_SPEED
+	WP_FireNadeFlags HELD_SPEED
+	WP_SonicNadeFlags HELD_SPEED
+	WP_ConcNadeFlags HELD_SPEED
+	WP_CryoNadeFlags HELD_SPEED
+	WP_DetPackFlags HELD_SPEED
+	WP_ConcussionFlags HELD_SPEED
+	WP_BryarOldFlags HELD_SPEED
+	WP_SBDFlags HELD_SPEED
+	WP_CR2Flags HELD_SPEED
+	WP_E22Flags HELD_SPEED
+	WP_DCCarbineFlags HELD_SPEED
+	WP_ThermalFlags HELD_SPEED
+	WP_TradBowcasterFlags HELD_SPEED
+ WP_UGLFlags HELD_SPEED
+ WP_MGLFlags HELD_SPEED
+ WP_EqualizerFlags HELD_SPEED
+
+
+ baseSpeed 259
 
 	saber1		Jawa_Wrench_Legends
 	sabercolor	0
@@ -41,12 +87,14 @@ ClassInfo
 	//saberMaxChain 1
 	saberDamage 50
 	
-	special1	EAS_HI_DODGE
-	special2	EAS_HI_DASH
-
+	special1 EAS_HI_DODGE
+	meleespecial1 EAS_HI_DODGE
+	special2	EAS_HI_KICK
+ meleespecial2 EAS_HI_KICK
 	special3	EAS_HI_KICK
+	meleespecial3 EAS_HI_KICK
 	
-	gloatAnim	TORSO_SURRENDER_START
+	gloatAnim	BOTH_STAND5STARTLEDLOOKLEFT
 	flourishAnim	BOTH_COWER1
 	//tauntAnim	BOTH_SHOWOFF_FAST
 	RunForward BOTH_RUN4
@@ -99,36 +147,30 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/jawa_blaster/model.md3" 
 	Icon				"gfx/hud/w_icon_jawablaster" 				 
 	WeaponName			"Ion Blaster"    				 
-	MuzzleEffect		"blaster/MuzzleFlash01B"
+	MuzzleEffect	"flechette/flesh_impact" //"volumetric/steamLOW"
 	MissileEffect		"arc_caster/ArcCasterShock"
-   	MissileHitHumanEffect	"SBD/Cortosis_blue"
+ MissileHitHumanEffect	"SBD/Cortosis_blue"
 	MissileHitDroidEffect	"SBD/Cortosis_blue"
 	MissileMissEffect	"SBD/Cortosis_blue"
-	CustomAmmo 	142
-	ClipSize 		8
-	ReloadTimeModifier 	.85		 
-	FlashSound0		"sound/weapons/demp2/fire.mp3"
+	FlashSound0		"sound/chars/sentry/misc/sentry_explo.mp3"
 	AltFireEnabled 0
-	FPMult     			1.3
+	CustomAmmo 160
+	ClipSize 8
+	FPMult 1.35
 	velocityMod 0.8
-	rateMod 1.4
+ reloadtimemodifier .9
+	rateMod 1.55
+ hasAnimOverrides 1
+ animReadyRun BOTH_WESTARM5_RUN1
+ animReady BOTH_WESTARM5_READY
+ animReadyWalk BOTH_WESTARM5_SCOPED_READY
+ animReadyNoAmmo BOTH_WESTARM5_ATTACK
+ animAttackRun BOTH_WESTARM5_ATTACK
+ animAttack BOTH_WESTARM5_ATTACK
+ animAttackWalk BOTH_WESTARM5_SCOPED_ATTACK
 }
 
 WeaponInfo1
-{	
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_THERMAL
-	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
-	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
-	Icon					"gfx/hud/w_icon_stungrenade"
-	WeaponName			"Stun Grenade"
-	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
-	altMissileMissEffect	"grenades/EXP_alt"
-	primFireEnabled		0
-	CustomAmmo		1
-}
-
-WeaponInfo2
 {
 	WeaponToReplace		WP_SABER
 	WeaponBasedOff		WP_SABER
@@ -138,9 +180,91 @@ WeaponInfo2
 	WeaponName			"Short Wrench"
 }
 
-description	"Scavenger 
+WeaponInfo2
+{	
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_THERMAL
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Pocket Sand"
+ MuzzleEffect null
+ MissileEffect "materials/sand"
+	MissileModel 		"models/weapons2/dummy/dummy.md3"
+	MissileMissEffect	"materials/sand_large"
+	MissileHitHumanEffect	"materials/sand_large"
+	MissileHitDroidEffect	"materials/sand_large"
+ FlashSound0 "sound/player/footsteps/sand_run1.mp3"
 
-3-life midgets with munitions, gadgets, and an electric blaster.
+ altMuzzleEffect null
+ altMissileEffect "materials/sand"
+ altMissileModel 		"models/weapons2/dummy/dummy.md3"
+ altMissileMissEffect	"materials/sand_large"
+ altMissileHitHumanEffect	"materials/sand_large"
+ altMissileHitDroidEffect	"materials/sand_large"
+ altFlashSound0 "sound/player/footsteps/sand_run1.mp3"
+
+ splashRadius 6.4
+ customAmmo -1
+ clipsize -1
+ primfireenabled 0
+ damageMod 0.01
+
+	hasAnimOverrides 1
+	animReadyRun BOTH_TRIPLE3_DUALSTANCE
+	animReady BOTH_TRIPLE3_DUALSTANCE
+	animReadyWalk BOTH_TRIPLE3_DUALSTANCE
+	animReadyNoAmmo BOTH_TRIPLE3_DUALSTANCE
+	animAttackRun BOTH_THERMAL_THROW2
+	animAttack BOTH_THERMAL_THROW2
+	animAttackWalk BOTH_THERMAL_THROW2
+	animStand BOTH_TRIPLE3_DUALSTANCE
+
+selectSound "sound/player/footsteps/sand_walk1.mp3"
+}
+
+WeaponInfo3
+{
+ WeaponToReplace WP_STUN_BATON
+ WeaponBasedOff  WP_MANDO_PISTOL
+	NewWorldModel		"models/weapons2/sonic_detonator/sonic_det_w.glm"
+	NewViewModel			"models/weapons2/sonic_detonator/sonic_det.md3"
+ NewHandsModel	"models/weapons2/sonic_detonator/sonic_det_hand.md3"
+
+ Icon   "gfx/2d/hud/hlp_hack2"
+ WeaponName "Restraining Bolt"
+
+ flashSound0 null
+ flashSound1 null
+ flashSound2 null
+ flashSound3 null
+
+ hasAnimOverrides 1
+ animReadyRun   BOTH_DATAPAD_IDLE
+ animReady      BOTH_DATAPAD_IDLE
+ animReadyWalk  BOTH_DATAPAD_IDLE
+ animReadyNoAmmo BOTH_DATAPAD_IDLE
+ animAttackRun BOTH_WOOKIEE_RAGE_MELEE2
+ animAttack BOTH_WOOKIEE_RAGE_MELEE2
+ animAttackWalk BOTH_WOOKIEE_RAGE_MELEE2
+
+ MissileMissEffect  null
+ altMissileMissEffect  null
+
+ MissileHitHumanEffect   null
+ AltMissileHitHumanEffect  null
+
+ MissileHitDroidEffect   null
+ AltMissileHitDroidEffect  null
+
+ rateMod 2.8
+ damageMod 0.01
+
+}
+
+description	"Scavenger
+
+Midgets with munitions, gadgets, and an electric blaster. Upon finding a new weapon, their flight instinct kicks in.
 
 ^2Weaponry:
 - Light Melee
@@ -148,35 +272,38 @@ description	"Scavenger
 - Short Wrench (Blue Saber)
 -- No Saber/Blaster Block
 -- No Saber Training
--- 200% more Kb
--- 50% less Reach
--- 167% more Radius
+-- 300% more knockback
+-- 45% shorter
+-- 166% thicker
 - Ion Blaster (Rifle 1)
 -- Shocks on hit
--- 30% more FP Dmg
--- 15% faster Mag Reload
--- 20% less Velocity
--- 40% slower RoF
-- Stun Grenade (1) (Knockdown Frag)
--- 50% less Dmg
--- Sec only
--- Detonates upon any contact
--- Fully cooked nades are auto-thrown
--- Cooking does not affect det. timer
+-- 35% more FP damage
+-- 10% faster reload
+-- 20% less velocity
+-- 55% slower RoF
+- Pocket Sand (4) (IHR)
+-- Slows on hit
+-- 95% less damage
+-- 95% smaller splash
+-- Secondary fire only
 - Trip Mine (1)
 - Pulse Grenade (1)
-- Stun Baton (1)
+- Restraining Bolt (Stun Baton 1)
+-- Slows/disarms on hit
+-- 99% less damage
+-- 180% slower RoF
 
 ^6Inventory:
-- Assault Sentry
 - Seeker Drone
 
 ^8Attributes:
 - Reinforcements (2)
-- 30% more Kb Taken
+- Dexterity (1)
+- Getup (2)
 - Assemble (2)
+- 10% less knockback given
+- 40% more knockback taken
 
 ^3Abilities:
-- Dodge (2) ^3[CS1]
-- Dash (1) ^3[CS2]
-- Gunkick ^3[CS3]"
+- Dodge (3) ^3[CS1]
+- Gunkick ^3[CS2/3]"

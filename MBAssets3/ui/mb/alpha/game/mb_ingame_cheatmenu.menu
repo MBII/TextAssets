@@ -1,0 +1,1252 @@
+// SETUP MENU
+{
+	menuDef
+	{
+		name					"ingame_cheatmenu"
+		fullScreen				0// MENU_TRUE
+		rect					93 50 454 418
+		visible					0
+		focusColor				1 1 1 0.6
+		disableColor			0.5 0.5 0.5 1
+		appearanceIncrement		75
+		descX					320
+		descY					383
+		descScale				0.15
+		descColor				0.5 0.5 0.5 0.5
+		descAlignment			ITEM_ALIGN_CENTER
+		outOfBoundsClick
+		onESC
+		{
+			play					"sound/interface/back.mp3"
+			close					ingame_cheatmenu
+			open					ingame		
+		}
+		onOpen
+		{
+			uiscript refreshNPCs
+		}
+
+// BACKGROUND 
+		
+		itemDef
+		{
+			name				bg_mission
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 418
+			background			"gfx/menus/alpha/Menu_Mission"
+			forecolor			0 0 0 0.77
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				btn_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Btn_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+
+
+		itemDef
+		{
+			name btnNpcFilter
+			type ITEM_TYPE_MULTI
+			style WINDOW_STYLE_TEXT_RGB2
+			font 6
+			textscale 0.15
+			rect 30 15 78 18
+			textalign ITEM_ALIGN_CENTER
+			cvar "ui_npcfilter"
+			cvarStrList
+			{
+				"All"				none
+				"Saber"    			wp_saber
+				"Blasters"			wp_blaster
+				"Melee"				wp_melee
+			}
+			text "Weapon:"
+			visible 1
+			textaligny -4
+			textalignx 22
+			mouseEnter
+			{
+				show button_glow
+				setitemrect button_glow 30 15 78 18
+			}
+			mouseExit
+			{
+				hide button_glow
+			}
+			action
+			{
+				uiScript refreshNPCs
+				exec			"vstr ui_npcfilter";
+			}
+		}
+
+		itemDef
+		{
+			name				npclist
+			rect 8 35 132 340
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_NPCS
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			visible				1
+			columns				1 0 0 120
+			action
+			{
+				play			"sound/interface/choose_hilt.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				modelviewer
+			group				models
+			type				ITEM_TYPE_MODEL
+			rect				350 10 100 170
+			model_g2anim		"BOTH_STAND4"
+			model_angle			80
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2mins		5 5 -14
+			model_g2maxs		5 -5 30
+			model_fovx			40
+			model_fovy			50
+			cvar                "ui_char_model_angle"
+			isCharacter			1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name			btn_spawnnpc
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			153 330 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "SPAWN NPC"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		spawnNPC
+			}
+		}
+
+		itemDef
+		{
+			name			btn_undying
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			353 240 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "UNDYING"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "undying"
+			}
+		}
+
+		itemDef
+		{
+			name			btn_godmode
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			253 240 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "GODMODE"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "god"
+			}
+		}
+
+				itemDef
+		{
+			name			btn_fastregen
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			353 285 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "FASTREGEN"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "fastregen"
+			}
+		}
+
+						itemDef
+		{
+			name			btn_notarget
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			153 285 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "NOTARGET"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "notarget"
+			}
+		}
+
+		itemDef
+		{
+			name			btn_noclip
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			253 285 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "NOCLIP"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "noclip"
+			}
+		}
+
+		itemDef
+		{
+			name			btn_giveall
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			152 195 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "GIVE ALL"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "give all"
+			}
+		}
+
+				itemDef
+		{
+			name			btn_givehealth
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			353 195 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "GIVE HP"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "give health"
+			}
+		}
+
+						itemDef
+		{
+			name			btn_givearmor
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			153 240 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "GIVE ARMOR"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "give armor"
+			}
+		}
+
+								itemDef
+		{
+			name			btn_giveammo
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			253 195 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "GIVE AMMO"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				exec "give ammo"
+			}
+		}
+
+				itemDef
+		{
+			name 				npcWeapon
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			textscale 0.15
+			background ""
+			font 				6
+			rect 				148 80 -28 26
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -3
+			text2alignx 38
+			visible 1
+		}
+
+		itemDef
+		{
+			name 				npcHealth
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			"gfx/menus/Alpha/Icon_Stats_Health"
+			text2 "50"
+			text " "
+			textscale 0.15
+			font 				6
+			rect 				154 108 13 13
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+		}
+
+				itemDef
+		{
+			name 				npcArmor
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			"gfx/menus/Alpha/Icon_Stats_Armor"
+			text2 "50"
+			text " "
+			textscale 0.15
+			font 				6
+			rect 				154 126 13 13
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				npcPbchance
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Perfect Block Chance:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 80 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				npcMbchance
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Manual Block Chance:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 95 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+		itemDef
+		{
+			name 				npcSbchance
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Swingblock Chance:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 110 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				npcSaberStyle
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Saber Style:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 125 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				forcePower0
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				174 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower1
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				204 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower2
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				234 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower3
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				264 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower4
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			textscale 0.15
+			font 				6
+			rect 				294 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower5
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			textscale 0.15
+			font 				6
+			rect 				324 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+	}
+
+
+
+
+
+
+
+		menuDef
+	{
+		name					"ingame_npcduel"
+		fullScreen				0// MENU_TRUE
+		rect					93 50 454 418
+		visible					0
+		focusColor				1 1 1 0.6
+		disableColor			0.5 0.5 0.5 1
+		appearanceIncrement		75
+		descX					320
+		descY					383
+		descScale				0.15
+		descColor				0.5 0.5 0.5 0.5
+		descAlignment			ITEM_ALIGN_CENTER
+		outOfBoundsClick
+		onESC
+		{
+			play					"sound/interface/back.mp3"
+			close					ingame_npcduel
+			open					ingame		
+		}
+		onOpen
+		{
+			setcvar ui_npcfilter "wp_saber"
+			uiscript refreshNPCs
+		}
+
+// BACKGROUND 
+		
+		itemDef
+		{
+			name				bg_mission
+			group				none
+			style				WINDOW_STYLE_FILLED_RGB1
+			rect				0 0 454 418
+			background			"gfx/menus/alpha/Menu_Mission"
+			forecolor			0 0 0 0.77
+			visible				1
+			decoration
+		}
+		
+		itemDef
+		{
+			name				btn_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Btn_hl"
+			forecolor			1 1 1 1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				button_glow
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/Button_Highlight"
+			forecolor			1 1 1 0.8
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				npclist
+			rect 8 35 132 340
+			type				ITEM_TYPE_LISTBOX
+			style				WINDOW_STYLE_LISTBOX_RGB1
+			textstyle			WINDOW_STYLE_TEXT_RGB1
+			elementwidth		120
+			elementheight		16
+			font				6
+			textaligny			-4
+			textscale			0.15
+			forecolor			1 1 1 1
+			backcolor			0 0 0 0
+			outlinecolor		1 1 1 0.35
+			elementtype			LISTBOX_TEXT
+			feeder 				FEEDER_NPCS
+			elementtype			LISTBOX_TEXT
+			textalign			ITEM_ALIGN_LEFT
+			visible				1
+			columns				1 0 0 120
+			action
+			{
+				setcvar ui_npcsbchance "-1"
+				setcvar ui_npcpbchance "-1"
+				setcvar ui_npcmbchance "-1"
+				setcvar ui_npcsaberstyle "-1"
+				play			"sound/interface/choose_hilt.wav"
+			}
+		}
+
+
+		itemDef
+		{
+			name				modelviewer
+			group				models
+			type				ITEM_TYPE_MODEL
+			rect				350 10 100 170
+			model_g2anim		"BOTH_STAND4"
+			model_angle			80
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2mins		5 5 -14
+			model_g2maxs		5 -5 30
+			model_fovx			40
+			model_fovy			50
+			cvar                "ui_char_model_angle"
+ 
+			isCharacter			1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name			btn_spawnnpc
+			type			ITEM_TYPE_BUTTON
+			style			WINDOW_STYLE_FILLED
+			textstyle		WINDOW_STYLE_TEXT_RGB2
+			background		"gfx/menus/alpha/Btn2_Bg"
+			rect			360 187 80 25
+			textscale		0.15
+			font			6
+			textaligny -1.5
+			textalign		ITEM_ALIGN_MIDDLE
+			text "SPAWN NPC"
+			backcolor			1 1 1 0.05
+			forecolor			1 1 1 1
+			visible 1
+			mouseEnter
+			{
+				setcolor	backcolor	1 1 1 0.3
+			}
+			mouseExit
+			{
+				setcolor	backcolor	1 1 1 0.05
+			}
+			action
+			{
+				play			"sound/interface/button1.wav"
+				uiScript		spawnNPC
+			}
+		}
+
+				itemDef
+		{
+			name 				npcWeapon
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			textscale 0.15
+			background ""
+			font 				6
+			rect 				148 80 -28 26
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -3
+			text2alignx 38
+			visible 1
+		}
+
+		itemDef
+		{
+			name 				npcHealth
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			"gfx/menus/Alpha/Icon_Stats_Health"
+			text2 "50"
+			text " "
+			textscale 0.15
+			font 				6
+			rect 				154 108 13 13
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+		}
+
+		itemDef
+		{
+			name 				npcPbchance
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Perfect Block Chance:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 80 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				npcMbchance
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Manual Block Chance:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 95 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+		itemDef
+		{
+			name 				npcSbchance
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Swingblock Chance:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 110 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				npcSaberStyle
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "^3Saber Style:"
+			text2 "50%"
+			textscale 0.15
+			font 				6
+			rect 				240 125 100 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -3
+			text2alignx 95
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				forcePower0
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				174 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower1
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				204 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower2
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				234 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower3
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			background			" "
+			textscale 0.15
+			font 				6
+			rect 				264 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower4
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			textscale 0.15
+			font 				6
+			rect 				294 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+				itemDef
+		{
+			name 				forcePower5
+			type 				ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			textscale 0.15
+			font 				6
+			rect 				324 150 22 22
+			textalign ITEM_ALIGN_LEFT
+			text2aligny -7
+			text2alignx 20
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name 				npcStatsOverride
+			group saberstats
+			type 				ITEM_TYPE_TEXT
+			text "OVERRIDE DUEL STATS"
+			textscale 0.18
+			font 				7
+			rect 				149 211 130 20
+			textalign ITEM_ALIGN_LEFT
+			textaligny -5
+			visible 1
+ 
+		}
+
+		itemDef
+		{
+			name				npcStatsPBchance
+			group				saberstats
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_INTSLIDER
+			text				" "
+			text2 "PB Chance"
+			cvarint			"ui_npcpbchance" 30 0 100
+			rect				238 237 96 16
+			textalign			ITEM_ALIGN_RIGHT
+			text2alignx -78
+			textalignx			-8
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	135 235 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				npcStatsMBChance
+			group				saberstats
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_INTSLIDER
+			text				" "
+			text2 "MB Chance"
+			cvarint			"ui_npcmbchance" 1 0 100
+			rect				238 257 96 16
+			textalign			ITEM_ALIGN_RIGHT
+			text2alignx -78
+			textalignx			-8
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	135 255 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				npcStatsSBChance
+			group				saberstats
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_INTSLIDER
+			text				" "
+			text2 "SB Chance"
+			cvarint			"ui_npcsbchance" 60 0 100
+			rect				238 277 96 16
+			textalign			ITEM_ALIGN_RIGHT
+			text2alignx -78
+			textalignx			-8
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 0.9
+			visible				0
+			mouseenter
+			{
+				show			button_glow 
+				setitemrect		button_glow	135 275 230 19			
+			}
+			mouseExit
+			{
+				hide			button_glow			
+			}				
+			action
+			{
+				play			"sound/interface/button1.wav"
+			}
+		}
+
+		itemDef
+		{
+			name				npcStatsPBChance
+			group				saberstats
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			text2 " %ww "
+			cvarint			"ui_npcpbchance" 30 0 100
+			rect				350 237 14 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			3
+			maxPaintChars		3
+			visible				0
+			cvarTest "ui_npcpbchance" hideCvar{"-1"}
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+
+		itemDef
+		{
+			name				npcStatsMBChance
+			group				saberstats
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			text2 " %"
+			cvarint			"ui_npcmbchance" 1 0 100
+			rect				350 257 14 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			3
+			maxPaintChars		3
+			visible				0
+			cvarTest "ui_npcmbchance" hideCvar{"-1"}
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name				npcStatsSBChance
+			group				saberstats
+			style				WINDOW_STYLE_TEXT_RGB2
+			type				ITEM_TYPE_EDITFIELD
+			text				""
+			text2 " %"
+			cvarint			"ui_npcsbchance" 60 0 100
+			rect				350 277 14 14
+			textalignx			0
+			textaligny			-5
+			font				6
+			textscale			0.15
+			forecolor			1 1 1 1
+			maxchars			3
+			maxPaintChars		3
+			visible				0
+			cvarTest "ui_npcsbchance" hideCvar{"-1"}
+			action
+			{
+				play			"sound/interface/button1.wav" 
+			}
+		}
+
+		itemDef
+		{
+			name btnNpcSaberStyle
+			type ITEM_TYPE_MULTI
+			group saberstats
+			style WINDOW_STYLE_TEXT_RGB2
+			font 6
+			textscale 0.15
+			rect 151 297 78 18
+			textalign ITEM_ALIGN_CENTER
+			cvar "ui_npcsaberstyle"
+			descText "Click to cycle through saber styles."
+			cvarStrList
+			{
+				"Yellow"    	2
+				"Red"			3
+				"Blue"			1
+
+				"Purple"    	4
+				"Cyan"			5
+			}
+			text "Saber Style:"
+			visible 1
+			textaligny -4
+			textalignx 22
+			mouseEnter
+			{
+				show button_glow
+				setitemrect button_glow 151 297 78 18
+			}
+			mouseExit
+			{
+				hide button_glow
+			}
+			action
+			{
+				exec			"vstr ui_npcsaberstyle";
+			}
+		}
+
+
+	}
+}

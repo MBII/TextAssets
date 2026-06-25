@@ -2,95 +2,92 @@
 
 ClassInfo
 {
-	name			"PB3_B_Duck"
-	weapons			WP_MELEE|WP_FRAG_NADE|WP_DISRUPTOR|WP_SABER
-	attributes		MB_ATT_AMMO,2|MB_ATT_ASSEMBLE,1|MB_ATT_POISON_DART,3|MB_ATT_HEALING,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ROSHTAUNT|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,2|MB_ATT_FRAGS,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DISRUPTOR,3|MB_ATT_CLOAK
-	forcepool 		50
-	forceregen 1.5
-	special1	EAS_HI_SPRINT
-	special2	EAS_HI_GRAPPLEHOOK
-	special3	EAS_HI_DEX
-	forcepowers		FP_SEE,1|FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,1
-	classflags		CFL_ACIDBLOOD|CFL_INSTAGIB|CFL_HEAVYMELEE
-	maxhealth		120
-	maxarmor		20
-	model            "Duck"
-   	skin            "default"
-   	uishader        "models/players/Duck/mb2_icon_default"
-	MBClass			MB_CLASS_ARCTROOPER
+	name				"PB3_B_Duck"
+	weapons				WP_MELEE|WP_FRAG_NADE|WP_DISRUPTOR|WP_SABER
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_AMMO,2|MB_ATT_ASSEMBLE,1|MB_ATT_POISON_DART,3|MB_ATT_HEALING,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ROSHTAUNT|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,1|MB_ATT_FRAGS,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DISRUPTOR,3|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	saber1				marr_1_wacky
+	sabercolor			1
+	saberstyle			SS_MEDIUM|SS_STRONG
+	forcepowers			FP_SEE,1|FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,1
+	forcepool			50
+	forceregen			1.5
+	maxhealth			120
+	maxarmor			20
+	speed				1.04
+	//rateOfFire		0.9
+	modelscale			.63
+	model				"Duck"
+   	skin				"default"
+   	uishader			"models/players/Duck/mb2_icon_default"
+	MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_ACIDBLOOD|CFL_INSTAGIB|CFL_HEAVYMELEE
 	//classNumberLimit	1
-	//holdables		HI_CLOAK
-	modelscale		.63
-	speed 1.04
-	//rateOfFire	0.9
-	respawnCustomTime 10000	
-
-	saber1 marr_1_wacky
-	saberstyle SS_MEDIUM|SS_STRONG
-	sabercolor 1
+	
+	special1HUD			HUD_FRAGNADE
+	special2HUD			HUD_POISONDART
+	
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	meleespecial2		EAS_HI_GRAPPLEHOOK
+	special3			EAS_HI_DEX
+	meleespecial4		EAS_HI_POISON
+	
+	respawnCustomTime	10000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_DISRUPTOR
-	WeaponBasedOff		WP_DISRUPTOR
-	NewWorldModel		"models/weapons2/pirate_cannon/cw_launcher_w.glm"
-	NewViewModel		"models/weapons2/pirate_cannon/cw_launcher.md3"
-	Icon				"gfx/hud/w_icon_pir_cannon"
-	WeaponName			"Surprise tool ;)"
-	SelectSound     "Sound/weapons/SPAS12/boomstick.wav"
-	FlashSound0		"Sound/weapons/BONK/BONK.mp3"
-	altFireEnabled 		0
-	primFireEnabled		1
-	customAmmo		15
-	ClipSize		5
+	WeaponToReplace			WP_DISRUPTOR
+	WeaponBasedOff			WP_PLX1
+	NewWorldModel			"models/weapons2/pirate_cannon/cw_launcher_w.glm"
+	NewViewModel			"models/weapons2/pirate_cannon/cw_launcher.md3"
+	Icon					"gfx/hud/w_icon_pir_cannon"
+	WeaponName				"Surprise tool ;)"
+	SelectSound				"Sound/weapons/SPAS12/boomstick.wav"
+	FlashSound0				"Sound/weapons/BONK/BONK.mp3"
+	
+	altFireEnabled			0
+	customAmmo				15
+	ClipSize				5
 }
 
-	
 description	"Duck
 
 It's quackin' time
 
-
-Class: ARC Trooper
-Class summary: 
 Saber user with a very strong gun
 
-Weaponry:
+^2Weaponry:
 - Glaive of Ku'a'la
-- Surprise tool 
-- Frag Grenade (3)
-- Poison Dart (3)
+-- ^3Yellow ^7/ ^1Red ^7Styles
+-- Saber Defense (3)
+-- Bounces off walls
+-- Deals great knockback on wall hits
+-- Palpatine style DFA
+- Surprise tool (3)
+-- Instagibs Targets
+-- Limited Ammo
+- 3 Frag Grenades
+- Heavy Melee
 
---- Glaive
-- Defense (3)
-- Offense (1)
-- Can block lightsabers
-- Cannot block blaster bolts
-- Can use Yellow and Red styles
-- Bounces off walls
-- Deals great knockback on wall hits
-- Palpatine style DFA
+^6Inventory:
+- Cloak (2)
 
---- Surprise tool
-- Based on Disruptor
-- 1-hit kills targets
-- Limited ammo
+^5Force Powers:
+- Sense (1) 
 
-Inventory:
-- Cloak
-
-Force Powers:
-- Seeing (1) 
-
-Attributes:
+^8Attributes:
+- Toxic Taunt
+- Shield Recharge (1)
 - Blast Armour
 - Magnetic Plating
-- Healing (2)
-- Shield Recharge (1)
-- Grapple Hook (4) [CS2]
+- Stamina (1)
+- Dexterity (3)
+- Heal (2)
 
-Abilities:
-- Dexterity (3) [CS3]
-- Stamina (2) [CS1]
-- Toxic Taunt"
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS3]
+- Grapple Hook (4) ^3[CS2 Melee]
+- 3 Poison Darts ^3[CS4 Melee]"

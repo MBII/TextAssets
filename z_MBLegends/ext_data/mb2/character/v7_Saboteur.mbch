@@ -4,8 +4,9 @@ ClassInfo
 	MBClass			MB_CLASS_CLONETROOPER
 	classNumberLimit	2
 	extralives			1
+
 	weapons			WP_MELEE|WP_MANDO_PISTOL|WP_THERMAL
-	attributes		MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_GETUPS,2|MB_ATT_QUICKTHROW,3|MB_ATT_DODGE,1|MB_ATT_CLOAK,1
+	attributes		MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_GETUPS,2|MB_ATT_QUICKTHROW,3|MB_ATT_DODGE,1|MB_ATT_CLOAK,2|MB_ATT_STUN_BATON,1
 
 	maxhealth	80
 	MaxArmor	5
@@ -27,8 +28,11 @@ rankArmourRegenAmount 1
 
 	WP_DEMP2Flags HELD_ALTRELOAD|HELD_PULSE
 	WP_FragNadeFlags HELD_STUN
+	WP_StunBatonFlags HELD_CRIPPLE
 
 	special1 EAS_HI_DODGE
+
+	meleespecial1 EAS_HI_DODGE
 	special2 EAS_NONE
 	special3 EAS_HI_QUICKTHROW
 	special4	EAS_HI_CLOAK
@@ -56,6 +60,10 @@ model_3	"stormie"
 skin_3	"vader"
 uishader_3	"models/players/stormie/mb2_icon_vader"
 
+model_4	"stormie"
+skin_4	"tfushadow"
+uishader_4	"models/players/stormie/mb2_icon_tfushadow"
+
 	isCustomBuild	1
 	mbPoints	50
 
@@ -70,7 +78,7 @@ customSpecDesc_2 ""
 
 	c_att_skill_0	MB_ATT_BLASTER
 	c_att_names_0	"E-11 Blaster Rifle"
-	c_att_ranks_0	2,2,4
+	c_att_ranks_0	2,2,3
 
 	c_att_skill_1	MB_ATT_DISRUPTOR
 	c_att_names_1	"Disruptor Rifle"
@@ -79,17 +87,17 @@ customSpecDesc_2 ""
 	c_att_skill_2	MB_ATT_FLECHETTE
 	c_att_names_2	"FC-1 Flechette Launcher"
 	c_att_ranks_2	5
-	c_att_descs_2 	"10% more FP Dmg, 10% less RoF, 10000% slower Reload"
+	c_att_descs_2 	"10% slower RoF, 20% slower mag reload"
 
 	c_att_skill_3	MB_ATT_FLECHETTE_NADES
-	c_att_names_3	"> Flechette explosives"
+	c_att_names_3	"> Flechette Grenades"
 	c_att_ranks_3	2,2,2
 
 	c_att_skill_4	MB_ATT_DEMP2
 	c_att_names_4	"DEMP2"
 	c_att_ranks_4	6
-	c_att_descs_4 	"Shocks on hit, 20% more Velocity, 20% less RoF,
-10% more Dmg, 25% more FP Dmg, 40% slower Mag Reload"
+	c_att_descs_4 	"Shocks on hit, 20% more velocity, 10% more damage,
+30% more FP damage, 20% slower RoF, 40% slower mag reload"
 
 	c_att_skill_5	MB_ATT_BASE_TD
 	c_att_names_5	"Thermal Grenades"
@@ -98,7 +106,8 @@ customSpecDesc_2 ""
 	c_att_skill_6	MB_ATT_FRAGS
 	c_att_names_6	"Flashbang Grenades (Frags)"
 	c_att_ranks_6	2,2
-	c_att_descs_6 "Blinds/staggers on det, Sec only. 99.9% less Dmg, 40% faster RoF"
+	c_att_descs_6 "Blinds/staggers on det, 99% less damage, 40% faster RoF,
+Secondary fire only"
 
 	c_att_skill_7	MB_ATT_TRIP_MINES
 	c_att_names_7	"Trip Mines"
@@ -131,7 +140,7 @@ customSpecDesc_2 ""
 
 
 	c_att_skill_15	MB_ATT_MANDO_PISTOL
-	c_att_names_15	"Dual DL-44 Pistols"
+	c_att_names_15	"Dual DL-44 (Mando) Pistols"
 	c_att_ranks_15	0,0,7
 
 	c_att_skill_16	MB_ATT_BLASTER
@@ -145,16 +154,16 @@ customSpecDesc_2 ""
 	c_att_skill_18	MB_ATT_DEMP2
 	c_att_names_18	"DEMP2"
 	c_att_ranks_18	5
-	c_att_descs_18 	"Shocks on hit, 20% more Velocity, 20% less RoF,
-10% more Dmg, 25% more FP Dmg, 40% slower Mag Reload"
+	c_att_descs_18 	"Shocks on hit, 20% more velocity, 10% more damage,
+30% more FP damage, 20% slower RoF, 40% slower mag reload"
 
 	c_att_skill_19	MB_ATT_FLECHETTE
 	c_att_names_19	"FC-1 Flechette Launcher"
 	c_att_ranks_19	4,6
-	c_att_descs_19 	"10% more FP Dmg, 10% less RoF, 10000% slower Reload"
+	c_att_descs_19 	"10% slower RoF, 20% slower mag reload"
 	
 	c_att_skill_20	MB_ATT_FLECHETTE_NADES
-	c_att_names_20	"> Flechette explosives"
+	c_att_names_20	"> Flechette Grenades"
 	c_att_ranks_20	2,2,2
 
 	c_att_skill_21	MB_ATT_BASE_TD
@@ -164,7 +173,8 @@ customSpecDesc_2 ""
 	c_att_skill_22	MB_ATT_FRAGS
 	c_att_names_22	"Flashbang Grenades (Frags)"
 	c_att_ranks_22	1,1,1
-	c_att_descs_22 "Blinds/staggers on det, Sec only. 99.9% less Dmg, 40% faster RoF"
+	c_att_descs_22 "Blinds/staggers on det, 99% less damage, 40% faster RoF,
+Secondary fire only"
 
 	c_att_skill_23	MB_ATT_TRIP_MINES
 	c_att_names_23	"Trip Mines"
@@ -198,14 +208,14 @@ customSpecDesc_2 ""
 WeaponInfo0
 {
 	WeaponToReplace	WP_MANDO_PISTOL
-	WeaponBasedOff	WP_MANDO_PISTOL
+	WeaponBasedOff	WP_BLASTER_PISTOL
 	NewWorldModel	"models/weapons2/blaster_three/blaster_pistol_w.glm"  	
 	NewViewModel	"models/weapons2/blaster_three/blaster_pistol.md3" 
 	Icon			"gfx/hud/w_icon_blaster_pistol_3"
 	FlashSound0		"sound/weapons/han_pistol/fire.mp3"  
 	altFlashSound0	"sound/weapons/han_pistol/alt_fire.mp3"
 	WeaponName		"DL-44 Heavy Blaster Pistol"
-	ChargeSound 	"sound/weapons/leia_pistol/altcharge.mp3"
+	ChargeSound 	"sound/weapons/bryar/altcharge.mp3"
 	FPChargeMult     1.2
 	rateMod 0.95
 	customammo 750
@@ -218,16 +228,14 @@ WeaponInfo1
 	NewWorldModel		"models/weapons2/golan_arms/golan_arms_w.glm"
 	NewViewModel		"models/weapons2/golan_arms/golan_arms.md3"
 	NewBarrelModel		"models/weapons2/golan_arms/golan_arms_barrel.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/hud/w_icon_golancr1"
-    FlashSound0			"sound/weapons/flechette/fire.mp3"  			
+	Icon				"gfx/hud/w_icon_golancr1"		
 	WeaponName 			"FC-1 Flechette Launcher"
+	
 	MuzzleEffect 		"Blaster/MuzzleFlash01Y"
-	customAmmo           500
-	clipsize             15
+	customAmmo           525
+	clipsize             60
 	damageMod 1
-	fpmult 1.1
-	ReloadTimeModifier 99
+	ReloadTimeModifier 1.2
 	rateMod 1.1
 }
 
@@ -237,10 +245,9 @@ WeaponInfo2
 	WeaponBasedOff 		WP_DEMP2
 	NewWorldModel		"models/weapons2/demp2/demp2_w.glm"
 	NewViewModel		"models/weapons2/demp2/demp2.md3"
-	NewHandsModel		"models/weapons2/demp2/demp2_hand.md3"
-	Icon				"gfx/hud/w_icon_basedemp2"
+	Icon				"gfx/hud/w_icon_demp2"
 	WeaponName			"DEMP2"
-	FPMult 1.25
+	FPMult 1.3
 	clipSize 6
 	damageMod 1.1
 	customammo 36
@@ -277,11 +284,13 @@ Elite soldiers with Cloak.
 ^2Weaponry:
 - Melee
 - DL-44 Heavy Blaster Pistol (2)
--- 20% more Charged FP Dmg
+-- 20% more charged FP damage
 -- 5% faster RoF
+- Stun Baton (1)
+-- Slows on hit
 
 ^6Inventory:
-- Cloaking Device ^3[CS4]
+- Cloaking Device (2) ^3[CS4]
 
 ^8Attributes:
 - Reinforcement (1)
@@ -289,4 +298,4 @@ Elite soldiers with Cloak.
 
 ^3Abilities:
 - Dodge (1) ^3[CS1]
-- Quickthrow (3) ^3[CS3]"
+- Quick Throw (3) ^3[CS3]"

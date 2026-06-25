@@ -2,78 +2,96 @@
 
 ClassInfo
 {
-	name			"a3m_frost"
-	weapons		WP_MELEE|WP_BLASTER_PISTOL|WP_THROWER
-	attributes	MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_PISTOL,1|MB_ATT_THROWER_FLAME,3|MB_ATT_DISP_HEALTH,3
-	maxhealth		100
-	maxarmor		100
-	model			"colonial_marine"
-	skin			"frost"
-	uishader		"gfx/mplevels/aliens3/aliens_cmfrost"
-	MBClass			MB_CLASS_CLONETROOPER
-	classflags		CFL_STATVIEWER
+	name				"a3m_frost"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL|WP_THROWER
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
+	WP_ThrowerFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_AMMO,3|MB_ATT_PISTOL,1|MB_ATT_THROWER_FLAME,3|MB_ATT_DISP_HEALTH,3
+	maxhealth			100
+	maxarmor			100
+	model				"colonial_marine"
+	skin				"frost"
+	uishader			"gfx/mplevels/aliens3/aliens_cmfrost"
+	MBClass				MB_CLASS_CLONETROOPER
+	classflags			CFL_STATVIEWER
 	classnumberlimit	1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/aliens_vp70/vp70.glm"
-	NewViewModel		"models/weapons2/aliens_vp70/vp70.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/mplevels/aliens3/aliens_vp70"
-	WeaponName		"VP-70 Pistol"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/aliens_vp70/fire.wav"
-	SelectSound		"Sound/weapons/aliens_sw39/select.wav"
-	customAmmo		300
-	clipSize  25
-	primHitscanShot		1
-	primHitscanTracer	10
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim  TORSO_WEAPONIDLE2
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/aliens_vp70/vp70.glm"
+	NewViewModel			"models/weapons2/aliens_vp70/vp70.md3"
+	NewHandsModel			"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_vp70"
+	WeaponName				"VP-70 Pistol"
+	
+	SelectSound				"Sound/weapons/aliens_sw39/select.wav"
+	FlashSound0				"Sound/weapons/aliens_vp70/fire.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				300
+	clipSize				25
+	primHitscanShot			1
+	primHitscanTracer		10
+	altFireEnabled 			0
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				TORSO_WEAPONIDLE2
+	animReadyWalk			TORSO_WEAPONIDLE2
+	animReadyRun			TORSO_WEAPONIDLE2
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_THROWER
-	WeaponBasedOff		WP_THROWER
-	NewWorldModel		"models/weapons2/flamethrower/flamethrower.glm"
-	NewViewModel		"models/weapons2/flamethrower/flamethrower.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon			"gfx/mplevels/aliens3/aliens_flamethrower"
-	WeaponName		"M240 Flamethrower"
-	customAmmo		500
-	idleAnim  BOTH_DC15_READY
-	firingAnim  BOTH_DC15_ATTACK
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/aliens_ripley/ripley_fp.glm"
+	NewViewModel			"models/weapons2/aliens_ripley/ripley_fp.md3"
+	NewHandsModel			"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_ripley"
+	WeaponName				"M240 Flamethrower"
+	
+	customAmmo				500
+	
+	hasAnimOverrides		1
+	animReady				BOTH_DC15_IDLE
+	animReadyRun			BOTH_DC15_READY
+	animReadyWalk			BOTH_DC15_READY
+	animReadyNoAmmo			BOTH_DC15_ATTACK
+	animAttack				BOTH_DC15_ATTACK
+	animAttackRun			BOTH_DC15_ATTACK
+	animAttackWalk			BOTH_DC15_ATTACK
+	animCharge				BOTH_DC15_READY
+	animStand				BOTH_DC15_IDLE
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"models/weapons2/halo_melee/icon.png"
-	WeaponName		"Melee"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName				"Melee"
+	
+	primGore				1
+	altGore					1
 }
 
 description	"Pvt. Rico Frost
 
-Weaponry:
-VP-70 Pistol (1)
-M240 Flamethrower (3)
+^2Weaponry:
+- VP-70 Pistol (1)
+- M240 Flamethrower (3)
 
-Attributes:
-Armour (2)
-Ammo (3)
-Medkit - Hold use on allies to heal them"
+^3Abilities:
+- Medkit [Hold Use on Allies to heal them]"

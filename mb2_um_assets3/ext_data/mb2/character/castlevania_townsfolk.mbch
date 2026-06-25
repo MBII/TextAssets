@@ -4,64 +4,64 @@ ClassInfo
 {
 	name				"castlevania_townsfolk"
 	weapons				WP_MELEE|WP_FRAG_NADE|WP_SABER
+	//WP_FragNadeFlags	HELD_KNOCKDOWN //old secondary AOE knockdown frags
+	attributes		    MB_ATT_FRAGS,1|MB_ATT_ASSEMBLE,1
 	saber1				peasant_knife
 	saberstyle			SS_FAST
-	attributes		    MB_ATT_FRAGS,1|MB_ATT_ASSEMBLE,1
+	BPmultiplier			0.1
+	APmultiplier			50
 	forcepowers	        FP_SABER_OFFENSE,3
+	forcepool           20
+	forceregen			2
 	maxhealth			60
 	maxarmor			0
-	forcepool           20
-	forceregen		2
+	extralives          99
+	speed				1.175
 	model				"jedi_hm"
 	skin				"viking"
 	uishader			"models/players/tribal_skeleton/mb2_icon_peasant"
 	MBClass	     		MB_CLASS_HERO
-	extralives          99
-	BPmodifier      0.1
-	APmodifier      50
-	speed           1.175
-	WP_FragNadeFlags	HELD_KNOCKDOWN //old secondary AOE knockdown frags
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
-	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
-	NewViewModel		"models/weapons2/stone/thermal.md3"
-	Icon				"gfx/hud/w_icon_stone"
-	WeaponName			"Stones"
-	MuzzleEffect		"stone/muzzle_flash"
-	AltMuzzleEffect		"stone/muzzle_flash"
-	MissileModel 		"models/weapons2/stone/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	primFireEnabled		0
-	customAmmo          1
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/judas_knife/ct_knife_f.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/saber_replace/w_icon_subweapon"
+	WeaponName				"Knife"
 }
+
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/judas_knife/ct_knife_f.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"models/weapons2/saber_replace/w_icon_subweapon" 		//Required: Weapon change icon
-	WeaponName		"Knife"    					//Required: Weapon change display name
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
+	NewViewModel			"models/weapons2/stone/thermal.md3"
+	MissileModel 			"models/weapons2/stone/thermal_proj.md3"
+	altMissileModel 		"models/weapons2/stone/thermal_proj.md3"
+	Icon					"gfx/hud/w_icon_stone"
+	WeaponName				"Stones"
+	
+	MuzzleEffect				"stone/muzzle_flash"
+	AltMuzzleEffect				"stone/muzzle_flash"
+	altMissileMissEffect		"stone/explosion"
+	altMissileHitHumanEffect	"stone/explosion"
+	altMissileHitDroidEffect	"stone/explosion"
+	
+	primFireEnabled			0
 }
 
 description	"Townsfolk
 
-Weaponry:
-Melee
-Stones
-Knife
+^2Weaponry:
+- Stones
+- Knife
+-- ^4Blue ^7Style Only
 
-Powers:
-Forcepool 20
-Forceregen x2
+^8Attributes:
+- Infinite Reinforcements
+- Assemble (1)
 
-Attributes:
-Infinite Reinforcements
-Assemble
-
-Dracula's demonic army leaves only desolation in its wake. For the men whose homes and livelihoods have been destroyed, there is no longer anything left to lose.
-"
+Dracula's demonic army leaves only desolation in its wake. For the men whose homes and livelihoods have been destroyed, there is no longer anything left to lose."

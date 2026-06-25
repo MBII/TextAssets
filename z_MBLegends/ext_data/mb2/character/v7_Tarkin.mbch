@@ -5,7 +5,7 @@ ClassInfo
 	classNumberLimit  	1
 	weapons 			WP_BLASTER_PISTOL|WP_MELEE|WP_FIRE_NADE|WP_PLX1|WP_CONC_NADE
 	
-	WP_PLX1Flags HELD_SLOW|HELD_KNOCKBACK|HELD_STUN|HELD_FLAME
+	WP_PLX1Flags HELD_SLOW|HELD_KNOCKBACK|HELD_STUN|HELD_FLAME|HELD_CRIPPLE|HELD_FORCEFOCUS|HELD_LIFESTEAL|HELD_DISARM
 	WP_BlasterPistolFlags	HELD_KNOCKBACK	
 
 	attributes 			MB_ATT_SPAWNER,1|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,2|MB_ATT_WOOKIEE_FURY,3|MB_ATT_PLX1,1|MB_ATT_LIGHTS_BEACON|MB_ATT_FIRE_GRENADES,2|MB_ATT_MICRO_GRENADES,2|MB_ATT_SPAWNER,1|MB_ATT_BACTA_BIG,1|MB_ATT_BASESEEKER,1|MB_ATT_FORCEFIELD,1
@@ -20,6 +20,8 @@ ClassInfo
 	
 	special1HUD HUD_FIRENADE
 	special2HUD HUD_CONCNADE
+
+ classflags CFL_STATVIEWER
 
 	resource RESOURCE_RAGE
 	forcepool 250
@@ -39,7 +41,9 @@ ClassInfo
 	uioverlay_r "gfx/icons/tactician"
 	uioverlay_l "gfx/icons/spec_infantry"
 	
-	special1		EAS_HI_DODGE
+	special1 EAS_HI_DODGE
+	
+	meleespecial1 EAS_HI_DODGE
 	special2		EAS_HI_BASESEEKER
 	special4		EAS_HI_SHIELD
 	special3 	EAS_HI_MEDPAC_BIG
@@ -66,7 +70,7 @@ WeaponInfo0
  velocityMod 1.15
 	FlashSound0		"sound/weapons/enfo_pistol/fire.mp3"
 	altFlashSound0	"sound/weapons/enfo_pistol/fire.mp3"
-	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"
+	ChargeSound "sound/weapons/bryar/altcharge.mp3"
 	hasAnimOverrides 1
 animReadyNoAmmo BOTH_PISTOL_ATTACK
 animAttackRun BOTH_PISTOL_ATTACK
@@ -88,27 +92,27 @@ WeaponInfo1
 	NewViewModel "models/items/datapad.md3"
 	Icon		"gfx/hud/w_icon_realTD"
 	WeaponName	"Test Fire"
-	FlashSound0	null
-	altFlashSound0	null
-	altmissileMissEffect "effects/tarkin/explosion"
-	altMissileHitHumanEffect "effects/tarkin/explosion"
-	altMissileHitDroidEffect "effects/tarkin/explosion"
-	missileMissEffect "effects/tarkin/explosion"
-	MissileHitHumanEffect "effects/tarkin/explosion"
-	MissileHitDroidEffect "effects/tarkin/explosion"
-	missileModel null
-	altMissileModel null
-	missileEffect "effects/tarkin/ds_shot" 
-	altMissileEffect  "effects/tarkin/ds_shot"
+	FlashSound0	"sound/weapons/ds_shot/fire.mp3"
+	altFlashSound0		"sound/weapons/ds_shot/fire.mp3"
+	altmissileMissEffect "tarkin/explosion"
+	altMissileHitHumanEffect "tarkin/explosion"
+	altMissileHitDroidEffect "tarkin/explosion"
+	missileMissEffect "tarkin/explosion"
+	MissileHitHumanEffect "tarkin/explosion"
+	MissileHitDroidEffect "tarkin/explosion"
+	missileModel "models/weapons2/dummy/dummy.md3"
+	altMissileModel "models/weapons2/dummy/dummy.md3"
+	missileEffect "tarkin/ds_shot" 
+	altMissileEffect  "tarkin/ds_shot"
 	hasAnimOverrides 1
-	animReadyRun BOTH_TALKCOMM1START
-	animReady BOTH_TALKCOMM1START
-	animReadyWalk BOTH_WALK6
-	animReadyNoAmmo BOTH_TALKCOMM1START
-	animAttackRun BOTH_COWER1_STOP
-	animAttack BOTH_COWER1_STOP
-	animAttackWalk BOTH_COWER1_STOP
-	animStand BOTH_STAND1
+	animReadyRun BOTH_DATAPAD_IDLE
+	animReady BOTH_DATAPAD_IDLE
+	animReadyWalk BOTH_DATAPAD_IDLE
+	animReadyNoAmmo BOTH_DATAPAD_USE
+	animAttackRun BOTH_DATAPAD_USE
+	animAttack BOTH_DATAPAD_USE
+	animAttackWalk BOTH_DATAPAD_USE
+	animStand BOTH_DATAPAD_IDLE
 	reloadTimeModifier 6
  damageMod 1.75
 	SelectSound "sound/chars/Tarkin/misc/gloat1.mp3"
@@ -116,27 +120,27 @@ WeaponInfo1
 
 description	"Grand Moff Wilhuff Tarkin 
 
-A support gunner who builds resource through damage to bolster his allies and himself.
+A backline commander who builds resource through damage to bolster his allies and himself.
 
 ^2Weaponry:
 - Melee
 -- 5% slower RoF
 - Tarkin's Blaster Pistol (3)
 -- Pushes on hit
--- 15% more Dmg/FP Dmg
--- 15% more Velocity
+-- 15% more damage/FP damage
+-- 15% more velocity
 -- 15% slower RoF
 - Test Fire (1) (PLX)
--- Ignites/pushes/staggers on det
--- 75% more Dmg
--- 500% slower Reload
--- 15% slower Movement
+-- Decimates on det
+-- 75% more damage
+-- 500% slower reload 
+-- Heavyweight 
 - Fire Grenades (2)
 - V-59 Conc Grenades (2)
 
 ^5Powers:
 - Team Energize (2)
-- Protect (1)^3*
+- Protect (1) ^9{Dark's Beacon}
 
 ^6Inventory:
 - Defense Seeker ^3[CS2]
@@ -145,13 +149,13 @@ A support gunner who builds resource through damage to bolster his allies and hi
 - Advanced Medpac ^3[CS3]
 
 ^8Attributes:
-^9- ^3*^9Dark's Beacon (Shares Force Powers with ^9a targeted/nearby ally)
-- 50% slower Skill Cd
+- 50% slower skill cooldown
 - Fury (3)
--- Resource Regen: 1/.1s to 10
--- 99% slower Resource Decay
+-- Regen: 1/.1s to 10
+-- 99% slower decay
 - Healing (2)
 - Rally
+- Ally Stat Viewer
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]"

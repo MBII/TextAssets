@@ -1,4 +1,4 @@
-//Siege class def file.
+
 
 ClassInfo
 {
@@ -7,21 +7,21 @@ ClassInfo
 	classNumberLimit 		1
 
 	weapons		WP_CLONE_PISTOL|WP_THROWER|WP_SBD
+ 
 
 	attributes	MB_ATT_FIREPOWER,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_RECHARGE,3|MB_ATT_FP_MIRALUKA,1|MB_ATT_CLONE_PISTOL,1|MB_ATT_FUEL,3|MB_ATT_THROWER_ICE,3|MB_ATT_ZOOM
 
 	maxhealth			145
 	maxarmor				20
 
-	classflags			CFL_ICETHROWER|CFL_NOLOCATIONALDAMAGE
-
 	forcepowers			FP_SEE,1
 	forcepool			100
 	speed				1.29
-
-	WP_ClonePistolFlags   HELD_PULSE|HELD_ALTRELOAD
-	WP_ThrowerFlags 		HELD_ALTRELOAD
- WP_TripMineFlags HELD_SONIC
+	
+	WP_SBDFlags HELD_NODISARM
+	WP_ClonePistolFlags   HELD_PULSE|HELD_ALTRELOAD|HELD_NODISARM
+	WP_ThrowerFlags 		HELD_ALTRELOAD|HELD_NODISARM
+ WP_TripMineFlags HELD_SONIC|HELD_NODISARM
 
 	disableGunBash 1
 
@@ -47,15 +47,15 @@ ClassInfo
 	c_att_skill_1	MB_ATT_TRIP_MINES
 	c_att_names_1	"Sonic (Trip) Mines (3)"
 	c_att_ranks_1	1
-	c_att_descs_1 "Stuns on det, 50% slower RoF, Sec fire only"
+	c_att_descs_1 "Stuns on det, 50% slower RoF, Secondary fire only"
 }
 WeaponInfo0
 {
 	WeaponToReplace	WP_CLONE_PISTOL
 	WeaponBasedOff	WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/noweap/noweap.md3"
-	MuzzleEffect		"blaster/MuzzleFlash01B"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	MissileEffect		"arc_caster/ArcCasterShock"
 	MissileHitHumanEffect	"SBD/Cortosis_blue"
 	MissileHitDroidEffect	"SBD/Cortosis_blue"
@@ -72,7 +72,7 @@ WeaponInfo1
 {
 	WeaponToReplace	WP_SBD
 	WeaponBasedOff	WP_BLASTER
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/noweap/noweap.md3"
 	Icon				"gfx/hud/w_icon_t3m4_blaster"
 	WeaponName		"Mounted Blaster"
@@ -88,7 +88,7 @@ WeaponInfo2
 {
 	WeaponToReplace		WP_THROWER
 	WeaponBasedOff		WP_CLONE_RIFLE
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/noweap/noweap.md3"
 	Icon			"gfx/hud/w_icon_carboniterifle"
 	WeaponName		"CryoBan Projector"
@@ -104,7 +104,7 @@ WeaponInfo3
 {
 	WeaponToReplace		WP_TRIP_MINE
 	WeaponBasedOff	WP_TRIP_MINE
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/noweap/noweap.md3"
 	Icon			"gfx/hud/w_icon_tripmine"
 	WeaponName		"Sonic Mines"
@@ -126,21 +126,20 @@ A small, fast moving support class who can Hack into interfaces with superior sp
 
 ^2Weaponry:
 - Mounted Blaster (Arm Blaster 1)
--- 10% more Dmg
--- Advanced Targeting ^3[Sec fire]
+-- 10% more damage
+-- Advanced Targeting ^3[Secondary fire]
 - Ion Blaster (Clone Pistol 1)
 -- Shocks on hit
--- 20% more FP Dmg
--- Mag Reload
+-- 20% more FP damage
+-- Mag reload
 - CryoBan Projector (Icethrower)
 -- 50% slower RoF
--- 50% slower Mag Reload
+-- 50% slower mag reload
 
 ^8Attributes:
 - Battery Recharge (3)
-- Base Dmg Taken 
 - Self-Repair (Armor Regen 1)
-- Passive Radar Scanner (Miraluka Vision 1)
+- Passive Radar Scanner (Miraluka 1)
 
 ^3Abilities:
 - Low Power Mode ^3[CS1]"

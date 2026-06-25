@@ -7,7 +7,7 @@ ClassInfo
 	
 	weapons	WP_FRAG_NADE|WP_BLASTER|WP_MELEE|WP_PULSE_NADE|WP_DISRUPTOR|WP_THROWER|WP_TRIP_MINE|WP_ROCKET_LAUNCHER
 	
-	WP_RocketLauncherFlags HELD_ALTRELOAD|HELD_KNOCKBACK
+	WP_RocketLauncherFlags HELD_KNOCKBACK
 	WP_ThrowerFlags 		HELD_ALTRELOAD
 	
 	attributes	MB_ATT_FRAGS,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,2|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_THROWER_ICE,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_DASH,1|MB_ATT_EWEB,1
@@ -21,13 +21,15 @@ ClassInfo
 	rateOfFire_Melee 1.1
 
 	special1	EAS_HI_EWEB
+	meleespecial1	EAS_HI_EWEB
 	special2 EAS_HI_DASH
+	meleespecial2 EAS_HI_DASH
 	
 	skilltimermod 1.5
+ knockbackTaken 0.5
+ knockbackGiven 1.25
 	
 	meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
-
-	flourishanim	BOTH_STAND5TOAIM
 
 	special1HUD HUD_FRAGNADE
 	special2HUD HUD_PULSENADE
@@ -39,6 +41,12 @@ ClassInfo
 	skin  		"default"
 	uishader  	"models/players/reelo/mb2_icon_default"
 	modelscale 1.03
+
+	flourishanim	BOTH_STAND5TOAIM
+ RunForward BOTH_RUN_DUAL
+ RunBackward BOTH_RUNBACK_DUAL
+ walkForward BOTH_WALK1TALKCOMM1
+ walkBackward BOTH_WALKBACK_DUAL
 }
 
 WeaponInfo0
@@ -144,22 +152,22 @@ customAmmo 700
 
 description	"Reelo Baruk 
 
-A criminal kingpin armed to the teeth with various weapons. Cannot be knocked down by Force Push/Pull.
+A criminal kingpin armed to the teeth with weapons of dubious legality.
 
 ^2Weaponry:
 - Melee
 -- 10% slower RoF
 - Overcharged E-11 Blaster Rifle (2)
 -- 15% faster RoF
--- Sec only
+-- Secondary fire only
 - Tenloss DXR-6 Disruptor Rifle (2)
 - Carbonite Rifle (Icethrower)
--- 100% slower Mag Reload
+-- 100% slower mag reload
 - Overcharged PLX-2M Rocket Launcher (10)
 -- Pushes on det
 -- 70% faster RoF
--- 40% less Dmg
--- 100% slower Mag Reload
+-- 40% less damage
+-- 100% slower reload
 - Frag Grenades (2)
 - Trip Mines (2)
 - Pulse Grenades (2)
@@ -168,7 +176,9 @@ A criminal kingpin armed to the teeth with various weapons. Cannot be knocked do
 - Portable E-Web Cannon ^3[CS1]
 
 ^8Attributes:
-- 50% slower Skill Cd
+- 50% slower skill cooldown
+- 25% more knockback given
+- 50% less knockback taken
 - Strength (2)
 - Blast Armor
 - Healing (2)

@@ -2,54 +2,55 @@
 
 ClassInfo
 {
-	name			"PrisonRaid_RInfiltrator"
-	weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_FRAG_NADE
-	saber1			PrisonRaidKnife
-	sabercolor		0
-	forcepowers     FP_SABER_OFFENSE,3
-	saberstyle		SS_TAVION|SS_FAST
-	attributes		MB_ATT_PISTOL,1|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FRAGS,1|MB_ATT_TRACKING_DART,3|MB_ATT_BACTA_BIG|MB_ATT_CLOAK
-	maxhealth		100
-	maxarmor		60
-	model			"splintercell_blue"
-	skin			"default"
-	uishader		"gfx/um_icons/PrisonRaidPack/Infiltrator"
-	MBClass			MB_CLASS_HERO
+	name				"PrisonRaid_RInfiltrator"
+	weapons				WP_MELEE|WP_SABER|WP_BLASTER_PISTOL|WP_FRAG_NADE
+	attributes			MB_ATT_PISTOL,1|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FRAGS,2|MB_ATT_TRACKING_DART,3|MB_ATT_BACTA_BIG|MB_ATT_CLOAK,2
+	//holdables			HI_MEDPAC_BIG|HI_CLOAK
+	saber1				PrisonRaidKnife
+	sabercolor			0
+	saberstyle			SS_TAVION|SS_FAST
+	forcepowers			FP_SABER_OFFENSE,3
+	forcepool			60
+	forceregen			0.4
+	maxhealth			100
+	maxarmor			60
+	model				"splintercell_blue"
+	skin				"default"
+	uishader			"gfx/um_icons/PrisonRaidPack/Infiltrator"
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_FASTHACKING
 	classNumberLimit	1
-	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_FASTHACKING
-	//holdables		HI_MEDPAC_BIG|HI_CLOAK
-	//Special move//
-	forcepool		60
-	forceregen		0.4
-	special1 EAS_HI_DODGE
-	special2 EAS_HI_TRACKER
+	
+	special1HUD			HUD_TRACKINGDART
+	special2HUD			HUD_FRAGNADE
+	meleespecial2		EAS_HI_TRACKER
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/leias_pistol/blaster_pistol_w.glm"
-	NewViewModel		"models/weapons2/leias_pistol/blaster_pistol.md3"
-	Icon			"models/weapons2/leias_pistol/w_icon_leias_pistol"
-	WeaponName		"Silenced Pistol"
-	FlashSound0		"sound/weapons/raidpistolsilence/fire.wav"
-	primHitscanShot		1
-	primHitscanTracer	5
-	altHitscanShot		1
-	altHitscanTracer	5
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/ct_weapon/ct_knife_F.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_prisonknife"
+	WeaponName				"Combat Knife"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_prisonknife"
-	WeaponName		"Combat Knife"
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/leias_pistol/blaster_pistol_w.glm"
+	NewViewModel			"models/weapons2/leias_pistol/blaster_pistol.md3"
+	Icon					"models/weapons2/leias_pistol/w_icon_leias_pistol"
+	WeaponName				"Silenced Pistol"
+	FlashSound0				"sound/weapons/raidpistolsilence/fire.wav"
+	primHitscanShot			1
+	primHitscanTracer		5
+	altHitscanShot			1
+	altHitscanTracer		5
+	primGore				1
+	altGore					1
 }
 
 WeaponInfo2
@@ -59,39 +60,39 @@ WeaponInfo2
 	NewWorldModel			"models/weapons2/Stormi_TD/StormiTD_w.glm"
 	NewViewModel			"models/weapons2/Stormi_TD/StormiTD.md3"
 	MissileModel 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
-	MissileModel2 			"models/weapons2/Stormi_TD/StormiTD_proj.md3"
+	altMissileModel 		"models/weapons2/Stormi_TD/StormiTD_proj.md3"
+	Icon					"gfx/hud/w_icon_StormiTD"
+	WeaponName				"Flashbang Grenade"
+	
 	altMissileMissEffect		"Grenades/EXP_Flash"
 	MissileMissEffect			"Grenades/EXP_Flash"
 	altMissileHitHumanEffect	"Grenades/EXP_Flash"
 	missileHitHumanEffect		"Grenades/EXP_Flash"
 	altMissileHitDroidEffect	"Grenades/EXP_Flash"
 	missileHitDroidEffect		"Grenades/EXP_Flash"
-	Icon				"gfx/hud/w_icon_StormiTD"
-	WeaponName			"Flashbang Grenade"
-	customammo			2
+	
 	primFireEnabled			0
 }
 
 description	"Rebel SpecForce Infiltrator
 
-Weaponry:
-Silenced Pistol (1)
-Knife
-Enhanced Strength (1)
-Flashbang Grenade (2)
+^2Weaponry:
+- Silenced Pistol (1)
+- Knife
+-- ^5Cyan ^7/ ^4Blue ^7Styles
+- Enhanced Strength (1)
+- 2 Flashbang Grenades
 
-Attributes:
-Strong Against Melee
-Fast Hacking
-Armour (3)
-Ammo (3)
+^6Inventory:
+- Advanced Medpac (50HP+)
+- Cloak (2)
 
-Items:
-Bacta (25HP+)
-Cloak
+^8Attributes:
+- Strong Against Melee
+- Fast Hacking
 
-Abilities:
-Dodge (3) ^3[CS1]
-Tracking Darts (6) ^3[CS2]
+^3Abilities:
+- Dodge (3) ^3[CS1]
+- 6 Tracking Darts ^3[CS2 Melee]
 
 Rebel Infiltrators were among the most effective SpecForce divisions. They were chosen for their hatred of the Empire. They operated as secret agents and spies. They were also trained to slip through enemy lines and sow seeds of rebellion on Imperial worlds. "

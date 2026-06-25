@@ -2,58 +2,76 @@
 
 ClassInfo
 {
-name			"PrisonRaid_RMarine"
-weapons			WP_BLASTER_PISTOL|WP_CLONE_RIFLE|WP_EE4|WP_MELEE|WP_M5|WP_PULSE_NADE
-attributes		MB_ATT_CLONE_RIFLE,1|MB_ATT_PISTOL,2|MB_ATT_AMMO,2|MB_ATT_EE4,2|MB_ATT_CLONEBLOBS,1|MB_ATT_STAMINA,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DODGE,2|MB_ATT_ASSEMBLE|MB_ATT_WESTARM5|MB_ATT_ARC_RIFLE_GRENADELAUNCHER|MB_ATT_PULSE_GRENADES,3
-maxhealth		80
-maxarmor			80
-speed           1.05
-model			"rebel_marine"
-skin			"default"
-uishader		"gfx/um_icons/PrisonRaidPack/SpecForce_Marine"
-//classflags      CFL_GRENADELAUNCHER
-MBClass			MB_CLASS_ARCTROOPER
-classNumberLimit	2
-extralives		1
-special1 EAS_HI_SPRINT
-special3 EAS_HI_DODGE
+	name				"PrisonRaid_RMarine"
+	weapons				WP_BLASTER_PISTOL|WP_CLONE_RIFLE|WP_EE4|WP_MELEE|WP_UGL|WP_FRAG_NADE
+	attributes			MB_ATT_CLONERIFLE,1|MB_ATT_PISTOL,2|MB_ATT_AMMO,2|MB_ATT_EE4,2|MB_ATT_CLONEBLOBS,1|MB_ATT_STAMINA,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DODGE,2|MB_ATT_ASSEMBLE|MB_ATT_UGL,4|MB_ATT_FRAGS,8
+	maxhealth			80
+	maxarmor			80
+	extralives			1
+	speed				1.05
+	model				"rebel_marine"
+	skin				"default"
+	uishader			"gfx/um_icons/PrisonRaidPack/SpecForce_Marine"
+	MBClass				MB_CLASS_ARCTROOPER
+	classNumberLimit	2
+	
+	special1HUD			HUD_FRAGNADE
+	special2HUD			HUD_CONCBLOB
+	resource			RESOURCE_STAMINA
+	special3			EAS_HI_DODGE
 }
 
 WeaponInfo0
 {
-   WeaponToReplace     WP_M5
-   WeaponBasedOff      WP_FLECHETTE
-   NewWorldModel       "models/weapons2/mortar_launcher/mortar_launcher_w.glm"
-   NewViewModel			"models/weapons2/mortar_launcher/mortar_launcher.md3"
-   NewBarrelModel		"models/weapons2/mortar_launcher/mortar_launcher_barrel.md3"
-   NewHandsModel		"models/weapons2/mortar_launcher/golan_arms_hand.md3"
-   WeaponName          "EMP Launcher"
-   Icon			"gfx/hud/w_icon_mortar" 	
-   primFireEnabled       0
-	AltFlashSound0		"sound/weapons/repeater/alt_fire"
+	WeaponToReplace			WP_UGL
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/packered_mortar/golan_arms_w.glm"
+	NewViewModel			"models/weapons2/packered_mortar/golan_arms.md3"
+	NewBarrelModel			"models/weapons2/packered_mortar/golan_arms_barrel.md3"
+	NewHandsModel			"models/weapons2/packered_mortar/golan_arms_hand.md3"
+	Icon					"gfx/hud/w_icon_packered_mortar"
+	WeaponName				"Packered Mortar Launcher"
+	
+	SelectSound				"sound/weapons/flechette/select"
+	
+	MuzzleEffect			"df/mortar_muzzle_flash"
+	AltMuzzleEffect			"df/mortar_muzzle_flash"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/packered_mortar/projectile_w.glm"
+	NewViewModel			"models/weapons2/packered_mortar/projectilemain.md3"
+	Icon					"gfx/hud/w_icon_packered_mortar_shell"
+	WeaponName				"Mortar Shells (Launcher Only)"
+	
+	MissileModel			"models/weapons2/packered_mortar/projectilemain.md3"
+	AltMissileModel			"models/weapons2/packered_mortar/projectilemain.md3"
+	
+	primFireEnabled			0
+	altFireEnabled			0
 }
 
 description "Rebel SpecForce Marine
 
-Weaponry:
-Melee
-Blaster Pistol (2)
-Clone Rifle (1)
-- 3 blobs
-EMP Launcher (WESTAR M5 2)
-- 6 nades
-EE-4 (2)
+^2Weaponry:
+- Blaster Pistol (2)
+- Clone Rifle (1)
+-- 3 Concussion Blobs
+- Packered Mortar Launcher
+-- 8 High Powered Explosive Mortars (Frags)
+- EE-4 Carbine Rifle (2)
 
-Attributes:
-Reinforcements (1)
-Stamina (3)
-Blast Armor
-High Powered Explosive Mortars 
-Assemble
-Ammo (2)
+^8Attributes:
+- Blast Armour
+- Stamina (3)
+- 1 Reinforcement
+- Assemble (1)
 
-Abilities:
-Sprint ^3[CS1]
-Dodge (2) ^3[CS3]
+^3Abilities:
+- Sprint ^3[CS1]
+- Dodge (2) ^3[CS3]
 
-SpecForce Marines, although primarily trained for combat onboard ships and zero-g combat, were also used in joint operation with the Alliance Military. They were trained to use blasters and highly explosive weaponry. "
+SpecForce Marines, although primarily trained for combat onboard ships and zero-g combat, were also used in joint operation with the Alliance Military. They were trained to use blasters and highly explosive weaponry."

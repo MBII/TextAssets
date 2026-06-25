@@ -42,6 +42,7 @@ ClassInfo
 	bowAnim BOTH_MAND_FLAME_ATTACK
 
 	special1 EAS_HI_SPRINT
+	meleespecial1 EAS_HI_SPRINT
 	special2	EAS_HI_KICK
 	special3	EAS_HI_KICK
 	modelscale	1.01
@@ -57,30 +58,31 @@ ClassInfo
 	c_att_skill_0	MB_ATT_SHOTGUN
 	c_att_names_0	"DL-21 Blaster Pistol (Shotgun)"
 	c_att_ranks_0	1
-	
+
 	c_att_skill_1	MB_ATT_DC_CARBINE
-	c_att_names_1	"Modded Riot Gun (DC Carbine)"
+	c_att_names_1	"Modded Riot Gun (DC Carb)"
 	c_att_ranks_1	1,0
-	c_att_descs_1 "Shocks/pushes/staggers on hit, 400% more Dmg/FP Dmg,
-100% slower RoF, 20% less Velocity, 30% slower Mag Reload, Sec only"
+	c_att_descs_1 "Shocks/pushes/staggers on hit, 400% more dmg/FP dmg, 100% slower RoF,
+20% less velocity, 30% slower mag reload, Sec only"
 
 	c_att_skill_2	MB_ATT_CLONERIFLE
 	c_att_names_2	"DLT-19 Blaster Rifle (CR)"
 	c_att_ranks_2	1,0
-	c_att_descs_2 "10% more Dmg, 10% faster RoF, Mag Reload"
+	c_att_descs_2 "10% more damage, 10% faster RoF, Mag reload"
 	
 	c_att_skill_3	MB_ATT_WESTARM5
 	c_att_names_3	"Valken-38x Blaster Rifle (M5)"
 	c_att_ranks_3	1,0
-	c_att_descs_3 "50% more Dmg/FP Dmg, 100% slower RoF, Sec fire: Scope"
+	c_att_descs_3 "50% more damage/FP damage, 100% slower RoF, Includes Scope Attachment"
 }
 
 WeaponInfo0
 {
 	WeaponToReplace WP_CLONE_RIFLE
 	WeaponBasedOff  WP_CONCUSSION
-	NewWorldModel "models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
-	NewViewModel  "models/weapons2/DLT-19_HeavyBlaster/riflescoped.glm"
+ NewWorldModel "models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
+ NewViewModel  "models/weapons2/DLT-19_HeavyBlaster/riflescoped.md3"
+ NewHandsModel  "models/weapons2/DLT-19_HeavyBlaster/riflescoped_hand.md3"
 	Icon  "gfx/hud/w_icon_dlt19scoped"
 	WeaponName  "DLT-19 Heavy Blaster Rifle"
 	FlashSound0	"sound/weapons/DLT19/fire.wav"
@@ -88,7 +90,7 @@ WeaponInfo0
 	MissileEffect		"Blaster/Shot01R"
 	customAmmo 800
 	damageMod 1.1
-	clipsize 100
+	clipsize 90
 	rateMod 0.9
 	hasAnimOverrides 1
 	animReadyRun 	BOTH_AMBAN_IDLE
@@ -146,10 +148,10 @@ WeaponInfo2
 	WeaponName	"Valken-38x Blaster Rifle"
 	MuzzleEffect		"Blaster/MuzzleFlash01R"
 	MissileEffect		"blaster/Shot03R"
-	MissileMissEffect "Blaster/Impact_Wall01R"
+	MissileMissEffect "Blaster/Impact_Wall01"
 	altMuzzleEffect		"Blaster/MuzzleFlash01R"
 	altMissileEffect		"blaster/Shot03R"
-	altMissileMissEffect 	"Blaster/Impact_Wall01R"
+	altMissileMissEffect 	"Blaster/Impact_Wall01"
 	damageMod 1.5
 	fpmult	1.5
 	rateMod 2
@@ -193,7 +195,7 @@ WeaponInfo3{
 WeaponInfo4{
 WeaponToReplace WP_SABER
 WeaponBasedOff  WP_SABER
-NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 NewViewModel		"models/weapons2/dummy/dummy.md3"
 Icon	"textures/plasma_revil/candle_flame"
 WeaponName		"Dengar's Fire Blade"
@@ -209,7 +211,7 @@ customAmmo 500
 damagemod 5
 fpmult 5
 ratemod 2
-Velocitymod .8
+velocityMod .8
 primfireenabled 0
 Clipsize 80
 ReloadTimeModifier 1.3
@@ -230,7 +232,7 @@ NewViewModel	"models/weapons/FWG-5_FlechettePistol/model.md3"
 Icon	"gfx/hud/w_icon_flechettepistol"
 FlashSound0	"sound/weapons/han_pistol/alt_fire.mp3"  			
 WeaponName 	"DL-21 Blaster Pistol"
-ChargeSound 	"sound/weapons/leia_pistol/altcharge.mp3"
+ChargeSound 	"sound/weapons/bryar/altcharge.mp3"
 MissileEffect 	"blaster/dash_bolt"
 altMissileEffect "blaster/dash_bolt"
 altMuzzleEffect null
@@ -238,8 +240,8 @@ clipSize 36
 customAmmo 720
 altFireEnabled 0
 hasAnimOverrides 1
-animReadyRun TORSO_WEAPONIDLE2
-animReady TORSO_WEAPONIDLE2
+animReadyRun BOTH_JANGO_PISTOL_IDLE
+animReady BOTH_JANGO_PISTOL_IDLE
 animReadyWalk TORSO_WEAPONIDLE2
 animReadyNoAmmo BOTH_ATTACK2 
 animAttackRun BOTH_ATTACK2 
@@ -252,28 +254,28 @@ A ruthless assault class who likes to bring his bounties in cold.
 
 ^2Weaponry:
 - Melee
+-- Lightweight 
 -- 20% faster RoF
--- 15% faster Movement
 - Dengar's Fire Blade (Cyan Saber)
 -- No Saber/Blaster Block
--- Ignites on hit
--- 62% less Reach
--- 33% more Radius
+-- Burns on hit
+-- 62% shorter
+-- 33% thicker
 - Smoke Grenades (2) (Conc Grenades)
--- Obscures vision on det
+-- Shrouds on det
 -- 40% faster RoF
--- 99.9% less Dmg
+-- 99% less damage
 - Sticky Bombs (6) (MGL)
--- Mag Reload
+-- Mag reload
 
 ^8Attributes:
-- 10% less Kb Taken
+- 10% less knockback taken
 - Strength (1)
 - Stamina (1)
 - Dexterity (1)
 - Beskar (1)
 - Blast Armor
-- Physical Resist
+- Melee Resist
 - Armor Regen (1)
 - Healing (2)
 - Tracking Beacon

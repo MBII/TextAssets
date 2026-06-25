@@ -2,37 +2,49 @@
 
 ClassInfo
 {
-	name			"lpb_sold"
-	weapons			WP_SHOTGUN|WP_MELEE
-	attributes		MB_ATT_DEXTERITY,3|MB_ATT_SHOTGUN,1|MB_ATT_FLAMETHROWER|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3
-	classflags		CFL_EXTRAFLAMEDAMAGE
-	maxhealth		100
-	maxarmor		100
-	speed			1.5
-	model			"bxdroid" 				//this is optional, if it's here it forces the model to this.
-	skin			"default"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/bxdroid/mb2_icon_default"
-	MBClass			MB_CLASS_ARCTROOPER
-	extralives		2
+	name				"lpb_sold"
+	weapons				WP_SHOTGUN|WP_MELEE
+	WP_MeleeFlags		HELD_SLOW
+	attributes			MB_ATT_DEXTERITY,3|MB_ATT_SHOTGUN,1|MB_ATT_THROWER_PLASMA,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_CCTRAINING,1|MB_ATT_GETUPS,2
+	maxhealth			100
+	maxarmor			100
+	extralives			2
+	basespeed			187.5
+	speed				1.5
+	model				"bxdroid"
+	skin				"default"
+	uishader			"models/players/bxdroid/mb2_icon_default"
+	MBClass				MB_CLASS_BATTLEDROID
+	//classflags			CFL_EXTRAFLAMEDAMAGE
+	
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+	special3			EAS_HI_PLASMA
 }
+
 WeaponInfo0
 {
-	WeaponToReplace		WP_SHOTGUN					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SHOTGUN					//Required: For future use, should be the same as WeaponToReplace
-	WeaponName			"Shotgun"   					//Required: Weapon change display nam
-	NewWorldModel		"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
-	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
-	Icon			"gfx/hud/w_icon_cp-50_repeater"
+	WeaponToReplace			WP_SHOTGUN
+	WeaponBasedOff			WP_SHOTGUN
+	NewWorldModel			"models/weapons2/cp-50_repeater/cp-50_repeater_w.glm"
+	NewViewModel			"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
+	Icon					"gfx/hud/w_icon_cp-50_repeater"
+	WeaponName				"Shotgun"
 }
 
 description	"Soldier:
 
-Weapon:
+^2Weaponry:
 - Shotgun
+- Plasmathrower ^3[CS3]
 
-Attributess:
-- 50 percent faster speed
-- Flamethrower (2)
+^8Attributes:
+- 50% Faster Movement
 - Stamina + Dexterity (3)
+- Close Combat Training (1)
+- 2 Extra Lives
 
-Two extra lives"
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]"

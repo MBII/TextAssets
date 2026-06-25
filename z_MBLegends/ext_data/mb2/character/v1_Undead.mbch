@@ -6,19 +6,18 @@ ClassInfo
 	weapons 		WP_MELEE|WP_STUN_BATON
 
 	//WP_MeleeFlags HELD_POISON //HELD_HEAL
-	WP_StunBatonFlags HELD_POISON|HELD_STUN
+ WP_StunBatonFlags HELD_LIFESTEAL|HELD_CRIPPLE|HELD_PULL|HELD_POISON|HELD_STUN|HELD_NODISARM //HELD_DISARM
 	
 	attributes  	MB_ATT_RALLY|MB_ATT_ASSEMBLE,1|MB_ATT_STUN_BATON,1|MB_ATT_GETUPS,0|MB_ATT_WOOKIEE_FURY,3|MB_ATT_HEALING,1
-	forcepowers FP_RAGE,3|FP_HEAL,3
+	forcepowers FP_RAGE,3
 	
-	maxhealth 	100
-	maxarmor  	25
-	starthealth 5
-		
 	//HealthRegenCap 200
 	//HealthRegenRate	2000
 	//HealthRegenAmount -1
-		
+	maxhealth 	100
+	maxarmor  	25
+	starthealth 5
+
 	damageTaken 	0.25
 	damageGiven  5
 	
@@ -28,10 +27,10 @@ ClassInfo
 	//ResourceRegenCap 25
 	//ResourceRegenAmount -1
 	//ResourceRegenRate 1000
-	
 	forcepool 70
 	forceregen 2
 	resource RESOURCE_RAGE
+
 	//meleeknockback_flat -50
 	//meleeknockback_mult -22
 	
@@ -41,13 +40,32 @@ ClassInfo
 	classflags CFL_DISMEMBERFRAGILE|CFL_BLOODYMELEE|CFL_NOPICKUPS	
 	
 	special1 EAS_FP_RAGE
+	meleespecial1 EAS_FP_RAGE
 	special2 EAS_HI_BARGE
-	special3 EAS_FP_HEAL
-		special4 EAS_FP_RAGE
+	meleespecial2 EAS_HI_BARGE
+	//special3 EAS_FP_HEAL
+	special4 EAS_FP_RAGE
+
 	hackRate 4
+
 	disableGunBash 1
- rateOfFire 101
+
+ //rateOfFire 101
+
+ spinEnabled 0
 	
+	meleeMoves M_KATA|M_KICK
+	
+	modelscale 	1
+	uioverlay_r 	"gfx/icons/infantry"
+	uioverlay_l 	"gfx/icons/brawler"
+	model 			"Death_Trooper"
+	skin  			"default"
+	uishader "models/players/Death_Trooper/mb2_icon_default"
+	
+	bargesoundoverride "Sound/chars/Death_Trooper/misc/taunt3.wav"
+	ragesoundoverride "Sound/chars/Death_Trooper/misc/falling1.wav"
+
 	tauntAnim 	BOTH_MAND_DUAL_PISTOLS_ATTACK
 	gloatAnim 	BOTH_GUNGAN_TAUNT
 	flourishAnim BOTH_STEADYSELF1
@@ -60,23 +78,10 @@ ClassInfo
 	WalkForward BOTH_WALK_DUAL
 	WalkBackward BOTH_WALKBACK_DUAL
 	
-	
-	meleeMoves M_KATA|M_KICK
-	
-	modelscale 	1
-	uioverlay_r 	"gfx/icons/infantry"
-	uioverlay_l 	"gfx/icons/brawler"
-	
-	model 			"Death_Trooper"
-	skin  			"default"
-	uishader "models/players/Death_Trooper/mb2_icon_default"
-	
-	bargesoundoverride "Sound/chars/Death_Trooper/misc/taunt3.wav"
-	ragesoundoverride "Sound/chars/Death_Trooper/misc/falling1.wav"
-	
 	//model_1 	"hs_imperial"
 	//skin_1  	"zombie"
 	//uishader_1 "models/players/hs_imperial/mb2_icon_zombie"
+
 	WP_BlasterPistolFlags HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
 	WP_BlasterFlags HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
 	WP_ClonePistolFlags HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
@@ -119,13 +124,14 @@ ClassInfo
 	WP_TradBowcasterFlags HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
  WP_UGLFlags HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
  WP_MGLFlags HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
+ WP_EqualizerFlags HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
 }
 
 WeaponInfo0
 {
 	WeaponToReplace WP_MELEE
 	WeaponBasedOff WP_MELEE  
-	NewWorldModel	"models/weapons2/dummy/dummy.glm"
+	NewWorldModel	"models/weapons2/dummyblaster/model.glm"
 	NewViewModel	"models/weapons2/dummy/dummy.md3"
 	Icon			"gfx/hud/w_icon_melee"
 	WeaponName	"Zombie Melee"
@@ -148,7 +154,7 @@ WeaponInfo1
 {
 	WeaponToReplace	WP_STUN_BATON
 	WeaponBasedOff		WP_STUN_BATON
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"    
 	NewViewModel			"models/weapons2/dummy/dummy.md3"
 	NewHandsModel 	"models/weapons2/dummy/dummy.md3"
 	NewBarrelModel "models/weapons2/dummy/dummy.md3"
@@ -171,41 +177,42 @@ WeaponInfo1
 	AltMissileHitHumanEffect 	null
 	MissileHitDroidEffect 		null
 	AltMissileHitDroidEffect 	null
-	rateMod 0.03
+ rateMod 3.03
 	damageMod 0.8
 }
 
-description "Undead Trooper 
+description "Undead Trooper
 
 Brains........................
 
 ^2Weaponry:
 - Zombie Melee
--- 75% less Dmg
+-- 75% less damage
 -- Grab/slap only
 - Deadly Squeeze (Stun Baton 1)
--- Poisons/staggers on hit
--- 80% less Dmg
--- 97% faster RoF
+-- Zombifies on hit
+-- 20% less damage
+-- 203% slower RoF
 
 ^5Powers:
-- Bio-Frenzy (Dark Rage 3) ^3[CS1/4]
-- Corpse Feast (Heal 3) ^3[CS3]
+- Bio-Frenzy (Rage 3) ^3[CS1/4]
 
 ^8Attributes:
 - Reinforcements (4)
-- No weapon pickups
-- No Gunbash
-- Fury (3)
--- 100% faster Resource decay
-- 99% less Kb Taken/Given
-- 20% slower Skill Cd
-- 300% slower Hacking
 - Healing (1)
--- Starting HP: 5
+-- Starting Health: 5
+- Fury (3)
+-- 100% faster decay
 - Rally
 - Assemble (1)
 - Getup (0)
+- 99% less knockback taken
+- 99% less knockback given
+- 20% slower skill cooldown
+- 300% slower hacking
+- No Pickups
+- No Gunbash
+- No Gambling Addiction
 
 ^3Abilities:
-- Lunge (Shoulder Barge) ^3[CS2 Melee]"
+- Lunge (Barge) ^3[Melee CS2]"

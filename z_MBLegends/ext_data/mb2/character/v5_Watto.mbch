@@ -1,27 +1,32 @@
+//supdrop
 ClassInfo
 {
 	name		"v5_Watto"
 	MBClass	MB_CLASS_MANDALORIAN
 	classNumberLimit	1
-	weapons	WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE|WP_FLECHETTE
+	weapons	WP_MELEE|WP_BLASTER_PISTOL|WP_SABER|WP_FRAG_NADE|WP_CONC_NADE|WP_TRIP_MINE|WP_FLECHETTE|WP_MINIGUN
+
+ WP_FlechetteFlags HELD_KNOCKBACK
+ WP_MinigunFlags HELD_DISARM|HELD_LIFESTEAL|HELD_IGNOREBLOCK
 	
-	WP_FlechetteFlags HELD_ALTRELOAD
-	
-	attributes  MB_ATT_FUELREGEN,2|MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2|MB_ATT_FLECHETTE,3|MB_ATT_TRIP_MINES,3|MB_ATT_DRONE,1|MB_ATT_FLECHETTE_NADES,6
+	attributes  MB_ATT_JETPACK,1|MB_ATT_PISTOL,2|MB_ATT_STAMINA,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_ANTI_MT,2|MB_ATT_FLECHETTE,4|MB_ATT_TRIP_MINES,3|MB_ATT_DRONE,1|MB_ATT_FLECHETTE_NADES,3|MB_ATT_FLECHETTE_ALT_NUM,5|MB_ATT_MINIGUN,3
+
+ //spawnerNPC "pit_leg"
+ //roundNPC "pit_leg"
 	
 	maxhealth 125
 	maxarmor  125
 
-	resourceAmount 	70
-	resourceCooldown 	0
-	resourceCap 		70
-	forcepool    	70
+	forcepool  70
 
 	speed 	1.07
 	
 	special1 EAS_HI_SPRINT
+ meleespecial1 EAS_HI_SPRINT
 	special2 EAS_HI_SEEKER
+	meleespecial2 EAS_HI_SEEKER
 	special3 EAS_HI_DODGE
+	meleespecial3 EAS_HI_DODGE
 
 	special1HUD HUD_FRAGNADE
 	special2HUD HUD_FLECHETTENADE
@@ -72,7 +77,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/blaster_two/blaster_pistol_w.glm"  	
 	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3" 
 	Icon				"gfx/hud/w_icon_blaster_pistol_2"
-	WeaponName		"DL-44 Blaster Pistol" 
+	WeaponName		"DL-44 Heavy Blaster Pistol" 
 	hasAnimOverrides 1
 	animReadyRun BOTH_STAND4TOATTACK2
 	animReady BOTH_STAND4TOATTACK2
@@ -83,26 +88,26 @@ WeaponInfo0
 	animAttackWalk BOTH_VS_ATF_G  
 	animStand BOTH_STAND1
 	customAmmo 600
-damageMod 1.1
-fpmult 1.1
-	ChargeSound 	"sound/weapons/leia_pistol/altcharge.mp3"
+ damageMod 1.1
+ fpmult 1.1
+	ChargeSound 	"sound/weapons/bryar/altcharge.mp3"
 }
 
 WeaponInfo1
 {
 	WeaponToReplace WP_SABER
 	WeaponBasedOff  WP_SABER
-	NewWorldModel  "models/weapons2/dummyblaster/model.glm"
+	NewWorldModel  "models/weapons2/dummyblaster/model.glm"  
 	NewViewModel  "models/weapons2/dummy/dummy.md3"
 	Icon  "gfx/hud/w_icon_pitdroidsaber"
-	WeaponName  "Folded Pit Droid"
+	WeaponName  "PT02"
 }
 
 WeaponInfo2
 {
 	WeaponToReplace WP_FLECHETTE
 	WeaponBasedOff  WP_DET_PACK
-	NewWorldModel	"models/weapons2/concussion_old/c_rifle_w.glm"
+	NewWorldModel	"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel	"models/map_objects/desert/3po_head.md3"
 	Icon "gfx/doom_wpicons/w_icon_arm"
 	WeaponName  "Busted Parts"
@@ -114,6 +119,8 @@ WeaponInfo2
 	FlashSound1 "sound/weapons/whistlingbird/flyby2.mp3"
 	FlashSound2 "sound/weapons/whistlingbird/flyby1.mp3"
 	FlashSound3 "sound/weapons/whistlingbird/flyby2.mp3"
+ muzzleEffect null
+ altmuzzleEffect null
 	hasAnimOverrides 1
 	animReadyRun  BOTH_VT_TURBO
 	animReady  BOTH_VT_TURBO
@@ -126,32 +133,81 @@ WeaponInfo2
 	MissileModel "models/map_objects/desert/3po_head.md3"
 	AltMissileModel "models/map_objects/desert/3po_head.md3"
 	primFireEnabled 0
-	clipsize 45
- customAmmo 90
-	damageMod 1
-	FPmult 2
-	velocityMod 0
+	clipsize -1
+ customAmmo -1
+	damageMod 2
+	velocityMod -0.1
 }
 
-description "Watto  
+WeaponInfo3
+{
+ WeaponToReplace  WP_MINIGUN
+ WeaponBasedOff  WP_MINIGUN
+ NewWorldModel "models/items/datapad.glm"
+ NewViewModel "models/items/datapad.md3"  
+ Icon "models/weapons2/halo_melee/icon.png"
+ WeaponName   "Fair Trade"
+ SelectSound "sound/weapons/bryar/select.mp3"
+ AltFlashSound0  "sound/interface/pickup_battery.mp3"
+ FlashSound0  "sound/chars/gunray/misc/taunt4.mp3"
+ isMinigun 0
+ damageMod 0.01
+ velocityMod 99999
+ clipSize 5
+ rateMod 31
+ customAmmo -1
+ altMuzzleEffect null
+ altMissileEffect null
+ altMissileMissEffect "sbd/impact_cannon"
+ AltMissileHitHumanEffect "sbd/impact_cannon"
+ AltMissileHitDroidEffect "sbd/impact_cannon"
+ AltMissileModel "models/weapons2/dummy/dummy.md3"
 
-A dexterous, Flight-capable grenadier who specializes in placing traps for his enemies and raining down hell from the sky.
+ MuzzleEffect null
+ MissileEffect null
+ MissileMissEffect "sbd/impact_cannon"
+ MissileHitHumanEffect "sbd/impact_cannon"
+ MissileHitDroidEffect "sbd/impact_cannon"
+ MissileModel "models/weapons2/dummy/dummy.md3"
+
+ hasAnimOverrides 1
+ animReadyRun BOTH_DATAPAD_IDLE
+ animReady BOTH_DATAPAD_IDLE
+ animReadyWalk BOTH_DATAPAD_IDLE
+ animReadyNoAmmo BOTH_DATAPAD_IDLE
+ animAttackRun BOTH_DATAPAD_USE
+ animAttack BOTH_DATAPAD_USE
+ animAttackWalk BOTH_DATAPAD_USE
+ animCharge BOTH_DATAPAD_USE
+ animStand BOTH_DATAPAD_IDLE
+}
+
+description "Watto
+
+A junk dealer who specializes in placing traps for his enemies and raining down hell from the sky.
 
 ^2Weaponry: 
 - Melee
-- Folded Pit Droid (Yellow/Red/Purple Saber)
+- PT02 (Yellow/Red/Purple Saber)
 -- No Saber/Blaster Block
 -- Chain Limit: 2
--- 150% more Kb
--- 200% Spec Dmg mult
--- 57% less Reach
--- 300% more Radius
-- DL-44 Blaster Pistol (2)
--- 10% more Dmg/FP Dmg
-- Busted Parts (12) (Flechette 3)
--- 100% more FP Dmg
--- 100% less Velocity
--- Sec only
+-- 150% more knockback
+-- 100% more special damage
+-- 57% shorter
+-- 300% thicker
+- DL-44 Heavy Blaster Pistol (2)
+-- 10% more damage/FP damage
+- Fair Trade (Minigun 3)
+-- Disarms/drains on hit
+-- Unblockable
+-- Hitscan charges
+-- 99% less damage
+-- 3000% slower RoF
+- Busted Parts (6/5) (Flechette 4)
+-- Pushes on det
+-- 100% more damage
+-- 110% less velocity
+-- Secondary fire only
 - Frag Grenades (3)
 - Trip Mines (3)
 - V-59 Conc Grenades (2)
@@ -164,7 +220,6 @@ A dexterous, Flight-capable grenadier who specializes in placing traps for his e
 - Dexterity (3)
 - Blast Armor
 - Healing (3)
-- Fuel Regen (2)
 - Anti-Mind Trick (2)
 
 ^3Abilities:

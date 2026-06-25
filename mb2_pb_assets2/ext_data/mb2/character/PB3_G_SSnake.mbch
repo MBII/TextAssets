@@ -4,169 +4,153 @@ ClassInfo
 {
 	name				"PB3_G_SSnake"
 	weapons				WP_SABER|WP_MELEE|WP_M5|WP_PROJ|WP_CLONE_PISTOL|WP_PULSE_NADE
-	attributes			MB_ATT_CLONE_PISTOL,3|MB_ATT_WESTARM5,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PROJECTILE_RIFLE,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,3|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_DEXTERITY,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_PULSE_GRENADES,3
-	maxhealth			175
-	maxarmor			150
+	WP_ProjFlags		HELD_FREEZE
+	attributes			MB_ATT_CLONE_PISTOL,3|MB_ATT_WESTARM5,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_PROJECTILE_RIFLE,3|MB_ATT_AMMO,3|MB_ATT_STAMINA,3|MB_ATT_HEALING,3|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_DEXTERITY,3|MB_ATT_ARC_RIFLE_GRENADELAUNCHER,2|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_PULSE_GRENADES,25
 	saber1 				wacky_Knife
 	saberstyle			SS_MEDIUM|SS_DESANN
-	MBClass				MB_CLASS_ARCTROOPER
-	classflags			CFL_FASTHACKING
-	WP_ProjFlags			HELD_FREEZE
-	speed				2
 	Forcepowers			FP_SEE,1|FP_SABER_DEFENSE,1
 	forcepool           150
+	maxhealth			175
+	maxarmor			150
+	speed				2
+	damageGiven			1.3
 	rateoffire			0.6
-	modelscale      1.02
-	damageGiven		1.3
+	modelscale			1.02
+	model				"snakev3"
+	skin				"default"
+	uishader			"models/players/snakev3/mb2_icon_default_pb"
+	MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_FASTHACKING
 	//classNumberLimit	1
-	WP_M5Flags			HELD_ALTRELOAD
 
-	special1 EAS_HI_SPRINT
-	special2 EAS_HI_GRAPPLEHOOK
-	special3 EAS_HI_DEX
-	resource	RESOURCE_FORCE
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	meleespecial2		EAS_HI_GRAPPLEHOOK
+	special3			EAS_HI_DEX
 	
-	saberStanceAnim			BOTH_STAND9
+	saberStanceAnim		BOTH_STAND9
 	tauntAnim			BOTH_VICTORY_FAST
 	gloatAnim			BOTH_MELEE_SPIN_KICK_L
 	flourishAnim		both_stand9idle1
-	meditateAnim 		both_knockdown4
-	bowAnim 			both_headshake
+	meditateAnim		both_knockdown4
+	bowAnim				both_headshake
 
-	model			"snakev3"
-	skin			"default"
-	uishader		"models/players/snakev3/mb2_icon_default_pb"
-
-	
-	respawnCustomTime  50000	
-	
+	respawnCustomTime	50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_M5
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/FAMAS/heavy_repeater_w.glm"
-	NewViewModel		"models/weapons2/FAMAS/heavy_repeater.md3"
-	Icon				"models/weapons2/FAMAS/icon.png"
-	WeaponName			"FAMAS"
-	MuzzleEffect		"halo_smg/Muzzle_Flash"
-	MissileEffect		"halo_smg/projectile"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMuzzleEffect		"halo_smg/Muzzle_Flash"
-	altMissileEffect		"halo_smg/projectile"
-	altMissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/M4/fire.wav"
-	FlashSound1		"Sound/weapons/M4/fire.wav"
-	FlashSound2		"Sound/weapons/M4/fire.wav"
-	FlashSound3		"Sound/weapons/M4/fire.wav"
-	AltFlashSound0		"Sound/weapons/M4/fire.wav"
-	AltFlashSound1		"Sound/weapons/M4/fire.wav"
-	AltFlashSound2		"Sound/weapons/M4/fire.wav"
-	AltFlashSound3		"Sound/weapons/M4/fire.wav"
-	FpMult				2
-	customAmmo 			400
-	clipSize			100
-	firingAnim	BOTH_DC15_ATTACK
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/ct_weapon/ct_knife_F.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_prisonknife"
+	WeaponName				"Knife"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/ct_weapon/ct_knife_F.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_prisonknife"
-	WeaponName		"Knife"    					//Required: Weapon change display name
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_REPEATER
+	NewWorldModel			"models/weapons2/Beretta/blaster_pistol_w.glm"
+	NewViewModel			"models/weapons2/Beretta/blaster_pistol.md3"
+	Icon					"models/weapons2/Beretta/icon.png"
+	WeaponName				"Dual Deagles"
+	
+	FlashSound0				"Sound/weapons/eagle/eagle.mp3"
+	
+	MuzzleEffect			"halo_smg/Muzzle_Flash"
+	MissileEffect			"halo_smg/projectile"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"halo_smg/Muzzle_Flash"
+	altMissileEffect		"halo_smg/projectile"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	altFireEnabled			0
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_PROJ
-	WeaponBasedOff		WP_PROJ
-	NewWorldModel		"models/weapons2/psg/disruptor_w.glm"
-	NewViewModel		"models/weapons2/psg/disruptor.md3"
-	Icon				"gfx/hud/w_icon_psg"
-	WeaponName			"PSG1"
-	FlashSound0		"Sound/weapons/AWP/fire.wav"
-	clipSize			3
-	customAmmo 			30
-	ReloadTimeModifier 	0.4
+	WeaponToReplace			WP_M5
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons2/FAMAS/heavy_repeater_w.glm"
+	NewViewModel			"models/weapons2/FAMAS/heavy_repeater.md3"
+	Icon					"models/weapons2/FAMAS/icon.png"
+	WeaponName				"FAMAS"
+	
+	FlashSound0				"Sound/weapons/M4/fire.wav"
+	AltFlashSound0			"Sound/weapons/M4/fire.wav"
+	
+	MuzzleEffect			"halo_smg/Muzzle_Flash"
+	MissileEffect			"halo_smg/projectile"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"halo_smg/Muzzle_Flash"
+	altMissileEffect		"halo_smg/projectile"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	FpMult					2
+	customAmmo				400
+	clipSize				100
+	
+	hasAnimOverrides		1
+	animAttack				BOTH_DC15_ATTACK
 }
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_PULSE_NADE      			
-	WeaponBasedOff		WP_PULSE_NADE   
-	NewWorldModel		"models/weapons2/kes_pgren/laser_trap_w.glm"
-	NewViewModel		"models/weapons2/kes_pgren/laser_trap.md3"
-	Icon			"gfx/hud/w_icon_rpgren.tga"   			
-	customAmmo		25	
-	WeaponName		"Reverse Polarity Pulse Grenades"   			
+	WeaponToReplace			WP_PROJ
+	WeaponBasedOff			WP_DISRUPTOR
+	NewWorldModel			"models/weapons2/psg/disruptor_w.glm"
+	NewViewModel			"models/weapons2/psg/disruptor.md3"
+	Icon					"gfx/hud/w_icon_psg"
+	WeaponName				"PSG1 Sniper Rifle"
+	
+	FlashSound0				"Sound/weapons/AWP/fire.wav"
+	
+	clipSize				3
+	customAmmo				30
+	ReloadTimeModifier		0.4
 }
 
 WeaponInfo4
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_BRYAR_OLD
-	NewWorldModel		"models/weapons2/Beretta/blaster_pistol_w.glm"
-	NewViewModel		"models/weapons2/Beretta/blaster_pistol.md3"
-	Icon				"models/weapons2/Beretta/icon.png"
-	altFireEnabled		0
-	WeaponName			"Dual Deagles"
-	MuzzleEffect		"halo_smg/Muzzle_Flash"
-	MissileEffect		"halo_smg/projectile"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMuzzleEffect		"halo_smg/Muzzle_Flash"
-	altMissileEffect		"halo_smg/projectile"
-	altMissileMissEffect "halo_smg/wall_impact"
-	FlashSound0			"Sound/weapons/eagle/eagle.mp3"
+	WeaponToReplace			WP_PULSE_NADE      			
+	WeaponBasedOff			WP_PULSE_NADE   
+	NewWorldModel			"models/weapons2/kes_pgren/laser_trap_w.glm"
+	NewViewModel			"models/weapons2/kes_pgren/laser_trap.md3"
+	Icon					"gfx/hud/w_icon_rpgren.tga"
+	WeaponName				"Reverse Polarity Pulse Grenades"   			
 }
 
 description	"Solid Snake
 
 Find something to believe in... And smash it to pieces cuz you ain't going nowhere lil bro
 
-
-Class: ARC Trooper
-Class summary: 
 Strong and versatile gunner
 
-Weaponry:
-- FAMAS with Grenade Attachment (3)
-- PSG1 (1)
-- Dual Pistols (3)
-- Pulse Grenade (25)
+^2Weaponry:
+- Dual Deagles (3)
+- FAMAS [Pulse Grenade Attachment] (M5 3)
+-- 40% Higher RoF
+-- 100% Higher FP DMG
+- PSG1 Sniper Rifle (1)
+-- Freezes on hit
+-- 3 Shots Per Clip
+-- 60% Faster Reload Time
+- 25 Pulse Grenades
 - Knife
+-- ^3Yellow ^7/ ^6Purple ^7Styles
+-- Saber Defense (1)
 
---- FAMAS
-- Very high fire rate
-- Increased force drain
-- Based on Westar M5
-- Magazine style reload
-- Uses Pulse Grenades as grenade ammo
-
---- PSG1
-- Increased clip
-- Based on Projectile Rifle
-- Freezes targets on hit
-- Decreased reload time
-
---- Knife
-- Can block lightsabers
-- Cannot block blaster bolts
-- Defense (1)
-- Can use Yellow and Purple styles
-
-Attributes:
+^8Attributes:
+- Fast Hacking
 - Magnetic Plating
 - Shield Recharge (3)
-- Heal (3)
-- Ammo (3)
-- Grapple Hook (4) [CS2]
 - Perma Sense (1)
-- Fast Hacking
+- Stamina + Dexterity (3)
+- Heal (3)
 
-Abilities:
-- Dexterity (3) [CS3]
-- Stamina (3) [CS1]"
+^3Abilities:
+- Sprint ^3[CS1]
+- Grapple Hook (4) ^3[CS2 Melee]
+- Dex Roll ^3[CS3]"
