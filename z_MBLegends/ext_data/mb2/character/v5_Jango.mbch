@@ -1,103 +1,179 @@
-
+//Air
 ClassInfo
 {
- name   "v5_Jango"
- MBClass   MB_CLASS_MANDALORIAN
- classNumberLimit 1
- weapons  WP_MANDO_PISTOL|WP_PROJ|WP_FRAG_NADE
+	name			"h5_JangoRework"
+	MBClass			MB_CLASS_MANDALORIAN
+	classNumberLimit	1
+	weapons		WP_MANDO_PISTOL|WP_SABER|WP_THROWER|WP_ROCKET_LAUNCHER
+	
+	AB_TDartFlags HELD_POISON
+	AB_GHookFlags HELD_DISARM|HELD_CRIPPLE|HELD_PULL
+	WP_RocketLauncherFlags HELD_STUN
+	
+	attributes	MB_ATT_BESKAR,3|MB_ATT_HEALING,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,3|MB_ATT_GRAPPLE_HOOK,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,0|MB_ATT_TRACKING_DART,3|MB_ATT_BINOCULARS|MB_ATT_WRISTLASER|MB_ATT_ROCKET_LAUNCHER,3|MB_ATT_BACTA,1|MB_ATT_ANTI_MT,1
+	
+	basespeed   230
+	maxhealth	100
+	maxarmor		100
+	
+	skilltimermod 1.5
+	
+	forcepool 	20
+	resource		RESOURCE_FUEL
+	
+	saberdamage 80
+	APmultiplier    1.30
+	BPmultiplier	.35
+	saberMaxChain 2
+	saberSpecialDamage 2
+	saber1		jangobladeyes
+	saberstyle	SS_TAVION
+	resourceRegenAmount 1
+	resourceRegenRate 1075
 
- WP_ProjFlags HELD_SLOW
- 
- attributes MB_ATT_BESKAR,3|MB_ATT_POISON_DART,3|MB_ATT_QUICKTHROW,1|MB_ATT_HEALING,2|MB_ATT_FRAGS,2|MB_ATT_WRISTLASER|MB_ATT_MANDO_PISTOL,3|MB_ATT_FLAMETHROWER,1|MB_ATT_FUEL,3|MB_ATT_AMMO,4|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_TRACKING_BEACON
-
- AB_PDartFlags HELD_HIGHDAMAGE|HELD_TRACKING
- //AB_GHookFlags HELD_HIGHDAMAGE|HELD_PULL|HELD_SLIPPERY|HELD_KNOCKDOWN
- AB_RocketFlags HELD_STUN
-
- basespeed 234
- maxhealth 125
- maxarmor  125
-
- forcepool  120
- resource  RESOURCE_FUEL
-
- damageGiven 1.1
- knockbackTaken 0.9
- knockbackGiven 1.1
-
- special1   EAS_HI_ROCKET
- special2   EAS_HI_FLAME
- special3   EAS_HI_QUICKTHROW
- special4   EAS_HI_POISON
- meleespecial4   EAS_HI_POISON
-
- modelscale  1.02
- model "jangofett"
- skin  "default"
- uishader "models/players/jangofett/mb2_icon_default"
- 
- model_1 "jangofett"
- skin_1  "jetpack2"
- uishader_1 "models/players/jangofett/mb2_icon_jetpack2"
- 
- uioverlay_r "gfx/icons/aerial"
- uioverlay_l "gfx/icons/scout"
- 
- flourishAnim BOTH_STAND5TOAIM
- gloatAnim BOTH_JANGO_TAUNT
+	knockbackTaken .8
+	knockbackGiven .8
+	
+	special1			EAS_HI_ROCKET
+	special2			EAS_HI_TRACKER
+	special3			EAS_HI_KICK
+	special4			EAS_HI_WRIST
+	meleespecial4		EAS_HI_GRAPPLEHOOK
+	modelscale  1
+	model	"jangofett"
+	skin		"default"
+	uishader	"models/players/jangofett/mb2_icon_default"
+	model_1		"jangofett"
+	skin_1		"jetpack2"
+	uishader_1	"models/players/jangofett/mb2_icon_jetpack2"
+	
+	uioverlay_r "gfx/icons/aerial"
+	uioverlay_l "gfx/icons/scout"
+	
+	//respawncustomtime 50000
 }
-
 WeaponInfo0
 {
- WeaponToReplace  WP_PROJ
- WeaponBasedOff  WP_DISRUPTOR
- NewWorldModel   "models/weapons2/zamrifle/zamrifle_w.glm"
- NewViewModel   "models/weapons2/zamrifle/zamrifle.md3"
- Icon     "gfx/hud/w_icon_zamrifle"
- FlashSound0   "sound/weapons/RC_Sniper/fire.mp3"
- WeaponName   "Jango's Projectile Rifle"
- PrimHitscanShot  1
- PrimHitscanTracer 10
- clipSize   1
- customAmmo 7
- damagemod 0.9
- rateMod 1.1
+WeaponToReplace WP_MANDO_PISTOL
+WeaponBasedOff WP_MANDO_PISTOL
+WeaponName "Jango's Dual Westars"
+NewWorldModel		"models/weapons2/westar34/westar34.glm"
+NewViewModel		"models/weapons2/westar34/westar34.md3"
+Icon	"gfx/hud/w_icon_westar_3.tga"
+Clipsize	32
+customAmmo 1000
+rateMod .95
+damageMod 1.05
+velocityMod	1.05
+FPMult 1.05
+reloadTimeModifier 1.65
+}
+WeaponInfo1
+{
+	WeaponToReplace		WP_THROWER
+	WeaponBasedOff		WP_THROWER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_wristflamerjango_na"
+	WeaponName		"Jango's Wrist Flamethrower"
+	clipSize 30
+	CustomAmmo 120
+	hasAnimOverrides 1
+	animReady BOTH_FORCE_DRAIN_START
+	animReadyWalk BOTH_FORCE_DRAIN_START
+	animReadyRun BOTH_FORCE_DRAIN_START
+	animReadyNoAmmo BOTH_FORCE_DRAIN_START
+	animStand BOTH_FORCEPUSH
+	animAttack BOTH_MAND_FLAME_READY
+	animAttackWalk BOTH_MAND_FLAME_READY
+	animAttackRun BOTH_MAND_FLAME_READY
+	rateMod 1.2
+	reloadTimeModifier 90
+}
+WeaponInfo2
+{
+	WeaponToReplace		WP_SABER			
+	WeaponBasedOff		WP_SABER			
+	NewWorldModel		"models\weapons2\jangoblade\jangoblade.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  
+	Icon			"models/weapons2/halo_melee/icon.png"
+	WeaponName		"Jango's Armblade"  
+}
+WeaponInfo3
+{
+	WeaponToReplace		WP_ROCKET_LAUNCHER			
+	WeaponBasedOff		WP_ROCKET_LAUNCHER			
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon			"gfx/hud/w_icon_wristrocketjango_na"
+	clipSize 1
+	CustomAmmo 4
+	velocityMod 1.7
+	damageMod .65
+	reloadTimeModifier 1.7
+	primFireEnabled 0
+	MissileMissEffect      "Grenades/EXP_Alt"
+	MissileEffect		"rockets/missile" 
  hasAnimOverrides 1
- animReadyRun BOTH_DC15_IDLE
- animReady BOTH_DC15_IDLE
- animReadyWalk BOTH_WESTARM5_IDLE
- animReadyNoAmmo BOTH_DC15_ATTACK
- animStand BOTH_STAND1 //lower
+	animReady BOTH_S1_S7
+    animReadyWalk BOTH_SABERSTAFF_STANCE
+    animReadyRun BOTH_SABERSTAFF_STANCE
+    animReadyNoAmmo BOTH_S1_S7
+    animStand BOTH_SABERSTAFF_STANCE
+    animAttack BOTH_FORCE_DRAIN_GRAB_HOLD
+    animAttackWalk BOTH_FORCE_DRAIN_GRAB_HOLD
+    animAttackRun BOTH_FORCE_DRAIN_GRAB_HOLD
+	animCharge	BOTH_FORCE_DRAIN_START
+	WeaponName		"Jango's Wrist Rockets"  
 }
 
-description "Jango Fett
+description	"Jango Fett [Mandalorian]
 
-A simple man trying to make his way in the universe.
+The greatest bounty hunter in the galaxy during his day, boasting a jetpack, a grappling hook, an armblade, fast dual pistols, damage resistances, and a slew of offensive gadgets.
 
 ^2Weaponry:
 - Melee
+- Beskar Armblade (Cyan)
+-- Saber Chain Limit: 2
+-- Saber Damage (80)
+-- Saber Defense (1)
+-- Blaster Defense (0)
+- Wrist Flamethrower (Thrower)
+-- 20% slower RoF
+-- 90x longer reload
+- Wrist Rockets (5)(Rocket Launcher 3)
+-- 70% faster velocity
+-- 35% less dmg
+-- 170% longer reload
+-- Alt-fire only
+-- Staggers on hit
 - WESTAR-34 Blaster Pistols (3)
-- Frag Grenades (2)
-- Jango's Projectile Rifle
--- Hitscan rounds
--- 10% less damage
--- 10% slower RoF
+-- 5% faster RoF
+-- 5% faster velocity
+-- 5% more dmg
+-- 5% more FP dmg
+-- 65% slower reload
+
+^6Inventory:
+- Binoculars
+- Medpac
 
 ^8Attributes:
-- 10% more knockback given
-- 10% less knockback taken
+- 20% less KB taken
+- 20% less KB given
+- 50% slower skill cooldown
 - Beskar (3)
+- Dexterity (3)
 - Blast Armor
-- Healing (2)
+- Healing (1)
 - Tracking Beacon
+- Anti-Mind Trick (1)
 
 ^3Abilities:
 - Jetpack
--- Rocket ^3[CS1]
---- Staggers on det
-- Wrist Flamethrower ^3[Melee Weap Mode ^3CS2]
-- Wrist Laser ^3[Melee Weap Mode CS2]
-- Quickthrow (1) ^3[CS3]
-- Velocity-7 Poison Dart Shooter ^3[Melee ^3CS4]
--- Tracks on hit
--- 100% more damage"
+- Rocket ^3[CS1*]
+- Poison + Tracking Darts (6) ^3[CS2*]
+- Gun Kick ^3[CS3*]
+- Wrist Laser ^3[CS4]
+- Grappling Hook (1) ^3[CS4 Melee*]"
+-- Pulls/disarms/cripples on hit
