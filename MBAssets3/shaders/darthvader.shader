@@ -18,7 +18,7 @@ models/players/darthvader/cape
 	cull	twosided
 	{
 		map models/players/darthvader/cape
-		alphaFunc GE192
+		alphaFunc GE128
 		rgbGen lightingDiffuse
 	}
 }
@@ -142,7 +142,7 @@ models/players/darthvader/cape_bw
 	cull	twosided
     {
         map models/players/darthvader/cape_bw
-        alphaFunc GE192
+        alphaFunc GE128
         rgbGen lightingDiffuse
     }
 }
@@ -152,7 +152,7 @@ models/players/darthvader/mask_bw
 	cull	twosided
 	{
 		map models/players/darthvader/mask_bw
-		alphaFunc GE192
+		alphaFunc GE128
 		rgbGen lightingDiffuse
 	}
 	{
@@ -215,7 +215,6 @@ models/players/darthvader/helmet_damage
 
 models/players/darthvader/body_bw
 {
-	q3map_onlyvertexlighting
 	{
 		map models/players/darthvader/body_bw
 		blendFunc GL_ONE GL_ZERO
@@ -231,7 +230,6 @@ models/players/darthvader/body_bw
 
 models/players/darthvader/body2_bw
 {
-	q3map_onlyvertexlighting
 	{
 		map models/players/darthvader/body2_bw
 		blendFunc GL_ONE GL_ZERO
@@ -277,11 +275,10 @@ models/players/darthvader/controls_bw2
 
 models/players/darthvader/cape_bw2
 {
-	q3map_material	Fabric
 	cull	disable
     {
         map models/players/darthvader/cape_bw2
-        alphaFunc GE192
+        alphaFunc GE128
         rgbGen lightingDiffuse
     }
 }
@@ -289,10 +286,9 @@ models/players/darthvader/cape_bw2
 
 models/players/darthvader/body_bw2
 {
-	q3map_onlyvertexlighting
 	{
 		map models/players/darthvader/body_bw2
-		blendFunc GL_ONE GL_ZERO
+		alphaFunc GE128
 		rgbGen lightingDiffuse
 	}
 	{
@@ -306,11 +302,10 @@ models/players/darthvader/body_bw2
 
 models/players/darthvader/cap
 {
-	q3map_material	Fabric
 	cull	disable
     {
         map models/players/darthvader/cap
-        alphaFunc GE192
+        alphaFunc GE128
         rgbGen lightingDiffuse
     }
     {
@@ -334,7 +329,7 @@ models/players/darthvader/mask_bw2
 	cull	disable
     {
         map models/players/darthvader/mask_bw2
-        alphaFunc GE192
+        alphaFunc GE128
         rgbGen lightingDiffuse
     }
     {
@@ -368,7 +363,7 @@ models/players/darthvader/cape_infinities
 	cull	twosided
 	{
 		map models/players/darthvader/cape_infinities
-		alphaFunc GE192
+		alphaFunc GE128
 		rgbGen lightingDiffuse
 	}
 }
