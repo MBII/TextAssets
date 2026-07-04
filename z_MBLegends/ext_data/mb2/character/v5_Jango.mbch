@@ -7,24 +7,25 @@ ClassInfo
 	weapons		WP_MANDO_PISTOL|WP_THROWER
 	
 	AB_PDartFlags HELD_TRACKING|HELD_HIGHDAMAGE
-	AB_GHookFlags HELD_DISARM|HELD_PULL|HELD_KNOCKDOWN|HELD_CRIPPLE
- 	AB_RocketFlags HELD_STUN
-	WP_RocketLauncherFlags HELD_STUN|HELD_NODISARM
-	WP_MandoPistolFlags	HELD_NODISARM
-	WP_ThrowerFlags	HELD_NODISARM
+	AB_GHookFlags HELD_DISARM|HELD_PULL|HELD_KNOCKDOWN
+	WP_RocketLauncherFlags HELD_STUN
+	classflags	CFL_NO_JETPACK_COOLDOWN
 	
-	attributes	MB_ATT_BESKAR,3|MB_ATT_HEALING,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_TRACKING_BEACON|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,0|MB_ATT_POISON_DART,3|MB_ATT_BINOCULARS|MB_ATT_WRISTLASER
+	attributes	MB_ATT_BESKAR,3|MB_ATT_HEALING,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_TRACKING_BEACON|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,0|MB_ATT_POISON_DART,4|MB_ATT_BINOCULARS|MB_ATT_WRISTLASER
 	
 	basespeed   230
 	maxhealth	110
 	maxarmor		110
 	rankArmor	130
 	
-	skilltimermod 1.25
+	special1HUD	HUD_POISONDART 
+	special2HUD	HUD_WRISTLASER
 	
-	forcepool 	20
+	skilltimermod 1.25
+	rankSTM 1
+	
+	forcepool 	25
 	resource		RESOURCE_FUEL
-	rankForcepool	45
 	
 	saberdamage 80
 	APmultiplier    1.30
@@ -34,14 +35,14 @@ ClassInfo
 	saber1		jangobladeyes
 	saberstyle	SS_TAVION
 	resourceRegenAmount 1
-	resourceRegenRate 1075
+	resourceRegenRate 1100
 
 	knockbackTaken .85
-	knockbackGiven .85
+	knockbackGiven .95
 	
 	special1			EAS_HI_ROCKET
-	special2			EAS_HI_TRACKER
-	special3			EAS_HI_WRIST
+	special2			EAS_HI_WRIST
+	special3			EAS_HI_POISON
 	special4			EAS_HI_KICK
 	meleespecial4		EAS_HI_GRAPPLEHOOK
 	modelscale  1
@@ -56,7 +57,8 @@ ClassInfo
 	uioverlay_l "gfx/icons/scout"
 	
 	//respawncustomtime 50000
-	isCustomBuild	1
+	isCustomBuild 1
+	isOnlyOneSpec 1
 	hasCustomSpec 2
 	customSpecName_1 "Warrior"
 	customSpecIcon_1 "gfx/menus/alpha/Icon_Weap_BeskarChest"
@@ -69,7 +71,7 @@ ClassInfo
 	c_att_skill_0	MB_ATT_SABER
 	c_att_names_0	"Beskar Armblade (Cyan)"
 	c_att_ranks_0	0
-	c_att_descs_0 	"^7Saber Defense 1, No Blaster Block, 80 DMG"
+	c_att_descs_0 	"^7Saber Defense 1, No Blaster Block"
 
 	c_att_skill_1	MB_ATT_DEXTERITY
 	c_att_names_1	"Dexterity"
@@ -79,12 +81,12 @@ ClassInfo
 	c_att_names_2	"Wrist Rockets (Rocket Launcher)"
 	c_att_ranks_2	0,0,0
 	c_att_descs_2 	"^7Alt-fire only, Staggers on hit, 70% more velocity,
-	35% less dmg, 170% longer reload, Non-disarmable"
+	35% less dmg, 170% longer reload"
 	
 	c_att_skill_3	MB_ATT_GRAPPLE_HOOK
 	c_att_names_3	"Grappling Hook ^3[CS4 Melee]"
 	c_att_ranks_3	0
-	c_att_descs_3 	"^7Disarms/Knocksdown/Pulls/Cripples on hit"
+	c_att_descs_3 	"^7Disarms/Knocksdown/Cripples/Pulls on hit"
 	
 	
 	c_att_skill_15		MB_ATT_PROJECTILE_RIFLE
@@ -100,9 +102,10 @@ ClassInfo
 	c_att_names_17		"Frag Grenades"
 	c_att_ranks_17		0,0,0
 	
-	c_att_skill_18		MB_ATT_POWER
-	c_att_names_18		"Fuel Capacity (45)"
+	c_att_skill_18		MB_ATT_STM_MULTIPLIER
+	c_att_names_18		"Skill Cooldown (100%) "
 	c_att_ranks_18		0
+	c_att_descs_18		"^725% Faster"
 }
 WeaponInfo0
 {
@@ -126,7 +129,7 @@ WeaponInfo1
 	WeaponBasedOff		WP_THROWER
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"	
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_wristflamerjango_na"
+	Icon			"gfx/hud/w_icon_wristflamerjango"
 	WeaponName		"Jango's Wrist Flamethrower"
 	clipSize 30
 	CustomAmmo 150
@@ -157,7 +160,7 @@ WeaponInfo3
 	WeaponBasedOff		WP_ROCKET_LAUNCHER			
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_wristrocketjango_na"
+	Icon			"gfx/hud/w_icon_wristrocketjango"
 	clipSize 1
 	CustomAmmo 4
 	velocityMod 1.7
@@ -182,20 +185,20 @@ WeaponInfo4
 {
  WeaponToReplace  WP_PROJ
  WeaponBasedOff  WP_DISRUPTOR
- NewWorldModel   "models/weapons2/zamrifle/zamrifle_w.glm"
- NewViewModel   "models/weapons2/zamrifle/zamrifle.md3"
- Icon     "gfx/hud/w_icon_zamrifle"
+	NewWorldModel		"models/weapons2/proj_rifle/proj_rifle_w.glm"
+	NewViewModel		"models/weapons2/proj_rifle/proj_rifle.md3"
+	Icon				"gfx/hud/w_icon_proj_rifle"
  FlashSound0   "sound/weapons/RC_Sniper/fire.mp3"
  WeaponName   "Jango's Projectile Rifle"
  PrimHitscanShot  1
  PrimHitscanTracer 10
  clipSize   1
- customAmmo 7
+ customAmmo 5
  damagemod 0.9
  rateMod 1.1
  hasAnimOverrides 1
- animReadyRun BOTH_DC15_IDLE
- animReady BOTH_DC15_IDLE
+ animReadyRun BOTH_WESTARM5_IDLE
+ animReady BOTH_WESTARM5_IDLE
  animReadyWalk BOTH_WESTARM5_IDLE
  animReadyNoAmmo BOTH_DC15_ATTACK
  animStand BOTH_STAND1 //lower
@@ -207,23 +210,23 @@ The greatest bounty hunter in the galaxy during his day boasting a wide armory a
 
 ^2Weaponry:
 - Melee
-- Wrist Flamethrower (Thrower)
--- Not disarmable
--- 20% slower RoF
--- 90x longer reload
 - WESTAR-34 Blaster Pistols (3)
--- Not disarmable
+-- Non-disarmable
 -- 5% faster RoF
 -- 5% faster velocity
 -- 5% more dmg
 -- 5% more FP dmg
+- Wrist Flamethrower (Thrower)
+-- Non-disarmable
+-- 20% slower RoF
+-- 90x longer reload
 
 ^6Inventory:
 - Binoculars
 
 ^8Attributes:
 - 15% less KB taken
-- 15% less KB given
+- 5% less KB given
 - 25% slower skill cooldown
 - Beskar (3)
 - Blast Armor
@@ -232,10 +235,7 @@ The greatest bounty hunter in the galaxy during his day boasting a wide armory a
 
 ^3Abilities:
 - Jetpack
-- Rocket ^3[CS1*]
--- Staggers on det
-- Velocity-7 Poison Dart Shooter ^3[Melee ^3CS2]
--- Tracks on hit
--- 100% more damage
-- Wrist Laser ^3[CS3]
-- Gun Kick ^3[CS4*]"
+- Rocket ^3[CS1]
+- Wrist Laser ^3[CS2]
+- Poison + Tracking Darts (6) ^3[CS3 Melee]
+- Gun Kick ^3[CS4]"
