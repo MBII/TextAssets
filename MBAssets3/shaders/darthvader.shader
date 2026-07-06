@@ -437,3 +437,13 @@ models/players/darthvader/body2_infinities
 		alphaGen lightingSpecular
 	}
 }
+
+models/players/darthvader/zombie_cape
+{
+	cull	twosided
+	{
+		map models/players/darthvader/zombie_cape
+		alphaFunc GE128
+		rgbGen lightingDiffuse
+	}
+}
