@@ -2,7 +2,7 @@
 {
 	menuDef 
 	{
-		name					"help_menu"
+		name					"newlibrary"
 		fullScreen				0
 		rect					30 30 580 420					// Size and position of the menu
 		focusColor				1 1 1 0.6				// Focus color for text and items
@@ -14,15 +14,354 @@
 		visible					1
 		onOpen 
 		{
+			hide main
 			hide all
+			show main
 		//	exec				"vstr ui_help_class; vstr ui_help_weapon; vstr ui_help_force; vstr ui_help_gamemode; vstr ui_help_strategy; vstr ui_help_faq"
 		}
 		onESC 
 		{ 
 			play				"sound/interface/back.mp3" ;
-			close				all ;
+			close				newlibrary;
 			open				ingame
 			open				main_nomusic
+		}
+
+
+		itemDef
+		{
+			name helpmenuScripts
+			type ITEM_TYPE_BUTTON
+			rect 0 0 0 0
+			case "1special"
+			{
+				setitemrect special1 351 254 20 26
+
+				setitemrect special1Keybind 348 295 26 10
+
+				setitemrect special1Text 318 310 90 95
+			}
+			case "2specials"
+			{
+				setitemrect special1 265 254 20 26
+				setitemrect special2 436 254 20 26
+
+				setitemrect special1Keybind 262 295 26 10
+				setitemrect special2Keybind 432 295 26 10
+
+				setitemrect special1Text 230 310 90 95
+				setitemrect special2Text 400 310 90 95
+			}
+			case "3specials"
+			{
+				setitemrect special1 220 254 20 26
+				setitemrect special2 355 254 20 26
+				setitemrect special3 487 254 20 26
+
+				setitemrect special1Keybind 217 295 26 10
+				setitemrect special2Keybind 352 295 26 10
+				setitemrect special3Keybind 484 295 26 10
+
+				setitemrect special1Text 188 310 90 95
+				setitemrect special2Text 321 310 90 95
+				setitemrect special3Text 452 310 90 95
+			}
+			case "4specials"
+			{
+				setitemrect special1 195 254 20 26
+				setitemrect special2 304 254 20 26
+				setitemrect special3 408 254 20 26
+				setitemrect special4 512 254 20 26
+
+				setitemrect special1Keybind 192 295 26 10
+				setitemrect special2Keybind 301 295 26 10
+				setitemrect special3Keybind 405 295 26 10
+				setitemrect special4Keybind 509 295 26 10
+
+				setitemrect special1Text 160 310 90 95
+				setitemrect special2Text 269 310 90 95
+				setitemrect special3Text 373 310 90 95
+				setitemrect special4Text 477 310 90 95
+			}
+			case "redirection"
+			{
+				setcvar ui_library_extragroup "    ";
+				setcvartocvar ui_libraryPrev ui_library;
+			}
+			case "closeweaponsmenu"
+			{
+				close mb_weapon_a280; 			close mb_weapon_amban; 			 close mb_weapon_arcpistols;
+				close mb_weapon_bowcaster; 		close mb_weapon_clonepistol; 	 clonse mb_weapon_clonerifle;
+				close mb_weapon_disruptor; 		close mb_weapon_dlt20a; 		 close mb_weapon_droidekablaster;
+				close mb_weapon_e11; 			close mb_weapon_ee3; 			 close mb_weapon_empgrenade;
+				close mb_weapon_fireggrenade; 	close mb_weapon_fraggrenade; 	 close mb_weapon_pistol;
+				close mb_weapon_plx; 			close mb_weapon_proj; 			 close mb_weapon_sbdblaster;
+				close mb_weapon_sonicgrenade; 	close mb_weapon_t21; 			 close mb_weapon_thermaldetonator;
+				close mb_weapon_westarm5; 		close mb_weapon_westarm5launcher; close mb_weapon_westarm5scope;
+				close mb_weapon_westarpistol
+			}
+		}
+
+
+		itemDef
+		{
+			name fpScripts
+			type ITEM_TYPE_BUTTON
+			rect 0 0 0 0
+			case "fpJump"
+			{
+				setcvar ui_library "main_forcepowers_jump"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_jump"
+				setitemtext bannerFP @NEWHELP_FP_JUMP_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_JUMP_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_JUMP_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_JUMP_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_JUMP_LVL3
+				hide all
+			}
+			case "fpPush"
+			{
+				setcvar ui_library "main_forcepowers_push"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_push"
+				setitemcinematic panelCinematic "forcepower_push"
+				setitemtext bannerFP @NEWHELP_FP_PUSH_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_PUSH_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_PUSH_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_PUSH_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_PUSH_LVL3
+				hide all
+			}
+			case "fpPull"
+			{
+				setcvar ui_library "main_forcepowers_pull"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_pull"
+				setitemtext bannerFP @NEWHELP_FP_PULL_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_PULL_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_PULL_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_PULL_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_PULL_LVL3
+				hide all
+			}
+			case "fpSeeing"
+			{
+				setcvar ui_library "main_forcepowers_seeing"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_sight"
+				setitemtext bannerFP "FORCE SEEING"
+				setitemtext fpTextscroll @NEWHELP_FP_SEE_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_SEE_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_SEE_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_SEE_LVL3
+				hide all
+			}
+			case "fpSaberThrow"
+			{
+				setcvar ui_library "main_forcepowers_st"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_saber_throw"
+				setitemtext bannerFP @NEWHELP_FP_SABERTHROW_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_SABERTHROW_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_SABERTHROW_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_SABERTHROW_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_SABERTHROW_LVL3
+				hide all
+			}
+			case "fpHeal"
+			{
+				setcvar ui_library "main_forcepowers_heal"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_lt_heal"
+				setitemtext bannerFP @NEWHELP_FP_HEAL_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_HEAL_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_HEAL_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_HEAL_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_HEAL_LVL3
+				hide all
+			}
+			case "fpProtect"
+			{
+				setcvar ui_library "main_forcepowers_protect"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_lt_protect"
+				setitemtext bannerFP @NEWHELP_FP_PROTECT_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_PROTECT_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_PROTECT_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_PROTECT_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_PROTECT_LVL3
+				hide all
+			}
+			case "fpAbsorb"
+			{
+				setcvar ui_library "main_forcepowers_absorb"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_lt_absorb"
+				setitemtext bannerFP @NEWHELP_FP_ABSORB_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_ABSORB_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_ABSORB_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_ABSORB_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_ABSORB_LVL3
+				hide all
+			}
+			case "fpBlind"
+			{
+				setcvar ui_library "main_forcepowers_blind"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/force_blind"
+				setitemtext bannerFP @NEWHELP_FP_BLIND_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_BLIND_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_BLIND_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_BLIND_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_BLIND_LVL3
+				hide all
+			}
+			case "fpStasis"
+			{
+				setcvar ui_library "main_forcepowers_stasis"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_jump"
+				setitemtext bannerFP @NEWHELP_FP_STASIS_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_STASIS_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_STASIS_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_STASIS_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_STASIS_LVL3
+				hide all
+			}
+			case "fpTeamHeal"
+			{
+				setcvar ui_library "main_forcepowers_teamheal"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_lt_healother"
+				setitemtext bannerFP @NEWHELP_FP_TEAMHEAL_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_TEAMHEAL_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_TEAMHEAL_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_TEAMHEAL_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_TEAMHEAL_LVL3
+				hide all
+			}
+			case "fpSpeed"
+			{
+				setcvar ui_library "main_forcepowers_speed"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_speed"
+				setitemtext bannerFP @NEWHELP_FP_SPEED_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_SPEED_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_SPEED_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_SPEED_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_SPEED_LVL3
+				hide all
+			}
+			case "fpMindtrick"
+			{
+				setcvar ui_library "main_forcepowers_mindtrick"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_lt_mind_trick"
+				setitemtext bannerFP @NEWHELP_FP_TELEPATHY_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_TELEPATHY_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_TELEPATHY_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_TELEPATHY_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_TELEPATHY_LVL3
+				hide all
+			}
+			case "fpGrip"
+			{
+				setcvar ui_library "main_forcepowers_grip"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_dk_grip"
+				setitemtext bannerFP @NEWHELP_FP_GRIP_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_GRIP_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_GRIP_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_GRIP_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_GRIP_LVL3
+				hide all
+			}
+			case "fpLightning"
+			{
+				setcvar ui_library "main_forcepowers_lightning"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_dk_l1"
+				setitemtext bannerFP @NEWHELP_FP_LIGHTNING_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_LIGHTNING_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_LIGHTNING_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_LIGHTNING_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_LIGHTNING_LVL3
+				hide all
+			}
+			case "fpRage"
+			{
+				setcvar ui_library "main_forcepowers_rage"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_dk_rage"
+				setitemtext bannerFP @NEWHELP_FP_RAGE_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_RAGE_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_RAGE_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_RAGE_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_RAGE_LVL3
+				hide all
+			}
+			case "fpDarkRage"
+			{
+				setcvar ui_library "main_forcepowers_darkrage"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_dk_rage"
+				setitemtext bannerFP @NEWHELP_FP_DARKRAGE_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_DARKRAGE_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_DARKRAGE_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_DARKRAGE_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_DARKRAGE_LVL3
+				hide all
+			}
+			case "fpDrain"
+			{
+				setcvar ui_library "main_forcepowers_drain"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_dk_drain"
+				setitemtext bannerFP @NEWHELP_FP_DRAIN_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_DRAIN_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_DRAIN_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_DRAIN_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_DRAIN_LVL3
+				hide all
+			}
+			case "fpTeamEnergize"
+			{
+				setcvar ui_library "main_forcepowers_teamenergize"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/new_f_icon_dk_forceother"
+				setitemtext bannerFP @NEWHELP_FP_ENERGIZE_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_ENERGIZE_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_ENERGIZE_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_ENERGIZE_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_ENERGIZE_LVL3
+				hide all
+			}
+			case "fpDestruction"
+			{
+				setcvar ui_library "main_forcepowers_destruction"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/force_destruction"
+				setitemtext bannerFP @NEWHELP_FP_DESTRUCTION_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_DESTRUCTION_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_DESTRUCTION_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_DESTRUCTION_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_DESTRUCTION_LVL3
+				hide all
+			}
+			case "fpDeadlySight"
+			{
+				setcvar ui_library "main_forcepowers_deadlysight"
+				setcvar ui_library_extragroup "forcepowers_template"
+				setitembackground iconFP "gfx/mp/deadly_sight"
+				setitemtext bannerFP @NEWHELP_FP_DEADLYSIGHT_TITLE
+				setitemtext fpTextscroll @NEWHELP_FP_DEADLYSIGHT_DESC
+				setitemtext fpLevel1Text @NEWHELP_FP_DEADLYSIGHT_LVL1
+				setitemtext fpLevel2Text @NEWHELP_FP_DEADLYSIGHT_LVL2
+				setitemtext fpLevel3Text @NEWHELP_FP_DEADLYSIGHT_LVL3
+				hide all
+			}
+
 		}
 
 //----------------------------------------------------------------------------------------------
@@ -74,6 +413,9 @@
 			cinematic			"LibraryDuel_BackgroundVid.roq"
 			forecolor			1 1 1 1
 			visible				1
+			border 1
+			bordersize 0
+			bordercolor 0.25 0.25 0.25 0
 			decoration
 		}
 
@@ -120,6 +462,9 @@
 			}
 			action{
 				setcvar ui_library "main"
+				setcvar ui_library_extragroup "   "
+				uiscript2 helpmenuScripts "closeweaponsmenu"
+				setitembordersize panelCinematic 0
 			}
 		}
 
@@ -144,11 +489,151 @@
 			}
 			action{
 				setfocus btnback
+				setcvar ui_library_model "   "
+				setcvar ui_library_extragroup "   "
 				uiscript libraryBtnBack
+				setitemcinematic panelCinematic "q"
+				setitembordersize panelCinematic 0
 				setfocus btnBack
 				show btn_arrow_hl
+				uiscript2 helpmenuScripts "closeweaponsmenu"
 			}
 		}
+
+		itemDef
+		{
+			name WIPLibrary
+			group main
+			style WINDOW_STYLE_SHADER
+			type ITEM_TYPE_TEXT
+			rect			156 43 150 25
+			background "gfx/menus/blackMask"
+			textscale 0.3
+			text ""
+			font 6
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -4
+			forecolor			1 1 0 1//1 1 0 1
+			border 1
+			bordersize 1
+			bordercolor 0.5 1 0 1
+			visible				0
+			onVisible
+			{
+				transition WIPLibrary 12 10 0 50 12 10 550 50 10 30
+				setitemtext WIPLibrary "WORK IN PROGRESS"
+			}
+			visibleLoop
+			{
+				setcolor bordercolor 1 1 1 1
+				delay 100;
+				setcolor bordercolor 0.9 0.9 0.9 1
+				delay 100;
+				setcolor bordercolor 0.8 0.8 0.8 1
+				delay 100;
+				setcolor bordercolor 0.7 0.7 0.7 1
+				delay 100;
+				setcolor bordercolor 0.6 0.6 0.6 1
+				delay 100;
+				setcolor bordercolor 0.5 0.5 0.5 1
+				delay 100;
+				setcolor bordercolor 0.4 0.4 0.4 1
+				delay 100;
+				setcolor bordercolor 0.3 0.3 0.3 1
+				delay 100;
+				setcolor bordercolor 0.2 0.2 0.2 1
+				delay 100;
+				setcolor bordercolor 0.3 0.3 0.3 1
+				delay 100;
+				setcolor bordercolor 0.4 0.4 0.4 1
+				delay 100;
+				setcolor bordercolor 0.5 0.5 0.5 1
+				delay 100;
+				setcolor bordercolor 0.6 0.6 0.6 1
+				delay 100;
+				setcolor bordercolor 0.7 0.7 0.7 1
+				delay 100;
+				setcolor bordercolor 0.8 0.8 0.8 1
+				delay 100;
+				setcolor bordercolor 0.9 0.9 0.9 1
+				delay 100;
+			}
+			decoration
+		}
+
+		itemDef
+		{
+			name btnWeaponsNext
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				535 10 22 24
+			background2 "gfx/menus/alpha/Btn_Arrow"
+			bg2Rect 535 10 -22 24
+			forecolor			1 1 1 0.1
+			visible				1
+			onFocus
+			{
+				setcolor forecolor 1 1 1 0.25
+				setitemrect btn_arrow_hl 535 10 -22 24
+				show btn_arrow_hl
+			}
+			leaveFocus
+			{
+				setcolor forecolor 1 1 1 0.1
+				setitemrect btn_arrow_hl 35 10 22 24
+				hide btn_arrow_hl
+			}
+			action{
+				hide btn_arrow_hl
+				setcvar ui_library "main_weapons_2"
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		itemDef
 		{
@@ -207,7 +692,7 @@
 
 		itemDef
 		{
-			name gamemodes
+			name abilities
 			group main
 			type ITEM_TYPE_BUTTON
 			style WINDOW_STYLE_SHADER
@@ -223,11 +708,11 @@
 				setitemcinematic panelCinematic "LibraryDuel_BackgroundVid.roq"
 				setitemrect panelCinematic 	223 72 137 127										// 0 0 109 127, so +3 +2 -3 +0
 				setcolor bordercolor 1 0.5 0 1
-				setitemcolor gamemodes_gfx forecolor 1 0.5 0 1
+				setitemcolor abilities_gfx forecolor 1 0.5 0 1
 			}
 			mouseExit
 			{
-				setitemcolor gamemodes_gfx forecolor 1 1 1 0.75;
+				setitemcolor abilities_gfx forecolor 1 1 1 0.75;
 				setcolor bordercolor 1 1 1 0.5;
 				setitemcinematic panelCinematic "q"
 			}
@@ -235,19 +720,18 @@
 			{
 				setitemcinematic panelCinematic "q"
 				play "sound/interface/button1"
-				setcvar ui_library "main_gamemodes"
-				setcvar ui_libraryPrev "main"
+				setcvar ui_library "main_abilities"
 				hide all
 			}
 		}
 
 		itemDef
 		{
-			name gamemodes_gfx
+			name abilities_gfx
 			group main
 			style WINDOW_STYLE_SHADER
 			type ITEM_TYPE_TEXT
-			text "GAME MODES"
+			text "ABILITIES"
 			font 7
 			textscale 0.25
 			textalign ITEM_ALIGN_MIDDLE
@@ -290,7 +774,6 @@
 				setitemcinematic panelCinematic "q"
 				play "sound/chars/mp_generic_male/misc/cls_clone2"
 				setcvar ui_library "main_classes"
-				setcvar ui_libraryPrev "main"
 				hide all
 			}
 		}
@@ -346,7 +829,6 @@
 				setitemcinematic panelCinematic "q"
 				play "sound/weapons/z6/chaingun_spinup"
 				setcvar ui_library "main_weapons"
-				setcvar ui_libraryPrev "main"
 				hide all
 			}
 		}
@@ -400,7 +882,8 @@
 				setitemcinematic panelCinematic "q"
 				play "sound/weapons/force/lightninghit1"
 				setcvar ui_library "main_forcepowers"
-				setcvar ui_libraryPrev "main"
+				setitemrect panelCinematic 406 53 160 200
+				setitemcolor panelCinematic bordercolor 1 0.5 0 1
 				hide all
 			}
 		}
@@ -425,16 +908,21 @@
 
 		itemDef
 		{
-			name events
+			name gamemodes
 			group main
 			type ITEM_TYPE_BUTTON
-			style WINDOW_STYLE_FILLED
-			rect				390 220 140 41
-			text "OTHER"
+			style WINDOW_STYLE_SHADER
+			rect				390 220 140 63.5
+			text "GAMEMODES"
+			background "gfx/menus/blackMask"
+			background2 "gfx/menus/mb_open"
+			bg2rect 396 237 28 28
+			notextblink 1
 			font 7
-			textscale 0.25
-			textalign ITEM_ALIGN_MIDDLE
-			textaligny -5
+			textscale 0.215
+			textalign ITEM_ALIGN_LEFT
+			textalignx 38
+			textaligny 10
 			border 1
 			bordersize 2
 			bordercolor 1 1 1 0.5
@@ -443,11 +931,18 @@
 			visible				1
 			mouseEnter
 			{
+				setcolor forecolor 1 0.5 0 1
 				setcolor bordercolor 1 0.5 0 1
 			}
 			mouseExit
 			{
+				setcolor forecolor 1 1 1 1
 				setcolor bordercolor 1 1 1 0.5
+			}
+			action
+			{
+				setcvar ui_library "main_gamemodes"
+				hide all
 			}
 		}
 
@@ -457,40 +952,14 @@
 			group main
 			type ITEM_TYPE_BUTTON
 			style WINDOW_STYLE_FILLED
-			rect				390 261 140 41
-			text "OTHER2"
+			rect				390 285 140 63.5
+			text "ITEMS"
+			notextblink 1
 			font 7
-			textscale 0.25
-			textalign ITEM_ALIGN_MIDDLE
-			textaligny -5
-			border 1
-			bordersize 2
-			backcolor 0 0 0 0.65
-			bordercolor 1 1 1 0.5
-			forecolor			1 1 1 1
-			visible				1
-			mouseEnter
-			{
-				setcolor bordercolor 1 0.5 0 1
-			}
-			mouseExit
-			{
-				setcolor bordercolor 1 1 1 0.5;
-			}
-		}
-
-		itemDef
-		{
-			name other2
-			group main
-			type ITEM_TYPE_BUTTON
-			style WINDOW_STYLE_FILLED
-			rect				390 302 140 41
-			text "OTHER3"
-			font 7
-			textscale 0.25
-			textalign ITEM_ALIGN_MIDDLE
-			textaligny -5
+			textscale 0.215
+			textalign ITEM_ALIGN_LEFT
+			textalignx 38
+			textaligny 8
 			border 1
 			bordersize 2
 			backcolor 0 0 0 0.65
@@ -1187,6 +1656,92 @@
 
 
 
+
+
+
+
+
+
+
+			// =================================================================
+			// 							ABILITIES
+			// =================================================================
+
+
+		itemDef
+		{
+			name abilitiestext
+			group main_abilities
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				99 15 400 40
+			background			"gfx/menus/blackMask"
+			text "ABILITIES / CLASS SPECIALS"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -2
+			border 4
+			bordersize 2
+			bordercolor 1 0.5 0 1
+			forecolor			1 1 1 0.65 
+			visible				0
+			noTextBlink 1
+			decoration
+			onVisible
+			{
+				transition abilitiestext 99 -200 400 40 99 15 400 40 10 42
+			}
+		}
+
+
+		itemDef
+		{
+			name abilityTextscroll
+			group main_abilities
+			type ITEM_TYPE_TEXTSCROLL
+			style 				WINDOW_STYLE_SHADER
+			background "gfx/menus/blackMask"
+			rect			79 75 450 325
+			lineheight 13
+			text @NEWHELP_CS_ALLABILITIES
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_LEFT
+			forecolor			1 1 1 0.65
+			visible				0
+			onVisible
+			{
+				transition abilityTextscroll 79 -80 450 325  79 75 450 325 10 30
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+			// =================================================================
+			// 							/ABILITIES
+			// =================================================================
+
+
+
+
+
+
+
+
+
+
+
 			// =================================================================
 			// 							GAMEMODES
 			// =================================================================
@@ -1198,7 +1753,7 @@
 			group main_gamemodes
 			type ITEM_TYPE_BUTTON
 			style WINDOW_STYLE_SHADER
-			rect				150 60 300 40
+			rect				23 40 250 40
 			background			"gfx/menus/blackMask"
 			text "MAIN GAMEMODES"
 			font 7
@@ -1216,62 +1771,344 @@
 
 		itemDef
 		{
-			name openmode
+			name mainmodes
 			group main_gamemodes
 			type ITEM_TYPE_BUTTON
 			style WINDOW_STYLE_SHADER
-			rect				154 60 100 140
-			background			"gfx/menus/sabering_picMask"
-			text "BEGINNER"
+			rect				23 225 250 40
+			background			"gfx/menus/blackMask"
+			text "SUB GAMEMODES"
 			font 7
-			textscale 0.11
+			textscale 0.225
 			textalign ITEM_ALIGN_MIDDLE
-			textalignx -1
-			textaligny 24
-			border 1
+			textaligny -2
+			border 4
 			bordersize 2
-			bordercolor 1 1 1 0.5
+			bordercolor 1 0.5 0 1
 			forecolor			1 1 1 0.65 
 			visible				1
 			noTextBlink 1
-			mouseEnter
+			decoration
+		}
+
+		itemDef
+		{
+			name selectedMode
+			group gamemodes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				299 42 250 40
+			background			"gfx/menus/blackMask"
+			text "GAMEMODE: DUEL"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -2
+			border 4
+			bordersize 2
+			bordercolor 1 0.5 0 1
+			forecolor			1 1 1 0.65 
+			visible				0
+			decoration
+			onVisible
 			{
-				setitemcinematic panelCinematic "LibraryDuel_BackgroundVid.roq"
-				setitemrect panelCinematic 	157 62 97 140										// 0 0 109 127, so +3 +2 -3 +0
-				setcolor bordercolor 0 1 0 1
-				setitemcolor perfectblock_gfx forecolor 0 1 0 1
-				setitembackground perfectblock "gfx/menus/blackMask"
-			}
-			mouseExit
-			{
-				setitembackground perfectblock	"gfx/menus/sabering_picMask"
-				setitemcolor perfectblock_gfx forecolor 1 1 1 0.75;
-				setcolor bordercolor 1 1 1 0.5;
-				setcolor forecolor 1 1 1 0.65
-				setitemcinematic panelCinematic "q"
-			}
-			action{
-				setitemcinematic panelCinematic "q"
-				play "sound/weapons/saber/saber_perfectblock4.mp3"
-				setcvar ui_library "main_sabering_perfectblock"
-				hide all
+				transition selectedMode 299 -80 250 40  299 42 250 40 10 30
 			}
 		}
 
 		itemDef
 		{
-			name openmode_gfx
+			name modeTextscroll
+			group gamemodes_template
+			type ITEM_TYPE_TEXTSCROLL
+			style 				WINDOW_STYLE_SHADER
+			background "gfx/menus/blackMask"
+			rect			301 107 250 250
+			lineheight 13
+			text "   "
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_LEFT
+			forecolor			1 1 1 0.65
+			visible				0
+			onVisible
+			{
+				transition modeTextscroll 301 -80 250 250  301 107 250 250 10 30
+			}
+		}
+
+		itemDef
+		{
+			name mode_open
 			group main_gamemodes
-			type ITEM_TYPE_TEXT
-			text "OPEN MODE"
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				54 103 80 34
+			bg2rect				56 106 28 28
+			background2 "gfx/menus/mb_open"
+			text "Open Mode"
 			font 7
-			textscale 0.15
-			textalign ITEM_ALIGN_MIDDLE
-			textaligny -50
-			rect				179 120 56 56
-			forecolor			1 1 1 0.75
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
 			visible				1
-			decoration
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 0 1 0 1
+				setcolor forecolor 0 1 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library_extragroup "gamemodes_template"
+				setitemtext selectedMode "GAMEMODE: OPEN"
+				setitemcolor selectedMode bordercolor 0 1 0 1
+				setitemtext modeTextscroll @NEWHELP_MODES_OPEN
+			}
+		}
+
+		itemDef
+		{
+			name mode_duel
+			group main_gamemodes
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				162 103 77 34
+			bg2rect				162 104 32 32
+			background2 "gfx/menus/mb_duel"
+			text "Duel Mode"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 1 0 1
+				setcolor forecolor 1 1 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library_extragroup "gamemodes_template"
+				setitemtext selectedMode "GAMEMODE: DUEL"
+				setitemcolor selectedMode bordercolor 1 1 0 1
+				setitemtext modeTextscroll @NEWHELP_MODES_DUEL
+			}
+		}
+
+		itemDef
+		{
+			name mode_fa
+			group main_gamemodes
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				52 157 85 34
+			bg2rect				52 159 32 32
+			background2 "gfx/menus/mb_fa"
+			text "Full Authentic"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0 1 1
+				setcolor forecolor 1 0 1 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library_extragroup "gamemodes_template"
+				setitemtext selectedMode "GAMEMODE: FULL AUTHENTIC"
+				setitemcolor selectedMode bordercolor 1 0 1 1
+				setitemtext modeTextscroll @NEWHELP_MODES_FA
+			}
+		}
+
+		itemDef
+		{
+			name mode_legends
+			group main_gamemodes
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				166 157 68 34
+			bg2rect				166 159 32 32
+			background2 "gfx/menus/mb_fa"
+			text "Legends"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0 1 1
+				setcolor forecolor 1 0 1 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library_extragroup "gamemodes_template"
+				setitemtext selectedMode "GAMEMODE: LEGENDS"
+				setitemcolor selectedMode bordercolor 1 0 1 1
+				setitemtext modeTextscroll @NEWHELP_MODES_LEGENDS
+			}
+		}
+
+		itemDef
+		{
+			name mode_ctf
+			group main_gamemodes
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				53 277 98 34
+			bg2rect				58 282 20 24
+			background2 "gfx/hud/mpi_nflag"
+			text "Capture The Flag"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 0.1 0.9 0.9 1
+				setcolor forecolor 0.1 0.9 0.9 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library_extragroup "gamemodes_template"
+				setitemtext selectedMode "SUBMODE: CAPTURE THE FLAG"
+				setitemcolor selectedMode bordercolor 0.1 0.9 0.9 1
+				setitemtext modeTextscroll @NEWHELP_MODES_CTF
+			}
+		}
+
+		itemDef
+		{
+			name mode_siege
+			group main_gamemodes
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				171 278 65 34
+			bg2rect				176 283 20 24
+			background2 "gfx/hud/mpi_nflag"
+			text "Siege"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 0.1 0.9 0.9 1
+				setcolor forecolor 0.1 0.9 0.9 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library_extragroup "gamemodes_template"
+				setitemtext selectedMode "SUBMODE: SIEGE"
+				setitemcolor selectedMode bordercolor 0.1 0.9 0.9 1
+				setitemtext modeTextscroll @NEWHELP_MODES_CTF
+			}
+		}
+
+				itemDef
+		{
+			name mode_progsiege
+			group main_gamemodes
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				53 322 103 34
+			bg2rect				58 327 20 24
+			background2 "gfx/hud/mpi_nflag"
+			text "Progressive Siege"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 0.1 0.9 0.9 1
+				setcolor forecolor 0.1 0.9 0.9 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library_extragroup "gamemodes_template"
+				setitemtext selectedMode "SUBMODE: PROGRESSIVE SIEGE"
+				setitemcolor selectedMode bordercolor 0.1 0.9 0.9 1
+				setitemtext modeTextscroll @NEWHELP_MODES_CTF
+			}
 		}
 
 
@@ -1353,6 +2190,22 @@
 			}
 			action{
 				setcvar ui_library "main_classes_soldier"
+				setcvar ui_library_model "rebel"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/rebel/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/reb"
+				setitembackground3 banner "gfx/menus/classes/reb"
+				setitemtext banner "CLASS: TROOPER"
+				setitemtext class_hp @NEWHELP_CLASSES_TROOPER_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_TROOPER_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_TROOPER_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_TROOPER_SPEED
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_TROOPER_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_TROOPER_DESCRIPTION
+
 			}
 		}
 
@@ -1385,6 +2238,26 @@
 			}
 			action{
 				setcvar ui_library "main_classes_et"
+				setcvar ui_library_model "rebel_guerilla"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/rebel_guerilla/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/com"
+				setitembackground3 banner "gfx/menus/classes/com"
+				setitemtext banner "CLASS: ELITE TROOPER"
+				setitemtext class_hp @NEWHELP_CLASSES_ET_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_ET_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_ET_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_ET_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_ET_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_ET_CS1
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_ET_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_ET_DESCRIPTION
+
+				uiscript2 helpmenuScripts "1special"
 			}
 		}
 
@@ -1417,6 +2290,26 @@
 			}
 			action{
 				setcvar ui_library "main_classes_clone"
+				setcvar ui_library_model "clonetrooper_p1"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/clonetrooper_p1/model_rgb.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/clone"
+				setitembackground3 banner "gfx/menus/classes/clone"
+				setitemtext banner "CLASS: CLONE TROOPER"
+				setitemtext class_hp @NEWHELP_CLASSES_CLONE_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_CLONE_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_CLONE_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_CLONE_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_CLONE_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_CLONE_CS1
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_CLONE_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_CLONE_DESCRIPTION
+
+				uiscript2 helpmenuScripts "1special"
 			}
 		}
 
@@ -1449,6 +2342,29 @@
 			}
 			action{
 				setcvar ui_library "main_classes_arc"
+				setcvar ui_library_model "clonetrooper_p1"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/clonetrooper_p1/model_arc.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/arc"
+				setitembackground3 banner "gfx/menus/classes/arc"
+				setitemtext banner "CLASS: ARC TROOPER"
+				setitemtext class_hp @NEWHELP_CLASSES_ARC_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_ARC_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_ARC_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_ARC_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_ARC_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_ARC_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_ARC_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_ARC_CS2
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_ARC_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_ARC_DESCRIPTION
+
+				uiscript2 helpmenuScripts "2specials"
 			}
 		}
 
@@ -1481,6 +2397,33 @@
 			}
 			action{
 				setcvar ui_library "main_classes_hero"
+				setcvar ui_library_model "jan"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/jan/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/hero"
+				setitembackground3 banner "gfx/menus/classes/hero"
+				setitemcolor banner bordercolor 0.953 0.378 0.25 1
+				setitemtext banner "CLASS: HERO"
+				setitemtext class_hp @NEWHELP_CLASSES_HERO_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_HERO_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_HERO_RESOURCE
+				setitemtext class_movespeed @NEWHELP_CLASSES_HERO_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_HERO_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_HERO_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_HERO_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_HERO_CS2
+
+				setitemtext special3 @NEWHELP_CLASSES_HERO_CS3TITLE
+				setitemtext special3text @NEWHELP_CLASSES_HERO_CS3
+
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_HERO_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_HERO_DESCRIPTION
+
+				uiscript2 helpmenuScripts "3specials"
 			}
 		}
 
@@ -1513,6 +2456,29 @@
 			}
 			action{
 				setcvar ui_library "main_classes_wookiee"
+				setcvar ui_library_model "chewbacca"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/chewbacca/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/wook"
+				setitembackground3 banner "gfx/menus/classes/wook"
+				setitemtext banner "CLASS: WOOKIEE"
+				setitemtext class_hp @NEWHELP_CLASSES_WOOKIEE_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_WOOKIEE_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_WOOKIEE_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_WOOKIEE_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_WOOKIEE_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_WOOKIEE_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_WOOKIEE_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_WOOKIEE_CS2
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_WOOKIEE_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_WOOKIEE_DESCRIPTION
+
+				uiscript2 helpmenuScripts "2specials"
 			}
 		}
 
@@ -1545,6 +2511,35 @@
 			}
 			action{
 				setcvar ui_library "main_classes_jedi"
+				setcvar ui_library_model "jedi"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/jedi/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/jedi"
+				setitembackground3 banner "gfx/menus/classes/jedi"
+				setitemtext banner "CLASS: JEDI"
+				setitemtext class_hp @NEWHELP_CLASSES_JEDI_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_JEDI_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_JEDI_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_JEDI_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_JEDI_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_JEDI_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_JEDI_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_JEDI_CS2
+
+				setitemtext special3 @NEWHELP_CLASSES_JEDI_CS3TITLE
+				setitemtext special3text @NEWHELP_CLASSES_JEDI_CS3
+
+				setitemtext special4 @NEWHELP_CLASSES_JEDI_CS4TITLE
+				setitemtext special4text @NEWHELP_CLASSES_JEDI_CS4
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_JEDI_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_JEDI_DESCRIPTION
+
+				uiscript2 helpmenuScripts "4specials"
 			}
 		}
 
@@ -1610,7 +2605,22 @@
 				setcolor forecolor 1 1 1 0.65
 			}
 			action{
-				setcvar ui_library "main_classes_soldier"
+				setcvar ui_library "main_classes_impsoldier"
+				setcvar ui_library_model "stormie"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/stormie/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/imp"
+				setitembackground3 banner "gfx/menus/classes/imp"
+				setitemtext banner "CLASS: SOLDIER"
+				setitemtext class_hp @NEWHELP_CLASSES_SOLDIER_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_SOLDIER_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_SOLDIER_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_SOLDIER_SPEED
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_SOLDIER_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_SOLDIER_DESCRIPTION
 			}
 		}
 
@@ -1643,6 +2653,26 @@
 			}
 			action{
 				setcvar ui_library "main_classes_com"
+				setcvar ui_library_model "imperial"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/imperial/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/com"
+				setitembackground3 banner "gfx/menus/classes/com"
+				setitemtext banner "CLASS: COMMANDER"
+				setitemtext class_hp @NEWHELP_CLASSES_COMMANDER_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_COMMANDER_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_COMMANDER_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_COMMANDER_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_COMMANDER_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_COMMANDER_CS1
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_COMMANDER_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_COMMANDER_DESCRIPTION
+
+				uiscript2 helpmenuScripts "1special"
 			}
 		}
 
@@ -1675,6 +2705,32 @@
 			}
 			action{
 				setcvar ui_library "main_classes_bh"
+				setcvar ui_library_model "rodian"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/rodian/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/bh"
+				setitembackground3 banner "gfx/menus/classes/bh"
+				setitemtext banner "CLASS: BOUNTY HUNTER"
+				setitemtext class_hp @NEWHELP_CLASSES_BH_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_BH_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_BH_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_BH_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_BH_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_BH_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_BH_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_BH_CS2
+
+				setitemtext special3 @NEWHELP_CLASSES_BH_CS3TITLE
+				setitemtext special3text @NEWHELP_CLASSES_BH_CS3
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_BH_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_BH_DESCRIPTION
+
+				uiscript2 helpmenuScripts "3specials"
 			}
 		}
 
@@ -1707,6 +2763,29 @@
 			}
 			action{
 				setcvar ui_library "main_classes_mando"
+				setcvar ui_library_model "mbmandy"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/mbmandy/model_mbrgb1.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/manda"
+				setitembackground3 banner "gfx/menus/classes/manda"
+				setitemtext banner "CLASS: MANDALORIAN"
+				setitemtext class_hp @NEWHELP_CLASSES_MANDALORIAN_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_MANDALORIAN_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_MANDALORIAN_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_MANDALORIAN_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_MANDALORIAN_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_MANDALORIAN_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_MANDALORIAN_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_MANDALORIAN_CS2
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_MANDALORIAN_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_MANDALORIAN_DESCRIPTION
+
+				uiscript2 helpmenuScripts "4specials"
 			}
 		}
 
@@ -1739,6 +2818,29 @@
 			}
 			action{
 				setcvar ui_library "main_classes_sbd"
+				setcvar ui_library_model "sbd"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/sbd/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/sbd"
+				setitembackground3 banner "gfx/menus/classes/sbd"
+				setitemtext banner "CLASS: SUPER BATTLE DROID"
+				setitemtext class_hp @NEWHELP_CLASSES_SBD_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_SBD_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_SBD_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_SBD_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_SBD_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_SBD_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_SBD_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_SBD_CS2
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_SBD_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_SBD_DESCRIPTION
+
+				uiscript2 helpmenuScripts "2specials"
 			}
 		}
 
@@ -1771,6 +2873,26 @@
 			}
 			action{
 				setcvar ui_library "main_classes_deka"
+				setcvar ui_library_model "droideka"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/droideka/model_default.skin"
+				uiscript updatemodelviewer "help_menu:" "dekamodelviewer"
+				setitembackground2 banner "gfx/menus/classes/deka"
+				setitembackground3 banner "gfx/menus/classes/deka"
+				setitemtext banner "CLASS: DESTROYER DROID"
+				setitemtext class_hp @NEWHELP_CLASSES_DROIDEKA_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_DROIDEKA_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_DROIDEKA_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_DROIDEKA_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_DROIDEKA_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_DROIDEKA_CS1
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_DROIDEKA_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_DROIDEKA_DESCRIPTION
+
+				uiscript2 helpmenuScripts "1special"
 			}
 		}
 
@@ -1803,6 +2925,35 @@
 			}
 			action{
 				setcvar ui_library "main_classes_sith"
+				setcvar ui_library_model "reborn"
+				setcvar ui_library_extragroup "classes_template"
+				setcvar ui_library_skin "models/players/reborn/model_forceuser.skin"
+				uiscript updatemodelviewer "help_menu:" "charmodelviewer"
+				setitembackground2 banner "gfx/menus/classes/jedi"
+				setitembackground3 banner "gfx/menus/classes/jedi"
+				setitemtext banner "CLASS: SITH"
+				setitemtext class_hp @NEWHELP_CLASSES_SITH_HEALTH
+				setitemtext class_armor @NEWHELP_CLASSES_SITH_ARMOR
+				setitemtext class_resource @NEWHELP_CLASSES_SITH_RESOURCE
+
+				setitemtext class_movespeed @NEWHELP_CLASSES_SITH_SPEED
+
+				setitemtext special1 @NEWHELP_CLASSES_SITH_CS1TITLE
+				setitemtext special1text @NEWHELP_CLASSES_SITH_CS1
+
+				setitemtext special2 @NEWHELP_CLASSES_SITH_CS2TITLE
+				setitemtext special2text @NEWHELP_CLASSES_SITH_CS2
+
+				setitemtext special3 @NEWHELP_CLASSES_SITH_CS3TITLE
+				setitemtext special3text @NEWHELP_CLASSES_SITH_CS3
+
+				setitemtext special4 @NEWHELP_CLASSES_SITH_CS4TITLE
+				setitemtext special4text @NEWHELP_CLASSES_SITH_CS4
+
+				setitemtext weaponrytextscroll @NEWHELP_CLASSES_SITH_WEAPONS
+				setitemtext desctextscroll @NEWHELP_CLASSES_SITH_DESCRIPTION
+
+				uiscript2 helpmenuScripts "4specials"
 			}
 		}
 
@@ -1811,5 +2962,3020 @@
 			// =================================================================
 			// 						 	/CLASSES
 			// =================================================================
+
+
+			// =================================================================
+			// 						 	WEAPONS
+			// =================================================================
+
+
+
+		itemDef
+		{
+			name wp_e11
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				30 55 70 40
+			background "gfx/wpIcons/wp_e11_icon"
+			text "E-11 Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_e11"
+				setcvar ui_library_extragroup "weapons_template"
+				open mb_weapon_e11
+				setmenuoffset mb_weapon_e11 40 -5
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_a280
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				110 55 85 40
+			background "gfx/wpIcons/wp_a280_icon"
+			text "A-280 Blaster"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_a280"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_cr
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				195 55 80 40
+			background "gfx/wpIcons/wp_clone_rifle_icon"
+			text "DC-15A Clone Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_cr"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_e22
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				288 53 75 40
+			background "gfx/wpIcons/wp_e22_icon"
+			text "E-22 Blaster"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 42
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_e22"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_dlt20a
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				370 55 85 40
+			background "gfx/wpIcons/wp_dlt20a_icon"
+			text "DLT-20A Blaster"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_dlt20a"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_concrifle
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				465 55 85 40
+			background "gfx/wpIcons/wp_conc_icon"
+			text "Concussion Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_concrifle"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_repeater
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				25 125 85 40
+			background "gfx/wpIcons/wp_repeater_icon"
+			text "Repeater Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_repeater"
+				hide all
+			}
+		}
+
+
+		itemDef
+		{
+			name wp_ee3
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			115 125 70 40
+			background "gfx/wpIcons/wp_ee3_icon"
+			text "EE-3 Carbine"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_ee3"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_ee4
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			205 125 70 40
+			background "gfx/wpIcons/wp_ee4_icon"
+			text "EE-4 Carbine"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_ee4"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_dc15
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			290 125 70 40
+			background "gfx/wpIcons/wp_dc-15s_icon"
+			text "DC-15 Carbine"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_dc15"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_westarm5
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				380 125 70 40
+			background "gfx/wpIcons/wp_m5_icon"
+			text "Westar M5 Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_westarm5"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_projrifle
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			465 125 85 40
+			background "gfx/wpIcons/wp_proj_icon"
+			text "Projectile Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_projrifle"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_disruptor
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			35 195 60 40
+			background "gfx/wpIcons/wp_disruptor_icon"
+			text "Disruptor Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_disruptor"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_amban
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			115 195 80 40
+			background "gfx/wpIcons/wp_amban_icon"
+			text "Amban Rifle"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_amban"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_bryarpistol
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				210 195 60 40
+			background "gfx/wpIcons/wp_bryar_icon"
+			text "Bryar Pistol"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_bryarpistol"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_pistol
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				295 195 60 40
+			background "gfx/wpIcons/wp_pistol_icon"
+			text "Pistol"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_bryarpistol"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_clonepistol
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				385 195 60 40
+			background "gfx/wpIcons/wp_clone_pistol_icon"
+			text "Clone Pistol"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_clonepistol"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_mandopistol
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				475 195 60 40
+			background "gfx/wpIcons/wp_mando_pistol_icon"
+			text "Mando Pistol"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_mandopistol"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_bowcaster
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			25 270 80 40
+			background "gfx/wpIcons/wp_bowcaster_icon"
+			text "Bowcaster"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_bowcaster"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_bowcastertrad
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			115 270 80 40
+			background "gfx/wpIcons/wp_bowcaster_trad_icon"
+			text "Traditional Bowcaster"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_bowcastertrad"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_demp2
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			210 270 60 40
+			background "gfx/wpIcons/wp_demp2_icon"
+			text "DEMP2"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_demp2"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_flechette
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			295 270 60 40
+			background "gfx/wpIcons/wp_golan_icon"
+			text "Flechette"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_flechette"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_rocketlauncher
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			385 270 60 40
+			background "gfx/wpIcons/wp_merrsonn_icon"
+			text "Rocket Launcher"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_rocketlauncher"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_plx1
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			460 272 90 35
+			background "gfx/wpIcons/wp_plx_icon"
+			text "PLX1 Rocket Launcher"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_plx1"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_minigun
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			25 338 80 40
+			background "gfx/wpIcons/wp_z6_rotary_icon"
+			text "Z-6 Rotary Cannon"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_minigun"
+				hide all
+			}
+		}
+
+
+		itemDef
+		{
+			name wp_sbdcannon
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			122 338 70 40
+			background "gfx/wpIcons/wp_sbd_blaster_icon"
+			text "SBD Cannon"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_sbdcannon"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_cr2
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			210 338 60 40
+			background "gfx/wpIcons/wp_cr2_icon"
+			text "CR-2 Repeating Blaster"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_cr2"
+				hide all
+			}
+		}
+
+
+		itemDef
+		{
+			name wp_t21
+			group main_weapons
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			285 338 85 40
+			background "gfx/wpIcons/wp_t21_icon"
+			text "T-21 Blaster"
+			font 7
+			textscale 0.11
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx -1
+			textaligny 40
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_t21"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_pulsenade
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			305 330 30 30
+			background "gfx/wpIcons/wp_pulse_nade_icon"
+			text "Pulse Nade"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_pulsenade"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_thermalnade
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			305 373 30 30
+			background "gfx/wpIcons/wp_thermal_icon"
+			text "Thermal Nade"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_thermalnade"
+				hide all
+			}
+		}
+
+
+
+		itemDef
+		{
+			name wp_fragnade
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			355 330 30 30
+			background "gfx/wpIcons/wp_frag_icon"
+			text "Frag Nade"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_fragnade"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_firenade
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			355 373 30 30
+			background "gfx/wpIcons/wp_fire_nade_icon"
+			text "Fire Nade"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_firenade"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_td
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			405 330 30 30
+			background "gfx/wpIcons/wp_thermal_icon"
+			text "Thermal Detonator"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_td"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_concnade
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			405 373 30 30
+			background "gfx/wpIcons/wp_conc_nade_icon"
+			text "Concussion Nade"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_concnade"
+				hide all
+			}
+		}
+
+		
+
+
+		itemDef
+		{
+			name				itemmodelviewer
+			type				ITEM_TYPE_MODEL
+			//1,3125
+			rect				300 100 0 0//256 256
+			asset_model			"ui_library_model"//"models/weapons2/blaster_r/blaster_w.glm"//"ui_library_model"
+			model_g2skin ""
+			model_angle			90
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2mins -16 -16 -16
+			model_g2maxs 16 16 16
+			model_fovx			40
+			model_fovy			40
+			model_rotation 16
+			cvar                "ui_char_model_angle"
+			isCharacter			0
+			visible				1
+			decoration
+		}
+		
+
+		
+
+		itemDef
+		{
+			name banner
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				64 8 500 25
+			background			"gfx/menus/blackMask"
+			bg2rect 535 8 26 26
+			bg3rect 67 8 26 26
+			background2 "gfx/menus/classes/bh"
+			background3 "gfx/menus/classes/bh"
+			text "CLASS: SOLDIER"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -9
+			border 4
+			bordersize 2
+			bordercolor 1 0.5 0 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			visibleLoop
+			{
+
+			}
+			decoration
+		}
+
+		itemDef
+		{
+			name classStats
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				12 228 140 180
+			background			"gfx/menus/blackMask"
+			text "CLASS STATS"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -9
+			border 1
+			bordersize 1
+			bordercolor 1 0.5 0 1
+			forecolor			0.25 0.25 0.25 1
+			visible				1
+			noTextBlink 1
+			decoration
+		}
+
+		itemDef
+		{
+			name classSpecials
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				155 228 415 180
+			background			"gfx/menus/blackMask"
+			text "CLASS SPECIALS"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -9
+			border 1
+			bordersize 1
+			bordercolor 1 0.5 0 1
+			forecolor			0.25 0.25 0.25 1
+			visible				1
+			noTextBlink 1
+			cvarTest "ui_library"
+			hideCvar {"main_classes_soldier", "main_classes_impsoldier", "main_classes_deka"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special1
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				195 254 20 26
+			background			"gfx/points/forcestar1"
+			text "Saber Throw"
+			font 7
+			textscale 0.135
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 22
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			hideCvar {"main_classes_soldier", "main_classes_impsoldier", "main_classes_deka"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special1Keybind
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			rect				192 296 26 10
+			bindings {"+button10"}
+			text "^3[%b]"
+			textscale 0.115
+			font 6
+			textaligny -5
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			hideCvar {"main_classes_soldier", "main_classes_impsoldier", "main_classes_deka"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special1Text
+			group classes_template
+			type ITEM_TYPE_TEXT
+			rect				160 310 90 95
+			text "Bunch of random useless\ntext that i'll try and convert\nto actual description of the\nclass special later."
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			hideCvar {"main_classes_soldier", "main_classes_impsoldier", "main_classes_deka"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special2
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				304 254 20 26
+			background			"gfx/points/forcestar2"
+			text "Saber Throw"
+			font 7
+			textscale 0.135
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 22
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi", "main_classes_bh", "main_classes_hero", "main_classes_sbd", "main_classes_wookiee", "main_classes_mando", "main_classes_arc"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special2Keybind
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			rect				301 294 26 10
+			bindings {"+button11"}
+			text "^3[%b]"
+			textscale 0.115
+			font 6
+			textaligny -5
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi", "main_classes_bh", "main_classes_hero", "main_classes_sbd", "main_classes_wookiee", "main_classes_mando", "main_classes_arc"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special2Text
+			group classes_template
+			type ITEM_TYPE_TEXT
+			rect				269 310 90 95
+			text "Bunch of random useless\ntext that i'll try and convert\nto actual description of the\nclass special later."
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi", "main_classes_bh", "main_classes_hero", "main_classes_sbd", "main_classes_wookiee", "main_classes_mando", "main_classes_arc"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special1_1
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				408 254 20 26
+			background			"gfx/points/forcestar1"
+			text @NEWHELP_CLASSES_MANDALORIAN_CS3TITLE
+			font 7
+			textscale 0.135
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 22
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_mando"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special1Keybind2
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			rect				405 294 26 10
+			bindings {"+button10"}
+			text "^3[%b]"
+			textscale 0.115
+			font 6
+			textaligny -5
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_mando"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special1Text2
+			group classes_template
+			type ITEM_TYPE_TEXT
+			rect				373 310 90 95
+			text @NEWHELP_CLASSES_MANDALORIAN_CS3
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_mando"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special2_2
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				512 254 20 26
+			background			"gfx/points/forcestar2"
+			text @NEWHELP_CLASSES_MANDALORIAN_CS4TITLE
+			font 7
+			textscale 0.135
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 22
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_mando"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special2Keybind2
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			rect				509 294 26 10
+			bindings {"+button11"}
+			text "^3[%b]"
+			textscale 0.115
+			font 6
+			textaligny -5
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_mando"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special2Text2
+			group classes_template
+			type ITEM_TYPE_TEXT
+			rect				477 310 90 95
+			text @NEWHELP_CLASSES_MANDALORIAN_CS4
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_mando"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special3
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				408 254 20 26
+			background			"gfx/points/forcestar3"
+			text "Saber Throw"
+			font 7
+			textscale 0.135
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 22
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi", "main_classes_bh", "main_classes_hero"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special3Keybind
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			rect				405 294 26 10
+			bindings {"+button12"}
+			text "^3[%b]"
+			textscale 0.115
+			font 6
+			textaligny -5
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi", "main_classes_bh", "main_classes_hero"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special3Text
+			group classes_template
+			type ITEM_TYPE_TEXT
+			rect				373 310 90 95
+			text "Bunch of random useless\ntext that i'll try and convert\nto actual description of the\nclass special later."
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi", "main_classes_bh", "main_classes_hero"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special4
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				512 254 20 26
+			background			"gfx/points/forcestar4"
+			text "Saber Throw"
+			font 7
+			textscale 0.135
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 22
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special4Keybind
+			group classes_template
+			type ITEM_TYPE_BUTTON
+			rect				509 294 26 10
+			bindings {"+button13"}
+			text "^3[%b]"
+			textscale 0.115
+			font 6
+			textaligny -5
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi"}
+			decoration
+		}
+
+		itemDef
+		{
+			name special4Text
+			group classes_template
+			type ITEM_TYPE_TEXT
+			rect				477 310 90 95
+			text "Bunch of random useless\ntext that i'll try and convert\nto actual description of the\nclass special later."
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			cvarTest "ui_library"
+			showCvar {"main_classes_sith", "main_classes_jedi"}
+			decoration
+		}
+
+		itemDef
+		{
+			name weaponryText
+			group classes_template
+			style WINDOW_STYLE_SHADER
+			type ITEM_TYPE_TEXT
+			rect			450 43 120 180
+			background "gfx/menus/blackMask"
+			text "WEAPONRY"
+			textscale 0.2
+			font 7
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			0.25 0.25 0.25 1
+			border 1
+			bordersize 1
+			bordercolor 0.25 0.25 0.25 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name weaponryTextscroll
+			group classes_template
+			type ITEM_TYPE_TEXTSCROLL
+			rect			450 67 120 160
+			lineheight 13
+			text " "
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			1 1 1 0.65
+			visible				1
+			autowrapped
+			scrollhidden
+			hasRefs 1
+			refclick "Pistol" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_pistol"; }
+
+			refclick "E-11 Blaster" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_e11"; }
+
+			refclick "Frag Grenade" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_fragnade";  }
+
+			refclick "Concussion Grenade" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_concnade"; }
+
+			refclick "CR-2 Repeating Pistol" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_cr2"; }
+
+			refclick "E-22 Rifle" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_e22"; }
+
+			refclick "A280" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_a280"; }
+
+			refclick "Sonic Grenade" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_sonicnade"; }
+
+			refclick "T-21" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_t21"; }
+
+			refclick "Fire Grenade" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_firenade"; }
+
+			refclick "Clone Pistol" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_clonepistol"; }
+
+			refclick "Clonetrooper Rifle" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_cr"; }
+
+			refclick "Clone Carbine" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_dc15"; }
+
+			refclick "Westar M5" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_westarm5"; }
+
+			refclick "Pulse Grenade" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_pulsenade"; }
+
+			refclick "PLX-1" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_plx1"; }
+
+			refclick "DLT-20a" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_dlt20a"; }
+
+			refclick "Disruptor" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_disruptor"; }
+
+			refclick "Thermal Detonator" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_td"; }
+
+			refclick "Westar Pistol" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_westar"; }
+
+			refclick "EE-3 Carbine" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_ee3"; }
+
+			refclick "EE-4 Carbine" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_ee4"; }
+
+			refclick "Amban Rifle" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_amban"; }
+
+			refclick "Arm Blaster" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_sbdblaster"; }
+
+			refclick "Bowcaster" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_bowcaster"; }
+
+			refclick "Traditional Bowcaster" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_tradbowcaster"; }
+
+			refclick "Dual Blaster" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_dekablaster"; }
+
+			refclick "Lightsaber" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_sabering"; }
+
+			refclick "Projectile Rifle" 
+			{ uiscript2 helpmenuScripts "redirection"; setcvar ui_library "main_weapons_proj"; }
+		}
+
+		itemDef
+		{
+			name descText
+			group classes_template
+			style WINDOW_STYLE_SHADER
+			type ITEM_TYPE_TEXT
+			rect			156 43 292 180
+			background "gfx/menus/blackMask"
+			textscale 0.2
+			text "DESCRIPTION"
+			font 7
+			textaligny -7
+			textalign ITEM_ALIGN_MIDDLE
+			forecolor			0.25 0.25 0.25 1
+			border 1
+			bordersize 1
+			bordercolor 0.25 0.25 0.25 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name descTextscroll
+			group classes_template
+			type ITEM_TYPE_TEXTSCROLL
+			style 				WINDOW_STYLE_TEXT_RGB1
+			rect			160 67 288 157
+			lineheight 13
+			text "   "
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_LEFT
+			forecolor			1 1 1 0.65
+			visible				1
+		}
+
+		
+
+		itemDef
+		{
+			name				charmodelviewer
+			type				ITEM_TYPE_MODEL
+			group classes_template
+			//1,3125
+			rect				13 44 140 180
+			model_g2anim		"BOTH_STAND4"
+			asset_model			"ui_library_model"
+			model_g2skin 		"ui_library_skin"
+			model_angle			90
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2mins		-30 -20 -14
+			model_g2maxs		20 20 30
+			model_fovx			40
+			model_fovy			45
+			cvar                "ui_char_model_angle"
+			cvarTest "ui_library"
+			hideCvar {"main_classes_deka"}
+			isCharacter			1
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				dekamodelviewer
+			type				ITEM_TYPE_MODEL
+			group classes_template
+			//1,3125
+			rect				415 75 200 256
+			asset_model			"ui_library_model"
+			model_g2skin 		"ui_library_skin"
+			model_angle			90
+			//mins maxs format is apparently z x y (hmmm... y x z?)
+			model_g2scale		0.65 0.5 0.6
+			model_g2mins		5 5 -14
+			model_g2maxs		5 -5 30
+			model_fovx			65
+			model_fovy			65
+			cvar                "ui_char_model_angle"
+			cvarTest "ui_library"
+			showCvar {"main_classes_deka"}
+			isCharacter			1
+			visible				0
+			decoration
+		}
+
+		
+
+
+		itemDef
+		{
+			name				class_hp
+			type				ITEM_TYPE_TEXT
+			style 				WINDOW_STYLE_SHADER
+			group classes_template
+			rect				51 262 16 16
+			background "gfx/menus/alpha/icon_stats_health"
+			text "100-500"
+			textalign ITEM_ALIGN_LEFT
+			textalignx 20
+			textaligny -5
+			font 7
+			textscale 0.15
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				class_armor
+			type				ITEM_TYPE_TEXT
+			style 				WINDOW_STYLE_SHADER
+			group classes_template
+			rect				51 288 16 16
+			background "gfx/menus/alpha/icon_stats_armor"
+			text "100-500"
+			textalign ITEM_ALIGN_LEFT
+			textalignx 20
+			textaligny -5
+			font 7
+			textscale 0.15
+			cvarTest "ui_library"
+			hideCvar {"main_classes_deka", "main_classes_jedi", "main_classes_sith", "main_classes_wookiee"}
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				class_movespeed
+			type				ITEM_TYPE_TEXT
+			style 				WINDOW_STYLE_SHADER
+			group classes_template
+			rect				51 314 16 16
+			background "gfx/menus/alpha/icon_stats_movespeed"
+			text "186.5"
+			textalign ITEM_ALIGN_LEFT
+			textalignx 20
+			textaligny -5
+			font 7
+			textscale 0.15
+			cvarTest "ui_library"
+			visible				0
+			decoration
+		}
+
+		itemDef
+		{
+			name				class_resourceTitle
+			type				ITEM_TYPE_TEXT
+			style 				WINDOW_STYLE_SHADER
+			group classes_template
+			rect				75 367 16 16
+			text "RESOURCE"
+			forecolor 0.25 0.25 0.25 1
+			textalign ITEM_ALIGN_MIDDLE
+			font 7
+			textscale 0.15
+			visible				0
+			cvarTest "ui_library"
+			hideCvar {"main_classes_soldier", "main_classes_impsoldier", "main_classes_bh"}
+			decoration
+		}
+
+		itemDef
+		{
+			name				class_resource
+			type				ITEM_TYPE_TEXT
+			style 				WINDOW_STYLE_SHADER
+			group classes_template
+			rect				75 381 16 16
+			text "RESOURCETYPE"
+			textalign ITEM_ALIGN_MIDDLE
+			font 6
+			textscale 0.15
+			visible				0
+			decoration
+		}
+		
+
+
+
+		itemDef
+		{
+			name wp_cryonade
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			455 330 30 30
+			background "gfx/wpIcons/wp_cryo_nade_icon"
+			text "Cryo Nade"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_cryonade"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_sonicnade
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			455 373 30 30
+			background "gfx/wpIcons/wp_sonic_nade_icon"
+			text "Sonic Nade"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_sonicnade"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_tripmine
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			505 330 30 30
+			background "gfx/wpIcons/wp_laser_trap_icon"
+			text "Trip Mine"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_tripmine"
+				hide all
+			}
+		}
+
+		itemDef
+		{
+			name wp_detpack
+			group main_weapons_2
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect			505 373 30 30
+			background "gfx/wpIcons/wp_detpack_icon"
+			text "Detpack"
+			font 7
+			textscale 0.085
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny 28
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				setcvar ui_library "main_weapons_detpack"
+				hide all
+			}
+		}
+
+
+
+
+
+			// =================================================================
+			// 						 	/WEAPONS
+			// =================================================================
+
+			// =================================================================
+			// 						 	FORCE POWERS
+			// =================================================================
+
+
+		itemDef
+		{
+			name bannerFP
+			group forcepowers_template
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				64 8 500 25
+			background			"gfx/menus/blackMask"
+			text "CLASS: SOLDIER"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textaligny -9
+			border 4
+			bordersize 2
+			bordercolor 1 0.5 0 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			onVisible
+			{
+				transition bannerFP 64 8 0 25 64 8 500 25 10 30
+				setitembordersize panelCinematic 2
+			}
+			decoration
+		}
+
+		itemDef
+		{
+			name iconFP
+			group forcepowers_template
+			style WINDOW_STYLE_SHADER
+			rect				64 8 32 32
+			background			"gfx/menus/blackMask"
+			forecolor			1 1 1 0.65 
+			visible				1
+			visibleLoop
+			{
+				transition iconFP 531 6 32 32 527 5 42 42 10 30
+				delay 400;
+				transition iconFP 527 5 42 42 531 6 32 32 10 30
+				delay 400;
+			}
+			decoration
+		}
+
+		itemDef
+		{
+			name fpList
+			group forcepowers_template
+			type ITEM_TYPE_TEXTSCROLL
+			style 				WINDOW_STYLE_SHADER
+			background "gfx/menus/blackMask"
+			rect			9 53 92 351
+			lineheight 16
+			text @NEWHELP_FP_LIST
+			textscale 0.125
+			font 6
+			textaligny -7
+			textalign ITEM_ALIGN_LEFT
+			border 1
+			bordersize 1
+			bordercolor 0 1 1 1
+			forecolor			1 1 1 0.65
+			visible				0
+			hasRefs 1
+			refClick "Force Jump" 			{ uiScript2 fpScripts "fpJump" }
+			refClick "Force Push" 			{ uiScript2 fpScripts "fpPush" }
+			refClick "Force Pull" 			{ uiScript2 fpScripts "fpPull" }
+			refClick "Force Seeing" 		{ uiScript2 fpScripts "fpSeeing" }
+			refClick "Saber Throw" 			{ uiScript2 fpScripts "fpSaberThrow" }
+
+			refClick "Force Heal" 			{ uiScript2 fpScripts "fpHeal" }
+			refClick "Force Protect" 		{ uiScript2 fpScripts "fpProtect" }
+			refClick "Force Absorb" 		{ uiScript2 fpScripts "fpAbsorb" }
+			refClick "Force Blind" 			{ uiScript2 fpScripts "fpBlind" }
+			refClick "Force Stasis" 		{ uiScript2 fpScripts "fpStasis" }
+			refClick "Force Team Heal" 		{ uiScript2 fpScripts "fpTeamHeal" }
+			refClick "Force Speed" 			{ uiScript2 fpScripts "fpSpeed" }
+			refClick "Force Mindtrick" 		{ uiScript2 fpScripts "fpMindtrick" }
+
+			refClick "Force Grip" 			{ uiScript2 fpScripts "fpGrip" }
+			refClick "Force Lightning" 		{ uiScript2 fpScripts "fpLightning" }
+			refClick "Force Rage" 			{ uiScript2 fpScripts "fpRage" }
+			refClick "Force Drain" 			{ uiScript2 fpScripts "fpDrain" }
+			refClick "Force Team Energize" 	{ uiScript2 fpScripts "fpTeamEnergize" }
+			refClick "Force Destruction" 	{ uiScript2 fpScripts "fpDestruction" }
+			refClick "Force Deadly Sight" 	{ uiScript2 fpScripts "fpDeadlySight" }
+			refClick "Force Dark Rage" 		{ uiScript2 fpScripts "fpDarkRage" }
+		}
+
+		itemDef
+		{
+			name fpTextscroll
+			group forcepowers_template
+			type ITEM_TYPE_TEXTSCROLL
+			style 				WINDOW_STYLE_SHADER
+			background "gfx/menus/blackMask"
+			rect			101 51 300 200
+			lineheight 13
+			text "welcome everyone"
+			textscale 0.125
+			font 6
+			textalign ITEM_ALIGN_LEFT
+			border 1
+			bordersize 2
+			bordercolor 0.25 0.25 0.25 1
+			forecolor			1 1 1 0.65
+			visible				0
+		}
+
+		itemDef
+		{
+			name fpLevelsBg
+			group forcepowers_template
+			style 				WINDOW_STYLE_SHADER
+			background "gfx/menus/blackMask"
+			rect			101 258 463 145
+			border 1
+			bordersize 2
+			bordercolor 0.25 0.25 0.25 1
+			forecolor			1 1 1 0.65
+			visible				0
+		}
+
+		itemDef
+		{
+			name fpLevel1
+			group forcepowers_template
+			type ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			text "LEVEL 1"
+			font 7
+			textscale 0.2
+			textaligny -4
+			textalign ITEM_ALIGN_MIDDLE
+			rect				107 265 150 135
+			forecolor			1 1 1 0.65
+			border 1
+			bordersize 1
+			bordercolor 1 0.5 0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name fpLevel2
+			group forcepowers_template
+			type ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			text "LEVEL 2"
+			font 7
+			textscale 0.2
+			textaligny -4
+			textalign ITEM_ALIGN_MIDDLE
+			rect				259 265 150 135
+			forecolor			1 1 1 0.65
+			border 1
+			bordersize 1
+			bordercolor 1 0.5 0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name fpLevel3
+			group forcepowers_template
+			type ITEM_TYPE_TEXT
+			style WINDOW_STYLE_SHADER
+			text "LEVEL 3"
+			font 7
+			textscale 0.2
+			textaligny -4
+			textalign ITEM_ALIGN_MIDDLE
+			rect				411 265 150 135
+			forecolor			1 1 1 0.65
+			border 1
+			bordersize 1
+			bordercolor 1 0.5 0 1
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name fpLevel1Text
+			group forcepowers_template
+			type ITEM_TYPE_TEXT
+			text "This is a text"
+			font 6
+			textscale 0.125
+			textalign ITEM_ALIGN_MIDDLE
+			rect				109 287 148 107
+			forecolor			1 1 1 0.65
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name fpLevel2Text
+			group forcepowers_template
+			type ITEM_TYPE_TEXT
+			text "This is a text"
+			font 6
+			textscale 0.125
+			textalign ITEM_ALIGN_MIDDLE
+			rect				261 287 148 107
+			forecolor			1 1 1 0.65
+			visible				1
+			decoration
+		}
+
+		itemDef
+		{
+			name fpLevel3Text
+			group forcepowers_template
+			type ITEM_TYPE_TEXT
+			text "This is a text"
+			font 6
+			textscale 0.125
+			textalign ITEM_ALIGN_MIDDLE
+			rect				413 287 148 107
+			forecolor			1 1 1 0.65
+			visible				1
+			decoration
+		}
+
+
+		itemDef
+		{
+			name fp_neutral
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				25 50 525 45
+			background			"gfx/menus/blackMask"
+			text "NEUTRAL"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx 2
+			textaligny -35
+			border 4
+			bordersize 2
+			bordercolor 1 1 1 0.65
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			decoration
+		}
+
+		itemDef
+		{
+			name fp_jump
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				80 57 80 34
+			bg2rect				80 59 32 32
+			background2 "gfx/mp/new_f_icon_jump"
+			text "Force Jump"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				uiScript2 fpScripts "fpJump"
+			}
+		}
+
+		itemDef
+		{
+			name fp_push
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				163 57 80 34
+			bg2rect				163 58 32 32
+			background2 "gfx/mp/new_f_icon_push"
+			text "Force Push"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 33
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				uiscript2 fpScripts "fpPush"
+			}
+		}
+
+		itemDef
+		{
+			name fp_pull
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				246 57 80 34
+			bg2rect				246 58 32 32
+			background2 "gfx/mp/new_f_icon_pull"
+			text "Force Pull"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 34
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				uiScript2 fpScripts "fpPull"
+			}
+		}
+
+		itemDef
+		{
+			name fp_see
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				329 57 80 34
+			bg2rect				329 57 32 32
+			background2 "gfx/mp/new_f_icon_sight"
+			text "Force Seeing"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				uiScript2 fpScripts "fpSeeing"
+			}
+		}
+
+		itemDef
+		{
+			name fp_saberthrow
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				412 57 80 34
+			bg2rect				412 57 32 32
+			background2 "gfx/mp/new_f_icon_saber_throw"
+			text "Saber Throw"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65
+				setcolor forecolor 1 1 1 0.65
+			}
+			action{
+				uiScript2 fpScripts "fpSaberThrow"
+			}
+		}
+
+		itemDef
+		{
+			name fp_ls
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				25 125 525 110
+			background			"gfx/menus/blackMask"
+			text "LIGHT SIDE"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx 2
+			textaligny -35
+			border 4
+			bordersize 2
+			bordercolor 0 0.5 1 0.65
+			forecolor			0 0.5 1 0.65
+			visible				1
+			noTextBlink 1
+			decoration
+		}
+
+		itemDef
+		{
+			name fp_heal
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				130 145 80 34
+			bg2rect				130 145 32 32
+			background2 "gfx/mp/new_f_icon_lt_heal"
+			text "Force Heal"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpHeal"
+			}
+		}
+
+		itemDef
+		{
+			name fp_protect
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				213 145 80 34
+			bg2rect				213 146 32 32
+			background2 "gfx/mp/new_f_icon_lt_protect"
+			text "Force Protect"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpProtect"
+			}
+		}
+
+		itemDef
+		{
+			name fp_absorb
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				296 145 85 34
+			bg2rect				296 146 32 32
+			background2 "gfx/mp/new_f_icon_lt_absorb"
+			text "Force Absorb"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpAbsorb"
+			}
+		}
+
+		itemDef
+		{
+			name fp_blind
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				384 145 75 34
+			bg2rect				384 146 32 32
+			background2 "gfx/mp/force_blind"
+			text "Force Blind"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpBlind"
+			}
+		}
+
+		itemDef
+		{
+			name fp_teamheal
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				115 185 95 34
+			bg2rect				115 185 32 32
+			background2 "gfx/mp/new_f_icon_lt_healother"
+			text "Force Team Heal"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpTeamHeal"
+			}
+		}
+
+
+		itemDef
+		{
+			name fp_speed
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				214 185 80 34
+			bg2rect				214 186 32 32
+			background2 "gfx/mp/new_f_icon_speed"
+			text "Force Speed"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 5
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpSpeed"
+			}
+		}
+
+				itemDef
+		{
+			name fp_stasis
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				392 185 80 34
+			bg2rect				392 186 32 32
+			background2 "gfx/mp/new_f_icon_jump"
+			text "Force Stasis"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 5
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpStasis"
+			}
+		}
+
+		itemDef
+		{
+			name fp_mindtrick
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				298 185 90 34
+			bg2rect				298 186 32 32
+			background2 "gfx/mp/new_f_icon_lt_mind_trick"
+			text "Force Mindtrick"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpMindtrick"
+			}
+		}
+
+		itemDef
+		{
+			name fp_ds
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				25 275 525 110
+			background			"gfx/menus/blackMask"
+			text "DARK SIDE"
+			font 7
+			textscale 0.225
+			textalign ITEM_ALIGN_MIDDLE
+			textalignx 2
+			textaligny -35
+			border 4
+			bordersize 2
+			bordercolor 0.75 0.1 0.1 0.65
+			forecolor			0.75 0.1 0.1 0.65
+			visible				1
+			noTextBlink 1
+			decoration
+		}
+
+		itemDef
+		{
+			name fp_grip
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				96 334 75 34
+			bg2rect				96 334 32 32
+			background2 "gfx/mp/new_f_icon_dk_grip"
+			text "Force Grip"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpGrip"
+			}
+		}
+
+		itemDef
+		{
+			name fp_lightning
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				209 296 90 34
+			bg2rect				209 296 32 32
+			background2 "gfx/mp/new_f_icon_dk_l1"
+			text "Force Lightning"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpLightning"
+			}
+		}
+
+		itemDef
+		{
+			name fp_rage
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				303 296 75 34
+			bg2rect				303 296 32 32
+			background2 "gfx/mp/new_f_icon_dk_rage"
+			text "Force Rage"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpRage"
+			}
+		}
+
+		itemDef
+		{
+			name fp_darkrage
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				383 296 95 34
+			bg2rect				383 296 32 32
+			background2 "gfx/mp/new_f_icon_dk_rage"
+			text "Force Dark Rage"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpDarkRage"
+			}
+		}
+
+		itemDef
+		{
+			name fp_drain
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				386 334 75 34
+			bg2rect				386 334 32 32
+			background2 "gfx/mp/new_f_icon_dk_drain"
+			text "Force Drain"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpDrain"
+			}
+		}
+
+		itemDef
+		{
+			name fp_teamenergize
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				96 296 110 34
+			bg2rect				96 296 32 32
+			background2 "gfx/mp/new_f_icon_dk_forceother"
+			text "Force Team Energize"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpTeamEnergize"
+			}
+		}
+
+
+		itemDef
+		{
+			name fp_destruction
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				175 334 100 34
+			bg2rect				175 334 32 32
+			background2 "gfx/mp/force_destruction"
+			text "Force Destruction"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 32
+			textaligny 5
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpDestruction"
+			}
+		}
+
+		itemDef
+		{
+			name fp_deadlysight
+			group main_forcepowers
+			type ITEM_TYPE_BUTTON
+			style WINDOW_STYLE_SHADER
+			rect				281 334 100 34
+			bg2rect				281 334 32 32
+			background2 "gfx/mp/deadly_sight"
+			text "Force Deadly Sight"
+			font 7
+			textscale 0.12
+			textalign ITEM_ALIGN_LEFT
+			textalignx 30
+			textaligny 4
+			border 1
+			bordercolor 1 1 1 0.65 
+			bordersize 1
+			forecolor			1 1 1 0.65 
+			visible				1
+			noTextBlink 1
+			mouseEnter
+			{
+				setcolor bordercolor 1 0.5 0 1
+				setcolor forecolor 1 0.5 0 1
+			}
+			mouseExit
+			{
+				setcolor bordercolor 1 1 1 0.65 
+				setcolor forecolor 1 1 1 0.65 
+			}
+			action{
+				uiScript2 fpScripts "fpDeadlySight"
+			}
+		}
+
+
+			// =================================================================
+			// 						 	/FORCE POWERS
+			// =================================================================
+			
 	}
 }
