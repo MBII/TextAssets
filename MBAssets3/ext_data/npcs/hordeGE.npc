@@ -1,7 +1,7 @@
 //Galatic Empire NPCs for MB2
-//TO DO: Officer variants (pistol and heavy pistol),  dark stormtrooper (healing + ?), named characters
+//TO DO: Officer variants (pistol and heavy pistol), dark stormtrooper (healing + ?), named characters
 //Future Ideas: Jettroopers, Army Troopers, Engineers, Vehicles, etc.
-//Note: The following Imperial NPCs all exist elsewhere: Probe, Sentry, Seeker, Mark1, Mark2, and AT-ST 
+//Note: The following Imperial NPCs all exist elsewhere: Probe, Sentry, remote_imp, Mark1, Mark2, and AT-ST 
 
 GE_StormTrooper //basic trooper, better then police and army I guess
 {
@@ -154,6 +154,37 @@ GE_StormSergeant2 //elites with heavy rifles
 	yawspeed	70
 }
 
+GE_StormSergeant3 //elites with heavy rifles
+{
+	playerModel stormie
+	customSkin 	sarge
+	weapon		WP_DLT20a
+	MB_ATT_DLT20a 3
+	altFire 1
+	health		80
+	armor 20
+	headPitchRangeDown 30
+	reactions	3
+	aim			1
+	move		3
+	aggression	3
+	evasion		1
+	intelligence	5
+	rank		crewman
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+//	race		klingon
+	class		CLASS_STORMTROOPER
+	height		64
+	crouchheight 38
+	walkSpeed	51
+	runSpeed	225
+	snd			st2
+	sndcombat	st2
+	sndextra	st2
+	yawspeed	70
+}
+
 GE_ShadowTrooper //cloakers with rifles
 {
 	playerModel stormie
@@ -187,7 +218,7 @@ GE_ShadowTrooper //cloakers with rifles
 	runSpeed	225
 }
 
-GE_ShadowTrooper2 //cloakers with rifles
+GE_StealthTrooper //cloakers with rifles
 {
 	playerModel stormie
 	customSkin 	tfushadow
@@ -555,39 +586,6 @@ GE_NavyBaton //melee fodder, can saber but can't block blasters
 	armor		15
 }
 
-GE_NavyBatonDual //melee fodder x2, can saber but can't block blasters
-{
-	playerModel imperial_army
-	customSkin  navy
-	saber		riot_baton_b_legends
-	saber2		riot_shield_legends
-	weapon	WP_SABER
-	saberStyle	6
-	MB_ATT_FP_SABER_DEFENSE 1
-	PBchance 10
-	MBchance 1
-	SBchance 30
-	reactions	1
-	aim			1
-	move		1
-	aggression	1
-	evasion		1
-	intelligence	1
-	hfov		120
-	vfov		120
-	playerTeam	TEAM_PLAYER
-	enemyTeam	TEAM_ENEMY
-	class		CLASS_REBORN
-	snd			ic_df2
-	sndcombat	ic_df2
-	sndjedi		ic_df2
-	yawSpeed	60
-	walkSpeed	45
-	runSpeed	225
-	health		50
-	armor		15
-}
-
 GE_RoyalGuard //normal melee enemy, can saber but can't block blasters
 {
 	playerModel	royal 
@@ -638,7 +636,7 @@ GE_ShadowGuard //basic armored Sith
 	MB_ATT_FORCEBLOCK 1
 	MB_ATT_FP_LIGHTNING 1
 	FP_LEVITATION	3
-	MB_ATT_FP_PULL 2
+	MB_ATT_FP_PULL 3
 	RESOURCE_FORCE 1
 	forcePowerMax	200
 	PBchance 30
@@ -726,7 +724,7 @@ GE_Inquisitor2
 	saberStyle	2
 	FP_LEVITATION	3
 	FP_SABERTHROW	3
-	FP_ABSORB		3
+	FP_PULL			3
 	FP_TELEPATHY	3
 	rank		captain
 	forcePowerMax 200
@@ -794,7 +792,7 @@ GE_Mage2
 	MB_ATT_FORCEBLOCK 1
 	MB_ATT_FORCEFOCUS 3
 	FP_LEVITATION	3
-	FP_TEAM_FORCE	3
+	FP_PUSH	3
 	FP_DESTRUCTION	3
 	RESOURCE_FORCE 1
 	forcePowerMax	200
@@ -830,7 +828,8 @@ GE_Mage3
 	MB_ATT_FORCEBLOCK 1
 	MB_ATT_FORCEFOCUS 3
 	FP_LEVITATION	3
-	FP_TEAM_HEAL	3
+	FP_PUSH			3
+	FP_STASIS		3
 	FP_BLIND		3
 	RESOURCE_FORCE 1
 	forcePowerMax	200
@@ -871,6 +870,7 @@ GE_Mage4
 	MB_ATT_FORCEBLOCK 1
 	MB_ATT_FORCEFOCUS 3
 	FP_LEVITATION	3
+	FP_PUSH 		3
 	FP_STASIS		3
 	FP_DEADLYSIGHT	3
 	RESOURCE_FORCE 1
