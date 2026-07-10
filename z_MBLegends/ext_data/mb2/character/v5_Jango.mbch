@@ -1,15 +1,23 @@
 //Air
 ClassInfo
 {
-	name			"h5_Jango"
+	name			"v5_Jango"
 	MBClass			MB_CLASS_MANDALORIAN
 	classNumberLimit	1
 	weapons		WP_MANDO_PISTOL|WP_THROWER
 	
 	AB_PDartFlags HELD_TRACKING|HELD_HIGHDAMAGE
 	AB_GHookFlags HELD_DISARM|HELD_PULL|HELD_KNOCKDOWN
-	WP_RocketLauncherFlags HELD_STUN
+	WP_RocketLauncherFlags HELD_NODISARM|HELD_STUN
+	WP_MandoPistolFlags	HELD_NODISARM
+	WP_ThrowerFlags	HELD_NODISARM
+	MB_ATT_ROCKET HELD_STUN
+	
+	
 	classflags	CFL_NO_JETPACK_COOLDOWN
+	
+	
+	flourishAnim BOTH_JANGO_TAUNT
 	
 	attributes	MB_ATT_BESKAR,3|MB_ATT_HEALING,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_TRACKING_BEACON|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,0|MB_ATT_POISON_DART,4|MB_ATT_BINOCULARS|MB_ATT_WRISTLASER
 	
@@ -52,6 +60,16 @@ ClassInfo
 	model_1		"jangofett"
 	skin_1		"jetpack2"
 	uishader_1	"models/players/jangofett/mb2_icon_jetpack2"
+	model_2		"jangofett"
+	skin_2		"poncho"
+	uishader_2	"models/players/jangofett/mb2_icon_poncho"
+	model_3		"jangofett"
+	skin_3		"pilot"
+	uishader_3	"models/players/jangofett/mb2_icon_pilot"
+	model_4		"jangofett"
+	skin_4		"red"
+	uishader_4	"models/players/jangofett/mb2_icon_red"
+	
 	
 	uioverlay_r "gfx/icons/aerial"
 	uioverlay_l "gfx/icons/scout"
@@ -71,7 +89,7 @@ ClassInfo
 	c_att_skill_0	MB_ATT_SABER
 	c_att_names_0	"Beskar Armblade (Cyan)"
 	c_att_ranks_0	0
-	c_att_descs_0 	"^7Saber Defense 1, No Blaster Block"
+	c_att_descs_0 	"^7Saber Defense 1, No Blaster Block, Non-disarmable"
 
 	c_att_skill_1	MB_ATT_DEXTERITY
 	c_att_names_1	"Dexterity"
@@ -143,7 +161,7 @@ WeaponInfo1
 	animAttackWalk BOTH_MAND_FLAME_READY
 	animAttackRun BOTH_MAND_FLAME_READY
 	rateMod 1.2
-	reloadTimeModifier 90
+	reloadTimeModifier 80
 }
 WeaponInfo2
 {
@@ -170,14 +188,14 @@ WeaponInfo3
 	MissileMissEffect      "Grenades/EXP_Alt"
 	MissileEffect		"rockets/missile" 
  hasAnimOverrides 1
-	animReady BOTH_S1_S7
-    animReadyWalk BOTH_SABERSTAFF_STANCE
-    animReadyRun BOTH_SABERSTAFF_STANCE
-    animReadyNoAmmo BOTH_S1_S7
-    animStand BOTH_SABERSTAFF_STANCE
-    animAttack BOTH_FORCE_DRAIN_GRAB_HOLD
-    animAttackWalk BOTH_FORCE_DRAIN_GRAB_HOLD
-    animAttackRun BOTH_FORCE_DRAIN_GRAB_HOLD
+	animReady BOTH_JANGO_PISTOL_IDLE 
+    animReadyWalk BOTH_JANGO_PISTOL_IDLE
+    animReadyRun BOTH_JANGO_PISTOL_IDLE
+    animReadyNoAmmo BOTH_MAND_PISTOL_IDLE
+    animStand BOTH_JANGO_PISTOL_IDLE
+    animAttack BOTH_BLASTER_ATTACK
+    animAttackWalk BOTH_BLASTER_ATTACK
+    animAttackRun BOTH_BLASTER_ATTACK
 	animCharge	BOTH_FORCE_DRAIN_START
 	WeaponName		"Jango's Wrist Rockets"  
 }
@@ -219,7 +237,7 @@ The greatest bounty hunter in the galaxy during his day boasting a wide armory a
 - Wrist Flamethrower (Thrower)
 -- Non-disarmable
 -- 20% slower RoF
--- 90x longer reload
+-- 80x longer reload
 
 ^6Inventory:
 - Binoculars
@@ -235,7 +253,11 @@ The greatest bounty hunter in the galaxy during his day boasting a wide armory a
 
 ^3Abilities:
 - Jetpack
+-- No cooldown
 - Rocket ^3[CS1]
+-- Staggers on det
 - Wrist Laser ^3[CS2]
-- Poison + Tracking Darts (6) ^3[CS3 Melee]
+- Velocity-7 Poison Dart Shooter ^3[Melee ^3CS4]
+-- Tracks on hit
+-- 100% more damage"
 - Gun Kick ^3[CS4]"
