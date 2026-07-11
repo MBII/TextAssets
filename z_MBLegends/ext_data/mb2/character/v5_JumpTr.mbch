@@ -1,9 +1,8 @@
 
-
 ClassInfo
 {
  name     "v5_JumpTr"
- MBClass    MB_CLASS_WOOKIE
+ MBClass    MB_CLASS_SOLDIER
  classNumberLimit  2
  extralives        1
  weapons     WP_MELEE|WP_ROCKET_LAUNCHER|WP_FRAG_NADE
@@ -17,24 +16,26 @@ ClassInfo
 
  resource   RESOURCE_FUEL
  forcepool 100
- flourishAnim BOTH_WOOKIEE_RAGE_MELEE1
- 
+
+ special1HUD HUD_REPEATERNADE
+ special2HUD HUD_IONBLOB
+
  special1 EAS_NONE
  special2  EAS_HI_BARGE
  meleespecial2  EAS_HI_BARGE
  special3  EAS_HI_QUICKTHROW
 
- bargeSoundOverride "sound/jetpack/rocket.mp3"
- bargeAnim TORSO_MELEE2_SWIMFORWARD
- skilltimerMod 1.2
-
+ skilltimerMod 1.5
+ meleeknockback_flat 90
+ //rateoffire_melee 1.15
  knockbackTaken 0.75
+	disableGunBash 1
  
- special1HUD HUD_REPEATERNADE
- special2HUD HUD_IONBLOB
-
  meleeMoves M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
  
+ bargeSoundOverride "sound/jetpack/rocket.mp3"
+ bargeAnim BOTH_FORCELONGLEAP_START //BOTH_ARC_FORWARD_DIVE
+ flourishAnim BOTH_WOOKIEE_RAGE_MELEE1
  jetpackJetTag   *jet1  
  jetpackJet2Tag  *jet2 
  modelscale   1.13
@@ -67,29 +68,34 @@ ClassInfo
  uishader_5  "models/players/stormie/mb2_icon_jetcom_legacy"
 
 isCustomBuild 1
-mbPoints 6
+mbPoints 7
 
 c_att_skill_0 MB_ATT_BLASTER
 c_att_names_0 "E-11 Blaster Rifle"
 c_att_ranks_0 4,0,0
+
 c_att_skill_1 MB_ATT_CLONERIFLE
 c_att_names_1 "DLT-19 Blaster Rifle (CR)"
 c_att_ranks_1 4,0
 c_att_descs_1 "10% more damage, 10% more FP damage"
+
 c_att_skill_2 MB_ATT_STRONGBLOBS
 c_att_names_2 "> DLT-19 Ion Blobs"
 c_att_ranks_2 2,0,0
+
 c_att_skill_3 MB_ATT_REPEATER
 c_att_names_3 "Imperial Heavy Repeater"
 c_att_ranks_3 4
 c_att_descs_3 "5% less damage, 25% less FP damage, 20% slower RoF,
 15% slower reload"
+
 c_att_skill_4 MB_ATT_REPEATER_NADES
 c_att_names_4 "> Repeater Blobs"
 c_att_ranks_4 2,0,0
+
 c_att_skill_5 MB_ATT_BARGE
 c_att_names_5 "Jet Tackle (Barge) ^3[Melee CS2]"
-c_att_ranks_5 2
+c_att_ranks_5 2,0,1
 }
 
 WeaponInfo0
@@ -104,11 +110,13 @@ WeaponInfo0
  WeaponName   "Imperial Heavy Repeater"
  MuzzleEffect  "Blaster/MuzzleFlash01Y"
  altMissileMissEffect "repeater/concussion"
- FPMult         0.75
- clipSize     100
- ReloadTimeModifier   1.15
+
+ FPMult   0.75
  damageMod 0.95
+ ReloadTimeModifier   1.15
  Ratemod 1.2
+ clipSize  100
+
  hasAnimOverrides 1
  animReadyRun BOTH_WESTARM5_IDLE
  animReady BOTH_WESTARM5_IDLE
@@ -125,11 +133,12 @@ WeaponInfo1
  NewHandsModel   "models/weapons2/merr_sonn/merr_sonn_hand.md3"
  Icon     "gfx/hud/w_icon_merrsonn"
  WeaponName    "PLX-2M Rocket Launcher"
+
  clipSize     1
  CustomAmmo     5
  ReloadTimeModifier   1.5
- altfireenabled   1
  velocityMod 1.15
+ altfireenabled   1
 }
 
 WeaponInfo2
@@ -143,9 +152,11 @@ WeaponName  "DLT-19 Heavy Blaster Rifle"
 FlashSound0 "sound/weapons/DLT19/fire.wav"
 MuzzleEffect  "Blaster/MuzzleFlash01R"
 MissileEffect  "Blaster/Shot01R"
+
 customAmmo         600
 damageMod 1.1
 fpmult 1.1
+
 hasAnimOverrides 1
 animReadyRun BOTH_DC15_IDLE
 animReady BOTH_DC15_IDLE
@@ -157,12 +168,28 @@ animAttackWalk BOTH_DC15_ATTACK
 animStand BOTH_STAND1
 }
 
+WeaponInfo3
+{
+ WeaponToReplace  WP_MELEE
+ WeaponBasedOff  WP_MELEE
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"  
+ NewViewModel  "models/weapons2/dummy/dummy.md3"
+ Icon   "models/weapons2/halo_melee/icon.png"
+ WeaponName  "Jumptrooper Melee"
+ primFireEnabled  0
+ AltFireEnabled   0
+ damageMod 5
+}
+
 description "Imperial Jumptrooper 
 
 Jetpack soldiers with a variety of suppression tools and explosives.
 
 ^2Weaponry:
-- Melee
+- Jumptrooper Melee
+-- Jet Tackle only
+-- 400% more damage
+-- 90% more knockback
 - PLX-2M Rocket Launcher (6)
 -- Staggers/pushes on det
 -- 15% more velocity
@@ -174,9 +201,10 @@ Jetpack soldiers with a variety of suppression tools and explosives.
 - Strength (1)
 - Blast Armor
 - Assemble (3)
-- 20% slower skill cooldown
+- No Gunbash
+- 50% slower skill cooldown
 - 25% less knockback taken
 
 ^3Abilities:
-- Jetpack
-- Quick Throw (1) ^3[CS3]"
+- Quick Throw (1) ^3[CS3]
+- Jetpack"
