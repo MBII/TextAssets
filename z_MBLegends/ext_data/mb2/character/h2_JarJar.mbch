@@ -8,7 +8,7 @@ Classinfo
 
 	weapons			WP_MELEE|WP_SABER|WP_T21|WP_PULSE_NADE|WP_REPEATER
 	
-	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH_JUMP|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE|MB_ATT_REPEATER,3
+	attributes	MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE,3|MB_ATT_REPEATER,3
 	
 	WP_MeleeFlags HELD_HIGHDAMAGE|HELD_SLIPPERY
 	WP_SaberFlags HELD_KNOCKDOWN|HELD_NODISARM|HELD_SLIPPERY
@@ -36,9 +36,9 @@ Classinfo
 	ASmultiplier 1.3
 	BPmultiplier	0
 
-	forcepool	35
+	forcepool	60
 	forceregen 1.75
-	resourceRegenCap 35
+	resourceRegenCap 60
 	resourceRegenAmount 5
 	resourceRegenRate 1
 	resource RESOURCE_STAMINA
@@ -53,15 +53,18 @@ Classinfo
 	knockbackTaken 1.5
 	knockbackGiven 1.5
 
-	skilltimermod 2.9
+	skilltimermod 2.5
+ rankSTM 1
 
-	hackRate 1.5
+	hackRate 2
 
 	meleespecial1	EAS_HI_DODGE
 	special1	EAS_HI_DODGE
  meleespecial2	EAS_HI_BARGE
 	special2	EAS_HI_BARGE
+	meleespecial3	EAS_HI_DEX
 	special3	EAS_HI_DEX
+ meleespecial4 EAS_HI_DASH
  special4 EAS_HI_DASH
 	
 	uioverlay_r "gfx/icons/spec_infantry"
@@ -78,11 +81,24 @@ Classinfo
 	gloatAnim      BOTH_TUSKENTAUNT1
 	flourishAnim		BOTH_FORCEWALLRUNFLIP_START
 	bowAnim 			   BOTH_GUNGAN_TAUNT
- bargeAnim BOTH_ALORA_SPIN
+ bargeAnim   BOTH_DEATHBACKWARD1  //BOTH_FALLDEATH1INAIR
  jumpAnim       BOTH_MELEE_SWIMFORWARD //TORSO_MELEE_BLOCK_SWIMFORWARD
  //LandAnim BOTH_KNOCKDOWN3
 
-	bargeSoundOverride	"sound/chars/jarjar/misc/combat1.mp3"
+	bargeSoundOverride	"sound/chars/jarjar/misc/reply_sorry.mp3"
+
+	isCustomBuild		1
+	mbPoints			1
+	
+	c_att_skill_0	MB_ATT_STM_MULTIPLIER
+	c_att_names_0	"Skill Cooldown (100%)"
+	c_att_ranks_0	1
+	c_att_descs_0 "40% default"
+
+	c_att_skill_1	MB_ATT_DASH_JUMP
+	c_att_names_1	"Swan Dive (Dash Jump)"
+	c_att_ranks_1	1
+	c_att_descs_1 "Allows for a jump during Dash"
 
 }
 
@@ -104,11 +120,14 @@ WeaponInfo0
 	altMissileHitDroidEffect	"Grenades/EXP_Pulsenade"
 	MuzzleEffect		null
  altMuzzleEffect null
+
 	altFireEnabled 			0
+	customAmmo 				4
+
 	WeaponName				"Boomas"
 	Icon						"gfx/hud/w_icon_booma"
-	customAmmo 				4
 	SelectSound	"sound/weapons/blunt/spin.mp3"	
+
 	hasAnimOverrides 1
 	animReadyRun BOTH_THERMAL_READY2
 	animReady BOTH_THERMAL_READY2
@@ -140,9 +159,11 @@ WeaponInfo1
 	altMuzzleEffect		"Blaster/MuzzleFlash01R"
 	altMissileEffect		"blaster/Shot01R"
  altMissileMissEffect "Blaster/Impact_Wall01"
+
 	customAmmo 		2184
 	clipsize 		156
- reloadTimeModifier 0.5
+ reloadTimeModifier .5 //barely works
+
 	hasAnimOverrides 1
 	animReadyNoAmmo BOTH_ARC_FORWARD_DIVE
 	animAttackRun BOTH_ARC_FORWARD_DIVE
@@ -177,8 +198,8 @@ WeaponInfo3
  altFlashSound3 "sound/weapons/hutt_spit/fire.mp3"
  altMissileModel    "models/weapons2/dummy/dummy.md3"
  altMissileMissEffect "env/water_impact"
- altMissileHitHumanEffect "env/water_impact"
- altMissileHitDroidEffect "env/water_impact"
+ altMissileHitHumanEffect "droideka/shieldimpact"
+ altMissileHitDroidEffect "droideka/shieldimpact"
  altMuzzleEffect   "env/water_impact"
  altMissileEffect  "misc/waterbreath"
 
@@ -190,8 +211,8 @@ WeaponInfo3
  FlashSound3 "sound/weapons/hutt_spit/fire.mp3"
  MissileModel    "models/weapons2/dummy/dummy.md3"
  MissileMissEffect  "env/water_impact"
- MissileHitHumanEffect "env/water_impact"
- MissileHitDroidEffect "env/water_impact"
+ MissileHitHumanEffect "droideka/shieldimpact"
+ MissileHitDroidEffect "droideka/shieldimpact"
  MuzzleEffect  "env/water_impact"
  MissileEffect "misc/waterbreath"
 
@@ -217,18 +238,18 @@ Mesa, uh, clumsy...
 
 ^2Weaponry:
 - Heavy Melee
--- Slicks on hit
+-- Slips on hit
 -- 25% faster RoF
 - Grand Gungan Ticklers (Dual Saber)
 -- No Saber/Blaster Block
 -- Chain Limit: 1
--- Trips/slicks on hit
+-- Trips/slips on hit
 -- 300% more knockback
--- 100/25% shorter
 -- 100% more special damage
+-- 100/25% shorter
 -- 400% thicker
 - Ptooie (18) (IHR)
--- Heals allies on hit
+-- Team-heals on hit
 -- 150% more damage
 -- 6000% slower RoF
 - Salvaged E-5 Blaster Rifle (T-21 1)
@@ -245,21 +266,21 @@ Mesa, uh, clumsy...
 - Bunny Hop (2)
 - Slow Faller
 - Stamina (3)
--- Extra Regen: 5/.001s to 35
+-- Extra Regen: 5/.001s to 60
 - Dexterity (3)
 - Blast Armor
 - Healing (2)
 - Underwater Breathing
 - Getup (3)
 - Ally Stat Viewer
-- 190% slower skill cooldown
-- 50% slower hacking
+- 150% slower skill cooldown
+- 100% slower hacking
 - 50% more knockback given/taken
 
 ^3Abilities:
-- Gungan Jive (Toxic Taunt)
-- Flipkick (2) ^3[Contact Jump]
 - Dodge (3) ^3[CS1]
-- Spin Attack (Barge) ^3[Melee CS2]
+- Pratfall (Barge 3) ^3[Melee CS2]
 - Dex Roll ^3[CS3]
-- Dash/Dash Jump (1) ^3[CS4]"
+- Dash (1) ^3[CS4]
+- Gungan Jive ^3[Taunt Sith]
+- Flipkick (2) ^3[Contact Jump]"
