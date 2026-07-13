@@ -1,6 +1,7 @@
-//Kotor Sith, note weapon overrides don't work for blasters on NPCs
-//To Do: Sith Apprentice, Revan, Malak, Brandon, Sion, Nilus, Traya, etc for Kotor era
-//Future Ideas: Kotor era: Probe Droid, Mark I/II/III, Floating Mine, Mining Droids, Monsters, Trayas Gunner, Thugs/BHs/Mercs
+//Kotor Sith: Note weapon overrides don't work for blasters on NPCs
+//Kotor Sith Characters can be found in KotorSith.npc
+//To Do: Sith Apprentices, Saul, more Sith Officers.
+//Future Ideas: Kotor era: Probe Droid, Mark I/II/III, more Sentinel Droids, Floating Mine, Monsters
 
 //Kotor Sith
 SE_Dark_Jedi
@@ -20,9 +21,10 @@ SE_Dark_Jedi
 	MBchance 2
 	SBchance 45
 	saberStyle	2
-	FP_LEVITATION	2
+	FP_LEVITATION	3
 	FP_SABERTHROW	3
-	FP_PULL 		2
+	FP_PULL 		3
+	FP_PROTECT		3
 	rank		captain
 	forcePowerMax 100
 	reactions	5
@@ -62,9 +64,10 @@ SE_Dark_Jedi2
 	MBchance 2
 	SBchance 45
 	saberStyle	2
-	FP_LEVITATION	2
+	FP_LEVITATION	3
 	FP_SABERTHROW	3
-	FP_PUSH 		2
+	FP_PULL 		3
+	FP_ABSORB 		3
 	rank		captain
 	forcePowerMax 100
 	reactions	5
@@ -87,7 +90,6 @@ SE_Dark_Jedi2
 	health		100
 }
 
-
 SE_Sith_Lord
 {
 	playerModel	sith_assassin
@@ -107,9 +109,8 @@ SE_Sith_Lord
 	saberStyle	4
 	FP_LEVITATION	3
 	FP_DESTRUCTION	3
-	FP_TEAM_HEAL	3
-	FP_DEADLYSIGHT	3
 	FP_LIGHTNING	3
+	FP_PUSH			3
 	//rank		captain
 	forcePowerMax 100
 	reactions	3
@@ -207,6 +208,46 @@ SE_Trayas_Assassin
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_SHADOWTROOPER
+	snd			sith_assassin
+	sndcombat	sith_assassin
+	sndjedi		sith_assassin
+	yawSpeed	140
+	walkSpeed	55
+	runSpeed	225
+	health		80
+	armor 20
+}
+
+SE_Trayas_Gunner
+{
+	playerModel	sith_assassin
+	weapon	WP_BLASTER_PISTOL //Placeholder for dual pistols
+	MB_ATT_PISTOL 3
+	MBClass		5
+	saber		qstaff
+	MB_ATT_FP_SABER_DEFENSE 2
+	RESOURCE_FORCE 1
+	forcePowerMax	200
+	forceRegenAmount	2
+	PBchance 20
+	MBchance 2
+	SBchance 45
+	saberStyle	7
+	FP_LEVITATION	3
+	FP_SPEED		3
+	FP_TELEPATHY 	3
+	rank		lt
+	reactions	5
+	aim			5
+	move		5
+	aggression	5
+	evasion		4
+	intelligence	5
+	hfov		160
+	vfov		160
+	playerTeam	TEAM_PLAYER
+	enemyTeam	TEAM_ENEMY
+	class		CLASS_ADEPT
 	snd			sith_assassin
 	sndcombat	sith_assassin
 	sndjedi		sith_assassin
@@ -640,7 +681,7 @@ SE_ST_Officer
 	runSpeed	225
 }
 
-ST_Baton
+SE_ST_Baton
 {
 	playerModel	sith_officer
 	customSkin	sith3
@@ -757,6 +798,7 @@ HK_Shotgun
 	sndextra	hk50
 	yawspeed	70
 }
+
 T3_Ice
 {
 	playerModel t3m4
@@ -819,14 +861,14 @@ T3_Lightning
 	yawspeed	70
 }
 
-Wardroid_Repeater
+Sentinel
 {
 	playerModel wardroid
 	MBClass		11
-	weapon		WP_DLT19
-	MB_ATT_DLT19 3
-	health		80
-	armor 40
+	weapon		WP_E_22
+	MB_ATT_E_22 3
+	health		100
+	armor 20
 	MB_ATT_SHIELD_RECHARGE2 1
 	headPitchRangeDown 30
 	reactions	3
@@ -854,7 +896,7 @@ MarkIV
 	playermodel		m4droid
 	MBClass			11
 	weapon			WP_E_22
-	MB_ATT_E_22 3
+	MB_ATT_E_22 	3
 	RESOURCE_DEKASHIELD 1
 	headYawRangeLeft	180
 	headYawRangeRight	180
