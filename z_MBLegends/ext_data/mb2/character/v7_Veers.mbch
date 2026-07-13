@@ -1,47 +1,46 @@
 
-
 ClassInfo
 {
 	name				"v7_Veers"
 	classNumberLimit	1
 	MBClass		MB_CLASS_COMMANDER
+
 	weapons		WP_MELEE|WP_SONIC_NADE|WP_FIRE_NADE|WP_BLASTER_PISTOL|WP_EE3
 
-	attributes	MB_ATT_SPAWNER,1|MB_ATT_DISP_ARMOR,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DODGE,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DLT20A,3|MB_ATT_RALLY,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER|MB_ATT_FIRE_GRENADES,2|MB_ATT_DASH,2|MB_ATT_AMMO,3|MB_ATT_TRACKING_DART,4|MB_ATT_EE3,1|MB_ATT_PISTOL,2|MB_ATT_USE_DISTANCE,1|MB_ATT_SPAWNER,3|MB_ATT_DEXTERITY,1|MB_ATT_BINOCULARS,1|MB_ATT_BACTA_BIG,1
+	WP_EE3Flags HELD_FREEZE|HELD_ALTRELOAD
+ WP_BlasterFlags HELD_FREEZE //lol
+
+	attributes	MB_ATT_SPAWNER,1|MB_ATT_DISP_ARMOR,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DODGE,3|MB_ATT_SONIC_DETONATOR,2|MB_ATT_DLT20A,3|MB_ATT_RALLY,1|MB_ATT_FUEL,3|MB_ATT_FLAMETHROWER|MB_ATT_FIRE_GRENADES,2|MB_ATT_DASH,2|MB_ATT_AMMO,3|MB_ATT_TRACKING_DART,4|MB_ATT_EE3,1|MB_ATT_PISTOL,2|MB_ATT_USE_DISTANCE,1|MB_ATT_SPAWNER,3|MB_ATT_DEXTERITY,1|MB_ATT_BINOCULARS,1|MB_ATT_BACTA_BIG,1|MB_ATT_PETCONTROL
 
 	maxhealth	125
 	maxarmor		125
 	
 	classflags		CFL_STATVIEWER
 	
-	spawnerNPC "probe"
+	spawnerNPC "probe_leg"
 	
 	basespeed 250
 	
 	resource		RESOURCE_ENERGY
 	forcepool	150
 	forceregen 1.15
-
-	WP_EE3Flags HELD_FREEZE|HELD_ALTRELOAD
- WP_BlasterFlags HELD_FREEZE //lol
  
-  	special1HUD HUD_SONICNADE
+ special1HUD HUD_SONICNADE
 	special2HUD HUD_TRACKINGDART
 
-	model	"imperial"
-	skin		"veers"
-	uishader	"models/players/imperial/mb2_icon_veers"
-	modelscale  1.035
-	uioverlay_r 	"gfx/icons/tactician"
-	uioverlay_l "gfx/2d/hud/hlp_defend"
-
 	special1 EAS_HI_DODGE
-
 	meleespecial1 EAS_HI_DODGE
 	special2		EAS_HI_KICK
 	meleespecial2		EAS_HI_TRACKER
 	special3		EAS_HI_DASH
  special4 EAS_HI_MEDPAC_BIG
+
+	model	"imperial"
+	skin		"veers"
+	uishader	"models/players/imperial/mb2_icon_veers"
+	modelscale  1.035
+	uioverlay_r "gfx/icons/tactician"
+	uioverlay_l "gfx/2d/hud/hlp_defend"
 
 	gloatAnim BOTH_TALKCOMM1START
 	flourishAnim TORSO_HANDSIGNAL3
@@ -58,6 +57,7 @@ WeaponInfo0
 	FlashSound0			"sound/weapons/SE-14c/fire.wav" 		
 	altFlashSound0		"sound/weapons/SE-14c/fire.wav" 
 	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
+
 	clipsize 20
 	customAmmo 400
 	ReloadTimeModifier 1.33
@@ -75,6 +75,7 @@ WeaponInfo1
 	WeaponName			"Modified EE-4 Carbine Rifle"    					
 	FlashSound0 "sound/weapons/blaster/alt_fire.mp3"
 	AltFlashSound0  "sound/weapons/blaster/alt_fire.mp3"
+
 	customAmmo      950
 	clipSize        100
 	FPMult          0.8
@@ -108,25 +109,32 @@ WeaponInfo2
 	AltMissileHitHumanEffect "wat_leg/beaker_det/impact"
 	AltMissileHitDroidEffect	"wat_leg/beaker_det/impact"
 	WeaponName		"CryoBan Gun"
+
 	ReloadTimeModifier 	1.4
 	customAmmo 96
 	clipSize 8
 	velocityMod   0.5
 	rateMod 0.1
-hasAnimOverrides 1
-animReadyRun BOTH_WESTARM5_IDLE
-animReady BOTH_WESTARM5_IDLE
-animReadyWalk BOTH_WESTARM5_READY
-animReadyNoAmmo BOTH_WESTARM5_ATTACK
-animAttackRun BOTH_WESTARM5_ATTACK
-animAttack BOTH_WESTARM5_ATTACK
-animAttackWalk BOTH_WESTARM5_ATTACK
-altFireEnabled 0
+
+ hasAnimOverrides 1
+ animReadyRun BOTH_WESTARM5_IDLE
+ animReady BOTH_WESTARM5_IDLE
+ animReadyWalk BOTH_WESTARM5_READY
+ animReadyNoAmmo BOTH_WESTARM5_ATTACK
+ animReadyZoom BOTH_WESTARM5_IDLE
+ animReadyZoomRun BOTH_WESTARM5_IDLE
+
+ animAttackRun BOTH_WESTARM5_ATTACK
+ animAttack BOTH_WESTARM5_ATTACK
+ animAttackWalk BOTH_WESTARM5_ATTACK
+ animAttackZoom BOTH_HEADSHAKE
+ animAttackZoomRun BOTH_HEADSHAKE
+ altFireEnabled 0
 }
 
 description	"General Maximillian Veers 
 
-A supportive gunner who can mark enemies for death, repair his troops' armor, and deploy a Probe Droid to carry out his bidding.
+A supportive leader with target-marking, Armor repair, and a personalized Probe Droid.
 
 ^2Weaponry:
 - Melee
@@ -147,7 +155,7 @@ A supportive gunner who can mark enemies for death, repair his troops' armor, an
 -- Primary fire only
 
 ^6Inventory:
-- Probe Droid (Support Beacon)
+- Viper Probe Droid (Support Beacon)
 - Advanced Medpac ^3[CS4]
 - Electrobinoculars
 
@@ -155,7 +163,7 @@ A supportive gunner who can mark enemies for death, repair his troops' armor, an
 - Dexterity (1)
 - Blast Armor
 - Rally 
-- Ally Stat Viewer
+- Remote/Ally Stat Viewer
 
 ^3Abilities:
 - Armor Dispenser (2) ^3[Use]
