@@ -2,80 +2,100 @@
 
 ClassInfo
 {
-	name			"a3m_wierzbowski"
-	weapons		WP_MELEE|WP_BLASTER|WP_THROWER
-	attributes	MB_ATT_ARMOUR,2|MB_ATT_AMMO,3|MB_ATT_BLASTER,2|MB_ATT_THROWER_FLAME,3
-	maxhealth		100
-	maxarmor		100
-	model			"colonial_marine"
-	skin			"wierzbowski"
-	uishader		"gfx/mplevels/aliens3/aliens_cmwierzbowski"
-	MBClass			MB_CLASS_ELITETROOPER
+	name				"a3m_wierzbowski"
+	weapons				WP_MELEE|WP_BLASTER|WP_THROWER
+	WP_BlasterFlags		HELD_ALTRELOAD
+	WP_ThrowerFlags		HELD_ALTRELOAD
+	attributes			MB_ATT_AMMO,3|MB_ATT_BLASTER,2|MB_ATT_THROWER_FLAME,3
+	maxhealth			100
+	maxarmor			100
+	model				"colonial_marine"
+	skin				"wierzbowski"
+	uishader			"gfx/mplevels/aliens3/aliens_cmwierzbowski"
+	MBClass				MB_CLASS_ELITETROOPER
 	classnumberlimit	1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER
-	WeaponBasedOff		WP_BLASTER
-	NewWorldModel		"models/weapons2/aliens_prifle/prifle.glm"
-	NewViewModel		"models/weapons2/aliens_prifle/prifle.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	MuzzleEffect		"halo_smg/Muzzle_Flash"
-	MissileEffect		"halo_smg/projectile"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMuzzleEffect		"halo_smg/Muzzle_Flash"
+	WeaponToReplace			WP_BLASTER
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/aliens_ripley/ripley_pf.glm"
+	NewViewModel			"models/weapons2/aliens_ripley/ripley_pf.md3"
+	NewHandsModel			"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_ripley"
+	WeaponName				"M4A1 Pulse Rifle"
+	
+	SelectSound				"Sound/weapons/aliens_prifle/select.wav"
+	FlashSound0				"sound/weapons/pulse/fire.mp3"
+	AltFlashSound0			"sound/weapons/pulse/fire.mp3"
+	
+	MuzzleEffect			"halo_smg/Muzzle_Flash"
+	MissileEffect			"halo_smg/projectile"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"halo_smg/Muzzle_Flash"
 	altMissileEffect		"halo_smg/projectile"
-	altMissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"sound/weapons/pulse/fire.mp3"
-	AltFlashSound0		"sound/weapons/pulse/fire.mp3"
-	SelectSound		"Sound/weapons/aliens_prifle/select.wav"
-	Icon			"gfx/mplevels/aliens3/aliens_prifle"
-	WeaponName		"M4A1 Pulse Rifle"
-	customAmmo		400
-	clipSize  60
-	primHitscanShot		1
-	primHitscanTracer	5
-	altHitscanShot		1
-	altHitscanTracer	5
-	primGore		1
-	altGore			1
-	idleAnim  BOTH_DC15_READY
-	firingAnim  BOTH_DC15_ATTACK
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	customAmmo				400
+	clipSize				60
+	primHitscanShot			1
+	primHitscanTracer		5
+	altHitscanShot			1
+	altHitscanTracer		5
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				BOTH_DC15_IDLE
+	animReadyRun			BOTH_DC15_READY
+	animReadyWalk			BOTH_DC15_READY
+	animReadyNoAmmo			BOTH_DC15_ATTACK
+	animAttack				BOTH_DC15_ATTACK
+	animAttackRun			BOTH_DC15_ATTACK
+	animAttackWalk			BOTH_DC15_ATTACK
+	animCharge				BOTH_DC15_READY
+	animStand				BOTH_DC15_IDLE
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_THROWER
-	WeaponBasedOff		WP_THROWER
-	NewWorldModel		"models/weapons2/flamethrower/flamethrower.glm"
-	NewViewModel		"models/weapons2/flamethrower/flamethrower.md3"	
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon			"gfx/mplevels/aliens3/aliens_flamethrower"
-	WeaponName		"M240 Flamethrower"
-	customAmmo		500
-	idleAnim  BOTH_DC15_READY
-	firingAnim  BOTH_DC15_ATTACK
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/aliens_ripley/ripley_fp.glm"
+	NewViewModel			"models/weapons2/aliens_ripley/ripley_fp.md3"
+	NewHandsModel			"models/weapons2/golan_arms/golan_arms_hand.md3"
+	Icon					"gfx/mplevels/aliens3/aliens_ripley"
+	WeaponName				"M240 Flamethrower"
+	
+	customAmmo				500
+	
+	hasAnimOverrides		1
+	animReady				BOTH_DC15_IDLE
+	animReadyRun			BOTH_DC15_READY
+	animReadyWalk			BOTH_DC15_READY
+	animAttack				BOTH_DC15_ATTACK
+	animAttackRun			BOTH_DC15_ATTACK
+	animAttackWalk			BOTH_DC15_ATTACK
+	animAttackCharge		BOTH_DC15_READY
+	animStand				BOTH_DC15_IDLE
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"models/weapons2/halo_melee/icon.png"
-	WeaponName		"Melee"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName				"Melee"
+	
+	primGore				1
+	altGore					1
 }
 
 description	"Pvt. Trevor Wierzbowski
 
-Weaponry:
-Pulse Rifle (2)
-M240 Flamethrower (3)
-
-Attributes:
-Armour (2)
-Ammo (3)"
+^2Weaponry:
+- Pulse Rifle (E-11 2)
+- M240 Flamethrower (3)"

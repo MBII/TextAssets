@@ -37,6 +37,133 @@
 			decoration
 		}
 
+		itemDef
+		{
+			name				btnInfo
+			group				pointssetup
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				9 9 14 16
+			background			"gfx/menus/alpha/btn_info"
+			forecolor			1 1 1 0.1
+			visible				1
+			mouseEnter
+			{
+				setcolor forecolor 1 1 1 0.25
+				show			btn_info_hl
+				setitemrect		btn_info_hl	9 9 14 16
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.1
+				hide			btn_info_hl
+			}
+			action
+			{
+				hide pointssetup
+				show classInfo
+			}
+		}
+
+		itemDef
+		{
+			name				btnInfo2
+			group				classInfo
+			type 				ITEM_TYPE_BUTTON
+			style				WINDOW_STYLE_SHADER
+			rect				9 9 14 16
+			background			"gfx/menus/alpha/btn_info"
+			forecolor			1 1 1 0.1
+			visible				0
+			mouseEnter
+			{
+				setcolor forecolor 1 1 1 0.25
+				show			btn_info_hl
+				setitemrect		btn_info_hl	9 9 14 16
+			}
+			mouseExit
+			{
+				setcolor forecolor 1 1 1 0.1
+				hide			btn_info_hl
+			}
+			action
+			{
+				show pointssetup
+				hide classInfo
+				close mb_weapon_pistol3
+				close mb_weapon_e11
+				close mb_weapon_dlt20a
+				close mb_weapon_proj
+				close mb_weapon_disruptor
+			}
+		}
+
+		itemDef 
+		{
+			name				textbox
+			group				classInfo
+			style				WINDOW_STYLE_TEXT_RGB1
+			type				ITEM_TYPE_TEXTSCROLL
+			rect				4 24 152 336
+			text				"*"
+			cvar ui_classdesc
+			visible				0
+			font				6
+			textscale			0.12
+			textaligny 0
+			textalignx 0
+			textalign ITEM_ALIGN_LEFT
+			forecolor			1 1 1 0.9		
+			lineHeight			12
+			maxLineChars		30
+			hasRefs 1
+
+			refClick "Pistol"
+			{
+				setcvar			ui_help_performance "3"
+				open			mb_weapon_pistol3
+				close mb_weapon_e11
+				close mb_weapon_dlt20a
+				close mb_weapon_proj
+				close mb_weapon_disruptor
+			}
+			refClick "E-11 Blaster"
+			{
+				setcvar			ui_help_performance "3"
+				open			mb_weapon_e11
+				close mb_weapon_pistol3
+				close mb_weapon_dlt20a
+				close mb_weapon_proj
+				close mb_weapon_disruptor
+			}
+			refClick "DLT-20a"
+			{
+				setcvar			ui_help_performance "3"
+				open			mb_weapon_dlt20a
+				close mb_weapon_pistol3
+				close mb_weapon_e11
+				close mb_weapon_proj
+				close mb_weapon_disruptor
+			}
+			refClick "Projectile Rifle"
+			{
+				setcvar			ui_help_performance "3"
+				open			mb_weapon_proj
+				close mb_weapon_pistol3
+				close mb_weapon_dlt20a
+				close mb_weapon_e11
+				close mb_weapon_disruptor
+			}
+			refClick "Disruptor"
+			{
+				setcvar			ui_help_performance "3"
+				open			mb_weapon_disruptor
+				close mb_weapon_pistol3
+				close mb_weapon_dlt20a
+				close mb_weapon_proj
+				close mb_weapon_e11
+			}
+		}
 		// Skill points remaining
 		itemDef
 		{
@@ -719,6 +846,23 @@
 				hide			button_glow
 				setcolor	forecolor 1 1 1 0.8
 			}
+		}
+
+
+//-----------------------------------------------
+// INFO ICON ON TOP
+//-----------------------------------------------
+
+		itemDef
+		{
+			name				btn_info_hl
+			group				none
+			style				WINDOW_STYLE_SHADER
+			rect				0 0 0 0
+			background			"gfx/menus/alpha/btn_info_hl"
+			forecolor			0.8 0.8 0.8 1
+			visible				0
+			decoration
 		}
 	}
 }

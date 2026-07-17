@@ -3,89 +3,99 @@
 ClassInfo
 {
 	name				"uM_ctf_dexterity_blue"
-	weapons				WP_MELEE|WP_BRYAR_OLD|WP_FRAG_NADE|WP_SABER
+	weapons				WP_MELEE|WP_MANDO_PISTOL|WP_FRAG_NADE|WP_SABER
+	WP_MandoPistolFlags	HELD_LOWDAMAGE|HELD_KNOCKBACK
+	WP_FragNadeFlags 	HELD_LOWDAMAGE
+	attributes			MB_ATT_MANDO_PISTOL,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,2|MB_ATT_AMMO,3|MB_ATT_FRAGS,2|MB_ATT_BINOCULARS
+	//holdables			HI_BINOCULARS
 	saber1				ot_dual_knives
 	saber2				ot_dual_knives
 	saberstyle			SS_DUAL
 	maxhealth			40
 	maxArmor 			100
-	model				"lando" 
+	extralives			2
+	speed				0.92
+	rateOfFire 			0.8
+	damageGiven 		0.4
+	modelscale 			1
+	model				"lando"
 	skin				"default"
 	uishader			"models/players/lando/mb2_icon_default"
 	MBClass				MB_CLASS_ARCTROOPER
-	extralives			2
-	attributes			MB_ATT_PISTOL,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,2|MB_ATT_AMMO,3|MB_ATT_BINOCULARS
 	classflags			CFL_AKIMBOPISTOL3
-	speed				0.92	
-	WP_BryarOldFlags	HELD_LOWDAMAGE|HELD_KNOCKBACK
-	WP_ThermalFlags 	HELD_LOWDAMAGE
 	classNumberLimit	3
-	modelscale 			1
-	//holdables		HI_BINOCULARS
-	rateOfFire 		0.8
-	damageGiven 	0.4
-	respawnCustomTime 15000
-
+	
+	respawnCustomTime	15000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BRYAR_OLD
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/blaster_r/projpistol.glm"
-	NewViewModel		"models/weapons2/blaster_r/projpistol.md3"
-	Icon			"gfx/hud/w_icon_projpistol"
-	altFireEnabled 		0
-	WeaponName		"Dual Projectile Pistols"
-	primHitscanShot		0
-	primGore			1
-	altGore			1
-	PrimHitscanTracer 	4	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
-	AltHitscanTracer 	4
-	CustomAmmo "999"
-	CustomClip "20"
-	FlashSound0		"sound/weapons/tusken_rifle/hit_surface"
-	FlashSound1		"sound/weapons/tusken_rifle/hit_body"
-	FlashSound3	"sound/weapons/tusken_rifle/hit_surface"
-
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_knife/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_dualknives"
+	WeaponName				"Dual Knives"
 }
 
 WeaponInfo1
+{
+	WeaponToReplace			WP_MANDO_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/blaster_r/projpistol.glm"
+	NewViewModel			"models/weapons2/blaster_r/projpistol.md3"
+	Icon					"gfx/hud/w_icon_projpistol"
+	WeaponName				"Dual Projectile Pistols"
+	FlashSound0				"sound/weapons/tusken_rifle/hit_surface"
+	FlashSound1				"sound/weapons/tusken_rifle/hit_body"
+	FlashSound3				"sound/weapons/tusken_rifle/hit_surface"
+	altFireEnabled			0
+	primHitscanShot			0
+	primGore				1
+	altGore					1
+	PrimHitscanTracer		4
+	AltHitscanTracer		4
+	CustomAmmo				999
+	clipSize				20
+}
+
+WeaponInfo2
 {
 	WeaponToReplace			WP_FRAG_NADE
 	WeaponBasedOff			WP_FRAG_NADE
 	NewWorldModel			"models/weapons2/blackegg/thermal_w.glm"
 	NewViewModel			"models/weapons2/blackegg/thermal.md3"
 	MissileModel 			"models/weapons2/blackegg/thermal_proj.md3"
-	MissileModel2 			"models/weapons2/blackegg/thermal_proj.md3"
+	altMissileModel 		"models/weapons2/blackegg/thermal_proj.md3"
+	Icon					"gfx/hud/w_icon_blackegg.tga"
+	WeaponName				"Flash Nade"
+	
 	altMissileMissEffect		"flashbang/realthermal"
-	MissileMissEffect		"flashbang/realthermal"
+	MissileMissEffect			"flashbang/realthermal"
 	altMissileHitHumanEffect	"flashbang/realthermal"
 	missileHitHumanEffect		"flashbang/realthermal"
 	altMissileHitDroidEffect	"flashbang/realthermal"
 	missileHitDroidEffect		"flashbang/realthermal"
-	Icon				"gfx/hud/w_icon_blackegg.tga"
-	WeaponName			"Flash Nade"
-	customammo			2
+	
 	primFireEnabled			0
-}
-
-WeaponInfo2
-{
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/saber_knife/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_dualknives"  	//Required: Weapon change icon
-	WeaponName		"Dual Knives"    					//Required: Weapon change display name
 }
 
 description	"Attacker
 
-Flash Grenade (2)
-Dual Pistols
-Binoculars
-Stammina (2)
-Dexterity (3)
+^2Weaponry:
+- Dual Knives
+-- ^2Dual ^7Style Only
+- Dual Projectile Pistols (4)
+- 2 Flash Grenades
 
-Two Extra lives"
+^6Inventory:
+- Electrobinoculars
+
+^8Attributes:
+- Stamina (2)
+- Dexterity (3)
+- 2 Extra Lives
+
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]"

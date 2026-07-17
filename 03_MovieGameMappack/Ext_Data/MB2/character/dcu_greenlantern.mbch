@@ -1,107 +1,130 @@
+
+
 ClassInfo
 {
-	name  "dcu_greenlantern"
-	weapons WP_MELEE|WP_CLONE_PISTOL
-	attributes		MB_ATT_FUELREGEN,3|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_CLONE_PISTOL,2|MB_ATT_FORCEBLOCK,2
-	forcepowers FP_LEVITATION,3|FP_PUSH,3|FP_PULL,2|
-	maxhealth 200
-	forcepool 100
-	forceregen  4
-	speed 1.4
-	model "prisoner"
-	skin  "green_lantern"
-	uishader  "gfx/mplevels/dc_universe/greenlantern"
-	MBClass MB_CLASS_MANDALORIAN
+	name				"dcu_greenlantern"
+	weapons				WP_MELEE|WP_CLONE_PISTOL
+	attributes			MB_ATT_FUELREGEN,3|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_CLONE_PISTOL,2|MB_ATT_FORCEBLOCK,2
+	forcepowers			FP_LEVITATION,3|FP_PUSH,3|FP_PULL,2|
+	forcepool			100
+	forceregen			4
+	maxhealth			200
+	speed				1.4
+	model				"prisoner"
+	skin				"green_lantern"
+	uishader			"gfx/mplevels/dc_universe/greenlantern"
+	MBClass				MB_CLASS_ELITETROOPER
+	classflags			CFL_HEAVYMELEE|CFL_NO_JETPACK_OVERHEAT|CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|
 	classNumberLimit	1
-	classflags  CFL_HEAVYMELEE|CFL_NO_JETPACK_OVERHEAT|CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|
-	jetpackThrustEffect "dc/null"
-	jetpackIdleEffect "dc/null"
-	jetpackJetTag "*torso_cap_hips"
-	jetpackJet2Tag  "*torso_cap_hips"
-	jetpackIdleSound  "sound/ambience/artus/artus_shaft"
-	jetpackThrustSound  "sound/ambience/artus/artus_shaft"
-	jetpackStartSound "sound/weapons/force/absorb"
+	
+	resource			RESOURCE_FUEL
+	
+	jetpackThrustEffect	null
+	jetpackIdleEffect	null
+	jetpackJetTag		"*torso_cap_hips"
+	jetpackJet2Tag		"*torso_cap_hips"
+	jetpackIdleSound	"sound/ambience/artus/artus_shaft"
+	jetpackThrustSound	"sound/ambience/artus/artus_shaft"
+	jetpackStartSound	"sound/weapons/force/absorb"
 }
 
 ForceInfo0
 {
-	ForceToReplace  FP_PUSH
-	Icon  "gfx/mplevels/dc_universe/fp_greenlantern"
-	ForcePowerName  "^2Lantern Push"
-	HandShader	"gfx/effects/forcePush"
-	HandShaderRed	0
-	HandShaderBlue	200
-	HandShaderGreen	0
+	ForceToReplace		FP_PUSH
+	Icon				"gfx/mplevels/dc_universe/fp_greenlantern"
+	ForcePowerName		"^2Lantern Push"
+	HandShader			"gfx/effects/forcePush"
+	HandShaderRed		0
+	HandShaderBlue		200
+	HandShaderGreen		0
 }
 
 ForceInfo1
 {
-	ForceToReplace  FP_PULL
-	Icon  "gfx/mplevels/dc_universe/fp_greenlantern"
-	ForcePowerName  "^2Lantern Pull"
-	HandShader	"gfx/effects/forcePush"
-	HandShaderRed	0
-	HandShaderBlue	200
-	HandShaderGreen	0
+	ForceToReplace		FP_PULL
+	Icon				"gfx/mplevels/dc_universe/fp_greenlantern"
+	ForcePowerName		"^2Lantern Pull"
+	HandShader			"gfx/effects/forcePush"
+	HandShaderRed		0
+	HandShaderBlue		200
+	HandShaderGreen		0
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/dc_universe/melee"
-	WeaponName		"^2Melee"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/dc_universe/melee"
+	WeaponName				"^2Melee"
+	
+	primGore				1
+	altGore					1
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/dc_universe/melee"
-	WeaponName		"^2Melee"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/dc_universe/melee"
+	WeaponName				"^2Melee"
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_CLONE_PISTOL
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon  "gfx/mplevels/dc_universe/fp_greenlantern"
-	MuzzleEffect		"Blaster/MuzzleFlash01G"
-	AltMuzzleEffect		"Blaster/MuzzleFlash01G"
-	MissileEffect		"Blaster/Shot02G"
-	Missile3Effect		"Blaster/Shot02G"
-	AltMissileEffect	"Blaster/Shot02G"
-	PowerupShotEffect	"Blaster/Shot04G"
-	ChargeEffect		"gfx/effects/greenFrontFlash"
-	OverchargeEffect	"Blaster/MuzzleFlash01G"
-	FlashSound0		"sound/weapons/plasma_pistol/fire.mp3"
-	FlashSound1		"sound/weapons/plasma_pistol/fire1.mp3"
-	FlashSound2		"sound/weapons/plasma_pistol/fire2.mp3"
-	FlashSound3		"sound/weapons/plasma_pistol/fire3.mp3"
-	AltFlashSound0		"sound/weapons/plasma_pistol/altfire.mp3"
-	ChargeEffect		"gfx/effects/covfrontflash"
-	ChargeSound 		"sound/weapons/plasma_pistol/altcharge.mp3"
-	SelectSound		"sound/weapons/plasma_pistol/select.wav"
-	WeaponName		"^2Lantern Blast"
-	customAmmo		40
-	clipSize  15
-	idleAnim BOTH_MELEE_STAND2
-	firingAnim  BOTH_FORCE_2HANDEDLIGHTNING_START
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_CLONE_PISTOL
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/dc_universe/fp_greenlantern"
+	WeaponName				"^2Lantern Blast"
+	
+	SelectSound				"sound/weapons/plasma_pistol/select.wav"
+	FlashSound0				"sound/weapons/plasma_pistol/fire.mp3"
+	FlashSound1				"sound/weapons/plasma_pistol/fire1.mp3"
+	FlashSound2				"sound/weapons/plasma_pistol/fire2.mp3"
+	FlashSound3				"sound/weapons/plasma_pistol/fire3.mp3"
+	AltFlashSound0			"sound/weapons/plasma_pistol/altfire.mp3"
+	ChargeSound				"sound/weapons/plasma_pistol/altcharge.mp3"
+	
+	MuzzleEffect			"Blaster/MuzzleFlash01G"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01G"
+	MissileEffect			"Blaster/Shot02G"
+	Missile3Effect			"Blaster/Shot02G"
+	AltMissileEffect		"Blaster/Shot02G"
+	PowerupShotEffect		"Blaster/Shot04G"
+	ChargeEffect			"gfx/effects/greenFrontFlash"
+	OverchargeEffect		"Blaster/MuzzleFlash01G"
+	ChargeEffect			"gfx/effects/covfrontflash"
+	
+	customAmmo				40
+	clipSize				15
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MELEE_STAND2
+	animReadyRun			BOTH_MELEE_STAND2
+	animReadyWalk			BOTH_MELEE_STAND2
+	animReadyNoAmmo			BOTH_FORCE_2HANDEDLIGHTNING_HOLD
+	animAttack				BOTH_FORCE_2HANDEDLIGHTNING_HOLD
+	animAttackRun			BOTH_FORCE_2HANDEDLIGHTNING_HOLD
+	animAttackWalk			BOTH_FORCE_2HANDEDLIGHTNING_HOLD
+	animCharge				BOTH_FORCE_2HANDEDLIGHTNING_START
+	animStand				BOTH_MELEE_STAND2
 }
 
 description	"Green Lantern
 
-Abilities:
-Melee
-Flight
-Lantern Blast
-Lantern Push
-Lantern Pull"
+^2Weaponry:
+- Heavy Melee
+- Lantern Blast (2)
+
+^5Abilities:
+- Flight
+- Lantern Push (3)
+- Lantern Pull (2)
+
+^8Attributes:
+- Melee Resistance"

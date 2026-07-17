@@ -4,85 +4,88 @@ ClassInfo
 {
 	name				"PB3_B_Fring"
 	weapons 			WP_BLASTER_PISTOL
-	attributes 			MB_ATT_PISTOL,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_HEALING,3|MB_ATT_DASH,3|MB_ATT_FORCEFIELD
-	maxhealth 			125
+	WP_BlasterPistolFlags	HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_KNOCKDOWN
+	meleeMoves			M_BLOCK
+	attributes			MB_ATT_PISTOL,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_DEXTERITY,3|MB_ATT_HEALING,3|MB_ATT_DASH,3|MB_ATT_FORCEFIELD
+	//holdables			HI_SHIELD
+	maxhealth			125
 	maxarmor  			125
 	damageGiven		    2.5
 	rateOfFire          1
 	speed			    1.15
-	MBClass 			MB_CLASS_HERO
-	//classNumberLimit  	1
-	//holdables 			HI_SHIELD
-	WP_BlasterPistolFlags		HELD_ALTRELOAD|HELD_KNOCKBACK|HELD_KNOCKDOWN
-	classFlags			CLF_ACIDBLOOD
 	modelscale          1.01
-	
-	special1	EAS_HI_DASH
-	resource	RESOURCE_NONE
-	
 	model 				"gus_fring"
 	skin  				"default"
 	uishader  			"models/players/gus_fring/mb2_icon_default"
+	MBClass 			MB_CLASS_HERO
+	classFlags			CFL_ACIDBLOOD
+	//classNumberLimit	1
+	
+	resource			RESOURCE_ENERGY
+	special3			EAS_HI_DEX
 
-	meleeMoves			M_BLOCK
-	respawnCustomTime 50000
+	respawnCustomTime	50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/Beretta/blaster_pistol_w.glm"
-	NewViewModel		"models/weapons2/Beretta/blaster_pistol.md3"
-	Icon				"models/weapons2/Beretta/icon.png"
-	altFireEnabled		0
-	WeaponName			"Desert Eagle"
-	MuzzleEffect		"halo_smg/Muzzle_Flash"
-	MissileEffect		"halo_smg/projectile"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMuzzleEffect		"halo_smg/Muzzle_Flash"
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_MANDO_PISTOL
+	NewWorldModel			"models/weapons2/Beretta/blaster_pistol_w.glm"
+	NewViewModel			"models/weapons2/Beretta/blaster_pistol.md3"
+	Icon					"models/weapons2/Beretta/icon.png"
+	WeaponName				"Desert Eagle"
+	
+	FlashSound0				"Sound/weapons/Beretta/fire.wav"
+	
+	MuzzleEffect			"halo_smg/Muzzle_Flash"
+	MissileEffect			"halo_smg/projectile"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"halo_smg/Muzzle_Flash"
 	altMissileEffect		"halo_smg/projectile"
-	altMissileMissEffect "halo_smg/wall_impact"
-	FlashSound0			"Sound/weapons/Beretta/fire.wav"
-	ClipSize 		50
-	idleAnim BOTH_MAND_PISTOL_IDLE 
-	firingAnim  BOTH_MAND_PISTOL_ATTACK
-	CustomAmmo		600
-		FPMult     			2.5
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	altFireEnabled			0
+	ClipSize				50
+	CustomAmmo				600
+	FPMult					2.5
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
+	animCharge				BOTH_MAND_PISTOL_READY
 }
-
-
 
 description	"Gus Fring
 
 The chicken man
 
-
-Class: Hero
-Class summary: 
 Speedy gunner with an insanely powerful pistol
 
-Weaponry:
+^2Weaponry:
 - Deagle (3)
+-- 150% Higher DMG
+-- Pushes / Trips Targets On Hit
+-- Smaller Clip
+-- Mag Reload
+- Melee [Blocking Only]
 
---- Deagle
-- Based on Pistol
-- Smaller clip
-- Increased force drain
-- Extremely high damage
-- Magazine style reload
-- Knocks target down and back on hit
-
-Inventory:
+^6Inventory:
 - Force Shield
 
-Attributes:
-- Dexterity (3)
-- Rally
-- Heal (3)
+^8Attributes:
 - Poison effect when killed
-- Cannot use melee moves beside block
+- Dexterity (3)
+- Heal (3)
+- Rally
 
-Abilities:
-- Dodge (3)
-- Dash (3) [CS1]"
+^3Abilities:
+- Dodge (3) ^3[CS1]
+- Dash (3) ^3[CS2]
+- Dex Roll ^3[CS3]"

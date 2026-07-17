@@ -42,6 +42,7 @@
 #define ITEM_TEXTSTYLE_OUTLINED			4	// drop shadow ( need a color for this )
 #define ITEM_TEXTSTYLE_OUTLINESHADOWED	5	// drop shadow ( need a color for this )
 #define ITEM_TEXTSTYLE_SHADOWEDMORE		6	// drop shadow ( need a color for this )
+#define ITEM_TEXTSTYLE_TYPING		    7	// drop shadow ( need a color for this )
 
 #define WINDOW_BORDER_NONE				0	// no border
 #define WINDOW_BORDER_FULL				1	// full border based on border color ( single pixel )
@@ -158,6 +159,8 @@
 #define FEEDER_EXHEADS					0x40 // GCJ_EX_MODELS
 
 #define FEEDER_CONQUEST					0x4a	// GCJ_NEW_CONQUEST
+
+#define FEEDER_NPCS				        0x4b	// GCJ_NEW_CONQUEST
 
 // GCJ_OPEN_CLASS_FEEDER
 #define FEEDER_MB_CLASS_R				0x41

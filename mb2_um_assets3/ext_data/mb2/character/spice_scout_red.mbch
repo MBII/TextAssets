@@ -5,7 +5,7 @@ ClassInfo
 	name				"spice_scout_red"
 	weapons				WP_MELEE|WP_FLECHETTE|WP_MANDO_PISTOL|WP_SABER|WP_FIRE_NADE
 	WP_FlechetteFlags	HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_KNOCKBACK
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_FLECHETTE,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_GRAPPLE_HOOK,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ASSEMBLE,1|MB_ATT_FUELREGEN,3|MB_ATT_DODGE,2|MB_ATT_BACTA|MB_ATT_BACTA_BIG
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_FLECHETTE,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_GRAPPLE_HOOK,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_ASSEMBLE,1|MB_ATT_FUELREGEN,3|MB_ATT_DODGE,2|MB_ATT_BACTA|MB_ATT_BACTA_BIG
 	//holdables			HI_MEDPAC|HI_MEDPAC_BIG
 	saber1				um_spice_baton
 	saberstyle			SS_MEDIUM
@@ -14,17 +14,20 @@ ClassInfo
 	forceregen			0.00001
 	maxhealth			100
 	maxarmor			50
+	basespeed			212.5
 	speed				1.25
     model				"rebel_guerilla"
     skin				"default"
     uishader			"models/players/rebel_guerilla/mb2_icon_default"
 	extralives			3
-	MBClass				MB_CLASS_MANDALORIAN
+	MBClass				MB_CLASS_HERO
 	classNumberLimit	4
 
 	resource			RESOURCE_FUEL
 	special1			EAS_HI_DODGE
-	special3			EAS_HI_GRAPPLEHOOK
+	meleespecial3		EAS_HI_GRAPPLEHOOK
+	
+	saberStanceAnim		BOTH_TRIPLE3_DUALSTANCE
 }
 
 WeaponInfo0
@@ -48,7 +51,7 @@ WeaponInfo1
 	WeaponName 				"FC-99 Flechette"
 	
 	MissileHitHumanEffect	"Grenades/EXP_Alt"
-	MissileHitDroid			"Grenades/EXP_Alt"
+	MissileHitDroidEffect			"Grenades/EXP_Alt"
 
 	CustomAmmo				132
 	clipSize				22
@@ -75,11 +78,11 @@ ForceInfo0
 description "Fighter
 
 ^2Weapons:
-- Stun baton
+- Stun baton (Melee)
   ^3+ Yellow ^7Style Only
-  ^3+ Defense (1)
+  ^3+ Saber Defense (1)
 - FC-99 Flechette (3)
-  ^3+ Knockdowns foes
+  ^3+ Pushes & Knockdowns foes
   ^3+ Mag Reload
 - Dual XX-1 Pistols (3)
 - 3 Fire grenades

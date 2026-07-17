@@ -1,85 +1,88 @@
-
 //Siege class def file.
 
 ClassInfo
 {
-	name			"BlueMarksmanUM"
-	weapons			WP_MELEE|WP_PROJ|WP_FRAG_NADE|WP_FIRE_NADE
-	maxhealth		60
-	maxarmor		40
-	startarmor		40
-	MBclass		MB_CLASS_COMMANDER
-	model			"stormtrooper_knight"
-	attributes		MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_FIRE_GRENADES,1
-	skin			"blue"
-	uishader		"gfx/um_icons/blue_marksman_icon"
-	extralives      1
-	classflags      CFL_HEAVYMELEE
-	WP_FragNadeFlags HELD_KNOCKDOWN //old secondary AOE knockdown frags
-
+	name				"BlueMarksmanUM"
+	weapons				WP_MELEE|WP_PROJ|WP_FRAG_NADE|WP_FIRE_NADE
+	WP_FragNadeFlags	HELD_KNOCKDOWN		//old secondary AOE knockdown frags
+	attributes			MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_FIRE_GRENADES,1|MB_ATT_FRAGS,1
+	maxhealth			60
+	maxarmor			40
+	extralives			1
+	model				"stormtrooper_knight"
+	skin				"blue"
+	uishader			"gfx/um_icons/blue_marksman_icon"
+	MBclass				MB_CLASS_ELITETROOPER
+	classflags			CFL_HEAVYMELEE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_PROJ
-	WeaponBasedOff		WP_BLASTER
-	NewWorldModel		"models/weapons2/crossbow/blaster_w.glm"
-	NewViewModel		"models/weapons2/crossbow/blaster.md3"
-	Icon			"gfx/hud/w_icon_bowcaster"
-	WeaponName		"Crossbow"
-	FlashSound0		"sound/weapons/crossbow/fire.wav"
-	AltFlashSound0 		"sound/weapons/crossbow/alt_fire.wav"
-	MuzzleEffect		"crossbow/muzzle_flash"
-	AltMuzzleEffect		"crossbow/altmuzzle_flash"
-	MissileEffect		"crossbow/shot" 
-	Missile3Effect		"crossbow/shot"
-	AltMissileEffect	"crossbow/shot" 
-	PowerupShotEffect	"crossbow/shot"
-	customAmmo 		14
-	ClipSize		2
-	ProjSpeedModifier 	0.7
+	WeaponToReplace			WP_PROJ
+	WeaponBasedOff			WP_BLASTER
+	NewWorldModel			"models/weapons2/crossbow/blaster_w.glm"
+	NewViewModel			"models/weapons2/crossbow/blaster.md3"
+	Icon					"gfx/hud/w_icon_bowcaster"
+	WeaponName				"Crossbow"
+	FlashSound0				"sound/weapons/crossbow/fire.wav"
+	AltFlashSound0			"sound/weapons/crossbow/alt_fire.wav"
+	MuzzleEffect			"crossbow/muzzle_flash"
+	AltMuzzleEffect			"crossbow/altmuzzle_flash"
+	MissileEffect			"crossbow/shot" 
+	Missile3Effect			"crossbow/shot"
+	AltMissileEffect		"crossbow/shot" 
+	PowerupShotEffect		"crossbow/shot"
+	customAmmo				14
+	ClipSize				2
+	velocityMod				0.7
 }
+
 WeaponInfo1
 {
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
-	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
-	NewViewModel		"models/weapons2/stone/thermal.md3"
-	Icon				"gfx/hud/w_icon_stone"
-	WeaponName			"Stones"
-	MuzzleEffect		"stone/muzzle_flash"
-	AltMuzzleEffect		"stone/muzzle_flash"
-	MissileModel 		"models/weapons2/stone/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	primFireEnabled		0
-	customammo          1
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
+	NewViewModel			"models/weapons2/stone/thermal.md3"
+	MissileModel			"models/weapons2/stone/thermal_proj.md3"
+	altMissileModel			"models/weapons2/stone/thermal_proj.md3"
+	Icon					"gfx/hud/w_icon_stone"
+	WeaponName				"Stones"
+	
+	MuzzleEffect				"stone/muzzle_flash"
+	AltMuzzleEffect				"stone/muzzle_flash"
+	altMissileMissEffect		"stone/explosion"
+	altMissileHitHumanEffect	"stone/explosion"
+	altMissileHitDroidEffect	"stone/explosion"
+	
+	primFireEnabled			0
 }
+
 WeaponInfo2
 {
-	WeaponToReplace		WP_FIRE_NADE
-	WeaponBasedOff		WP_FIRE_NADE
-	NewWorldModel		"models/weapons2/grenado/thermal_pirate_w.glm"
-	NewViewModel		"models/weapons2/grenado/thermal_pirate.md3"
+	WeaponToReplace			WP_FIRE_NADE
+	WeaponBasedOff			WP_FIRE_NADE
+	NewWorldModel			"models/weapons2/grenado/thermal_pirate_w.glm"
+	NewViewModel			"models/weapons2/grenado/thermal_pirate.md3"
 	MissileModel 			"models/weapons2/grenado/thermal_pirate_proj.md3"
-	MissileModel2 			"models/weapons2/grenado/thermal_pirate_proj.md3"
-	Icon				"gfx/hud/w_icon_bomb"
-	WeaponName			"Oil Pot"
-    customammo             1
+	altMissileModel 		"models/weapons2/grenado/thermal_pirate_proj.md3"
+	Icon					"gfx/hud/w_icon_bomb"
+	WeaponName				"Oil Pot"
 }
 
 description	"Blue - Stormtrooper Marksman
 
-Melee
-Assemble
-Crossbow                 (Sniper rifle with shots per clip and gunbash)
-Oil Pot                  (Incendiary grenade)
-Rock                     (Secondary only grenade)
-Reinforcements           (1 extra life)
-Strong Melee             
+^2Strengths^7: Can hit enemies at long range with high damage shots
+^1Weaknesses^7: No melee defense
 
-Strengths: Can hit enemies at long range with high damage shots
-Weaknesses: No melee defense
-"
+^2Weaponry:
+- Crossbow
+-- Based on Projectile Rifle
+-- 30% less Velocity
+-- 2 Shots Per Clip
+- Rock [Alt Fire Grenade]
+- Oil Pot [Fire Grenade]
+- Strong Melee
 
-
-
+^8Attributes:
+- 1 Reinforcement
+- Assemble (1)"

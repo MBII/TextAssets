@@ -1,4 +1,3 @@
-
 //Siege class def file. Created by Goosto
 
 ClassInfo
@@ -6,27 +5,30 @@ ClassInfo
 	name				"bf_t_homerun"
 	weapons				WP_MELEE|WP_CONCUSSION|WP_SABER
 	WP_MeleeFlags		HELD_SPEED
-	maxhealth			300
-	maxarmor			0
-	model				"trandoshan"			//this is optional, if it's here it forces the model to this.
-	skin				"model_tra4"
-	attributes			MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FLIPKICK,1|MB_ATT_CONCUSSION,3
-	classflags 			CFL_HEAVYMELEE|CFL_BLOODYMELEE
-	rageSoundOverride 	"sound/chars/trandoshan1/misc/taunt3.mp3"
-	bargeSoundOverride 	"sound/chars/trandoshan1/misc/taunt5.mp3"
-	uishader			"models/FA_icons/dust2/trandoshan"
-	MBClass				MB_CLASS_WOOKIE
-	classNumberLimit	2
-	meleeknockback		2
-	damageTaken			0.01
-	special2			EAS_HI_BARGE
-	resource      		RESOURCE_ENERGY
-	forcepowers			FP_SABER_OFFENSE,3
-	forcepool			36
+	WP_ConcussionFlags 	HELD_ALTRELOAD|HELD_KNOCKBACK
+	attributes			MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FLIPKICK,1|MB_ATT_CONCUSSION,3|MB_ATT_BARGE
 	saber1  			poop_stick
 	saberstyle			SS_STRONG|SS_DESANN	
 	saberDamage			40
-	WP_ConcussionFlags 	HELD_ALTRELOAD|HELD_KNOCKBACK
+	forcepowers			FP_SABER_OFFENSE,3
+	forcepool			36
+	maxhealth			300
+	maxarmor			0
+	damageTaken			0.01
+	meleeknockback		2
+	model				"trandoshan"
+	skin				"model_tra4"
+	uishader			"models/FA_icons/dust2/trandoshan"
+	MBClass				MB_CLASS_WOOKIE
+	classflags 			CFL_HEAVYMELEE|CFL_BLOODYMELEE
+	classNumberLimit	2
+	
+	resource      		RESOURCE_ENERGY
+	meleespecial2		EAS_HI_BARGE
+	
+	rageSoundOverride 	"sound/chars/trandoshan1/misc/taunt3.mp3"
+	bargeSoundOverride 	"sound/chars/trandoshan1/misc/taunt5.mp3"
+	
 	saberStanceAnim		BOTH_STAND5TOSTAND8
 	idleAnim			BOTH_STAND10
 	tauntAnim			BOTH_STAND10
@@ -38,43 +40,54 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER  
-	WeaponName			"Poop Stick"
-	NewWorldModel		"models/weapons2/wooden_stick/wooden_stick.glm"
-	NewViewModel		"models/weapons2/wooden_stick/wooden_stick.md3"
-	Icon				"models/weapons2/wooden_stick/w_icon_wooden_stick.png"
-	SelectSound			"sound/css_wep/buttonclickrelease.wav"
-	primGore			1
-	altFireEnabled		1
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER  
+	WeaponName				"Poop Stick"
+	NewWorldModel			"models/weapons2/wooden_stick/wooden_stick.glm"
+	NewViewModel			"models/weapons2/wooden_stick/wooden_stick.md3"
+	Icon					"models/weapons2/wooden_stick/w_icon_wooden_stick.png"
+	
+	SelectSound				"sound/css_wep/buttonclickrelease.wav"
+	
+	primGore				1
+	altFireEnabled			1
 }
 
 WeaponInfo1
 {
-	WeaponToReplace 	WP_CONCUSSION
-	WeaponBasedOff 		WP_CONCUSSION
-	WeaponName 			"Corked Bat and Greased Balls"
-	NewWorldModel		"models/weapons2/saber_slugger/saber_slugger.glm"
-	NewViewModel		"models/weapons2/saber_slugger/saber_slugger.md3"
-	Icon				"gfx/hud/breakfloor/w_icon_bf_ball1.tga"
-	altFireEnabled		1
-	customAmmo 			90
-	clipSize 			30
-	firingAnim 			BOTH_LK_S_S_T_SB_1_W
+	WeaponToReplace 		WP_CONCUSSION
+	WeaponBasedOff 			WP_CONCUSSION
+	WeaponName 				"Corked Bat and Greased Balls"
+	NewWorldModel			"models/weapons2/saber_slugger/saber_slugger.glm"
+	NewViewModel			"models/weapons2/saber_slugger/saber_slugger.md3"
+	Icon					"gfx/hud/breakfloor/w_icon_bf_ball1.tga"
+	
+	customAmmo 				90
+	clipSize 				30
+	
+	hasAnimOverrides		1
+	animReadyNoAmmo 		BOTH_LK_S_S_T_SB_1_W
+	animAttack 				BOTH_LK_S_S_T_SB_1_W
+	animAttackRun 			BOTH_LK_S_S_T_SB_1_W
+	animAttackWalk 		BOTH_LK_S_S_T_SB_1_W
 }
 
 description "Homerun Trandoshan
 
-Weapons:
-Melee
-Corked Bat and Greased Balls
-Poop Stick
+^2Weapons:
+- Heavy Melee
+- Corked Bat and Greased Balls (3)
+-- Pushes on hit
+-- Mag Reload
+- Poop Stick
+-- ^1Red ^7/ ^6Purple ^7Styles
 
-Attributes:
-Strength (1)
-Barge
-Flipkick (1) [Tip: You can climb blocks by using this wisely]
-High launch power
+^8Attributes:
+- Flipkick (1) [Tip: You can climb blocks by using this wisely]
+- High launch power
+- Strength (1)
 
-Former star hitters for the Trandosha Tigers. Kicked off the team for bringing into question the umpire's authority.
-"
+^3Abilities:
+- Shoulder Barge ^3[CS2 Melee]
+
+Former star hitters for the Trandosha Tigers. Kicked off the team for bringing into question the umpire's authority."

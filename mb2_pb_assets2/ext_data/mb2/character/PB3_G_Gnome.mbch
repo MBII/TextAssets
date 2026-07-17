@@ -2,106 +2,99 @@
 
 ClassInfo
 {
-	name			"PB3_G_Gnome"
-	MBClass			MB_CLASS_MANDALORIAN
-	weapons			WP_BOWCASTER|WP_MELEE|WP_SABER
-	modelscale		1				
-	maxhealth		100
-	maxarmor		75
-	speed			1.5
-	attributes		MB_ATT_BOWCASTER,3|MB_ATT_POISON_DART,3|MB_ATT_DASH,3|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_FLIPKICK,3|MB_ATT_SPY_DISGUISE,3|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_CORTOSIS,1|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_CLOAK
-	classflags		CFL_SEEING_STEALTH|CFL_HEAVYMELEE|CFL_BPFREEJUMPS
-	forcepool		90
-	rateOfFire      	0.85
-	//holdables		HI_CLOAK
-
-	saber1			luciendargold_wacky
-	saberstyle		SS_MEDIUM|SS_STRONG
-
-	special1	EAS_HI_DASH
-	special2	EAS_HI_GRAPPLEHOOK
-	special3	EAS_HI_POISON
-	special4	EAS_HI_DODGE
-
-	forcepowers		FP_SABER_DEFENSE,3|FP_LEVITATION,3|FP_SEE,1
-	APmultiplier		1.2
+	name				"PB3_G_Gnome"
+	weapons				WP_BOWCASTER|WP_MELEE|WP_SABER
+	WP_MeleeFlags		HELD_SPEED
+	WP_Bowcasterflags	HELD_POISON
+	attributes			MB_ATT_BOWCASTER,3|MB_ATT_POISON_DART,3|MB_ATT_DASH,3|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_HEALING,3|MB_ATT_FLIPKICK,3|MB_ATT_SPY_DISGUISE,3|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_CORTOSIS,1|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	saber1				luciendargold_wacky
+	saberstyle			SS_MEDIUM|SS_STRONG
 	BPmultiplier		1.2
+	APmultiplier		1.2
 	ASmultiplier		1.2
 	CSmultiplier		1.2
-	model			"gnome"
-	skin			"default"
-	uishader		"models/players/gnome/mb2_icon_default"
+	forcepowers			FP_SABER_DEFENSE,3|FP_LEVITATION,3|FP_SEE,1
+	forcepool			90
+	maxhealth			100
+	maxarmor			75
+	speed				1.5
+	rateOfFire      	0.85
+	modelscale			1
+	model				"gnome"
+	skin				"default"
+	uishader			"models/players/gnome/mb2_icon_default"
+	MBClass				MB_CLASS_MANDALORIAN
+	classflags			CFL_SEEING_STEALTH|CFL_HEAVYMELEE|CFL_BPFREEJUMPS
 	
-	respawnCustomTime  50000
-	WP_BryarOldflags		HELD_POISON
-	WP_MeleeFlags			HELD_SPEED
+	special1HUD			HUD_POISONDART
+	resource			RESOURCE_FUEL
+	special1			EAS_HI_DASH
+	meleespecial2		EAS_HI_GRAPPLEHOOK
+	meleespecial3		EAS_HI_POISON
+	special3			EAS_HI_DEX
+	special4			EAS_HI_DODGE
+	
+	respawnCustomTime	50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER					
-	NewWorldModel		"models/weapons2/crossbow/blaster_w.glm"
-	NewViewModel		"models/weapons2/crossbow/blaster_1.md3"
-	Icon			"gfx/hud/w_icon_bowcaster" 			//Required: Weapon change icon
-	WeaponName		"Crossbow"    					//Required: Weapon change display name
-	FlashSound0		"sound/weapons/crossbow/fire.wav"
-	AltFlashSound0 		"sound/weapons/crossbow/alt_fire.wav"
-	MuzzleEffect		"crossbow/muzzle_flash"	   				//Optional: New muzzle effect
-	AltMuzzleEffect		"crossbow/altmuzzle_flash" 					//Optional: New alt muzzle effect
-	MissileEffect		"crossbow/shot"  					//Optional: New effect to be displayed on the projectile
-	Missile3Effect		"crossbow/shot"  					//Optional: New effect to be displayed on the projectile
-	AltMissileEffect	"crossbow/shot"  					//Optional: Ditto for the alt fire
-	PowerupShotEffect	"crossbow/shot"  					//Optional: Ditto for the alt fire
-	AltfireEnabled		0
-	customAmmo 		600
-	ClipSize		50
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_BOWCASTER					
+	NewWorldModel			"models/weapons2/crossbow/blaster_w.glm"
+	NewViewModel			"models/weapons2/crossbow/blaster_1.md3"
+	Icon					"gfx/hud/w_icon_bowcaster"
+	WeaponName				"Crossbow"
+	
+	FlashSound0				"sound/weapons/crossbow/fire.wav"
+	AltFlashSound0			"sound/weapons/crossbow/alt_fire.wav"
+	MuzzleEffect			"crossbow/muzzle_flash"
+	AltMuzzleEffect			"crossbow/altmuzzle_flash"
+	MissileEffect			"crossbow/shot"
+	Missile3Effect			"crossbow/shot"
+	AltMissileEffect		"crossbow/shot"
+	PowerupShotEffect		"crossbow/shot"
+	
+	AltfireEnabled			0
+	customAmmo				600
+	ClipSize				50
 }
 
 description	"Gnome
 
 Tomfoolery and gardening
 
-
-Class: Mandalorian
-Class summary: 
 Hybrid jedi/gunner class
 
-Weaponry:
+^2Weaponry:
 - Sword
-- Crossbow
+-- ^3Yellow ^7/ ^1Red ^7Styles
+-- Saber Defense (3)
+- Crossbow (3)
+-- Poisons on hit
+-- Cannot use charged shots
+- Heavy Melee [15% Faster Movement]
 
---- Sword
-- Defense (3)
-- Can use Yellow and Red styles
-- Can block lightsabers
-- Cannot block blaster bolts
-- No BP drain on jumps
+^6Inventory:
+- Cloak (2)
 
---- Crossbow
-- Based on Bowcaster
-- Cannot use charged shots
-- Poison effect on hit
-
-Force Powers:
+^5Force Powers:
 - Sense (1)
 - Jump (3)
 
-Attributes:
-- Fuel (3)
-- Fuel Regen (3)
-- Heavy Melee
-- Invisible to sense
-- Heal (3)
-- Dexterity (3)
-- Increased speed in melee
+^8Attributes:
+- Force Sense Immunity
 - Cortosis (1)
-- Grapple Hook (4) [CS2]
-- Cloak
-- Poison Darts [CS3]
+- Fuel + Fuel Regen (3)
+- Dexterity (3)
+- Heal (3)
 
-Abilities:
-- Dodge (3) [CS4]
-- Dash (3) [CS1]
+^3Abilities:
 - Flipkick (3)
-- Disguise (3)"
+- Disguise (3) [Weapon Mode In Melee]
+- Dash (3) ^3[CS1]
+- Grapple Hook (4) ^3[CS2 Melee]
+- 3 Poison Darts ^3[CS3 Melee]
+- Dex Roll ^3[CS3]
+- Dodge (3) ^3[CS4]"

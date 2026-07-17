@@ -1,67 +1,87 @@
+
+
 ClassInfo
 {
-	name  "dcu_twoface"
-	weapons WP_MELEE|WP_BLASTER_PISTOL
-	attributes  MB_ATT_PISTOL,3|MB_ATT_DODGE,3|MB_ATT_FORCEBLOCK,1
-	forcepowers FP_LEVITATION,3|
-	maxhealth 125
-	model "smith"
-	skin  "twoface"
-	uishader  "gfx/mplevels/dc_universe/twoface"
-	MBClass MB_CLASS_JEDI
-	classNumberLimit  1
-	speed 1.1
-	forceregen  6
-	forcepool 100
-	classflags  CFL_HEAVYMELEE|CFL_BPFREEJUMPS|CFL_STRONGAGAINSTPHYSICAL
+	name				"dcu_twoface"
+	weapons				WP_MELEE|WP_BLASTER_PISTOL
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_PISTOL,3|MB_ATT_DODGE,3|MB_ATT_FORCEBLOCK,1
+	forcepowers			FP_LEVITATION,3|
+	forcepool			100
+	forceregen			6
+	maxhealth			125
+	speed				1.1
+	model				"smith"
+	skin				"twoface"
+	uishader			"gfx/mplevels/dc_universe/twoface"
+	MBClass				MB_CLASS_ELITETROOPER
+	classflags			CFL_HEAVYMELEE|CFL_BPFREEJUMPS|CFL_STRONGAGAINSTPHYSICAL
+	classNumberLimit	1
+	
+	resource			RESOURCE_FORCE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_FLECHETTE
-	NewWorldModel		"models/weapons2/aliens_sw39/sw39.glm"
-	NewViewModel		"models/weapons2/aliens_sw39/sw39.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/mplevels/dc_universe/twoface_pistol"
-	WeaponName		"^2Pistol"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/aliens_sw39/fire.wav"
-	SelectSound		"Sound/weapons/aliens_sw39/select.wav"
-	customAmmo		40
-	clipSize  10
-	primHitscanShot		1
-	primHitscanTracer	5
-	altHitscanShot		1
-	altHitscanTracer	5
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim BOTH_MAND_PISTOL_READY 
-  firingAnim  BOTH_MAND_PISTOL_ATTACK
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/aliens_sw39/sw39.glm"
+	NewViewModel			"models/weapons2/aliens_sw39/sw39.md3"
+	Icon					"gfx/mplevels/dc_universe/twoface_pistol"
+	WeaponName				"^2Pistol"
+	
+	SelectSound				"Sound/weapons/aliens_sw39/select.wav"
+	FlashSound0				"Sound/weapons/aliens_sw39/fire.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				40
+	clipSize				10
+	primHitscanShot			1
+	primHitscanTracer		5
+	altHitscanShot			1
+	altHitscanTracer		5
+	altFireEnabled			0
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/dc_universe/melee"
-	WeaponName		"^2Melee"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/dc_universe/melee"
+	WeaponName				"^2Melee"
+	
+	primGore				1
+	altGore					1
 }
 
 description	"Two Face
 
-Weapons:
-Pistol
+^2Weapons:
+- Heavy Melee
+- Pistol (3)
 
-Attributes:
-Melee
-Acrobatics"
+^8Attributes:
+- Melee Resistance
+
+^3Abilities:
+- Acrobatics (3)
+- Reflexes (3) ^3[CS1]"

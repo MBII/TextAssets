@@ -2,63 +2,70 @@
 
 ClassInfo
 {
-	name			"hunt_flame"
-	weapons			WP_MELEE|WP_SHOTGUN|WP_THROWER
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_SHOTGUN,3|MB_ATT_SENTRY
-	maxhealth		120
-	model			"jedi"
-	skin			"redjp"
-	uishader		"models/players/css/mb2_icon_redjp"
-	MBClass			MB_CLASS_CLONETROOPER
+	name				"hunt_flame"
+	weapons				WP_MELEE|WP_SHOTGUN|WP_THROWER
+	attributes			MB_ATT_AMMO,3|MB_ATT_THROWER_FLAME,3|MB_ATT_SHOTGUN,3|MB_ATT_SENTRY
+	//holdables			HI_SENTRY_GUN
+	maxhealth			120
+	maxarmor			80
+	speed				1.05
+	model				"jedi"
+	skin				"redjp"
+	uishader			"models/players/css/mb2_icon_redjp"
+	MBClass				MB_CLASS_CLONETROOPER
 	classNumberLimit	2
-	speed			1.05
-	//holdables		HI_SENTRY_GUN
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SHOTGUN
-	WeaponBasedOff		WP_SHOTGUN
-	NewWorldModel		"models/weapons2/mossberg/golan_arms_w.glm"
-	NewViewModel		"models/weapons2/mossberg/golan_arms.md3"
-	NewHandsModel 			"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon			"models/weapons2/mossberg/icon.png"
-	altFireEnabled 		0
-	WeaponName		"Shotgun"
-	MuzzleEffect		"halo_shotgun/Muzzle_Flash"
-	MissileEffect		"halo_shotgun/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/SPAS12/fire.wav"
-	customAmmo		600
-	primHitscanShot		1
-	primHitscanTracer	10
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_SHOTGUN
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/mossberg/golan_arms_w.glm"
+	NewViewModel			"models/weapons2/mossberg/golan_arms.md3"
+	Icon					"models/weapons2/mossberg/icon.png"
+	WeaponName				"Shotgun"
+	
+	FlashSound0				"Sound/weapons/SPAS12/fire.wav"
+	
+	MuzzleEffect			"halo_shotgun/Muzzle_Flash"
+	MissileEffect			"halo_shotgun/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	altFireEnabled			0
+	customAmmo				600
+	primHitscanShot			1
+	primHitscanTracer		10
+	primGore				1
+	altGore					1
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_THROWER
-	WeaponBasedOff		WP_THROWER
-	NewWorldModel		"models/weapons2/reflamer/reflamer.glm"
-	NewViewModel		"models/weapons2/reflamer/reflamer.md3"	
-	NewHandsModel 			"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon			"gfx/mplevels/revil/icon_reflamer"
-	WeaponName		"Flamethrower"
-	customAmmo		300
-	idleAnim  BOTH_DC15_READY
-	firingAnim  BOTH_DC15_ATTACK
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/reflamer/reflamer.glm"
+	NewViewModel			"models/weapons2/reflamer/reflamer.md3"	
+	Icon					"gfx/mplevels/revil/icon_reflamer"
+	WeaponName				"Flamethrower"
+	customAmmo				300
+	
+	hasAnimOverrides		1
+	animReady				BOTH_DC15_IDLE
+	animReadyRun			BOTH_DC15_READY
+	animReadyWalk			BOTH_DC15_READY
+	animReadyNoAmmo			BOTH_DC15_ATTACK
+	animAttack				BOTH_DC15_ATTACK
+	animAttackRun			BOTH_DC15_ATTACK
+	animAttackWalk			BOTH_DC15_ATTACK
+	animCharge				BOTH_DC15_READY
+	animStand				BOTH_DC15_IDLE
 }
 
 description	"Hunter (Flamethrower)
 
-Weaponry:
-Shotgun
-Flamethrower
+^2Weaponry:
+- Shotgun (3)
+- Flamethrower (3)
 
-Item:
-Portable Turret
-
-Attributes:
-Armour (3)
-Ammo (3)"
+^6Inventory:
+- Portable Turret"

@@ -4,8 +4,9 @@ ClassInfo
 {
     name				"spice_engineer_blu"
     weapons				WP_MELEE|WP_BOWCASTER|WP_SABER|WP_CONC_NADE|WP_FIRE_NADE
+	WP_MeleeFlags		HELD_SLOW
 	WP_BowcasterFlags	HELD_SONIC
-    attributes			MB_ATT_BOWCASTER,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_JETPACK,1|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_SENTRY|MB_ATT_DRONE|MB_ATT_FORCEFIELD
+    attributes			MB_ATT_BOWCASTER,3|MB_ATT_MICRO_GRENADES,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_AMMO,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_JETPACK,1|MB_ATT_SENTRY|MB_ATT_DRONE|MB_ATT_FORCEFIELD|MB_ATT_RECHARGE,3|MB_ATT_CCTRAINING,1|MB_ATT_GETUPS,2
 	//holdables			HI_SENTRY_GUN|HI_SEEKER|HI_SHIELD
 	saber1				Batonwhite
 	sabercolor			2
@@ -15,18 +16,16 @@ ClassInfo
 	forceregen			0.00001
     maxhealth			100
     maxarmor			150
+	basespeed			212.5
     speed				1.20
 	model				"pl_rockettrooper"
 	skin				"base"
 	uishader			"gfx/um_icons/PrisonRaidPack/Rocket"
-	MBClass				MB_CLASS_MANDALORIAN
+	MBClass				MB_CLASS_BATTLEDROID
     classflags			CFL_FASTHACKING
 	classNumberLimit	2
 	
-	resource			RESOURCE_FUEL
-	
-	jetpackJetTag		*jet1
-	jetpackJet2Tag		*jet2
+	saberStanceAnim		BOTH_TRIPLE3_DUALSTANCE
 }
 
 WeaponInfo0
@@ -37,6 +36,7 @@ WeaponInfo0
 	NewViewModel			"models/weapons2/kotor_sonicrifle/kotor_sonicrifle.md3"
 	Icon					"gfx/hud/w_icon_kotor_sonicrifle"
 	WeaponName				"JH-108"
+	
 	FlashSound0				"sound/weapons/geonosian/fire.mp3"
 	
 	MissileMissEffect		"sonic_pistol/wall_impact"
@@ -71,12 +71,11 @@ description	"Engineer
 
 ^2Weapons:
 - JH-108 Sonic Rifle (3)
-  ^3+ Sonic stun
+  ^3+ Stuns on hit
 - 3 Micro grenades
 - 3 Fire grenades
 - Baton
   ^3+ Yellow ^7Style Only
-  ^3+ Saber / Blaster Defense (0)
 
 ^5Special equipment:
 - Team Repair drones (3)
@@ -88,5 +87,7 @@ description	"Engineer
 - Fast Hack
 - Energy battery (100)
 - Energy doesn't regenerate
-- Jetpack (3)
-"
+- Close Combat Training (1)
+
+^3Abilities:
+- Jetpack"

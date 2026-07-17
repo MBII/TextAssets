@@ -2,103 +2,116 @@
 
 ClassInfo
 {
-	name			"taspir_bluerocket"
-	weapons			WP_MELEE|WP_ROCKET_LAUNCHER|WP_REAL_TD|WP_T21
-	attributes		MB_ATT_FUELREGEN,3|MB_ATT_PLX1,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_AMMO,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_THERMALS,1|MB_ATT_ROCKET|MB_ATT_CORTOSIS,1
-	classflags		CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|CFL_NO_FUEL_USE
-	maxhealth		100
-	maxarmor		100
-	modelscale		1.2
-	speed			0.85
+	name				"taspir_bluerocket"
+	weapons				WP_MELEE|WP_PLX1|WP_REAL_TD|WP_T21
+	WP_PLX1Flags		HELD_ALTRELOAD|HELD_LOWDAMAGE
+	WP_RealTDFlags		HELD_LOWDAMAGE
+	attributes			MB_ATT_FUELREGEN,3|MB_ATT_PLX1,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_AMMO,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_THERMALS,1|MB_ATT_ROCKET|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR|MB_ATT_MAGNETIC_PLATING
+	forcepowers			FP_SEE,3
+	forcepool			20
+	forceregen			1
+	maxhealth			100
+	maxarmor			100
+	extralives			1
+	speed				0.85
+	modelscale			1.2
+	model				"darktrooper_p3"
+	skin				"default"
+	uishader			"models/players/DarkTrooper_p3/mb2_icon_default"
+	MBClass				MB_CLASS_MANDALORIAN
+	classflags			CFL_STRONGAGAINSTPHYSICAL|CFL_NO_JETPACK_COOLDOWN|CFL_NO_FUEL_USE
 	
-	forcepowers		FP_SEE,3
-	forcepool		20
-	forceregen		1
-	model			"darktrooper_p3"
-	skin			"default"
-	uishader		"models/players/DarkTrooper_p3/mb2_icon_default"
-	extralives		1
+	resource			RESOURCE_FUEL
+	special2			EAS_HI_SPRINT
+	special3			EAS_HI_DEX
 	
-	MBClass			MB_CLASS_MANDALORIAN
-	WP_ThermalFlags	HELD_LOWDAMAGE
-	WP_RocketLauncherFlags	HELD_ALTRELOAD|HELD_LOWDAMAGE
-	jetpackJetTag			*jet1
-	jetpackJet2Tag			*jet2
 	jetpackThrustSound 	"sound/vehicles/tie/loop"
-	jetpackIdleSound		"sound/vehicles/tie/loop"
+	jetpackIdleSound	"sound/vehicles/tie/loop"
 	jetpackStartSound 	"sound/vehicles/x-wing/flyby"
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	//NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
-	//NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
-	WeaponName		"Wrist Rocket"
-	customAmmo		30
-	ReloadTimeModifier 	.20
-    ProjSpeedModifier 	1.75
-	idleanim	BOTH_STAND3
-	firinganim	BOTH_WRISTBLASTER_ATTACK
-
+	WeaponToReplace			WP_PLX1
+	WeaponBasedOff			WP_PLX1
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	//NewWorldModel			"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	//NewViewModel			"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon					"gfx/hud/w_icon_sbdarm"
+	WeaponName				"Wrist Rocket"
+	customAmmo				30
+	ReloadTimeModifier 		.20
+    velocityMod				1.75
+	hasAnimOverrides		1
+	animReady				BOTH_STAND3
+	animReadyRun			BOTH_STAND3
+	animReadyWalk			BOTH_STAND3
+	animReadyNoAmmo			BOTH_WRISTBLASTER_ATTACK
+	animAttack				BOTH_WRISTBLASTER_ATTACK
+	animAttackRun			BOTH_WRISTBLASTER_ATTACK
+	animAttackWalk			BOTH_WRISTBLASTER_ATTACK
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_T21
-	WeaponBasedOff		WP_SBD
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_sbdarm"
-	WeaponName		"Wrist Blaster"
-	customAmmo		200
-	ReloadTimeModifier 	2
-    ProjSpeedModifier 	.25
-	firingAnim		BOTH_STAND1_BLASTER
-	Idleanim	BOTH_MINIGUN_READY
-	isMinigun 1
-	MissileEffect "Rockets/missile"
-	Missile3Effect  "Grenades/GlowFireS"
-	MuzzleEffect		"concussion/muzzle_flash"
-	AltMuzzleEffect		"concussion/altmuzzle_flash"
-	FlashSound0		"sound/weapons/concussion/fire"
-	AltFlashSound0		"sound/weapons/concussion/alt_fire"
-	customammo 500
+	WeaponToReplace			WP_T21
+	WeaponBasedOff			WP_SBD
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_sbdarm"
+	WeaponName				"Wrist Blaster"
+	customAmmo				200
+	ReloadTimeModifier		2
+    velocityMod				.25
+	hasAnimOverrides		1
+	animReady				BOTH_MINIGUN_READY
+	animReadyRun			BOTH_MINIGUN_READY
+	animReadyWalk			BOTH_MINIGUN_READY
+	animReadyNoAmmo			BOTH_STAND1_BLASTER
+	animAttack				BOTH_STAND1_BLASTER
+	animAttackRun			BOTH_STAND1_BLASTER
+	animAttackWalk			BOTH_STAND1_BLASTER
+	isMinigun				1
+	MissileEffect			"Rockets/missile"
+	Missile3Effect			"Grenades/GlowFireS"
+	MuzzleEffect			"concussion/muzzle_flash"
+	AltMuzzleEffect			"concussion/altmuzzle_flash"
+	FlashSound0				"sound/weapons/concussion/fire"
+	AltFlashSound0			"sound/weapons/concussion/alt_fire"
+	customammo				500
 }
-
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/marvel/radar"
-	ForcePowerName	"Wallh@x"
-    StartSound "sound/mb2/Silence.wav"
-    LoopSound  "sound/mb2/AnnoyingBastardLoop.wav"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/marvel/radar"
+	ForcePowerName		"Wallh@x"
+    StartSound			"sound/mb2/Silence.wav"
+    LoopSound			"sound/mb2/AnnoyingBastardLoop.wav"
 }
 
 description	"Rocket Troopah
 
-Weaponry:
-Assault Cannon (10)
-Thermal Detonator
+^2Weaponry:
+- Assault Cannon (30 Rockets)
+-- 50% Less DMG
+-- 75% more Velocity
+-- 80% Faster Mag Reload
+- 1 Thermal Detonator
+-- 50% Less DMG
+- Jetpack Rocket ^3[CS1]
 
-Items:
-Badass Jetpack
-Jetpack Rocket
+^8Attributes:
+- Melee Resistance
+- Cortosis Armor (1)
+- Blast Armour
+- Magnetic Plating
+- Stamina + Dexterity (3)
+- 1 Extra Life
 
-Abilities:
-Sight (3)
-Dexterity (3)
-Stamina (3)
-Jetpack (3)
-Cortosis Armor (1)
-Blast Armor
-Magnetic Plating
-Melee Damage Reduction
-
-Extra Life
-"
+^3Abilities:
+- Badass Jetpack [No Fuel Use / Cooldown]
+- Sense (3)
+- Sprint ^3[CS2]
+- Dex Roll ^3[CS3]"

@@ -2,67 +2,77 @@
 
 ClassInfo
 {
-	name			"samt_bow"
-	weapons		WP_MELEE|WP_SABER|WP_T21
-	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_T21,1
-  saber1  SHOGUN_WAKIZASHI
-  saberstyle  SS_TAVION
-  forcepowers FP_LEVITATION,1|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,2
-  forcepool 35
-	maxhealth		80
-	maxarmor		50
-	model			"samurai"
-	skin			"ashigaru"
-	uishader		"gfx/mplevels/samurai/t_bow"
-	MBClass			MB_CLASS_JEDI
-	classNumberLimit  2
-  APmultiplier  0.9
-  BPmultiplier  0.9
+	name				"samt_bow"
+	weapons				WP_MELEE|WP_SABER|WP_T21
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_T21,1
+	saber1				SHOGUN_WAKIZASHI
+	saberstyle			SS_TAVION
+	BPmultiplier		0.9
+	APmultiplier		0.9
+	forcepowers			FP_LEVITATION,1|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,2
+	forcepool			35
+	maxhealth			80
+	maxarmor			50
+	model				"samurai"
+	skin				"ashigaru"
+	uishader			"gfx/mplevels/samurai/t_bow"
+	MBClass				MB_CLASS_JEDI
+	classNumberLimit	2
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/samurai/melee"
-	WeaponName		"^7Melee"
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/samurai/melee"
+	WeaponName				"^7Melee"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/mplevels/ultimate_showdown/masamune"
-	WeaponName		"^7Katana"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/ultimate_showdown/masamune"
+	WeaponName				"^7Katana"
 }
 
 WeaponInfo2
 {
-	WeaponToReplace WP_T21
-	WeaponBasedOff  WP_BOWCASTER
-	NewWorldModel "models/weapons2/bow/bowcaster_w.glm"
-	NewViewModel  "models/weapons2/bow/bowcaster.md3"
-  Icon			"gfx/mplevels/samurai/bow"
-	WeaponName  "^7Bow"
-	MuzzleEffect  "halo_smg/rings"
-	AltMuzzleEffect "halo_smg/rings"
-	MissileModel  "models/weapons2/dc_gabow/greenarrow_arrow.md3"
-	MissileEffect "halo_smg/rings"
-	MissileMissEffect "dc/explosion"
-	AltMissileModel  "models/weapons2/dc_gabow/greenarrow_arrow.md3"
-	AltMissileEffect "halo_smg/rings"
-	AltMissileMissEffect "dc/explosion"
-	FlashSound0 "sound/300/wpn_bow_fire_01.wav"
-	FlashSound1 "sound/300/wpn_bow_fire_02.wav"
-	FlashSound2 "sound/300/wpn_bow_fire_03.wav"
-	customAmmo		10
-	altFireEnabled 		0
-	idleAnim BOTH_MAND_PISTOL_READY 
-  firingAnim  BOTH_PLX1_ATTACK
+	WeaponToReplace			WP_T21
+	WeaponBasedOff			WP_BOWCASTER
+	NewWorldModel			"models/weapons2/bow/bowcaster_w.glm"
+	NewViewModel			"models/weapons2/bow/bowcaster.md3"
+	MissileModel			"models/weapons2/dc_gabow/greenarrow_arrow.md3"
+	AltMissileModel			"models/weapons2/dc_gabow/greenarrow_arrow.md3"
+	Icon					"gfx/mplevels/samurai/bow"
+	WeaponName				"^7Bow"
+	
+	FlashSound0				"sound/300/wpn_bow_fire_01.wav"
+	FlashSound1				"sound/300/wpn_bow_fire_02.wav"
+	FlashSound2				"sound/300/wpn_bow_fire_03.wav"
+	
+	MuzzleEffect			"halo_smg/rings"
+	AltMuzzleEffect			"halo_smg/rings"
+	MissileEffect			"halo_smg/rings"
+	MissileMissEffect		"dc/explosion"
+	AltMissileEffect		"halo_smg/rings"
+	AltMissileMissEffect	"dc/explosion"
+	
+	customAmmo				10
+	altFireEnabled			0
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_PLX1_ATTACK
+	animAttack				BOTH_PLX1_ATTACK
+	animAttackRun			BOTH_PLX1_ATTACK
+	animAttackWalk			BOTH_PLX1_ATTACK
 }
 
 description	"Bow Samurai
@@ -70,10 +80,9 @@ description	"Bow Samurai
 ^2Weaponry:
 - Melee
 - Katana
-- Bow
+-- ^5Cyan ^7Style Only
+-- Katana / Ranged Defense (2)
+- Bow (T-21 1)
 
-^8Attributes:
-- Cyan Style Only
-- Force Jump (1)
-- Saber Defense (2)
-- Blaster Defense (2)"
+^5Powers:
+- Jump (1)"

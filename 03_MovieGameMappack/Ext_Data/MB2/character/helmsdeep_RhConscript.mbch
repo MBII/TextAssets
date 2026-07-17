@@ -2,64 +2,72 @@
 
 ClassInfo
 {
-name			"helmsdeep_RhConscript"
-weapons			WP_MELEE|WP_SABER|WP_FRAG_NADE
-saber1			HelmsDeepSword
-saber2			HelmsDeepShield
-saberstyle		SS_DUAL|SS_TAVION
-attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_ARMOUR,3
-forcepowers		FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2
-maxhealth		60
-maxarmor		60
-model			"rohirrim_elite"
-skin			"default"
-uishader		"models/players/rohirrim_elite/rohan"
-MBClass			MB_CLASS_JEDI
-extralives		2
-//Crap Arrow defence//
-forceregen		0.6
-forcepool		35
-Classflags      CFL_BPFREEJUMPS
-WP_FragNadeFlags HELD_KNOCKDOWN //old secondary AOE knockdown frags
+	name				"helmsdeep_RhConscript"
+	weapons				WP_MELEE|WP_SABER|WP_FRAG_NADE
+	WP_FragNadeFlags	HELD_KNOCKDOWN //old secondary AOE knockdown frags
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FRAGS,1
+	saber1				HelmsDeepSword
+	saber2				HelmsDeepShield
+	saberstyle			SS_DUAL|SS_TAVION
+	forcepowers			FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2
+	//Crap Arrow defence//
+	forcepool			35
+	forceregen			0.6
+	maxhealth			60
+	maxarmor			60
+	extralives			2
+	model				"rohirrim_elite"
+	skin				"default"
+	uishader			"models/players/rohirrim_elite/rohan"
+	MBClass				MB_CLASS_ELITETROOPER
+	Classflags			CFL_BPFREEJUMPS
+	
+	resource			RESOURCE_FORCE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-  	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/mplevels/lotr/swordshield"
-	WeaponName		"Sword and Shield"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+  	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/lotr/swordshield"
+	WeaponName				"Sword and Shield"
 }
 WeaponInfo1
 {
-	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
-	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
-	NewViewModel		"models/weapons2/stone/thermal.md3"
-	Icon				"gfx/hud/w_icon_stone"
-	WeaponName			"Stones"
-	MuzzleEffect		"stone/muzzle_flash"
-	AltMuzzleEffect		"stone/muzzle_flash"
-	MissileModel 		"models/weapons2/stone/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	primFireEnabled		0
-	customammo          1
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
+	NewViewModel			"models/weapons2/stone/thermal.md3"
+	MissileModel			"models/weapons2/stone/thermal_proj.md3"
+	altMissileModel 		"models/weapons2/stone/thermal_proj.md3"
+	Icon					"gfx/hud/w_icon_stone"
+	WeaponName				"Stones"
+	
+	AltMuzzleEffect			"stone/muzzle_flash"
+	AltMissileEffect		"stone/missile1"
+	AltMissileMissEffect	"stone/explosion"
+	AltMissileHitHumanEffect	"stone/explosion"
+	AltMissileHitDroidEffect	"stone/explosion"
+	MuzzleEffect			"stone/muzzle_flash"
+	MissileEffect			"stone/missile1"
+	MissileMissEffect		"stone/explosion"
+	MissileHitHumanEffect	"stone/explosion"
+	MissileHitDroidEffect	"stone/explosion"
+	
+	primFireEnabled			0
 }
 
 description	"Rohirrim Conscript
 
-Weaponry:
-Shortsword and Shield
-1 Stone
+^2Weaponry:
+- Shortsword and Shield
+-- ^2Dual ^7/ ^5Cyan ^7Styles
+-- Sword / Ranged Defense (2)
+-- Crouch + Fwd + Attack = Long Stab
+-- Jump + Fwd + Attack = Jumping Rollstab
+- 1 Stone
 
-Shortsword & Shield Training:
-Dual / Cyan Styles
-Offense (2)
-Defense (2)
-Crouch + Fwd + Attack = Long Stab
-Jump + Fwd + Attack = Jumping Rollstab
-
-Attributes:
-3 Lives"
+^8Attributes:
+- 2 Extra Lives"

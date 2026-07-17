@@ -4,45 +4,74 @@ ClassInfo
 {
 	name				"PB3_B_Slender"
 	weapons				WP_MELEE
-	attributes			MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,3|MB_ATT_CLOAK
-	forcepowers			FP_LEVITATION,3|FP_SEE,3|FP_DRAIN,3|FP_DEADLYSIGHT|FP_TELEPATHY,3
-	maxhealth			150
+	attributes			MB_ATT_FORCEBLOCK,3|MB_ATT_FORCEFOCUS,3|MB_ATT_CLOAK,3|MB_ATT_RECHARGE,2|MB_ATT_ROSHTAUNT
+	//holdables			HI_CLOAK
+	forcepowers			FP_LEVITATION,3|FP_SEE,3|FP_DRAIN,3|FP_DEADLYSIGHT,1|FP_TELEPATHY,3
 	forcepool			200
-	model			"slender"
-	skin			"default"
-	uishader		"models/players/slendy/mb2_icon_slendy"
+	forceregen			3
+	maxhealth			150
+	speed				2
+	damageGiven			2
 	modelscale			1.3
-	classflags		CFL_SEEING_STEALTH
-	MBClass				MB_CLASS_JEDI
+	model				"slender"
+	skin				"default"
+	uishader			"models/players/slender/mb2_icon_default"
+	MBClass				MB_CLASS_SITH
+	classflags			CFL_SEEING_STEALTH
 	//classNumberLimit	1
-	//holdables	HI_CLOAK
-	speed           2
-	forceregen          3
-	damageGiven	2
 	
-	respawnCustomTime 75000
+	resource			RESOURCE_BATTERY
+	special1			EAS_HI_CLOAK
+	special2			EAS_FP_DRAIN
+	special3			EAS_FP_DEADLYSIGHT
+	special4			EAS_FP_TELEPATHY
+	
+	RunForward			BOTH_WALK7
+	RunBackward			BOTH_WALKBACK1
+	WalkForward			BOTH_WALK1
+	WalkBackward		BOTH_WALKBACK2
+	
+	tauntAnim			BOTH_STAND5SHIFTWEIGHT
+	gloatAnim			BOTH_BUTTON2
+	flourishAnim		BOTH_BUTTON2
+	
+	respawnCustomTime	75000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_melee"
+	WeaponName				"Melee"
+	
+	hasAnimOverrides		1
+	animStand				BOTH_STAND5
 }
 
 description	"Slenderman
 
 Don't look at him
 
-
-Class: Sith
-Class summary: 
 1 look and you're dead
 
-Force Powers:
-- Jump (3)
+^2Weaponry:
+- Melee
+
+^6Inventory:
+- Cloak (3) ^6[CS1]
+
+^5Force Powers:
+- Jump  (3)
 - Sense (3)
-- Deadly Sight (1)
-- Drain (3)
-- Mind Trick (3)
-- Force Focus (3)
-- Force Block (3)
+- Mind Trick (3) ^5[CS4]
+- Drain (3) ^5[CS2]
+- Deadly Sight (1) ^5[CS3]
 
-Inventory:
-- Cloak
-
-Attributes:
-- Invisible to Sense"
+^8Attributes:
+- Toxic Taunt
+- Force Sense Immunity
+- Scare Recharge (2)
+- Force Block / Focus (3)"
