@@ -3,31 +3,39 @@
 ClassInfo
 {
 	name				"pb2_1_r_porkins"
-	weapons				WP_SABER|WP_MELEE|WP_CONC_NADE|WP_BLASTER
+	MBClass				MB_CLASS_DROIDEKA
+	customveh			moped
+	weapons				WP_SABER|WP_MELEE|WP_CONC_NADE|WP_BLASTER|WP_REPEATER
+
 	WP_SaberFlags		HELD_FLAME
 	WP_BlasterPistolFlags 	HELD_LOWDAMAGE
 	WP_ConcNadeFlags	HELD_HIGHDAMAGE
-	attributes			MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FORCEBLOCK,3
+ WP_RepeaterFlags HELD_KNOCKBACK|HELD_LIFT|HELD_FLAME
+
+	attributes			MB_ATT_BLASTER,3|MB_ATT_MICRO_GRENADES|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FORCEBLOCK,3|MB_ATT_REPEATER_NADES,6|MB_ATT_REPEATER,3
+
 	saber1				frying_pan
 	sabercolor			6
 	saberstyle			SS_MEDIUM
+
 	forcepool			100
 	forceregen			1
+	resource			RESOURCE_ENERGY
+
 	maxhealth			300
 	maxarmor			50
-	extralives			1
+	extralives		1
 	speed				1
+
 	rateOfFire			.3
+
+	classflags			CFL_SEEING_STEALTH
+	
+	special1			EAS_HI_DODGE
+
 	model				"chefporkins"
 	skin				"default"
 	uishader			"models/players/chefporkins/mb2_icon_default"
-	MBClass				MB_CLASS_DROIDEKA
-	classflags			CFL_SEEING_STEALTH
-	//classNumberLimit	1
-	
-	customveh			moped
-	resource			RESOURCE_ENERGY
-	special1			EAS_HI_DODGE
 	
 	respawnCustomTime	30000
 }
@@ -55,6 +63,47 @@ WeaponInfo1
 	customAmmo				7
 }
 
+WeaponInfo2
+{
+ WeaponToReplace  WP_REPEATER
+ WeaponBasedOff  WP_REPEATER
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"    
+ NewViewModel  "models/weapons2/dummy/dummy.md3"  
+ Icon   "models/weapons2/halo_melee/icon.png"
+ WeaponName   "Secret Spice"
+
+ altFlashSound0 "sound/weapons/atst/atstfire2.mp3"
+ altMissileModel   "models/weapons2/dummy/dummy.md3"
+ altMissileMissEffect  "wook_rocket/wall_impact"
+ altMissileHitHumanEffect "wook_rocket/wall_impact"
+ altMissileHitDroidEffect "wook_rocket/wall_impact"
+ altMuzzleEffect   null
+ altMissileEffect  null
+ FlashSound0 "sound/weapons/atst/atstfire2.mp3"
+ MissileModel   "models/weapons2/dummy/dummy.md3"
+ MissileMissEffect  "wook_rocket/wall_impact"
+ MissileHitHumanEffect  "wook_rocket/wall_impact"
+ MissileHitDroidEffect "wook_rocket/wall_impact"
+ MuzzleEffect   null
+ MissileEffect null
+
+ customAmmo -1
+ clipsize -1
+ damageMod 8
+ splashRadius 160
+ primfireenabled 0
+ velocityMod 0
+
+ hasAnimOverrides 1
+ animReady BOTH_TALKCOMM1
+ animReadyWalk BOTH_WALK1TALKCOMM1
+ animReadyRun BOTH_WALK1TALKCOMM1
+ animReadyNoAmmo  BOTH_TALKCOMM1
+ animAttackRun BOTH_DEATH1
+ animAttack BOTH_DEATH1
+ animAttackWalk BOTH_DEATH1
+}
+
 description	"Breadsticks Standing By
 
 Commander Porkins is now offering cooking lessons!
@@ -64,6 +113,7 @@ Commander Porkins is now offering cooking lessons!
 -- ^3Yellow ^7Style Only
 - Greased-up E-11 (3)
 - 7 Potent Grenades [100% More DMG]
+- Secret Spice (12)
 
 ^5Vehicle:
 - Specialty Moped

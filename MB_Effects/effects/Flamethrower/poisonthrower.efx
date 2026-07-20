@@ -2,57 +2,54 @@ repeatDelay				300
 
 Particle
 {
-	name				mist
+	flags				expensivePhysics useBBox usePhysics impactFx
 
-	flags				useAlpha
+	spawnFlags			cheapOrgCalc absoluteAccel evenDistribution
 
-	count				4
+	life				700
 
-	life				1000 2000
+	delay				200
 
-	origin				-2 -5 -5 2 5 5
+	min					-1 -1 -1
 
-	rotation			0 360
+	max					1 1 1
 
-	rotationDelta		-15 15
+	origin				1 1 1
 
-	gravity				5
+	rotation			1
+
+	rotationDelta		20
+
+	velocity			320 10 10 400 10 10
+
+	acceleration		10 10 10 50 10 10
 
 	rgb
 	{
-		start			0.8588 0.9803 0.3803
-		end			0 0 0
-		flags			linear
+		start			0.5412 0.6706 0.01961
+		parm			50 60
 	}
 
 	alpha
 	{
-		start			0.5 0.8
 		end				0
-		parm			60 75
-		flags			linear clamp
+		parm			80 90
+		flags			linear nonlinear
 	}
 
 	size
 	{
-		end				140 140
-		parm			140 
-		flags			clamp
+		end				35 60
+		flags			linear
 	}
 
 	shaders
 	[
-		gfx/effects/alpha_smoke
+		gfx/effects/poison_smoke
 	]
-}
 
-Sound
-{
-	name				massive_smoke
-
-	sounds
+	impactfx
 	[
-		sound/effects/gassing2.wav
-		sound/effects/gassing3.wav
+		flamethrower/poisoned
 	]
 }

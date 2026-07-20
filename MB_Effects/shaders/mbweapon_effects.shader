@@ -237,7 +237,6 @@ gfx/blood/slash6
 	}
 }
 
-
 //	clone blob
 
 gfx/effects/clone_blob
@@ -853,4 +852,17 @@ models/weapons2/kotor_gfrag/shrapnel
         rgbGen vertex
         alphaGen vertex
     }
+}
+
+// Poisonthrower Smoke
+gfx/effects/poison_smoke
+{
+	cull	twosided
+	{
+		map gfx/effects/alpha_smoke_noalpha
+		blendFunc GL_ONE GL_ONE
+		glow
+		rgbGen vertex
+		alphaGen vertex
+	}
 }
