@@ -1,0 +1,188 @@
+
+ClassInfo
+{
+	name				"TheedN_AstroR2"
+	MBClass				MB_CLASS_BATTLEDROID
+	classNumberLimit	1
+
+	weapons				WP_MELEE|WP_SABER|WP_THROWER
+	WP_MeleeFlags		HELD_SLOW
+	WP_SaberFlags		HELD_STUN|HELD_NODISARM
+	WP_ThrowerFlags		HELD_ALTRELOAD|HELD_NODISARM
+
+	attributes			MB_ATT_JETPACK,1|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISP_BLOCK,2|MB_ATT_DISP_FORCE,2|MB_ATT_DISP_ARMOR,2|MB_ATT_THROWER_FLAME|MB_ATT_USE_DISTANCE,1|MB_ATT_FLIPKICK,1|MB_ATT_HEALING,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ENV_PROT,1|MB_ATT_WOOKIEE_FURY,1
+
+	forcepowers			FP_SEE,1|FP_PUSH,1|FP_SPEED,3|FP_LIGHTNING,1
+
+	AB_FLightningFlags	HELD_HIGHDAMAGE
+
+	damageGiven			1.15
+
+	maxhealth			100
+	maxarmor			30
+
+	special1			EAS_HI_WRIST
+	meleespecial1		EAS_HI_WRIST
+	special2			EAS_HI_BARGE
+	meleespecial2		EAS_HI_BARGE
+	special3			EAS_FP_SPEED
+	special4			EAS_FP_LIGHTNING
+
+	classflags			CFL_STATVIEWER
+
+	BPmultiplier		0
+	ASmultiplier		10
+	saberMaxChain		1
+	saber1				r2_saw_leg
+	saberstyle			SS_STAFF
+	saberdamage			12
+
+	hackRate			0.80
+	basespeed			218
+	disableGunBash		1
+
+	special1HUD			HUD_FRAGNADE
+	special2HUD			HUD_WRISTLASER
+
+	resource			RESOURCE_FUEL
+	forcepool			45
+	forceregen			0.01
+	resourceRegenAmount	2
+	resourceRegenRate	1000
+	resourceRegenCap	45
+
+	meleeMoves			M_KICK|M_JUMPKICK
+
+	//tauntAnim			BOTH_PAIN1
+	//gloatAnim			BOTH_PAIN2
+	//flourishAnim		
+	//bowAnim			BOTH_RUN1STOP
+	//meditateAnim		BOTH_RUN1STOP
+
+	//uioverlay_c			"gfx/icons/aerial"
+	//uioverlay_r			"gfx/icons/tactician"
+	//uioverlay_l			"gfx/2d/hud/hlp_defend"
+	modelscale			.91
+	model				"r2-d2" 				
+	skin				"default"					
+	uishader			"models/players/r2-d2/mb2_icon_default"
+
+	bargeSoundOverride	"sound/chars/r2d2/misc/death1.mp3"
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_MELEE
+	WeaponBasedOff		WP_MELEE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/Alpha/HUD_Icon_WhistlingBird"
+	WeaponName			"Prod"
+	primFireEnabled		1
+	AltFireEnabled		1
+}
+
+WeaponInfo1
+{
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/menus/alpha/icon_weap_point"
+	WeaponName			"Circular Saw"
+	primFireEnabled		1
+	AltFireEnabled		0
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_THROWER
+	WeaponBasedOff		WP_THROWER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_cr-24_flamerifle"
+	WeaponName			"Jet Flamethrower"
+	primFireEnabled		1
+	AltFireEnabled 		0
+	clipsize			25
+	customammo			500
+	rateMod				2.5
+	reloadTimeModifier	1.5
+}
+
+ForceInfo0
+{
+	ForceToReplace		FP_SEE
+	Icon				"gfx/forcepowers/radar"
+	ForcePowerName		"Passive Radar Scanner"
+}
+
+ForceInfo1
+{
+	ForceToReplace		FP_PUSH
+	Icon				"gfx/hud/Alpha/HUD_RadarCone"
+	ForcePowerName		"Steam Projector"
+	ConeEffect			"volumetric/smoke_white_leg"
+	StartSound			null
+	LoopSound			null
+}
+
+ForceInfo2
+{
+	ForceToReplace		FP_SPEED
+	Icon				"gfx/2d/hud/hlp_escort.tga"
+	ForcePowerName		"Overclock"
+	StartSound			"sound/chars/r2d2/misc/death1.mp3"
+}
+
+ForceInfo3
+{
+	ForceToReplace		FP_LIGHTNING
+	Icon				"gfx/menus/Alpha/icon_stats_ionblob"
+	ForcePowerName		"Electroshock Probe"
+}
+
+description	"R2-D2
+
+A plucky support with numerous gadgets.
+
+^2Weaponry:
+- Prod (Melee)
+-- Heavyweight
+-- Secondary fire only
+- Circular Saw (Staff Saber)
+-- No Saber/Blaster Block
+-- Chain Limit: 1
+-- Staggers on hit
+-- 95% less damage
+-- 50% shorter
+-- 66% thicker
+- Jet Flamethrower
+-- 150% slower RoF
+-- 50% slower mag reload
+
+^5Powers:
+- Steam Projector (Push 1)
+- Electroshock Probe (Lightning 1) ^3[CS4]
+-- 100% more damage
+- Overclock (Speed 3) ^3[CS3]
+
+^8Attributes:
+- 25% faster hacking
+- Strength (2)
+- Base Damage Taken
+- Elemental Resist (1)
+- Cortosis (1)
+- Armor Regen (1)
+- Healing (2)
+- Resource Regen: 2/1s
+- Passive Radar Scanner (Miraluka 1)
+- Ally Stat Viewer
+
+^3Abilities:
+- Armor/BP/Resource Dispenser (2) ^3[Use]
+-- +1 range
+- Jet Boosters (Jetpack)
+- Headbutt (Flipkick 1) ^3[Contact Jump]
+- Mini-Blaster (Wrist Laser) ^3[CS1]
+- Barge ^3[Melee CS2]"

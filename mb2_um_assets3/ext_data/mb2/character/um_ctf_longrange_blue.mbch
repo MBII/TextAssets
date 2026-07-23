@@ -4,58 +4,67 @@ ClassInfo
 {
 	name				"um_ctf_longrange_blue"
 	weapons				WP_MELEE|WP_BOWCASTER
-	maxhealth			120
-	model			"ig88"
-	skin			"leebo"
-	uishader		"models/players/ig88/mb2_icon_leebo"
-	MBClass				MB_CLASS_WOOKIE
-	attributes		MB_ATT_BOWCASTER,2|MB_ATT_AMMO,3|MB_ATT_ARMOUR,3|MB_ATT_HEALING,1|MB_ATT_BINOCULARS
-	classNumberLimit	2
 	WP_BowcasterFlags 	HELD_ALTRELOAD|HELD_EXPLOSIVE
-	speed				0.98	
-	forcepool		3
-	classNumberLimit	2
+	attributes			MB_ATT_BOWCASTER,2|MB_ATT_AMMO,3|MB_ATT_HEALING,1|MB_ATT_BINOCULARS
+	//holdables			HI_BINOCULARS
+	forcepowers			FP_LEVITATION,2
+	forcepool			3
+	forceregen 			3
+	maxhealth			120
+	extralives			1
+	//basespeed			187.5
+	speed				0.98
 	modelscale 			1.14
-	forcepowers		FP_LEVITATION,2
-	forceregen 		3
-	extralives		1
-	//holdables		HI_BINOCULARS
+	model				"ig88"
+	skin				"leebo"
+	uishader			"models/players/ig88/mb2_icon_leebo"
+	MBClass				MB_CLASS_WOOKIE
+	classNumberLimit	2
+	
 	respawnCustomTime 	20000
 }
 
-
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_PROJ					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/tusken_rifle/tusken_rifle_w.glm"  	//Required
-	NewViewModel		"models/weapons2/tusken_rifle/tusken_rifle.md3"   	//Required
-	NewHandsModel		"models/weapons2/tusken_rifle/tusken_rifle_hand.md3"
-	//Sounds				
-	FlashSound0			"sound/weapons/tusken_rifle/fire_gun.wav"  			
-	AltFlashSound0		"sound/weapons/tusken_rifle/fire_gun.wav"
-	Icon				"models/weapons2/icons/trifle" 				//Required
-	WeaponName			"Sniper Rifle"    						//Required
-	//Efx
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_PROJ
+	NewWorldModel			"models/weapons2/tusken_rifle/tusken_rifle_w.glm"
+	NewViewModel			"models/weapons2/tusken_rifle/tusken_rifle.md3"
+	NewHandsModel			"models/weapons2/tusken_rifle/tusken_rifle_hand.md3"
+	Icon					"models/weapons2/icons/trifle"
+	WeaponName				"Sniper Rifle"
+	
+	FlashSound0				"sound/weapons/tusken_rifle/fire_gun.wav"  			
+	AltFlashSound0			"sound/weapons/tusken_rifle/fire_gun.wav"
+	
 	MissileMissEffect		"Grenades/EXP_Alt"
 	MissileHitHumanEffect	"Grenades/EXP_Alt"
 	MissileHitDroidEffect	"Grenades/EXP_Alt"
 	MuzzleEffect			"tusken/muzzle_flash"
 	MissileEffect			"blaster/Shot09Y"
 
-	CustomAmmo 			100
-	ClipSize 			4
-	ReloadTimeModifier 	.5		// default is 1 - 100%
-	AltFireEnabled 		0
-	PrimFireEnabled 	1
-	ProjSpeedModifier	1.5	// 1 is default, 100%
-	PrimGore 			1 	// 1 or 0 - Will this weapon's primary fire upon striking someone or something, draw blood? 
+	CustomAmmo 				100
+	ClipSize 				4
+	ReloadTimeModifier 		.5
+	AltFireEnabled 			0
+	PrimFireEnabled 		1
+	velocityMod				1.5
+	PrimGore 				1
 
-	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
-	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
+	PrimHitscanShot 		0
+	PrimHitscanTracer 		9
 }
 
 description "Rifleman
 
-Rifle
-Binoculars"
+^2Weaponry:
+- Sniper Rifle (2)
+-- Explosive Rounds
+-- 50% more Velocity
+-- 50% Faster Mag Reload
+
+^6Inventory:
+- Electrobinoculars
+
+^8Attributes:
+- Heal (1)"

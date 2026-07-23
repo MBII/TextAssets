@@ -3,104 +3,111 @@
 ClassInfo
 {
 	name				"SOM_V2_Commando"
-	weapons				WP_SABER|WP_MELEE|WP_BLASTER|WP_BLASTER_PISTOL
-	attributes			MB_ATT_PISTOL,1|MB_ATT_BLASTER,2|MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_BINOCULARS|MB_ATT_BACTA|MB_ATT_BACTA_BIG
+	weapons				WP_SABER|WP_MELEE|WP_DC_CARBINE|WP_BLASTER_PISTOL
+	WP_MeleeFlags		HELD_LOWDAMAGE
+	WP_BlasterPistolFlags	HELD_LOWDAMAGE|HELD_ALTRELOAD
+	WP_DCCarbineFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_PISTOL,1|MB_ATT_DC_CARBINE,2|MB_ATT_AMMO,3|MB_ATT_SHIELD_RECHARGE2,1|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_BINOCULARS|MB_ATT_BACTA|MB_ATT_BACTA_BIG
+	//holdables			HI_BINOCULARS|HI_MEDPAC|HI_MEDPAC_BIG
+	saber1 				arc_shiv_legends
+	saberstyle			SS_TAVION
+	ASmultiplier		0.9
 	maxhealth			150
 	maxarmor			40
-	saber1 				"arc_shiv_legends"
-	saberstyle			SS_TAVION
-	
-	MBClass				MB_CLASS_HERO
 	speed				.95
-	//holdables			HI_BINOCULARS|HI_MEDPAC|HI_MEDPAC_BIG
-	WP_BLASTERflags			HELD_ALTRELOAD
-	WP_BLASTER_PISTOLflags		HELD_LOWDAMAGE|HELD_ALTRELOAD
-	WP_MeleeFlags			HELD_LOWDAMAGE
 	rateOfFire			0.6
-	ASmultiplier			0.9
-	classflags			CFL_SEEING_STEALTH
-	respawnCustomTime  		30000
-
-	saberStanceAnim			BOTH_STAND9
-
-
-
-
+	
 	model				"stormie"
 	skin				"novatrooper"
 	uishader			"models/players/stormie/mb2_icon_novatrooper"
-
+	
 	model_1				"scouttrooper"
 	skin_1				"novaofficer"
 	uishader_1			"models/players/scouttrooper/mb2_icon_novaofficer"
-
-
+	
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_SEEING_STEALTH
+	
+	saberStanceAnim		BOTH_STAND9
+	
+	respawnCustomTime	30000
 }
-
-
-
 
 WeaponInfo0
 {
-	WeaponToReplace 		WP_BLASTER
-	WeaponBasedOff  		WP_BLASTER
-	NewWorldModel 			"models/weapons2/blaster_r/blaster_w_stock.GLM"
-	NewViewModel  			"models/weapons2/blaster_r/blaster.md3"
-	Icon  				"gfx/hud/w_icon_e11_extendedstock"	
-	WeaponName  			"Blaster Carbine"
-	customAmmo 			900
-	clipSize			180
-	primFireEnabled			0
-
+	WeaponToReplace			WP_DC_CARBINE
+	WeaponBasedOff			WP_BLASTER
+	NewWorldModel			"models/weapons2/blaster_r/blaster_w_stock.GLM"
+	NewViewModel			"models/weapons2/blaster_r/blaster.md3"
+	Icon					"gfx/hud/w_icon_e11_extendedstock"	
+	WeaponName				"E-11 Blaster Carbine"
+	
+	FlashSound0				"sound/weapons/blaster/fire.wav"
+	FlashSound1				"sound/weapons/blaster/fire.wav"
+	FlashSound2				"sound/weapons/blaster/fire.wav"
+	FlashSound3				"sound/weapons/blaster/fire.wav"
+	
+	MuzzleEffect			"Blaster/MuzzleFlash01R"
+	AltMuzzleEffect			"Blaster/MuzzleFlash01R"
+	MissileEffect			"Blaster/Shot01R"
+	AltMissileEffect		"Blaster/Shot01R"
+	Missile3Effect			"Blaster/Shot01R"
+	
+	customAmmo				900
+	clipSize				180
+	altFireEnabled			0
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BLASTER_PISTOL					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/sc-10_holdout/sc-10_holdout.md3"   	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_sc-10_holdout" 					//Required: Weapon change icon
-	WeaponName		"SC-10 Holdout Pistol"    					//Required: Weapon change display name
-	clipSize		5
-
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/sc-10_holdout/sc-10_holdout_w.glm"
+	NewViewModel			"models/weapons2/sc-10_holdout/sc-10_holdout.md3"
+	Icon					"gfx/hud/w_icon_sc-10_holdout"
+	WeaponName				"SC-10 Holdout Pistol"
+	
+	clipSize				5
 }
 
 WeaponInfo2
 {           
-	WeaponToReplace        WP_SABER
-	WeaponBasedOff         WP_SABER
-	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon             	"gfx/hud/w_icon_arc_shiv"
-	WeaponName			"Cortosis Shiv"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/arc_shiv_short/shiv_short_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_arc_shiv"
+	WeaponName				"Cortosis Shiv"
 }
 
 description	"The Imperial Commando
 
-Details:
-
 This class specializes in short duration, medium range engagements, moving from cover to cover and blasting enemies with powerful but inaccurate rifle salvos. 
 
-Weaponry:
+^2Weaponry:
+- E-11 Blaster Carbine (2)
+-- Primary Fire Only
+-- 40% Faster RoF
+-- Mag Reload
+- Light Blaster Pistol (1)
+-- 50% Less DMG
+-- Mag Reload
+- Cortosis Shiv
+-- ^5Cyan ^7Style Only
 
-Blaster Carbine: (2 - Double ROF)
-Light Blaster Pistol: (1)
-Cortosis Shiv: (X)
+^6Equipment:
+- Medpac (25HP+)
+- Advanced Medpac (50HP+)
+- Electrobinoculars
 
-Equipment:
+^8Attributes:
+- Force Sense Immunity
+- Shield Regeneration (1)
+- Blast Armour
+- CTF: 30s Respawn
 
-Bacta: (X)
-Large Bacta: (X)
-Binoculars: (X)
+^3Abilities:
+- Dash (2) ^3[CS2]
 
-Attributes:
-
-Shield Regeneration: (1)
-Blast Armor: (X)
-Dash: (2)
-Cannot be detected by Sense: (X)
-
-Strengths: Powerful but inaccurate carbine deals high damage at medium-close Range, Carries a Medium Capacity Shield that can fully regenerate
-
-Weaknesses: Relatively poor vitality/armor compared to other classes of a similar reinforcement tier."
+^2Strengths^7: Powerful but inaccurate carbine deals high damage at medium-close Range, Carries a Medium Capacity Shield that can fully regenerate.
+^1Weaknesses^7: Relatively poor vitality/armor compared to other classes of a similar reinforcement tier."

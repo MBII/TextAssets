@@ -1,104 +1,122 @@
-//Legends Mode character file - Created by Frenzy & Leos
 
 ClassInfo
 {
 	name				"h5_BoKatan"
-	MBClass			MB_CLASS_BOUNTY_HUNTER
+	MBClass				MB_CLASS_MANDALORIAN
 	classNumberLimit	1
-	
-	weapons				WP_MELEE|WP_MANDO_PISTOL|WP_FRAG_NADE|WP_SABER
-	
-	attributes			MB_ATT_BESKAR,2|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,3|MB_ATT_FUEL,2|MB_ATT_WRISTLASER,1|MB_ATT_ROCKET,1|MB_ATT_POISON_DART,3|MB_ATT_FUELREGEN,1|MB_ATT_BUNNY_HOP,1|MB_ATT_FRAGS,2|MB_ATT_FORCEBLOCK,1|MB_ATT_HEALING,1
-	
-	maxhealth		125
+	weapons				WP_MELEE|WP_MANDO_PISTOL|WP_FRAG_NADE
+	attributes			MB_ATT_BESKAR,2|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,3|MB_ATT_FUEL,2|MB_ATT_WRISTLASER,1|MB_ATT_ROCKET,1|MB_ATT_POISON_DART,3|MB_ATT_FUELREGEN,1|MB_ATT_BUNNY_HOP,1|MB_ATT_FRAGS,2|MB_ATT_FORCEBLOCK,1|MB_ATT_HEALING,2|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1
+
+	maxhealth			125
 	maxarmor			125
-	rateoffire_melee 0.95
-	
-	special1		EAS_HI_ROCKET
-	special2 	EAS_HI_WRIST
-	special3		EAS_HI_POISON
+	rateoffire_melee	0.95
+
+	special1			EAS_HI_ROCKET
+	meleespecial1		EAS_HI_ROCKET
+	//special2			EAS_HI_WRIST
+	//meleespecial2		EAS_HI_WRIST
+	special3			EAS_HI_DASH
+	meleespecial4		EAS_HI_POISON
 
 	resource			resource_fuel
-	forcepool 		35
-	
-	saber1			legends_darksaber
-	saberstyle  	SS_MEDIUM|SS_DESANN
- saberDamageStyle SS_MEDIUM,200|SS_DESANN,240
+	forcepool			35
+	basespeed			250
 
-	forcepowers		FP_SABER_OFFENSE,1
+	saber1				legends_darksaber
+	saberstyle			SS_MEDIUM|SS_DESANN
+	saberDamageStyle	SS_MEDIUM,200|SS_DESANN,240
+
+	forcepowers			FP_SABER_OFFENSE,1
 	APmultiplier		1.20
-	BPmultiplier 	1.1
+	BPmultiplier		1.1
 
-	special1HUD HUD_POISONDART
-	special2HUD HUD_WRISTLASER
+	special1HUD			HUD_POISONDART
+	special2HUD			HUD_WRISTLASER
 
-	
-	modelscale  1.01
-	model		"BoKatan"
-	skin			"default"
-	uishader  	"models/players/BoKatan/mb2_icon_default"
-	uioverlay_r 	"gfx/icons/aerial"
-	uioverlay_l 	"gfx/icons/hybrid"
+	modelscale			1.01
+	model				"BoKatan"
+	skin				"default"
+	uishader			"models/players/BoKatan/mb2_icon_default"
+	uioverlay_r			"gfx/icons/aerial"
+	uioverlay_l			"gfx/icons/hybrid"
+
+	isCustomBuild		1
+	mbPoints			4
+
+	c_att_skill_0		MB_ATT_SABER
+	c_att_names_0		"The Darksaber (Yellow/Purple)"
+	c_att_ranks_0		4
+	c_att_descs_0		"Saber Defense (1), No Blaster Block, 16/40% less damage"
+
+	c_att_skill_1		MB_ATT_SONIC_DETONATOR
+	c_att_names_1		"Sonic Detonator"
+	c_att_ranks_1		1
+
+	c_att_skill_2		MB_ATT_FLAMETHROWER
+	c_att_names_2		"W. Flamethrower ^3[MWM CS2]"
+	c_att_ranks_2		2
+	c_att_descs_2		"Toggle Melee Weapon Mode to swap Wrist Flamethrower/Laser"
+
+	c_att_skill_3		MB_ATT_DASH
+	c_att_names_3		"Dash ^3[CS3]"
+	c_att_ranks_3		1,0
 }
 
 WeaponInfo0
 {
-	WeaponToReplace 		WP_SABER
-	WeaponBasedOff  		WP_SABER
-	NewWorldModel  		"models/weapons2/saber_plasma/saber_darksaber3.glm"
-	NewViewModel  		"models/weapons2/dummy/dummy.md3"
-	Icon  				"gfx/hud/w_icon_darksaber"
-	WeaponName  			"The Darksaber"
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/saber_plasma/saber_darksaber3.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_darksaber"
+	WeaponName			"The Darksaber"
 }
 
 WeaponInfo1
 {
- WeaponToReplace		WP_MANDO_PISTOL       			
- WeaponBasedOff		WP_MANDO_PISTOL      			
- NewWorldModel		"models/weapons2/westar35/westar35.glm"  
- NewViewModel		"models/weapons2/westar35/model.md3"
- Icon				"gfx/hud/w_icon_westar35_dual"
- WeaponName		"Dual WESTAR-35 Blaster Pistols"   
+	WeaponToReplace		WP_MANDO_PISTOL
+	WeaponBasedOff		WP_MANDO_PISTOL
+	NewWorldModel		"models/weapons2/westar35/westar35.glm"
+	NewViewModel		"models/weapons2/westar35/model.md3"
+	Icon				"gfx/hud/w_icon_westar35_dual"
+	WeaponName			"Dual WESTAR-35 Blaster Pistols"
 	MuzzleEffect		"Blaster/MuzzleFlash01Y"
-	AltMuzzleEffect	"Blaster/MuzzleFlash01Y"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01Y"
 	MissileEffect		"Blaster/Shot02Y"
-	Missile3Effect	"Blaster/Shot03Y"
+	Missile3Effect		"Blaster/Shot03Y"
 	PowerupShotEffect	"Blaster/Shot04Y"
 	AltMissileEffect	"Blaster/Shot04Y"
-	ChargeSound		"sound/weapons/leia_pistol/altcharge.mp3"
-	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash" 
- damageMod 1.1
-	fpmult	1.1
-	rateMod 1.1
-	customammo 750
+	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
+	ChargeEffect		"gfx/effects/yellow_bryarFrontFlash"
+	damageMod			1.1
+	fpmult				1.1
+	rateMod				1.1
+	customammo			750
 }
 
-description	"Bo-Katan Kryze 
- 
+description	"Bo-Katan Kryze
+
 A quick and versatile Mandalorian with a tough suit of armor.
 
 ^2Weaponry:
 - Melee
 -- 5% faster RoF
-- The Darksaber (Yellow/Purple)
--- Saber Defense (1)
--- No Blaster Block
--- Blocking resists Force Powers
--- 16/40% less Yellow/Purple Dmg
 - Dual WESTAR-35 Blaster Pistols (3)
--- 10% more Dmg/FP Dmg
+-- 10% more damage/FP damage
 -- 10% slower RoF
 - Frag Grenades (2)
 
 ^8Attributes:
 - Bunny Hop (1)
+- Dexterity (1)
 - Fuel Regen (1)
 - Beskar (2)
-- Healing (1)
+- Healing (2)
 - Force Block (1)
+- Tracking Beacon
 
-^3Abilities: 
+^3Abilities:
 - Jetpack
-- Rocket ^3[CS1]
+-- Rocket ^3[CS1]
 - Wrist Laser ^3[CS2]
-- Poison Darts (3) ^3[CS3 Melee]"
+- Poison Darts (3) ^3[Melee CS4]"

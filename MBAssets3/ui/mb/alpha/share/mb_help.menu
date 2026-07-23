@@ -38,11 +38,13 @@
 			setitemcolor		gameopt2button		forecolor 1 1 1 0.9
 			setitemcolor		faqbutton			forecolor 1 1 1 0.9
 			setitemcolor		tipsbutton			forecolor 1 1 1 0.9
+			show WIPLibrary
 		}
 		onESC 
 		{ 
 			play				"sound/interface/back.mp3" ;
 			close				all ;
+			hide WIPLibrary
 			open				ingame
 			open				main_nomusic
 		}
@@ -60,7 +62,74 @@
 			forecolor			1 1 1 1
 			visible				1
 			decoration
-		}						
+		}
+
+				itemDef
+		{
+			name WIPLibrary
+			style WINDOW_STYLE_SHADER
+			type ITEM_TYPE_TEXT
+			rect			156 43 150 25
+			background "gfx/menus/blackMask"
+			textscale 0.2
+			text2scale 0.12
+			text ""
+			text2 ""
+			text2font 6
+			font 6
+			textalign ITEM_ALIGN_LEFT
+			textaligny -4
+			text2aligny 1
+			textalignx 5
+			text2alignx 170
+			forecolor			1 1 0 1//1 1 0 1
+			border 1
+			bordersize 1
+			bordercolor 0.5 1 0 1
+			visible				0
+			onVisible
+			{
+				transition WIPLibrary 120 373 0 30 120 384 330 30 10 30
+				setitemtext WIPLibrary "NOTE: LIBRARY IS OUTDATED"
+				setitemtext2 WIPLibrary "^7SOME INFORMATION MAY BE INCORRECT.\nUPDATES COMING SOON."
+			}
+			visibleLoop
+			{
+				setcolor bordercolor 1 1 1 1
+				delay 100;
+				setcolor bordercolor 0.9 0.9 0.9 1
+				delay 100;
+				setcolor bordercolor 0.8 0.8 0.8 1
+				delay 100;
+				setcolor bordercolor 0.7 0.7 0.7 1
+				delay 100;
+				setcolor bordercolor 0.6 0.6 0.6 1
+				delay 100;
+				setcolor bordercolor 0.5 0.5 0.5 1
+				delay 100;
+				setcolor bordercolor 0.4 0.4 0.4 1
+				delay 100;
+				setcolor bordercolor 0.3 0.3 0.3 1
+				delay 100;
+				setcolor bordercolor 0.2 0.2 0.2 1
+				delay 100;
+				setcolor bordercolor 0.3 0.3 0.3 1
+				delay 100;
+				setcolor bordercolor 0.4 0.4 0.4 1
+				delay 100;
+				setcolor bordercolor 0.5 0.5 0.5 1
+				delay 100;
+				setcolor bordercolor 0.6 0.6 0.6 1
+				delay 100;
+				setcolor bordercolor 0.7 0.7 0.7 1
+				delay 100;
+				setcolor bordercolor 0.8 0.8 0.8 1
+				delay 100;
+				setcolor bordercolor 0.9 0.9 0.9 1
+				delay 100;
+			}
+			decoration
+		}					
 
 		itemDef
 		{

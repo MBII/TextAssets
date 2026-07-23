@@ -237,7 +237,6 @@ gfx/blood/slash6
 	}
 }
 
-
 //	clone blob
 
 gfx/effects/clone_blob
@@ -764,4 +763,106 @@ models/effects/lightning3
         blendFunc GL_ONE GL_ONE
         glow
     }
+}
+
+// Kotor Frag Grenade Explosion
+gfx/2d/kotor_gfrag/burn1
+{
+	cull	twosided
+    {
+        map gfx/2d/kotor_gfrag/burn1
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+    }
+}
+
+gfx/2d/kotor_gfrag/burnmark1
+{
+	polygonOffset
+    {
+        map gfx/2d/kotor_gfrag/burnmark1
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+        alphaGen vertex
+    }
+}
+
+gfx/2d/kotor_gfrag/shockwave1
+{
+    cull    twosided
+    {
+        map gfx/2d/kotor_gfrag/shockwave1
+        blendFunc GL_ONE GL_ONE
+        rgbGen vertex
+    }
+}
+
+gfx/2d/kotor_gfrag/smoke1
+{
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    cull    twosided
+    {
+        map gfx/2d/kotor_gfrag/smoke1
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+    }
+}
+
+gfx/2d/kotor_gfrag/smoke2
+{
+    surfaceparm nonsolid
+    surfaceparm nonopaque
+    surfaceparm trans
+    cull    twosided
+    {
+        map gfx/2d/kotor_gfrag/smoke2
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+    }
+}
+
+gfx/2d/kotor_gfrag/spark1
+{
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	cull	twosided
+    {
+        map gfx/2d/kotor_gfrag/spark1
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+    }
+}
+
+models/weapons2/kotor_gfrag/shrapnel
+{
+	q3map_nolightmap
+	cull	twosided
+    {
+        clampmap models/weapons2/kotor_gfrag/grenade
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/kotor_gfrag/shrapnel
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen vertex
+        alphaGen vertex
+    }
+}
+
+// Poisonthrower Smoke
+gfx/effects/poison_smoke
+{
+	cull	twosided
+	{
+		map gfx/effects/alpha_smoke_noalpha
+		blendFunc GL_ONE GL_ONE
+		glow
+		rgbGen vertex
+		alphaGen vertex
+	}
 }

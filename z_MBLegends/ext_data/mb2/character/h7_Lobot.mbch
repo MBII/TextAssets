@@ -1,163 +1,172 @@
+
 ClassInfo
 {
-	name  			"h7_Lobot"
-	MBClass 		MB_CLASS_HERO	
+	name				"h7_Lobot"
+	MBClass				MB_CLASS_HERO
 	classNumberLimit	1
 
-	weapons			WP_MANDO_PISTOL|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_SABER
+	weapons				WP_MANDO_PISTOL|WP_MELEE|WP_CONC_NADE|WP_FRAG_NADE|WP_SABER
 
-	attributes  	MB_ATT_MICRO_GRENADES,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,2|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_TRACKING_BEACON|MB_ATT_BACTA,1|MB_ATT_SENTRY,1|MB_ATT_FORCEFIELD,1
+	WP_FragNadeFlags	HELD_FLASH
+	WP_ConcNadeFlags	HELD_PULSE
 
- baseSpeed 255
-	maxhealth 		170
-	maxarmor    90
-	hackRate 0.83
+	attributes			MB_ATT_MICRO_GRENADES,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_HEALING,2|MB_ATT_AMMO,3|MB_ATT_DODGE,3|MB_ATT_FRAGS,2|MB_ATT_DASH,2|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_TRACKING_BEACON|MB_ATT_BACTA,1|MB_ATT_SENTRY,1|MB_ATT_FORCEFIELD,1|MB_ATT_SHOCKWAVE|MB_ATT_PETCONTROL
 
-	APMultiplier   1.2
-	ASMultiplier 		1.15
-	CSMultiplier 		1.2
-	BPmultiplier		0
+	baseSpeed			255
+	maxhealth			170
+	maxarmor			90
+	hackRate			0.73
 
-	special1HUD HUD_FRAGNADE
-	special2HUD HUD_CONCNADE
-
-	saber1		Wrench_Legends
-	sabercolor	0
-	saberstyle	SS_MEDIUM|SS_STRONG
-
-	saber1_1  Wrench_Legends_2
-	sabercolor_1	0
-	saberstyle_1 	SS_MEDIUM|SS_STRONG
-
-	saberDamage 120
-	saberSpecialDamage 2 
-	saberMaxChain 2
-
-	forcepowers		FP_SEE,1
-	forcepool 			80
+	forcepowers			FP_SEE,1
+	forcepool			80
 	forceregen			1.2
 	resource			RESOURCE_ENERGY
 
-	modelscale  0.987
-	model 			"lobot"
-	skin  			"default"
-	uishader 		"models/players/lobot/mb2_icon_default"
-	uioverlay "gfx/icons/tactician"
+	special1HUD			HUD_FRAGNADE
+	special2HUD			HUD_CONCNADE
 
-	//WP_RocketLauncherFlag HELD_ALTRELOAD|HELD_KNOCKDOWN|HELD_HIGHDAMAGE
+	special1			EAS_HI_DODGE
+	meleespecial1		EAS_HI_DODGE
+	special2			EAS_HI_DASH
+	meleespecial2		EAS_HI_DASH
+	special3			EAS_HI_SHOCKWAVE
+	meleespecial3		EAS_HI_SHOCKWAVE
+	special4			EAS_HI_PETCONTROL
+	meleespecial4		EAS_NONE
 
-	special1 EAS_HI_DODGE
+	saber1				Wrench_Legends
+	sabercolor			0
+	saberstyle			SS_MEDIUM|SS_STRONG
 
-	special2 EAS_HI_DASH
-	special3 EAS_HI_MEDPAC
- special4 EAS_HI_SHIELD
-	
-	saberStanceAnim	TORSO_SURRENDER_START
+	saber1_1			Wrench_Legends_2
+	sabercolor_1		0
+	saberstyle_1		SS_MEDIUM|SS_STRONG
+
+	saberDamage			120
+	saberSpecialDamage	2
+	saberMaxChain		2
+
+	APMultiplier		1.2
+	ASMultiplier		1.15
+	CSMultiplier		1.2
+	BPmultiplier		0
+
+	classFlags			CFL_STATVIEWER
+
+	modelscale			0.987
+	model				"lobot"
+	skin				"default"
+	uishader			"models/players/lobot/mb2_icon_default"
+	uioverlay			"gfx/icons/tactician"
+
+	saberStanceAnim		TORSO_SURRENDER_START
 	flourishAnim		BOTH_COWER1
-	gloatAnim		BOTH_COME_ON1
-	bowAnim	BOTH_STAND5STARTLEDLOOKLEFT
-
+	gloatAnim			BOTH_COME_ON1
+	bowAnim				BOTH_STAND5STARTLEDLOOKLEFT
 }
+
 WeaponInfo0
 {
-	WeaponToReplace	WP_SABER
-	WeaponBasedOff	WP_SABER
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
 	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_mwrench"
-	WeaponName		"Lobot's Wrench"
+	WeaponName			"Lobot's Wrench"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace WP_MANDO_PISTOL
-	WeaponBasedOff  WP_DISRUPTOR
-	NewWorldModel "models/weapons2/Relby-K23/model_w.GLM"
-	NewViewModel  "models/weapons2/Relby-K23/pistol.MD3"
-	Icon  		"gfx/hud/w_icon_relby_k23"
-	WeaponName  	"Relby-K23 'Stinger' Blaster Pistol"
-	ChargeSound "sound/weapons/leia_pistol/altcharge.mp3"	
-	CustomAmmo		800
-	VelocityMod 		1.15
-	FPMult 			1.2
-	rateMod 0.75
- damageMod 1.2
+	WeaponToReplace		WP_MANDO_PISTOL
+	WeaponBasedOff		WP_DISRUPTOR
+	NewWorldModel		"models/weapons2/Relby-K23/model_w.GLM"
+	NewViewModel		"models/weapons2/Relby-K23/pistol.MD3"
+	Icon				"gfx/hud/w_icon_relby_k23"
+	WeaponName			"Relby-K23 'Stinger' Blaster Pistol"
+	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
+	CustomAmmo			800
+	velocityMod			1.15
+	FPMult				1.2
+	rateMod				0.75
+	damageMod			1.2
+}
+
+WeaponInfo2
+{
+	WeaponToReplace		WP_CONC_NADE
+	WeaponBasedOff		WP_CONC_NADE
+	NewWorldModel		"models/weapons2/v-59_concussion/v-59_conc_w.glm"
+	NewViewModel		"models/weapons2/v-59_concussion/v-59_conc.md3"
+	NewHandsModel		"models/weapons2/v-59_concussion/v-59_conc_hand.md3"
+	MissileModel		"models/weapons2/v-59_concussion/v-59_conc_proj.md3"
+
+	Icon				"gfx/hud/w_icon_v-59_conc"
+	WeaponName			"Electro-Conc Grenades"
+
+	altmissileEffect			"grenades/glowEMPB"
+	missileEffect				"grenades/glowEMPB"
+
+	altMissileMissEffect		"Grenades/EXP_pulsenade"
+	MissileMissEffect			"Grenades/EXP_pulsenade"
+
+	altMissileHitHumanEffect	"Grenades/EXP_pulsenade"
+	missileHitHumanEffect		"Grenades/EXP_pulsenade"
+
+	altMissileHitDroidEffect	"Grenades/EXP_pulsenade"
+	missileHitDroidEffect		"Grenades/EXP_pulsenade"
+
+	selectSound			"sound/ambience/fuelpump_03a.mp3"
+
+	customAmmo			3
 }
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/forcepowers/radar"
-	ForcePowerName	"Passive Radar Scanner"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/forcepowers/radar"
+	ForcePowerName		"Passive Radar Scanner"
 }
 
-/* WeaponInfo2
-{
-	WeaponToReplace WP_ROCKET_LAUNCHER
-	WeaponBasedOff  WP_TRIP_MINE
-	Icon				"gfx/hud/w_thermal_grenade"
-	WeaponName  		"Repulsor Mines"
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel		"models/weapons2/thermal/thermal_hand.md3"
-	MissileModel 		"models/weapons2/thermal/thermal_proj.md3"
-	FlashSound0		"sound/weapons/stone/fire.mp3"
-	MissileEffect 	null
-	MissileMissEffect		"effects/tripmine/explosion"
-	MissileHitHumanEffect "effects/tripmine/explosion"
-	MissileHitDroidEffect	"effects/tripmine/explosion"
-	MuzzleEffect			null
-	velocityMod 0.001
-	rateMod 2
-	ClipSize 8
-	CustomAmmo -1
-	AltFireEnabled 0
-	hasAnimOverrides 1
-	animReadyRun BOTH_SHOWOFF_STRONG
-	animReady BOTH_SHOWOFF_STRONG
-	animReadyWalk BOTH_GESTURE1
-	animReadyNoAmmo BOTH_STAND5TURNRIGHTSTART
-	animAttackRun BOTH_HUGGERSTOP1
-	animAttack BOTH_HUGGERSTOP1
-	animAttackWalk BOTH_HUGGERSTOP1
-	animStand BOTH_STAND1
-} */
+description "Lobot
 
-description	"Lobot 
-
-A speedy, damage-boosted Pistoleer with Grenades.
+A man of few words, he prefers to commune with the technological over the biological.
 
 ^2Weaponry:
 - Melee
 - Lobot's Wrench (Yellow/Red Saber)
 -- No Saber/Blaster Block
--- Blocking resists Force Powers
 -- Chain Limit: 2
--- 125% more Kb
--- 200% Spec Dmg mult
--- 40% less Reach
--- 167% more Radius
-- Relby-K23 'Stinger' Blaster Pistol (WESTAR 2)
+-- 125% more knockback
+-- 100% more special damage
+-- 35% shorter
+-- 166% thicker
+- Relby-K23 'Stinger' Pistol (WESTAR 2)
+-- 15% more velocity
 -- 25% faster RoF
--- 15% more Velocity
--- 20% more Dmg/FP Dmg
-- Frag Grenades (2)
-- V-59 Conc Grenades (3)
+-- 20% more damage/FP damage
+- BSoD Frag Grenades (2)
+-- Blinds on det
+- Electro-Conc Grenades (3)
+-- Shocks on det
 
 ^6Inventory:
-- Medpac ^3[CS3]
-- Forcefield ^3[CS4]
-- Assault Sentry
+- Medpac
+- Forcefield
+- Assault Sentry ^5{RC}
 
 ^8Attributes:
-- 20% faster Hacking
 - Blast Armor
 - Armor Regen (1)
 - Healing (2)
 - Force Block (1)
-- Passive Radar Scanner (Miraluka Vision 1)
+- Passive Radar Scanner (Miraluka 1)
 - Tracking Beacon
+- Remote/Ally Stat Viewer
 - Lobotomized
+- 30% faster hacking
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
-- Dash (2) ^3[CS2]"
+- Dash (2) ^3[CS2]
+- Shockwave ^3[CS3]
+- Remote Control ^3[No Melee CS4]"

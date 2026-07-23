@@ -2,115 +2,119 @@
 
 ClassInfo
 {
-	name			"PB3_G_Rock"
-	weapons			WP_MELEE|WP_FRAG_NADE|WP_BLASTER_PISTOL
-	attributes		MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_FRAGS,3|MB_ATT_PISTOL,1|MB_ATT_QUICKTHROW,2
-	maxhealth		60
-	maxarmor		60
-	extralives		4
-	MBClass			MB_CLASS_WOOKIE
+	name				"PB3_G_Rock"
+	weapons				WP_MELEE|WP_FRAG_NADE|WP_CLONE_PISTOL
+	WP_ClonePistolFlags	HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_HIGHDAMAGE|HELD_KNOCKBACK|HELD_ALTRELOAD
 	WP_FragNadeFlags	HELD_KNOCKDOWN
-	speed			2
+	attributes			MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_FRAGS,20|MB_ATT_CLONE_PISTOL,1|MB_ATT_QUICKTHROW,2
+	maxhealth			60
+	maxarmor			60
+	extralives			4
+	speed				2
+	model				"geode"
+	skin				"default"
+	uishader			"models/players/geode/mb2_icon_default"
+	MBClass				MB_CLASS_WOOKIE
 	//classNumberLimit	4
-	WP_DEMP2Flags       HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_HIGHDAMAGE|HELD_KNOCKBACK|HELD_ALTRELOAD
 	
+	special1			EAS_HI_QUICKTHROW
 	
-	model			"geode" 				 
-	skin			"default"					 
-	uishader		"models/players/geode/mb2_icon_default"
-		
-	respawnCustomTime 15000	
-			
+	respawnCustomTime	15000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace WP_FRAG_NADE
-	WeaponBasedOff WP_FRAG_NADE
-	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
-	NewViewModel			"models/weapons2/stone/thermal.md3"
-	Icon "gfx/hud/wpn_rock"
-	WeaponName			"Throwy Rocks"
-	altMissileMissEffect	"stone/explosion"
-	MissileModel 			"models/weapons2/stone/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	FlashSound0		"sound/weapons/rock/rock_throw.mp3"
-	altFlashSound0		"sound/weapons/rock/rock_throw.mp3"
-	SelectSound		"sound/effects/stone_bounce.wav"
-	ChargeSound 		"sound/weapons/rock/rock_select.mp3"
-	CustomAmmo	20
-	PrimfireEnabled	0
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/wpn_rock"
+	WeaponName				"Punchy Rocks"
+	
+	FlashSound0				"sound/weapons/rock/rock_throw.mp3"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/noweap/noweap.md3"
-	Icon "gfx/hud/wpn_rock"
-	WeaponName			"Shooty Rocks"
-	AltMuzzleEffect		"stone/muzzle1"
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_CLONE_PISTOL
+	NewWorldModel			"models/weapons2/dummyblaster/model.glm"
+	NewViewModel			"models/weapons2/noweap/noweap.md3"
+	AltMissileModel			"models/weapons2/stone/thermal.md3"
+	MissileModel			"models/weapons2/stone/thermal.md3"
+	//MissileModel			"models/weapons2/stone/thermal_proj.md3"
+	Icon					"gfx/hud/wpn_rock"
+	WeaponName				"Shooty Rocks"
+	
+	SelectSound				"sound/effects/stone_bounce.wav"
+	FlashSound0				"sound/weapons/rock/rock_throw.mp3"
+	altFlashSound0			"sound/weapons/rock/rock_throw.mp3"
+	ChargeSound				"sound/weapons/rock/rock_select.mp3"
+	
+	AltMuzzleEffect			"stone/muzzle1"
 	AltMissileEffect		"stone/missile1"
 	AltMissileMissEffect	"stone/explosion"
-	AltMissileHitHumanEffect "stone/explosion"
+	AltMissileHitHumanEffect	"stone/explosion"
 	AltMissileHitDroidEffect	"stone/explosion"
-	MuzzleEffect			"stone/muzzle1"
-	MissileEffect	 		"stone/missile1"
+	MuzzleEffect		null
+	MissileEffect		 null
 	MissileMissEffect		"stone/explosion"
-	MissileHitHumanEffect "stone/explosion"
+	MissileHitHumanEffect	"stone/explosion"
 	MissileHitDroidEffect	"stone/explosion"
-	//MissileModel 		"models/weapons2/stone/thermal_proj.md3"
-	AltMissileModel 		"models/weapons2/stone/thermal.md3"
-	MissileModel 		"models/weapons2/stone/thermal.md3"
-	FlashSound0		"sound/weapons/rock/rock_throw.mp3"
-	altFlashSound0		"sound/weapons/rock/rock_throw.mp3"
-	SelectSound		"sound/effects/stone_bounce.wav"
-	ChargeSound 		"sound/weapons/rock/rock_select.mp3"
-	customammo 40
-	clipsize   6
-	primFireEnabled		1
-
-	//ProjSpeedModifier 1.5
 	
-	//primGore 1
-	//altGore 1
+	customammo				40
+	clipsize				6
+
+	//velocityMod			1.5
+	
+	//primGore				1
+	//altGore				1
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_MELEE			
-	WeaponBasedOff		WP_MELEE			
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"  
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 
-	Icon "gfx/hud/wpn_rock"
-	FlashSound0		"sound/weapons/rock/rock_throw.mp3"	  
-	WeaponName		"Punchy Rocks"
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
+	NewViewModel			"models/weapons2/stone/thermal.md3"
+	MissileModel			"models/weapons2/stone/thermal_proj.md3"
+	altMissileModel			"models/weapons2/stone/thermal_proj.md3"
+	Icon					"gfx/hud/wpn_rock"
+	WeaponName				"Throwy Rocks"
+	
+	SelectSound				"sound/effects/stone_bounce.wav"
+	FlashSound0				"sound/weapons/rock/rock_throw.mp3"
+	altFlashSound0			"sound/weapons/rock/rock_throw.mp3"
+	ChargeSound				"sound/weapons/rock/rock_select.mp3"
+	
+	MuzzleEffect			null
+	AltMuzzleEffect			null
+	altMissileHitHumanEffect	"stone/explosion"
+	altMissileHitDroidEffect	"stone/explosion"
+	
+	PrimfireEnabled			0
 }
 
 description	"Rock
 
 Rock and Stone!
 
+Rock
 
-Class: Wookiee
-Class summary: Rock
-
-Weaponry:
-- Throwy Rock
+^2Weaponry:
 - Punchy Rock
+-- Breaks opponents' bones
 - Shooty Rock
+-- 100% More DMG
+-- Knocks opponents down
+-- Slow projectiles
+-- Mag Reload
+- 20 Throwy Rocks
+-- Knocks opponents down
 
---- Throwy Rock
-- Knocks opponents down
+^8Attributes:
+- Rockiness (3)
+- 4 Extra Lives
 
---- Punchy Rock
-- Breaks opponents' bones
-
---- Shooty Rock
-- Knocks opponents down
-- Slow projectiles
-
-Attributes:
-- 4 extra lives
-- Rockiness (3)"
+^3Abilities:
+- Quick Throw (2) ^3[CS1]"

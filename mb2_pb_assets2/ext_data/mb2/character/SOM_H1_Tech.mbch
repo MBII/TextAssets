@@ -2,115 +2,78 @@
 
 ClassInfo
 {
-	name 			"SOM_H1_tech"
-	weapons 		WP_SABER|WP_MELEE|WP_BOWCASTER|WP_BLASTER_PISTOL|WP_PULSE_NADE
-	attributes		MB_ATT_PISTOL,2|MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_CCTRAINING,2|MB_ATT_ARMOUR,3|MB_ATT_BOWCASTER,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_DISP_HEALTH,3|MB_ATT_DISP_AMMO,3|MB_ATT_DISP_ARMOR,3|MB_ATT_DRONE|MB_ATT_SENTRY|MB_ATT_EWEB
-	maxhealth		55
-	maxarmor		40
+	name				"SOM_H1_tech"
+	weapons				WP_SABER|WP_MELEE|WP_DEMP2|WP_BLASTER_PISTOL|WP_PULSE_NADE
+	attributes			MB_ATT_PISTOL,2|MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_CCTRAINING,2|MB_ATT_DEMP2,3|MB_ATT_DEMP2_BLASTS,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_DISP_HEALTH,3|MB_ATT_SUPPLYDROP,3|MB_ATT_DISP_ARMOR,3|MB_ATT_DRONE|MB_ATT_SENTRY|MB_ATT_EWEB
 	//holdables         HI_SEEKER|HI_SENTRY_GUN|HI_EWEB
-	saber1			mwrench
-	saberstyle		SS_MEDIUM
+	saber1				mwrench
+	saberstyle			SS_MEDIUM
+	maxhealth			55
+	maxarmor			40
+	extralives			2
 	
-	MBClass 		MB_CLASS_SOLDIER
-	extralives 		2
-	classflags		CFL_STATVIEWER|CFL_NOPICKUPS
-	WP_Bowcasterflags	HELD_PULSE|HELD_LOWDAMAGE|HELD_SLOW|HELD_AMMOREGEN
-	respawnCustomTime  	10000
+	model				"rebel_pilot"
+	skin				"default"
+	uishader			"models/players/rebel_pilot/mb2_icon_default"
 
-	model			"rebel_pilot"
-	skin			"default"
-	uishader		"models/players/rebel_pilot/mb2_icon_default"
+	model_1				"leia_esb"
+	skin_1				"newrepublic"
+	uishader_1			"models/players/leia_esb/mb2_icon_newrepublic"
 
-	model_1			"leia_esb"
-	skin_1			"alliance"
-	uishader_1		"models/players/leia_esb/mb2_icon_alliance"
-
-	model_2 		"resistance"
-  	skin_2  		"default"
+	model_2				"resistance"
+  	skin_2				"default"
   	uishader_2  		"models/players/resistance/mb2_icon_default"
 
-	model_3 		"jedi_hf"
-  	skin_3  		"ponytail"
+	model_3				"jedi_hf"
+  	skin_3				"ponytail"
   	uishader_3  		"models/players/jedi_hf/mb2_icon_ponytail"
-
-	model_3 		"nrguard"
-  	skin_3  		"chagrian"
-  	uishader_3  		"models/players/nrguard/mb2_icon_chagrian"
+	
+	MBClass				MB_CLASS_SOLDIER
+	classflags			CFL_STATVIEWER|CFL_NOPICKUPS
+	
+	special1HUD			HUD_DEMP2BLAST
+	special2HUD			HUD_PULSENADE
+	
+	respawnCustomTime  	10000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/mwrench/mwrench.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_mwrench"
-	WeaponName		"Wrench"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/mwrench/mwrench.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_mwrench"
+	WeaponName				"Wrench"
 }
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_CLONE_PISTOL
-	NewWorldModel		"models/weapons2/demp2/demp2_w.glm"
-	NewViewModel		"models/weapons2/demp2/demp2.md3"
-	NewHandsModel		"models/weapons2/demp2/demp2_hand.md3"
-	Icon				"gfx/hud/w_icon_basedemp2"
-	WeaponName			"DEMP 2"
-	MissileHitHumanEffect "demp2/altdetonate"
-	MissileHitDroid 	"demp2/altdetonate"
-	WallImpact 			"demp2/wall_impact"
-	WallImpactEnhanced 	"demp2/wall_impact"
-	WallImpactEnhanced2 	"demp2/wall_impact"
-	MissileEffect		"demp2/projectile"  					
-	AltMissileEffect 	"demp2/projectile" 
-	MuzzleEffect		"demp2/muzzle_flash"
-	AltMuzzleEffect		"demp2/altmuzzle_flash"
-	FleshImpact 	 "demp2/flesh_impact"
-	DroidImpact 	"demp2/flesh_impact"
-	CustomAmmo 		25
-	ClipSize 		5
-	ReloadTimeModifier 	2
-	ProjSpeedModifier 	.7	
-	FlashSound0		"sound/weapons/clonepistol/fire.mp3"
-	AltFlashSound0	"sound/weapons/clonepistol/altfire.mp3"
-	ChargeSound		"sound/weapons/demp2/altcharge.mp3"
-	AltFireEnabled 0
-	}
 
 description	"The Technician
 
-Details:
-
 Tech support units are tasked with providing allies with much needed health and ammunition when necessary. They can deploy sentry droids and seeker drones to supplement their own lack of firepower, as well as utilize pulse grenades to deal with certain annoying droid classes. They are, however, very poor fighters. 
 
-Weaponry:
+^2Weaponry:
+- DEMP 2 (3)
+-- 2 Ion Blasts
+- Blaster Pistol (2)
+- 2 Pulse Grenades
+- Wrench
+-- ^3Yellow ^7Style Only
 
-DEMP 2: (1)
-- Stuns on Hit / Slow Projectile
-  Low Damage / Regens Ammo
-Blaster Pistol: (2)
-2 Pulse Grenades
-Wrench
-- Based on a Lightsaber
-  Cannot Block Blasters
+^6Equipment: 
+- Electrobinoculars
+- Seeker Drone
+- Portable Sentry
+- Portable E-Web Blaster Cannon
 
-Equipment: 
+^8Attributes:
+- Can See HP/Armor Stats of Allies
+- Close-Combat Training (2)
+- 2 Reinforcements (CTF: 10s Respawn)
+- Assemble (1) - Respawns on characters with Rally
 
-Binoculars
-Seeker Drone
-Portable Sentry
-E-Web Blaster Cannon
+^3Abilities:
+- Ammunition Supplies [Press Use to Drop Ammo]
+- Health & Armor Regeneration Supplies [Hold Use on Allies]
 
-Attributes:
-
-Close-Combat Training: (2)
-Reinforcements: (2) (CTF: 10s respawn)
-Assemble - Respawns on characters with Rally
-Ammunition Supplies - Drops ammo for allies
-Health & Armor Regeneration Supplies - Hold use on Ally to Regen their Health & Armor
-Can See HP/Armor Stats of Allies
-
-Strengths: Excellent support units, with health, ammo, and other supplies.
-
-Weaknesses: Inferior in direct combat role"
+^2Strengths^7: Excellent support units, with health, ammo, and other supplies.
+^1Weaknesses^7: Inferior in direct combat role."

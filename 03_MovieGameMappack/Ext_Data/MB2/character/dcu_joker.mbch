@@ -1,93 +1,119 @@
+
+
 ClassInfo
 {
-	name  "dcu_joker"
-	weapons WP_MELEE|WP_SABER|WP_FRAG_NADE|WP_BLASTER_PISTOL
-	saber1  dc_jokerknife
-	saberstyle  SS_TAVION|
-	attributes		MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FRAGS,1|MB_ATT_DODGE,2|MB_ATT_PISTOL,3|MB_ATT_FORCEBLOCK,1
-	forcepowers FP_LEVITATION,3|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1
-	maxhealth 200
-	model "jokeranim"
-	skin  "default"
-	uishader  "gfx/mplevels/dc_universe/joker"
-	MBClass MB_CLASS_JEDI
-	classNumberLimit  1
-	speed 1.3
-	forceregen  6
-	forcepool 100
-	classflags  CFL_HEAVYMELEE|CFL_BPFREEJUMPS|CFL_STRONGAGAINSTPHYSICAL|
+	name				"dcu_joker"
+	weapons				WP_MELEE|WP_SABER|WP_FRAG_NADE|WP_BLASTER_PISTOL
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
+	saber1				dc_jokerknife
+	saberstyle			SS_TAVION|
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FRAGS,1|MB_ATT_DODGE,2|MB_ATT_PISTOL,3|MB_ATT_FORCEBLOCK,1
+	forcepowers			FP_LEVITATION,3|FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,1
+	forcepool			100
+	forceregen			6
+	maxhealth			200
+	speed				1.3
+	model				"jokeranim"
+	skin				"default"
+	uishader			"gfx/mplevels/dc_universe/joker"
+	MBClass				MB_CLASS_ELITETROOPER
+	classflags			CFL_HEAVYMELEE|CFL_BPFREEJUMPS|CFL_STRONGAGAINSTPHYSICAL|
+	classNumberLimit	1
+	
+	resource			RESOURCE_FORCE
+	special1			EAS_HI_DODGE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace WP_SABER
-	WeaponBasedOff  WP_SABER
-	NewWorldModel "models/weapons2/jokerknife/jokerknife.glm"
-	NewViewModel  "models/weapons2/dummy/dummy.md3"
-	Icon  "gfx/mplevels/dc_universe/joker_knife"
-	WeaponName  "^2Knife"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/jokerknife/jokerknife.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/dc_universe/joker_knife"
+	WeaponName				"^2Knife"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace WP_FRAG_NADE
-	WeaponBasedOff  WP_FRAG_NADE
-	NewWorldModel "models/weapons2/dc_jokerbomb/joker_bomb.glm"  
-  NewViewModel  "models/weapons2/dc_jokerbomb/joker_bomb.md3"
-	missileModel  "models/weapons2/dc_jokerbomb/joker_bomb_proj.md3"
-  Icon  "gfx/mplevels/dc_universe/joker_bomb"
-	WeaponName  "^2Bomb"
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/dc_jokerbomb/joker_bomb.glm"  
+	NewViewModel			"models/weapons2/dc_jokerbomb/joker_bomb.md3"
+	missileModel			"models/weapons2/dc_jokerbomb/joker_bomb_proj.md3"
+	altmissileModel			"models/weapons2/dc_jokerbomb/joker_bomb_proj.md3"
+	Icon					"gfx/mplevels/dc_universe/joker_bomb"
+	WeaponName				"^2Bomb"
+	
+	altMissileMissEffect		"grenades/EXP_alt"
+	altMissileHitHumanEffect	"grenades/EXP_alt"
+	altMissileHitDroidEffect	"grenades/EXP_alt"
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/dc_jokergun/joker_gun.glm"
-	NewViewModel		"models/weapons2/dc_jokergun/joker_gun.md3"
-	NewHandsModel 		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/mplevels/dc_universe/joker_gun"
-	WeaponName		"^2Revolver"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/silver_serpent/fire.wav"
-	SelectSound		"Sound/weapons/aliens_sw39/select.wav"
-	customAmmo		40
-	clipSize  10
-	primHitscanShot		1
-	primHitscanTracer	5
-	altHitscanShot		1
-	altHitscanTracer	5
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim BOTH_MAND_PISTOL_READY 
-  firingAnim  BOTH_MAND_PISTOL_ATTACK
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/dc_jokergun/joker_gun.glm"
+	NewViewModel			"models/weapons2/dc_jokergun/joker_gun.md3"
+	Icon					"gfx/mplevels/dc_universe/joker_gun"
+	WeaponName				"^2Revolver"
+	
+	SelectSound				"Sound/weapons/aliens_sw39/select.wav"
+	FlashSound0				"Sound/weapons/silver_serpent/fire.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				40
+	clipSize				10
+	primHitscanShot			1
+	primHitscanTracer		5
+	altHitscanShot			1
+	altHitscanTracer		5
+	altFireEnabled			0
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				BOTH_MAND_PISTOL_IDLE
+	animReadyRun			BOTH_MAND_PISTOL_READY
+	animReadyWalk			BOTH_MAND_PISTOL_READY
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
+	animStand				BOTH_MAND_PISTOL_IDLE
 }
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/dc_universe/melee"
-	WeaponName		"^2Melee"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/dc_universe/melee"
+	WeaponName				"^2Melee"
+	primGore				1
+	altGore					1
 }
 
 description	"The Joker
 
-Weapons:
-Revolver
-Knife
-Bomb
+^2Weapons:
+- Heavy Melee
+- Revolver (3)
+- Knife
+-- ^5Cyan ^7Style Only
+-- Knife / Gun Defense (1)
+- 1 Bomb
 
-Attributes:
-Melee
-Acrobatics
-Reflexes"
+^8Attributes:
+- Melee Resistance
+
+^3Abilities:
+- Acrobatics (3)
+- Reflexes (2) ^3[CS1]"

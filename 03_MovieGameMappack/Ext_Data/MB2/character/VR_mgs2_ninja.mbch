@@ -2,74 +2,85 @@
 
 ClassInfo
 {
-	name			"VR_mgs2_ninja"
-	weapons			WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
-	saber1			Katana
-	saberstyle		SS_STRONG|SS_MEDIUM
-	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_DODGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR,1
-	Forcepowers		FP_LEVITATION,3|FP_SEE,3|FP_SABER_DEFENSE,2
-	maxhealth		100
-	model			"shadowtrooper" 				//this is optional, if it's here it forces the model to this.
-	skin			"mgs2ninja"					//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/MGSVRDM/mgs2_ninja"
-	MBClass			MB_CLASS_JEDI
-	forcepool 		150
-	forceregen 		6
+	name				"VR_mgs2_ninja"
+	weapons				WP_MELEE|WP_SABER|WP_BLASTER_PISTOL
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_DODGE,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_CORTOSIS,1|MB_ATT_BLAST_ARMOUR,1
+	saber1				Katana
+	saberstyle			SS_STRONG|SS_MEDIUM
+	Forcepowers			FP_LEVITATION,3|FP_SEE,3|FP_SABER_DEFENSE,2
+	forcepool			150
+	forceregen			6
+	maxhealth			100
+	model				"shadowtrooper"
+	skin				"mgs2ninja"
+	uishader			"models/players/MGSVRDM/mgs2_ninja"
+	MBClass				MB_CLASS_JEDI
 	classNumberLimit	1
+	
+	meleespecial1		EAS_HI_DODGE
+	special1			EAS_HI_DODGE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/saber_GreyFox/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/mgs/weapon_katana" 	//Required: Weapon change icon
-	WeaponName		"Katana"    					//Required: Weapon change display name
-	SelectSound "Sound/VR/select.wav"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_GreyFox/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/mgs/weapon_katana"
+	WeaponName				"Katana"
+	
+	SelectSound				"Sound/VR/select.wav"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BRYAR_OLD
-	NewWorldModel		"models/weapons2/SOCOM/blaster_pistol_w.glm"
-	NewViewModel		"models/weapons2/SOCOM/blaster_pistol.md3"
-	Icon				"gfx/hud/mgs/weapon_socom"
-	WeaponName			"SOCOM"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	FlashSound0		"Sound/weapons/SOCOM/fire.wav"
-	SelectSound "Sound/VR/select.wav"
-	customAmmo		300
-	clipSize  25
-	primHitscanShot		1
-	primHitscanTracer	10
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_REPEATER
+	NewWorldModel			"models/weapons2/SOCOM/blaster_pistol_w.glm"
+	NewViewModel			"models/weapons2/SOCOM/blaster_pistol.md3"
+	Icon					"gfx/hud/mgs/weapon_socom"
+	WeaponName				"USP"
+	
+	SelectSound				"Sound/VR/select.wav"
+	FlashSound0				"Sound/weapons/SOCOM/fire.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	
+	customAmmo				300
+	clipSize				25
+	primHitscanShot			1
+	primHitscanTracer		10
+	altFireEnabled			0
+	primGore				1
+	altGore					1
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE
-	NewWorldModel		"models/weapons2/noweap/noweap.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/mgs/weapon_melee"
-	WeaponName		"CQC"
-	SelectSound "Sound/VR/select.wav"
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE
+	NewWorldModel			"models/weapons2/noweap/noweap.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/mgs/weapon_melee"
+	WeaponName				"CQC"
+	
+	SelectSound				"Sound/VR/select.wav"
 }
 
 description	"Mr.X (Metal Gear Solid 2)
 
-Weaponry:
-Sword
-USP
+^2Weaponry:
+- Sword
+-- ^3Yellow ^7/ ^1Red ^7Styles
+- USP (1)
 
-Attributes:
-Dodge (3)
-Exoskeleton"
+^8Attributes:
+- Exoskeleton
+
+^3Abilities:
+- Dodge (3) ^3[CS1]"

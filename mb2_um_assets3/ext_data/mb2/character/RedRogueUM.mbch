@@ -1,71 +1,76 @@
-
 //Siege class def file.
 
 ClassInfo
 {
-	name			"RedRogueUM"
-	weapons			WP_MELEE|WP_SABER|WP_SONIC_NADE
-	saber1			nda_dagger1
-	MBClass         MB_CLASS_ARCTROOPER
-	saberstyle		SS_FAST
-	sabercolor		0
-	forcepowers		FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3
-	attributes		MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_POISON_DART,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_SONIC_DETONATOR,1|MB_ATT_CLOAK
-	maxhealth		90
-	APMultiplier    1.5
-	BPMultiplier    0.4
-	maxarmor		0
-	startarmor		0
-	model			"jan"
-	//holdables		HI_CLOAK					//this is optional, if it's here it forces the model to this.
-	skin			"janette_red"					//this is optional, if it's here it forces the skin to this.
-	uishader		"gfx/um_icons/red_rogue_icon"
-	speed			1.3
-	classflags      CFL_SEEING_STEALTH
-
+	name				"RedRogueUM"
+	weapons				WP_MELEE|WP_SABER|WP_SONIC_NADE
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_POISON_DART,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	saber1				nda_dagger1
+	sabercolor			0
+	saberstyle			SS_FAST
+	BPMultiplier		0.4
+	APMultiplier		1.5
+	forcepowers			FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,3
+	maxhealth			90
+	maxarmor			0
+	speed				1.3
+	model				"jan"
+	skin				"janette_red"
+	uishader			"gfx/um_icons/red_rogue_icon"
+	MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_SEEING_STEALTH
+	
+	special1HUD			HUD_POISONDART
+	special2HUD			HUD_SONICNADE
+	resource			RESOURCE_STAMINA
+	special3			EAS_HI_CLOAK
+	meleespecial4		EAS_HI_POISON
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/saber_knife/saber_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_lightsaber" 	//Required: Weapon change icon
-	WeaponName		"Dagger"    					//Required: Weapon change display name
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_knife/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_lightsaber"
+	WeaponName				"Dagger"
 }
+
 WeaponInfo1
 {
-	WeaponToReplace		WP_SONIC_NADE
-	WeaponBasedOff		WP_SONIC_NADE
-	NewWorldModel		"models/weapons2/sonic_detonator/sonic_det_w.glm"
-	NewViewModel		"models/weapons2/sonic_detonator/sonic_det.md3"
+	WeaponToReplace			WP_SONIC_NADE
+	WeaponBasedOff			WP_SONIC_NADE
+	NewWorldModel			"models/weapons2/sonic_detonator/sonic_det_w.glm"
+	NewViewModel			"models/weapons2/sonic_detonator/sonic_det.md3"
 	MissileModel 			"models/weapons2/sonic_detonator/sonic_det_proj.md3"
-	MissileModel2 			"models/weapons2/sonic_detonator/sonic_det_proj.md3"
-	Icon				"gfx/hud/w_icon_sonic_det"
-	WeaponName			"Magical Trap"
-	primFireEnabled		0
-    customammo             2
+	altMissileModel 		"models/weapons2/sonic_detonator/sonic_det_proj.md3"
+	Icon					"gfx/hud/w_icon_sonic_det"
+	WeaponName				"Magical Trap"
+	primFireEnabled			0
 }
 
 description	"Red - Jan the Rogue
 
-Melee
-Dagger           (Blue stance)
-Magical Cloak    (Cloaking, seeing stealth)
-Acrobatics       (Dexterity 3)
-Defense          (3)
-Stamina          (3)
-Magical Trap     (Secondary sonic grenade)
-Poison Darts
-High Run Speed
-High Swing Speed
-BPModifier           (0.4)
-APModifier           (1.5)
+^2Strengths^7: Can use stealth and has high mobility
+^1Weaknesses^7: Low defenses
 
-Strengths: Can use stealth and has high mobility
-Weaknesses: Low defenses 
+^2Weaponry:
+- Dagger
+-- ^4Blue ^7Style Only
+-- Melee Defense (3)
+- 2 Magical Traps
+-- Alt Fire Only Sonic Detonators
+
+^8Attributes:
+- High Run / Swing Speed
+- Stamina (1)
+- Acrobatics [Dexterity 3]
+
+^3Abilities:
+- Sprint ^3[CS1]
+- Dex Roll ^3[CS2]
+- Magical Cloak (2) ^3[CS3]
+- 2 Poison Darts ^3[CS4 Melee]
 "
-
-
-

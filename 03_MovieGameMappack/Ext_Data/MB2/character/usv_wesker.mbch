@@ -2,65 +2,94 @@
 
 ClassInfo
 {
-	name			"usv_wesker"
-	weapons		WP_MELEE|WP_BLASTER_PISTOL
-	attributes	MB_ATT_AMMO,3|MB_ATT_PISTOL,3|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1
-	maxhealth		120
-	maxarmor		100
-	forcepowers		FP_LEVITATION,3
-	forcepool		100
-	model			"colonial_marine"
-	skin			"re_wesker"
-	uishader		"gfx/mplevels/ultimate_showdown/wesker"
-	MBClass			MB_CLASS_JEDI
+	name				"usv_wesker"
+	weapons				WP_MELEE|WP_EE3
+	WP_EE3Flags			HELD_ALTRELOAD
+	attributes			MB_ATT_AMMO,3|MB_ATT_EE3,3|MB_ATT_FLOAT_HOP,1|MB_ATT_INAIR_FORCE_REGEN,1
+	maxhealth			120
+	maxarmor			100
+	forcepowers			FP_LEVITATION,3|FP_SPEED,3
+	forcepool			100
+	model				"colonial_marine"
+	skin				"re_wesker"
+	uishader			"gfx/mplevels/ultimate_showdown/wesker"
+	MBClass				MB_CLASS_ELITETROOPER
 	classnumberlimit	1
+	
+	resource			RESOURCE_FORCE
+	special3			EAS_FP_SPEED
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/samurai_edge2/samurai_edge2.glm"
-	NewViewModel		"models/weapons2/samurai_edge2/samurai_edge2.md3"
-	NewHandsModel		"models/weapons2/golan_arms/golan_arms_hand.md3"
-	Icon				"gfx/mplevels/revil/icon_samurai_edge2"
-	WeaponName		"^7Samurai Edge"
-	MuzzleEffect		"battle_rifle/Muzzle_Flash"
-	AltMuzzleEffect		"battle_rifle/Muzzle_Flash"
-	MissileEffect		"battle_rifle/shot"
-	AltMissileEffect	"battle_rifle/shot"
-	MissileMissEffect "halo_smg/wall_impact"
-	altMissileMissEffect "halo_smg/wall_impact"	
-	FlashSound0		"Sound/weapons/samurai_edge2/fire.wav"
-	AltFlashSound0		"Sound/weapons/samurai_edge2/fire.wav"
-	SelectSound		"Sound/weapons/samurai_edge2/select.wav"
-	customAmmo		150
-	clipSize  15
-	primHitscanShot		1
-	primHitscanTracer	10
-	altFireEnabled 		0
-	primGore		1
-	altGore			1
-	idleAnim  TORSO_WEAPONIDLE2
+	WeaponToReplace			WP_EE3
+	WeaponBasedOff			WP_FLECHETTE
+	NewWorldModel			"models/weapons2/samurai_edge2/samurai_edge2.glm"
+	NewViewModel			"models/weapons2/samurai_edge2/samurai_edge2.md3"
+	Icon					"gfx/mplevels/revil/icon_samurai_edge2"
+	WeaponName				"^7Samurai Edge"
+	
+	SelectSound				"Sound/weapons/samurai_edge2/select.wav"
+	FlashSound0				"Sound/weapons/samurai_edge2/fire.wav"
+	FlashSound1				"Sound/weapons/samurai_edge2/fire.wav"
+	FlashSound2				"Sound/weapons/samurai_edge2/fire.wav"
+	FlashSound3				"Sound/weapons/samurai_edge2/fire.wav"
+	AltFlashSound0			"Sound/weapons/samurai_edge2/fire.wav"
+	AltFlashSound1			"Sound/weapons/samurai_edge2/fire.wav"
+	AltFlashSound2			"Sound/weapons/samurai_edge2/fire.wav"
+	AltFlashSound3			"Sound/weapons/samurai_edge2/fire.wav"
+	
+	MuzzleEffect			"battle_rifle/Muzzle_Flash"
+	AltMuzzleEffect			"battle_rifle/Muzzle_Flash"
+	MissileEffect			"battle_rifle/shot"
+	AltMissileEffect		"battle_rifle/shot"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	customAmmo				700
+	clipSize				64
+	primHitscanShot			1
+	primHitscanTracer		10
+	altHitscanShot			1
+	altHitscanTracer		10
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animReady				BOTH_PISTOL_IDLE
+	animReadyRun			BOTH_PISTOL_IDLE
+	animReadyWalk			BOTH_PISTOL_IDLE
+	animReadyNoAmmo			BOTH_PISTOL_ATTACK
+	animAttack				BOTH_PISTOL_ATTACK
+	animAttackRun			BOTH_PISTOL_ATTACK
+	animAttackWalk			BOTH_PISTOL_ATTACK
+	animStand				BOTH_PISTOL_IDLE
+	animCharge				BOTH_PISTOL_READY
+	animReadyZoom			BOTH_PISTOL_READY
+	animAttackZoom			BOTH_PISTOL_ATTACK
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/revil/icon_melee"
-	WeaponName		"^7Melee"
-	SelectSound		"sound/weapons/remelee/select.wav"
-	primGore		1
-	altGore			1
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/revil/icon_melee"
+	WeaponName				"^7Melee"
+	
+	SelectSound				"sound/weapons/remelee/select.wav"
+	
+	primGore				1
+	altGore					1
 }
 
 description	"Albert Wesker - Resident Evil
 
-Weaponry:
-Samurai Edge (3)
+^2Weaponry:
+- Samurai Edge (EE-3 3)
+-- Mag Reload
 
-Attributes:
-Ammo (3)"
+^5Powers:
+- Jump  (3)
+- Speed (3) ^5[CS3]"

@@ -2,81 +2,91 @@
 
 ClassInfo
 {
-	name			"xmas_bespin_reelo"
-	weapons			WP_SABER|WP_MELEE|WP_ROCKET_LAUNCHER
-	saber1			candy_cane
-	sabercolor		0
-	saberstyle		SS_MEDIUM|SS_STRONG
-	forcepowers		FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2|FP_LEVITATION,2|FP_PUSH,3|FP_SPEED,3|FP_SEE,3
-	attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,3|MB_ATT_JETPACK|MB_ATT_FUEL,3|MB_ATT_RALLY,1|
-	classflags 		CFL_BPFREEJUMPS|CFL_NO_FUEL_USE|CFL_KILLTEAMONDEATH
-	maxhealth		150
-	forcepool		100
-	modelscale		1
-	bpmultiplier	1.4
-	apmultiplier	1.4
-	model			"reelo_clause"
-	skin			"default"
-	uishader		"models/players/reelo_clause/MB2_Icon_Reelo"
-	MBClass			MB_CLASS_JEDI
-	jetpackFuelCooldown 1000
-	jetpackFuelAmount 8
-	jetpackThrustEffect "Force/null"
-	jetpackIdleEffect "Force/null"
-	//jetpackJetTag "*torso_cap_hips"
-	//jetpackJet2Tag  "*torso_cap_hips"
-	jetpackIdleSound  "sound/mb2/Silence"
-	jetpackThrustSound  "sound/ambience/artus/artus_shaft"
-	jetpackStartSound  "sound/chars/reelob/misc/victory1" 		//"sound/weapons/force/absorb"
+	name				"xmas_bespin_reelo"
+	weapons				WP_SABER|WP_MELEE|WP_PLX1
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,3|MB_ATT_JETPACK|MB_ATT_RALLY,1
+	saber1				candy_cane
+	sabercolor			0
+	saberstyle			SS_MEDIUM|SS_STRONG
+	bpmultiplier		1.4
+	apmultiplier		1.4
+	forcepowers			FP_SABER_OFFENSE,2|FP_SABER_DEFENSE,2|FP_LEVITATION,2|FP_PUSH,3|FP_SPEED,3|FP_SEE,3
+	maxhealth			150
+	forcepool			100
+	modelscale			1
+	model				"reelo"
+	skin				"xmas"
+	uishader			"models/players/reelo/MB2_Icon_xmas"
+	MBClass				MB_CLASS_JEDI
+	classflags 			CFL_BPFREEJUMPS|CFL_NO_FUEL_USE|CFL_KILLTEAMONDEATH
 	classNumberLimit	1
+	
+	resource			RESOURCE_FORCE
+	
+	////jetpackFuelCooldown	1000
+	//jetpackFuelAmount	8
+	//jetpackJetTag		"*torso_cap_hips"
+	//jetpackJet2Tag	"*torso_cap_hips"
+	jetpackIdleSound	null
+	jetpackThrustSound	"sound/ambience/artus/artus_shaft"
+	jetpackStartSound	"sound/chars/santa/misc/taunt" 		//"sound/weapons/force/absorb"
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
-	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	//NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
-	//NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
-	Icon			"gfx/hud/w_icon_xmastree"
-	WeaponName		"Christmas Rocket"
-	customAmmo		50
-	customClip		3
-	reloadTimeModifier 	.20
-    ProjSpeedModifier 	1
-	idleanim	BOTH_STAND3
-	firinganim	BOTH_WRISTBLASTER_ATTACK 
-	altMissileModel				"models/weapons2/xmas_tree/projectile.md3"
-	missileModel					"models/weapons2/xmas_tree/projectile.md3"
-	missileSound		"sound/weapons/xmas_rocket/missileloop"
-	altmissileSound		"sound/weapons/xmas_rocket/missileloop"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/candy_cane/candy_cane.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_candycane"
+	WeaponName				"Candy Cane"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER					
-	WeaponBasedOff		WP_SABER					
-	NewWorldModel		"models/weapons2/candy_cane/candy_cane.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"   	
-	Icon				"gfx/hud/w_icon_candycane" 				
-	WeaponName			"Candy Cane"    				
+	WeaponToReplace			WP_PLX1
+	WeaponBasedOff			WP_PLX1
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	//NewWorldModel			"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	//NewViewModel			"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon					"gfx/hud/w_icon_xmastree"
+	WeaponName				"Christmas Rocket"
+	altMissileModel			"models/weapons2/xmas_tree/projectile.md3"
+	missileModel			"models/weapons2/xmas_tree/projectile.md3"
+	missileSound			"sound/weapons/xmas_rocket/missileloop"
+	altmissileSound			"sound/weapons/xmas_rocket/missileloop"
+	customAmmo				50
+	clipSize				3
+	ReloadTimeModifier		.20
+    velocityMod				1
+	hasAnimOverrides		1
+	animReady				BOTH_STAND3
+	animReadyRun			BOTH_STAND3
+	animReadyWalk			BOTH_STAND3
+	animReadyNoAmmo			BOTH_WRISTBLASTER_ATTACK 
+	animAttack				BOTH_WRISTBLASTER_ATTACK 
+	animAttackRun			BOTH_WRISTBLASTER_ATTACK 
+	animAttackWalk			BOTH_WRISTBLASTER_ATTACK 
 }
 
 description	"Reelo Clause
 
-Weaponry:
-Candy Cane
-Flight (jetpack)
-Christmas Tree (3 rockets per reload)
+^2Weaponry:
+- Candy Cane
+-- ^3Yellow ^7/ ^1Red ^7Styles
+-- Saber / Blaster Defense (2)
+- Flight (Jetpack)
+- Christmas Tree (3 Rockets Per Reload)
 
-Force Powers:
-Saber Defense	(40 percent more bp)
-Force Speed		(3)
-Force Push		(3)
-Force Jump		(2)
-Force Block		(3)
+^5Christmas Powers:
+- Jump  (2)
+- Push  (3)
+- Sense (3)
+- Speed (3)
 
-Force Pool		(90)
+^8Attributes:
+- Force Block (3)
+- Force Focus (1)
 
 ^1Kills Entire Team on Death"
