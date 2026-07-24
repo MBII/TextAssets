@@ -2,75 +2,96 @@
 
 ClassInfo
 {
-	name			"mfm_doomimp"
-	weapons			WP_MELEE|WP_T21|
-	attributes		MB_ATT_HEALING,1|MB_ATT_RALLY,1|MB_ATT_T21,1|
-	forcepowers		FP_SEE,3|
-  forcepool 25
-  forceregen  1
-	maxhealth		125
-	model			"doomimp"
-	skin			"default"
-	uishader		"gfx/mplevels/monster_forest/mf_doomimp"
-	MBClass			MB_CLASS_JEDI
-	speed			1.05
-	extralives		2
-	classflags		CFL_NOPICKUPS|CFL_HEAVYMELEE|CFL_BLOODYMELEE|
+	name				"mfm_doomimp"
+	weapons				WP_MELEE|WP_T21
+	meleeMoves			M_PUNCH
+	attributes			MB_ATT_HEALING,1|MB_ATT_RALLY,1|MB_ATT_T21,1|
+	forcepowers			FP_SEE,3|
+	forcepool			25
+	forceregen			1
+	maxhealth			125
+	extralives			2
+	speed				1.05
+	model				"doomimp"
+	skin				"default"
+	uishader			"gfx/mplevels/monster_forest/mf_doomimp"
+	MBClass				MB_CLASS_SITH
+	classflags			CFL_NOPICKUPS|CFL_HEAVYMELEE|CFL_BLOODYMELEE|
 	classnumberlimit	1
+	
+	resource			RESOURCE_FORCE
+	
+	punchAnim			BOTH_MELEE6
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/monster_forest/doomimp"
-	WeaponName		"^7Melee"
-	FlashSound0		"Sound/chars/doomimp/misc/melee.wav"
-	AltFlashSound0  "Sound/chars/doomimp/misc/melee.wav"
-	primGore		1
-	altGore			1
-	idleAnim  BOTH_INAIRBACK1
-	firingAnim  BOTH_BURSTMISS
-	altFireEnabled 0
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/monster_forest/doomimp"
+	WeaponName				"^7Melee"
+	
+	FlashSound0				"Sound/chars/doomimp/misc/melee.wav"
+	AltFlashSound0			"Sound/chars/doomimp/misc/melee.wav"
+	
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	//animStand				BOTH_INAIRBACK1
+	animStand				BOTH_STAND9
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_T21
-	WeaponBasedOff		WP_T21
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/monster_forest/doomimp"
-	MissileMissEffect "firegrenade/prim_explode"
-	altMissileMissEffect "firegrenade/prim_explode"
-	FlashSound0		"Sound/chars/doomimp/misc/fireball1.wav"
-	FlashSound1		"Sound/chars/doomimp/misc/fireball2.wav"
-	ChargeSound 		"Sound/chars/doomimp/misc/fireball_loop.wav"
-	WeaponName		"^7Fireballs""
-	customAmmo		40
-	clipSize  40
-	primGore		1
-	altGore			1
-	idleAnim BOTH_MELEE_STAND2 
-  firingAnim  BOTH_SUPERPUSH
+	WeaponToReplace			WP_T21
+	WeaponBasedOff			WP_T21
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/monster_forest/doomimp"
+	WeaponName				"^7Fireballs""
+	
+	MissileMissEffect		"firegrenade/prim_explode"
+	altMissileMissEffect	"firegrenade/prim_explode"
+	FlashSound0				"Sound/chars/doomimp/misc/fireball1.wav"
+	FlashSound1				"Sound/chars/doomimp/misc/fireball2.wav"
+	ChargeSound				"Sound/chars/doomimp/misc/fireball_loop.wav"
+	
+	customAmmo				40
+	clipSize				40
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	animStand				BOTH_MELEE_STAND2
+	animReady				BOTH_MELEE_STAND2
+	animReadyRun			BOTH_MELEE_STAND2
+	animReadyWalk			BOTH_MELEE_STAND2
+	animReadyNoAmmo			BOTH_SUPERPUSH
+	animAttack				BOTH_SUPERPUSH
+	animAttackRun			BOTH_SUPERPUSH
+	animAttackWalk			BOTH_SUPERPUSH
 }
 
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/mplevels/monster_forest/eye"
-	ForcePowerName	"Sense"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/mplevels/monster_forest/eye"
+	ForcePowerName		"Sense"
 }
 
 description	"Doom Imp
 
 ^2Weaponry:
 - Claws
+- Fireballs (T-21 1)
+
+^5Powers:
+- Sense (3)
 
 ^8Attributes:
-- Self Healing (1)
-- Rally (1)
-- Sense (3)"
+- Heal (1)
+- Rally (1)"

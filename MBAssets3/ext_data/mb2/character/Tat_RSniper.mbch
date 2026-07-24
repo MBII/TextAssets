@@ -5,7 +5,7 @@ ClassInfo
 	name				"Tat_RSniper"
 	weapons				WP_BLASTER_PISTOL|WP_PROJ|WP_MELEE|WP_SABER
 	WP_ProjFlags		HELD_STUN 
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_HEALING,2|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_CLOAK
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_HEALING,2|MB_ATT_GRAPPLE_HOOK,2|MB_ATT_CLOAK,2
 	//holdables			HI_CLOAK
 	saber1				vk_right
 	saberstyle			SS_TAVION
@@ -22,35 +22,35 @@ ClassInfo
 	classflags			CFL_SEEING_STEALTH
 	classNumberLimit	1
 	resource			RESOURCE_STAMINA
-	special3			EAS_HI_GRAPPLEHOOK
+	meleespecial3		EAS_HI_GRAPPLEHOOK
 	
 	saberStanceAnim		BOTH_MELEE_STAND2
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BLASTER_PISTOL					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_DEMP2					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/DE-10/blaster_pistol_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/DE-10/blaster_pistol.md3"   	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_DE-10" 			//Required: Weapon change icon
-	WeaponName			"DE-10 Blaster Pistol"    					//Required: Weapon change display name
+	WeaponToReplace		WP_BLASTER_PISTOL
+	WeaponBasedOff		WP_DEMP2
+	NewWorldModel		"models/weapons2/DE-10/blaster_pistol_w.glm"
+	NewViewModel		"models/weapons2/DE-10/blaster_pistol.md3"
+	Icon				"gfx/hud/w_icon_DE-10"
+	WeaponName			"DE-10 Blaster Pistol"
 	FlashSound0			"sound/weapons/de10/fire.wav"
 	AltFlashSound0 		"sound/weapons/de10/alt_fire.wav"
 	customAmmo			600
-	MuzzleEffect		"Blaster/MuzzleFlash01B"	   				//Optional: New muzzle effect
-	AltMuzzleEffect		"Blaster/MuzzleFlash01B" 					//Optional: New alt muzzle effect
-	MissileEffect		"blaster/shot03b" 					//Optional: New effect to be displayed on the projectile
-	Missile3Effect		"blaster/shot03b" 					//Optional: New effect to be displayed on the projectile
-	AltMissileEffect	"blaster/shot03b" 					//Optional: Ditto for the alt fire
-	PowerupShotEffect	"blaster/shot03b" 					//Optional: Ditto for the alt fire
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+	MissileEffect		"blaster/shot03b"
+	Missile3Effect		"blaster/shot03b"
+	AltMissileEffect	"blaster/shot03b"
+	PowerupShotEffect	"blaster/shot03b"
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_PROJ					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SBD				//Required: For future use, should be the same as WeaponToReplace
+	WeaponToReplace		WP_PROJ
+	WeaponBasedOff		WP_CONCUSSION
 	NewWorldModel		"models/weapons2/tusken_sniper/model_w.glm"  	
 	NewViewModel		"models/weapons2/tusken_sniper/model.md3"  	
 	FlashSound0			"sound/weapons/tusken_cycler/fire.wav"  			
@@ -63,12 +63,12 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/vibroknuckler/saber_vk.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_vibroknuckler" 	//Required: Weapon change icon
-	WeaponName			"Vibro-Knuckler"    					//Required: Weapon change display name
+	WeaponToReplace		WP_SABER
+	WeaponBasedOff		WP_SABER
+	NewWorldModel		"models/weapons2/vibroknuckler/saber_vk.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"gfx/hud/w_icon_vibroknuckler"
+	WeaponName			"Vibro-Knuckler"
 }
 
 description	"Rebel Sniper Jaelee Kalse
@@ -81,11 +81,11 @@ description	"Rebel Sniper Jaelee Kalse
 -- Faster Reload Time
 -- Staggers Enemies On Hit
 - Vibro-Knuckler
--- Cyan Style Only
+-- ^5Cyan ^7Style Only
 -- Saber Defense (1)
 
 ^6Inventory:
-- Cloaking Device
+- Cloaking Device (2)
 
 ^8Attributes:
 - Invisible to Radars
@@ -96,6 +96,6 @@ description	"Rebel Sniper Jaelee Kalse
 ^3Abilities:
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
-- Grappling Hook (2) ^3[CS3]
+- Grapple Hook (2) ^3[CS3 Melee]
 
 One of the new recruits being smuggled off-planet, Jaelee has proven herself an excellent marksman on the Dune Sea by picking off stormtroopers with her cycler rifle. Never caught by the local Imperials, reports of missing patrols presumably lost to 'Tusken Raider attacks' have steadily risen near Mos Eisley."

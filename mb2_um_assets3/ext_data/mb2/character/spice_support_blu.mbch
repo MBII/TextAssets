@@ -4,8 +4,9 @@ ClassInfo
 {
 	name				"spice_support_blu"
 	weapons				WP_MELEE|WP_SABER|WP_CLONE_PISTOL
+	WP_MeleeFlags		HELD_SLOW
 	WP_ClonePistolFlags	HELD_POISON|HELD_ALTRELOAD|HELD_IGNOREBLOCK|HELD_STUN|HELD_EXPLOSIVE
-	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_CLONE_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,1
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_CLONE_PISTOL,2|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,1|MB_ATT_RECHARGE,3|MB_ATT_CCTRAINING,1|MB_ATT_GETUPS,4
 	//holdables			HI_MEDKIT
 	saber1				spice_stuff
 	saberstyle			SS_STAFF
@@ -14,15 +15,20 @@ ClassInfo
 	forceregen			1.2
 	maxhealth			100
 	maxarmor 			100
+	basespeed			225
 	speed				1
 	model				"magnaguard"
 	skin				"default_magutapau"
 	uishader			"models/players/magnaguard/mb2_icon_default_magutapau"
-	MBClass				MB_CLASS_JEDI
+	MBClass				MB_CLASS_BATTLEDROID
 	//classflags		CFL_HEALER
 	classNumberLimit	2
-
-	resource			RESOURCE_FORCE
+	
+	resource			RESOURCE_BATTERY
+	special1			EAS_FP_SEE
+	special2			EAS_FP_SPEED
+	special3			EAS_FP_GRIP
+	special4			EAS_FP_LIGHTNING
 }
 
 WeaponInfo0
@@ -126,7 +132,7 @@ ForceInfo5
 
 description "Killer-droid
 
-Weapons:
+^2Weapons:
 - Vibrostaff:
   ^3+ ^7Staff Style Only
   ^3+ Saber Defense (3)
@@ -141,10 +147,10 @@ Weapons:
 - Magnetic boot's (3)
 - Magnetic push (3)
 - Magnetic pull (3)
-- Scanner (3)
-- Hydraulic accelerators (3)
-- Energy overload (3)
-- Magnetic grip (3)
+- Scanner (3) ^5[CS1]
+- Hydraulic accelerators (3) ^5[CS2]
+- Energy overload (3) ^5[CS4]
+- Magnetic grip (3) ^5[CS3]
 
 ^8Attributes:
 - Energy battery (125)
@@ -152,4 +158,5 @@ Weapons:
 - Blast armor (1)
 - Self-repair (1)
 - Force block (3)
-"
+- Battery recharge (3)
+- Close Combat Training (1)"

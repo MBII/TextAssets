@@ -4,115 +4,111 @@ ClassInfo
 {
 	name				"PB3_G_Ewok"
 	weapons				WP_MELEE|WP_FRAG_NADE|WP_SABER|WP_DISRUPTOR
-	attributes 			MB_ATT_FRAGS,3|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DISRUPTOR,1|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,3|MB_ATT_CLOAK
-	maxhealth			120
-	maxarmor			20
-	speed			1.2
-	forcepool		4
-	forcepowers		FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,3|FP_LEVITATION,3
-	saber1  		saber_kanan_wacky
+	WP_SaberFlags		HELD_HIGHDAMAGE
+	WP_FragNadeFlags	HELD_KNOCKDOWN
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_FRAGS,3|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DISRUPTOR,1|MB_ATT_QUICKTHROW,2|MB_ATT_DASH,3|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	saber1				saber_kanan
 	sabercolor  		0
 	saberstyle  		SS_MEDIUM|SS_STRONG
-	modelscale			0.68
-	classflags		CFL_INSTAGIB|CFL_BPFREEJUMPS
-	MBClass			MB_CLASS_HERO
-	//classNumberLimit 	1
-	//holdables		HI_CLOAK
-	WP_FragNadeFlags	HELD_KNOCKDOWN
-	rateOfFire 			0.85
-	APmultiplier		1.6
 	BPmultiplier 		1.2
-	ASmultiplier		1.4
+	APmultiplier		1.6
 	CSmultiplier		1.25
-
-	special1	EAS_HI_DASH
-	special2	EAS_HI_QUICKTHROW
-	
-	gloatanim	 	BOTH_SABERKILLER1
-	tauntAnim	BOTH_ENGAGETAUNT
-	flourishAnim	BOTH_FORCE_RAGE
-	
+	ASmultiplier		1.4
+	forcepowers			FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,3|FP_LEVITATION,3
+	forcepool			30
+	maxhealth			120
+	maxarmor			20
+	speed				1.2
+	rateOfFire 			0.85
+	modelscale			0.68
 	model				"Jedi_EW"
 	skin				"zombie_pb3"
-	uishader			"models/players/Jedi_EW/mb2_icon_zombie"			
+	uishader			"models/players/Jedi_EW/mb2_icon_zombie"
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_INSTAGIB|CFL_BPFREEJUMPS
+	//classNumberLimit 	1
 	
-	respawnCustomTime 10000
+	resource			RESOURCE_FORCE
+	special1			EAS_HI_DASH
+	special2			EAS_HI_QUICKTHROW
+	
+	gloatanim			BOTH_SABERKILLER1
+	tauntAnim			BOTH_ENGAGETAUNT
+	flourishAnim		BOTH_FORCE_RAGE
+	
+	respawnCustomTime	10000
 }
 
 WeaponInfo0
-{	WeaponToReplace		WP_FRAG_NADE
-	WeaponBasedOff		WP_FRAG_NADE
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
 	NewWorldModel			"models/weapons2/stone/thermal_w.glm"
 	NewViewModel			"models/weapons2/stone/thermal.md3"
-	Icon							"gfx/hud/w_icon_stone"
-	WeaponName				"Stone"
-	altMissileMissEffect	"stone/explosion"
 	MissileModel 			"models/weapons2/stone/thermal_proj.md3"
-	MissileModel2 		"models/weapons2/stone/thermal_proj.md3"
-	primFireEnabled		0
-	CustomAmmo		99
+	altMissileModel 		"models/weapons2/stone/thermal_proj.md3"
+	Icon					"gfx/hud/w_icon_stone"
+	WeaponName				"Stone"
+	
+	MuzzleEffect				"stone/muzzle_flash"
+	AltMuzzleEffect				"stone/muzzle_flash"
+	altMissileMissEffect		"stone/explosion"
+	altMissileHitHumanEffect	"stone/explosion"
+	altMissileHitDroidEffect	"stone/explosion"
+	
+	primFireEnabled			0
+	CustomAmmo				99
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_DISRUPTOR
-	WeaponBasedOff		WP_DISRUPTOR
-	NewWorldModel		"models/weapons2/pirate_cannon/cw_launcher_w.glm"
-	NewViewModel		"models/weapons2/pirate_cannon/cw_launcher.md3"
-	Icon				"gfx/hud/w_icon_pir_cannon"
-	WeaponName			"Surprise tool ;)"
-	SelectSound     "Sound/weapons/SPAS12/boomstick.wav"
-	FlashSound0		"Sound/weapons/BONK/BONK.mp3"
-	primFireEnabled		1
-	customAmmo		15
-	ClipSize		5
+	WeaponToReplace			WP_DISRUPTOR
+	WeaponBasedOff			WP_PLX1
+	NewWorldModel			"models/weapons2/pirate_cannon/cw_launcher_w.glm"
+	NewViewModel			"models/weapons2/pirate_cannon/cw_launcher.md3"
+	Icon					"gfx/hud/w_icon_pir_cannon"
+	WeaponName				"Surprise tool ;)"
+	
+	SelectSound				"Sound/weapons/SPAS12/boomstick.wav"
+	FlashSound0				"Sound/weapons/BONK/BONK.mp3"
+	
+	primFireEnabled			1
+	customAmmo				15
+	ClipSize				5
 }
 
-description				"Undead Ewok
+description	"Undead Ewok
 
 A simple teddybear, turned sith acolyte, or something like that
 
-
-Class: Hero
-Class summary: 
 Saber user with a very strong gun
 
-Weaponry:
+^2Weaponry:
 - Ewok Saber
-- Surprise tool 
-- Stone (99)
+-- ^3Yellow ^7/ ^1Red ^7Styles
+-- Saber Defense (3)
+-- 100% More DMG
+- Surprise tool (3)
+-- Instagibs Targets
+-- Limited Ammo
+- 99 Stones [Alt Fire Only]
+-- Trips on hit
 
---- Ewok Saber
-- Defense (3)
-- Offense (3)
-- Can block lightsabers
-- Cannot block blaster bolts
-- Can use Yellow and Red styles
-- Increased saber damage
-- No BP drain on jumps
+^6Inventory:
+- Cloak (2)
 
---- Surprise tool
-- Based on Disruptor
-- 1-hit kills targets
-- Limited ammo
+^5Force Powers:
+- Cling on walls [Jump 3]
 
---- Stone
-- Based on Stun Grenade
-- Knocks down opponents
-
-Force Powers:
-- Cling on walls 
-
-Inventory:
-- Cloak
-
-Attributes:
+^8Attributes:
+- BP Free Jumps
+- Shield Recharge (1)
 - Blast Armour
 - Magnetic Plating
-- Healing (2)
-- Shield Recharge (1)
+- Heal (2)
 - Dexterity (3)
 
-Abilities:
-- Dash (3) [CS1]
-- Quickthrow (2) [CS2]"
+^3Abilities:
+- Dash (3) ^3[CS1]
+- Quick Throw (2) ^3[CS2]"

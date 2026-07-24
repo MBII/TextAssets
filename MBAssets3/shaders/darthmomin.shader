@@ -5,12 +5,6 @@ models/players/darthmomin/momin_helmet
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/droideka/env
-		blendFunc GL_DST_COLOR GL_SRC_COLOR
-		tcGen environment
-		detail
-	}
-	{
 		map models/players/darthmomin/momin_helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail

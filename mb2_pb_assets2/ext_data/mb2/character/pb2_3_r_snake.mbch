@@ -1,0 +1,215 @@
+//Power Battles II - Created by FrenzY
+
+ClassInfo
+{
+	name				"pb2_3_r_snake"
+	weapons				WP_MELEE|WP_SABER|WP_PROJ|WP_BLASTER_PISTOL|WP_BLASTER|WP_FRAG_NADE|WP_SONIC_NADE|WP_CONC_NADE|WP_REAL_TD
+	WP_BlasterPistolFlags	HELD_POISON|HELD_LOWDAMAGE|HELD_ALTRELOAD|HELD_STUN
+	WP_BlasterFlags		HELD_ALTRELOAD
+	WP_FragNadeFlags	HELD_LOWDAMAGE
+	WP_ConcNadeFlags	HELD_LOWDAMAGE
+	attributes			MB_ATT_PISTOL,3|MB_ATT_BLASTER,2|MB_ATT_PROJECTILE_RIFLE|MB_ATT_FRAGS,3|MB_ATT_MICRO_GRENADES,2|MB_ATT_THERMALS,1|MB_ATT_SONIC_DETONATOR,2|MB_ATT_AMMO,3|MB_ATT_SPY_DISGUISE,2|MB_ATT_TRACKING_DART,3|MB_ATT_ANTI_MT,2|MB_ATT_ASSEMBLE|MB_ATT_DASH,2|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	saber1				jokerknife
+	sabercolor			6
+	saberstyle			SS_TAVION|SS_DESANN
+	forcepowers			FP_TELEPATHY,2
+	forcepool			160
+	forceregen			1
+	maxhealth			80
+	maxarmor			60
+	extralives			2
+	speed				1.22
+	model				"snakev3"
+	skin				"default"
+	uishader			"models/players/snakev3/mb2_icon_default_pb"
+	MBClass				MB_CLASS_HERO
+	classflags			CFL_SEEING_STEALTH|CFL_HEAVYMELEE
+	//classNumberLimit	1
+	
+	special1HUD			HUD_TRACKINGDART
+	special2HUD			HUD_FRAGNADE
+	resource			RESOURCE_FORCE
+	meleespecial1		EAS_HI_TRACKER
+	
+	flourishAnim		BOTH_ROLL_F
+	
+	respawnCustomTime	30000
+}
+
+WeaponInfo0
+{
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE
+	NewWorldModel			"models/weapons2/noweap/noweap.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/mgs/weapon_melee"
+	WeaponName				"Close Quarter Combat"
+}
+
+WeaponInfo1
+{
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/saber_knife/saber_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_knife"
+	WeaponName				"Knife"
+}
+
+WeaponInfo2
+{
+	WeaponToReplace			WP_BLASTER_PISTOL
+	WeaponBasedOff			WP_REPEATER
+	NewWorldModel			"models/weapons2/SOCOM/blaster_pistol_w.glm"
+	NewViewModel			"models/weapons2/SOCOM/blaster_pistol.md3"
+	Icon					"models/weapons2/SOCOM/icon.png"
+	WeaponName				"Paralyzing Pistol"
+	
+	FlashSound0				"sound/weapons/darts/fire.mp3"
+	
+	MuzzleEffect			"halo_smg/Muzzle_Flash"
+	MissileEffect			"halo_smg/projectile"
+	MissileMissEffect 		"halo_smg/wall_impact"
+	altMuzzleEffect			"halo_smg/Muzzle_Flash"
+	altMissileEffect		"halo_smg/projectile"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	MissileMissEffect 		"halo_smg/wall_impact"
+	
+	primHitscanShot			0
+	primHitscanTracer		5
+	primGore				1
+	altFireEnabled			0
+	velocityMod				999
+}
+
+WeaponInfo3
+{
+	WeaponToReplace			WP_BLASTER
+	WeaponBasedOff			WP_THERMAL
+	NewWorldModel			"models/weapons2/FAMAS/heavy_repeater_w.glm"
+	NewViewModel			"models/weapons2/FAMAS/heavy_repeater.md3"
+	Icon					"models/weapons2/FAMAS/icon.png"
+	WeaponName				"FAMAS"
+	
+	FlashSound0				"Sound/weapons/M4/fire.wav"
+	AltFlashSound0			"Sound/weapons/M4/fire.wav"
+	
+	MuzzleEffect			"halo_smg/Muzzle_Flash"
+	MissileEffect			"halo_smg/projectile"
+	MissileMissEffect		"halo_smg/wall_impact"
+	altMuzzleEffect			"halo_smg/Muzzle_Flash"
+	altMissileEffect		"halo_smg/projectile"
+	altMissileMissEffect	"halo_smg/wall_impact"
+	
+	primHitscanShot			1
+	primHitscanTracer		5
+	altHitscanShot			1
+	altHitscanTracer		5
+	primGore				1
+	altGore					1
+}
+
+WeaponInfo4
+{
+	WeaponToReplace			WP_PROJ
+	WeaponBasedOff			WP_DISRUPTOR
+	NewWorldModel			"models/weapons2/psg/disruptor_w.glm"
+	NewViewModel			"models/weapons2/psg/disruptor.md3"
+	Icon					"gfx/hud/w_icon_psg"
+	WeaponName				"PSG1"
+	
+	FlashSound0				"Sound/weapons/AWP/fire.wav"
+	
+	primHitscanShot			1
+	primHitscanTracer		5
+	altHitscanShot			1
+	altHitscanTracer		5
+	primGore				1
+	altGore					1
+}
+
+WeaponInfo5
+{
+	WeaponToReplace			WP_FRAG_NADE
+	WeaponBasedOff			WP_FRAG_NADE
+	NewWorldModel			"models/weapons2/thermal/thermal_w.glm"
+	NewViewModel			"models/weapons2/thermal/thermal_hand.md3"
+	MissileModel			"models/weapons2/thermal/thermal_proj.md3"
+	AltMissileModel			"models/weapons2/thermal/thermal_proj.md3"
+	Icon					"gfx/hud/w_thermal_grenade"
+	WeaponName				"Smoke Grenades"
+	
+	FlashSound0				"sound/weapons/smokenade/select.mp3"
+	AltFlashSound0			"sound/weapons/smokenade/select.mp3"
+	
+	MissileEffect 			"stone/missile1"
+	AltMissileEffect		"stone/missile1"
+	MissileMissEffect		"smokenadeleg/explode_vol"
+	MissileHitHumanEffect	"smokenadeleg/explode_vol"
+	MissileHitDroidEffect	"smokenadeleg/explode_vol"
+	AltMissileMissEffect	"smokenadeleg/explode_vol"
+	AltMissileHitHumanEffect	"smokenadeleg/explode_vol"
+	AltMissileHitDroidEffect	"smokenadeleg/explode_vol"
+	
+	altFireEnabled		0
+	
+	hasAnimOverrides	1
+	animReady			BOTH_SABERDUAL_STANCE //upper
+	animReadyWalk		BOTH_SABERDUAL_STANCE
+	animReadyNoAmmo		BOTH_SABERDUAL_STANCE
+	animAttack			BOTH_THERMAL_THROW2
+	animAttackWalk		BOTH_THERMAL_THROW2
+	animStand			BOTH_STAND1 //lower
+	damageMod			0.001
+}
+
+WeaponInfo6
+{
+	WeaponToReplace			WP_CONC_NADE
+	WeaponBasedOff			WP_CONC_NADE
+	NewWorldModel			"models/weapons/Grenade_Concussion/model.glm"
+	NewViewModel			"models/weapons/Grenade_Concussion/viewmodel.md3"
+	MissileModel 			"models/weapons/Grenade_Concussion/proj.md3"
+	Icon					"gfx/hud/w_icon_stungrenade"
+	WeaponName				"Flashbang Grenades"
+	
+	altMissileMissEffect		"Grenades/EXP_Flash"
+	MissileMissEffect			"Grenades/EXP_Flash"
+	altMissileHitHumanEffect	"Grenades/EXP_Flash"
+	missileHitHumanEffect		"Grenades/EXP_Flash"
+	altMissileHitDroidEffect	"Grenades/EXP_Flash"
+	missileHitDroidEffect		"Grenades/EXP_Flash"
+}
+
+description	"Solid Snake
+
+^2Weapons:
+- Close Quarter Combat
+- Knife
+-- ^6Purple ^7/ ^5Cyan ^7Styles
+- Paralyzing Pistol (3)
+- FAMAS (E-11 2)
+- 3 Smoke Grenades
+- 2 Flash Grenades
+- 2 Sonic Detonators
+- 1 Thermal Detonator
+- PSG1 Sniper
+
+^6Inventory:
+- Cloaking Device (2)
+
+^5Powers:
+- Jump (2)
+- Mind Trick (2)
+
+^8Attributes:
+- Sense Immunity
+- MT Immunity (2)
+- 2 Extra Lives
+- Assemble (1)
+
+^3Abilities:
+- Spy Disguise [Weapon Mode In Melee]
+- 6 Tracking Darts ^3[CS1 Melee]
+- Dash (2) ^3[CS2]"

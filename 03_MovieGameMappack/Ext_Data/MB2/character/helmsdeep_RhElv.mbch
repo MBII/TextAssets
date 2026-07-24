@@ -2,89 +2,95 @@
 
 ClassInfo
 {
-name			"helmsdeep_RhElv"
-weapons			WP_MELEE|WP_SABER|WP_PROJ
-saber1			HelmsDeepElv
-saberstyle		SS_MEDIUM|SS_STAFF
-attributes		MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_ARMOUR,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_HEALING,3|MB_ATT_DODGE,2
-forcepowers		FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,2
-maxhealth		100
-maxarmor		80
-model			"saboteur"
-skin			"elven_elite"
-uishader		"models/players/saboteur/mb2_icon_elven_elite"
-MBClass			MB_CLASS_JEDI
-classNumberLimit	2
-//Crap Arrow defence//
-forceregen		0.8
-forcepool		50
-APmultiplier      1.2
-BPmultiplier     1.2
-modelscale      1.0725
-speed           1.06
-Classflags      CFL_BPFREEJUMPS
-wp_projflags	HELD_LOWDAMAGE|HELD_SLOWPROJ
-resource		resource_force
-special1	EAS_HI_DODGE
+	name				"helmsdeep_RhElv"
+	weapons				WP_MELEE|WP_SABER|WP_PROJ
+	attributes			MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_HEALING,3|MB_ATT_DODGE,2
+	WP_ProjFlags		HELD_LOWDAMAGE|HELD_SLOWPROJ
+	saber1				HelmsDeepElv
+	saberstyle			SS_MEDIUM|SS_STAFF
+	BPmultiplier		1.2
+	APmultiplier		1.2
+	forcepowers			FP_SABER_OFFENSE,3|FP_SABER_DEFENSE,2
+	//Crap Arrow defence//
+	forcepool			50
+	forceregen			0.8
+	maxhealth			100
+	maxarmor			80
+	speed				1.06
+	modelscale			1.0725
+	model				"saboteur"
+	skin				"elven_elite"
+	uishader			"models/players/saboteur/mb2_icon_elven_elite"
+	MBClass				MB_CLASS_JEDI
+	Classflags			CFL_BPFREEJUMPS
+	classNumberLimit	2
+	
+	resource			resource_force
+	special1			EAS_HI_DODGE
 }
 
 WeaponInfo0
 {
-	WeaponToReplace 		WP_PROJ
-	WeaponBasedOff 			WP_BOWCASTER
+	WeaponToReplace			WP_PROJ
+	WeaponBasedOff			WP_FLECHETTE
 	NewWorldModel 			"models/weapons2/dc_gabow/greenarrow_bow.glm"
 	NewViewModel 			"models/weapons2/dc_gabow/greenarrow_bow.md3"
-	NewHandsModel 			"models/weapons2/golan_arms/golan_arms_hand.md3"
-  Icon 				"gfx/hud/w_icon_bow"
-	WeaponName 			"Bow"
-	MuzzleEffect  "halo_smg/rings"
-	AltMuzzleEffect "halo_smg/rings"
-	MissileModel  "models/chunks/shinshinobi/shuriken.md3"
-	MissileEffect "halo_smg/rings"
-	MissileMissEffect "dc/explosion"
-	AltMissileModel  "models/weapons2/dc_gabow/greenarrow_arrow.md3"
-	AltMissileEffect "halo_smg/rings"
-	AltMissileMissEffect "dc/explosion"
-	FlashSound0 "sound/300/wpn_bow_fire_01.wav"
-	FlashSound1 "sound/300/wpn_bow_fire_02.wav"
-	FlashSound2 "sound/300/wpn_bow_fire_03.wav"
-	customAmmo		12
-	clipSize        2
-	idleAnim BOTH_MAND_PISTOL_READY 
-  firingAnim  BOTH_MAND_PISTOL_READY 
+	MissileModel			"models/chunks/shinshinobi/shuriken.md3"
+	AltMissileModel			"models/weapons2/dc_gabow/greenarrow_arrow.md3"
+	Icon					"gfx/hud/w_icon_bow"
+	WeaponName				"Bow"
+	
+	FlashSound0				"sound/300/wpn_bow_fire_01.wav"
+	FlashSound1				"sound/300/wpn_bow_fire_02.wav"
+	FlashSound2				"sound/300/wpn_bow_fire_03.wav"
+	
+	MuzzleEffect			"halo_smg/rings"
+	AltMuzzleEffect			"halo_smg/rings"
+	MissileEffect			"halo_smg/rings"
+	MissileMissEffect		"dc/explosion"
+	AltMissileEffect		"halo_smg/rings"
+	AltMissileMissEffect	"dc/explosion"
+	
+	customAmmo				12
+	clipSize				2
+	
+	hasAnimOverrides		1
+	animStand				BOTH_MAND_PISTOL_READY
+	animReady				BOTH_MAND_PISTOL_READY
+	animReadyRun			BOTH_MAND_PISTOL_READY 
+	animReadyWalk			BOTH_MAND_PISTOL_READY 
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-  	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/mplevels/lotr/elvenswords"
-	WeaponName		"Elven Sword"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+  	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/lotr/elvenswords"
+	WeaponName				"Elven Sword"
 }
 
 
 description	"Elven Elite
 
-Weaponry:
-Elven Sword
-*Bow and Arrows
+^2Weaponry:
+- Elven Sword
+-- ^3Yellow ^7/ Staff Styles
+-- Sword / Ranged Defense (2)
+-- Crouch + Atk = Staff Kata
+- Bow and Arrows [Proj Rifle]
+-- 2 Arrows Per Clip
+-- 50% Less DMG
+-- 75% less Velocity
 
-*Based on a Projectile Rifle
-- 12 Shots Total
-- 2 Shots per clip
-- Slow Projectiles
-- Does Half Damage
+^8Attributes:
+- BP Free Jumps
+- Heal (3)
 
-Elven Sword Training:
-Yellow / Staff Styles
-Offense (3)
-Defense (2)
-Crouch + Atk = Staff Kata
-
-Attributes:
-Heal (3)
-Dodge (2)
-Forceregen: (0.8x)
-BP Free Jumps"
+^3Abilities:
+- Dodge (2) ^3[CS1]"

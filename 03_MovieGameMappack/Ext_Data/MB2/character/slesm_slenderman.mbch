@@ -2,50 +2,71 @@
 
 ClassInfo
 {
-	name			"slem_slenderman"
-	weapons		WP_MELEE
-	attributes	MB_ATT_FP_MIRALUKA
-	forcepowers FP_TELEPATHY,3|FP_SEE,3
-	forcepool 100
-	forceregen	1
-	maxhealth		100
-	maxarmor		0
-	model			"slender"
-	skin			"default"
-	uishader		"gfx/mplevels/slender/slenderman"
-	MBClass			MB_CLASS_SOLDIER
+	name				"slem_slenderman"
+	weapons				WP_MELEE
+	meleeMoves			M_PUNCH
+	attributes			MB_ATT_FP_MIRALUKA|MB_ATT_ROSHTAUNT
+	forcepowers			FP_TELEPATHY,3|FP_SEE,3
+	forcepool			100
+	forceregen			1
+	maxhealth			200
+	maxarmor			0
+	modelscale			1.5
+	model				"slender"
+	skin				"default"
+	uishader			"gfx/mplevels/slender/slenderman"
+	MBClass				MB_CLASS_SITH
+	classflags			CFL_HEAVYMELEE
 	classnumberlimit	1
-  speed 1.2
-  modelscale  1.25
-  classflags  CFL_HEAVYMELEE|
-  resource	resource_force
+	
+	resource			RESOURCE_FORCE
+	special2			EAS_NONE
+	special4			EAS_FP_TELEPATHY
+	
+	RunForward			BOTH_STAND5
+	RunBackward			BOTH_STAND5
+	WalkForward			BOTH_STAND5
+	WalkBackward		BOTH_STAND5
+	jumpAnim			BOTH_STAND5
+	landAnim			BOTH_STAND5
+	
+	tauntAnim			BOTH_STAND5SHIFTWEIGHT
+	gloatAnim			BOTH_BUTTON2
+	flourishAnim		BOTH_BUTTON2
+	
+	punchAnim			BOTH_WOOKIEE_RAGE_MELEE1
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/revil/null"
-	WeaponName		""
-	altFireEnabled 		0
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/revil/null"
+	WeaponName				""
+	
+	hasAnimOverrides		1
+	animStand				BOTH_STAND5
 }
 
 
 ForceInfo0
 {
-	ForceToReplace	FP_TELEPATHY
-	Icon		"gfx/mplevels/slender/slenderman"
-	ForcePowerName	"Mind Trick"
+	ForceToReplace		FP_TELEPATHY
+	Icon				"gfx/mplevels/slender/slenderman"
+	ForcePowerName		"Mind Trick"
 }
 
 description	"Slender Man
 
 ^2Weaponry:
-- Melee
+- Heavy Melee
+-- Punching Only
+
+^5Powers:
+- Miraluka Sense (3)
+- Mind Trick (3) ^5[CS4]
 
 ^8Attributes:
-- Sense (3)
--- Miraluka
-- Mindtrick (3)"
+- Toxic Taunt"

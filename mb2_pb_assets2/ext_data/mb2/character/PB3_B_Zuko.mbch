@@ -2,120 +2,115 @@
 
 Classinfo
 {
-	name			"PB3_B_Zuko"
-	weapons			WP_MELEE|WP_THROWER|WP_FIRE_NADE|WP_SABER
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,3|MB_ATT_THROWER_FLAME,3|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_FLIPKICK,3|MB_ATT_FIRE_GRENADES,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DODGE,3|MB_ATT_BACTA
-	maxhealth		150
-	maxarmor		150
-	speed           1.3
-	forcePowers	FP_LEVITATION,1|FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,3
-	forcePool	70
-	forceRegen	3
-	BPmultiplier	1.5
-	
-	rateOfFire      0.97
-	damageGiven	3
-	meleeMoves	M_BLOCK|M_KICK|M_KATA|M_LEGSWEEP|M_JUMPKICK|M_RLKICK|M_FBKICK
-	special1	EAS_HI_DODGE
-	//holdables		HI_MEDPAC
-	MBclass			MB_CLASS_MANDALORIAN
-	classflags		CFL_EXTRAFLAMEDAMAGE
-	modelScale          1.045
-	WP_ThrowerFlags HELD_ALTRELOAD|HELD_HEAL|HELD_SPEED
+	name				"PB3_B_Zuko"
+	weapons				WP_MELEE|WP_THROWER|WP_FIRE_NADE|WP_SABER
 	WP_MeleeFlags		HELD_SPEED
-	sabercolor		5
-	saberstyle		SS_DUAL|SS_MEDIUM
-	saber1			zuko_wacky
-	saber2			zuko_wacky
-	
-	model				"zuko" 				
-	skin				"default"					
+	WP_ThrowerFlags		HELD_ALTRELOAD|HELD_HEAL|HELD_SPEED
+	meleeMoves			M_BLOCK|M_KICK|M_KATA|M_LEGSWEEP|M_JUMPKICK|M_RLKICK|M_FBKICK
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_AMMO,3|MB_ATT_FORCEBLOCK,3|MB_ATT_THROWER_PLASMA,3|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_FUELREGEN,3|MB_ATT_FLIPKICK,3|MB_ATT_FIRE_GRENADES,10|MB_ATT_BLAST_ARMOUR,1|MB_ATT_DODGE,3|MB_ATT_BACTA
+	//holdables			HI_MEDPAC
+	saber1				zuko_wacky
+	saber2				zuko_wacky
+	sabercolor			5
+	saberstyle			SS_DUAL|SS_MEDIUM
+	BPmultiplier		1.5
+	forcePowers			FP_LEVITATION,1|FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,3
+	forcePool			70
+	forceRegen			3
+	maxhealth			150
+	maxarmor			150
+	speed				1.3
+	damageGiven			3
+	rateOfFire			0.97
+	modelScale			1.045
+	model				"zuko"
+	skin				"default"
 	uishader			"models/players/zuko/mb2_icon_default"
+	MBclass				MB_CLASS_MANDALORIAN
 	
-  respawnCustomTime 30000
+	resource			RESOURCE_FUEL
+	special1			EAS_HI_DODGE
+	special2			EAS_HI_DEX
+	
+	respawnCustomTime	30000
 }
-
-
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_THROWER
-	WeaponBasedOff		WP_THROWER
-	NewWorldModel		"models/weapons2/noweap/noweap.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon		"gfx/hud/pokemon/icon_fire"
-	WeaponName		"Firebending"
-	customAmmo		999
-	clipsize		999
-	ReloadTimeModifier 	1.4
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+  	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_ryykA"
+	WeaponName				"Blue Spirit Blades"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_FIRE_NADE      			
-	WeaponBasedOff		WP_FIRE_NADE   
-	NewWorldModel		"models/weapons2/fraggrenade/thermal_w.glm"
-	NewViewModel		"models/weapons2/fraggrenade/thermal.md3"
-	Icon			"gfx/hud/w_icon_fraggrenade"   			
-	customAmmo		10	
-	WeaponName		"Fire balls"   			
+	WeaponToReplace			WP_THROWER
+	WeaponBasedOff			WP_THROWER
+	NewWorldModel 			"models/weapons2/sbd_blaster/sbd_blaster_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/pokemon/icon_fire"
+	WeaponName				"Firebending"
+	
+	customAmmo				999
+	clipsize				999
+	ReloadTimeModifier		1.4
+	
+	hasAnimOverrides		1
+	animAttack				BOTH_MAND_FLAME_ATTACK
+	animAttackRun			BOTH_MAND_FLAME_ATTACK
+	animAttackWalk			BOTH_MAND_FLAME_ATTACK
+	animReadyNoAmmo			BOTH_MAND_FLAME_ATTACK
+	animReady				BOTH_MELEE_STAND1
+	animReadyRun			BOTH_MELEE_STAND1
+	animReadyWalk			BOTH_MELEE_STAND1
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-  	NewWorldModel		"models/weapons2/dummy/dummy.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon			"gfx/hud/w_icon_ryykA"
-	WeaponName		"Blue Spirit Blades"
+	WeaponToReplace			WP_FIRE_NADE
+	WeaponBasedOff			WP_FIRE_NADE
+	NewWorldModel			"models/weapons2/fraggrenade/thermal_w.glm"
+	NewViewModel			"models/weapons2/fraggrenade/thermal.md3"
+	Icon					"gfx/hud/w_icon_fraggrenade"
+	WeaponName				"Fire balls"
+	
+	customAmmo				10	
 }
 
-Description 	"Zuko
+Description	"Zuko
 
 Zuukooo, shut the fuck up and drink this teaaa
 
-
-Class: Mandalorian
-Class summary: 
 Through the fire and the flames
 
-Weaponry:
+^2Weaponry:
 - Blue Spirit Blades
-- Firebending
-- Fire balls (10)
+-- ^2Dual ^7/ ^3Yellow ^7Styles
+-- Saber Defense (3)
+- Firebending (3)
+-- 100% More DMG
+-- 15% Faster Movement
+-- Heals on equip
+-- Mag Reload
+- 10 Fire balls
+- Melee [All Moves Except Punching]
 
---- Firebending
-- Based on Clone Rifle
-- Incinerates targets
-- Deals increased fire damage
-- Magazine style reload
-- Increased speed when held
-- Permanent heal when held
-- Increased clip size
+^6Inventory:
+- Medpac
 
---- Blue Spirit Blades
-- Defense (3)
-- Offense (3)
-- Can use Dual and Yellow styles
-- Can block lightsabers
-- Cannot block blaster bolts
-
-Force Powers:
+^5Force Powers:
 - Jump (3)
 
-Inventory:
-- Bacta
-
-Attributes:
-- Ammo (3) 
-- Fuel (3)
-- Fuel Regen (3)
-- Increased speed when in melee
+^8Attributes:
+- 15% Faster Movement In Melee
+- Flipkick (3)
+- Fuel + Fuel Regen (3)
 - Blast Armour
-- Increased force regen-
 - Dexterity (3)
 
-Abilities:
-- Flipkick (3)
-- Dodge (3) [CS1]"
+^3Abilities:
+- Dodge (3) ^3[CS1]
+- Dex Roll ^3[CS2]"
