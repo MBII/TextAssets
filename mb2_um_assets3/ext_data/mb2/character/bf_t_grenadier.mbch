@@ -1,82 +1,96 @@
-
 //Siege class def file. Created by Goosto
 
 ClassInfo
 {
-	name					"bf_t_grenadier"
-	weapons					WP_MELEE|WP_FRAG_NADE|WP_PULSE_NADE|WP_TRIP_MINE|WP_CONC_NADE|WP_BOWCASTER
+	name				"bf_t_grenadier"
+	weapons				WP_MELEE|WP_FRAG_NADE|WP_PULSE_NADE|WP_TRIP_MINE|WP_CONC_NADE|WP_BOWCASTER
 	WP_MeleeFlags		HELD_SPEED
-	maxhealth				300
-	maxarmor				0
-	model					"trandoshan"			//this is optional, if it's here it forces the model to this.
-	skin					"default"
-	attributes				MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,4|MB_ATT_FRAGS,1|MB_ATT_FLIPKICK,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_TRIP_MINES,4|MB_ATT_QUICKTHROW,1|MB_ATT_BOWCASTER,1
-	classflags 				CFL_HEAVYMELEE|CFL_BLOODYMELEE
-	rageSoundOverride		"sound/chars/trandoshan1/misc/taunt3.mp3"
-	bargeSoundOverride 		"sound/chars/trandoshan1/misc/taunt5.mp3"
-	uishader				"models/players/trandoshan/mb2_icon_default_jab"
-	MBClass					MB_CLASS_WOOKIE
-	classNumberLimit		2
-	damageTaken				0.01
-	special2			EAS_HI_BARGE
-	resource     	 		RESOURCE_ENERGY
-	forcepool				1
-	WP_TripMineFlag			HELD_HIGHDAMAGE|HELD_SPEED
-	WP_ConcNadeFlag			HELD_HIGHDAMAGE|HELD_SPEED
-	WP_PulseNadeFlag		HELD_HIGHDAMAGE|HELD_SPEED
-	WP_FragNadeFlag			HELD_SPEED
-	WP_BowcasterFlags		HELD_ALTRELOAD	
-	idleAnim				BOTH_STAND10
-	tauntAnim 				BOTH_MINDTRICK2
-	gloatAnim 				BOTH_STAND5STARTLEDLOOKLEFT
-//	flourishAnim 			SBD_GUN_OUT_TO_DOWN
-	bowAnim 				BOTH_SLEEP6STOP
-	meditateAnim			BOTH_T6_BL__R
+	WP_TripMineFlags	HELD_HIGHDAMAGE|HELD_SPEED
+	WP_ConcNadeFlags	HELD_HIGHDAMAGE|HELD_SPEED
+	WP_PulseNadeFlags	HELD_HIGHDAMAGE|HELD_SPEED
+	WP_FragNadeFlags	HELD_SPEED
+	WP_BowcasterFlags	HELD_ALTRELOAD
+	attributes			MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_MICRO_GRENADES,4|MB_ATT_FRAGS,1|MB_ATT_FLIPKICK,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_TRIP_MINES,4|MB_ATT_QUICKTHROW,1|MB_ATT_BOWCASTER,1|MB_ATT_BARGE
+	forcepool			1
+	maxhealth			300
+	maxarmor			0
+	damageTaken			0.01
+	model				"trandoshan"			//this is optional, if it's here it forces the model to this.
+	skin				"default"
+	uishader			"models/players/trandoshan/mb2_icon_default_jab"
+	MBClass				MB_CLASS_WOOKIE
+	classflags 			CFL_HEAVYMELEE|CFL_BLOODYMELEE
+	classNumberLimit	2
+	
+	resource     	 	RESOURCE_ENERGY
+	meleespecial2		EAS_HI_BARGE
+	special3			EAS_HI_QUICKTHROW
+	
+	rageSoundOverride	"sound/chars/trandoshan1/misc/taunt3.mp3"
+	bargeSoundOverride 	"sound/chars/trandoshan1/misc/taunt5.mp3"
+	
+	idleAnim			BOTH_STAND10
+	tauntAnim 			BOTH_MINDTRICK2
+	gloatAnim 			BOTH_STAND5STARTLEDLOOKLEFT
+//	flourishAnim 		SBD_GUN_OUT_TO_DOWN
+	bowAnim 			BOTH_SLEEP6STOP
+	meditateAnim		BOTH_T6_BL__R
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/css_wep/usp.glm"
-	NewViewModel		"models/weapons2/css_wep/usp.md3"
-	Icon				"models/weapons2/css_wep/usp.png"
-	WeaponName			"Pistol"
-	MuzzleEffect		"halo_pistol/Muzzle_Flash"
-	AltMuzzleEffect		"halo_pistol/altmuzzle_flash"
-	MissileEffect		"halo_pistol/shot"
-	AltMissileEffect	"halo_pistol/shot"
-	MissileMissEffect 	"halo_smg/wall_impact"
-	FlashSound0			"sound/css_wep/usp_fire.wav"
-	SelectSound			"sound/css_wep/buttonclickrelease.wav"
-	customAmmo			16
-	clipSize  			8
-	primHitscanShot		1
-	primHitscanTracer	10
-	altFireEnabled 		0
-	primGore			1
-	altGore				1
-	idleAnim  			BOTH_VT_IDLE
-	firingAnim			BOTH_MAND_PISTOL_ATTACK
+	WeaponToReplace			WP_BOWCASTER
+	WeaponBasedOff			WP_BLASTER_PISTOL
+	NewWorldModel			"models/weapons2/css_wep/usp.glm"
+	NewViewModel			"models/weapons2/css_wep/usp.md3"
+	Icon					"models/weapons2/css_wep/usp.png"
+	WeaponName				"Pistol"
+	
+	FlashSound0				"sound/css_wep/usp_fire.wav"
+	SelectSound				"sound/css_wep/buttonclickrelease.wav"
+	
+	MuzzleEffect			"halo_pistol/Muzzle_Flash"
+	AltMuzzleEffect			"halo_pistol/altmuzzle_flash"
+	MissileEffect			"halo_pistol/shot"
+	AltMissileEffect		"halo_pistol/shot"
+	MissileMissEffect 		"halo_smg/wall_impact"
+	
+	customAmmo				16
+	clipSize  				8
+	primHitscanShot			1
+	primHitscanTracer		10
+	altFireEnabled 			0
+	primGore				1
+	altGore					1
 	ReloadTimeModifier 		1.1
+	
+	hasAnimOverrides		1
+	animReady  				BOTH_VT_IDLE
+	animReadyWalk  			BOTH_VT_IDLE
+	animReadyRun  			BOTH_VT_IDLE
+	animReadyNoAmmo			BOTH_MAND_PISTOL_ATTACK
+	animAttack				BOTH_MAND_PISTOL_ATTACK
+	animAttackRun			BOTH_MAND_PISTOL_ATTACK
+	animAttackWalk			BOTH_MAND_PISTOL_ATTACK
 }
 
 description	"Trandoshan Grenadier
 
-Weapons:
-Melee
-Frag Grenade (1)
-Pulse Grenade (1)
-Concussion Grenade (4)
-Trip Mine (4)
-Pistol
+^2Weapons:
+- Heavy Melee
+- 1 Frag Grenade
+- 1 Pulse Grenade
+- 4 Concussion Grenade
+- 4 Trip Mines
+- Pistol
 
-Attributes:
-Strength (1)
-Barge
-Quickthrow (1)
-Flipkick (1) [Tip: You can climb blocks by using this wisely]
-Explosives proficiency
+^8Attributes:
+- Explosives proficiency
+- Strength (1)
+- Quick Throw (1)
 
-LOOK OUT HE'S GONNA BLOW
-"
+^3Abilities:
+- Flipkick (1) [Tip: You can climb blocks by using this wisely]
+- Shoulder Barge ^3[CS2]
+
+LOOK OUT HE'S GONNA BLOW"

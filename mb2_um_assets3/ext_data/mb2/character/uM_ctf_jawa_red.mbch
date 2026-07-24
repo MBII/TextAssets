@@ -2,107 +2,64 @@
 
 ClassInfo
 {
-	name			"uM_ctf_jawa_red"	
-	weapons			WP_MELEE|WP_SABER|WP_PULSE_NADE|WP_BOWCASTER
-	saber1			ot_Baton
-	WP_SaberFlags 	HELD_PULSE
-	sabercolor		0
-	saberstyle		SS_TAVION
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_BOWCASTER,1
-	maxhealth		80
-	extraLives		3
-	model			"jawa"
-	skin			"red_tfu"
-	uishader		"models/players/jawa/mb2_icon_red_tfu"
-	MBClass			MB_CLASS_BOUNTY_HUNTER 
-	WP_BowcasterFlags 	HELD_PULSE|HELD_SLOW
-	modelscale		0.7
-	speed			1.10
-	forcepool        25
-	respawnCustomTime 10000
+	name				"uM_ctf_jawa_red"
+	weapons				WP_MELEE|WP_STUN_BATON|WP_PULSE_NADE|WP_DEMP2
+	WP_DEMP2Flags 		HELD_SLOW
+	attributes			MB_ATT_STUN_BATON,3|MB_ATT_AMMO,3|MB_ATT_PULSE_GRENADES,3|MB_ATT_POISON_DART,2|MB_ATT_ASSEMBLE|MB_ATT_DEMP2,1|MB_ATT_DEMP2_BLASTS,1
+	//saber1				ot_Baton
+	//saberstyle			SS_TAVION
+	forcepool			25
+	maxhealth			80
+	extraLives			3
+	speed				1.10
+	modelscale			0.7
+	model				"jawa"
+	skin				"red_tfu"
+	uishader			"models/players/jawa/mb2_icon_red_tfu"
+	MBClass				MB_CLASS_BOUNTY_HUNTER
+	
+	special1HUD			HUD_POISONDART
+	special2HUD			HUD_DEMP2BLASTS
+	
+	respawnCustomTime	10000
 }
 
 WeaponInfo0
 {
-WeaponToReplace		WP_SABER
-WeaponBasedOff		WP_SABER
-NewWorldModel		"models/weapons2/base_baton/stun_baton.glm"
-NewViewModel		"models/weapons2/dummy/dummy.md3"
-Icon			"gfx/hud/w_icon_stun_baton"
-WeaponName		"Stun Baton"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/base_baton/stun_baton.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_stun_baton"
+	WeaponName				"Stun Baton"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace	WP_PULSE_NADE
-	WeaponBasedOff	WP_THERMAL
-	NewWorldModel	"models/weapons2/b17polaritypulse/laser_trap_w.glm"
-	NewViewModel	"models/weapons2/b17polaritypulse/laser_trap.md3"
-	MissileModel	"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
-	altMissileModel	"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
-	Icon	"gfx/hud/w_icon_polarity"
-	WeaponName	"Pulse Grenade"
-	customammo         3
+	WeaponToReplace			WP_PULSE_NADE
+	WeaponBasedOff			WP_PULSE_NADE
+	NewWorldModel			"models/weapons2/b17polaritypulse/laser_trap_w.glm"
+	NewViewModel			"models/weapons2/b17polaritypulse/laser_trap.md3"
+	MissileModel			"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
+	altMissileModel			"models/weapons2/b17polaritypulse/laser_trap_proj.md3"
+	Icon					"gfx/hud/w_icon_polarity"
+	WeaponName				"Pulse Grenade"
 }
-
-
-WeaponInfo2
-{
-	WeaponToReplace		WP_BOWCASTER				//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_CLONE_PISTOL					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/demp2/demp2_w.glm"  	//Required
-	NewViewModel		"models/weapons2/demp2/demp2.md3"   	//Required
-	NewHandsModel		"models/weapons2/demp2/demp2_hand.md3"
-	Icon				"gfx/hud/w_icon_basedemp2" 				//Required
-	WeaponName			"DEMP 2"    					//Required
-	
-
-	//Efx
-	MissileHitHumanEffect "demp2/altdetonate"
-	MissileHitDroid 	"demp2/altdetonate"
-
-	MissileMissEffect 	"demp2/wall_impact"
-
-	MissileEffect		"demp2/projectile"  					
-	// AltMissileEffect 	"demp2/projectile" 
-
-	MuzzleEffect		"demp2/muzzle_flash"   				//Optional: New muzzle effect
-	// AltMuzzleEffect		"demp2/altmuzzle_flash" 				//Optional: New alt muzzle effect
-
-	CustomAmmo 	100
-	ClipSize 		5
-	ReloadTimeModifier 	.85		// default is 1 - 100%
-	ProjSpeedModifier .8
-
-	//IdleAnim	nameofanimation		
-	//FiringAnim	nameofanimation	
-
-	PrimHitscanShot 	0	// default is 0, Convert the primary fire of this weapon to an instant-hit hitscan trace instead of a physical projectile. 
-	PrimHitscanTracer 	9	//Valid values: 0 through 10. Percent change in 10% increments, of a visible tracer occurring with hitscan weaponfire of this weapon. 0 is never, 5 is 50% chance per hitscan trace, 10 is 100% chance.
-
-
-	FlashSound0		"sound/weapons/demp2/fire.mp3"
-	AltFlashSound0	"sound/weapons/demp2/altfire.mp3"
-	ChargeSound		"sound/weapons/demp2/altcharge.mp3"
-
-	AltFireEnabled 0
-	}
 
 description	"Scout
 
-Weaponry:
-Destructive Electromagnetic Pulse 2 (Demp 2)
-Stun Baton
-Pulse Grenade (3)
-Poison Darts (2)
+^2Weaponry:
+- Stun Baton (3)
+- Destructive Electromagnetic Pulse 2 (1)
+-- 2 Ion Blasts
+- 3 Pulse Grenades
 
-Attributes:
-Armour (3)
-Ammo (3)
+^8Attributes:
+- 3 Extra Lives
+- Assemble (1)
 
-Abilities:
-Assemble
-Jawa Shin Kick
-Three Extra Lives
+^3Abilities:
+- 2 Poison Darts ^3[CS1 Melee]
+- Jawa Shin Kick ^3[CS3]
 
 Utinni!"

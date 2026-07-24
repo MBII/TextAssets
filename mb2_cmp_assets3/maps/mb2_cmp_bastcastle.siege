@@ -1,0 +1,156 @@
+Teams
+{
+	team1 NewRepublic
+	team2 ImperialRemnants
+}
+
+mapgraphic "gfx/vjun_bastcastle/mapgraph"
+missionname  "Battle of Vjun"
+radartopleft "-1280, 1536"
+radarbottomright "8704, -3200"
+roundbegin_target ""
+
+AutoMap
+{
+	AutoMap0
+	{
+		radargraphic "gfx/vjun_bastcastle/vbast_radar"
+		radargraphicfull "gfx/vjun_bastcastle/vbast_radarFull"
+	}
+}
+
+HelpIcons
+{
+	//keycard
+	HelpIcon1
+	{
+		dynamic  1
+		redicon  HLP_ITEM
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+	}
+        
+        //control panel 
+        HelpIcon2
+	{
+		start0   "card_pick"
+		end0     "accscript"
+		origin   "3152 1184 224"
+		redicon  HLP_ITEM_DROPOFF
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+	}
+
+        //control panel after key
+        HelpIcon3
+	{
+		start0   "accscript"
+		end0     "accscript2"
+		origin   "3152 1184 224"
+		redicon  HLP_HACK
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+	}
+
+        //final obj
+        HelpIcon4
+	{
+		start0   "accscript2"
+		origin   "4160 -1024 169"
+		redicon  HLP_DESTROY
+		blueicon HLP_DEFEND
+		specicon HLP_NONE
+	}
+}
+
+NewRepublic
+{
+	RequiredObjectives 1	
+        Timed 300							
+	UseTeam "vbast_rep" 							
+	TeamIcon	"gfx/2d/mp_rebel_symbol_3"	
+
+	Objective1
+	{
+		goalname "Obtain the security keycard"
+		final -1
+		message_team1 "Keycard is ours, deliver it to control panel!"
+		message_team2 "Rebels got the keycard, get it back!"
+		objdesc "Obtain the security keycard in Armory Room"
+		objgfx "gfx/vjun_bastcastle/obj1"
+	}
+
+        Objective2
+	{
+		goalname "Hack the security control panel"
+		final -1
+		message_team1 "All doors opened, bomb the data storage!"
+		message_team2 "They hacked the doors, protect the data storage!"
+		objdesc "Hack the security control panel"
+		objgfx "gfx/vjun_bastcastle/obj2"
+	}
+
+        Objective3
+	{
+		goalname "Destroy the Bastcastle's main data storage"
+		final 1
+		message_team1 ""
+		message_team2 ""
+		objdesc "Plant a bomb at the Bastcastle's main data storage"
+		objgfx "gfx/vjun_bastcastle/obj3"
+	}
+
+	wonround "We did it!" 						
+	lostround "We have lost..." 					
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 1 
+
+	briefing "" 
+}
+
+ImperialRemnants
+{
+	RequiredObjectives 1
+	UseTeam "vbast_imp"
+	TeamIcon	"gfx/2d/mp_imp_symbol_3"
+
+	Objective1
+	{
+		goalname "Guard the security keycard"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Prevent the enemy from obtaining the security keycard"
+		objgfx "gfx/vjun_bastcastle/obj1"
+	}
+
+        Objective2
+	{
+		goalname "Guard the security control panel"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Prevent the enemy from hacking the security control panel"
+		objgfx "gfx/vjun_bastcastle/obj2"
+	}
+
+        Objective3
+	{
+		goalname "Defend the Bastcastle's main data storage"
+		final 0
+		message_team1 ""
+		message_team2 ""
+		objdesc "Prevent the enemy from detonating the Bastcastle's main data storage"
+		objgfx "gfx/vjun_bastcastle/obj3"
+	}
+	
+	wonround "Long live the Empire!"
+	lostround "They managed to destroy the data..."
+	roundover_sound_wewon ""
+	roundover_sound_welost ""
+	roundover_target ""
+	attackers 0
+	briefing ""
+}

@@ -704,7 +704,7 @@ models/players/palpatine_g/zombie_bodybg
         alphaGen wave sin 0.9 0.1 0.1 0.1
     }
     {
-        map models/players/palpatine_g/red_glow
+        map models/players/palpatine/red_glow
         blendFunc GL_ONE GL_ONE
         glow
     }
@@ -723,7 +723,7 @@ models/players/palpatine_g/zombie_headbg
         alphaGen wave sin 0.9 0.1 0.1 0.1
     }
     {
-        map models/players/palpatine_g/red_glow
+        map models/players/palpatine/red_glow
         blendFunc GL_ONE GL_ONE
         glow
     }
@@ -741,7 +741,7 @@ models/players/palpatine_g/zombie_robeb-hoodg
         alphaGen wave sin 0.9 0.1 0.1 0.1
     }
     {
-        map models/players/palpatine_g/red_glow
+        map models/players/palpatine/red_glow
         blendFunc GL_ONE GL_ONE
         glow
     }
@@ -758,7 +758,7 @@ models/players/palpatine_g/zombie_robeb-partsg
         alphaGen wave sin 0.9 0.1 0.1 0.1
     }
     {
-        map models/players/palpatine_g/red_glow
+        map models/players/palpatine/red_glow
         blendFunc GL_ONE GL_ONE
         glow
     }
@@ -769,14 +769,14 @@ models/players/palpatine_g/robe-capsg
 	surfaceparm	metalsteps
 	q3map_nolightmap
     {
-        map models/players/palpatine_g/robe-capsg
+        map models/players/palpatine/robe-capsg
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         depthWrite
         rgbGen lightingDiffuse
         alphaGen wave sin 0.9 0.1 0.1 0.1
     }
     {
-        map models/players/palpatine_g/red_glow
+        map models/players/palpatine/red_glow
         blendFunc GL_ONE GL_ONE
         glow
     }

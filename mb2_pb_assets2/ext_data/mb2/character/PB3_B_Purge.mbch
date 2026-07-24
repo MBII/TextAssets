@@ -2,118 +2,111 @@
 
 ClassInfo
 {
-	name			"PB3_B_Purge"
-	weapons			WP_MELEE|WP_SABER|WP_CLONE_PISTOL|WP_CONC_NADE
-
-	forcepowers		FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,3
-	forcepool		120
-	attributes		MB_ATT_ARMOUR,3|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,3|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_STAMINA,3|MB_ATT_FLIPKICK,3|MB_ATT_FORCEBLOCK,1|MB_ATT_CORTOSIS,1|MB_ATT_MICRO_GRENADES,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_HEALING,3
-	classflags		CFL_BPFREEJUMPS
-	maxhealth		125
-	maxarmor		125
-	MBClass			MB_CLASS_ARCTROOPER	
-	//classNumberLimit	2
-	DamageGiven		0.9
-	speed               1.3
-	CSmultiplier        1.15
-	APmultiplier        1.15
+	name				"PB3_B_Purge"
+	weapons				WP_MELEE|WP_SABER|WP_CLONE_PISTOL|WP_CONC_NADE
+	attributes			MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,2|MB_ATT_DEXTERITY,3|MB_ATT_AMMO,3|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_STAMINA,3|MB_ATT_FLIPKICK,3|MB_ATT_FORCEBLOCK,1|MB_ATT_CORTOSIS,1|MB_ATT_MICRO_GRENADES,3|MB_ATT_CLONE_PISTOL,3|MB_ATT_HEALING,3
+	saber1				electro_purp_wacky
+	saber2				electro_purp_wacky
+	sabercolor			5
+	saberstyle			SS_DUAL
 	BPmultiplier        1.15
-	modelscale		    1.01
-	extralives		1
+	APmultiplier        1.15
+	CSmultiplier        1.15
+	forcepowers			FP_SABER_DEFENSE,3|FP_SABER_OFFENSE,3
+	forcepool			120
+	maxhealth			125
+	maxarmor			125
+	extralives			1
+	speed               1.3
+	DamageGiven			0.9
 	rateOfFire          0.5
-
-	special1	EAS_HI_SPRINT
-	special2	EAS_HI_GRAPPLEHOOK
-	special3	EAS_HI_DEX
-	resource	RESOURCE_FORCE
+	modelscale		    1.01
 	
-	tauntAnim BOTH_VICTORY_FAST
-	gloatAnim       BOTH_VICTORY_FAST
-	flourishAnim  BOTH_VICTORY_FAST
+	model				"purgetrooper"
+	skin				"default"
+	uishader			"models/players/purgetrooper/mb2_icon_default"
 	
-	sabercolor		5
-	saberstyle		SS_DUAL
-	saber1			electro_purp_wacky
-	saber2			electro_purp_wacky
+	model_1				"purgetrooper"
+	skin_1				"staff"
+	uishader_1			"models/players/purgetrooper/mb2_icon_purgestaff"
 	
-	model			"purgetrooper" 					//this is optional, if it's here it forces the model to this.
-	skin			"default"							//this is optional, if it's here it forces the skin to this.
-	uishader		"models/players/purgetrooper/mb2_icon_default"
+	model_2				"purgetrooper"
+	skin_2				"hammer"
+	uishader_2			"models/players/purgetrooper/mb2_icon_purgehammer"
 	
-	model_1			"purgetrooper" 					
-	skin_1			"staff"						
-	uishader_1		"models/players/purgetrooper/mb2_icon_purgestaff"
+	model_3				"purgetrooper"
+	skin_3				"baton"
+	uishader_3			"models/players/purgetrooper/MB2_Icon_purgebaton"
 	
-	model_2			"purgetrooper" 					
-	skin_2			"hammer"							
-	uishader_2		"models/players/purgetrooper/mb2_icon_purgehammer"
+	MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_BPFREEJUMPS
+	//classNumberLimit	2
 	
-	model_3			"purgetrooper" 					
-	skin_3			"baton"							
-	uishader_3		"models/players/purgetrooper/MB2_Icon_purgebaton"
-		
-	respawnCustomTime 50000
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	meleespecial2		EAS_HI_GRAPPLEHOOK
+	special3			EAS_HI_DEX
+	
+	tauntAnim			BOTH_VICTORY_FAST
+	gloatAnim			BOTH_VICTORY_FAST
+	flourishAnim		BOTH_VICTORY_FAST
+	
+	respawnCustomTime	50000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_SABER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/electrostaff/electrostaff.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon				"gfx/hud/w_icon_purgesticks" 	//Required: Weapon change icon
-	WeaponName			"Dual Electrostaffs"    					//Required: Weapon change display name
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/electrostaff/electrostaff.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_purgesticks"
+	WeaponName				"Dual Electrostaffs"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_CLONE_PISTOL
-	NewWorldModel		"models/weapons2/dc-15s/dc-15s_w.glm"
-	NewViewModel		"models/weapons2/dc-15s/dc-15s.md3"
-	FlashSound0			"sound/weapons/repeater/fire.mp3"
-	Icon				"gfx/hud/w_icon_dc-15s"
-	WeaponName			"DC-15S"
-	CustomAmmo			800
-	ClipSize			150
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_DC_CARBINE
+	NewWorldModel			"models/weapons2/dc-15s/dc-15s_w.glm"
+	NewViewModel			"models/weapons2/dc-15s/dc-15s.md3"
+	Icon					"gfx/hud/w_icon_dc-15s"
+	WeaponName				"DC-15S Carbines"
+	
+	FlashSound0				"sound/weapons/clonecarbine/fire.mp3"
+	FlashSound1				"sound/weapons/clonecarbine/fire1.mp3"
+	FlashSound2				"sound/weapons/clonecarbine/fire2.mp3"
+	FlashSound3				"sound/weapons/clonecarbine/fire3.mp3"
+	
+	CustomAmmo				800
+	ClipSize				150
 }
+
 description	"Purge Trooper
 
 Always 2 there are, no more, no less...
 
-
-Class: ARC Trooper
-Class summary: 
 Tanky and fast hybrid class
 
-Weaponry:
+^2Weaponry:
 - Dual Electrostaffs
-- Dual DC-15S (3)
-- Concussion Grenade (3)
+-- ^2Dual ^7Style Only
+-- Saber Defense   (3)
+-- Blaster Defense (2)
+- Dual DC-15S Carbines [Clone Pistols 3]
+-- Higher Clip Size
+-- 10% Less DMG
+- 3 Concussion Grenades
 
---- Dual Electrostaffs
-- Defense (3)
-- Offense (3)
-- Can block lightsabers and blaster bolts
-- Can use Dual style
-- No BP drain on jumps
-
---- DC-15S
-- Based on Clone Pistols
-- Very high fire rate
-- Increased clip size
-- Slightly lower damage
-
-Force Powers:
-- Force Block (1)
-
-Attributes:
-- Ammo (3)
-- Cortosis (1)
-- Heal (3)
-- Grapple Hook (4) [CS2]
-
-Abilities:
-- Dexterity (3) [CS3]
+^8Attributes:
+- BP Free Jumps
 - Flipkick (3)
-- Stamina (3) [CS1]"
+- Cortosis (1)
+- Stamina + Dexterity (3)
+- Force Block (1)
+- Heal (3)
+
+^3Abilities:
+- Sprint ^3[CS1]
+- Grapple Hook (4) ^3[CS2 Melee]
+- Dex Roll ^3[CS3]"

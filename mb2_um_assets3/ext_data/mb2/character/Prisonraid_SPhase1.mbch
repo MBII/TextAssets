@@ -2,47 +2,76 @@
 
 ClassInfo
 {
-name			"PrisonRaid_SPhase1"
-weapons			WP_SABER
-saber1          phase1
-saber2          phase1
-saberstyle      SS_TAVION|SS_DUAL
-attributes		MB_ATT_DODGE,3|MB_ATT_STAMINA,3|MB_ATT_DEFLECT,1|MB_ATT_ASSEMBLE|MB_ATT_FP_MIRALUKA
-forcepowers     FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_SEE,3
-maxhealth		50
-maxarmor		50
-model			"darktrooper_p1"
-skin			"default"
-uishader		"gfx/um_icons/PrisonRaidPack/DarkTrooper"
-MBClass			MB_CLASS_CLONETROOPER
-speed			1.3
-extralives		1
-forcepool       25
-forceregen      2
-classNumberLimit	1
-modelscale      1.1
+	name				"PrisonRaid_SPhase1"
+	weapons				WP_SABER
+	WP_MeleeFlags		HELD_SLOW
+	WP_SaberFlags		HELD_NODISARM
+	attributes			MB_ATT_BLAST_ARMOUR|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,3|MB_ATT_STAMINA,3|MB_ATT_DEFLECT,3|MB_ATT_ASSEMBLE|MB_ATT_FP_MIRALUKA|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_BESKAR,1|MB_ATT_ENV_PROT,1|MB_ATT_RECHARGE,3|MB_ATT_GETUPS,2|MB_ATT_BUNNY_HOP,1
+	saber1				dt_phase1
+	saber2				dt_phase1
+	saberstyle			SS_DUAL|SS_TAVION
+	//saberDamage			100
+	forcepowers			FP_SABER_OFFENSE,3|FP_LEVITATION,3|FP_SEE,3
+	forcepool			30
+	forceregen			2
+	maxhealth			50
+	maxarmor			60
+	extralives			2
+	basespeed			205
+	modelscale			1.1
+	model				"darktrooper_p1"
+	skin				"default"
+	uishader			"models/players/darktrooper_p1/mb2_icon_default"
+	MBClass				MB_CLASS_BATTLEDROID
+	classFlags			CFL_HASQ3|CFL_BPFREEJUMPS
+	classNumberLimit	1
+	
+	resource			RESOURCE_BATTERY
+	special1			EAS_HI_SPRINT
+	
+	saberStanceAnim		BOTH_TRIPLE3_DUALSTANCE
+	RunForward			BOTH_SABERSTAFF_RUN
+	tauntAnim			BOTH_LK_DL_S_S_SB_1_W
+	gloatAnim			BOTH_FORCEGRIP3
+	flourishAnim		BOTH_FORCEGRIP3
 }
+
 WeaponInfo0
 {
-WeaponToReplace		WP_SABER
-WeaponBasedOff		WP_SABER
-NewWorldModel		"models/weapons2/dummy/dummy.glm"
-NewViewModel		"models/weapons2/dummy/dummy.md3"
-Icon			"gfx/hud/w_icon_darktrooperblade"
-WeaponName		"Wrist Blade"
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_darktrooperblade"
+	WeaponName				"Wrist Blade"
+	
+	SelectSound				"sound/chars/Phase1/misc/gloat2.mp3"
 }
 
 description	"Dark Trooper Phase I
 
-Weaponry:
-Wrist Blade
+^2Weaponry:
+- Wrist Blade
+-- ^2Dual ^7/ ^5Cyan ^7Styles
+-- Saber Defense (1)
+-- Blaster Defense / Deflect (3)
+-- Attack-Defense (Q3)
+-- 50% less damage
 
-Abilities:
-Life Form Scanner (miraluka sense)
+^8Attributes:
+- Life Form Scanner [Miraluka Sense 3]
+- BP Free Jumps
+- Bunny Hop (1)
+- Battery Recharge (3)
+- Strength (2)
+- Elemental Resist (1)
+- Beskar (1)
+- Blast Armor
+- 2 Reinforcements
+- Assemble (1)
 
-Attributes:
-Assemble
-Advanced Leg Hydraulics (jump 3)
-Reinforcements (2)
+^3Abilities:
+- Advanced Leg Hydraulics [Jump 3]
+- Sprint ^3[CS1]
 
 Dark Troopers, the project founded by General Rom Mhoc to introduce advanced battle droids and infantry exoskeletons into the Imperial ranks. Phase I of the project introduced battle droids resembling a human skeleton, which doubles as a psychological weapon. It features advanced leg hydraulics, a wrist blade, and a shield. All of these features coupled with its tremendous size and running speed make it a truly frightening deadly weapon."

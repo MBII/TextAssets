@@ -2,67 +2,73 @@
 
 ClassInfo
 {
-	name			"SOM_H4_sniper"
-	weapons			WP_MELEE|WP_DISRUPTOR|WP_PROJ
-	attributes		MB_ATT_AMMO,3|MB_ATT_A280,3|MB_ATT_ARMOUR,2|MB_ATT_DISRUPTOR,3|MB_ATT_TRACKING_DART,3|MB_ATT_SHIELD_RECHARGE1,3|MB_ATT_DODGE,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CLOAK
-	maxhealth		40
-	maxarmor		135
+	name				"SOM_H4_sniper"
+	weapons				WP_MELEE|WP_DISRUPTOR|WP_PROJ|WP_AMBAN
+	attributes			MB_ATT_AMMO,3|MB_ATT_PROJECTILE_RIFLE,1|MB_ATT_DISRUPTOR,3|MB_ATT_AMBAN,2|MB_ATT_TRACKING_DART,3|MB_ATT_SHIELD_RECHARGE,3|MB_ATT_DODGE,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_CLOAK,2
+	//holdables			HI_CLOAK
+	forcepowers			FP_SEE,3
+	forcepool			25
+	forceregen			.2
+	maxhealth			40
+	maxarmor			135
+	speed				.9
 	
-	MBClass			MB_CLASS_BOUNTY_HUNTER
-	forcepool		25
-	forceregen		.2
-	forcepowers		FP_SEE,3
-	//holdables		HI_CLOAK
-	speed			.9
-	classflags		CFL_DISRUPTOR_WALLS
-	respawnCustomTime  	30000
-
-	model			"jedi_rm" 				
-	skin			"snowrodian"					
-	uishader		"gfx/hud/FA_icons/mb2_icon_snowrodian"	
-
-	model_1			"gwethenea"
-	skin_1			"sniper"
-	uishader_1		"models/players/gwethenea/mb2_icon_sniper"
+	model				"jedi_rm" 				
+	skin				"snowrodian"					
+	uishader			"gfx/hud/FA_icons/mb2_icon_snowrodian"	
+	
+	model_1				"gwethenea"
+	skin_1				"sniper"
+	uishader_1			"models/players/gwethenea/mb2_icon_sniper"
+	
+	MBClass				MB_CLASS_BOUNTY_HUNTER
+	classflags			CFL_DISRUPTOR_WALLS
+	
+	resource			RESOURCE_FORCE
+	special1			EAS_HI_DODGE
+	
+	respawnCustomTime	30000
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_PROJ					//Required: Weapon Slot of weapon you're replacing
-	WeaponBasedOff		WP_BOWCASTER					//Required: For future use, should be the same as WeaponToReplace
-	NewWorldModel		"models/weapons2/DLT20a/dlt20a_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/DLT20a/dlt20a.md3"   	//Required: New 1st person weapon model
-	Icon			"gfx/hud/w_icon_dlt20a" 		
-	MuzzleEffect		"bryar/muzzle_flash" 
-	MissileEffect		"acparray/shot" 					//Optional: Ditto for the alt fire
-	FlashSound0		"sound/weapons/bryar/alt_fire.wav" 
-	Icon			"gfx/hud/w_icon_dlt-18" 					
-	WeaponName		"Special Sniper Rifle"
-	customAmmo 		100
-	clipSize		3
-	primHitscanShot   	1	
-	primHitscanTracer	10
+	WeaponToReplace			WP_PROJ
+	WeaponBasedOff			WP_DLT20A
+	NewWorldModel			"models/weapons2/DLT20a/dlt20a_w.glm"
+	NewViewModel			"models/weapons2/DLT20a/dlt20a.md3"
+	Icon					"gfx/hud/w_icon_dlt20a"
+	//Icon					"gfx/hud/w_icon_dlt-18"
+	WeaponName				"Special Sniper Rifle"
+	
+	FlashSound0				"sound/weapons/bryar/alt_fire.wav"
+	
+	MuzzleEffect			"bryar/muzzle_flash" 
+	MissileEffect			"acparray/shot"
+	
+	customAmmo				100
+	clipSize				3
+	primHitscanShot			1	
+	primHitscanTracer		10
 }
 
 description	"The Sniper
 
-Details:
-
 The Ultimate Sniper.
 
-Weaponry:
+^2Weaponry:
+- Disruptor Rifle (3)
+- Special Sniper Rifle
+- Amban Pulse-Phase Blaster (2)
 
-Disruptor Rifle: (3)
-Special Sniper Rifle: (1)
+^8Attributes:
+- Bioscan Visor (3)
+- Regenerating Armor (3)
+- CTF: 30s Respawn
 
-Attributes:
+^3Abilities:
+- 6 Tracking Darts ^3[CS2 Melee]
+- Dodge (3) ^3[CS1]
+- Gun Kick ^3[CS3]
 
-Regenerating Armor: (3)
-Dodge: (3)
-Bioscan Visor: (3)
-
-Strengths: Very good at range. The Projectile rifle has 3 shots and travels to the target instantly, the disruptor rifle can pierce through cover.
-
-Weaknesses: Vulnerable in melee / short range combat
-
-"
+^2Strengths^7: Very good at range. The Projectile Rifle has 3 shots and travels to the target instantly, the Disruptor Rifle can pierce through cover, the Amban Blaster has a stun baton attachment for close range combat.
+^1Weaknesses^7: Vulnerable in melee / short range combat."

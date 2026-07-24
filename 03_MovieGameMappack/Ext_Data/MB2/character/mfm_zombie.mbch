@@ -2,45 +2,50 @@
 
 ClassInfo
 {
-	name			"mfm_zombie"
-	weapons			WP_MELEE
-	attributes  MB_ATT_HEALING,1
-	maxhealth		70
-	model			"re_zombie"
-  forcepowers FP_SEE,3
-  forcepool 25
-  forceregen  1
-	skin			"default"
-	uishader		"gfx/mplevels/monster_forest/mf_zombie"
-	MBClass			MB_CLASS_ELITETROOPER
-	extralives		15
-	classflags		CFL_NOPICKUPS|CFL_BLOODYMELEE
-	resource		resource_force
+	name				"mfm_zombie"
+	weapons				WP_MELEE
+	meleeMoves			M_PUNCH
+	attributes			MB_ATT_HEALING,1
+	forcepowers			FP_SEE,3
+	forcepool			25
+	forceregen			1
+	maxhealth			70
+	extralives			15
+	model				"re_zombie"
+	skin				"default"
+	uishader			"gfx/mplevels/monster_forest/mf_zombie"
+	MBClass				MB_CLASS_ELITETROOPER
+	classflags			CFL_NOPICKUPS|CFL_BLOODYMELEE
+	
+	resource			RESOURCE_FORCE
+	
+	punchAnim			BOTH_MELEE6
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE  
-  NewWorldModel		"models/weapons2/dummy/dummy.glm"
-  NewViewModel		"models/weapons2/dummy/dummy.md3"
-  Icon			"gfx/mplevels/revil/icon_zmelee"
-	WeaponName		"^7Melee"
-	FlashSound0		"Sound/chars/re_zombie2/misc/melee.wav"
-	AltFlashSound0  "Sound/chars/re_zombie2/misc/melee.wav"
-	primGore		1
-	altGore			1
-	idleAnim  BOTH_INAIRBACK1
-	firingAnim  BOTH_BURSTMISS
-	altFireEnabled 0
+	WeaponToReplace			WP_MELEE
+	WeaponBasedOff			WP_MELEE  
+	NewWorldModel			"models/weapons2/dummy/dummy.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/mplevels/revil/icon_zmelee"
+	WeaponName				"^7Melee"
+	FlashSound0				"Sound/chars/re_zombie2/misc/melee.wav"
+	AltFlashSound0			"Sound/chars/re_zombie2/misc/melee.wav"
+	primGore				1
+	altGore					1
+	
+	hasAnimOverrides		1
+	//animStand				BOTH_INAIRBACK1
+	animStand				BOTH_STAND9
 }
 
 
 ForceInfo0
 {
-	ForceToReplace	FP_SEE
-	Icon		"gfx/mplevels/monster_forest/eye"
-	ForcePowerName	"Sense"
+	ForceToReplace		FP_SEE
+	Icon				"gfx/mplevels/monster_forest/eye"
+	ForcePowerName		"Sense"
 }
 
 description	"Zombie
@@ -48,6 +53,8 @@ description	"Zombie
 ^2Weaponry:
 - Melee
 
+^5Powers:
+- Sense (3)
+
 ^8Attributes:
-- Self Healing (1)
-- Sense (3)"
+- Heal (1)"

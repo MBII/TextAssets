@@ -4,128 +4,117 @@ ClassInfo
 {
 	name				"PB3_G_Rex"
 	weapons				WP_SABER|WP_MELEE|WP_CLONE_PISTOL|WP_FRAG_NADE|WP_PULSE_NADE|WP_PROJ|WP_DISRUPTOR
+	WP_ClonePistolFlags	HELD_ALTRELOAD
+	WP_ProjFlags		HELD_PULSE
 	attributes			MB_ATT_CLONE_PISTOL,3|MB_ATT_FRAGS,3|MB_ATT_FP_MIRALUKA|MB_ATT_PULSE_GRENADES,3|MB_ATT_DISRUPTOR,3|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_HEALING,3|MB_ATT_STAMINA,3|MB_ATT_DEXTERITY,3|MB_ATT_GRAPPLE_HOOK,4|MB_ATT_SHIELD_RECHARGE2|MB_ATT_PROJECTILE_RIFLE,3|MB_ATT_FLIPKICK,3|MB_ATT_BINOCULARS
-	maxhealth			125
-	maxarmor			125
+	//holdables			HI_BINOCULARS
 	saber1				assassin_shiv_wacky
 	saber2				assassin_shiv_dual_wacky
 	saberstyle			SS_DUAL
-	speed               1.5
-	MBClass				MB_CLASS_ARCTROOPER
-	//classNumberLimit	1
-	special1	EAS_HI_SPRINT
-	special2	EAS_HI_GRAPPLEHOOK
-	special3	EAS_HI_DEX
-	resource	RESOURCE_FORCE
-	classflags			CFL_AKIMBOPISTOL3|CFL_DISRUPTOR_WALLS
+	BPmultiplier		1.4
+	APmultiplier		1.05
+	CSmultiplier		1.1
+	ASmultiplier		1.1
 	forcepowers			FP_SABER_DEFENSE,2|FP_SEE,3
-	forcepool       100
-	APmultiplier	1.05
-	BPmultiplier	1.4
-	CSmultiplier	1.1
-	ASmultiplier	1.1
-	modelscale      1.02
-	rateOfFire      0.9
-	damageTaken			0.9
+	forcepool			100
+	maxhealth			125
+	maxarmor			125
+	speed               1.5
 	damageGiven         1.1
+	damageTaken			0.9
+	rateOfFire			0.9
+	modelscale			1.02
+	model				"clonetrooper_p1"
+	skin				"501_rex"
+	uishader			"models/players/clonetrooper_p1/mb2_icon_501_rex"
+	MBClass				MB_CLASS_ARCTROOPER
+	classflags			CFL_AKIMBOPISTOL3|CFL_DISRUPTOR_WALLS
+	//classNumberLimit	1
 	
-	//holdables	HI_BINOCULARS
-	saberStanceAnim			BOTH_STAND9
-	WP_ProjFlags HELD_PULSE
-	WP_ClonePistolFlags     HELD_ALTRELOAD
+	resource			RESOURCE_STAMINA
+	special1			EAS_HI_SPRINT
+	meleespecial2		EAS_HI_GRAPPLEHOOK
+	special3			EAS_HI_DEX
 	
-	model			"clonetrooper_p1"
-	skin			"501_rex"
-	uishader		"models/players/clonetrooper_p1/mb2_icon_501_rex"
+	saberStanceAnim		BOTH_STAND9
 	
-	respawnCustomTime 50000	
-				   
+	respawnCustomTime	50000	
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_CLONE_PISTOL
-	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/dc-17/dc-17_w.glm"
-	CorrectedWorldModel	"models/weapons2/dc-17/dc-17_w.glm"
-	NewViewModel		"models/weapons2/dc-17/dc-17.md3"
-	NewHandsModel		"models/weapons2/dc-17/dc-17_hand.md3"
-	Icon				"gfx/hud/w_icon_dc-17_dual"
-	WeaponName			"DC-17 Pistols"	
-	customAmmo			999
-	//clipsize 			200
-	FPMult              1.5
+	WeaponToReplace			WP_SABER
+	WeaponBasedOff			WP_SABER
+	NewWorldModel			"models/weapons2/arc_shiv_short/shiv_short_w.glm"
+	NewViewModel			"models/weapons2/dummy/dummy.md3"
+	Icon					"gfx/hud/w_icon_arc_shiv"
+	WeaponName				"Wrist Shiv"
 }
+
 WeaponInfo1
-{           
-	WeaponToReplace        WP_SABER
-	WeaponBasedOff         WP_SABER
-	NewWorldModel		"models/weapons2/arc_shiv_short/shiv_short_w.glm"  	//Required: New 3rd person/dropped weapon model
-	NewViewModel		"models/weapons2/dummy/dummy.md3" 	  	//Required: New 1st person weapon model
-	Icon             	"gfx/hud/w_icon_arc_shiv"
-	WeaponName			"Wrist Shiv"
+{
+	WeaponToReplace			WP_CLONE_PISTOL
+	WeaponBasedOff			WP_CLONE_PISTOL
+	NewWorldModel			"models/weapons2/dc-17/dc-17_w.glm"
+	CorrectedWorldModel		"models/weapons2/dc-17/dc-17_w.glm"
+	NewViewModel			"models/weapons2/dc-17/dc-17.md3"
+	NewHandsModel			"models/weapons2/dc-17/dc-17_hand.md3"
+	Icon					"gfx/hud/w_icon_dc-17_dual"
+	WeaponName				"DC-17 Pistols"
+	
+	customAmmo				999
+	//clipsize				200
+	FPMult					1.5
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_PROJ					 
-	WeaponBasedOff      WP_CONCUSSION
-	NewWorldModel "models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
-	NewViewModel  "models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
-	Icon  "gfx/hud/w_icon_dlt-18"
-	FlashSound0  "sound/weapons/Glie-44/alt_fire.wav"		
-	WeaponName			"Valken-38x Sniper Rifle"    				 
-	CustomAmmo 	100
-	clipsize	2
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	MissileEffect		"Blaster/Shot10B"
-	ReloadTimeModifier 	0.5
+	WeaponToReplace			WP_PROJ
+	WeaponBasedOff			WP_CONCUSSION
+	NewWorldModel			"models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel			"models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+	Icon					"gfx/hud/w_icon_dlt-18"
+	WeaponName				"Valken-38x Sniper Rifle"
+	
+	FlashSound0				"sound/weapons/Glie-44/alt_fire.wav"
+	
+	MuzzleEffect			"Blaster/MuzzleFlash01B"
+	MissileEffect			"Blaster/Shot10B"
+	
+	CustomAmmo				100
+	clipsize				2
+	ReloadTimeModifier		0.5
 }
 
 description	"Rex
 
 Rex got some specialised jedi training during his time with Anakin
 
-
-Class: ARC Trooper
-Class summary: 
 Highly dextrous sniper class
 
-Weaponry:
+^2Weaponry:
 - Large Shivs
-- Valken-38x Sniper Rifle (3)
+-- ^2Dual ^7Style Only
+-- Saber Defense (2)
+- Dual Clone Pistols (4)
+-- Mag Reload
 - Disruptor (3)
-- Dual Clone Pistols (3)
-- Pulse Grenade (3)
-- Frag Grenade (3)
+-- Charged Shots Go Through Walls
+- Valken-38x Sniper Rifle (3)
+-- Shocks on hit
+-- Increased clip size
+- 3 Pulse Grenades
+- 3 Frag Grenades
 
---- Large Shivs
-- Defense (2)
-- Can block lightsabers
-- Cannot block blaster bolts
-- Can use Dual style
-
---- Valken-38x
-- Based on Projectile Rifle
-- Increased clip size
-- Pulse effect on hit
-
---- Disruptor
-- Can shoot through walls when fully charged
-
---- Dual Pistols
-- Magazine Style reload
-- Akimbo Reversion
-
-Attributes:
-- Ammo (3)
-- Blast Armour
-- Improved shield recharge
-- Heal (3)
-- Grapple Hook (4) [CS2]
+^8Attributes:
+- Improved Shield Recharge
 - Perma Sense (3)
-
-Abilities:
 - Flipkick (3)
-- Stamina (3) [CS1]
-- Dexterity (3) [CS3]"
+- Blast Armour
+- Stamina + Dexterity (3)
+- Heal (3)
+
+^3Abilities:
+- Sprint ^3[CS1]
+- Grapple Hook (4) ^3[CS2 Melee]
+- Dex Roll ^3[CS3]"
