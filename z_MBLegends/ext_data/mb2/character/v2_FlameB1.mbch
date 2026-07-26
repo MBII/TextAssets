@@ -10,7 +10,7 @@ Classinfo
 	weapons				WP_MELEE|WP_THROWER|WP_FIRE_NADE
 
 	WP_UGLFlags			HELD_EXPLOSIVE|HELD_KNOCKBACK|HELD_STUN
-	WP_PLX1Flags		HELD_SLOW|HELD_FLAME|HELD_KNOCKBACK
+	WP_PLX1Flags HELD_SLOW|HELD_FLAME|HELD_KNOCKBACK|HELD_CRIPPLE|HELD_EXPLOSIVE
 	WP_ThrowerFlags		HELD_ALTRELOAD
 	AB_WLaserFlags		HELD_FLAME|HELD_LOWDAMAGE
 
@@ -70,13 +70,14 @@ Classinfo
 
 	c_att_skill_3		MB_ATT_PLX1
 	c_att_names_3		"E-60R Missile Launcher (PLX)"
-	c_att_ranks_3		2,3
-	c_att_descs_3		"Burns/pushes/staggers on det, 75% less damage, Heavyweight"
+	c_att_ranks_3		6
+	c_att_descs_3		"12 rockets, 3 per clip, Overblasts/burns/pushes/slows on det,
+20% bigger splash, 20% more velocity, 95% less damage, Heavyweight"
 
 	c_att_skill_4		MB_ATT_UGL
 	c_att_names_4		"Grenade Launcher (UGL)"
 	c_att_ranks_4		1
-	c_att_descs_4		"Overblasts/pushes on det, 100% more damage"
+	c_att_descs_4		"Overblasts/pushes/stuns on det, 100% more damage"
 
 	c_att_skill_5		MB_ATT_ARMOUR
 	c_att_names_5		"Armor (100)"
@@ -125,7 +126,6 @@ WeaponInfo1
 	animAttack			BOTH_ATTACK3
 	animAttackWalk		BOTH_ATTACK3
 	animStand			BOTH_WOOKIEE_RAGE_STAND
-
 	damageMod			2
 }
 
@@ -150,13 +150,26 @@ WeaponInfo2
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_PLX1
-	WeaponBasedOff		WP_PLX1
-	NewWorldModel		"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
-	NewViewModel		"models/weapons2/e60r_launcher/e60r_launcher.md3"
-	Icon				"gfx/hud/w_icon_e60r_launcher"
-	WeaponName			"E-60R Missile Launcher"
-	Damagemod			.25
+	WeaponToReplace	WP_PLX1
+	WeaponBasedOff	WP_PLX1
+	NewWorldModel	"models/weapons2/e60r_launcher/e60r_launcher_w.glm"
+	NewViewModel	"models/weapons2/e60r_launcher/e60r_launcher.md3"
+	Icon	"gfx/hud/w_icon_e60r_launcher"
+	WeaponName	"E-60R Missile Launcher"
+	Damagemod .05
+	VelocityMod 1.2
+	clipsize 3
+	customammo 12
+	ReloadTimeModifier 0.35
+	splashRadius	350
+	missileEffect	"atst/side_alt_shot"
+	FlashSound0	"sound/weapons/halo_rocket/fire.wav"
+	altmissileMissEffect	"tarkin/explosion"
+	altMissileHitHumanEffect	"tarkin/explosion"
+	altMissileHitDroidEffect	"tarkin/explosion"
+	missileMissEffect	"tarkin/explosion"
+	MissileHitHumanEffect	"tarkin/explosion"
+	MissileHitDroidEffect	"tarkin/explosion"
 }
 
 Description	"B1-series Flame Battle Droid
