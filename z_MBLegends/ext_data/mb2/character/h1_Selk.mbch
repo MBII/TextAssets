@@ -15,9 +15,9 @@ ClassInfo
  WP_E22Flags   HELD_KNOCKBACK|HELD_ALTRELOAD
  WP_DEMP2Flags HELD_PULSE|HELD_EXPLOSIVE|HELD_ALTRELOAD
  WP_FragNadeFlags HELD_FREEZE|HELD_SLIPPERY|HELD_LOWDAMAGE
- WP_ConcNadeFlags HELD_BACTA
+ WP_RepeaterFlags HELD_BACTA|HELD_LIFESTEAL
 
- attributes   MB_ATT_DASH,1|MB_ATT_WATER_BREATHING|MB_ATT_GETUPS,4|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_SPEEDLUNGE|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DEXTERITY,3|MB_ATT_ENV_PROT,1|MB_ATT_SHOTGUN,2|MB_ATT_FP_SABER_DEFENSE,1
+ attributes   MB_ATT_DASH,1|MB_ATT_WATER_BREATHING|MB_ATT_GETUPS,4|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_SPEEDLUNGE|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DEXTERITY,3|MB_ATT_ENV_PROT,1|MB_ATT_SHOTGUN,2|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_REPEATER_NADES,2
 
  forcepowers   FP_SPEED,1|FP_DARKRAGE,1
  resource   RESOURCE_RAGE
@@ -49,7 +49,7 @@ ClassInfo
  special3   EAS_FP_SPEED
  special4   EAS_HI_PSHIELD
  special1HUD   HUD_FRAGNADE
- special2HUD   HUD_CONCNADE
+ special2HUD   HUD_REPEATERNADE
 
  //forcepool   35
  //forceregen  0.01
@@ -59,6 +59,9 @@ ClassInfo
 
  RunForward   BOTH_WOOKIEE_RAGE_RUN
  flourishAnim  TORSO_MELEE_BACKHAND_SWIMFORWARD
+ kickAnim BOTH_WOOKIEE_MELEE
+
+ meleeknockback_flat 30
 
  rageSoundOverride "sound/chars/selkath/misc/land1.mp3"
  bargeSoundOverride "sound/chars/selkath/misc/jump1.mp3"
@@ -109,12 +112,12 @@ ClassInfo
 20% more knockback, 30% more special damage, 30% shorter"
 
  c_att_skill_1  MB_ATT_CLONE_PISTOL
- c_att_names_1  "Sonic Emitters (Clone Pistols)"
+ c_att_names_1  "Sonic Emitters (Clone Pistol)"
  c_att_ranks_1  3,0,0
  c_att_descs_1  "Hitscan rounds, 40% less damage, 5% slower RoF, Mag reload"
 
  c_att_skill_2  MB_ATT_MANDO_PISTOL
- c_att_names_2  "Fira Blaster Pistols (WESTARs)"
+ c_att_names_2  "Fira Blaster Pistols (WESTAR)"
  c_att_ranks_2  3,0,0
  c_att_descs_2  "15% slower RoF, Mag reload"
 
@@ -123,21 +126,22 @@ ClassInfo
  c_att_ranks_3  1
  c_att_descs_3  "Pushes on hit, 10% more damage, 10% more FP damage, Mag reload"
 
- c_att_skill_4  MB_ATT_DEMP2
- c_att_names_4  "Verpine Ion Pistol (DEMP2)"
- c_att_ranks_4  1,0,0
- c_att_descs_4  "Shocks/explodes on hit, 50% more damage/FP damage, 30% faster RoF,
+ c_att_skill_4  MB_ATT_REPEATER
+ c_att_names_4  "Kolto Grenade (4) (IHR)"
+ c_att_ranks_4  2
+ c_att_descs_4  "Team-heals/drains on det, 68% larger splash, 100% less damage,
+Secondary fire only"
+
+ c_att_skill_5  MB_ATT_DEMP2
+ c_att_names_5  "Verpine Ion Pistol (DEMP2)"
+ c_att_ranks_5  1,0,0
+ c_att_descs_5  "Shocks/explodes on hit, 50% more damage/FP damage, 30% faster RoF,
 75% less velo, 75% smaller splash, 50% slower mag reload"
 
- c_att_skill_5  MB_ATT_FRAGS
- c_att_names_5  "Cryo-Frag Grenades"
- c_att_ranks_5  1,1,1
- c_att_descs_5  "Freezes/slips on det, 50% less damage"
-
- c_att_skill_6  MB_ATT_MICRO_GRENADES
- c_att_names_6  "Kolto Grenades (Conc)"
+ c_att_skill_6  MB_ATT_FRAGS
+ c_att_names_6  "Cryo-Frag Grenade"
  c_att_ranks_6  1,1,1
- c_att_descs_6  "Team-heals on det, 20% larger splash, 100% less damage"
+ c_att_descs_6  "Freezes/slips on det, 50% less damage"
 
  c_att_skill_7  MB_ATT_FP_DARKRAGE
  c_att_names_7  "Insanity (Dark Rage) ^3[CS1]"
@@ -256,10 +260,13 @@ WeaponInfo4
 
 WeaponInfo5
 {
- WeaponToReplace  WP_CONC_NADE
+ WeaponToReplace  WP_REPEATER
  WeaponBasedOff  WP_CONC_NADE
  NewWorldModel  "models/weapons/Grenade_Concussion/model.glm"
- NewViewModel  "models/map_objects/mp/bacta.md3"
+ NewViewModel  "models/weapons2/dummy/dummy.md3"
+
+ flashSound0 "sound/player/nullifyloop.wav"
+ altFlashSound0  "sound/player/nullifyloop.wav"
 
  MissileModel  "models/map_objects/mp/bacta.md3"
  MissileEffect    "force/pushblur"
@@ -272,11 +279,27 @@ WeaponInfo5
  altMissileMissEffect  "grenades/exp_heal"
  altMissileHitHumanEffect "grenades/exp_heal"
  altMissileHitDroidEffect "grenades/exp_heal"
+
  Icon    "gfx/hud/w_icon_stungrenade"
- WeaponName   "Kolto Grenades"
+ WeaponName   "Kolto Grenade"
+
  damageMod   0
- splashdamage 0
+ splashdamage 1
  splashradius 216
+ primFireEnabled 0
+ customAmmo -1
+ clipSize -1
+
+ selectSound "sound/player/pickuphealth.mp3"
+
+ hasAnimOverrides 1
+ animReadyRun  BOTH_THERMAL_READY2
+ animReady  BOTH_THERMAL_READY2
+ animReadyWalk  BOTH_THERMAL_READY2
+ animReadyNoAmmo  BOTH_THERMAL_READY2
+ animAttackRun  BOTH_THERMAL_THROW2
+ animAttack   BOTH_THERMAL_THROW2
+ animAttackWalk  BOTH_THERMAL_THROW2
 }
 
 WeaponInfo6
@@ -351,7 +374,7 @@ WeaponInfo7
  altMissileEffect "grenades/glowfragb"
 
  Icon "gfx/hud/w_icon_cryobangrenade"
- WeaponName "Cryo-Frag Grenades"
+ WeaponName "Cryo-Frag Grenade"
 }
 
 WeaponInfo8
@@ -378,6 +401,8 @@ Agile creatures prone to mania. Combat-proficient both on land and in the sea. S
 -- Lightweight
 -- 10% more damage
 -- 25% faster RoF
+-- 30% more knockback
+-- No kicks
 - Progenitor's Call (1) (Shotgun 2)
 -- Stuns on hit
 -- Lightweight
