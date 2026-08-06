@@ -20,10 +20,11 @@ ClassInfo
 	attributes			MB_ATT_BESKAR,3|MB_ATT_HEALING,1|MB_ATT_MANDO_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_TRACKING_BEACON|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_GUN_DEFENSE,0|MB_ATT_POISON_DART,4|MB_ATT_BINOCULARS|MB_ATT_WRISTLASER
 
 	basespeed			230
-	maxhealth			110
-
-	maxarmor			110
+	
+	maxhealth			115
+	maxarmor			115
 	rankArmor			130
+	rankForcepool		35
 
 	special1			EAS_HI_ROCKET
 	special2			EAS_HI_WRIST
@@ -42,18 +43,18 @@ ClassInfo
 	forcepool			25
 	resource			RESOURCE_FUEL
 	resourceRegenAmount	1
-	resourceRegenRate	1100
+	resourceRegenRate	1200
 
 	saberdamage			80
 	APmultiplier		1.30
-	BPmultiplier		.30
+	BPmultiplier		.35
 	saberMaxChain		2
 	saberSpecialDamage	2
 	saber1				jangobladeyes
 	saberstyle			SS_TAVION
 
-	knockbackTaken		.85
-	knockbackGiven		.95
+	knockbackTaken		.80
+	knockbackGiven		.90
 
 	flourishAnim		BOTH_JANGO_TAUNT
 
@@ -85,7 +86,7 @@ ClassInfo
 	isCustomBuild		1
 	isOnlyOneSpec		1
 	hasCustomSpec		2
-	mbPoints			0
+	mbPoints			5
 
 	customSpecName_1	"Warrior"
 	customSpecIcon_1	"gfx/menus/alpha/Icon_Weap_BeskarChest"
@@ -104,9 +105,9 @@ Bounces on surfaces, 100% more special damage, 60% shorter"
 
 	c_att_skill_1		MB_ATT_ROCKET_LAUNCHER
 	c_att_names_1		"Wrist Rockets (Rocket Launcher)"
-	c_att_ranks_1		0,0,0
+	c_att_ranks_1		5
 	c_att_descs_1		"Staggers on det, 70% more velocity, 35% less damage,
-170% longer reload, Secondary fire only"
+170% longer reload"
 
 	c_att_skill_2		MB_ATT_DEXTERITY
 	c_att_names_2		"Dexterity"
@@ -116,11 +117,15 @@ Bounces on surfaces, 100% more special damage, 60% shorter"
 	c_att_names_3		"Whipcord Thrower ^3[Melee CS4]"
 	c_att_ranks_3		0
 	c_att_descs_3		"Disarms/pulls/slips/slows/staggers on hit"
+	
+	c_att_skill_4		MB_ATT_POWER
+	c_att_names_4		"Fuel (35)"
+	c_att_ranks_4		5
 
 
 	c_att_skill_15		MB_ATT_FRAGS
 	c_att_names_15		"Frag Grenades"
-	c_att_ranks_15		0,0,0
+	c_att_ranks_15		0,2,3
 
 	c_att_skill_16		MB_ATT_PROJECTILE_RIFLE
 	c_att_names_16		"Jango's Projectile Rifle"
@@ -129,7 +134,7 @@ Bounces on surfaces, 100% more special damage, 60% shorter"
 
 	c_att_skill_17		MB_ATT_ARMOUR
 	c_att_names_17		"Armor (130)"
-	c_att_ranks_17		0,0,0
+	c_att_ranks_17		5
 
 	c_att_skill_18		MB_ATT_STM_MULTIPLIER
 	c_att_names_18		"Skill Cooldown (100%)"
@@ -149,25 +154,12 @@ WeaponInfo0
 	Icon				"gfx/hud/w_icon_westar_3.tga"
 	chargeSound			"sound/weapons/plasma_pistol/altcharge.mp3"
 
-	Clipsize			36
+	Clipsize			38
 	customAmmo			1260
-	rateMod				.95
+	rateMod				.93
 	damageMod			1.05
 	velocityMod			1.05
-	FPMult				1.05
-
-	altFireEnabled		0
-	hasAnimOverrides	1
-	animReadyRun		BOTH_DUAL_PISTOLS_IDLE
-	animReady			BOTH_DUAL_PISTOLS_IDLE
-	animReadyWalk		BOTH_DUAL_PISTOLS_IDLE
-	animStand			TORSO_WEAPONREADY3
-	animCharge			BOTH_DUAL_PISTOLS_READY
-	animRunAttackR		BOTH_DUAL_PISTOLS_ATTACK_R
-	animRunAttackL		BOTH_DUAL_PISTOLS_ATTACK_L
-	animWalkAttackR		BOTH_DUAL_PISTOLS_ATTACK_R
-	animWalkAttackL		BOTH_DUAL_PISTOLS_ATTACK_L
-	animReadyNoAmmo		BOTH_DUAL_PISTOLS_IDLE
+	FPMult				1.10
 }
 
 WeaponInfo1
@@ -180,10 +172,10 @@ WeaponInfo1
 
 	WeaponName			"Wrist Flamethrower"
 
-	clipSize			30
-	CustomAmmo			150
+	clipSize			24
+	CustomAmmo			120
 	rateMod				1.2
-	reloadTimeModifier	80
+	reloadTimeModifier	75
 
 	hasAnimOverrides	1
 	animReady			BOTH_FORCE_DRAIN_START
@@ -218,11 +210,10 @@ WeaponInfo3
 	WeaponName			"Wrist Rockets"
 
 	clipSize			1
-	CustomAmmo			4
-	velocityMod			1.7
+	CustomAmmo			3
+	velocityMod			1.3
 	damageMod			.65
 	reloadTimeModifier	1.7
-	primFireEnabled		0
 
 	altMissileMissEffect		"Grenades/EXP_Alt"
 	altMissileHitHumanEffect	"Grenades/EXP_Alt"
@@ -270,13 +261,13 @@ Known in his heyday as one of the greatest bounty hunters in the galaxy. Boasts 
 -- 5% faster RoF
 - Jango's WESTAR-34 Blaster Pistols (3)
 -- Non-disarmable
--- 5% faster RoF
+-- 7% faster RoF
 -- 5% faster velocity
--- 5% more damage/FP damage
--- Primary fire only
+-- 5% more damage
+-- 10% more FP damage
 - Wrist Flamethrower (Thrower)
 -- 20% slower RoF
--- 7900% slower reload
+-- 7400% slower reload
 
 ^6Inventory:
 - Binoculars
@@ -287,8 +278,8 @@ Known in his heyday as one of the greatest bounty hunters in the galaxy. Boasts 
 - Healing (1)
 - Fuel Regen: 1/1.1s
 - Tracking Beacon
-- 15% less knockback taken
-- 5% less knockback given
+- 20% less knockback taken
+- 10% less knockback given
 - 25% slower skill cooldown
 
 ^3Abilities:
