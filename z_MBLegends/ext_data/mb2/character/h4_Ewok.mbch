@@ -5,9 +5,9 @@ ClassInfo
 	MBClass				MB_CLASS_HERO
 	classNumberLimit	6
 
-	weapons				WP_MELEE|WP_SABER|WP_T21|WP_REPEATER
+	weapons				WP_MELEE|WP_SABER|WP_T21|WP_ROCK_NADE
 
-	attributes			MB_ATT_ASSEMBLE,2|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_REPEATER|MB_ATT_GETUPS,2|MB_ATT_DEXTERITY,1|MB_ATT_REPEATER_NADES,3
+	attributes			MB_ATT_ASSEMBLE,2|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_GETUPS,2|MB_ATT_DEXTERITY,1|MB_ATT_ROCK_NADE,6
 
 	knockbackTaken		1.25
 
@@ -29,7 +29,7 @@ ClassInfo
 	saberSpecialDamage	2
 	//WP_FlechetteFlags	HELD_FLAME|HELD_EXPLOSIVE
 	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
-	WP_RepeaterFlags	HELD_KNOCKBACK|HELD_ALTRELOAD
+	WP_RockNadeFlags	HELD_KNOCKBACK|HELD_KNOCKDOWN
 
 	classFlags			CFL_BLOODYMELEE
 
@@ -132,29 +132,17 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_REPEATER
-	WeaponBasedOff		WP_FRAG_NADE
+	WeaponToReplace		WP_ROCK_NADE
+	WeaponBasedOff		WP_ROCK_NADE
 	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
 	NewViewModel		"models/weapons2/stone/thermal.md3"
-	NewHandsModel		"models/weapons2/stone/thermal_hand.md3"
-	NewBarrelModel		"models/weapons2/stone/thermal_hand.md3"
-	primfireenabled		0
 	Icon				"gfx/hud/w_icon_stone"
 	WeaponName			"Stones"
-	AltMuzzleEffect				null
-	AltMissileEffect			"stone/missile1"
-	AltMissileMissEffect		"stone/explosion"
-	AltMissileHitHumanEffect	"stone/explosion"
-	AltMissileHitDroidEffect	"stone/explosion"
-	MuzzleEffect				null
 	AltMissileModel		"models/weapons2/stone/thermal.md3"
 	AltFlashSound0		"sound/weapons/stone/fire.mp3"
 	MissileModel		"models/weapons2/stone/thermal.md3"
 	FlashSound0			"sound/weapons/stone/fire.mp3"
-	customAmmo			-1
-	clipsize			-1
 	splashRadius		20
-	reloadTimeModifier	1.8
 	hasAnimOverrides	1
 	animReadyRun		BOTH_TRIPLE3_DUALSTANCE
 	animReady			BOTH_TRIPLE3_DUALSTANCE
@@ -192,10 +180,8 @@ Archers and spear wielders of diminutive stature carrying powerful knockdown sto
 -- 100% more special damage
 -- 37/50% shorter
 -- 33% thicker
-- Stones (6) (IHR)
+- Stones (6)
 -- Pushes on det
--- 84% smaller splash
--- Secondary fire only
 - Bow (T-21 1)
 -- Pushes/staggers on hit
 -- 15% faster RoF
