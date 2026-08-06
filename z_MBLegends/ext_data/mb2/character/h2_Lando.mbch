@@ -4,11 +4,11 @@ ClassInfo
 	name				"h2_Lando"
 	MBClass				MB_CLASS_HERO
 	classNumberLimit	1
-	weapons				WP_MELEE|WP_MANDO_PISTOL|WP_EE3|WP_SABER|WP_SMOKE_NADE
+	weapons				WP_MELEE|WP_MANDO_PISTOL|WP_EE3|WP_SABER|WP_FRAG_NADE
 
  WP_SaberFlags HELD_LIFESTEAL
 
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_SMOKE_NADE,3|MB_ATT_AMMO,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_QUICKTHROW,3|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_SABER_COMBO_NONE|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,1
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_SPY_DISGUISE,1|MB_ATT_MANDO_PISTOL,2|MB_ATT_EE3,3|MB_ATT_FRAGS,3|MB_ATT_AMMO,2|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_HEALING,2|MB_ATT_QUICKTHROW,3|MB_ATT_DASH,2|MB_ATT_DODGE,3|MB_ATT_SABER_COMBO_NONE|MB_ATT_STAMINA,2|MB_ATT_DEXTERITY,1
 
 	maxhealth			185
 	maxarmor			80
@@ -131,8 +131,8 @@ WeaponInfo2
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_SMOKE_NADE
-	WeaponBasedOff		WP_SMOKE_NADE
+	WeaponToReplace		WP_FRAG_NADE
+	WeaponBasedOff		WP_FRAG_NADE
 	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
 	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
 	Icon				"gfx/hud/w_icon_stungrenade"
@@ -141,13 +141,27 @@ WeaponInfo3
 	altMissileModel		"models/weapons/Grenade_Concussion/proj.md3"
 	MissileEffect				"stone/missile1"
 	AltMissileEffect			"stone/missile1"
+	MissileMissEffect			"smokenadeleg/explode_vol"
+	MissileHitHumanEffect		"smokenadeleg/explode_vol"
+	MissileHitDroidEffect		"smokenadeleg/explode_vol"
+	AltMissileMissEffect		"smokenadeleg/explode_vol"
+	AltMissileHitHumanEffect	"smokenadeleg/explode_vol"
+	AltMissileHitDroidEffect	"smokenadeleg/explode_vol"
 	FlashSound0			"sound/weapons/stone/fire.mp3"
+	FlashSound1			"sound/weapons/stone/fire.mp3"
+	FlashSound2			"sound/weapons/stone/fire.mp3"
+	FlashSound3			"sound/weapons/stone/fire.mp3"
 	AltFlashSound0		"sound/weapons/stone/fire.mp3"
+	AltFlashSound1		"sound/weapons/stone/fire.mp3"
+	AltFlashSound2		"sound/weapons/stone/fire.mp3"
+	AltFlashSound3		"sound/weapons/stone/fire.mp3"
 	MuzzleEffect		null
 	AltMuzzleEffect		null
 	primFireEnabled		0
 	altFireEnabled		0
+	damagemod			0.001
 	ratemod				0.6
+	customammo			3
 	hasAnimOverrides	1
 	animReadyRun		BOTH_STAND5TOSTAND8
 	animReady			BOTH_STAND5TOSTAND8
@@ -177,7 +191,9 @@ A gambler and smooth operator who can charm his way out of any situation, and fa
 -- 25% faster RoF
 -- 25% more velocity
 -- 20% faster reload
-- Gambler's Palm Smoke Grenade (3)
+- Gambler's Palm Smoke Grenade (3) (Frag)
+-- Shrouds on det
+-- 99% less damage
 -- Quick Throw only
 - Lando's E-11 Blaster Rifle (EE-3 3)
 -- 10% more damage
