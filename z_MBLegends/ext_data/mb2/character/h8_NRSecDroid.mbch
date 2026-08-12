@@ -3,13 +3,18 @@ ClassInfo
 {
 	name				"h8_NRSecDroid"
 	classNumberLimit	3
-	MBClass				MB_CLASS_WOOKIE
+	MBClass				MB_CLASS_BATTLEDROID
+	WP_MeleeFlags		HELD_SLOW
 	WP_SaberFlags		HELD_PULSE
-	WP_ThermalFlags		HELD_KNOCKBACK
-	weapons				WP_MELEE|WP_SABER|WP_THERMAL
-	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1
+	WP_MinigunFlags		HELD_PULL
+	WP_TripMineFlags	HELD_LOWDAMAGE|HELD_PULL|HELD_DISARM
+
+	weapons				WP_MELEE|WP_SABER|WP_A280|WP_MINIGUN|WP_TRIP_MINE
+
+	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_RECHARGE,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BESKAR,1|MB_ATT_FAKE_WOOKIEE|MB_ATT_A280,2|MB_ATT_MINIGUN,2|MB_ATT_TRIP_MINES,3
 
 	resource			RESOURCE_BATTERY
+	forcePowers			FP_PULL,1
 	forcepool			70
 
 	saber1				JawaBaton_legends
@@ -21,16 +26,13 @@ ClassInfo
 	BPMultiplier		0
 	saberMaxChain		1
 	saberStanceAnim		TORSO_WEAPONREADY0
-	maxhealth			100
-	rankHealth			140,240,300
+	maxhealth			50
+	maxArmor			175
+	extraLives			1
+	basespeed			187.5
+	rateOfFire_Melee	1.4
 
-	maxArmor			0
-	rankArmor			30,60,100
-
-	basespeed			150
-	rankbasespeed		160,175,200
-
-	meleeMoves			M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
+	meleeMoves			M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_RLKICK
 
 	special1			EAS_NONE
 	meleespecial1		EAS_NONE
@@ -53,63 +55,6 @@ ClassInfo
 	uioverlay_l			"gfx/icons/brawler"
 	uioverlay_r			"gfx/icons/infantry"
 	modelscale			1.2
-
-	isCustomBuild		1
-	mbPoints			80
-
-	c_att_skill_0		MB_ATT_WOOKIE_STRENGTH
-	c_att_names_0		"Droid Strength"
-	c_att_ranks_0		2,6,10
-
-	c_att_skill_1		MB_ATT_A280
-	c_att_names_1		"Modified DH-17 (A280)"
-	c_att_ranks_1		4,2,1
-
-	c_att_skill_2		MB_ATT_BASE_TD
-	c_att_names_2		"Heavy Thermal Grenades"
-	c_att_ranks_2		2,2,2
-	c_att_descs_2		"Pushes on det, 150% more damage"
-
-
-	c_att_skill_3		MB_ATT_FP_PULL
-	c_att_names_3		"Magnetic (Force) Pull ^3[CS4]"
-	c_att_ranks_3		6
-
-	c_att_skill_4		MB_ATT_RESPAWNS
-	c_att_names_4		"Reinforcement"
-	c_att_ranks_4		20
-
-	c_att_skill_5		MB_ATT_ASSEMBLE
-	c_att_names_5		"> Assemble"
-	c_att_ranks_5		0,2,3
-
-	c_att_skill_6		MB_ATT_HEALTH
-	c_att_names_6		"Health (140/240/300)"
-	c_att_ranks_6		3,6,9
-
-	c_att_skill_7		MB_ATT_ARMOUR
-	c_att_names_7		"Armor (30/60/100)"
-	c_att_ranks_7		1,4,6
-
-	c_att_skill_8		MB_ATT_SHIELD_RECHARGE
-	c_att_names_8		"> Armor Regen"
-	c_att_ranks_8		6
-
-	c_att_skill_9		MB_ATT_BLAST_ARMOUR
-	c_att_names_9		"Blast Armor"
-	c_att_ranks_9		4
-
-	c_att_skill_10		MB_ATT_MAGNETIC_PLATING
-	c_att_names_10		"Magnetic Plating"
-	c_att_ranks_10		6
-
-	c_att_skill_11		MB_ATT_RECHARGE
-	c_att_names_11		"Battery Recharge"
-	c_att_ranks_11		2,2
-
-	c_att_skill_12		MB_ATT_BASESPEED
-	c_att_names_12		"Speed (160/175/200)"
-	c_att_ranks_12		4,6,10
 }
 
 WeaponInfo0
@@ -134,6 +79,63 @@ WeaponInfo0
 
 WeaponInfo1
 {
+	WeaponToReplace		WP_MINIGUN
+	WeaponBasedOff		WP_MINIGUN
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Magnetic Attractor Device"
+
+	AltFlashSound0		"sound/effects/woosh4.mp3"
+	AltFlashSound1		"sound/effects/woosh4.mp3"
+	AltFlashSound2		"sound/effects/woosh4.mp3"
+	AltFlashSound3		"sound/effects/woosh4.mp3"
+	FlashSound0			"sound/effects/woosh4.mp3"
+	FlashSound1			"sound/effects/woosh4.mp3"
+	FlashSound2			"sound/effects/woosh4.mp3"
+	FlashSound3			"sound/effects/woosh4.mp3"
+
+	customAmmo			400
+	isMinigun			0
+	damageMod			0.04
+	FPBlockMinMult		1
+	FPBlockMaxMult		1
+	FPNoBlockMinMult	1
+	FPNoBlockMaxMult	1
+	FPMult				0.1
+	rateMod				1.85
+	velocityMod			1.6
+	clipSize			50
+	customAmmo			-1
+
+	altMuzzleEffect				null
+	altMissileEffect			"halo_shotgun/shot"
+	altMissileMissEffect		"halo_shotgun/shot"
+	AltMissileHitHumanEffect	"halo_shotgun/shot"
+	AltMissileHitDroidEffect	"halo_shotgun/shot"
+	AltMissileModel				"models/weapons2/dummy/dummy.md3"
+
+	MuzzleEffect				null
+	MissileEffect				"halo_shotgun/shot"
+	MissileMissEffect			"halo_shotgun/shot"
+	MissileHitHumanEffect		"halo_shotgun/shot"
+	MissileHitDroidEffect		"halo_shotgun/shot"
+	MissileModel				"models/weapons2/dummy/dummy.md3"
+	
+	hasAnimOverrides	1
+	animReadyRun		BOTH_MELEE_STAND2
+	animReady			BOTH_MELEE_STAND2
+	animReadyWalk		BOTH_FORCE_DRAIN_START
+	animReadyNoAmmo		BOTH_FORCE_DRAIN_RELEASE
+	animAttackRun		BOTH_FORCE_DRAIN_HOLD
+	animAttack			BOTH_FORCE_DRAIN_HOLD
+	animAttackWalk		BOTH_FORCE_DRAIN_HOLD
+	animCharge			BOTH_FORCE_DRAIN_START
+	animStand			BOTH_STAND1
+}
+
+WeaponInfo2
+{
 	WeaponToReplace		WP_SABER
 	WeaponBasedOff		WP_SABER
 	NewWorldModel		"models/weapons2/base_baton/stun_baton.glm"
@@ -142,16 +144,7 @@ WeaponInfo1
 	WeaponName			"Stun Baton"
 	altFireEnabled		0
 }
-WeaponInfo2
-{
-	WeaponToReplace		WP_THERMAL
-	WeaponBasedOff		WP_THERMAL
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel		"models/weapons2/thermal/thermal_hand.md3"
-	Icon				"gfx/hud/w_thermal_grenade"
-	WeaponName			"Heavy Thermal Grenades"
-	damagemod			2.5
-}
+
 ForceInfo0
 {
 	ForceToReplace		FP_PULL
@@ -163,10 +156,13 @@ ForceInfo0
 
 description	"N5 Sentry Droid aka New Republic Security Droid
 
-Patrol units with reinforced armor and hard-hitting parts.
+Patrol units with reinforced armor, equipped to subdue unruly prisoners with standard weaponry and built-in magnetic devices.
 
 ^2Weaponry:
-- Melee
+- Melee (Wookiee-style)
+-- 40% slower RoF
+-- Heavyweight
+-- Grab/slap only
 - Stun Baton (Purple Saber)
 -- No Saber/Blaster Block
 -- Chain Limit: 1
@@ -174,8 +170,26 @@ Patrol units with reinforced armor and hard-hitting parts.
 -- 40% shorter
 -- 166% thicker
 -- Primary fire only
+- Modified DH-17 (A280) (2)
+- Magnetic Attractor Device (MG) (2)
+-- 96% less damage
+-- 85% slower RoF
+-- 60% more velocity
+-- Pulls on hit
+- Minature Magnetic Trap Mines (3)
+-- 50% less damage
+-- Pulls/disarms on det
+
+^5Powers:
+- Magnetic (Force) Pull ^3[CS4]
 
 ^8Attributes:
+- Reinforcement (1)
+- Strength (3)
+- Battery Recharge (2)
+- Magnetic Plating
+- Beskar (1)
+- Blast Armor
 - Assemble (1)
 
 ^3Abilities:
