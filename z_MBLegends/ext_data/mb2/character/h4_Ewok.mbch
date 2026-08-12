@@ -3,19 +3,23 @@ ClassInfo
 {
 	name				"h4_Ewok"
 	MBClass				MB_CLASS_HERO
-	classNumberLimit	6
 
 	weapons				WP_MELEE|WP_SABER|WP_T21|WP_ROCK_NADE
 
-	attributes			MB_ATT_ASSEMBLE,2|MB_ATT_RESPAWNS,2|MB_ATT_HEALING,1|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_GETUPS,2|MB_ATT_DEXTERITY,1|MB_ATT_ROCK_NADE,6
+	//WP_FlechetteFlags	HELD_FLAME|HELD_EXPLOSIVE
+	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
+ WP_MeleeFlags HELD_LIFESTEAL
+ WP_SaberFlags HELD_LIFESTEAL
+ //WP_RockNadeFlags HELD_KNOCKBACK
 
-	knockbackTaken		1.25
+	attributes			MB_ATT_ASSEMBLE,2|MB_ATT_RESPAWNS,2|MB_ATT_DODGE,3|MB_ATT_DASH,2|MB_ATT_T21,1|MB_ATT_GETUPS,2|MB_ATT_DEXTERITY,1|MB_ATT_ROCK_NADE,16|MB_ATT_QUICKTHROW,2
+
+	knockbackTaken		1.2
 
 	maxhealth			100
 	maxarmor			20
 
 	forcepool			100
-	forceRegen			0.85
 	resource			RESOURCE_ENERGY
 
 	rateOfFire_Melee	.5
@@ -23,23 +27,23 @@ ClassInfo
 	saber1				ewok_spear_legends
 	saberstyle			SS_MEDIUM|SS_STAFF
 	BPmultiplier		0
-	APmultiplier		0.8
+	APmultiplier		0.75
 	ASmultiplier		1.05
+ CSmultiplier  1.02
 	saberdamage			100
-	saberSpecialDamage	2
-	//WP_FlechetteFlags	HELD_FLAME|HELD_EXPLOSIVE
-	WP_T21Flags			HELD_ALTRELOAD|HELD_LOWDAMAGE|HELD_KNOCKBACK|HELD_STUN
-	WP_RockNadeFlags	HELD_KNOCKBACK|HELD_KNOCKDOWN
+	saberSpecialDamage	2.4
+ saberMaxChain 3
 
 	classFlags			CFL_BLOODYMELEE
 
 	special1			EAS_HI_DODGE
-
 	meleespecial1		EAS_HI_DODGE
 	special2			EAS_HI_DASH
+ special3 EAS_HI_QUICKTHROW
 
 	special1HUD			HUD_ROCKNADE
 	special2HUD			HUD_FRAGNADE
+
  RunForward BOTH_RUN_DUAL
 	gloatanim			BOTH_VICTORY_FAST
 	tauntAnim			BOTH_ENGAGETAUNT
@@ -48,8 +52,7 @@ ClassInfo
 	WalkForward			BOTH_WALK_DUAL
 	saberStanceAnim		BOTH_SPEAR_STANCE
 
-	uioverlay_r			"gfx/icons/infantry"
-	uioverlay_l			"gfx/icons/tactician"
+	uioverlay			"gfx/icons/tactician"
 	modelscale			0.68
 	model				"Jedi_EW"
 	skin				"endor_warrick"
@@ -92,8 +95,9 @@ WeaponInfo0
 	WeaponBasedOff		WP_SABER
 	NewWorldModel		"models/weapons2/ewok_spear/ewok_spear.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
+
 	Icon				"models/weapons2/ewok_spear/w_icon_ewok_spear"
-	WeaponName			"Ewok Spear"
+	WeaponName			"Shortspear"
 }
 
 WeaponInfo1
@@ -102,28 +106,31 @@ WeaponInfo1
 	WeaponBasedOff		WP_T21
 	NewWorldModel		"models/weapons2/bow/bowcaster_w.glm"
 	NewViewModel		"models/weapons2/bow/bowcaster.md3"
+
 	Icon				"gfx/hud/w_icon_bow"
-	WeaponName			"Bow"
+	WeaponName			"Shortbow"
+
 	FlashSound0			"sound/300/wpn_bow_fire_01.wav"
 	FlashSound1			"sound/300/wpn_bow_fire_02.wav"
 	FlashSound2			"sound/300/wpn_bow_fire_03.wav"
+
 	MuzzleEffect		null
 	MissileModel		"models/weapons2/dc_gabow/greenarrow_arrow.md3"
 	MissileEffect		"bow/whoosh"
 	MissileMissEffect		"Dc/explosion"
-	MissileHitHumanEffect	"sbd/sbd_armor"
-	MissileHitDroidEffect	"sbd/sbd_armor"
+	MissileHitHumanEffect	"melee/kick_impact"
+	MissileHitDroidEffect	"melee/kick_impact"
+
 	rateMod				0.85
 	clipSize			32
-	customAmmo			184
+	customAmmo			256
 	altFireEnabled		0
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_DC15_IDLE
 	animReady			BOTH_DC15_IDLE
 	animReadyWalk		TORSO_WEAPONREADY4
 	animReadyNoAmmo		TORSO_WEAPONREADY4
-	//animReadyWalk		BOTH_TORSO_WEAPONREADY4
-	//animReadyNoAmmo	BOTH_TORSO_WEAPONREADY4
 	animAttackRun		BOTH_ATTACK4
 	animAttack			BOTH_ATTACK4
 	animAttackWalk		BOTH_ATTACK4
@@ -136,14 +143,34 @@ WeaponInfo2
 	WeaponBasedOff		WP_ROCK_NADE
 	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
 	NewViewModel		"models/weapons2/stone/thermal.md3"
+
 	Icon				"gfx/hud/w_icon_stone"
-	WeaponName			"Stones"
+	WeaponName			"Stone"
+
+	AltFlashSound0			"sound/weapons/stone/fire.mp3"
+	AltMuzzleEffect				null
+	AltMissileEffect			"stone/missile1"
+	AltMissileMissEffect		"stone/explosion"
+	AltMissileHitHumanEffect	"stone/explosion"
+	AltMissileHitDroidEffect	"stone/explosion"
 	AltMissileModel		"models/weapons2/stone/thermal_proj.md3"
-	AltFlashSound0		"sound/weapons/stone/fire.mp3"
-	MissileModel		"models/weapons2/stone/thermal_proj.md3"
+
+
 	FlashSound0			"sound/weapons/stone/fire.mp3"
-	damageMod			15
-	splashRadius		20
+ MuzzleEffect				null
+	MissileEffect			"stone/missile1"
+	MissileMissEffect		"stone/explosion"
+	MissileHitHumanEffect	"stone/explosion"
+	MissileHitDroidEffect	"stone/explosion"
+	MissileModel		"models/weapons2/stone/thermal_proj.md3"
+
+ ChargeSound "sound/weapons/overchargefast.wav"
+
+ rateMod 0.85
+	damageMod			50
+ splashRadius 10
+ primFireEnabled 0
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_TRIPLE3_DUALSTANCE
 	animReady			BOTH_TRIPLE3_DUALSTANCE
@@ -161,8 +188,8 @@ WeaponInfo3
 	WeaponBasedOff		WP_MELEE
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_melee"
-	WeaponName			"Melee"
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Bloody Paws"
 	primFireEnabled		1
 	AltFireEnabled		1
 	damageMod			0.75
@@ -170,21 +197,27 @@ WeaponInfo3
 
 description "Ewok Tribesman
 
-Archers and spear wielders of diminutive stature carrying powerful knockdown stones. They thrive on ambushes and pack behavior.
+Archers, rock chuckers, and spear wielders of diminutive stature. They thrive on ambushes and pack behavior.
 
 ^2Weaponry:
-- Melee
+- Bloody Paws (Melee)
+-- Drains on hit
 -- 50% faster RoF
 -- 25% less damage
-- Ewok Spear (Staff/Yellow Saber)
+- Shortspear (Staff/Yellow Saber)
 -- No Saber/Blaster Block
--- 100% more special damage
+-- Chain Limit: 3
+-- Drains on hit
+-- 140% more special damage
+-- 10% more knockback
 -- 37/50% shorter
--- 33% thicker
-- Stones (6)
--- Pushes on det
--- 150% more damage
-- Bow (T-21 1)
+-- 66% thicker
+- Stone (16)
+-- 4900% more damage
+-- 15% faster RoF
+-- 900% larger splash
+-- Secondary fire only
+- Shortbow (T-21 1)
 -- Pushes/staggers on hit
 -- 15% faster RoF
 -- 50% less damage
@@ -194,10 +227,10 @@ Archers and spear wielders of diminutive stature carrying powerful knockdown sto
 - Reinforcements (2)
 - Dexterity (1)
 - Getup (2)
-- Healing (1)
 - Assemble (2)
-- 25% more knockback taken
+- 20% more knockback taken
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
-- Dash (2) ^3[CS2]"
+- Dash (2) ^3[CS2]
+- Quickthrow (2) ^3[CS3]"
