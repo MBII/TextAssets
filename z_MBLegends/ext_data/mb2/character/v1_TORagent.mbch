@@ -4,7 +4,7 @@ ClassInfo
 	name				"v1_TORagent"
 	classNumberLimit	4
 	extralives			1
-	MBClass				MB_CLASS_HERO
+	MBClass				MB_CLASS_ELITETROOPER
 
 	weapons				WP_SABER|WP_MANDO_PISTOL|WP_THERMAL
 
@@ -15,11 +15,14 @@ ClassInfo
 
 	attributes			MB_ATT_AMMO,3|MB_ATT_MANDO_PISTOL,2|MB_ATT_DEXTERITY,1|MB_ATT_DODGE,3|MB_ATT_STAMINA,1|MB_ATT_FORCEBLOCK,1|MB_ATT_BASE_TD,2|MB_ATT_SABER_COMBO,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_TRACKING_BEACON
 
-	special1			EAS_HI_DODGE
-	meleespecial1		EAS_HI_DODGE
+	special1			EAS_FP_SABERTHROW
+	meleespecial1		EAS_HI_POISON
 	special2			EAS_HI_DEX
-	special3			EAS_HI_POISON
-	meleespecial3		EAS_HI_POISON
+	meleespecial2		EAS_HI_DEX
+	special3			EAS_HI_DODGE
+	meleespecial3		EAS_HI_DODGE
+
+	forcepowers			FP_SABERTHROW,0
 
 	maxhealth			100
 	maxarmor			75
@@ -42,6 +45,7 @@ ClassInfo
 	resource			RESOURCE_STAMINA
 	forcepool			80
 	forceregen			.8
+	rankforceregen		1
 
 	rankROF				.8
 	rateOfFire_Melee	.91
@@ -120,7 +124,7 @@ Primary fire: Hitscan, Secondary fire: 25% more velocity"
 	c_att_ranks_6		1
 	
 	c_att_skill_7		MB_ATT_POISON_DART
-	c_att_names_7		"Poison Dart ^3[CS3]"
+	c_att_names_7		"Poison Dart ^3[Melee CS1]"
 	c_att_ranks_7		1
 
 
@@ -137,7 +141,7 @@ Primary fire: Hitscan, Secondary fire: 25% more velocity"
 	c_att_names_17		"Poison Launcher (DEMP2)"
 	c_att_ranks_17		3
 	c_att_descs_17		"Poisons/staggers on hit, 80% faster RoF, 50% more velocity,
-25% more damage/FP damage, 25% slower mag reload"
+25% more damage/FP damage, 30% slower mag reload"
 	
 	c_att_skill_18		MB_ATT_FRAGS
 	c_att_names_18		"Corrosive Grenades (Frags)"
@@ -153,13 +157,13 @@ Primary fire: Hitscan, Secondary fire: 25% more velocity"
 	c_att_ranks_20		1
 	
 	c_att_skill_21		MB_ATT_POISON_DART
-	c_att_names_21		"Poison Darts ^3[CS3]"
+	c_att_names_21		"Poison Darts ^3[Melee CS1]"
 	c_att_ranks_21		1,1,1
 
 
 	c_att_skill_30		MB_ATT_SABER_DAMAGE
 	c_att_names_30		"Saber Damage (140)"
-	c_att_ranks_30		2
+	c_att_ranks_30		1
 	
 	c_att_skill_31		MB_ATT_BP_MULTIPLIER
 	c_att_names_31		"Saber BP (75%)"
@@ -178,26 +182,30 @@ Primary fire: Hitscan, Secondary fire: 25% more velocity"
 	c_att_skill_34		MB_ATT_BASESPEED
 	c_att_names_34		"Speed (240)"
 	c_att_ranks_34		2,0
+
+	c_att_skill_35		MB_ATT_REGEN
+	c_att_names_35		"Stamina Pool Regen (100%)"
+	c_att_ranks_35		1
 	
-	c_att_skill_35		MB_ATT_CLOAK
-	c_att_names_35		"Cloaking Device"
-	c_att_ranks_35		1,1
+	c_att_skill_36		MB_ATT_CLOAK
+	c_att_names_36		"Cloaking Device"
+	c_att_ranks_36		1,1
 	
-	c_att_skill_36		MB_ATT_STIMPACK
-	c_att_names_36		"Stimpak"
-	c_att_ranks_36		1
+	c_att_skill_37		MB_ATT_STIMPACK
+	c_att_names_37		"Stimpak"
+	c_att_ranks_37		1
 	
-	c_att_skill_37		MB_ATT_DEXTERITY
-	c_att_names_37		"Dexterity"
-	c_att_ranks_37		0,0,1
+	c_att_skill_38		MB_ATT_DEXTERITY
+	c_att_names_38		"Dexterity"
+	c_att_ranks_38		0,0,1
 	
-	c_att_skill_38		MB_ATT_SPY_DISGUISE
-	c_att_names_38		"Disguise ^3[Melee Weap Mode]"
-	c_att_ranks_38		1,1,0
+	c_att_skill_39		MB_ATT_SPY_DISGUISE
+	c_att_names_39		"Disguise ^3[Melee Weap Mode]"
+	c_att_ranks_39		1,1,0
 	
-	c_att_skill_39		MB_ATT_POISON_DART
-	c_att_names_39		"Poison Dart ^3[CS3]"
-	c_att_ranks_39		1
+	c_att_skill_40		MB_ATT_POISON_DART
+	c_att_names_40		"Poison Dart ^3[Melee CS1]"
+	c_att_ranks_40		1
 }
 
 WeaponInfo0
@@ -266,7 +274,7 @@ WeaponInfo3
 	customammo			50
 	ratemod				0.2
 	velocityMod			1.5
-	ReloadTimeModifier	1.25
+	ReloadTimeModifier	1.3
 }
 
 WeaponInfo4
@@ -314,6 +322,7 @@ Multi-life elite troopers specializing in assassination.
 -- Chain Limit: 2
 -- EX Saber Training (1)
 -- Shocks/poisons on hit
+-- Saber Throw ^3[CS1]
 - Sith Blaster Pistol (2)
 -- 25% more charged FP damage
 - Thermal Grenades (2)
@@ -327,5 +336,5 @@ Multi-life elite troopers specializing in assassination.
 - Tracking Beacon
 
 ^3Abilities:
-- Dodge (3) ^3[CS1]
-- Dex Roll ^3[CS2]"
+- Dex Roll ^3[CS2]
+- Dodge (3) ^3[CS4]"
