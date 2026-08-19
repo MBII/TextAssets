@@ -8,9 +8,9 @@ ClassInfo
 
 	weapons				WP_MELEE|WP_DC_CARBINE|WP_FRAG_NADE|WP_ROCK_NADE
 	WP_DCCarbineFlags	HELD_ALTRELOAD
-	WP_RockNadeFlags	HELD_KNOCKDOWN|HELD_EXPLOSIVE|HELD_FORCEFOCUS|HELD_POISON
+	WP_RockNadeFlags	HELD_FORCEFOCUS|HELD_POISON
 
-	attributes			MB_ATT_AMMO,1|MB_ATT_DC_CARBINE,1|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH_JUMP|MB_ATT_ROCK_NADE,6
+	attributes			MB_ATT_AMMO,1|MB_ATT_DC_CARBINE,1|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH_JUMP|MB_ATT_ROCK_NADE,8
 
 	maxhealth			90
 
@@ -54,12 +54,11 @@ ClassInfo
 	//BOTH_FORCEWALLRUNFLIP_ALT
 	//BOTH_FORCEWALLRUNFLIP_END
 
-	model				"salaciouscrumb"
+	model			"salaciouscrumb"
 	skin				"default"
-	uishader			"models/players/salaciouscrumb/mb2_icon_default"
-	modelscale			.63
-	uioverlay_r			"gfx/icons/infantry"
-	uioverlay_l			"gfx/icons/brawler"
+	uishader	"models/players/salaciouscrumb/mb2_icon_default"
+	modelscale		.63
+	uioverlay			"gfx/icons/brawler"
 
 	isCustomBuild		1
 	mbPoints			3
@@ -125,23 +124,32 @@ WeaponInfo1
 	WeaponBasedOff		WP_FRAG_NADE
 	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
 	NewViewModel		"models/weapons2/stone/thermal.md3"
+
 	Icon				"gfx/hud/w_icon_stone"
 	WeaponName			"..."
 
 	AltMissileModel		"models/weapons2/stone/thermal_proj.md3"
 	AltMuzzleEffect				null
-	AltMissileEffect			"stone/missile1"
+	AltMissileEffect			 "stone/missile1" 
 	AltMissileMissEffect		"materials/mud_large"
 	AltMissileHitHumanEffect	"materials/mud_large"
 	AltMissileHitDroidEffect	"materials/mud_large"
 	AltFlashSound0		"sound/weapons/stone/fire.mp3"
 
 	MissileModel		"models/weapons2/stone/thermal_proj.md3"
-	MuzzleEffect		null
-	MissileEffect		"stone/missile1"
-	FlashSound0			"sound/weapons/stone/fire.mp3"
+	MuzzleEffect				null
+	MissileEffect	 	 "stone/missile1" 
+	MissileMissEffect		"materials/mud_large"
+	MissileHitHumanEffect	"materials/mud_large"
+	MissileHitDroidEffect	"materials/mud_large"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
 
-	splashRadius		6.4
+ chargeSound 	"sound/weapons/rock_nade/ewok_charge.mp3"
+
+ altFireEnabled 0
+ damageMod 30
+	splashRadius		15
+ rateMod .85
 
 	hasAnimOverrides	1
 	animReadyRun		BOTH_TRIPLE3_DUALSTANCE
@@ -189,9 +197,12 @@ Cackling pests with nothing better to do than annoy anyone they see. Heard any g
 -- 50% more velocity
 -- 175% slower RoF
 -- 10% slower mag reload
-- ... (6)
+- ... (8) (Rock)
 -- Poisons/focuses on hit
--- 5% larger splash
+-- 2900% more damage
+-- 15% faster RoF
+-- 1400% larger splash
+-- Primary fire only
 - Foraged Class B Frag Grenade (1)
 -- 28% smaller splash
 -- Primary fire only
@@ -210,8 +221,8 @@ Cackling pests with nothing better to do than annoy anyone they see. Heard any g
 - 75% slower skill cooldown
 
 ^3Abilities:
-- Infectious Laughter ^3[Taunt Jedi]
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
+- Infectious Laughter ^3[Taunt Jedi]
 
 Turn over for nutritional information."
