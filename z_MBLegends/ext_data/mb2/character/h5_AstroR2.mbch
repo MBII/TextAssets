@@ -5,76 +5,71 @@ ClassInfo
 	MBClass				MB_CLASS_BATTLEDROID
 	classNumberLimit	1
 
-	weapons				WP_MELEE|WP_SABER|WP_THROWER
-	WP_MeleeFlags		HELD_SLOW
-	WP_SaberFlags		HELD_STUN|HELD_NODISARM
-	WP_ThrowerFlags		HELD_ALTRELOAD|HELD_NODISARM
+	weapons WP_MELEE|WP_THROWER|WP_WELDER|WP_FRAG_NADE
+	WP_MeleeFlags HELD_SLOW
+ WP_WelderFlags HELD_NODISARM|HELD_PULSE
+ WP_ThrowerFlags HELD_FLAME|HELD_NODISARM
 
-	attributes			MB_ATT_JETPACK,1|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISP_BLOCK,2|MB_ATT_DISP_FORCE,2|MB_ATT_DISP_ARMOR,2|MB_ATT_THROWER_FLAME|MB_ATT_USE_DISTANCE,1|MB_ATT_FLIPKICK,1|MB_ATT_HEALING,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ENV_PROT,1|MB_ATT_BARGE,1|MB_ATT_FAKE_WOOKIEE
+ attributes	MB_ATT_JETPACK,1|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISP_BLOCK,2|MB_ATT_DISP_FORCE,2|MB_ATT_THROWER_FLAME|MB_ATT_USE_DISTANCE,1|MB_ATT_HEALING,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ENV_PROT,1|MB_ATT_BARGE,3|MB_ATT_WELDER,1
 
-	forcepowers			FP_SEE,1|FP_PUSH,1|FP_SPEED,3|FP_LIGHTNING,1
+	forcepowers	FP_SEE,1|FP_PUSH,1|FP_SPEED,3|FP_LIGHTNING,1
+ AB_FLightningFlags HELD_HIGHDAMAGE
 
-	AB_FLightningFlags	HELD_HIGHDAMAGE
+	damageGiven 1.15
 
-	damageGiven			1.15
+	maxhealth	100
+	maxarmor		40
 
-	maxhealth			100
-	maxarmor			30
+ special1 EAS_HI_WRIST
+	meleespecial1 EAS_HI_WRIST
+	special2	EAS_HI_BARGE
+ meleespecial2 EAS_HI_BARGE
+	special3	EAS_FP_SPEED
+ meleespecial3 EAS_FP_SPEED
+	special4 EAS_FP_LIGHTNING
+ meleespecial4 EAS_FP_LIGHTNING
 
-	special1			EAS_HI_WRIST
-	meleespecial1		EAS_HI_WRIST
-	special2			EAS_HI_BARGE
-	meleespecial2		EAS_HI_BARGE
-	special3			EAS_FP_SPEED
-	special4			EAS_FP_LIGHTNING
+	classflags	CFL_NOLOCATIONALDAMAGE|CFL_STATVIEWER
 
-	classflags			CFL_NOLOCATIONALDAMAGE|CFL_STATVIEWER
+	BPmultiplier 		0
 
-	BPmultiplier		0
-	CSmultiplier		6.5
-	ASmultiplier		6.5
-	saberMaxChain		1
-	saber1				r2_saw_leg
-	saberstyle			SS_STAFF
-	saberdamage			12
+	hackRate 0.80
+	basespeed	218
+	disableGunBash 1
 
-	hackRate			0.80
-	basespeed			218
-	disableGunBash		1
+	special1HUD HUD_WRISTLASER
+	special2HUD HUD_ROCKNADE
 
-	special1HUD			HUD_FRAGNADE
-	special2HUD			HUD_WRISTLASER
+	resource		RESOURCE_FUEL
+	forcepool	45
+	forceregen 0.01
+	resourceRegenAmount 2
+	resourceRegenRate  1000
+	resourceRegenCap 45
 
-	resource			RESOURCE_FUEL
-	forcepool			45
-	forceregen			0.01
-	resourceRegenAmount	2
-	resourceRegenRate	1000
-	resourceRegenCap	45
+	meleeMoves M_KICK
+ kickAnim BOTH_MELEE_JUMP_KICK
+ //getupAnim BOTH_FORCEWALLRUNFLIP_START
+	//tauntAnim BOTH_PAIN1
+	//gloatAnim BOTH_PAIN2
+	//bowAnim BOTH_RUN1STOP
+	//meditateAnim BOTH_RUN1STOP
 
-	meleeMoves			M_KICK|M_JUMPKICK
+	uioverlay_c "gfx/icons/aerial"
+	uioverlay_r "gfx/icons/tactician"
+	uioverlay_l "gfx/2d/hud/hlp_defend"
+	modelscale	.91
+	model		"r2-d2" 				
+	skin			"default"					
+	uishader		"models/players/r2-d2/mb2_icon_default"
 
-	//tauntAnim			BOTH_PAIN1
-	//gloatAnim			BOTH_PAIN2
-	//flourishAnim
-	//bowAnim			BOTH_RUN1STOP
-	//meditateAnim		BOTH_RUN1STOP
+	model_1	"chopper"
+	skin_1		"default"
+	uishader_1	"models/players/chopper/mb2_icon_default"
 
-	uioverlay_c			"gfx/icons/aerial"
-	uioverlay_r			"gfx/icons/tactician"
-	uioverlay_l			"gfx/2d/hud/hlp_defend"
-	modelscale			.91
-	model				"r2-d2"
-	skin				"default"
-	uishader			"models/players/r2-d2/mb2_icon_default"
-
-	model_1				"chopper"
-	skin_1				"default"
-	uishader_1			"models/players/chopper/mb2_icon_default"
-
-	model_2				"r2-d2"
-	skin_2				"bespin_r5"
-	uishader_2			"gfx/um_icons/r5_unit"
+	model_2		"r2-d2"
+	skin_2 		"bespin_r5"
+	uishader_2 	"gfx/um_icons/r5_unit"
 
 	bargeSoundOverride	"sound/chars/r2d2/misc/death1.mp3"
 }
@@ -83,24 +78,20 @@ WeaponInfo0
 {
 	WeaponToReplace		WP_MELEE
 	WeaponBasedOff		WP_MELEE
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/Alpha/HUD_Icon_WhistlingBird"
-	WeaponName			"Prod"
-	primFireEnabled		1
-	AltFireEnabled		1
+	Icon			"gfx/hud/Alpha/HUD_Icon_WhistlingBird"
+	WeaponName		"Body Slam"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	WeaponToReplace		WP_WELDER
+	WeaponBasedOff		WP_WELDER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/menus/alpha/icon_weap_point"
-	WeaponName			"Circular Saw"
-	primFireEnabled		1
-	AltFireEnabled		0
+	Icon			"gfx/hud/w_icon_fc_f187_all"
+	WeaponName		"Arc Welder"
 }
 
 WeaponInfo2
@@ -109,39 +100,38 @@ WeaponInfo2
 	WeaponBasedOff		WP_THROWER
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_cr-24_flamerifle"
-	WeaponName			"Jet Flamethrower"
-	primFireEnabled		1
-	AltFireEnabled		0
-	clipsize			25
-	customammo			500
-	rateMod				2.5
-	reloadTimeModifier	1.5
+	Icon			"gfx/hud/w_icon_cr-24_flamerifle"
+	WeaponName		"Jet Burst"
+	MuzzleEffect			"concussion/muzzle_flash"
+	clipsize 1
+	customammo 30
+ reloadTimeModifier 1200
+ damageMod 11
 }
 
 ForceInfo0
 {
-	ForceToReplace		FP_SEE
-	Icon				"gfx/forcepowers/radar"
-	ForcePowerName		"Passive Radar Scanner"
+	ForceToReplace	FP_SEE
+	Icon		"gfx/forcepowers/radar"
+	ForcePowerName	"Passive Radar Scanner"
 }
 
 ForceInfo1
 {
-	ForceToReplace		FP_PUSH
-	Icon				"gfx/hud/Alpha/HUD_RadarCone"
-	ForcePowerName		"Steam Projector"
-	ConeEffect			"volumetric/smoke_white_leg"
-	StartSound			null
-	LoopSound			null
+	ForceToReplace	FP_PUSH
+	Icon		"gfx/hud/Alpha/HUD_RadarCone"
+	ForcePowerName	"Steam Projector"
+	ConeEffect	"volumetric/smoke_white_leg"
+	StartSound 		null
+	LoopSound 	null
 }
 
 ForceInfo2
 {
-	ForceToReplace		FP_SPEED
-	Icon				"gfx/2d/hud/hlp_escort.tga"
-	ForcePowerName		"Overclock"
-	StartSound			"sound/chars/r2d2/misc/death1.mp3"
+	ForceToReplace	FP_SPEED
+	Icon		"gfx/2d/hud/hlp_escort.tga"
+	ForcePowerName	"Overclock"
+	StartSound "sound/chars/r2d2/misc/death1.mp3"
 }
 
 ForceInfo3
@@ -156,22 +146,19 @@ description	"Astromech Droid
 A plucky support with numerous gadgets.
 
 ^2Weaponry:
-- Prod (Wookiee-style Melee)
+- Body Slam (Limited Melee)
 -- Heavyweight
 -- Secondary fire only
-- Circular Saw (Staff Saber)
--- No Saber/Blaster Block
--- Chain Limit: 1
--- Staggers on hit
--- 95% less damage
--- 50% shorter
--- 66% thicker
-- Jet Flamethrower
--- 150% slower RoF
--- 50% slower mag reload
+- Jet Burst (Flamethrower)
+-- Ignites on hit
+-- 1000% more damage
+-- 11900% slower reload
+- Arc Welder (1)
+-- Shocks on hit
 
 ^5Powers:
 - Steam Projector (Push 1)
+-- Shrouds on use
 - Electroshock Probe (Lightning 1) ^3[CS4]
 -- 100% more damage
 - Overclock (Speed 3) ^3[CS3]
@@ -190,9 +177,8 @@ A plucky support with numerous gadgets.
 - 25% faster hacking
 
 ^3Abilities:
-- Armor/BP/Resource Dispenser (2) ^3[Use]
+- BP/Resource Dispenser (2) ^3[Use]
 -- +1 range
 - Jet Boosters (Jetpack)
-- Mini-Blaster (Wrist Laser) ^3[CS1]
-- Barge (1) ^3[Melee CS2]
-- Headbutt (Flipkick 1) ^3[Contact Jump]"
+- Pocket (Wrist) Laser ^3[CS1]
+- Panic (Barge 3) ^3[Melee CS2]"
