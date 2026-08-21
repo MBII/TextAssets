@@ -1,7 +1,7 @@
-//sb bguard
+
 ClassInfo
 {
-	name				"h7_RebEngie"
+	name				"v7_ImpSpec"
 	MBClass				MB_CLASS_ELITETROOPER
 	extralives			1
 	classNumberLimit	2
@@ -13,7 +13,7 @@ ClassInfo
 	maxhealth			80
 	maxarmor			80
 
-	basespeed			212
+	baseSpeed			212
 
 	resource			RESOURCE_ENERGY
 	forcepool			110
@@ -41,8 +41,8 @@ ClassInfo
 	ASMultiplier		1.05
 	BPMultiplier		0
 
-	WP_TripMineFlags	HELD_SPEED //p
-	WP_DetPackFlags		HELD_SPEED //p
+	WP_TripMineFlags	HELD_SPEED
+	WP_DetPackFlags		HELD_SPEED
 	WP_MeleeFlags		HELD_SPEED
 	WP_PulseNadeFlags	HELD_SPEED
 	//WP_BlasterFlags	HELD_KNOCKBACK
@@ -54,11 +54,11 @@ ClassInfo
 	c_att_skill_0		MB_ATT_SABER
 	c_att_names_0		"Wrench (Cyan Saber)"
 	c_att_ranks_0		0
-	c_att_descs_0		"No Saber/Blaster Block, No Saber Training,
-200% more knockback, 35% shorter, 166% thicker"
+	c_att_descs_0		"No Saber/Blaster Block, No Saber Training, 200% more knockback,
+35% shorter, 166% thicker"
 
 	c_att_skill_1		MB_ATT_TRIP_MINES
-	c_att_names_1		"Trip Mines"
+	c_att_names_1		"Trip Mine"
 	c_att_ranks_1		1,1,1
 	c_att_descs_1		"Lightweight"
 
@@ -68,7 +68,7 @@ ClassInfo
 	c_att_descs_2		"Lightweight"
 
 	c_att_skill_3		MB_ATT_DET_PACK
-	c_att_names_3		"Det Packs"
+	c_att_names_3		"Det Pack"
 	c_att_ranks_3		1,1,1
 	c_att_descs_3		"Lightweight, Damage increases with rank"
 
@@ -77,16 +77,19 @@ ClassInfo
 	c_att_ranks_4		0,0
 	c_att_descs_4		"Lightweight"
 
-	uioverlay_l			"gfx/icons/tactician"
-	uioverlay_r			"gfx/icons/infantry"
+	uioverlay			"gfx/icons/tactician"
 	modelscale			1.01
-	model				"rebel_gag"
-	skin				"default"
-	uishader			"models/players/rebel_gag/mb2_icon_default"
+	model				"imperial_army"
+	skin				"gunner"
+	uishader			"models/players/imperial_army/mb2_icon_gunner"
 
-	model_1				"rebel_gag"
-	skin_1				"grenadier"
-	uishader_1			"models/players/rebel_gag/mb2_icon_grenadier"
+	model_1				"imperial_army"
+	skin_1				"gunner_tech"
+	uishader_1			"models/players/imperial_army/mb2_icon_gunner_tech"
+
+	model_2				"radartech1"
+	skin_2				"default"
+	uishader_2			"models/players/radartech1/mb2_icon_default"
 
 	tauntAnim			BOTH_VICTORY_FAST
 	gloatAnim			BOTH_MAND_PISTOL_MELEE
@@ -97,10 +100,12 @@ WeaponInfo0
 {
 	WeaponToReplace		WP_BLASTER_PISTOL
 	WeaponBasedOff		WP_BLASTER_PISTOL
-	NewWorldModel		"models/weapons2/blaster_two/blaster_pistol_w.glm"
-	NewViewModel		"models/weapons2/blaster_two/blaster_pistol.md3"
-	Icon				"gfx/hud/w_icon_blaster_pistol_2"
-	WeaponName			"DL-44 Engie Blaster Pistol"
+	NewWorldModel		"models/weapons2/se-14c_pistol/blaster_pistol_w.glm"
+	NewViewModel		"models/weapons2/se-14c_pistol/blaster_pistol.md3"
+	Icon				"gfx/hud/w_icon_se-14c"
+	WeaponName			"SE-14C Spec Blaster Pistol"
+	FlashSound0			"sound/weapons/SE-14c/fire.wav"
+	altFlashSound0		"sound/weapons/SE-14c/fire.wav"
 	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
 	customammo			600
 	ratemod				0.65
@@ -111,17 +116,17 @@ WeaponInfo0
 WeaponInfo1
 {
 	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_MANDO_PISTOL
-	NewWorldModel		"models/weapons2/dh-17/dh-17_w.glm"
-	NewViewModel		"models/weapons2/dh-17/dh-17.md3"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
+	WeaponBasedOff		WP_BLASTER
+	NewWorldModel		"models/weapons2/blaster_r/blaster_w_stock.GLM"
+	NewViewModel		"models/weapons2/blaster_r/blaster.md3"
+	MuzzleEffect				"Blaster/MuzzleFlash01R"
+	MissileEffect				"Blaster/Shot01R"
 	altMissileMissEffect		"blobs/concussion"
 	altMissileHitHumanEffect	"blobs/concussion"
 	altMissileHitDroidEffect	"blobs/concussion"
 	FlashSound0			"sound/weapons/blaster/fire.mp3"
-	Icon				"gfx/hud/w_icon_dh-17"
-	WeaponName			"DH-17 Blaster Carbine"
+	Icon				"gfx/hud/w_icon_e11_extendedstock"
+	WeaponName			"E-11 Blaster Carbine"
 	Customammo			500
 	clipsize			50
 	hasAnimOverrides	1
@@ -164,19 +169,19 @@ WeaponInfo3
 	WeaponName			"Wrench"
 }
 
-description	"Rebel Engineer
+description	"Imperial Specialist
 
 Tech-oriented support soldiers.
 
 ^2Weaponry:
 - Melee
 -- Lightweight
-- DL-44 Engie Blaster Pistol (2)
+- SE-14C Spec Blaster Pistol (2)
 -- 35% faster RoF
--- 10% more charged FP damage
+-- 10% more charged FP drain
 -- 10% less damage
-- DH-17 Blaster Carbine (Clone Rifle 1)
--- Concussion/Ion Blobs (8)
+- E-11 Blaster Carbine (Clone Rifle 1)
+-- Concussion/Ion Blob (8)
 
 ^6Inventory:
 - Assault Sentry ^3[CS3] ^5{RC}
