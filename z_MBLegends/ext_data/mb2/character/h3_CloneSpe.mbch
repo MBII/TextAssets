@@ -31,8 +31,7 @@ ClassInfo
 	special4			EAS_HI_GRAPPLEHOOK
 	meleespecial4		EAS_HI_GRAPPLEHOOK
 
-	uioverlay_r			"gfx/icons/infantry"
-	uioverlay_l			"gfx/icons/spec_infantry"
+	uioverlay			"gfx/icons/spec_infantry"
 	modelscale			1.02
 	model				"clonemarine"
 	skin				"default"
@@ -84,7 +83,7 @@ ClassInfo
 	c_att_ranks_1		3,4
 
 	c_att_skill_2		MB_ATT_STRONGBLOBS
-	c_att_names_2		"> DC-15A Ion Blobs"
+	c_att_names_2		"> DC-15A Ion Blob"
 	c_att_ranks_2		1,1,1
 
 	c_att_skill_3		MB_ATT_THROWER
@@ -95,14 +94,14 @@ ClassInfo
 	c_att_skill_4		MB_ATT_MINIGUN
 	c_att_names_4		"Chaingun (Minigun)"
 	c_att_ranks_4		12
-	c_att_descs_4		"130% more velocity, 17% faster RoF, 20% less damage/FP damage"
+	c_att_descs_4		"130% more velocity, 17% faster RoF, 20% less damage/FP drain"
 
 	c_att_skill_5		MB_ATT_PULSE_GRENADES
-	c_att_names_5		"Pulse Grenades"
+	c_att_names_5		"Pulse Grenade"
 	c_att_ranks_5		3,3
 
 	c_att_skill_6		MB_ATT_SONIC_DETONATOR
-	c_att_names_6		"Sonic Detonators"
+	c_att_names_6		"Sonic Detonator"
 	c_att_ranks_6		4,4
 
 	c_att_skill_7		MB_ATT_DMG_GIVEN_MULTIPLIER
@@ -127,7 +126,7 @@ ClassInfo
 	c_att_ranks_17		2,4
 
 	c_att_skill_18		MB_ATT_CLONEBLOBS
-	c_att_names_18		"> DC-15A Conc Blobs"
+	c_att_names_18		"> DC-15A Conc Blob"
 	c_att_ranks_18		1,1,1
 
 	c_att_skill_19		MB_ATT_T21
@@ -137,15 +136,15 @@ ClassInfo
 	c_att_skill_20		MB_ATT_EE4
 	c_att_names_20		"DC-15x Sniper Rifle (EE-4)"
 	c_att_ranks_20		8,7
-	c_att_descs_20		"110% more damage/FP damage, 120% more velocity, 150% slower RoF,
+	c_att_descs_20		"110% more damage/FP drain, 120% more velocity, 150% slower RoF,
 120% slower mag reload"
 
 	c_att_skill_21		MB_ATT_MICRO_GRENADES
-	c_att_names_21		"V-59 Conc Grenades"
+	c_att_names_21		"V-59 Conc Grenade"
 	c_att_ranks_21		2,2
 
 	c_att_skill_22		MB_ATT_FRAGS
-	c_att_names_22		"Frag Grenades"
+	c_att_names_22		"Frag Grenade"
 	c_att_ranks_22		3,3
 
 	c_att_skill_23		MB_ATT_FLOAT_HOP
@@ -166,11 +165,11 @@ ClassInfo
 	c_att_ranks_32		2,5
 
 	c_att_skill_33		MB_ATT_CLONEBLOBS
-	c_att_names_33		"> DC-15A Conc Blobs"
+	c_att_names_33		"> DC-15A Conc Blob"
 	c_att_ranks_33		1,1,1
 
 	c_att_skill_34		MB_ATT_STRONGBLOBS
-	c_att_names_34		"> DC-15A Ion Blobs"
+	c_att_names_34		"> DC-15A Ion Blob"
 	c_att_ranks_34		1,1,1
 
 	c_att_skill_35		MB_ATT_SHOTGUN
@@ -184,7 +183,7 @@ Primary fire only"
 	c_att_ranks_36		0
 
 	c_att_skill_37		MB_ATT_DET_PACK
-	c_att_names_37		"Det Packs"
+	c_att_names_37		"Det Pack"
 	c_att_ranks_37		1,1,1
 
 	c_att_skill_38		MB_ATT_HEALING
@@ -196,7 +195,7 @@ WeaponInfo0
 {
 	WeaponToReplace		WP_MINIGUN
 	WeaponBasedOff		WP_MINIGUN
-	isMinigun			1
+
 	WeaponName			"Chaingun"
 	NewWorldModel		"models/weapons2/z6_rotary/model.glm"
 	NewViewModel		"models/weapons2/z6_rotary/rotary_cannon.md3"
@@ -208,11 +207,14 @@ WeaponInfo0
 	MissileMissEffect	"tusken/hitwall"
 	MissileHitHumanEffect	"tusken/hit"
 	MissileHitDroidEffect	"tusken/hitwall"
+
+	isMinigun			1
 	rateMod				.83
 	damageMod			.8
 	fpmult				.8
 	velocityMod			2.3
 	customAmmo			900
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_DC15_IDLE
 	animReady			BOTH_DC15_IDLE
@@ -232,9 +234,11 @@ WeaponInfo1
 	NewHandsModel		"models/weapons2/mgun/heavy_repeater_hand.md3"
 	Icon				"gfx/hud/w_icon_mgun"
 	WeaponName			"BT X-42 Flamethrower"
+
 	customAmmo			900
 	clipsize			150
 	Damagemod			1.5
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_MINIGUN_READY
 	animReady			BOTH_MINIGUN_READY
@@ -253,6 +257,11 @@ WeaponInfo2
 	NewViewModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
 	Icon				"gfx/hud/w_icon_dlt-18"
 	WeaponName			"DC-15x Sniper Rifle"
+
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+	FlashSound0			"sound/weapons/e_22/fire.mp3"
+	MissileEffect		"Blaster/Shot10B"
+
 	CustomAmmo			128
 	Clipsize			16
 	ratemod				2.5
@@ -260,9 +269,7 @@ WeaponInfo2
 	damagemod			2.1
 	velocityMod			2.2
 	ReloadTimeModifier	2.2
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
-	FlashSound0			"sound/weapons/e_22/fire.mp3"
-	MissileEffect		"Blaster/Shot10B"
+
 }
 
 WeaponInfo3
@@ -273,11 +280,14 @@ WeaponInfo3
 	NewViewModel		"models/weapons2/t-21/t-21.md3"
 	Icon				"gfx/hud/w_icon_t-21"
 	WeaponName			"T-21 Heavy Blaster"
+
 	MissileEffect		"blaster/Shot04B"
 	AltMissileEffect	"blaster/Shot01B"
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+
 	customAmmo			800
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_AMBAN_IDLE
 	animReady			BOTH_AMBAN_IDLE
@@ -291,14 +301,17 @@ WeaponInfo4
 	NewViewModel		"models/weapons2/cp-50_repeater/cp-50_repeater.md3"
 	Icon				"gfx/hud/w_icon_cp-50_repeater"
 	WeaponName			"DP-23 Shotgun"
+
+	MissileEffect		"Blaster/Shot01B"
+	MuzzleEffect		"Blaster/MuzzleFlash01B"
+
 	clipSize			60
 	altFireEnabled		0
 	Customammo			600
 	ReloadTimeModifier	1.2
 	ratemod				0.8
 	damagemod			0.65
-	MissileEffect		"Blaster/Shot01B"
-	MuzzleEffect		"Blaster/MuzzleFlash01B"
+
 	hasAnimOverrides	1
 	animReadyWalk		BOTH_WESTARM5_READY
 	animReadyNoAmmo		BOTH_WESTARM5_ATTACK
@@ -315,6 +328,10 @@ WeaponInfo5
 	NewViewModel		"models/weapons2/fc_f187/f187.md3"
 	Icon				"gfx/hud/w_icon_fc_f187_all"
 	WeaponName			"F-187 Fusioncutter"
+
+	MuzzleEffect			"sparks/spark_exp_nosnd"
+	AltMuzzleEffect			"sparks/spark_exp_nosnd"
+
 	hasAnimOverrides	1
 	animReadyNoAmmo		TORSO_WEAPONREADY0
 	animReadyRun		TORSO_WEAPONREADY0
@@ -323,8 +340,7 @@ WeaponInfo5
 	animAttackRun		BOTH_ATTACK2
 	animAttack			BOTH_ATTACK2
 	animAttackWalk		BOTH_ATTACK2
-	MuzzleEffect			"sparks/spark_exp_nosnd"
-	AltMuzzleEffect			"sparks/spark_exp_nosnd"
+
 }
 
 description "Clone Specialist
