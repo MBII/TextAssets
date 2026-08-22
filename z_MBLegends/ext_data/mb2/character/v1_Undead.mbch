@@ -1,23 +1,23 @@
-
+//dying better
 ClassInfo
 {
 	name				"v1_Undead"
-	MBClass				MB_CLASS_SOLDIER
+	MBClass				MB_CLASS_SOLDIER //SBD
 	extralives			4
-	weapons				WP_MELEE|WP_STUN_BATON
+	weapons				WP_MELEE
 
-	//WP_MeleeFlags		HELD_POISON //HELD_HEAL
-	WP_StunBatonFlags	HELD_LIFESTEAL|HELD_CRIPPLE|HELD_PULL|HELD_POISON|HELD_STUN|HELD_NODISARM //HELD_DISARM
+	WP_MeleeFlags		HELD_LIFESTEAL|HELD_CRIPPLE|HELD_POISON|HELD_STUN| //pull
 
-	attributes			MB_ATT_RALLY|MB_ATT_ASSEMBLE,1|MB_ATT_STUN_BATON,1|MB_ATT_GETUPS,0|MB_ATT_WOOKIEE_FURY,3|MB_ATT_HEALING,1|MB_ATT_BARGE,1|MB_ATT_FAKE_WOOKIEE
-	forcepowers			FP_RAGE,3
+	attributes			MB_ATT_RALLY|MB_ATT_ASSEMBLE,1|MB_ATT_GETUPS,0|MB_ATT_WOOKIEE_FURY,3|MB_ATT_BARGE,1|MB_ATT_FAKE_WOOKIEE| //MB_ATT_HEALING,1
 
-	//HealthRegenCap	200
-	//HealthRegenRate	2000
-	//HealthRegenAmount	-1
-	maxhealth			100
-	maxarmor			25
-	starthealth			5
+	forcepowers			FP_DARKRAGE,3
+
+	maxhealth			150
+	maxarmor			0
+	starthealth			75
+	healthRegenCap	151
+	HealthRegenRate 5000	//13000
+	HealthRegenAmount -5	//-24
 
 	damageTaken			0.25
 	damageGiven			5
@@ -25,107 +25,68 @@ ClassInfo
 	knockbackTaken		0.01
 	knockbackGiven		0.01
 
-	//ResourceRegenCap	25
-	//ResourceRegenAmount	-1
-	//ResourceRegenRate	1000
 	forcepool			70
 	forceregen			2
 	resource			RESOURCE_RAGE
-
-	//meleeknockback_flat	-50
-	//meleeknockback_mult	-22
 
 	baseSpeed			168
 	skilltimermod		1.2
 
 	classflags			CFL_DISMEMBERFRAGILE|CFL_BLOODYMELEE|CFL_NOPICKUPS
 
-	special1			EAS_FP_RAGE
-	meleespecial1		EAS_FP_RAGE
+	special1			EAS_FP_DARKRAGE
+	meleespecial1	EAS_FP_DARKRAGE
 	special2			EAS_HI_BARGE
 	meleespecial2		EAS_HI_BARGE
-	//special3			EAS_FP_HEAL
-	special4			EAS_FP_RAGE
+	special4			EAS_FP_DARKRAGE
+ meleespecial4 EAS_FP_DARKRAGE
 
 	hackRate			4
+	spinEnabled			 0
+	meleeMoves			M_KATA
 
-	disableGunBash		1
+	uioverlay			"gfx/icons/brawler"
 
-	//rateOfFire		101
-
-	spinEnabled			0
-
-	meleeMoves			M_KATA|M_KICK
-
-	modelscale			1
-	uioverlay_r			"gfx/icons/infantry"
-	uioverlay_l			"gfx/icons/brawler"
-	model				"Death_Trooper"
+	model			"Death_Trooper"
 	skin				"default"
-	uishader			"models/players/Death_Trooper/mb2_icon_default"
+	uishader	"models/players/Death_Trooper/mb2_icon_default"
 
-	bargesoundoverride	"Sound/chars/Death_Trooper/misc/taunt3.wav"
-	ragesoundoverride	"Sound/chars/Death_Trooper/misc/falling1.wav"
+	bargesoundoverride	"Sound/chars/Death_Trooper/misc/victory2.wav"
+	ragesoundoverride	"Sound/chars/Death_Trooper/misc/taunt3.wav"
 
 	tauntAnim			BOTH_MAND_DUAL_PISTOLS_ATTACK
 	gloatAnim			BOTH_GUNGAN_TAUNT
 	flourishAnim		BOTH_STEADYSELF1
+ idleAnim BOTH_MAND_DUAL_PISTOLS_ATTACK
 	bowAnim				BOTH_WOOKIEE_RAGE_STAND_IDLE
 	meditateAnim		BOTH_INJURED_TO_COLLAPSED
-	deathAnim			BOTH_INJURED_TO_COLLAPSED
+	deathAnim	BOTH_DEATH17
+ bargeAnim BOTH_MAND_DUAL_PISTOLS_READY
+ gunbashAnim BOTH_WOOKIEE_RAGE_MELEE2
+ crouchAnim BOTH_GRIEVOUS_CRAWL_IDLE //BOTH_MELEE6 
+ //punchAnim BOTH_WOOKIEE_RAGE_MELEE1 BOTH_WOOKIEE_MELEE
 
-	RunForward			BOTH_WOOKIEE_RAGE_RUN
-	RunBackward			BOTH_RUNBACK_DUAL
-	WalkForward			BOTH_WALK_DUAL
-	WalkBackward		BOTH_WALKBACK_DUAL
+	RunForward			BOTH_GRIEVOUS_RUN
+ RunBackward BOTH_GRIEVOUS_RUNBACK
+	WalkForward			BOTH_GRIEVOUS_WALK
+	WalkBackward		BOTH_GRIEVOUS_WALKBACK
 
-	//model_1			"hs_imperial"
+	//model_1		"hs_imperial"
 	//skin_1			"zombie"
-	//uishader_1		"models/players/hs_imperial/mb2_icon_zombie"
+	//uishader_1	"models/players/hs_imperial/mb2_icon_zombie"
 
-	WP_BlasterPistolFlags	HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_BlasterFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_ClonePistolFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_MandoPistolFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_ShotgunFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_EE3Flags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_EE4Flags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_AmbanFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_BowcasterFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_RepeaterFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_CloneRifleFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_MinigunFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_DEMP2Flags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_ThrowerFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_T21Flags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_ProjFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_DisruptorFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_FlechetteFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_M5Flags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_A280Flags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_DLT20AFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_PLX1Flags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_RocketLauncherFlags	HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_RealTDFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_FragNadeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_PulseNadeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_TripMineFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_FireNadeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_SonicNadeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_ConcNadeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_CryoNadeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_DetPackFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_ConcussionFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_BryarOldFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_SBDFlags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_CR2Flags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_E22Flags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_DCCarbineFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_ThermalFlags			HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_TradBowcasterFlags	HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_UGLFlags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_MGLFlags				HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
-	WP_EqualizerFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_SLOWPROJ
+	//meleeknockback_flat	-50
+	//meleeknockback_mult	-22
+
+	//ResourceRegenCap	25
+	//ResourceRegenAmount	-1
+	//ResourceRegenRate	1000
+
+	//maxhealth			200
+	//healthRegenCap	201
+	//HealthRegenRate	25000
+	//HealthRegenAmount	-25
+	//starthealth	75
 }
 
 WeaponInfo0
@@ -134,11 +95,14 @@ WeaponInfo0
 	WeaponBasedOff		WP_MELEE
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_melee"
-	WeaponName			"Zombie Melee"
+
+	Icon				"gfx/hud/w_icon_brains"
+	WeaponName	"Brains............................"
+
 	FlashSound0			"Sound/chars/Death_Trooper/misc/melee.wav"
 	AltFlashSound0		"Sound/chars/Death_Trooper/misc/melee.wav"
-	//damageMod			1.5
+ selectSound "sound/chars/death_trooper/misc/victory1.wav"
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_MAND_DUAL_PISTOLS_READY
 	animReady			BOTH_MAND_DUAL_PISTOLS_READY
@@ -148,19 +112,34 @@ WeaponInfo0
 	animAttack			BOTH_MELEE6
 	animAttackWalk		BOTH_MELEE6
 	animStand			LEGS_CHOKING1
-	damageMod			0.25
+
+	damageMod			0.75
 }
 
-WeaponInfo1
+/* WeaponInfo1
 {
-	WeaponToReplace		WP_STUN_BATON
+	WeaponToReplace		WP_WELDER
 	WeaponBasedOff		WP_STUN_BATON
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	NewHandsModel		"models/weapons2/dummy/dummy.md3"
 	NewBarrelModel		"models/weapons2/dummy/dummy.md3"
+
 	Icon				"gfx/hud/w_icon_brains"
 	WeaponName			"Deadly Squeeze"
+
+ MuzzleEffect "hutt/toxic_breath"  //"world/acid_fizz" //"//"env/acid_splash"
+	MissileMissEffect			null
+	altMissileMissEffect		null
+	MissileHitHumanEffect		null
+	AltMissileHitHumanEffect	null
+	MissileHitDroidEffect		null
+	AltMissileHitDroidEffect	null
+
+	FlashSound0			"Sound/chars/Death_Trooper/misc/melee.wav"
+	AltFlashSound0		"Sound/chars/Death_Trooper/misc/melee.wav"
+ selectSound "sound/chars/death_trooper/misc/pain100.wav"
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_MAND_DUAL_PISTOLS_READY
 	animReady			BOTH_MAND_DUAL_PISTOLS_READY
@@ -170,46 +149,38 @@ WeaponInfo1
 	animAttack			BOTH_HUGGER1
 	animAttackWalk		BOTH_HUGGER1
 	animStand			LEGS_CHOKING1
-	FlashSound0			"Sound/chars/Death_Trooper/misc/melee.wav"
-	AltFlashSound0		"Sound/chars/Death_Trooper/misc/melee.wav"
-	MissileMissEffect			null
-	altMissileMissEffect		null
-	MissileHitHumanEffect		null
-	AltMissileHitHumanEffect	null
-	MissileHitDroidEffect		null
-	AltMissileHitDroidEffect	null
-	rateMod				3.03
-	damageMod			0.8
-}
+
+ altFireEnabled 0
+ rateMod 16.5
+	damageMod			2.5
+} */
 
 description "Undead Trooper
 
-Brains........................
+Stormtroopers mutated into walking corpses via bio-weaponry. Spread the infection to stay alive... or is it stay dead?
 
 ^2Weaponry:
-- Zombie Melee (Wookiee-style)
--- 75% less damage
--- Grab/slap only
-- Deadly Squeeze (Stun Baton 1)
--- Zombifies on hit
--- 20% less damage
--- 203% slower RoF
+- Brains............................ (Melee)
+-- Poisons/staggers/slows/drains on hit
+-- 25% less damage
+-- Barge/gunbash/grab only
 
 ^5Powers:
-- Bio-Frenzy (Rage 3) ^3[CS1/4]
+- Bio-Frenzy (Dark Rage 3) ^3[CS1/4]
 
 ^8Attributes:
 - Reinforcements (4)
 - Healing (1)
--- Starting Health: 5
+-- Starting Health: 75
+-- Health Degen: 5/5s
 - Fury (3)
 -- 100% faster decay
 - Rally
 - Assemble (1)
 - Getup (0)
 - Full Pockets
-- Blasterbound
 - Conservative
+- Wookalike
 - 99% less knockback taken
 - 99% less knockback given
 - 300% slower hacking

@@ -2,16 +2,19 @@
 ClassInfo
 {
 	name				"h8_NRSecDroid"
+	extraLives			1
 	classNumberLimit	3
 	MBClass				MB_CLASS_BATTLEDROID
-	WP_MeleeFlags		HELD_SLOW
-	WP_SaberFlags		HELD_PULSE
-	WP_MinigunFlags		HELD_PULL
-	WP_TripMineFlags	HELD_LOWDAMAGE|HELD_PULL|HELD_DISARM
 
 	weapons				WP_MELEE|WP_SABER|WP_A280|WP_MINIGUN|WP_TRIP_MINE
 
-	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_RECHARGE,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BESKAR,1|MB_ATT_FAKE_WOOKIEE|MB_ATT_A280,2|MB_ATT_MINIGUN,2|MB_ATT_TRIP_MINES,3
+	WP_MeleeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_NODISARM
+	WP_SaberFlags		HELD_PULSE|HELD_NODISARM
+	WP_MinigunFlags		HELD_PULL|HELD_NODISARM
+	WP_TripMineFlags	HELD_LOWDAMAGE|HELD_PULL|HELD_DISARM|HELD_NODISARM
+ WP_A280Flags HELD_ALTRELOAD|HELD_NODISARM
+
+	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_RECHARGE,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BESKAR,1|MB_ATT_A280,2|MB_ATT_MINIGUN,1|MB_ATT_TRIP_MINES,3|MB_ATT_FAKE_WOOKIEE
 
 	resource			RESOURCE_BATTERY
 	forcePowers			FP_PULL,1
@@ -21,18 +24,21 @@ ClassInfo
 	saberStyle			SS_DESANN
 	SaberDamage			70
 	APMultiplier		1.05
-	ASMultiplier		0.95
-	CSMultiplier		0.95
+	ASMultiplier		0.97
+	CSMultiplier		0.97
 	BPMultiplier		0
 	saberMaxChain		1
 	saberStanceAnim		TORSO_WEAPONREADY0
+
 	maxhealth			50
 	maxArmor			175
-	extraLives			1
-	basespeed			187.5
-	rateOfFire_Melee	1.4
+ speed 1.0715
+ meleeknockback_flat 25
+ rateOfFire_Melee 1.65
 
-	meleeMoves			M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_RLKICK
+ //classFlags CFL_HEAVYMELEE
+
+	meleeMoves	M_PUNCH|M_KATA
 
 	special1			EAS_NONE
 	meleespecial1		EAS_NONE
@@ -48,12 +54,14 @@ ClassInfo
 	tauntAnim			TORSO_HANDSIGNAL3
 	WalkForward			BOTH_SBD_WALK1
 	WalkBackward		BOTH_SBD_WALKBACK1
+ punchAnim BOTH_MELEE2
 
 	model				"NRSD"
 	skin				"default"
 	uishader			"models/players/NRSD/mb2_icon_default"
-	uioverlay_l			"gfx/icons/brawler"
-	uioverlay_r			"gfx/icons/infantry"
+	uioverlay_r			"gfx/icons/brawler"
+	uioverlay_l			"gfx/2d/hud/hlp_defend"
+	uioverlay_c			"gfx/2d/hud/hlp_desert_head"
 	modelscale			1.2
 }
 
@@ -73,7 +81,6 @@ WeaponInfo0
 	animAttack			BOTH_WESTARM5_ATTACK
 	animAttackWalk		BOTH_WESTARM5_ATTACK
 	animAttackRun		BOTH_WESTARM5_ATTACK
-	animStand			BOTH_WESTARM5_READY
 	animStand			BOTH_STAND5
 }
 
@@ -83,54 +90,54 @@ WeaponInfo1
 	WeaponBasedOff		WP_MINIGUN
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
+
 	Icon				"models/weapons2/halo_melee/icon.png"
 	WeaponName			"Magnetic Attractor Device"
+	AltFlashSound0		"sound/effects/tractorbeam.mp3"
+	AltFlashSound1		"sound/effects/tractorbeam.mp3"
+	AltFlashSound2		"sound/effects/tractorbeam.mp3"
+	AltFlashSound3		"sound/effects/tractorbeam.mp3"
+	FlashSound0			"sound/effects/tractorbeam.mp3"
+	FlashSound1			"sound/effects/tractorbeam.mp3"
+	FlashSound2			"sound/effects/tractorbeam.mp3"
+	FlashSound3			"sound/effects/tractorbeam.mp3"
 
-	AltFlashSound0		"sound/effects/woosh4.mp3"
-	AltFlashSound1		"sound/effects/woosh4.mp3"
-	AltFlashSound2		"sound/effects/woosh4.mp3"
-	AltFlashSound3		"sound/effects/woosh4.mp3"
-	FlashSound0			"sound/effects/woosh4.mp3"
-	FlashSound1			"sound/effects/woosh4.mp3"
-	FlashSound2			"sound/effects/woosh4.mp3"
-	FlashSound3			"sound/effects/woosh4.mp3"
+	isMinigun			1
 
-	customAmmo			400
-	isMinigun			0
-	damageMod			0.04
+	customAmmo			-1
+	clipSize			100
+
+	damageMod			0.01
+	FPMult				0.01
 	FPBlockMinMult		1
 	FPBlockMaxMult		1
 	FPNoBlockMinMult	1
 	FPNoBlockMaxMult	1
-	FPMult				0.1
-	rateMod				1.85
-	velocityMod			1.6
-	clipSize			50
-	customAmmo			-1
+	rateMod				3
 
-	altMuzzleEffect				null
-	altMissileEffect			"halo_shotgun/shot"
-	altMissileMissEffect		"halo_shotgun/shot"
-	AltMissileHitHumanEffect	"halo_shotgun/shot"
-	AltMissileHitDroidEffect	"halo_shotgun/shot"
+	altMuzzleEffect			"grenades/glowempb"
+	altMissileEffect					"halo_shotgun/shot"
+	altMissileMissEffect		"concussion/alt_ring"
+	AltMissileHitHumanEffect 	"concussion/alt_ring"
+	AltMissileHitDroidEffect	"concussion/alt_ring"
 	AltMissileModel				"models/weapons2/dummy/dummy.md3"
 
-	MuzzleEffect				null
-	MissileEffect				"halo_shotgun/shot"
-	MissileMissEffect			"halo_shotgun/shot"
-	MissileHitHumanEffect		"halo_shotgun/shot"
-	MissileHitDroidEffect		"halo_shotgun/shot"
+	MuzzleEffect	"grenades/glowempb"
+	MissileEffect			"halo_shotgun/shot"
+	MissileMissEffect		"concussion/alt_ring"
+	MissileHitHumanEffect	"concussion/alt_ring"
+	MissileHitDroidEffect	"concussion/alt_ring"
 	MissileModel				"models/weapons2/dummy/dummy.md3"
 	
 	hasAnimOverrides	1
 	animReadyRun		BOTH_MELEE_STAND2
 	animReady			BOTH_MELEE_STAND2
-	animReadyWalk		BOTH_FORCE_DRAIN_START
-	animReadyNoAmmo		BOTH_FORCE_DRAIN_RELEASE
-	animAttackRun		BOTH_FORCE_DRAIN_HOLD
-	animAttack			BOTH_FORCE_DRAIN_HOLD
-	animAttackWalk		BOTH_FORCE_DRAIN_HOLD
-	animCharge			BOTH_FORCE_DRAIN_START
+	animReadyWalk		BOTH_SABERTHROW1STOP
+	animReadyNoAmmo		BOTH_SABERTHROW1STOP
+	animAttackRun	BOTH_SABERTHROW1STOP
+	animAttack		BOTH_SABERTHROW1STOP
+	animAttackWalk		BOTH_SABERTHROW1STOP 
+	animCharge	BOTH_SABERTHROW1STOP
 	animStand			BOTH_STAND1
 }
 
@@ -156,29 +163,33 @@ ForceInfo0
 
 description	"N5 Sentry Droid aka New Republic Security Droid
 
-Patrol units with reinforced armor, equipped to subdue unruly prisoners with standard weaponry and built-in magnetic devices.
+Patrol units with reinforced armor, equipped to subdue unruly prisoners with standard weaponry and built-in magnetics.
 
 ^2Weaponry:
-- Wookiee-style Melee
--- 40% slower RoF
+- Droid Melee
+-- 25% more knockback
+-- 50% less damage
+-- 65% slower RoF
 -- Heavyweight
--- Grab/slap only
+-- Punch/grab only
 - Stun Baton (Purple Saber)
--- No Saber/Blaster Block
+-- No Block
 -- Chain Limit: 1
 -- Shocks on hit
+-- Non-disarmable
 -- 40% shorter
 -- 166% thicker
--- Primary fire only
-- Modified DH-17 (A280) (2)
-- Magnetic Attractor Device (MG) (2)
--- 96% less damage
--- 85% slower RoF
--- 60% more velocity
+- Magnetic Attractor Device (Minigun 1)
 -- Pulls on hit
-- Minature Magnetic Trap Mines (3)
--- 50% less damage
+-- 99% less damage/FP drain
+-- 200% slower RoF
+- Modified DH-17 Blaster Pistol (A280 2)
+-- Non-disarmable
+-- Mag reload
+- Magnetic Trap Mine (3)
 -- Pulls/disarms on det
+-- Non-disarmable
+-- 50% less damage
 
 ^5Powers:
 - Magnetic (Force) Pull ^3[CS4]
@@ -191,6 +202,7 @@ Patrol units with reinforced armor, equipped to subdue unruly prisoners with sta
 - Beskar (1)
 - Blast Armor
 - Assemble (1)
+- Wookalike
 
 ^3Abilities:
 - Shoulder Barge (1) ^3[Melee CS2]"
