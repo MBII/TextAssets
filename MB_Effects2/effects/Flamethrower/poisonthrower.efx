@@ -1,26 +1,22 @@
-repeatDelay				300
-
 Particle
 {
 	flags				expensivePhysics useBBox usePhysics impactFx
 
-	spawnFlags			cheapOrgCalc absoluteAccel evenDistribution
+	spawnFlags			cheapOrgCalc absoluteAccel evenDistribution rgbComponentInterpolation
 
-	life				700
+	life				200
 
-	delay				200
+	delay				0
 
 	min					-1 -1 -1
-
 	max					1 1 1
 
 	origin				1 1 1
 
 	rotation			1
-
 	rotationDelta		20
 
-	velocity			320 10 10 400 10 10
+ velocity			1500 24 24 750 24 24
 
 	acceleration		10 10 10 50 10 10
 
@@ -32,6 +28,7 @@ Particle
 
 	alpha
 	{
+		start			0.5 0.6
 		end				0
 		parm			80 90
 		flags			linear nonlinear
@@ -39,7 +36,7 @@ Particle
 
 	size
 	{
-		end				35 60
+		end				50 80
 		flags			linear
 	}
 
@@ -48,8 +45,26 @@ Particle
 		gfx/effects/poison_smoke
 	]
 
-	impactfx
-	[
-		flamethrower/poisoned
-	]
 }
+
+Light
+{
+	name				light
+
+	spawnFlags			rgbComponentInterpolation
+
+	life				20 30
+
+	rgb
+	{
+		start			0.5412 0.6706 0.01961
+		flags			linear
+	}
+
+	size
+	{
+		start			10 30
+		end				30
+	}
+}
+
