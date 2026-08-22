@@ -4,12 +4,22 @@ ClassInfo
 	name				"h5_NiteOwl"
 	classNumberLimit	2
 	MBClass				MB_CLASS_MANDALORIAN
-	weapons				WP_MELEE|WP_SONIC_NADE|WP_SABER
-	attributes			MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_ROCKET,1|MB_ATT_WRISTLASER|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_BESKAR,2|MB_ATT_TRACKING_BEACON|MB_ATT_SONIC_DETONATOR,1|MB_ATT_BLAST_ARMOUR
+
+	weapons				WP_MELEE|WP_SABER
+
+	WP_E22Flags				HELD_ALTRELOAD
+	WP_BlasterFlags			HELD_ALTRELOAD|HELD_IGNOREBLOCK|HELD_POISON
+	WP_DLT20AFlags			HELD_ALTRELOAD
+	WP_BlasterPistolFlags	HELD_ALTRELOAD
+	WP_ProjFlags			HELD_ALTRELOAD|HELD_DISRUPTIFY
+
+	attributes			MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_ROCKET,1|MB_ATT_WRISTLASER|MB_ATT_DEXTERITY,3|MB_ATT_FUEL,3|MB_ATT_BESKAR,2|MB_ATT_TRACKING_BEACON|MB_ATT_DASH,1|MB_ATT_BLAST_ARMOUR|MB_ATT_THROWER_LIGHTNING
 
 	speed				1.10
 	maxhealth			80
+	rankhealth		120
 	maxarmor			80
+	rankArmor		120
 
 	saber1				Legends_Knife_Spy
 	saberstyle			SS_TAVION
@@ -17,7 +27,7 @@ ClassInfo
 	saberstyle_1		SS_TAVION
 
 	BPmultiplier		0
-	saberdamage			100
+	saberdamage			90
 
 	uioverlay			"gfx/icons/aerial"
 	uishader			"models/players/deathwatch/mb2_icon_default"
@@ -30,7 +40,6 @@ ClassInfo
 	customred_1			0.24
 	customgreen_1		0.36
 	customblue_1		0.45
-
 	modelscale			1.03
 
 	resource			RESOURCE_STAMINA
@@ -39,9 +48,6 @@ ClassInfo
 	resourceRegenAmount	1
 	resourceRegenRate	5000
 
-	WP_DLT20AFlags			HELD_ALTRELOAD
-	WP_BlasterPistolFlags	HELD_ALTRELOAD
-	WP_ProjFlags			HELD_ALTRELOAD|HELD_DISRUPTIFY
 
 	special1			EAS_HI_ROCKET
 
@@ -49,41 +55,85 @@ ClassInfo
 	special4			EAS_HI_WHISTLING_BIRDS
 
 	isCustomBuild		1
-	mbPoints			6
+	mbPoints			7
+	hasCustomSpec		2
+	isOnlyOneSpec		1
+	customSpecName_1	"Vanguard"
+	customSpecIcon_1	"gfx/menus/alpha/icon_weap_damage"
+	customSpecDesc_1	""
+	customSpecName_2	"Marksman"
+	customSpecIcon_2	"gfx/menus/alpha/icon_weap_accuracy"
+	customSpecDesc_2	""
 
-	c_att_skill_0		MB_ATT_PISTOL
-	c_att_names_0		"DT-29 Six Shooter (Pistol)"
+	c_att_skill_0		MB_ATT_BLASTER
+	c_att_names_0		"P. Throw. Knives (3) (Blaster)"
 	c_att_ranks_0		2
-	c_att_descs_0		"60% more damage, 60% more FP damage, 30% more velocity,
-30% slower RoF"
+	c_att_descs_0		"Ignores block, Poisons on hit, 60% less damage,
+100% slower mag reload"
 
-	c_att_skill_1		MB_ATT_CLONERIFLE
-	c_att_names_1		"Concordian Repeater (CR)"
-	c_att_ranks_1		3
-	c_att_descs_1		"20% more damage, 10% more FP damage, 10% more velocity,
+	c_att_skill_1		MB_ATT_E_22
+	c_att_names_1		"Repeater Pistol (E-22)"
+	c_att_ranks_1		2
+	c_att_descs_1		"10% more velocity, 15% less damage, Mag reload"
+
+	c_att_skill_2		MB_ATT_CLONERIFLE
+	c_att_names_2		"Concordian Repeater (CR)"
+	c_att_ranks_2		3
+	c_att_descs_2		"20% more damage, 10% more FP drain, 10% more velocity,
 50% faster RoF, 5000% slower reload"
 
-	c_att_skill_2		MB_ATT_DLT20A
-	c_att_names_2		"GALAAR-15 Carbine (DLT)"
-	c_att_ranks_2		1,2,0
-	c_att_descs_2		"15% more FP damage, 20% more velocity, 40% slower mag reload"
+	c_att_skill_3		MB_ATT_THROWER
+	c_att_names_3		"Arc Caster (Pulsethrower)"
+	c_att_ranks_3		1
+	c_att_descs_3		"20% more damage"
 
-	c_att_skill_3		MB_ATT_PROJECTILE_RIFLE
-	c_att_names_3		"Kingpin Projectile Rifle"
-	c_att_ranks_3		5
-	c_att_descs_3		"10% more FP damage, 10% less damage, 100% slower mag reload"
+	c_att_skill_4		MB_ATT_DLT20A
+	c_att_names_4		"GALAAR-15 Carbine (DLT)"
+	c_att_ranks_4		1,2,0
+	c_att_descs_4		"20% more velocity, 15% more FP drain, 40% slower mag reload"
 
-	c_att_skill_4		MB_ATT_RESPAWNS
-	c_att_names_4		"Reinforcement"
-	c_att_ranks_4		2
-
-	c_att_skill_5		MB_ATT_DASH
-	c_att_names_5		"Dash ^3[CS3]"
+	c_att_skill_5		MB_ATT_SONIC_DETONATOR
+	c_att_names_5		"Sonic Detonator"
 	c_att_ranks_5		0,1
 
-	c_att_skill_6		MB_ATT_WHISTLINGBIRD
-	c_att_names_6		"Whistling Birds ^3[CS4]"
-	c_att_ranks_6		1
+	c_att_skill_6		MB_ATT_RESPAWNS
+	c_att_names_6		"Reinforcement"
+	c_att_ranks_6		2
+
+
+	c_att_skill_15		MB_ATT_PISTOL
+	c_att_names_15		"DT-29 Six Shooter (Pistol)"
+	c_att_ranks_15		2
+	c_att_descs_15		"60% more damage, 60% more FP drain, 30% more velocity,
+30% slower RoF, Mag reload"
+
+	c_att_skill_16		MB_ATT_E_22
+	c_att_names_16		"Repeater Pistol (E-22)"
+	c_att_ranks_16		1,0,2
+	c_att_descs_16		"10% more velocity, 15% less damage, Mag reload"
+
+	c_att_skill_17		MB_ATT_TRAD_BOWCASTER
+	c_att_names_17		"Kryze Echo-Bolter (Trad Bow)"
+	c_att_ranks_17		3,0,0
+	c_att_descs_17		"50% faster RoF, 20% less damage, Primary fire only"
+
+	c_att_skill_18		MB_ATT_PROJECTILE_RIFLE
+	c_att_names_18		"Kingpin Projectile Rifle"
+	c_att_ranks_18		3
+	c_att_descs_18		"2 shots per reload, 10% more FP drain, 10% less damage,
+100% slower mag reload"
+
+	c_att_skill_19		MB_ATT_HEALTH
+	c_att_names_19		"Health (120)"
+	c_att_ranks_19		1
+
+	c_att_skill_20		MB_ATT_ARMOUR
+	c_att_names_20		"Armor (120)"
+	c_att_ranks_20		1
+
+	c_att_skill_21		MB_ATT_WHISTLINGBIRD
+	c_att_names_21		"Whistling Birds ^3[CS4]"
+	c_att_ranks_21		1
 }
 
 WeaponInfo0
@@ -92,16 +142,30 @@ WeaponInfo0
 	WeaponBasedOff		WP_BLASTER
 	NewWorldModel		"models/weapons2/kotor_brifle1/kotor_brifle1_w.glm"
 	NewViewModel		"models/weapons2/kotor_brifle1/kotor_brifle1.md3"
+
 	Icon				"gfx/hud/w_icon_kotor_brifle1"
+	WeaponName			"GALAAR-15 Blaster Carbine"
+
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
+
 	MissileEffect		"blaster/Shot03B"
 	AltMissileEffect	"blaster/Shot03B"
+
+ MissileHitHumanEffect "blaster/bounce01b"
+ AltMissileHitHumanEffect "blaster/bounce01b"
+
+ MissileHitDroidEffect "blaster/bounce01b"
+ AltMissileHitDroidEffect "blaster/bounce01b"
+
+ MissileMissEffect "blaster/bounce01b"
+ AltMissileMissEffect "blaster/bounce01b"
+
 	FlashSound0			"sound/weapons/dc17m/fire.wav"
 	AltFlashSound0		"sound/weapons/dc17m/alt_fire.wav"
-	WeaponName			"GALAAR-15 Blaster Carbine"
 	SelectSound			"sound/weapons/dc17m/select.mp3"
-	customammo			800
+
+	customammo			1000
 	clipsize			60
 	FPMult				1.15
 	velocityMod			1.2
@@ -116,10 +180,12 @@ WeaponInfo1
 	NewViewModel		"models/weapons2/bp_dt29/dt29.md3"
 	NewHandsModel		"models/weapons2/bp_dt29/dt29_hand.md3"
 	NewBarrelModel		"models/weapons2/bp_dt29/dt29_barrel.md3"
+
 	Icon				"gfx/hud/w_icon_dt29"
+	WeaponName			"DT-29 Six Shooter"
+
 	MuzzleEffect		"Blaster/MuzzleFlash01B"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01B"
-	WeaponName			"DT-29 Six Shooter"
 	MissileEffect		"blaster/shot03b"
 	Missile3Effect		"blaster/shot10b"
 	AltMissileEffect	"blaster/shot10b"
@@ -127,6 +193,7 @@ WeaponInfo1
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
 	FlashSound0			"sound/weapons/LPA_NN-14/fire.wav"
 	altFlashSound0		"sound/weapons/LPA_NN-14/alt_fire.wav"
+
 	hasAnimOverrides	1
 	animStand			BOTH_STAND9
 	animReadyRun		BOTH_MAND_PISTOL_READY
@@ -135,7 +202,7 @@ WeaponInfo1
 	animAttackRun		BOTH_MAND_PISTOL_ATTACK
 	animAttack			BOTH_MAND_PISTOL_ATTACK
 	animAttackWalk		BOTH_MAND_PISTOL_ATTACK
-	customAmmo			800
+
 	clipsize			6
 	FPMult				1.6
 	rateMod				1.3
@@ -150,11 +217,14 @@ WeaponInfo2
 	WeaponBasedOff		WP_CLONE_RIFLE
 	NewWorldModel		"models/weapons2/mandoAR/mandoAR.glm"
 	NewViewModel		"models/weapons2/mandoAR/mandoAR.md3"
+
 	Icon				"gfx/hud/w_icon_mandoAr"
 	WeaponName			"Concordian Repeater"
+
 	MissileEffect		"Blaster/Shot02Y"
 	MuzzleEffect		"Blaster/MuzzleFlash01Y"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01Y"
+
 	customAmmo			800
 	clipsize			8
 	FPMult				1.1
@@ -163,20 +233,24 @@ WeaponInfo2
 	velocityMod			1.1
 	damageMod			1.2
 }
+
 WeaponInfo3
 {
 	WeaponToReplace		WP_PROJ
 	WeaponBasedOff		WP_PROJ
 	NewWorldModel		"models/weapons2/me3-widow/disruptor_w.glm"
 	NewViewModel		"models/weapons2/me3-widow/disruptor.md3"
+
 	Icon				"Gfx/MPLevels/ultimate_showdown/widow_na.png"
 	WeaponName			"Kingpin Projectile Rifle"
+
 	MuzzleEffect		"Blaster/MuzzleFlash01Y"
 	AltMuzzleEffect		"Blaster/MuzzleFlash01Y"
 	FlashSound0			"sound/weapons/halo_beamrifle/fire.wav"
 	FlashSound1			"sound/weapons/halo_beamrifle/fire1.wav"
 	FlashSound2			"sound/weapons/halo_beamrifle/fire2.wav"
 	FlashSound3			"sound/weapons/halo_beamrifle/fire3.wav"
+
 	CustomAmmo			30
 	clipsize			2
 	damageMod			0.9
@@ -190,11 +264,106 @@ WeaponInfo4
 	WeaponBasedOff		WP_SABER
 	NewWorldModel		"models/weapons2/vibroknife/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
+
 	Icon				"gfx/hud/w_icon_prisonknife"
 	WeaponName			"Vibroknife"
 }
 
-description	"Nite Owl Mandalorian
+WeaponInfo5
+{
+	WeaponToReplace		WP_E_22
+	WeaponBasedOff		WP_E_22
+	NewWorldModel		"models/weapons2/a180/a180_w.glm"
+	NewViewModel		"models/weapons2/a180/a180.md3"
+
+	Icon				"gfx/hud/w_icon_a180"
+	WeaponName			"Repeater Pistol"
+
+	damageMod			0.85
+	velocityMod			1.1
+	clipSize			20
+
+	hasAnimOverrides	1
+	animStand			BOTH_PISTOL_IDLE2
+	animReady			BOTH_PISTOL_IDLE2
+	animReadyWalk		BOTH_PISTOL_READY
+	animAttack			BOTH_PISTOL_ATTACK
+	animAttackWalk		BOTH_PISTOL_ATTACK
+	animReadyRun		BOTH_PISTOL_IDLE2
+	animAttackRun		BOTH_PISTOL_ATTACK
+}
+
+WeaponInfo6
+{
+	WeaponToReplace		WP_BLASTER
+	WeaponBasedOff		WP_BLASTER
+	NewWorldModel		"models/weapons2/Kunai/saber_w.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	MissileEffect			"bow/whoosh"
+	MissileMissEffect		"needler/wall_impact"
+	MissileHitHumanEffect	"needler/shot"
+	FlashSound0			"sound/weapons/knife/knifeswing2.wav"
+	MuzzleEffect			"null"
+
+	Icon					"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Poison-Tipped Throwing Knives"
+
+	hasAnimOverrides	1
+	animReady			BOTH_SABER_OBIWAN_STANCE
+	animReadyWalk		BOTH_SABER_OBIWAN_STANCE
+	animReadyNoAmmo		BOTH_TUSKENTAUNT1
+	animAttack			BOTH_THERMAL_THROW2
+	animAttackWalk		BOTH_THERMAL_THROW2
+	animStand			BOTH_THERMAL_READY2
+	animReadyRun		BOTH_SABER_OBIWAN_STANCE
+	animAttackRun		BOTH_THERMAL_THROW2
+
+	clipSize			2
+	customAmmo			4
+	reloadTimeModifier	2
+	primGore			1
+	damageMod			0.4
+}
+
+WeaponInfo7
+{
+	WeaponToReplace		WP_THROWER
+	WeaponBasedOff		WP_THROWER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+
+	Icon				"gfx/marvel/maghand"
+	WeaponName			"Kelborn Arc Caster"
+
+	damageGiven			1.2
+	clipsize			50
+
+	hasAnimOverrides	1
+	animReady			BOTH_FORCE_2HANDEDLIGHTNING_START
+	animReadyWalk		BOTH_FORCE_2HANDEDLIGHTNING_START
+	animReadyNoAmmo		BOTH_FORCE_2HANDEDLIGHTNING
+	animStand			BOTH_FORCE_2HANDEDLIGHTNING_START
+	animAttack			BOTH_MAND_FLAME_READY
+	animAttackWalk		BOTH_MAND_FLAME_READY
+	animReadyRun		BOTH_FORCE_2HANDEDLIGHTNING_START
+	animAttackRun		BOTH_MAND_FLAME_READY
+}
+
+WeaponInfo8
+{
+	WeaponToReplace		WP_TRAD_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/kotor_bowcaster1/kotor_bowcaster1_w.glm"
+	NewViewModel		"models/weapons2/kotor_bowcaster1/kotor_bowcaster1.md3"
+	Icon				"gfx/hud/w_icon_kotor_bowcaster1"
+	WeaponName			"Kryze Echo-Bolter"
+
+	rateMod				0.5
+	altfireenabled		0
+	damageMod			0.8
+}
+
+description "Nite Owl Mandalorian
 
 Eagle-eyed sharpshooters with Jetpacks.
 
@@ -203,7 +372,6 @@ Eagle-eyed sharpshooters with Jetpacks.
 - Vibroknife (Cyan Saber)
 -- No Saber/Blaster Block
 -- 60% shorter
-- Sonic Detonator (1)
 
 ^8Attributes:
 - Stamina (0)

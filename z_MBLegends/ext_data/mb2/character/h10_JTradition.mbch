@@ -1,84 +1,92 @@
-
-
 ClassInfo
 {
-	name				"h10_JTradition"
-	MBClass				MB_CLASS_JEDI
+	name			"h10_JTradition"
+	MBClass		MB_CLASS_JEDI
 	classNumberLimit	1
 
-	weapons				WP_MELEE|WP_SABER
-	WP_SaberFlags		HELD_NODISARM
-	attributes			MB_ATT_FORCEBLOCK,1|MB_ATT_DEFLECT,3|MB_ATT_FORCEFOCUS,1|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_HEALING,1
+	weapons			WP_MELEE|WP_SABER
 
-	forcepowers			FP_SABER_OFFENSE,3|FP_LEVITATION,2|FP_PUSH,3|FP_PULL,2|FP_PROTECT,2|FP_SEE,3|FP_SABERTHROW,2
+ WP_SaberFlags HELD_NODISARM
+ WP_MeleeFlags HELD_LOWDAMAGE
 
-	speed				0.985
-	forcepool			160
-	forceregen			1.075
-	maxhealth			120
-	rateOfFire_Melee	0.9
-	damageGiven			1.1
-	saberstyle			SS_MEDIUM|SS_STRONG|SS_TAVION
-	saberDamageStyle	SS_TAVION,130|SS_STRONG,300|SS_MEDIUM,240
-	BPmultiplier		0.9
-	APmultiplier		0.75
-	ASmultiplier		0.97
-	saberThrowDamage	40
-	saberSpecialDamage	1.25
-	classflags			CFL_NOPICKUPS
+	attributes		MB_ATT_FORCEBLOCK,1|MB_ATT_DEFLECT,3|MB_ATT_FORCEFOCUS,1|MB_ATT_GUN_DEFENSE,3|MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_HEALING,1
 
-	//special1			EAS_FP_SABERTHROW
-	special2			EAS_NONE
-	special4			EAS_FP_PROTECT
+	forcepowers		FP_SABER_OFFENSE,3|FP_LEVITATION,2|FP_PUSH,2|FP_PULL,1|FP_SEE,3|FP_SABERTHROW,2|FP_ABSORB,1
 
-	saber1				saber_jocasta
-	sabercolor			4
+	basespeed	225
+
+	forcepool	140
+	forceregen 1.1
+
+	maxhealth	130
+	skilltimermod .9
+
+ rateOfFire_Melee 1.3
+
+ damageGiven 1.5
+
+	saberstyle		SS_MEDIUM|SS_FAST|SS_STRONG
+	saberDamageStyle SS_FAST,130|SS_MEDIUM,240|SS_STRONG,300
+	BPmultiplier	0.85
+	APmultiplier	0.85
+	saberThrowDamage 40
+ saberSpecialDamage 1.25
+
+	classflags CFL_NOPICKUPS
+
+	//special1 EAS_FP_SABERTHROW
+ special2 EAS_FP_ABSORB
+	
+	saber1			saber_jocasta
+	sabercolor		4
 
 	saber1_1			saber_luminara
 	sabercolor_1		3
 
 	saber1_2			depa
 	sabercolor_2		3
-
+	
 	saber1_3			saber_depa_tcw
 	sabercolor_3		0.63
 
-	uioverlay			"gfx/icons/support"
-	model				"JocastaNu"
-	skin				"default"
-	uishader			"models/players/JocastaNu/mb2_icon_default"
-
-	model_1				"luminara"
-	skin_1				"default"
-	uishader_1			"models/players/luminara/mb2_icon_default"
-
-	model_2				"sabe"
-	skin_2				"depabillaba"
-	uishader_2			"models/players/sabe/mb2_icon_depabillaba"
+	uioverlay "gfx/icons/support"
+	model   "JocastaNu"
+	skin		 	"default"
+	uishader  	"models/players/JocastaNu/mb2_icon_default"
+	
+	model_1	"luminara"
+	skin_1		"default"
+	uishader_1	"models/players/luminara/mb2_icon_default"
+	
+	model_2	"sabe" 					
+	skin_2		"depabillaba"					
+	uishader_2	"models/players/sabe/mb2_icon_depabillaba"
 }
 
 description	"Jedi Traditionalist
 
-A master who eschews dueling prowess for strong Force powers and excellent defense against blasters.
+A master who eschews dueling prowess in favor of superior blaster countering. Deflects deal increased damage.
 
 ^2Weaponry:
 - Melee
--- 10% faster RoF
-- Lightsaber (Yellow/Red/Cyan)
+-- 50% less damage
+-- 30% slower RoF
+- Lightsaber (Yellow/Blue/Red)
 -- Saber Defense (2)
 -- Blaster Defense/Deflect (3)
--- 42% less Red/8% more Cyan damage
+-- 42% less Red/8% more Blue damage
 -- 25% more special damage
 -- EX Saber Throw (2) ^3[CS1]
 --- 33% more damage
 
 ^5Force Powers:
 - Jump (2)
-- Push (3)
-- Pull (2)
+- Push (2)
+- Pull (1)
 - Sense (3)
-- Protect (2) ^3[CS4]
+- Absorb (1) ^3[CS2]
 
 ^8Attributes:
 - Healing (1)
-- Force Block/Focus (1)"
+- Force Block/Focus (1)
+- 10% faster skill cooldown"
