@@ -7,11 +7,11 @@ Classinfo
 
 	weapons				WP_MELEE|WP_SABER|WP_T21|WP_PULSE_NADE|WP_REPEATER
 
-	attributes			MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE,3|MB_ATT_REPEATER,3
+	attributes			MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE,3|MB_ATT_REPEATER,3|MB_ATT_QUICKTHROW,3
 
 	WP_MeleeFlags		HELD_HIGHDAMAGE|HELD_SLIPPERY
 	WP_SaberFlags		HELD_KNOCKDOWN|HELD_NODISARM|HELD_SLIPPERY
-	WP_PulseNadeFlags	HELD_DISRUPTIFY|HELD_HIGHDAMAGE
+	WP_PulseNadeFlags	HELD_HIGHDAMAGE
 	WP_T21Flags			HELD_LOWDAMAGE
 	WP_RepeaterFlags	HELD_BACTA|HELD_NODISARM|HELD_ALTRELOAD
 	//WP_MGLFlags		HELD_BACTA
@@ -32,7 +32,6 @@ Classinfo
 	saberSpecialDamage	2
 	saberMaxChain		1
 	saberDamage			40
-	CSmultiplier		1.27
 	ASmultiplier		1.3
 	BPmultiplier		0
 
@@ -58,7 +57,7 @@ Classinfo
 
 	hackRate			2
 
-	meleespecial1		EAS_HI_DODGE
+	meleespecial1		EAS_HI_QUICKTHROW
 	special1			EAS_HI_DODGE
 	meleespecial2		EAS_HI_BARGE
 	special2			EAS_HI_BARGE
@@ -90,19 +89,25 @@ Classinfo
 	jumpAnim			BOTH_MELEE_SWIMFORWARD //TORSO_MELEE_BLOCK_SWIMFORWARD
 	//LandAnim			BOTH_KNOCKDOWN3
 
-	bargeSoundOverride	"sound/effects/cloth1.mp3"
+ bargeSoundOverride	"sound/effects/cloth1.mp3"
 
 	isCustomBuild		1
 	mbPoints			1
 
-	c_att_skill_0		MB_ATT_STM_MULTIPLIER
-	c_att_names_0		"Skill Cooldown (100%)"
-	c_att_ranks_0		1
-	c_att_descs_0		"40% default"
+	c_att_skill_0		MB_ATT_REPEATER
+	c_att_names_0		"Ptooie (25) (Repeater)"
+	c_att_ranks_0		0,0,0
+	c_att_descs_0		"Team-heals on hit, 150% more damage, 35% more velocity,
+6000% slower RoF"
 
-	c_att_skill_1		MB_ATT_DASH_JUMP
-	c_att_names_1		"Swan Dive (Dash Jump)"
+	c_att_skill_1		MB_ATT_STM_MULTIPLIER
+	c_att_names_1		"Skill Cooldown (100%)"
 	c_att_ranks_1		1
+	c_att_descs_1		"40% default"
+
+	c_att_skill_2		MB_ATT_DASH_JUMP
+	c_att_names_2		"Swan Dive (Dash Jump)"
+	c_att_ranks_2		1
 
 }
 
@@ -115,13 +120,13 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/throwables/booma/booma.md3"
 	NewHandsModel		"models/weapons2/throwables/booma/booma_hand.md3"
 	MissileModel		"models/weapons2/throwables/booma/booma_proj.md3"
-	MissileMissEffect			"Grenades/EXP_Pulsenade"
-	MissileHitHumanEffect		"Grenades/EXP_Pulsenade"
-	MissileHitDroidEffect		"Grenades/EXP_Pulsenade"
+	MissileMissEffect			"rockets/explosionpulse"
+	MissileHitHumanEffect		"rockets/explosionpulse"
+	MissileHitDroidEffect		"rockets/explosionpulse"
 	altMissileModel		"models/weapons2/throwables/booma/booma_proj.md3"
-	altMissileMissEffect		"Grenades/EXP_Pulsenade"
-	altMissileHitHumanEffect	"Grenades/EXP_Pulsenade"
-	altMissileHitDroidEffect	"Grenades/EXP_Pulsenade"
+	altMissileMissEffect		"rockets/explosionpulse"
+	altMissileHitHumanEffect	"rockets/explosionpulse"
+	altMissileHitDroidEffect	"rockets/explosionpulse"
 	MuzzleEffect				null
 	altMuzzleEffect				null
 
@@ -202,8 +207,8 @@ WeaponInfo3
 	altFlashSound3		"sound/weapons/hutt_spit/fire.mp3"
 	altMissileModel		"models/weapons2/dummy/dummy.md3"
 	altMissileMissEffect		"env/water_impact"
-	altMissileHitHumanEffect	"droideka/shieldimpact"
-	altMissileHitDroidEffect	"droideka/shieldimpact"
+	altMissileHitHumanEffect	"env/water_impact"
+	altMissileHitDroidEffect	"env/water_impact"
 	altMuzzleEffect				"env/water_impact"
 	altMissileEffect			"misc/waterbreath"
 
@@ -214,10 +219,10 @@ WeaponInfo3
 	FlashSound2			"sound/weapons/hutt_spit/fire.mp3"
 	FlashSound3			"sound/weapons/hutt_spit/fire.mp3"
 	MissileModel		"models/weapons2/dummy/dummy.md3"
-	MissileMissEffect			"env/water_impact"
-	MissileHitHumanEffect		"droideka/shieldimpact"
-	MissileHitDroidEffect		"droideka/shieldimpact"
-	MuzzleEffect				"env/water_impact"
+	MissileMissEffect		"env/water_impact"
+	MissileHitHumanEffect	"env/water_impact"
+	MissileHitDroidEffect	"env/water_impact"
+	MuzzleEffect			"env/water_impact"
 	MissileEffect				"misc/waterbreath"
 
 	customAmmo			-1
@@ -225,6 +230,8 @@ WeaponInfo3
 	rateMod				61
 	damageMod			2.5
  velocityMod 1.35
+ //splashradius 1
+ //splashdamage 1
 
 	hasAnimOverrides	1
 	animReady			BOTH_MELEE_STAND2
@@ -252,11 +259,6 @@ Mesa, uh, clumsy...
 -- 100% more special damage
 -- 100/25% shorter
 -- 400% thicker
-- Ptooie (25) (IHR)
--- Team-heals on hit
--- 150% more damage
--- 35% more velocity
--- 6000% slower RoF
 - Salvaged E-5 Blaster Rifle (T-21 1)
 -- 50% faster reload
 -- 50% less damage
@@ -278,12 +280,14 @@ Mesa, uh, clumsy...
 - Gungan Lungs (UB)
 - Getup (3)
 - Ally Stat Viewer
-- 50% more knockback given/taken
+- 50% more knockback given
+- 50% more knockback taken
 - 150% slower skill cooldown
 - 100% slower hacking
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
+- Fumble (Quick Throw 3) ^3[Melee CS1]
 - Pratfall (Barge 3) ^3[Melee CS2]
 - Dex Roll ^3[CS3]
 - Dash (1) ^3[CS4]
