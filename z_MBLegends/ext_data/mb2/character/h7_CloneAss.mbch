@@ -12,7 +12,7 @@ ClassInfo
  WP_ClonePistolFlags HELD_ALTRELOAD|HELD_SLOW
  WP_A280Flags HELD_ALTRELOAD
 
- attributes   MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DEXTERITY,1|MB_ATT_STAMINA,2|MB_ATT_GETUPS,2|MB_ATT_DASH,2
+ attributes   MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_STAMINA,2|MB_ATT_GETUPS,1|MB_ATT_DASH,2
 
  AB_PDartFlags  HELD_TRACKING|HELD_HIGHDAMAGE|HELD_LIFESTEAL|HELD_FORCEFOCUS
  AB_TDartFlags  HELD_POISON|HELD_HIGHDAMAGE|HELD_LIFESTEAL|HELD_PULSE
@@ -24,7 +24,7 @@ ClassInfo
  forcepool   60
  rankForcePool  100 //stealth 
 
- rankResourceRegenAmount 5 //fl
+ rankResourceRegenAmount 60 //fl
  rankResourceRegenRate 1  //fl
 
  rateOfFire_Melee 0.88
@@ -40,11 +40,10 @@ ClassInfo
 
  special1   EAS_NONE
  meleespecial1  EAS_HI_POISON
-
- special2   EAS_NONE
+ special2 EAS_HI_DEX
  meleespecial2 EAS_HI_TRACKER
 
- special3   EAS_HI_DASH 
+ special3   EAS_HI_DASH
  meleespecial3  EAS_HI_DASH
 
  special4   EAS_HI_DODGE
@@ -63,7 +62,7 @@ ClassInfo
  saberSpecialDamage 1.75
 
  saberMaxChain  2
- rankSaberMaxChain 5
+ rankSaberMaxChain 4
 
  ASmultiplier  1
  rankAS    1.1
@@ -99,7 +98,7 @@ ClassInfo
 
 
  isCustomBuild  1
- mbPoints   0
+ mbPoints   2
  hasCustomSpec  2
  isOnlyOneSpec  1
 
@@ -127,8 +126,8 @@ ClassInfo
  c_att_skill_3  MB_ATT_A280
  c_att_names_3  "773 Firepuncher Rifle (A280)"
  c_att_ranks_3  0
- c_att_descs_3  "15% more velocity, 5% more damage, 45% slower RoF,
-45% slower mag reload"
+ c_att_descs_3  "20% more velocity, 15% more damage, 15% more FP drain,
+45% slower RoF, 40% slower mag reload"
 
  c_att_skill_4  MB_ATT_CLOAK
  c_att_names_4  "Cloaking Device"
@@ -175,7 +174,7 @@ ClassInfo
 
 
  c_att_skill_15  MB_ATT_SABER_MAXCHAIN
- c_att_names_15  "Saber Chain Limit (5)"
+ c_att_names_15  "Saber Chain Limit (4)"
  c_att_ranks_15  0
  c_att_descs_15  "2 default"
 
@@ -192,30 +191,38 @@ ClassInfo
  c_att_ranks_18  0,0,0
  c_att_descs_18  "Mag reload, Heavyweight"
 
- c_att_skill_19  MB_ATT_RESOURCE_REGEN_AMOUNT
- c_att_names_19  "Resource Regen Amount (5)"
+ c_att_skill_19  MB_ATT_FORCEBLOCK
+ c_att_names_19  "Force Block"
  c_att_ranks_19  0
 
- c_att_skill_20  MB_ATT_RESOURCE_REGEN_RATE
- c_att_names_20  "Resource Regen Rate (.001s)"
+ c_att_skill_20  MB_ATT_RESOURCE_REGEN_AMOUNT
+ c_att_names_20  "Resource Regen Amount (60)"
  c_att_ranks_20  0
 
- c_att_skill_21  MB_ATT_FORCEBLOCK
- c_att_names_21  "Force Block"
+ c_att_skill_21  MB_ATT_RESOURCE_REGEN_RATE
+ c_att_names_21  "Resource Regen Rate (.001s)"
  c_att_ranks_21  0
 
- c_att_skill_22  MB_ATT_DEXTERITY
- c_att_names_22  "Dexterity"
- c_att_ranks_22  0,0
+ c_att_skill_22  MB_ATT_GETUPS
+ c_att_names_22  "Getup"
+ c_att_ranks_22  0,1
 
- c_att_skill_23  MB_ATT_STM_MULTIPLIER
- c_att_names_23  "Skill Cooldown (150%)"
- c_att_ranks_23  0
- c_att_descs_23  "85% default"
+ c_att_skill_23  MB_ATT_DEXTERITY
+ c_att_names_23  "Dexterity"
+ c_att_ranks_23  2,0,0
 
- c_att_skill_24  MB_ATT_DODGE
- c_att_names_24  "Dodge ^3[CS4]"
- c_att_ranks_24  0,0,0
+ c_att_skill_24  MB_ATT_STM_MULTIPLIER
+ c_att_names_24  "Skill Cooldown (150%)"
+ c_att_ranks_24  1
+ c_att_descs_24  "85% default"
+
+ c_att_skill_25  MB_ATT_DODGE
+ c_att_names_25 "Dodge ^3[CS4]"
+ c_att_ranks_25  0,0,0
+
+ c_att_skill_26  MB_ATT_FLIPKICK
+ c_att_names_26 "Flipkick ^3[Contact Jump]"
+ c_att_ranks_26  0
 }
 
 WeaponInfo0
@@ -235,11 +242,12 @@ WeaponInfo1
  WeaponToReplace  WP_A280
  WeaponBasedOff WP_A280
 
- NewWorldModel  "models/weapons2/som3_rifle/som3_rifle_w.glm"
- NewViewModel  "models/weapons2/som3_rifle/som3_rifle.md3"
+ NewWorldModel "models/weapons2/dlt20a/dlt20a_w.glm"
+ NewViewModel  "models/weapons2/dlt20a/dlt20a.md3"
+ NewHandsModel "models/weapons2/dlt20a/dlt20a_hand.md3"
 
  WeaponName   "773 Firepuncher Rifle"
- Icon    "gfx/hud/w_icon_som3_rifle"
+ Icon "gfx/hud/W_icon_dlt20a"
 
  FlashSound0   "sound/weapons/ee3/fire.MP3"
  FlashSound1   "sound/weapons/ee3/fire1.MP3"
@@ -256,11 +264,12 @@ WeaponInfo1
  Missile3Effect   "Blaster/Shot03B"
  PowerupShotEffect  "Blaster/Shot03B"
 
- velocityMod 1.15
- damageMod 1.05
+ velocityMod 1.2
+ damageMod 1.15
+ FPmult 1.15
  rateMod 1.45
- reloadtimemodifier 1.45
- clipsize 40
+ reloadtimemodifier 1.4
+ clipsize 20
  customAmmo 800
 
  hasAnimOverrides 1
@@ -322,9 +331,8 @@ Dexterous troopers with specialty skills focused on covert elimination and head-
 
 ^8Attributes:
 - Reinforcement (1)
-- Dexterity (1)
 - Stamina (2)
-- Getup (2)
+- Getup (1)
 - 7% less knockback taken
 - 85% slower skill cooldown
 
