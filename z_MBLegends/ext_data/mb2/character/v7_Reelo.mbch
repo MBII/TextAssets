@@ -8,9 +8,9 @@ ClassInfo
 	weapons				WP_FRAG_NADE|WP_BLASTER|WP_MELEE|WP_PULSE_NADE|WP_DISRUPTOR|WP_THROWER|WP_TRIP_MINE|WP_ROCKET_LAUNCHER
 
 	WP_RocketLauncherFlags	HELD_KNOCKBACK
-	WP_ThrowerFlags			HELD_ALTRELOAD
+	WP_ThrowerFlags			HELD_ALTRELOAD|HELD_SLOW
 
-	attributes			MB_ATT_FRAGS,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,2|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_THROWER_ICE,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_DASH,1|MB_ATT_EWEB,1|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,0
+	attributes			MB_ATT_FRAGS,2|MB_ATT_PULSE_GRENADES,2|MB_ATT_BLASTER,2|MB_ATT_ROCKET_LAUNCHER|MB_ATT_BLAST_ARMOUR,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISRUPTOR,2|MB_ATT_THROWER_ICE,3|MB_ATT_TRIP_MINES,2|MB_ATT_AMMO,3|MB_ATT_HEALING,2|MB_ATT_RALLY|MB_ATT_DASH,1|MB_ATT_EWEB,1|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,1
 
 	resource			RESOURCE_ENERGY
 	forcepool			0
@@ -61,13 +61,18 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/merr_sonn/merr_sonn.md3"
 	NewBarrelModel		"models/weapons2/merr_sonn/merr_sonn_barrel.md3"
 	NewHandsModel		"models/weapons2/merr_sonn/merr_sonn_hand.md3"
+
 	Icon				"gfx/hud/w_icon_merrsonn"
 	WeaponName			"Overcharged PLX-2M Rocket Launcher"
+
 	clipSize			5
 	CustomAmmo			5
 	ReloadTimeModifier	2
 	rateMod				0.3
 	damageMod			0.6
+ splashRadius 100
+ splashDamage 35
+
 	MuzzleEffect		null
 	MissileMissEffect			"Grenades/EXP_Alt"
 	MissileHitHumanEffect		"Grenades/EXP_Alt"
@@ -76,6 +81,7 @@ WeaponInfo0
 	altMissileMissEffect		"Grenades/EXP_Alt"
 	altMissileHitHumanEffect	"Grenades/EXP_Alt"
 	altMissileHitDroidEffect	"Grenades/EXP_Alt"
+
 	hasAnimOverrides	1
 	animReady			BOTH_WESTARM5_READY
 	animReadyRun		BOTH_WESTARM5_READY
@@ -95,9 +101,12 @@ WeaponInfo1
 	NewViewModel		"models/weapons/CarboniteRifle/model.md3"
 	Icon				"gfx/hud/w_icon_carboniterifle"
 	WeaponName			"Carbonite Rifle"
+
 	ReloadTimeModifier	2
-	customAmmo			700
-	clipsize			100
+	customAmmo		500
+	clipsize		100
+ rateMod 2.5
+
 	hasAnimOverrides	1
 	animReady			BOTH_WESTARM5_READY
 	animReadyRun		BOTH_WESTARM5_READY
@@ -166,11 +175,15 @@ A criminal kingpin armed to the teeth with weapons of dubious legality.
 -- Secondary fire only
 - Tenloss DXR-6 Disruptor Rifle (2)
 - Carbonite Rifle (Icethrower)
+-- 150% slower RoF
 -- 100% slower mag reload
+-- Heavyweight
 - Overcharged PLX-2M Rocket Launcher (10)
 -- Pushes on det
 -- 70% faster RoF
 -- 40% less damage
+-- 37% smaller splash
+-- 12% less splash damage
 -- 100% slower reload
 - Frag Grenade (2)
 - Trip Mine (2)
@@ -184,6 +197,7 @@ A criminal kingpin armed to the teeth with weapons of dubious legality.
 - Blast Armor
 - Healing (2)
 - Rally
+- Getup (1)
 - Wookalike
 - 25% more knockback given
 - 50% less knockback taken
