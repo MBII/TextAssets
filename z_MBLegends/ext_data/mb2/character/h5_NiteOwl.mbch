@@ -8,7 +8,7 @@ ClassInfo
 	weapons				WP_MELEE|WP_SABER
 
 	WP_E22Flags				HELD_ALTRELOAD
-	WP_BlasterFlags			HELD_ALTRELOAD|HELD_IGNOREBLOCK|HELD_POISON
+	WP_BlasterFlags			HELD_ALTRELOAD|HELD_POISON
 	WP_DLT20AFlags			HELD_ALTRELOAD
 	WP_BlasterPistolFlags	HELD_ALTRELOAD
 	WP_ProjFlags			HELD_ALTRELOAD|HELD_DISRUPTIFY
@@ -68,7 +68,7 @@ ClassInfo
 	c_att_skill_0		MB_ATT_BLASTER
 	c_att_names_0		"P. Throw. Knives (3) (Blaster)"
 	c_att_ranks_0		2
-	c_att_descs_0		"Ignores block, Poisons on hit, 60% less damage,
+	c_att_descs_0		"Poisons on hit, 60% less damage,
 100% slower mag reload"
 
 	c_att_skill_1		MB_ATT_E_22
@@ -112,10 +112,10 @@ ClassInfo
 	c_att_ranks_16		1,0,2
 	c_att_descs_16		"10% more velocity, 15% less damage, Mag reload"
 
-	c_att_skill_17		MB_ATT_TRAD_BOWCASTER
-	c_att_names_17		"Kryze Echo-Bolter (Trad Bow)"
-	c_att_ranks_17		3,0,0
-	c_att_descs_17		"50% faster RoF, 20% less damage, Primary fire only"
+	c_att_skill_17		MB_ATT_CLONE_PISTOL
+	c_att_names_17		"Kryze Echo-Bolter (C. Pistol)"
+	c_att_ranks_17		3,0
+	c_att_descs_17		"20% faster RoF, 30% more damage, 100% more FP drain, Alt fire only"
 
 	c_att_skill_18		MB_ATT_PROJECTILE_RIFLE
 	c_att_names_18		"Kingpin Projectile Rifle"
@@ -319,7 +319,7 @@ WeaponInfo6
 	animAttackRun		BOTH_THERMAL_THROW2
 
 	clipSize			2
-	customAmmo			4
+	customAmmo			8
 	reloadTimeModifier	2
 	primGore			1
 	damageMod			0.4
@@ -351,16 +351,37 @@ WeaponInfo7
 
 WeaponInfo8
 {
-	WeaponToReplace		WP_TRAD_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER
+	WeaponToReplace		WP_CLONE_PISTOL
+	WeaponBasedOff		WP_CLONE_PISTOL
 	NewWorldModel		"models/weapons2/kotor_bowcaster1/kotor_bowcaster1_w.glm"
 	NewViewModel		"models/weapons2/kotor_bowcaster1/kotor_bowcaster1.md3"
 	Icon				"gfx/hud/w_icon_kotor_bowcaster1"
+	AltMuzzleEffect				"Blaster/MuzzleFlash01G"
+	MissileEffect				"Blaster/Shot04G"
+	MissileMissEffect			"Blaster/Impact_Wall01G"
+	altMissileMissEffect			"Blaster/Impact_Wall01G"
+	PowerupShotEffect				"effects/bowcaster/altmuzzle_flash"
+	ChargeEffect					"effects/bowcaster/altmuzzle_flash"
+	AltFlashSound0 "sound/weapons/Heavycaster/fire.wav"
+	ChargeSound "sound/weapons/bowcaster/altcharge.mp3"
 	WeaponName			"Kryze Echo-Bolter"
+	
+	primFireEnabled		0
 
-	rateMod				0.5
-	altfireenabled		0
-	damageMod			0.8
+	rateMod				1.2
+	damageMod			1.3
+	FPMult 2
+	
+	hasAnimOverrides	1
+	animReadyWalk		BOTH_ATTACK3
+	animReadyNoAmmo		BOTH_ATTACK3
+	animReadyRun		BOTH_ATTACK3
+	animReady			BOTH_ATTACK3
+	animAttackRun		BOTH_ATTACK3
+	animAttack			BOTH_ATTACK3
+	animAttackWalk		BOTH_ATTACK3
+	animStand			BOTH_STAND1
+	animCharge			TORSO_WEAPONREADY3
 }
 
 description "Nite Owl Mandalorian
