@@ -7,18 +7,19 @@ ClassInfo
 
 	weapons				WP_SABER|WP_MELEE
 
-	WP_SaberFlags		HELD_LIFESTEAL|HELD_DISRUPTIFY|HELD_NODISARM
+	WP_SaberFlags		HELD_LIFESTEAL|HELD_DISRUPTIFY|HELD_NODISARM	//|HELD_FORCEFOCUS
 
-	attributes			MB_ATT_FORCEFOCUS,3|MB_ATT_DEFLECT,2|MB_ATT_FP_REPULSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DASH,1|MB_ATT_DASH_JUMP
+	attributes			MB_ATT_FORCEFOCUS,1|MB_ATT_DEFLECT,2|MB_ATT_FP_REPULSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DASH,1|MB_ATT_DASH_JUMP
 
-	forcepowers			FP_SABER_OFFENSE,2|FP_LEVITATION,3|FP_PUSH,1|FP_PULL,1|FP_LIGHTNING,1|FP_SABERTHROW,1|FP_GRIP,2|FP_SEE,1
+	forcepowers			FP_LEVITATION,3|FP_PUSH,1|FP_PULL,1|FP_LIGHTNING,1|FP_SABERTHROW,1|FP_GRIP,2|FP_SEE,1
 
 	//AB_FLightningFlags	HELD_HIGHDAMAGE
 	AB_FRepulseFlags	HELD_DISRUPTIFY
 
 	maxhealth			100
 	rankhealth			115,130,145
-	maxarmor			25
+	maxarmor			15
+	skilltimermod		2
 
 	forcepool			110
 	rankForcepool		120,130,140
@@ -28,16 +29,17 @@ ClassInfo
 	classflags			CFL_NOPICKUPS
 
 	damageGiven			1.1
+ knockbackTaken .9
 
 	rateOfFire_melee	0.9
 
 	APmultiplier		1.1
 	BPmultiplier		0.9
 	ASmultiplier		1.08
-	CSmultiplier		1.1
-	rankAS				1.16
+	CSmultiplier		1.13
+	rankAS				1.15
 	saberDamage			60
-	RankSaberDamage		85,110,135
+	RankSaberDamage		80,100,120
 	saberMaxChain		3
 	RankSaberMaxChain	4
 	saberThrowDamage	50
@@ -76,11 +78,11 @@ ClassInfo
 	c_att_descs_0		"3 default"
 
 	c_att_skill_1		MB_ATT_AS_MULTIPLIER
-	c_att_names_1		"Saber AS (116%)"
+	c_att_names_1		"Saber AS (115%)"
 	c_att_ranks_1		4
 
 	c_att_skill_2		MB_ATT_SABER_DAMAGE
-	c_att_names_2		"Saber Damage (85/110/135)"
+	c_att_names_2		"Saber Damage (80/100/120)"
 	c_att_ranks_2		1,2,3
 	c_att_descs_2		"60 default"
 
@@ -89,44 +91,46 @@ ClassInfo
 	c_att_ranks_3		0,2,4
 	c_att_descs_3		"66% more damage"
 
-	c_att_skill_5		MB_ATT_FP_PUSH
-	c_att_names_5		"Force Push"
-	c_att_ranks_5		0,2,4
+	c_att_skill_4		MB_ATT_FP_PUSH
+	c_att_names_4		"Force Push"
+	c_att_ranks_4		0,2,4
 
-	c_att_skill_6		MB_ATT_FP_PULL
-	c_att_names_6		"Force Pull"
-	c_att_ranks_6		0,4
+	c_att_skill_5		MB_ATT_FP_PULL
+	c_att_names_5		"Force Pull"
+	c_att_ranks_5		0,4
 
-	c_att_skill_7		MB_ATT_FP_LIGHTNING
-	c_att_names_7		"Force Lightning ^3[CS4]"
-	c_att_ranks_7		0,4,6
+	c_att_skill_6		MB_ATT_FP_LIGHTNING
+	c_att_names_6		"Force Lightning ^3[CS4]"
+	c_att_ranks_6		0,4,6
 
-	c_att_skill_8		MB_ATT_FP_GRIP
-	c_att_names_8		"Force Grip ^3[CS3]"
-	c_att_ranks_8		0,0,5
-	c_att_descs_8		"Non-Lethal Grip
-	100% less damage"
+	c_att_skill_7		MB_ATT_FP_GRIP
+	c_att_names_7		"Force Grip ^3[CS3]"
+	c_att_ranks_7		0,0,5
+	c_att_descs_7		"95% less damage"
 
-	c_att_skill_9		MB_ATT_FP_DARKRAGE
-	c_att_names_9		"Force Dark Rage"
-	c_att_ranks_9		4,2
+	c_att_skill_8		MB_ATT_FP_DARKRAGE
+	c_att_names_8		"Force Dark Rage"
+	c_att_ranks_8		4,2
 
-	c_att_skill_11		MB_ATT_FORCEBLOCK
-	c_att_names_11		"Force Block"
-	c_att_ranks_11		2,4,2
+	c_att_skill_9		MB_ATT_FORCEBLOCK
+	c_att_names_9		"Force Block"
+	c_att_ranks_9		2,4,2
+	
+	c_att_skill_10		MB_ATT_FORCEFOCUS
+	c_att_names_10		"Force Focus"
+	c_att_ranks_10		0,4,6
 
-	c_att_skill_12		MB_ATT_POWER
-	c_att_names_12		"Force Pool (120/130/140)"
-	c_att_ranks_12		1,2,2
+	c_att_skill_11		MB_ATT_POWER
+	c_att_names_11		"Force Pool (120/130/140)"
+	c_att_ranks_11		1,2,2
 
-	c_att_skill_13		MB_ATT_REGEN
-	c_att_names_13		"Force Pool Regen"
-	c_att_ranks_13		1,2,3
-	c_att_descs_13		"117 / 126 / 135%"
+	c_att_skill_12		MB_ATT_REGEN
+	c_att_names_12		"FP Regen (117/126/135%)"
+	c_att_ranks_12		1,2,3
 
-	c_att_skill_14		MB_ATT_HEALTH
-	c_att_names_14		"Health (115/130/145)"
-	c_att_ranks_14		2,2,3
+	c_att_skill_13		MB_ATT_HEALTH
+	c_att_names_13		"Health (115/130/145)"
+	c_att_ranks_13		2,2,3
 }
 
 ForceInfo0
@@ -154,12 +158,22 @@ ForceInfo2
 	Icon				"gfx/mp/new_f_icon_dk_grip"
 	ForcePowerName		"Grip"
 	HandShader			"gfx/effects/dekashield2"
-	gripDamage			0
+	gripDamage			1
+	//gripDamage			0
 }
 
-description	"Darth Vader's Secret Apprentice aka 'Starkiller'
+ForceInfo3
+{
+	ForceToReplace		FP_DARKRAGE
+	Icon				"gfx/mp/new_f_icon_dk_rage"
+	ForcePowerName		"Dark Rage"
+	StartSound			"sound/weapons/force/fury"
+	LoopSound			"sound/weapons/force/furyloop"
+}
 
-A rushdown Saberist with an affinity for the Dark Side of the Force and combo attacks.
+description	"The Secret Apprentice aka 'Starkiller'
+
+Apprentice to the Dark Lord himself, trained to hunt down targets via fearsome Dark Side powers and combo attacks.
 
 ^2Weaponry:
 - Melee
@@ -180,11 +194,13 @@ A rushdown Saberist with an affinity for the Dark Side of the Force and combo at
 - Sense (1)
 - Lightning (1) ^3[CS4]
 - Grip (2) ^3[CS3]
--- 100% less damage
+-- 95% less damage
 - Repulse ^3[Melee CS1]
 
 ^8Attributes:
-- Force Focus (3)
+- Force Focus (1)
+- 10% less knockback taken
+- 100% slower skill cooldown
 
 ^3Abilities:
-- Dash/Dash Jump (1) ^3[CS2]"
+- Jump Dash (1) ^3[CS2]"

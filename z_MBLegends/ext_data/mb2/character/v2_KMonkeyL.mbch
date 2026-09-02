@@ -6,17 +6,21 @@ ClassInfo
 	classNumberLimit	4
 	extralives			2
 
-	weapons				WP_MELEE|WP_DC_CARBINE|WP_FRAG_NADE|WP_REPEATER
+	weapons				WP_MELEE|WP_DC_CARBINE|WP_FRAG_NADE|WP_ROCK_NADE
 	WP_DCCarbineFlags	HELD_ALTRELOAD
-	WP_RepeaterFlags	HELD_EXPLOSIVE|HELD_FORCEFOCUS|HELD_POISON
+	WP_RockNadeFlags	HELD_FORCEFOCUS|HELD_POISON
 
-	attributes			MB_ATT_AMMO,1|MB_ATT_DC_CARBINE,1|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH_JUMP|MB_ATT_REPEATER_NADES,3|MB_ATT_REPEATER
+	attributes			MB_ATT_AMMO,1|MB_ATT_DC_CARBINE,1|MB_ATT_ASSEMBLE,2|MB_ATT_ROSHTAUNT|MB_ATT_DEXTERITY,1|MB_ATT_FRAGS,1|MB_ATT_STAMINA,2|MB_ATT_GRAPPLE_HOP|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_DASH_JUMP|MB_ATT_ROCK_NADE,6
 
 	maxhealth			90
 
 	forcepool			115
 	forceregen			1.25
 	forcepowers			FP_SEE,1
+
+	saber1				rat_sab
+	saber2				rat_sab
+	saberStyle			SS_DUAL
 
 	resource			RESOURCE_STAMINA
 
@@ -38,7 +42,7 @@ ClassInfo
 	special4			EAS_HI_GRAPPLEHOOK
 	meleespecial4		EAS_HI_GRAPPLEHOOK
 
-	special1HUD			HUD_REPEATERNADE
+	special1HUD			HUD_ROCKNADE
 	special2HUD			HUD_FRAGNADE
 
 	//gloatAnim			BOTH_DEATH18
@@ -50,12 +54,11 @@ ClassInfo
 	//BOTH_FORCEWALLRUNFLIP_ALT
 	//BOTH_FORCEWALLRUNFLIP_END
 
-	model				"salaciouscrumb"
+	model			"salaciouscrumb"
 	skin				"default"
-	uishader			"models/players/salaciouscrumb/mb2_icon_default"
-	modelscale			.63
-	uioverlay_r			"gfx/icons/infantry"
-	uioverlay_l			"gfx/icons/brawler"
+	uishader	"models/players/salaciouscrumb/mb2_icon_default"
+	modelscale		.63
+	uioverlay			"gfx/icons/brawler"
 
 	isCustomBuild		1
 	mbPoints			3
@@ -69,7 +72,7 @@ ClassInfo
 	c_att_ranks_1		1
 
 	c_att_skill_2		MB_ATT_DASH
-	c_att_names_2		"Dash/Dash Jump ^3[CS3]"
+	c_att_names_2		"Jump Dash ^3[CS3]"
 	c_att_ranks_2		3
 
 	c_att_skill_3		MB_ATT_GRAPPLE_HOOK
@@ -117,34 +120,36 @@ WeaponInfo0
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_REPEATER
+	WeaponToReplace		WP_ROCK_NADE
 	WeaponBasedOff		WP_FRAG_NADE
 	NewWorldModel		"models/weapons2/stone/thermal_w.glm"
 	NewViewModel		"models/weapons2/stone/thermal.md3"
-	NewHandsModel		"models/weapons2/stone/thermal_hand.md3"
-	NewBarrelModel		"models/weapons2/stone/thermal_hand.md3"
 
-	Icon				"gfx/hud/w_icon_stone"
+	Icon				"gfx/hud/w_icon_stone2"
 	WeaponName			"..."
 
-	AltMissileModel		"models/weapons2/stone/thermal.md3"
+	AltMissileModel		"models/weapons2/stone/thermal_proj.md3"
 	AltMuzzleEffect				null
-	AltMissileEffect			"stone/missile1"
+	AltMissileEffect			 "stone/missile1" 
 	AltMissileMissEffect		"materials/mud_large"
 	AltMissileHitHumanEffect	"materials/mud_large"
 	AltMissileHitDroidEffect	"materials/mud_large"
 	AltFlashSound0		"sound/weapons/stone/fire.mp3"
 
-	MissileModel		"models/weapons2/stone/thermal.md3"
-	MuzzleEffect		null
-	MissileEffect		"stone/missile1"
-	FlashSound0			"sound/weapons/stone/fire.mp3"
+	MissileModel		"models/weapons2/stone/thermal_proj.md3"
+	MuzzleEffect				null
+	MissileEffect	 	 "stone/missile1" 
+	MissileMissEffect		"materials/mud_large"
+	MissileHitHumanEffect	"materials/mud_large"
+	MissileHitDroidEffect	"materials/mud_large"
+	FlashSound0		"sound/weapons/stone/fire.mp3"
 
-	damageMod			0.01
-	splashRadius		6.4
-	customAmmo			-1
-	clipsize			-1
-	primfireenabled		0
+ chargeSound 	"sound/weapons/rock_nade/ewok_charge.mp3"
+
+ altFireEnabled 0
+ damageMod 30
+	splashRadius		15
+ rateMod .90
 
 	hasAnimOverrides	1
 	animReadyRun		BOTH_TRIPLE3_DUALSTANCE
@@ -192,11 +197,12 @@ Cackling pests with nothing better to do than annoy anyone they see. Heard any g
 -- 50% more velocity
 -- 175% slower RoF
 -- 10% slower mag reload
-- ... (6) (IHR)
+- ... (6) (Rock)
 -- Poisons/focuses on hit
--- 95% less damage
--- 95% smaller splash
--- Secondary fire only
+-- 2900% more damage
+-- 10% faster RoF
+-- 1400% larger splash
+-- Primary fire only
 - Foraged Class B Frag Grenade (1)
 -- 28% smaller splash
 -- Primary fire only
@@ -205,7 +211,7 @@ Cackling pests with nothing better to do than annoy anyone they see. Heard any g
 - Animal Instinct (Sense 1)
 
 ^8Attributes:
-- Reinforcements (2)
+- Reinforcement (2)
 - Stamina (2)
 - Dexterity (1)
 - Strength (1)
@@ -215,8 +221,8 @@ Cackling pests with nothing better to do than annoy anyone they see. Heard any g
 - 75% slower skill cooldown
 
 ^3Abilities:
-- Infectious Laughter ^3[Taunt Jedi]
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
+- Infectious Laughter ^3[Taunt Jedi]
 
 Turn over for nutritional information."

@@ -512,49 +512,57 @@ models/players/kreia/robe_traya_twosided
 	}
 }
 
+
 //// Darth Malak ////
-models/players/malak/body
+
+models/players/darthmalak/mask
 {
-	cull	disable
-    q3map_nolightmap
-    {
-        map models/players/malak/body
-		blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/malak/reflect
-        blendFunc GL_ONE GL_ONE
+   	{
+		map models/players/darthmalak/mask
 		rgbGen lightingDiffuse
-        alphaGen const 1
-        tcGen environment
-    }
+	}
 	{
-		map models/players/malak/body
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		map models/players/darthmalak/mask_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+	{
+		map models/players/darthmalak/mask_glow
+		blendfunc gl_one gl_one
+		glow
+	}
+}
+
+models/players/darthmalak/cape
+{
+	cull	twosided
+	{
+		map models/players/darthmalak/cape
 		rgbGen lightingDiffuse
 	}
 }
 
-models/players/malak/head
+models/players/darthmalak/belt_flaps_cull
 {
-    q3map_nolightmap
-    {
-        map models/players/malak/head
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/malak/reflect
-        blendFunc GL_ONE GL_ONE
-		rgbGen lightingDiffuse
-        alphaGen const 1
-        tcGen environment
-    }
+	cull	twosided
 	{
-		map models/players/malak/head
-		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		map models/players/darthmalak/belt_flaps
 		rgbGen lightingDiffuse
+	}
+}
+
+models/players/darthmalak/belt_flaps
+{
+	{
+		map models/players/darthmalak/belt_flaps
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthmalak/belt_flaps_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
 	}
 }
 

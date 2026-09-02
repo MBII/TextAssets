@@ -1,164 +1,486 @@
 
 ClassInfo
 {
-	name				"v5_Boba"
-	MBClass				MB_CLASS_BOUNTY_HUNTER
-	classNumberLimit	1
-	weapons				WP_MELEE|WP_SHOTGUN|WP_SONIC_NADE||WP_EE3|WP_ROCKET_LAUNCHER
+name    "v5_Boba"
+MBClass    MB_CLASS_BOUNTY_HUNTER
+classNumberLimit 1
+weapons    WP_MELEE|WP_SONIC_NADE|WP_THERMAL
 
-	attributes			MB_ATT_BESKAR,2|MB_ATT_SHOTGUN,2|MB_ATT_EE3,3|MB_ATT_FRAGS,2|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_ROCKET,1|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1|MB_ATT_HEALING,2|MB_ATT_SONIC_DETONATOR,1|MB_ATT_TRACKING_BEACON|MB_ATT_ROCKET_LAUNCHER
+WP_RocketLauncherFlags HELD_KNOCKBACK|HELD_STUN|HELD_NODISARM
+WP_ShotgunFlags   HELD_ALTRELOAD
+WP_AmbanFlags   HELD_DISRUPTIFY|HELD_CRIPPLE
+WP_ProjFlags   HELD_ALTRELOAD|HELD_STUN
+WP_SaberFlags   HELD_SPEED
+WP_BowcasterFlags  HELD_DISRUPTIFY|HELD_SLOW|HELD_ALTRELOAD
+WP_SonicNadeFlags  HELD_CRIPPLE
+WP_ThermalFlags   HELD_STUN|HELD_CRIPPLE|HELD_POISON
+WP_MandoPistolFlags  HELD_NODISARM
 
-	maxhealth			125
-	maxarmor			125
+AB_WBirdsFlags   HELD_LIFESTEAL|HELD_CRIPPLE|HELD_TRACKING
 
-	forcepool			130
-	resource			RESOURCE_FUEL
+attributes   MB_ATT_BESKAR,2|MB_ATT_FUEL,3|MB_ATT_JETPACK,1|MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR,1|MB_ATT_FLAMETHROWER,1|MB_ATT_WRISTLASER,1|MB_ATT_HEALING,2|MB_ATT_FRAGS,2|MB_ATT_TRACKING_BEACON|MB_ATT_KNOCKDOWN_ROLL|MB_ATT_SABER_COMBO_NONE
 
-	damageGiven			1.1
+classflags   CFL_BLOODYMELEE|CFL_STRONGAGAINSTPHYSICAL
 
-	basespeed			225
+maxhealth  125
 
-	rateoffire			0.8
+maxarmor   100
+rankArmor  125
 
-	knockbackTaken		0.9
+forcepool   130
+resource   RESOURCE_FUEL
+resourceRegenAmount 20
+resourceRegenRate 120000
 
-	special1HUD			HUD_ROCKET
-	special2HUD			HUD_WRISTLASER
+basespeed   235
+knockbackTaken  0.9
 
-	WP_ShotgunFlags			HELD_ALTRELOAD|HELD_DISRUPTIFY
-	WP_RocketLauncherFlags	HELD_KNOCKBACK|HELD_STUN|HELD_NODISARM
+special2HUD   HUD_WHISTLINGBIRDS
+special1HUD   HUD_WRISTLASER
 
-	modelscale			1.02
-	model				"bobafett"
-	skin				"default"
-	uishader			"models/players/bobafett/mb2_icon_default"
+saber1    Gaffi_legends
+saberstyle   SS_MEDIUM|SS_STAFF
+saberDamage   130
+saberspecialDamage 2
+BPmultiplier  0
+APmultiplier  1.2
+CSmultiplier  1.07
+ASmultiplier  1
 
-	model_1				"bobafett"
-	skin_1				"esb"
-	uishader_1			"models/players/bobafett/mb2_icon_esb"
+saberStanceAnim  BOTH_SPEAR_STANCE
+gloatAnim   BOTH_TUSKENTAUNT1
+flourishAnim  BOTH_STAND5TOAIM
 
-	model_2				"bobafett"
-	skin_2				"mand1"
-	uishader_2			"models/players/bobafett/mb2_icon_mand1"
+modelscale   1.02
+model    "bobafett"
+skin    "default"
+uishader   "models/players/bobafett/mb2_icon_default"
 
-	model_3				"bobafett"
-	skin_3				"mand2"
-	uishader_3			"models/players/bobafett/mb2_icon_mand2"
+model_1    "bobafett"
+skin_1    "esb"
+uishader_1   "models/players/bobafett/mb2_icon_esb"
 
-	model_4				"bobafett"
-	skin_4				"nohelm2"
-	uishader_4			"models/players/bobafett/mb2_icon_nohelm2"
+model_2    "bobafett"
+skin_2    "mand1"
+uishader_2   "models/players/bobafett/mb2_icon_mand1"
 
-	model_5				"bobafett"
-	skin_5				"hs"
-	uishader_5			"models/players/bobafett/mb2_icon_hs"
+model_3    "bobafett"
+skin_3    "mand2"
+uishader_3   "models/players/bobafett/mb2_icon_mand2"
 
-	model_6				"boba_fett"
-	skin_6				"default"
-	uishader_6			"models/players/boba_fett/mb2_icon_default"
+model_4    "bobafett"
+skin_4    "nohelm2"
+uishader_4   "models/players/bobafett/mb2_icon_nohelm2"
 
-	special1			EAS_HI_ROCKET
-	meleespecial1		EAS_HI_ROCKET
-	special2			EAS_HI_FLAME
-	meleespecial2		EAS_HI_FLAME
-	special3			EAS_HI_WRIST
-	meleespecial3		EAS_HI_WRIST
+model_5    "bobafett"
+skin_5    "hs"
+uishader_5   "models/players/bobafett/mb2_icon_hs"
 
-	uioverlay_r			"gfx/icons/aerial"
-	uioverlay_l			"gfx/icons/spec_infantry"
-	flourishAnim		BOTH_STAND5TOAIM
+model_6    "boba_fett"
+skin_6    "default"
+uishader_6   "models/players/boba_fett/mb2_icon_default"
+
+special1   EAS_HI_ROCKET
+meleespecial1  EAS_HI_ROCKET
+special2   EAS_HI_FLAME
+meleespecial2  EAS_HI_FLAME
+special3   EAS_HI_WRIST
+meleespecial3  EAS_HI_WRIST
+special4   EAS_HI_WHISTLING_BIRDS
+meleespecial4  EAS_HI_WHISTLING_BIRDS
+
+uioverlay_r   "gfx/icons/aerial"
+uioverlay_l   "gfx/icons/spec_infantry"
+
+isCustomBuild  1
+isOnlyOneSpec  1
+hasCustomSpec  2
+mbPoints   16
+
+customSpecName_1 "Rocketman"
+customSpecIcon_1 "gfx/menus/alpha/Icon_stats_rocket"
+
+customSpecName_2 "King Missile"
+customSpecIcon_2 "gfx/hud/alpha/hud_icon_whistlingbird"
+
+c_att_skill_0  MB_ATT_SABER
+c_att_names_0  "Gaffi Saber (Staff/Yellow)"
+c_att_ranks_0  1
+c_att_descs_0  "No Saber/Blaster Block, No Saber Training, 100% more special damage,
+14% more AS, 20% more knockback, Lightweight"
+
+c_att_skill_1  MB_ATT_MANDO_PISTOL
+c_att_names_1  "WESTAR-34 Blaster Pistol"
+c_att_ranks_1  0,0
+c_att_descs_1  "Non-disarmable, 10% more damage, 20% faster RoF"
+
+c_att_skill_2  MB_ATT_BOWCASTER
+c_att_names_2  "K-11 Disintegrator (Bowcaster)"
+c_att_ranks_2  2
+c_att_descs_2  "231% more damage, 80% less velocity, 100% slower RoF,
+35% slower mag reload, Heavyweight"
+
+c_att_skill_3  MB_ATT_SHOTGUN
+c_att_names_3  "Flechette Pistol (Shotgun)"
+c_att_ranks_3  2,0
+c_att_descs_3  "Focused hovering shots, 10% more damage, 20% faster RoF,
+40% slower mag reload"
+
+c_att_skill_4  MB_ATT_ROCKET_LAUNCHER
+c_att_names_4  "Wrist Rockets (5) (RL)"
+c_att_ranks_4  5
+c_att_descs_4  "Staggers/pushes on det, 10% more velocity, 10% more damage,
+20% faster RoF, 40% slower mag reload"
+
+c_att_skill_5  MB_ATT_BASE_TD
+c_att_names_5  "Stun-Spore Grenade (Thermal)"
+c_att_ranks_5  1,0,0
+c_att_descs_5  "Staggers/slows/poisons on det, 50% more damage, 50% larger splash"
+
+c_att_skill_6  MB_ATT_SONIC_DETONATOR
+c_att_names_6  "Crippling Sonic Detonator"
+c_att_ranks_6  1
+c_att_descs_6  "Slows on det"
+
+c_att_skill_7  MB_ATT_CRYOBAN_GRENADES
+c_att_names_7  "Cryo Grenade"
+c_att_ranks_7  1,0
+
+c_att_skill_8  MB_ATT_EE3
+c_att_names_8  "Sawn-off EE-3 Carbine Rifle"
+c_att_ranks_8  1,1,2
+c_att_descs_8  "10% more damage, 20% faster RoF"
+
+c_att_skill_9  MB_ATT_AMBAN
+c_att_names_9  "Amban Phase-Pulse Blaster"
+c_att_ranks_9  2,0
+c_att_descs_9  "Slows on hit, 25% more FP drain, 20% more velocity"
+
+c_att_skill_10  MB_ATT_PROJECTILE_RIFLE
+c_att_names_10  "Tusken Cycler Projectile Rifle"
+c_att_ranks_10  2
+c_att_descs_10  "Staggers on hit, 10% less damage, 35% slower mag reload"
+
+c_att_skill_11  MB_ATT_ARMOUR
+c_att_names_11  "Armor (125)"
+c_att_ranks_11  2
+
+c_att_skill_12  MB_ATT_ROCKET
+c_att_names_12  "Jetpack Rocket ^3[CS1]"
+c_att_ranks_12  2
+
+
+
+c_att_skill_15  MB_ATT_SABER
+c_att_names_15  "Gaffi Saber (Staff/Yellow)"
+c_att_ranks_15  1
+c_att_descs_15  "No Saber/Blaster Block, No Saber Training, 100% more special damage,
+14% more AS, 20% more knockback, Lightweight"
+
+c_att_skill_16  MB_ATT_MANDO_PISTOL
+c_att_names_16  "WESTAR-34 Blaster Pistol"
+c_att_ranks_16  0,0
+c_att_descs_16  "Non-disarmable, 10% more damage, 20% faster RoF"
+
+c_att_skill_17  MB_ATT_BOWCASTER
+c_att_names_17 "K-11 Disintegrator (Bowcaster)"
+c_att_ranks_17  2
+c_att_descs_17  "231% more damage, 80% less velocity, 100% slower RoF,
+35% slower mag reload, Heavyweight"
+
+c_att_skill_18  MB_ATT_SHOTGUN
+c_att_names_18  "Flechette Pistol (Shotgun)"
+c_att_ranks_18  2,0
+c_att_descs_18  "Focused hovering shots, 10% more damage, 20% faster RoF,
+40% slower mag reload"
+
+c_att_skill_19  MB_ATT_ROCKET_LAUNCHER
+c_att_names_19  "Wrist Rockets (5) (RL)"
+c_att_ranks_19  5
+c_att_descs_19  "Staggers/pushes on det, 10% more velocity, 10% more damage,
+20% faster RoF, 40% slower mag reload"
+
+c_att_skill_20  MB_ATT_BASE_TD
+c_att_names_20  "Stun-Spore Grenade (Thermal)"
+c_att_ranks_20  1,0,0
+c_att_descs_20  "Staggers/slows/poisons on det, 50% more damage, 50% larger splash"
+
+c_att_skill_21  MB_ATT_SONIC_DETONATOR
+c_att_names_21  "Crippling Sonic Detonator"
+c_att_ranks_21  1
+c_att_descs_21  "Slows on det"
+
+c_att_skill_22  MB_ATT_CRYOBAN_GRENADES
+c_att_names_22  "Cryo Grenade"
+c_att_ranks_22  1,0
+
+c_att_skill_23  MB_ATT_EE3
+c_att_names_23  "Sawn-off EE-3 Carbine Rifle"
+c_att_ranks_23  1,1,2
+c_att_descs_23  "10% more damage, 20% faster RoF"
+
+c_att_skill_24  MB_ATT_AMBAN
+c_att_names_24  "Amban Phase-Pulse Blaster"
+c_att_ranks_24  2,0
+c_att_descs_24  "Slows on hit, 25% more FP drain, 20% more velocity"
+
+c_att_skill_25  MB_ATT_PROJECTILE_RIFLE
+c_att_names_25  "Tusken Cycler Projectile Rifle"
+c_att_ranks_25  2
+c_att_descs_25  "Staggers on hit, 10% less damage, 35% slower mag reload"
+
+c_att_skill_26  MB_ATT_ARMOUR
+c_att_names_26  "Armor (125)"
+c_att_ranks_26  2
+
+c_att_skill_27  MB_ATT_WHISTLINGBIRD
+c_att_names_27  "Micro Missiles (W. Bird) ^3[CS4]"
+c_att_ranks_27  12,0,0
+c_att_descs_27  "Drains/slows/tracks on hit"
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SHOTGUN
-	WeaponBasedOff		WP_SHOTGUN
-	NewWorldModel		"models/weapons/FWG-5_FlechettePistol/model.glm"
-	NewViewModel		"models/weapons/FWG-5_FlechettePistol/model.md3"
-	Icon				"gfx/hud/w_icon_flechettepistol"
-	FlashSound0			"sound/weapons/flechette/fire.mp3"
-	WeaponName			"FWG-5 Flechette Pistol"
-	hasAnimOverrides	1
-	animReadyRun		BOTH_JANGO_PISTOL_IDLE
-	animReady			BOTH_JANGO_PISTOL_IDLE
-	animReadyWalk		TORSO_WEAPONIDLE2
-	animReadyNoAmmo		BOTH_ATTACK2
-	animAttackRun		BOTH_ATTACK2
-	animAttack			BOTH_ATTACK2
-	animAttackWalk		BOTH_ATTACK2
-	clipsize			24
-	customAmmo			84
-	AltFireEnabled		0
-	ReloadTimeModifier	1.4
-	FPMult				0.9
-	MuzzleEffect		"Blaster/MuzzleFlash01Y"
-	MissileEffect		"flechette/shot"
+WeaponToReplace  WP_SHOTGUN
+WeaponBasedOff  WP_SHOTGUN
+NewWorldModel  "models/weapons/FWG-5_FlechettePistol/model.glm"
+NewViewModel  "models/weapons/FWG-5_FlechettePistol/model.md3"
+
+Icon    "gfx/hud/w_icon_flechettepistol"
+WeaponName   "FWG-5 Flechette Pistol"
+
+hasAnimOverrides 1
+animReadyRun  BOTH_JANGO_PISTOL_IDLE
+animReady   BOTH_JANGO_PISTOL_IDLE
+animReadyWalk  BOTH_MAND_PISTOL_READY
+animReadyNoAmmo  BOTH_ATTACK2
+animAttackRun  BOTH_ATTACK2
+animAttack   BOTH_MAND_PISTOL_ATTACK
+animAttackWalk  BOTH_ATTACK2
+
+clipsize   24
+customAmmo   96
+AltFireEnabled  0
+ReloadTimeModifier 1.4
+damageMod   1.1
+rateMod    .8
+MuzzleEffect  "Blaster/MuzzleFlash01Y"
+MissileEffect  "flechette/shot"
+FlashSound0   "sound/weapons/flechette/fire.mp3"
 }
 
 WeaponInfo1
 {
-	WeaponToReplace		WP_ROCKET_LAUNCHER
-	WeaponBasedOff		WP_ROCKET_LAUNCHER
-	MissileMissEffect	"Grenades/EXP_Alt"
-	MissileEffect		"rockets/missile"
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_wristrocket"
-	WeaponName			"Wrist Rockets"
-	clipSize			1
-	CustomAmmo			4
-	hasAnimOverrides	1
-	animReadyRun		TORSO_WEAPONREADY2
-	animReady			TORSO_WEAPONREADY2
-	animReadyWalk		TORSO_WEAPONREADY2
-	animReadyNoAmmo		BOTH_ATTACK2
-	animAttackRun		BOTH_ATTACK2
-	animAttack			BOTH_ATTACK2
-	animAttackWalk		BOTH_ATTACK2
-	animStand			BOTH_STAND1 //lower
-	ReloadTimeModifier	1.4
-	velocityMod			1.1
+WeaponToReplace  WP_ROCKET_LAUNCHER
+WeaponBasedOff  WP_ROCKET_LAUNCHER
+MissileMissEffect  "Grenades/EXP_Alt"
+MissileEffect   "rockets/missile"
+NewWorldModel  "models/weapons2/dummyblaster/model.glm"
+NewViewModel  "models/weapons2/dummy/dummy.md3"
+
+Icon    "gfx/hud/w_icon_wristrocket"
+WeaponName   "Wrist Rockets"
+
+hasAnimOverrides 1
+animReadyRun  BOTH_MAND_FLAME_READY
+animReady   BOTH_MAND_FLAME_IDLE
+animReadyWalk  BOTH_MAND_FLAME_READY
+animReadyNoAmmo  BOTH_MAND_FLAME_READY
+animAttackRun  BOTH_MAND_FLAME_READY
+animAttack   BOTH_MAND_FLAME_READY
+animAttackWalk  BOTH_MAND_FLAME_READY
+animCharge   BOTH_MAND_FLAME_READY
+
+clipSize   1
+CustomAmmo   4
+ReloadTimeModifier 1.4
+damageMod   1.1
+rateMod    .8
+velocityMod   1.1
 }
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_EE3
-	WeaponBasedOff		WP_EE3
-	NewWorldModel		"models/weapons2/ee-3/ee-3_w.glm"
-	NewViewModel		"models/weapons2/ee-3/ee-3.md3"
-	Icon				"gfx/hud/w_icon_ee-3"
-	WeaponName			"EE-3 Carbine Rifle"
-	customAmmo			800
+WeaponToReplace  WP_EE3
+WeaponBasedOff  WP_EE3
+NewWorldModel  "models/weapons2/ee-3/ee-3_w.glm"
+NewViewModel  "models/weapons2/ee-3/ee-3.md3"
+
+Icon    "gfx/hud/w_icon_ee-3"
+WeaponName   "Sawn-off EE-3 Carbine Rifle"
+
+damageMod   1.1
+rateMod    .8
+customAmmo   800
+
+hasAnimOverrides 1
+animReadyRun  BOTH_JANGO_PISTOL_IDLE
+animReady   BOTH_JANGO_PISTOL_IDLE
+animReadyWalk  BOTH_DC15_IDLE
+animReadyNoAmmo  BOTH_ATTACK2
+animAttackRun  BOTH_ATTACK2
+animAttack   BOTH_ATTACK2
+animAttackWalk  BOTH_DC15_ATTACK
 }
 
-description	"Boba Fett
+WeaponInfo3
+{
+WeaponToReplace  WP_MANDO_PISTOL
+WeaponBasedOff  WP_MANDO_PISTOL
+NewWorldModel  "models/weapons2/westar34/westar34.glm"
+NewViewModel  "models/weapons2/westar34/westar34.md3"
 
-No disintegrations.
+Icon    "gfx/hud/w_icon_westar.tga"
+WeaponName   "Boba's WESTAR-34 Blaster Pistol"
+
+damageMod   1.1
+rateMod    .8
+
+hasAnimOverrides 1
+animReadyRun  BOTH_JANGO_PISTOL_IDLE
+animReady   BOTH_PISTOL_HERO_IDLE
+animReadyWalk  BOTH_MAND_PISTOL_READY
+animReadyNoAmmo  BOTH_ATTACK2
+animAttackRun  BOTH_ATTACK2
+animAttack   BOTH_MAND_PISTOL_ATTACK
+animAttackWalk  BOTH_ATTACK2
+}
+
+WeaponInfo4
+{
+WeaponToReplace  WP_PROJ
+WeaponBasedOff  WP_DISRUPTOR
+NewWorldModel  "models/weapons2/tusken_sniper/model_w.glm"
+NewViewModel  "models/weapons2/tusken_sniper/model.md3"
+FlashSound0   "sound/weapons/tusken_cycler/fire.mp3"
+
+Icon    "gfx/hud/w_icon_tuskenSniper"
+WeaponName   "Tusken Cycler Projectile Rifle"
+
+altMissileEffect   "tusken/shot"
+MissileEffect    "tusken/shot"
+MissileMissEffect   "tusken/hitwall"
+altMissileMissEffect  "tusken/hitwall"
+MissileHitHumanEffect  "tusken/hit"
+AltMissileHitHumanEffect "tusken/hit"
+MissileHitDroidEffect  "tusken/hitwall"
+AltMissileHitDroidEffect "tusken/hitwall"
+
+CustomAmmo   8
+ReloadTimeModifier 1.35
+damageMod   .9
+
+hasAnimOverrides 1
+animReadyRun  BOTH_DC15_IDLE
+animReady   BOTH_DC15_IDLE
+animReadyWalk  BOTH_DC15_IDLE
+animReadyNoAmmo  BOTH_AMBAN_AIM_ATTACK
+animAttackRun  BOTH_AMBAN_AIM_ATTACK
+animAttack   BOTH_AMBAN_AIM_ATTACK
+animAttackWalk  BOTH_AMBAN_AIM_ATTACK
+}
+
+WeaponInfo5
+{
+WeaponToReplace  WP_BOWCASTER
+WeaponBasedOff  WP_BOWCASTER
+NewWorldModel  "models/weapons2/Relby-K23/model_w.GLM"
+NewViewModel  "models/weapons2/Relby-K23/pistol.MD3"
+
+Icon    "gfx/hud/w_icon_relby_k23"
+WeaponName   "Sacros K-11 'The Disintegrator'"
+
+clipSize   8
+CustomAmmo   48
+damageMod   2.31 //90 dmg per shot
+velocityMod   .2
+ratemod    2
+ReloadTimeModifier 1.35
+
+MuzzleEffect   "Blaster/MuzzleFlash01B"
+FlashSound0   "sound/weapons/llc/fire.wav"
+MissileEffect   "Blaster/Shot04B"
+MissileMissEffect  "disruptor_blue/wall_impact"
+MissileHitDroidEffect "disruptor_blue/wall_impact"
+MissileHitHumanEffect "disruptor_blue/flesh_impact"
+
+hasAnimOverrides 1
+animReadyRun  BOTH_JANGO_PISTOL_IDLE
+animReady   BOTH_PISTOL_IDLE
+animReadyWalk  BOTH_PISTOL_READY
+animReadyNoAmmo  BOTH_ATTACK2
+animAttackRun  BOTH_ATTACK2
+animAttack   BOTH_PISTOL_ATTACK
+animAttackWalk  BOTH_PISTOL_ATTACK
+}
+
+WeaponInfo6
+{
+WeaponToReplace  WP_THERMAL
+WeaponBasedOff  WP_THERMAL
+NewWorldModel  "models/weapons2/thermal/thermal_w.glm"
+NewViewModel  "models/weapons2/thermal/thermal.md3"
+NewHandsModel  "models/weapons2/thermal/thermal_hand.md3"
+
+Icon    "gfx/hud/w_thermal_grenade"
+WeaponName   "Stun-Spore Grenade"
+
+MissileMissEffect  "slime_explosion_new"
+MissileHitDroidEffect  "slime_explosion_new"
+MissileHitHumanEffect  "slime_explosion_new"
+altMissileMissEffect  "slime_explosion_new"
+altMissileHitDroidEffect "slime_explosion_new"
+altMissileHitHumanEffect "slime_explosion_new"
+
+damageMod   1.5
+SplashRadius  300 //1.5x
+}
+
+WeaponInfo7
+{
+WeaponToReplace  WP_SABER
+WeaponBasedOff  WP_SABER
+NewWorldModel  "models/weapons2/saber_gaffi/saber_w.glm"
+NewViewModel  "models/weapons2/saber_gaffi/saber_w.md3"
+
+Icon    "models/weapons2/icons/gaffi"
+WeaponName   "Bestowed Gaffi Stick"
+}
+
+WeaponInfo8
+{
+WeaponToReplace  WP_AMBAN
+WeaponBasedOff  WP_AMBAN
+NewWorldModel  "models/weapons2/mando_rifle/mando_rifle.glm"
+NewViewModel  "models/weapons2/mando_rifle/mando_rifle.md3"
+Icon    "gfx/hud/w_icon_mandorifle"
+WeaponName   "Boba's Amban Phase-Pulse Blaster"
+
+velocityMod   1.2
+FPMult    1.25
+CustomAmmo   20
+}
+
+description "Boba Fett
+
+One of the most fearsome and capable bounty hunters in the galaxy, with some of the deadliest weapons and tech at his disposal.
 
 ^2Weaponry:
 - Melee
-- EE-3 Carbine Rifle (3)
-- FWG-5 Flechette Pistol (Shotgun 2)
--- Fires focused blasts while hovering
--- 10% less FP damage
--- 40% slower mag reload
--- Primary fire only
-- Wrist Rockets (5) (Rocket Launcher)
--- Staggers/pushes on det
--- 10% more velocity
--- 40% slower reload
-- Sonic Detonator (1)
-- Frag Grenades (2)
+- Frag Grenade (2)
 
 ^8Attributes:
-- 10% less knockback taken
+- Fuel (3) 
+-- Regen: 20/120s
 - Beskar (2)
 - Blast Armor
+- Brawler Guard
 - Healing (2)
+- Knockdown Roll
 - Tracking Beacon
+- 10% less knockback taken
 
 ^3Abilities:
 - Jetpack
--- Rocket ^3[CS1]
 - Wrist Flamethrower ^3[CS2]
 - Wrist Laser ^3[CS3]"

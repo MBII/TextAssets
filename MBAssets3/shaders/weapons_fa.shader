@@ -275,3 +275,134 @@ models/weapons2/vibroknife/body
         rgbGen identity
     }
 }
+
+/// Kitsu's beaker ///
+
+models/weapons2/beaker/beaker
+{
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map models/weapons2/beaker/beaker
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/beaker/beaker_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/weapons2/beaker/w_liquid_c
+{
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map models/weapons2/beaker/w_liquid_c
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        glow
+        rgbGen identity
+        tcMod scroll 0.01 -0.01
+        tcMod stretch noise 1 0.05 0 0.1
+    }
+    {
+        map models/weapons2/beaker/liquid_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+        tcMod scroll 0.01 -0.01
+        tcMod stretch noise 1 0.05 0 0.1
+    }
+}
+
+models/weapons2/beaker/w_liquid_c_c
+{
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map models/weapons2/beaker/w_liquid_c
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        glow
+        rgbGen identity
+        tcMod scroll 0.01 -0.01
+        tcMod stretch noise 1 0.05 0 0.1
+    }
+    {
+        map models/weapons2/beaker/liquid_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+        tcMod scroll 0.01 -0.01
+        tcMod stretch noise 1 0.05 0 0.1
+    }
+}
+
+/// Kitsu's RC Pulse Grenade ///
+
+models/weapons2/grenades/swrc_pprg/pprg
+{
+    {
+        map models/weapons2/grenades/swrc_pprg/pprg
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/weapons2/grenades/swrc_pprg/pprg_s
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/grenades/swrc_pprg/pprg_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+    }
+    {
+        map models/weapons2/grenades/swrc_pprg/pprg_g1
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen wave noise 0.5 0.15 0 3
+    }
+}
+
+models/weapons2/grenades/swrc_pprg/core_pprg
+{
+    surfaceparm nonopaque
+    surfaceparm trans
+    q3map_nolightmap
+    {
+        map models/weapons2/grenades/swrc_pprg/core_pprg
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        alphaGen lightingSpecular
+    }
+    {
+        map models/weapons2/grenades/swrc_pprg/core_pprg_g
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+        detail
+        rgbGen wave sin 0.75 0.25 0 0.25
+        tcMod scroll 0.25 0.025
+        tcMod stretch sin 1 0.05 0 -0.125
+    }
+    {
+        map models/weapons2/grenades/swrc_pprg/core_pprg_g1
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+        detail
+        rgbGen wave sin 0.75 0.25 0 -0.25
+        tcMod scroll 0.25 -0.025
+        tcMod stretch sin 1 0.05 0 0.125
+    }
+}

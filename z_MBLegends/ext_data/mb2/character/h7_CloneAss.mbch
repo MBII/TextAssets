@@ -1,220 +1,341 @@
 
 ClassInfo
 {
-	name				"h7_CloneAss"
-	weapons				WP_MELEE|WP_SABER
-	saber1				assassin_shiv_legends
-	saber2				assassin_shiv_dual_legends
-	saberstyle			SS_DUAL
-	saberdamage			120
-	WP_SaberFlags		HELD_POISON|HELD_NODISARM
-	attributes			MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_TRACKING_BEACON|MB_ATT_CLOAK,2|MB_ATT_SPRINT
+ name    "h7_CloneAss"
+ MBClass    MB_CLASS_ARCTROOPER
+ classNumberLimit 4
+ extralives   1
 
-	forcepool			100
-	resource			RESOURCE_STAMINA
+ weapons    WP_MELEE|WP_SABER
 
-	special1			EAS_HI_SPRINT
-	special2			EAS_HI_DEX
-	special3			EAS_HI_DASH
-	special4			EAS_HI_POISON
-	meleespecial4		EAS_HI_POISON
+ WP_SaberFlags  HELD_NODISARM|HELD_POISON
+ WP_ClonePistolFlags HELD_ALTRELOAD|HELD_SLOW
+ WP_A280Flags HELD_ALTRELOAD
 
-	WalkBackward		BOTH_WALKBACK_DUAL
-	WalkForward			BOTH_WALK_DUAL
+ attributes   MB_ATT_AMMO,3|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_STAMINA,2|MB_ATT_GETUPS,1|MB_ATT_DASH,2
 
-	saberSpecialDamage	1.5
-	rateOfFire_Melee	.88
-	knockbackTaken		.93
+ AB_PDartFlags  HELD_TRACKING|HELD_HIGHDAMAGE|HELD_LIFESTEAL|HELD_FORCEFOCUS
+ AB_TDartFlags  HELD_POISON|HELD_HIGHDAMAGE|HELD_LIFESTEAL|HELD_PULSE
 
-	ASmultiplier		1.1
-	CSmultiplier		1.1
+ resource   RESOURCE_STAMINA
+ forceregen   0
+ rankForceRegen  .75 //stealth //resourceregen
 
-	BPmultiplier		1
-	rankBP				1.1,1.25,1.5
+ forcepool   65
+ rankForcePool  100 //stealth 
 
-	APmultiplier		1
-	rankAP				1.05,1.1,1.25
+ rankResourceRegenAmount 65 //fl
+ rankResourceRegenRate 1  //fl
 
-	model				"clonetrooper_p2"
-	skin				"assassin"
-	uishader			"models/players/clonetrooper_p2/mb2_icon_assassin_blue"
+ rateOfFire_Melee 0.88
+ knockbackTaken  .93
 
-	model_1				"clonetrooper_p2"
-	skin_1				"shadow"
-	uishader_1			"models/players/clonetrooper_p2/mb2_icon_shadow"
+ baseSpeed   242
 
-	customred			0.120
-	customgreen			0.275
-	customblue			0.474
-	uioverlay_l			"gfx/icons/tactician"
-	uioverlay_r			"gfx/icons/infantry"
+ maxhealth   150
+ MaxArmor   80
 
-	special1HUD			HUD_POISONDART
-	special2HUD			HUD_FRAGNADE
+ skillTimerMod  1.85
+ rankSTM    0.5
 
-	MBClass				MB_CLASS_ARCTROOPER
-	modelscale			1.02
-	speed				1.07
-	classNumberLimit	2
+ special1   EAS_NONE
+ meleespecial1  EAS_HI_POISON
 
-	maxhealth			90
-	rankHealth			100,110
+ special2 EAS_HI_DEX
+ meleespecial2 EAS_HI_TRACKER
 
-	MaxArmor			20
-	rankArmor			50,80,110
+ special3   EAS_HI_DASH
+ meleespecial3  EAS_HI_DASH
 
-	isCustomBuild		1
-	mbPoints			70
-	hasCustomSpec		2
-	isOnlyOneSpec		1
-	customSpecName_1	"Stealth"
-	customSpecIcon_1	"gfx/menus/alpha/icon_weap_crouch"
-	customSpecDesc_1	"Potential 2-life"
+ special4   EAS_HI_DODGE
+ meleespecial4  EAS_HI_DODGE
 
-	customSpecName_2	"Duelist"
-	customSpecIcon_2	"gfx/menus/alpha/icon_saberdual"
-	customSpecDesc_2	"1-life"
+ special1HUD   HUD_POISONDART
+ special2HUD   HUD_TRACKINGDART
 
-	c_att_skill_0		MB_ATT_CLONE_PISTOL
-	c_att_names_0		"DC-15s/17 Clone Pistol"
-	c_att_ranks_0		1,1,5
+ saber1    assassin_shiv_legends
+ saber2    assassin_shiv_dual_legends
+ saberstyle   SS_DUAL
 
-	c_att_skill_1		MB_ATT_RESPAWNS
-	c_att_names_1		"Reinforcement"
-	c_att_ranks_1		25
+ saberdamage   80
+ rankSaberDamage  120
 
-	c_att_skill_2		MB_ATT_HEALTH
-	c_att_names_2		"Health (100/110)"
-	c_att_ranks_2		2,2
+ saberSpecialDamage 1.75
 
-	c_att_skill_3		MB_ATT_ARMOUR
-	c_att_names_3		"Armor (50/80/110)"
-	c_att_ranks_3		3,4,5
+ saberMaxChain  2
+ rankSaberMaxChain 4
 
-	c_att_skill_4		MB_ATT_CORTOSIS
-	c_att_names_4		"Cortosis"
-	c_att_ranks_4		5
+ ASmultiplier  1
+ rankAS    1.1
 
-	c_att_skill_5		MB_ATT_KNOCKDOWN_ROLL
-	c_att_names_5		"Knockdown Roll"
-	c_att_ranks_5		10
+ CSmultiplier  1
+ rankCS    1.1
 
-	c_att_skill_6		MB_ATT_FORCEBLOCK
-	c_att_names_6		"Force Block"
-	c_att_ranks_6		10
+ BPmultiplier  1
+ rankBP    1.5
 
-	c_att_skill_7		MB_ATT_ANTI_MT
-	c_att_names_7		"Anti-Mind Trick"
-	c_att_ranks_7		1,1
+ APmultiplier  1
+ rankAP    1.25
 
-	c_att_skill_8		MB_ATT_STAMINA
-	c_att_names_8		"Stamina"
-	c_att_ranks_8		2,2,2
+ modelscale  1.02
+ model    "clonetrooper_p2"
+ skin    "assassin"
+ uishader   "models/players/clonetrooper_p2/mb2_icon_assassin_blue"
 
-	c_att_skill_9		MB_ATT_DEXTERITY
-	c_att_names_9		"Dexterity/Dex Roll ^3[CS2]"
-	c_att_ranks_9		2,2,3
+ model_1   "clonetrooper_p2"
+ skin_1   "shadow"
+ uishader_1  "models/players/clonetrooper_p2/mb2_icon_shadow"
 
-	c_att_skill_10		MB_ATT_DASH
-	c_att_names_10		"Dash ^3[CS3]"
-	c_att_ranks_10		0,2
+ customred  0.120
+ customgreen  0.275
+ customblue  0.474
+ uioverlay_r   "gfx/icons/tactician"
 
-	c_att_skill_11		MB_ATT_POISON_DART
-	c_att_names_11		"Poison Darts ^3[Melee CS4]"
-	c_att_ranks_11		2,2,2
+ WalkForward   BOTH_WALK_DUAL
+ WalkBackward  BOTH_GRIEVOUS_WALKBACK
+
+ RunBackward BOTH_RUNBACK_STAFF
+ saberstanceanim BOTH_MELEE_BLOCK_C
 
 
-	c_att_skill_15		MB_ATT_FP_SABER_DEFENSE
-	c_att_names_15		"Saber Defense"
-	c_att_ranks_15		0
+ isCustomBuild  1
+ mbPoints   2
+ hasCustomSpec  2
+ isOnlyOneSpec  1
 
-	c_att_skill_16		MB_ATT_BP_MULTIPLIER
-	c_att_names_16		"Saber BP (110/125/150%)"
-	c_att_ranks_16		2,3,5
+ customSpecName_1 "Stealth"
+ customSpecIcon_1 "gfx/menus/alpha/icon_weap_crouch"
+	customSpecDesc_1	"Covert elimination"
 
-	c_att_skill_17		MB_ATT_AP_MULTIPLIER
-	c_att_names_17		"Saber AP (105/110/125%)"
-	c_att_ranks_17		2,2,4
+ customSpecName_2 "Frontline"
+ customSpecIcon_2 "gfx/menus/alpha/icon_saberdual"
+	customSpecDesc_2	"Head-on combat"
 
-	c_att_skill_18		MB_ATT_CLONE_PISTOL
-	c_att_names_18		"DC-15s/17 Clone Pistol"
-	c_att_ranks_18		1,1,5
+ c_att_skill_0  MB_ATT_CS_MULTIPLIER
+ c_att_names_0  "Saber CS (110%)"
+ c_att_ranks_0  0
 
-	c_att_skill_19		MB_ATT_HEALTH
-	c_att_names_19		"Health (100/110)"
-	c_att_ranks_19		2,2
+ c_att_skill_1  MB_ATT_AS_MULTIPLIER
+ c_att_names_1  "Saber AS (110%)"
+ c_att_ranks_1  0
 
-	c_att_skill_20		MB_ATT_ARMOUR
-	c_att_names_20		"Armor (50/80/110)"
-	c_att_ranks_20		3,4,5
+ c_att_skill_2  MB_ATT_SABER_DAMAGE
+ c_att_names_2  "Saber Damage (120)"
+ c_att_ranks_2  0
+ c_att_descs_2  "80 default"
 
-	c_att_skill_21		MB_ATT_CORTOSIS
-	c_att_names_21		"Cortosis"
-	c_att_ranks_21		5
+ c_att_skill_3  MB_ATT_A280
+ c_att_names_3  "773 Firepuncher Rifle (A280)"
+ c_att_ranks_3  0
+ c_att_descs_3  "20% more velocity, 15% more damage, 15% more FP drain,
+45% slower RoF, 40% slower mag reload"
 
-	c_att_skill_22		MB_ATT_KNOCKDOWN_ROLL
-	c_att_names_22		"Knockdown Roll"
-	c_att_ranks_22		10
+ c_att_skill_4  MB_ATT_CLOAK
+ c_att_names_4  "Cloaking Device"
+ c_att_ranks_4  0,0
 
-	c_att_skill_23		MB_ATT_FORCEBLOCK
-	c_att_names_23		"Force Block"
-	c_att_ranks_23		10
+ c_att_skill_5  MB_ATT_POWER
+ c_att_names_5  "Resource Pool (100)"
+ c_att_ranks_5  0 
 
-	c_att_skill_24		MB_ATT_ANTI_MT
-	c_att_names_24		"Anti-Mind Trick"
-	c_att_ranks_24		1,1
+ c_att_skill_6  MB_ATT_REGEN
+ c_att_names_6  "Resource Regen (75%)"
+ c_att_ranks_6  0 
 
-	c_att_skill_25		MB_ATT_STAMINA
-	c_att_names_25		"Stamina"
-	c_att_ranks_25		2,2,2
+ c_att_skill_7  MB_ATT_ANTI_MT
+ c_att_names_7 "Anti-Mind Trick"
+ c_att_ranks_7  0,0
 
-	c_att_skill_26		MB_ATT_DEXTERITY
-	c_att_names_26		"Dexterity/Dex Roll ^3[CS2]"
-	c_att_ranks_26		2,2,3
+ c_att_skill_8  MB_ATT_TRACKING_BEACON
+ c_att_names_8  "Tracking Beacon"
+ c_att_ranks_8  0
 
-	c_att_skill_27		MB_ATT_DASH
-	c_att_names_27		"Dash ^3[CS3]"
-	c_att_ranks_27		0,2
+ c_att_skill_9  MB_ATT_GETUPS
+ c_att_names_9  "Getup"
+ c_att_ranks_9  0,0,0
 
-	c_att_skill_28		MB_ATT_POISON_DART
-	c_att_names_28		"Poison Darts ^3[Melee CS4]"
-	c_att_ranks_28		2,2,2
+ c_att_skill_10  MB_ATT_DEXTERITY
+ c_att_names_10  "Dexterity"
+ c_att_ranks_10   0,0,0
+
+ c_att_skill_11  MB_ATT_DASH_JUMP
+ c_att_names_11  "Jump Dash"
+ c_att_ranks_11  0
+
+ c_att_skill_12  MB_ATT_POISON_DART
+ c_att_names_12  "Ass. Poison Dart ^3[Melee CS1]"
+ c_att_ranks_12  0,0
+ c_att_descs_12  "Tracks/drains/focuses on hit, 100% more damage"
+
+ c_att_skill_13  MB_ATT_TRACKING_DART
+ c_att_names_13  "Ass. Tracking Dart ^3[Melee CS2]"
+ c_att_ranks_13  0
+ c_att_descs_13  "Poisons/drains/shocks on hit, 100% more damage"
+
+
+
+ c_att_skill_15  MB_ATT_SABER_MAXCHAIN
+ c_att_names_15  "Saber Chain Limit (4)"
+ c_att_ranks_15  0
+ c_att_descs_15  "2 default"
+
+ c_att_skill_16  MB_ATT_BP_MULTIPLIER
+ c_att_names_16  "Saber BP (125%)"
+ c_att_ranks_16  0
+
+ c_att_skill_17  MB_ATT_AP_MULTIPLIER
+ c_att_names_17  "Saber AP (125%)"
+ c_att_ranks_17  0
+
+ c_att_skill_18  MB_ATT_CLONE_PISTOL
+ c_att_names_18  "DC-17 Clone Pistols"
+ c_att_ranks_18  0,0,0
+ c_att_descs_18  "Mag reload, Heavyweight"
+
+ c_att_skill_19  MB_ATT_FORCEBLOCK
+ c_att_names_19  "Force Block"
+ c_att_ranks_19  0,0
+
+ c_att_skill_20  MB_ATT_RESOURCE_REGEN_AMOUNT
+ c_att_names_20  "Resource Regen Amount (65)"
+ c_att_ranks_20  0
+
+ c_att_skill_21  MB_ATT_RESOURCE_REGEN_RATE
+ c_att_names_21  "Resource Regen Rate (.001s)"
+ c_att_ranks_21  0
+
+ c_att_skill_22  MB_ATT_GETUPS
+ c_att_names_22  "Getup"
+ c_att_ranks_22  0,1
+
+ c_att_skill_23  MB_ATT_DEXTERITY
+ c_att_names_23  "Dexterity"
+ c_att_ranks_23  2,0,0
+
+ c_att_skill_24  MB_ATT_STM_MULTIPLIER
+ c_att_names_24  "Skill Cooldown (150%)"
+ c_att_ranks_24  1
+ c_att_descs_24  "85% default"
+
+ c_att_skill_25  MB_ATT_DODGE
+ c_att_names_25 "Dodge ^3[CS4]"
+ c_att_ranks_25  0,0,0
+
+ c_att_skill_26  MB_ATT_FLIPKICK
+ c_att_names_26 "Flipkick ^3[Contact Jump]"
+ c_att_ranks_26  0
 }
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_SABER
-	WeaponBasedOff		WP_SABER
-	NewWorldModel		"models/weapons2/arc_shiv/saber_w.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"models/weapons2/arc_shiv/w_icon_arc_shiv"
-	WeaponName			"Assassin's Vibroshivs"
+ WeaponToReplace  WP_SABER
+ WeaponBasedOff  WP_SABER
+ NewWorldModel  "models/weapons2/arc_shiv/saber_w.glm"
+ NewViewModel  "models/weapons2/dummy/dummy.md3"
+
+ Icon    "models/weapons2/arc_shiv/w_icon_arc_shiv"
+ WeaponName   "Assassin's Vibroshivs"
+
 }
 
-description	"Clone Assassin
+WeaponInfo1
+{
+ WeaponToReplace  WP_A280
+ WeaponBasedOff WP_A280
 
-Dexterous troopers with stealth and frontline speciality skills.
+ NewWorldModel "models/weapons2/dlt20a/dlt20a_w.glm"
+ NewViewModel  "models/weapons2/dlt20a/dlt20a.md3"
+ NewHandsModel "models/weapons2/dlt20a/dlt20a_hand.md3"
+
+ WeaponName   "773 Firepuncher Rifle"
+ Icon "gfx/hud/W_icon_dlt20a"
+
+ FlashSound0   "sound/weapons/ee3/fire.MP3"
+ FlashSound1   "sound/weapons/ee3/fire1.MP3"
+ FlashSound2   "sound/weapons/ee3/fire2.MP3"
+ FlashSound3   "sound/weapons/ee3/fire3.MP3"
+ altFlashSound0  "sound/weapons/ee3/sniperfire.MP3"
+
+ MissileEffect   "Blaster/Shot02B"
+ altMissileEffect "Blaster/Shot10B"
+
+ MuzzleEffect   "Blaster/MuzzleFlash01B"
+ altMuzzleEffect   "Blaster/MuzzleFlash01B"
+
+ Missile3Effect   "Blaster/Shot03B"
+ PowerupShotEffect  "Blaster/Shot03B"
+
+ velocityMod 1.2
+ damageMod 1.15
+ FPmult 1.15
+ rateMod 1.45
+ reloadtimemodifier 1.4
+ clipsize 20
+ customAmmo 800
+
+ hasAnimOverrides 1
+ animReadyRun  BOTH_AMBAN_IDLE
+ animReady  BOTH_AMBAN_READY
+ animReadyWalk  BOTH_AMBAN_AIM_READY
+ animReadyNoAmmo  BOTH_AMBAN_AIM_ATTACK
+ animAttackRun  BOTH_AMBAN_ATTACK
+ animAttack   BOTH_AMBAN_ATTACK
+ animAttackWalk  BOTH_AMBAN_AIM_ATTACK
+ animCharge   BOTH_AMBAN_READY
+ animZoom  BOTH_AMBAN_AIM_READY
+ selectSound   "sound/weapons/silencedpistol/select.wav"
+}
+
+WeaponInfo2
+{
+ WeaponToReplace  WP_CLONE_PISTOL
+ WeaponBasedOff  WP_MANDO_PISTOL
+ NewWorldModel  "models/weapons2/dc-17/dc-17_w.glm"
+ NewViewModel  "models/weapons2/dc-17/dc-17.md3"
+ NewHandsModel  "models/weapons2/dc-17/dc-17_hand.md3"
+
+ WeaponName   "DC-17 Clone Pistols"
+ Icon    "gfx/hud/w_icon_dc-17_dual"
+
+	hasAnimOverrides	1
+	animReadyRun		BOTH_MAND_DUAL_PISTOLS_IDLE
+ animReady  BOTH_MAND_DUAL_PISTOLS_IDLE
+	animReadyWalk			BOTH_MAND_DUAL_PISTOLS_READY
+	animReadyNoAmmo	BOTH_STAND_TO_KNEEL	//	BOTH_MAND_FLAME_READY
+	animStand			BOTH_STAND2
+
+	animRunAttackR		BOTH_MAND_DUAL_PISTOLS_ATTACK_R
+	animRunAttackL			BOTH_MAND_DUAL_PISTOLS_ATTACK_L
+	animWalkAttackR		BOTH_MAND_DUAL_PISTOLS_ATTACK_R
+	animWalkAttackL	BOTH_MAND_DUAL_PISTOLS_ATTACK_L
+	animCharge			BOTH_MAND_DUAL_PISTOLS_READY
+
+customAmmo 880
+}
+
+description "Clone Assassin
+
+Dexterous troopers with specialty skills focused on covert elimination and head-on combat.
 
 ^2Weaponry:
 - Melee
 -- 12% faster RoF
 - Assassin's Vibroshivs (Dual Saber)
--- Saber Defense (0)
+-- Saber Defense (1)
 -- No Blaster Block
+-- Chain Limit: 2
 -- Poisons on hit
--- 50% more special damage
+-- 75% more special damage
 -- 20% more knockback
 -- 35% shorter
 -- 400% thicker
 
-^6Inventory:
-- Cloaking Device (2)
-
 ^8Attributes:
-- Stamina (0)
-- Tracking Beacon
+- Reinforcement (1)
+- Stamina (2)
+- Getup (1)
 - 7% less knockback taken
+- 85% slower skill cooldown
 
 ^3Abilities:
-- Sprint ^3[CS1]
-- Dash (1) ^3[CS3]"
+- Dash (2) ^3[CS3]"

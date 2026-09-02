@@ -2,7 +2,7 @@
 ClassInfo
 {
 	name				"v7_ImpSpec"
-	MBClass				MB_CLASS_CLONETROOPER
+	MBClass				MB_CLASS_ELITETROOPER
 	extralives			1
 	classNumberLimit	2
 
@@ -13,7 +13,7 @@ ClassInfo
 	maxhealth			80
 	maxarmor			80
 
-	speed				1.13
+	baseSpeed			212
 
 	resource			RESOURCE_ENERGY
 	forcepool			110
@@ -37,6 +37,7 @@ ClassInfo
 	saber1_1			reb_wrench_s
 	sabercolor_1		0
 	saberstyle_1		SS_TAVION
+	CSMultiplier		1.02
 	ASMultiplier		1.05
 	BPMultiplier		0
 
@@ -45,7 +46,7 @@ ClassInfo
 	WP_MeleeFlags		HELD_SPEED
 	WP_PulseNadeFlags	HELD_SPEED
 	//WP_BlasterFlags	HELD_KNOCKBACK
-	WP_StunBatonFlags	HELD_SPEED|HELD_FLAME
+	WP_WelderFlags		HELD_SPEED
 
 	isCustomBuild		1
 	mbPoints			4
@@ -53,11 +54,11 @@ ClassInfo
 	c_att_skill_0		MB_ATT_SABER
 	c_att_names_0		"Wrench (Cyan Saber)"
 	c_att_ranks_0		0
-	c_att_descs_0		"No Saber/Blaster Block, No Saber Training,
-200% more knockback, 35% shorter, 166% thicker"
+	c_att_descs_0		"No Saber/Blaster Block, No Saber Training, 200% more knockback,
+35% shorter, 166% thicker"
 
 	c_att_skill_1		MB_ATT_TRIP_MINES
-	c_att_names_1		"Trip Mines"
+	c_att_names_1		"Trip Mine"
 	c_att_ranks_1		1,1,1
 	c_att_descs_1		"Lightweight"
 
@@ -67,17 +68,17 @@ ClassInfo
 	c_att_descs_2		"Lightweight"
 
 	c_att_skill_3		MB_ATT_DET_PACK
-	c_att_names_3		"Det Packs"
+	c_att_names_3		"Det Pack"
 	c_att_ranks_3		1,1,1
 	c_att_descs_3		"Lightweight, Damage increases with rank"
 
-	c_att_skill_4		MB_ATT_STUN_BATON
-	c_att_names_4		"F-187 Fusioncutter (Stun Baton)"
-	c_att_ranks_4		0
-	c_att_descs_4		"Burns on hit, Lightweight, 80% faster RoF, 65% less damage"
+	c_att_skill_4		MB_ATT_WELDER
+	c_att_names_4		"F-187 Fusioncutter (Welder)"
+	c_att_ranks_4		0,0
+	c_att_descs_4		"Lightweight"
 
 	uioverlay_l			"gfx/icons/tactician"
-	uioverlay_r			"gfx/icons/infantry"
+	//uioverlay_r			"gfx/icons/infantry"
 	modelscale			1.01
 	model				"imperial_army"
 	skin				"gunner"
@@ -141,11 +142,10 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_STUN_BATON
-	WeaponBasedOff		WP_STUN_BATON
+	WeaponToReplace		WP_WELDER
+	WeaponBasedOff		WP_WELDER
 	NewWorldModel		"models/weapons2/fc_f187/f187.glm"
 	NewViewModel		"models/weapons2/fc_f187/f187.md3"
-	NewHandsModel		"models/weapons2/fc_f187/f187_hand.md3"
 	Icon				"gfx/hud/w_icon_fc_f187_all"
 	WeaponName			"F-187 Fusioncutter"
 	hasAnimOverrides	1
@@ -156,12 +156,8 @@ WeaponInfo2
 	animAttackRun		BOTH_ATTACK2
 	animAttack			BOTH_ATTACK2
 	animAttackWalk		BOTH_ATTACK2
-	FlashSound0			"sound/weapons/fusioncutter/cutter_hit.mp3"
-	//MissileMissEffect			"sparks/spark_exp_nosnd"
-	//MissileHitHumanEffect		"sparks/spark_exp_nosnd"
-	//MissileHitDroidEffect		"sparks/spark_exp_nosnd"
-	rateMod				.2
-	damageMod			.35
+	MuzzleEffect			"sparks/spark_exp_nosnd"
+	AltMuzzleEffect			"sparks/spark_exp_nosnd"
 }
 
 WeaponInfo3
@@ -183,10 +179,10 @@ Tech-oriented support soldiers.
 -- Lightweight
 - SE-14C Spec Blaster Pistol (2)
 -- 35% faster RoF
--- 10% more charged FP damage
+-- 10% more charged FP drain
 -- 10% less damage
 - E-11 Blaster Carbine (Clone Rifle 1)
--- Concussion/Ion Blobs (8)
+-- Concussion/Ion Blob (8)
 
 ^6Inventory:
 - Assault Sentry ^3[CS3] ^5{RC}

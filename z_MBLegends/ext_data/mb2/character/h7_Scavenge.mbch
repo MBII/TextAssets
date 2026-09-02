@@ -7,32 +7,29 @@ ClassInfo
 	extralives			2
 	classNumberLimit	6
 
-	weapons				WP_MELEE|WP_SABER|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_STUN_BATON|WP_REPEATER
+	weapons				WP_MELEE|WP_SABER|WP_BLASTER|WP_TRIP_MINE|WP_PULSE_NADE|WP_STUN_BATON|WP_ROCK_NADE
 
-	attributes			MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_BLASTER,1|MB_ATT_DODGE,3|MB_ATT_TRIP_MINES,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_DRONE,1|MB_ATT_REPEATER|MB_ATT_REPEATER_NADES,2|MB_ATT_DEXTERITY,1|MB_ATT_GETUPS,2
+	attributes			MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,2|MB_ATT_BLASTER,1|MB_ATT_DODGE,3|MB_ATT_TRIP_MINES,1|MB_ATT_PULSE_GRENADES,1|MB_ATT_STUN_BATON,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_DRONE,1|MB_ATT_ROCK_NADE,4|MB_ATT_DEXTERITY,1|MB_ATT_GETUPS,2
 
 	maxhealth			70
 	maxarmor			30
 
-	modelscale			0.75
-
-	rateOfFire			1
 	rateOfFire_Melee	0.5
 
 	BPmultiplier		0
 	APmultiplier		.5
-	knockbackTaken		1.4
+	knockbackTaken		1.35
 	knockbackGiven		0.9
 	resource			RESOURCE_ENERGY
 	forcepool			65
 
-	special1HUD			HUD_REPEATERNADE
-	special2HUD			HUD_PULSENADE
+	special2HUD			HUD_ROCKNADE
+	special1HUD			HUD_PULSENADE
 
 	WP_BlasterFlags			HELD_PULSE|HELD_ALTRELOAD
 	WP_MeleeFlags			HELD_LOWDAMAGE
-	WP_StunBatonFlags		HELD_DISARM|HELD_CRIPPLE
-	WP_RepeaterFlags		HELD_CRIPPLE|HELD_EXPLOSIVE
+	WP_StunBatonFlags		HELD_DISARM|HELD_CRIPPLE|HELD_SLOW
+	WP_RockNadeFlags		HELD_CRIPPLE
 
 	WP_BlasterPistolFlags	HELD_SPEED
 	WP_ClonePistolFlags		HELD_SPEED
@@ -43,6 +40,7 @@ ClassInfo
 	WP_BowcasterFlags		HELD_SPEED
 	WP_CloneRifleFlags		HELD_SPEED
 	WP_MinigunFlags			HELD_SPEED
+	WP_RepeaterFlags		HELD_SPEED
 	WP_DEMP2Flags			HELD_SPEED
 	WP_ThrowerFlags			HELD_SPEED
 	WP_T21Flags				HELD_SPEED
@@ -72,7 +70,8 @@ ClassInfo
 	WP_UGLFlags				HELD_SPEED
 	WP_MGLFlags				HELD_SPEED
 	WP_EqualizerFlags		HELD_SPEED
-
+	WP_MIRVFlags		HELD_SPEED
+ WP_WelderFlags HELD_SPEED
 
 	baseSpeed				259
 
@@ -84,7 +83,6 @@ ClassInfo
 	sabercolor_1			0
 	saberstyle_1			SS_FAST
 
-	//saberMaxChain			1
 	saberDamage				50
 
 	special1				EAS_HI_DODGE
@@ -99,9 +97,9 @@ ClassInfo
 	//tauntAnim				BOTH_SHOWOFF_FAST
 	RunForward				BOTH_RUN4
 	RunBackward				BOTH_RUNBACK4
-	uioverlay_l				"gfx/icons/tactician"
-	uioverlay_r				"gfx/icons/infantry"
 
+	uioverlay_r				"gfx/icons/tactician"
+	modelscale			0.75
 	model					"jawa"
 	skin					"default"
 	uishader				"models/players/jawa/mb2_icon_default"
@@ -182,7 +180,7 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_REPEATER
+	WeaponToReplace		WP_ROCK_NADE
 	WeaponBasedOff		WP_THERMAL
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
@@ -204,22 +202,21 @@ WeaponInfo2
 	altMissileHitDroidEffect	"materials/sand_large"
 	altFlashSound0		"sound/player/footsteps/sand_run1.mp3"
 
-	splashRadius		6.4
-	customAmmo			-1
-	clipsize			-1
-	primfireenabled		0
-	damageMod			0.01
+	splashRadius		15
+ damageMod 5
+	altfireenabled		0
 
 	hasAnimOverrides	1
 	animReadyRun		BOTH_TRIPLE3_DUALSTANCE
 	animReady			BOTH_TRIPLE3_DUALSTANCE
 	animReadyWalk		BOTH_TRIPLE3_DUALSTANCE
 	animReadyNoAmmo		BOTH_TRIPLE3_DUALSTANCE
-	animAttackRun		BOTH_THERMAL_THROW2
-	animAttack			BOTH_THERMAL_THROW2
-	animAttackWalk		BOTH_THERMAL_THROW2
+	animAttackRun		BOTH_WOOKIEE_RAGE_MELEE2
+	animAttack		BOTH_WOOKIEE_RAGE_MELEE2
+	animAttackWalk		BOTH_WOOKIEE_RAGE_MELEE2
 	animStand			BOTH_TRIPLE3_DUALSTANCE
 
+	chargeSound			"sound/weapons/rock_nade/ewok_charge.mp3"
 	selectSound			"sound/player/footsteps/sand_walk1.mp3"
 }
 
@@ -257,8 +254,9 @@ WeaponInfo3
 	MissileHitDroidEffect		null
 	AltMissileHitDroidEffect	null
 
-	rateMod				2.8
+	rateMod				3
 	damageMod			0.01
+ fpmult 0.01
 }
 
 description	"Scavenger
@@ -276,32 +274,33 @@ Midgets with munitions, gadgets, and an electric blaster. Upon finding a new wea
 -- 166% thicker
 - Ion Blaster (Rifle 1)
 -- Shocks on hit
--- 35% more FP damage
+-- 35% more FP drain
 -- 10% faster reload
 -- 20% less velocity
 -- 55% slower RoF
-- Pocket Sand (4) (IHR)
--- Slows on hit
--- 95% less damage
--- 95% smaller splash
--- Secondary fire only
 - Trip Mine (1)
 - Pulse Grenade (1)
+- Pocket Sand (4) (Rock)
+-- Slows on hit
+-- 400% more damage
+-- 1400% larger splash
+-- Primary fire only
 - Restraining Bolt (Stun Baton 1)
 -- Slows/disarms on hit
--- 99% less damage
--- 180% slower RoF
+-- 99% less damage/FP drain
+-- 200% slower RoF
+-- Heavyweight
 
 ^6Inventory:
 - Seeker Drone
 
 ^8Attributes:
-- Reinforcements (2)
+- Reinforcement (2)
 - Dexterity (1)
 - Getup (2)
 - Assemble (2)
 - 10% less knockback given
-- 40% more knockback taken
+- 35% more knockback taken
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]

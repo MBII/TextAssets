@@ -2,35 +2,43 @@
 ClassInfo
 {
 	name				"h8_NRSecDroid"
+	extraLives			1
 	classNumberLimit	3
-	MBClass				MB_CLASS_WOOKIE
-	WP_SaberFlags		HELD_PULSE
-	WP_ThermalFlags		HELD_KNOCKBACK
-	weapons				WP_MELEE|WP_SABER|WP_THERMAL
-	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1
+	MBClass				MB_CLASS_BATTLEDROID
+
+	weapons				WP_MELEE|WP_SABER|WP_A280|WP_MINIGUN|WP_TRIP_MINE
+
+	WP_MeleeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_NODISARM
+	WP_SaberFlags		HELD_PULSE|HELD_NODISARM
+	WP_MinigunFlags		HELD_PULL|HELD_NODISARM
+	WP_TripMineFlags	HELD_LOWDAMAGE|HELD_PULL|HELD_DISARM|HELD_NODISARM
+ WP_A280Flags HELD_ALTRELOAD|HELD_NODISARM
+
+	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_RECHARGE,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BESKAR,1|MB_ATT_A280,2|MB_ATT_MINIGUN,1|MB_ATT_TRIP_MINES,3|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,1
 
 	resource			RESOURCE_BATTERY
+	forcePowers			FP_PULL,1
 	forcepool			70
 
 	saber1				JawaBaton_legends
 	saberStyle			SS_DESANN
 	SaberDamage			70
 	APMultiplier		1.05
-	ASMultiplier		0.95
-	CSMultiplier		0.95
+	ASMultiplier		0.97
+	CSMultiplier		0.97
 	BPMultiplier		0
 	saberMaxChain		1
 	saberStanceAnim		TORSO_WEAPONREADY0
-	maxhealth			100
-	rankHealth			140,240,300
 
-	maxArmor			0
-	rankArmor			30,60,100
+	maxhealth			50
+	maxArmor			175
+ speed 1.0715
+ meleeknockback_flat 25
+ rateOfFire_Melee 1.65
 
-	basespeed			150
-	rankbasespeed		160,175,200
+ //classFlags CFL_HEAVYMELEE
 
-	meleeMoves			M_UPPERCUT|M_BLOCK|M_FBKICK|M_JUMPKICK|M_KATA|M_KICK|M_LEGSWEEP|M_PUNCH|M_RLKICK
+	meleeMoves	M_PUNCH|M_KATA
 
 	special1			EAS_NONE
 	meleespecial1		EAS_NONE
@@ -46,70 +54,15 @@ ClassInfo
 	tauntAnim			TORSO_HANDSIGNAL3
 	WalkForward			BOTH_SBD_WALK1
 	WalkBackward		BOTH_SBD_WALKBACK1
+ punchAnim BOTH_MELEE2
 
 	model				"NRSD"
 	skin				"default"
 	uishader			"models/players/NRSD/mb2_icon_default"
-	uioverlay_l			"gfx/icons/brawler"
-	uioverlay_r			"gfx/icons/infantry"
+	uioverlay_r			"gfx/icons/brawler"
+	uioverlay_l			"gfx/2d/hud/hlp_defend"
+	uioverlay_c			"gfx/2d/hud/hlp_desert_head"
 	modelscale			1.2
-
-	isCustomBuild		1
-	mbPoints			80
-
-	c_att_skill_0		MB_ATT_WOOKIE_STRENGTH
-	c_att_names_0		"Droid Strength"
-	c_att_ranks_0		2,6,10
-
-	c_att_skill_1		MB_ATT_A280
-	c_att_names_1		"Modified DH-17 (A280)"
-	c_att_ranks_1		4,2,1
-
-	c_att_skill_2		MB_ATT_BASE_TD
-	c_att_names_2		"Heavy Thermal Grenades"
-	c_att_ranks_2		2,2,2
-	c_att_descs_2		"Pushes on det, 150% more damage"
-
-
-	c_att_skill_3		MB_ATT_FP_PULL
-	c_att_names_3		"Magnetic (Force) Pull ^3[CS4]"
-	c_att_ranks_3		6
-
-	c_att_skill_4		MB_ATT_RESPAWNS
-	c_att_names_4		"Reinforcement"
-	c_att_ranks_4		20
-
-	c_att_skill_5		MB_ATT_ASSEMBLE
-	c_att_names_5		"> Assemble"
-	c_att_ranks_5		0,2,3
-
-	c_att_skill_6		MB_ATT_HEALTH
-	c_att_names_6		"Health (140/240/300)"
-	c_att_ranks_6		3,6,9
-
-	c_att_skill_7		MB_ATT_ARMOUR
-	c_att_names_7		"Armor (30/60/100)"
-	c_att_ranks_7		1,4,6
-
-	c_att_skill_8		MB_ATT_SHIELD_RECHARGE
-	c_att_names_8		"> Armor Regen"
-	c_att_ranks_8		6
-
-	c_att_skill_9		MB_ATT_BLAST_ARMOUR
-	c_att_names_9		"Blast Armor"
-	c_att_ranks_9		4
-
-	c_att_skill_10		MB_ATT_MAGNETIC_PLATING
-	c_att_names_10		"Magnetic Plating"
-	c_att_ranks_10		6
-
-	c_att_skill_11		MB_ATT_RECHARGE
-	c_att_names_11		"Battery Recharge"
-	c_att_ranks_11		2,2
-
-	c_att_skill_12		MB_ATT_BASESPEED
-	c_att_names_12		"Speed (160/175/200)"
-	c_att_ranks_12		4,6,10
 }
 
 WeaponInfo0
@@ -128,11 +81,67 @@ WeaponInfo0
 	animAttack			BOTH_WESTARM5_ATTACK
 	animAttackWalk		BOTH_WESTARM5_ATTACK
 	animAttackRun		BOTH_WESTARM5_ATTACK
-	animStand			BOTH_WESTARM5_READY
 	animStand			BOTH_STAND5
 }
 
 WeaponInfo1
+{
+	WeaponToReplace		WP_MINIGUN
+	WeaponBasedOff		WP_MINIGUN
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Magnetic Attractor Device"
+	AltFlashSound0		"sound/effects/tractorbeam.mp3"
+	AltFlashSound1		"sound/effects/tractorbeam.mp3"
+	AltFlashSound2		"sound/effects/tractorbeam.mp3"
+	AltFlashSound3		"sound/effects/tractorbeam.mp3"
+	FlashSound0			"sound/effects/tractorbeam.mp3"
+	FlashSound1			"sound/effects/tractorbeam.mp3"
+	FlashSound2			"sound/effects/tractorbeam.mp3"
+	FlashSound3			"sound/effects/tractorbeam.mp3"
+
+	isMinigun			1
+
+	customAmmo			-1
+	clipSize			100
+
+	damageMod			0.01
+	FPMult				0.01
+	FPBlockMinMult		1
+	FPBlockMaxMult		1
+	FPNoBlockMinMult	1
+	FPNoBlockMaxMult	1
+	rateMod				3
+
+	altMuzzleEffect			"grenades/glowempb"
+	altMissileEffect					"halo_shotgun/shot"
+	altMissileMissEffect		"concussion/alt_ring"
+	AltMissileHitHumanEffect 	"concussion/alt_ring"
+	AltMissileHitDroidEffect	"concussion/alt_ring"
+	AltMissileModel				"models/weapons2/dummy/dummy.md3"
+
+	MuzzleEffect	"grenades/glowempb"
+	MissileEffect			"halo_shotgun/shot"
+	MissileMissEffect		"concussion/alt_ring"
+	MissileHitHumanEffect	"concussion/alt_ring"
+	MissileHitDroidEffect	"concussion/alt_ring"
+	MissileModel				"models/weapons2/dummy/dummy.md3"
+	
+	hasAnimOverrides	1
+	animReadyRun		BOTH_MELEE_STAND2
+	animReady			BOTH_MELEE_STAND2
+	animReadyWalk		BOTH_SABERTHROW1STOP
+	animReadyNoAmmo		BOTH_SABERTHROW1STOP
+	animAttackRun	BOTH_SABERTHROW1STOP
+	animAttack		BOTH_SABERTHROW1STOP
+	animAttackWalk		BOTH_SABERTHROW1STOP 
+	animCharge	BOTH_SABERTHROW1STOP
+	animStand			BOTH_STAND1
+}
+
+WeaponInfo2
 {
 	WeaponToReplace		WP_SABER
 	WeaponBasedOff		WP_SABER
@@ -142,16 +151,7 @@ WeaponInfo1
 	WeaponName			"Stun Baton"
 	altFireEnabled		0
 }
-WeaponInfo2
-{
-	WeaponToReplace		WP_THERMAL
-	WeaponBasedOff		WP_THERMAL
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel		"models/weapons2/thermal/thermal_hand.md3"
-	Icon				"gfx/hud/w_thermal_grenade"
-	WeaponName			"Heavy Thermal Grenades"
-	damagemod			2.5
-}
+
 ForceInfo0
 {
 	ForceToReplace		FP_PULL
@@ -163,20 +163,47 @@ ForceInfo0
 
 description	"N5 Sentry Droid aka New Republic Security Droid
 
-Patrol units with reinforced armor and hard-hitting parts.
+Patrol units with reinforced armor, equipped to subdue unruly prisoners with standard weaponry and built-in magnetics.
 
 ^2Weaponry:
-- Melee
+- Droid Melee
+-- 25% more knockback
+-- 50% less damage
+-- 65% slower RoF
+-- Heavyweight
+-- Punch/grab only
 - Stun Baton (Purple Saber)
--- No Saber/Blaster Block
+-- No Block
 -- Chain Limit: 1
 -- Shocks on hit
+-- Non-disarmable
 -- 40% shorter
 -- 166% thicker
--- Primary fire only
+- Magnetic Attractor Device (Minigun 1)
+-- Pulls on hit
+-- 99% less damage/FP drain
+-- 200% slower RoF
+- Modified DH-17 Blaster Pistol (A280 2)
+-- Non-disarmable
+-- Mag reload
+- Magnetic Trap Mine (3)
+-- Pulls/disarms on det
+-- Non-disarmable
+-- 50% less damage
+
+^5Powers:
+- Magnetic (Force) Pull ^3[CS4]
 
 ^8Attributes:
+- Reinforcement (1)
+- Strength (3)
+- Battery Recharge (2)
+- Magnetic Plating
+- Beskar (1)
+- Blast Armor
 - Assemble (1)
+- Getup (1)
+- Wookalike
 
 ^3Abilities:
 - Shoulder Barge (1) ^3[Melee CS2]"

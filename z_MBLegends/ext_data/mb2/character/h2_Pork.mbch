@@ -2,7 +2,7 @@
 ClassInfo
 {
 	name				"h2_Pork"
-	MBClass				MB_CLASS_WOOKIE
+	MBClass				MB_CLASS_HERO
 	classNumberLimit	1
 
 	weapons				WP_MELEE|WP_REPEATER|WP_SHOTGUN|WP_FRAG_NADE|WP_EE3
@@ -14,19 +14,21 @@ ClassInfo
 	WP_MeleeFlags		HELD_LIFESTEAL
 	WP_FragNadeFlags	HELD_PULL
 	WP_RepeaterFlags	HELD_KNOCKBACK|HELD_KNOCKDOWN|HELD_LIFT|HELD_FLAME
+ WP_ShotgunFlags HELD_ALTRELOAD
 
 	WP_SaberFlags		HELD_FLAME|HELD_KNOCKBACK|HELD_SPEED|HELD_LIFT|HELD_LIFESTEAL //spin only
 	saber1				frying_pan
 	sabercolor			6
 	saberstyle			SS_MEDIUM|SS_STRONG
 
-	attributes			MB_ATT_AMMO,3|MB_ATT_SHOTGUN,3|MB_ATT_FRAGS,3|MB_ATT_EE3,1|MB_ATT_ENV_PROT,1|MB_ATT_REPEATER_NADES,3|MB_ATT_REPEATER,3|MB_ATT_RECHARGE,1|MB_ATT_BACTA,1|MB_ATT_BASESEEKER|MB_ATT_BARGE,1|MB_ATT_HEALING,1
+	attributes			MB_ATT_AMMO,3|MB_ATT_SHOTGUN,3|MB_ATT_FRAGS,3|MB_ATT_EE3,1|MB_ATT_ENV_PROT,1|MB_ATT_REPEATER_NADES,2|MB_ATT_REPEATER,3|MB_ATT_RECHARGE,1|MB_ATT_BACTA,1|MB_ATT_BASESEEKER|MB_ATT_BARGE,1|MB_ATT_HEALING,1|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,1
 
 	special1HUD			HUD_REPEATERNADE
 	special2HUD			HUD_FRAGNADE
 
 	maxhealth			400
 	maxarmor			50
+	basespeed			187
 
 	rateoffire_melee	1.15
 	meleeknockback_flat	90
@@ -86,12 +88,12 @@ WeaponInfo0
 	WeaponName			"CR-1 Blast Cannon"
 
 	clipSize			60
-	CustomAmmo			800
+	CustomAmmo			600
 	altFireEnabled		0
-	velocityMod			1.1
-	damageMod			1.1
-	fpMult				1.1
-	reloadTimeModifier	2
+	reloadTimeModifier	1.15
+ rateMod 1.1
+ damageMod .9
+
 	hasAnimOverrides	1
 	animReady			BOTH_WESTARM5_READY
 	animReadyRun		BOTH_WESTARM5_READY
@@ -198,7 +200,7 @@ WeaponInfo3
 	NewWorldModel		"models/weapons/Grenade_Concussion/model.glm"
 	NewViewModel		"models/weapons/Grenade_Concussion/viewmodel.md3"
 	Icon				"gfx/hud/w_icon_stungrenade"
-	WeaponName			"Thermal Imploders"
+	WeaponName			"Thermal Imploder"
 	MuzzleEffect				null
 	MissileModel		"models/weapons/Grenade_Concussion/proj.md3"
 	MissileEffect				"grenades/glowempb"
@@ -236,23 +238,23 @@ I'm a big man. A big, BIG man.
 -- 200% more damage
 -- 90% more knockback
 -- 15% slower RoF
-- Emergency Eject (6) (IHR)
+- Emergency Eject (4) (IHR)
 -- Trips/pushes/lifts/burns on det
 -- 300% more damage
 -- 25% larger splash
 -- 100% less velocity
 -- Secondary fire only
 - CR-1 Blast Cannon (Shotgun 3)
--- 10% more velocity
--- 10% more damage/FP damage
--- 100% slower reload
+-- 10% less damage
+-- 10% slower RoF
+-- 15% slower mag reload
 -- Primary fire only
-- Thermal Imploders (3) (Frags)
+- Thermal Imploder (3) (Frag)
 -- Pulls on det
 - Porkins' S3 Blaster Pistol (EE-3 1)
 -- 75% faster RoF
 -- 30% less damage
--- 20% less FP damage
+-- 20% less FP drain
 -- 100% slower reload
 
 ^6Inventory:
@@ -260,13 +262,15 @@ I'm a big man. A big, BIG man.
 - Medpac ^3[CS3]
 
 ^8Attributes:
-- Melee Resist
-- Elemental Resist (1)
+- Brawler Guard
+- Climate Shielding (1)
 - Healing (1)
 - Recharge (1)
-- 25% slower skill cooldown
+- Getup (1)
+- Wookalike
 - 25% more knockback given
 - 50% less knockback taken
+- 25% slower skill cooldown
 
 ^3Abilities:
 - Wrecking Ball (Barge 1) ^3[Melee CS2]"

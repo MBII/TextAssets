@@ -4,24 +4,31 @@ ClassInfo
 	name				"h10_JApostate"
 	MBClass				MB_CLASS_JEDI
 	classNumberLimit	1
-	weapons				WP_SABER|WP_MELEE
+	weapons				WP_SABER|WP_MELEE|WP_BOWCASTER
 
 	WP_SaberFlags		HELD_NODISARM
+	WP_BowcasterFlags HELD_CRIPPLE|HELD_NODISARM
 
-	attributes			MB_ATT_FORCEFOCUS,3|MB_ATT_FORCEBLOCK,4|MB_ATT_FP_MIRALUKA,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_ANTI_MT,2|MB_ATT_DEFLECT,0|MB_ATT_HEALING,1
+	attributes			MB_ATT_FORCEFOCUS,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FP_MIRALUKA,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_ANTI_MT,2|MB_ATT_DEFLECT,0|MB_ATT_HEALING,1|MB_ATT_BOWCASTER,1
 
-	forcepowers			FP_LEVITATION,1|FP_PUSH,2|FP_PULL,3|FP_SABER_OFFENSE,3|FP_SEE,3|FP_SABERTHROW,3|FP_GRIP,3|FP_DRAIN,3|FP_ABSORB,3|FP_TELEPATHY,2
+	forcepowers			FP_LEVITATION,1|FP_PUSH,2|FP_PULL,3|FP_SABER_OFFENSE,3|FP_SEE,3|FP_SABERTHROW,3|FP_GRIP,3|FP_DRAIN,2|FP_TELEPATHY,1
 
-	maxhealth			115
+	maxhealth			130
 	forcepool			150
-	forceregen			1.4
+	forceregen		1.1
+
 	speed				0.95
+
 	//special1			EAS_FP_SABERTHROW
 	special2			EAS_FP_DRAIN
 	special3			EAS_FP_GRIP
-	special4			EAS_FP_ABSORB
+	special4			EAS_FP_TELEPATHY
+
 	damageGiven			1.1
+ knockbackTaken 0.9
+
 	rateOfFire_Melee	0.9
+
 	saberstyle			SS_TAVION|SS_FAST
 	saberDamageStyle	SS_TAVION,130|SS_FAST,130
 	saberThrowDamage	40
@@ -35,19 +42,19 @@ ClassInfo
 
 	modelscale			0.97
 	uioverlay			"gfx/icons/support"
-	model				"Visas"
+	model			"Visas"
 	skin				"default"
 	uishader			"models/players/visas/mb2_icon_default"
 
-	model_1				"kreia"
+	model_1			"kreia"
 	skin_1				"default"
 	uishader_1			"models/players/kreia/mb2_icon_default"
 
-	model_2				"gwethenea"
+	model_2			"gwethenea"
 	skin_2				"jedihood"
 	uishader_2			"models/players/gwethenea/mb2_icon_jedihood"
 
-	model_3				"jolee"
+	model_3			"jolee"
 	skin_3				"default"
 	uishader_3			"models/players/jolee/mb2_icon_default"
 
@@ -59,6 +66,54 @@ ClassInfo
 
 	saber1_2			saber_jolee
 	sabercolor_2		3
+}
+
+WeaponInfo0
+{
+	WeaponToReplace		WP_BOWCASTER
+	WeaponBasedOff		WP_BOWCASTER
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Force Stun"
+
+	SelectSound			"sound/weapons/melee/swing3.mp3"
+	AltFlashSound0		"sound/effects/woosh13.mp3"
+	FlashSound0			"sound/effects/woosh13.mp3"
+	MissileLoop0		"sound/effects/woosh13.mp3"
+
+	damageMod			0
+ fpmult 0.01
+	rateMod				1.85
+	velocityMod			1.15
+	clipSize			24
+	customAmmo			-1
+	altFireEnabled		0
+
+	altMuzzleEffect				null
+	altMissileEffect			"force/pushblur"
+	altMissileMissEffect			"force/pushblur"
+	AltMissileHitHumanEffect		"concussion/alt_miss"
+	AltMissileHitDroidEffect	"concussion/alt_miss"
+	AltMissileModel				"models/weapons2/dummy/dummy.md3"
+
+	MuzzleEffect				null
+	MissileEffect				"force/pushblur"
+	MissileMissEffect			"force/pushblur"
+	MissileHitHumanEffect		"concussion/alt_miss"
+	MissileHitDroidEffect	"concussion/alt_miss"
+	MissileModel				"models/weapons2/dummy/dummy.md3"
+	
+	hasAnimOverrides	1
+	animReadyRun		BOTH_MELEE_STAND2
+	animReady			BOTH_MELEE_STAND2
+	animReadyWalk		BOTH_FORCE_DRAIN_START
+	animReadyNoAmmo		BOTH_FORCE_DRAIN_RELEASE
+	animAttackRun		BOTH_FORCE_DRAIN_HOLD
+	animAttack			BOTH_FORCE_DRAIN_HOLD
+	animAttackWalk		BOTH_FORCE_DRAIN_HOLD
+	animCharge			BOTH_FORCE_DRAIN_START
+	animStand			BOTH_STAND1
 }
 
 description	"Jedi Apostate
@@ -74,20 +129,26 @@ A Jedi who minimizes Lightsaber skills in favor of high Force talent.
 -- 35% more special damage
 -- EX Saber Throw (3) ^3[CS1]
 --- 33% more damage
+- Force Stun (12) (Bowcaster 1)
+-- Slows on hit
+-- 15% more velocity
+-- 100% less damage/FP drain
+-- 85% slower RoF
+-- Primary fire only
 
 ^5Force Powers:
 - Jump (1)
 - Push (2)
 - Pull (3)
-- Drain (3) ^3[CS2]
+- Drain (2) ^3[CS2]
 - Grip (3) ^3[CS3]
-- Mind Trick (2)
-- Absorb (3) ^3[CS4]
+- Mind Trick (1) ^3[CS4]
 
 ^8Attributes:
 - Miraluka Vision (3)
 - Sense Immunity
 - Anti-Mind Trick (2)
 - Healing (1)
-- Force Block (4)
-- Force Focus (3)"
+- Force Block (2)
+- Force Focus (3)
+- 10% less knockback taken"
