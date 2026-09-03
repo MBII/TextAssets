@@ -322,9 +322,10 @@ textures/amace_dantooine/Grass01_Rock01_Blend
 	}
 }
 
-textures/amace_dantooine/Grass01_RiverFloor_Blend
+textures/amace_dantooine/Rock01_RiverFloor_Blend
 {
-	qer_editorimage	textures/amace_dantooine/Rock01
+	qer_editorimage		textures/amace_dantooine/ter_rockriver
+	q3map_material		Rock
 	q3map_shadeangle	120
 	q3map_nonplanar
     {
@@ -337,6 +338,149 @@ textures/amace_dantooine/Grass01_RiverFloor_Blend
     {
 // Secondary
         map textures/boran/river_floor
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+        alphaGen vertex
+		tcMod scale	3 3
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+        rgbGen identity
+	}
+}
+
+textures/amace_dantooine/Rock01_RockCave_Blend
+{
+	qer_editorimage		textures/amace_dantooine/ter_rockcave
+	q3map_material		Rock
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+// Primary
+        map textures/amace_dantooine/Rock01_A
+		normalMap textures/amace_dantooine/Rock01_N
+		rmoMap textures/amace_dantooine/Rock01_RMO
+        rgbGen identity
+    }
+    {
+// Secondary
+        map textures/amace_kashyyyk/Rock01_A
+		normalMap textures/amace_kashyyyk/Rock01_N
+		rmoMap textures/amace_kashyyyk/Rock01_RMO
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+        alphaGen vertex
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+        rgbGen identity
+	}
+}
+
+textures/amace_dantooine/Grass01_RiverFloor_Blend
+{
+	qer_editorimage	textures/amace_dantooine/ter_grassriver
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+// Primary
+        map textures/amace_dantooine/Grass01_A
+		normalHeightMap textures/amace_dantooine/Grass01_NH
+		rmoMap textures/amace_dantooine/Grass01_RMO
+        rgbGen identity
+    }
+    {
+// Secondary
+        map textures/boran/river_floor
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+        alphaGen vertex
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+        rgbGen identity
+	}
+}
+
+textures/amace_dantooine/RiverFloor_Grass01_Blend
+{
+	qer_editorimage	textures/amace_dantooine/ter_grassriver
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+// Primary
+        map textures/boran/river_floor
+        rgbGen identity
+    }
+    {
+// Secondary
+        map textures/amace_dantooine/Grass01_A
+		normalHeightMap textures/amace_dantooine/Grass01_NH
+		rmoMap textures/amace_dantooine/Grass01_RMO
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+        alphaGen vertex
+		tcMod scale	3 3
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+        rgbGen identity
+	}
+}
+
+textures/amace_dantooine/Grass01_Gravel_Blend
+{
+	qer_editorimage		textures/amace_dantooine/ter_grassgravel
+	q3map_material		ShortGrass
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+// Primary
+        map textures/amace_dantooine/Grass01_A
+		normalHeightMap textures/amace_dantooine/Grass01_NH
+		rmoMap textures/amace_dantooine/Grass01_RMO
+        rgbGen identity
+		tcMod scale	3 3
+    }
+    {
+// Secondary
+        map textures/amace_kashyyyk/Gravel01_A
+		normalMap textures/amace_kashyyyk/Gravel01_N
+		rmoMap textures/amace_kashyyyk/Gravel01_RMO
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen identity
+        alphaGen vertex
+    }
+    {
+        map $lightmap
+        blendFunc GL_DST_COLOR GL_ZERO
+        rgbGen identity
+	}
+}
+
+textures/amace_dantooine/Gravel_Mud_Blend
+{
+	qer_editorimage		textures/amace_dantooine/ter_gravelmud
+	q3map_material		Gravel
+	q3map_shadeangle	120
+	q3map_nonplanar
+    {
+// Primary
+        map textures/amace_kashyyyk/Gravel01_A
+		normalMap textures/amace_kashyyyk/Gravel01_N
+		rmoMap textures/amace_kashyyyk/Gravel01_RMO
+        rgbGen identity
+		tcMod scale	3 3
+    }
+    {
+// Secondary
+        map textures/amace_kashyyyk/JungleMud1_A
+		normalMap textures/amace_kashyyyk/JungleMud1_NH
+		rmoMap textures/amace_kashyyyk/JungleMud1_RMO
         blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
         rgbGen identity
         alphaGen vertex
@@ -531,7 +675,29 @@ textures/amace_dantooine/RiverWater
 		rgbGen const ( 0.4 0.4 0.4 )
 		alphaFunc GE128
 		alphaGen const 1.0
-		tcmod scroll 0.25 0.25
+		tcmod scroll -0.25 -0.25
+	}
+	{
+		map $lightmap
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/amace_dantooine/RiverWater_Night
+{
+	qer_editorimage	textures/amace_dantooine/water_night_editor
+	qer_trans	0.8
+	surfaceparm	nonsolid
+	surfaceparm	water
+	surfaceparm	trans
+	q3map_material	Water
+	{
+		map textures/amace_dantooine/water
+		blendFunc GL_ONE GL_SRC_ALPHA
+		rgbGen const ( 0.4 0.4 0.4 )
+		alphaFunc GE128
+		alphaGen const 1.0
+		tcmod scroll 0 -0.25
 	}
 	{
 		map $lightmap
@@ -620,4 +786,934 @@ textures/amace_dantooine/Wall03
 		rmoMap textures/amace_dantooine/Wall03_RMO
 		blendFunc GL_DST_COLOR GL_ZERO
 	}
+}
+
+textures/amace_dantooine/Wall_Library
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/amace_dantooine/Wall_Library_A
+		normalMap textures/amace_dantooine/Wall_Library_N
+		rmoMap textures/amace_dantooine/Wall_Library_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+	{
+        map textures/amace_dantooine/Wall_Library_E
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/amace_dantooine/RuinsFog
+{
+	qer_editorimage	textures/fogs/fog
+	qer_nocarve
+	qer_trans	0.5
+	surfaceparm	nonsolid
+	surfaceparm	nonopaque
+	surfaceparm	fog
+	surfaceparm	trans
+	q3map_nolightmap
+	fogparms	( 0.04 0.04 0.06 ) 3000.0
+}
+
+textures/amace_dantooine/RuinsFloor
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/amace_dantooine/RuinsFloor_A
+		normalMap textures/amace_dantooine/RuinsFloor_N
+		rmoMap textures/amace_dantooine/RuinsFloor_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/amace_dantooine/RuinsPillars
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/amace_dantooine/RuinsPillars_A
+		normalMap textures/amace_dantooine/RuinsPillars_N
+		rmoMap textures/amace_dantooine/RuinsPillars_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/amace_dantooine/RuinsRock
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/amace_dantooine/RuinsRock_A
+		normalMap textures/amace_dantooine/RuinsRock_N
+		rmoMap textures/amace_dantooine/RuinsRock_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+textures/amace_dantooine/RuinsRock2
+{
+	{
+		map $lightmap
+	}
+	{
+		map textures/amace_dantooine/RuinsRock2_A
+		normalMap textures/amace_dantooine/RuinsRock2_N
+		rmoMap textures/amace_dantooine/RuinsRock2_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+models/map_objects/mb2_enclave/RuinsConsole
+{
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/mb2_enclave/RuinsConsole_A
+		normalMap models/map_objects/mb2_enclave/RuinsConsole_N
+		rmoMap models/map_objects/mb2_enclave/RuinsConsole_RMO
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/mb2_enclave/RuinsConsole_E
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+models/map_objects/mb2_enclave/RuinsFlag
+{
+	{
+		map $lightmap
+	}
+	{
+		map models/map_objects/mb2_enclave/RuinsFlag_A
+		normalMap models/map_objects/mb2_enclave/RuinsFlag_N
+		rmoMap models/map_objects/mb2_enclave/RuinsFlag_RMO
+		blendFunc GL_DST_COLOR GL_ZERO
+	}
+}
+
+models/map_objects/mb2_enclave/StarMap
+{
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/mb2_enclave/StarMap_A
+		normalMap models/map_objects/mb2_enclave/StarMap_N
+		rmoMap models/map_objects/mb2_enclave/StarMap_RMO
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+}
+
+models/map_objects/mb2_enclave/StarMap_On
+{
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/mb2_enclave/StarMap_A
+		normalMap models/map_objects/mb2_enclave/StarMap_N
+		rmoMap models/map_objects/mb2_enclave/StarMap_RMO
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/mb2_enclave/StarMap_E
+        blendFunc GL_ONE GL_ONE
+        glow
+		rgbGen const ( 0.5 0.5 0.5 )
+    }
+}
+
+gfx/effects/StarMapFlare
+{
+	cull	twosided
+    {
+        map gfx/effects/StarMapFlare
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen vertex
+    }
+}
+
+//-------------------------------------
+//		 STARMAP
+//-------------------------------------
+
+textures/amace_dantooine/galaxy_holo
+{
+	qer_editorimage	textures/amace_emperor/galaxy_holo
+	surfaceparm	nomarks
+	surfaceparm	nonopaque
+	surfaceparm	trans
+	surfaceparm	nonsolid
+	q3map_nolightmap
+	qer_trans       1.0
+    { 
+		map textures/amace_emperor/galaxy_holo
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+    } 
+    {
+        map textures/amace_emperor/galaxy_holo_glow
+        blendFunc GL_ONE GL_ONE
+		rgbGen const ( 0.5 0.5 0.5 )
+        glow
+    }
+}
+
+textures/amace_dantooine/starmap_galaxy_holo
+{
+	qer_editorimage	textures/merc_battlev2/starmap_galaxy_holo
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map textures/merc_battlev2/starmap_galaxy_holo
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+    }
+    {
+        map textures/merc_battlev2/starmap_galaxy_hologlow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/amace_dantooine/starmap_measurement_rings
+{
+	qer_editorimage	textures/merc_battlev2/starmap_measurement_rings
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map textures/merc_battlev2/starmap_measurement_rings
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+    }
+    {
+        map textures/merc_battlev2/starmap_measurement_ringsglow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+        tcMod scroll 0 .40
+    }
+}
+
+textures/amace_dantooine/starmap_measurement_rings2
+{
+	qer_editorimage	textures/merc_battlev2/starmap_measurement_rings2
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map textures/merc_battlev2/starmap_measurement_rings2
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+    }
+    {
+        map textures/merc_battlev2/starmap_measurement_rings2glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+        tcMod scroll 0 .40
+    }
+}
+
+textures/amace_dantooine/starmap_measurement_rings2_dim
+{
+	qer_editorimage	textures/merc_battlev2/starmap_measurement_rings2
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map textures/merc_battlev2/starmap_measurement_rings2
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+		alphaGen const 0.5
+    }
+    {
+        map textures/merc_battlev2/starmap_measurement_rings2glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen const ( 0.5 0.5 0.5 )
+        tcMod scroll 0 .40
+    }
+}
+
+textures/amace_dantooine/starmap_measurement_cap
+{
+	qer_editorimage	textures/merc_battlev2/starmap_measurement_cap
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map textures/merc_battlev2/starmap_measurement_cap
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+    }
+    {
+        map textures/merc_battlev2/starmap_measurement_capglow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/amace_dantooine/starmap_surrounding_stars
+{
+	qer_editorimage	textures/merc_battlev2/starmap_surrounding_stars
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+	cull	twosided
+    {
+        map textures/merc_battlev2/starmap_surrounding_stars
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+    }
+    {
+        map textures/merc_battlev2/starmap_surrounding_starsglow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/amace_dantooine/starmap_base_holoring
+{
+	qer_editorimage	textures/merc_battlev2/starmap_base_holoring
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+    {
+        map textures/merc_battlev2/starmap_base_holoring
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+    }
+    {
+        map textures/merc_battlev2/starmap_base_holoringglow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+textures/amace_dantooine/starmap_base_holotext
+{
+	qer_editorimage	textures/merc_battlev2/starmap_base_holotext
+	qer_trans	1
+	surfaceparm	nomarks
+    surfaceparm	nonopaque
+	surfaceparm	nonsolid
+    surfaceparm	trans
+	q3map_nolightmap
+    {
+        map textures/merc_battlev2/starmap_base_holotext
+        alphaFunc GE128
+        blendFunc GL_DST_COLOR GL_SRC_COLOR
+    }
+    {
+        map textures/merc_battlev2/starmap_base_holotextglow
+        blendFunc GL_ONE GL_ONE
+        glow
+        rgbGen identity
+    }
+}
+
+//-------------------------------------
+//		 CRYSTALS
+//-------------------------------------
+
+models/map_objects/khorne_dant/large_crystal_r
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/large_crystal_r
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map map models/map_objects/khorne_dant/large_crystal_a
+		normalMap models/map_objects/khorne_dant/large_crystal_nh
+		rmoMap models/map_objects/khorne_dant/large_crystal_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 1.000000 0.000000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 1.000000 0.200000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/large_crystal_g
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/large_crystal_g
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+		normalMap models/map_objects/khorne_dant/large_crystal_nh
+		rmoMap models/map_objects/khorne_dant/large_crystal_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.200000 1.000000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 0.200000 1.000000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/large_crystal_b
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/large_crystal_b
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+		normalMap models/map_objects/khorne_dant/large_crystal_nh
+		rmoMap models/map_objects/khorne_dant/large_crystal_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.000000 0.200000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 0.000000 0.200000 1.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/large_crystal_y
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/large_crystal_y
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+		normalMap models/map_objects/khorne_dant/large_crystal_nh
+		rmoMap models/map_objects/khorne_dant/large_crystal_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 1.000000 1.000000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 1.000000 0.800000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/large_crystal_p
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/large_crystal_p
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+		normalMap models/map_objects/khorne_dant/large_crystal_nh
+		rmoMap models/map_objects/khorne_dant/large_crystal_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.500000 0.000000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 0.500000 0.000000 1.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/large_crystal_o
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/large_crystal_o
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+		normalMap models/map_objects/khorne_dant/large_crystal_nh
+		rmoMap models/map_objects/khorne_dant/large_crystal_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 1.000000 0.200000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 1.000000 0.400000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/large_crystal_c
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/large_crystal_c
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+		normalMap models/map_objects/khorne_dant/large_crystal_nh
+		rmoMap models/map_objects/khorne_dant/large_crystal_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.000000 1.000000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/large_crystal_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 0.000000 1.000000 1.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small_r
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/pond_crystal_small_r
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 1.000000 0.000000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        alphaFunc GT0
+        blendFunc GL_SRC_ALPHA GL_DST_ALPHA
+        rgbGen const ( 1.000000 0.200000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 1.000000 0.200000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small_g
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/pond_crystal_small_g
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.200000 1.000000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_DST_ALPHA
+        rgbGen const ( 0.500000 0.500000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 0.500000 1.000000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small_b
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/pond_crystal_small_b
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        alphaFunc GT0
+        blendFunc GL_ONE GL_ONE_MINUS_DST_ALPHA
+        rgbGen const ( 0.000000 0.200000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        alphaFunc GT0
+        blendFunc GL_SRC_ALPHA GL_DST_ALPHA
+        rgbGen const ( 0.000000 0.400000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen const ( 0.000000 0.500000 1.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small_y
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/pond_crystal_small_y
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 1.000000 1.000000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 1.000000 0.800000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small_p
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/pond_crystal_small_p
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.200000 0.000000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_DST_ALPHA
+        rgbGen const ( 0.000000 0.000000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 0.500000 0.000000 1.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small_o
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/pond_crystal_small_o
+	surfaceparm			trans
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 1.000000 0.200000 0.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_ONE
+        rgbGen const ( 1.000000 1.000000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_ONE
+        glow
+        detail
+        rgbGen const ( 1.000000 0.400000 0.000000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small_c
+{
+	qer_editorimage	models/map_objects/khorne_dant_gtk/pond_crystal_small_c
+	surfaceparm trans	
+	{
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+        rgbGen const ( 0.000000 1.000000 1.000000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+        blendFunc GL_SRC_ALPHA GL_DST_ALPHA
+        rgbGen const ( 0.000000 1.000000 0.200000 )
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen const ( 0.000000 1.000000 0.700000 )
+        alphaGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/kinrath_egg
+{
+	qer_editorimage models/map_objects/khorne_dant/pond_crystal_large
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_large_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_large_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_large_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_large_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen wave sin 0.5 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_large
+{
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_large_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_large_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_large_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_large_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/pond_crystal_small
+{
+    {
+        map $lightmap
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_a
+		normalMap models/map_objects/khorne_dant/pond_crystal_small_nh
+		rmoMap models/map_objects/khorne_dant/pond_crystal_small_rmo
+        blendFunc GL_DST_COLOR GL_ZERO
+    }
+    {
+        map models/map_objects/khorne_dant/pond_crystal_small_glow
+        blendFunc GL_ONE GL_DST_ALPHA
+        glow
+        detail
+        rgbGen wave sin 0.9 0.1 0.1 0.5
+    }
+}
+
+models/map_objects/khorne_dant/turret/turret_base
+{
+    {
+        map models/map_objects/khorne_dant/turret/turret_base_A
+		normalMap models/map_objects/khorne_dant/turret/turret_base_NH
+		rmoMap models/map_objects/khorne_dant/turret/turret_base_RMO
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+}
+
+models/map_objects/khorne_dant/turret/turret_base_red
+{
+    {
+        map models/map_objects/khorne_dant/turret/turret_base_red_a
+		normalMap models/map_objects/khorne_dant/turret/turret_base_NH
+		rmoMap models/map_objects/khorne_dant/turret/turret_base_RMO
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+}
+
+models/map_objects/khorne_dant/turret/turret_base_blue
+{
+    {
+        map models/map_objects/khorne_dant/turret/turret_base_blue_a
+		normalMap models/map_objects/khorne_dant/turret/turret_base_NH
+		rmoMap models/map_objects/khorne_dant/turret/turret_base_RMO
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+}
+
+gfx/automap/mb2_cq_dantooine
+{
+	nopicmip
+    {
+		clampmap gfx/automap/mb2_cq_dantooine
+		blendfunc blend
+		alphaGen vertex
+		depthfunc equal
+    }
+}
+
+gfx/automap/mb2_cq_dantooinefull
+{
+	nopicmip
+    {
+		map gfx/automap/mb2_cq_dantooinefull
+		blendfunc blend
+		alphaGen vertex
+    }
+}
+
+gfx/mplevels/mb2_cq_dantooine/map
+{
+	nopicmip
+    {
+		map gfx/mplevels/mb2_cq_dantooine/map
+		blendfunc blend
+		rgbGen vertex
+    }
+    {
+		map gfx/mplevels/mb2_cq_dantooine/map_overlay
+		blendfunc blend
+		rgbGen identity
+    }
 }
