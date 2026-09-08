@@ -267,23 +267,6 @@
 			}
 		}
 
-		itemDef
-		{
-			name				Info_Proj
-			group				pointssetup
-			rect				113 85 13 18
-			style				WINDOW_STYLE_SHADER
-			//background			"gfx/menus/alpha/Btn_Info"
-			forecolor			1 1 1 0
-			visible				1
-			decoration
-			mouseEnter {
-				open			mb_weapon_proj
-			}
-			mouseExit {
-				close			mb_weapon_proj
-			}
-		}
 
 		// Projectile Rifle assign
 		itemDef
@@ -295,7 +278,7 @@
 			rect				8 85 147 18
 			text " "
             noTextBlink 1
-			text2 "Projectile Rifle"
+			text2 "CR-2"
 			font 6
 			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
@@ -303,7 +286,7 @@
 			textaligny			-5
 			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"Buy the Projectile Rifle, a classic sniper gun that needs a bit of time before firing"
+			descText			"A CR-2 Repeating Pistol with high rate of fire and limited accuracy.\nHigher levels unlock increased weapon clip size and rate-of-fire"
 			visible				1
 			action {
 				play			"sound/interface/button1.wav"
@@ -338,7 +321,7 @@
 			}
 		}
 
-		// Frag Grenade assign
+		// Impact Grenade assign
 		itemDef
 		{
 			name				setfp_speed
@@ -348,7 +331,7 @@
 			rect 8 105 147 18
 			text " "
             noTextBlink 1
-			text2 "Frag Grenade"
+			text2 "Impact Grenade"
 			font 6
 			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
@@ -356,7 +339,7 @@
 			textaligny			-5
 			textscale			.15
 			forecolor			1 1 1 0.8
-			descText			"Buy Frag Grenades with high damage primary fire and instantly exploding alt-fire"
+			descText			"Unlock light instantenous grenades, exploding the second it reaches a player\nor alternatively an object"
 			visible				1
 			action {
 				play			"sound/interface/button1.wav"
@@ -379,7 +362,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_TELEPATHY
-			rect 8 135 147 18
+			rect 8 155 147 18
 			text " "
             noTextBlink 1
 			text2 "Dash [CS2]"
@@ -398,7 +381,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 134 147 20
+				setitemrect		button_glow	8 154 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -414,7 +397,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_ABSORB
-			rect 8 155 147 18
+			rect 8 175 147 18
 			text " "
             noTextBlink 1
 			text2 "Dodge [CS1]"
@@ -433,7 +416,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 154 147 20
+				setitemrect		button_glow	8 174 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -449,7 +432,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_HEAL
-			rect 8 175 147 18
+			rect 8 195 147 18
 			text " "
             noTextBlink 1
 			text2 "Heal"
@@ -467,13 +450,68 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 174 147 20
+				setitemrect		button_glow	8 194 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
 				hide			button_glow
 				setcolor		forecolor 1 1 1 0.8
 			}
+		}
+
+		// Heal assign
+		itemDef
+		{
+			name				setfp_grip
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_GRIP
+			rect 8 215 147 18
+			text " "
+            noTextBlink 1
+			text2 "Rally"
+			font 6
+			text2alignx -95
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			95
+			textaligny			-5
+			textscale			.15
+			forecolor			1 1 1 0.8
+			descText			"Allows you to rally Soldiers to your location"
+			visible				1
+			action {
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter {
+				show			button_glow
+				setitemrect		button_glow	8 214 147 20
+				setcolor		forecolor 1 1 1 1
+			}
+			mouseExit {
+				hide			button_glow
+				setcolor		forecolor 1 1 1 0.8
+			}
+		}
+
+		itemDef
+		{
+			name 				setfp_protect
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect 				11 124 3 12.5
+			backcolor			1 1 1 0.8
+			visible				1
+		}
+
+		// SD Sub ability secondary line 1
+		itemDef
+		{
+			name 				setfp_protect
+			group				pointssetup
+			style				WINDOW_STYLE_FILLED
+			rect 				14 132.5 4 4
+			backcolor			1 1 1 0.8
+			visible				1
 		}
 
 		// Quick Throw assign
@@ -483,12 +521,12 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PROTECT
-			rect 8 195 147 18
+			rect 8 125 147 18
 			text " "
             noTextBlink 1
 			text2 "Quick Throw"
 			font 6
-			text2alignx -95
+			text2alignx -82
 			textalign			ITEM_ALIGN_LEFT
 			textalignx			95
 			textaligny			-5
@@ -501,7 +539,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 194 147 20
+				setitemrect		button_glow	8 124 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -517,7 +555,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect 8 225 147 18
+			rect 8 245 147 18
 			text " "
             noTextBlink 1
 			text2 "Armour"
@@ -535,7 +573,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 224 147 20
+				setitemrect		button_glow	8 244 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -551,7 +589,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect 8 245 147 18
+			rect 8 265 147 18
 			text " "
             noTextBlink 1
 			text2 "Ammo"
@@ -569,7 +607,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 244 147 20
+				setitemrect		button_glow	8 264 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
