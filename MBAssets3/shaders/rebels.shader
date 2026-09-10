@@ -1327,6 +1327,21 @@ models/players/rebel_commando/desert_body_d
 	}
 }
 
+models/players/rebel_commando/desert2_body_d
+{
+	{
+		map models/players/rebel_commando/desert2_body_d
+		depthWrite
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/rebel_commando/body_s
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/rebel_commando/desert_extras_d
 {
 	cull	twosided

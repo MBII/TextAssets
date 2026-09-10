@@ -127,7 +127,7 @@ models/players/alien_merc/bith_hands
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_merc/itho_arm_spec
+        map models/players/jedi_ith/arm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -144,7 +144,7 @@ models/players/alien_merc/dur_hands
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_merc/itho_arm_spec
+        map models/players/jedi_ith/arm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -158,7 +158,7 @@ models/players/alien_merc/dur_hands2
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_merc/itho_arm_spec
+        map models/players/jedi_ith/arm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
@@ -172,7 +172,7 @@ models/players/alien_merc/dur_hands3
         rgbGen lightingDiffuse
     }
     {
-        map models/players/alien_merc/itho_arm_spec
+        map models/players/jedi_ith/arm_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
