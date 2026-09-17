@@ -1,26 +1,19 @@
-//sever force (HELD_FOCUS?), force suppression
+//lev
 Classinfo
 {
  name    "h9_Vandar"
  MBclass    MB_CLASS_JEDI
  classNumberLimit 1
 
- weapons    WP_SABER|WP_MELEE
-
+ weapons    WP_SABER|WP_MELEE|WP_MINIGUN
  WP_SaberFlags HELD_NODISARM
+ WP_MinigunFlags 	HELD_FORCEFOCUS|HELD_POISON|HELD_NODISARM
 
- attributes   MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,2|MB_ATT_FORCEFOCUS,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,2|MB_ATT_HEALING,1
+ attributes  MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,1|MB_ATT_MINIGUN,3|MB_ATT_FP_REPULSE
 
- forcepowers  FP_TELEPATHY,1|FP_SABERTHROW,3|FP_LEVITATION,1
+ AB_FRepulseFlags HELD_LIFT|HELD_LOWDAMAGE
 
- saberDamageStyle SS_DUAL,260
- saberSpecialDamage 1.3
-	saberThrowDamage	50
- saber1 saber_vandar_legends
- sabercolor  4
- saber2 saber_vandar_legends
- saber2color 4
- saberstyle SS_DUAL
+ forcepowers  FP_SABERTHROW,3|FP_LEVITATION,1|FP_PUSH,1|FP_TELEPATHY,1|FP_SEE,1|FP_PULL,1|FP_DRAIN,2
 
  Basespeed 223
 
@@ -30,8 +23,24 @@ Classinfo
  forceRegen 1.05
 
  damageGiven 1.1
-
+ knockbackGiven 1.1
+ knockbackTaken 0.9
 	rateOfFire_Melee	.9
+
+ saberDamageStyle SS_DUAL,270
+ saberSpecialDamage 1.27
+	saberThrowDamage	50
+ saber1 saber_vandar_legends
+ sabercolor  4
+ saber2 saber_vandar_legends
+ saber2color 4
+ saberstyle SS_DUAL
+ BPMultiplier 1.05
+ APMultiplier 1.02
+ ASMultiplier 1.02
+ CSMultiplier 1.02
+
+ special2 EAS_FP_DRAIN
 
 	classflags			CFL_NOPICKUPS
 
@@ -42,29 +51,122 @@ Classinfo
  skin  "vandar"
  uishader "models/players/t_yoda/mb2_icon_vandar"
 
+	jetpackThrustEffect	""
+	jetpackIdleEffect	""
+
+	jetpackFinishSound	"sound/effects/woosh10"
+	jetpackThrustSound	"sound/ambience/bespin/bespin_air"
+	jetpackStartSound	"sound/effects/woosh11"
+	jetpackIdleSound	"sound/ambience/bespin/bespin_air"
+
 }
 
-Description  "Vandar Tokare
+WeaponInfo0
+{
+ WeaponToReplace  WP_MINIGUN
+ WeaponBasedOff   WP_MINIGUN
+ NewWorldModel   "models/weapons2/dummyblaster/model.glm"    
+ NewViewModel  "models/weapons2/dummy/dummy.md3"  
+   
+ Icon "models/weapons2/halo_melee/icon.png"
+ WeaponName   "Force Suppression"
 
-blah
+	isMinigun			0
+	damageMod	0.01
+	fpmult				6
+	velocityMod			99999
+	clipSize			10
+	rateMod				27
+	customAmmo			-1
+
+	selectSound			"sound/weapons/tai_weap/swing9.mp3"
+
+ FlashSound0 "sound/effects/woosh10"
+ FlashSound1 "sound/effects/woosh10"
+ FlashSound2 "sound/effects/woosh11"
+ FlashSound3 "sound/effects/woosh11"
+
+ altFlashSound0 "sound/effects/woosh10"
+ altFlashSound1 "sound/effects/woosh11"
+ altFlashSound2 "sound/effects/woosh11"
+ altFlashSound3 "sound/effects/woosh10"
+
+ altMuzzleEffect "sonic_pistol/k_muzzle_flash"
+ altMissileEffect "sonic_pistol/k_projectile"
+ altMissileMissEffect "force/pushblur"
+ AltMissileHitHumanEffect "sonic_pistol/k_wall_impact"
+ AltMissileHitDroidEffect "sonic_pistol/k_wall_impact"
+ AltMissileModel "models/weapons2/dummy/dummy.md3"
+
+ MuzzleEffect "sonic_pistol/k_muzzle_flash"
+ MissileEffect "sonic_pistol/k_projectile"
+ MissileMissEffect "force/pushblur"
+ MissileHitHumanEffect "sonic_pistol/k_wall_impact"
+ MissileHitDroidEffect "sonic_pistol/k_wall_impact"
+ MissileModel "models/weapons2/dummy/dummy.md3"
+
+ hasAnimOverrides 1
+ animReadyRun BOTH_MELEE_STAND2
+ animReady  BOTH_MELEE_STAND2
+ animReadyWalk  BOTH_MELEE_STAND2
+ animReadyNoAmmo  BOTH_MELEE_STAND2
+ animAttackRun BOTH_FORCE_DRAIN_GRAB_HOLD
+ animAttack BOTH_FORCE_DRAIN_GRAB_HOLD
+ animAttackWalk BOTH_FORCE_DRAIN_GRAB_HOLD
+ animStand BOTH_STAND1
+}
+
+ForceInfo0
+{
+	ForceToReplace		FP_DRAIN
+	Icon				"gfx/mp/new_f_icon_dk_drain"
+	ForcePowerName		"Sever"
+ ConeEffect "saber/saber_crit"
+	HandShaderRed		0
+	HandShaderGreen 255
+	HandShaderBlue		255
+ HandShader2Red 0
+ HandShader2Green 255
+ HandShader2Blue  255
+}
+
+description "Vandar Tokare
+
+A wise old master who specializes in dampening enemy Force usage.
 
 ^2Weaponry:
 - Melee
 -- 10% faster RoF
 - Lightsaber (Dual)
--- Saber Defense (2)
+-- Saber Defense (3)
 -- Blaster Defense (2)
 -- Blaster Deflect (2)
--- 30% more special damage
+-- 27% more special damage
 -- 25% shorter
 -- 26% thinner
 -- EX Saber Throw (3) ^3[CS1]
 --- 66% more damage
+- Force Suppression (Minigun 3)
+-- Focuses/poisons on hit
+-- Hitscan charges
+-- 500% more FP drain
+-- 99% less damage
+-- 2600% slower RoF
 
 ^5Force Powers:
 - Jump (1)
 - Push (1)
-- Mind Trick (3) ^3[CS4]
+- Pull (1)
+- Sense (1)
+- Sever (Drain 2) ^3[CS2]
+- Mind Trick (1) ^3[CS4]
+- Repulse ^3[Melee CS1]
+-- Lifts on impact
+-- 50% less damage
 
 ^8Attributes:
-"
+- Dexterity (1)
+- Force Block (2)
+- Force Focus (1)
+- 10% more knockback given
+- 10% less knockback taken"
