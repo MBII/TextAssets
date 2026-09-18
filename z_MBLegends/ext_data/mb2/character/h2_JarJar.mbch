@@ -7,13 +7,13 @@ Classinfo
 
 	weapons				WP_MELEE|WP_SABER|WP_T21|WP_PULSE_NADE|WP_REPEATER
 
-	attributes			MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE,3|MB_ATT_REPEATER,3|MB_ATT_QUICKTHROW,3
+	attributes		MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE,3|MB_ATT_REPEATER,1|MB_ATT_QUICKTHROW,3|MB_ATT_BUNNY_HOP,1
 
 	WP_MeleeFlags		HELD_HIGHDAMAGE|HELD_SLIPPERY
 	WP_SaberFlags		HELD_KNOCKDOWN|HELD_NODISARM|HELD_SLIPPERY
-	WP_PulseNadeFlags	HELD_HIGHDAMAGE
+	WP_PulseNadeFlags	HELD_HIGHDAMAGE|HELD_KNOCKBACK
 	WP_T21Flags			HELD_LOWDAMAGE
-	WP_RepeaterFlags	HELD_BACTA|HELD_NODISARM|HELD_ALTRELOAD
+	WP_RepeaterFlags	HELD_BACTA|HELD_NODISARM|HELD_ALTRELOAD|HELD_LIFESTEAL|HELD_EXPLOSIVE
 	//WP_MGLFlags		HELD_BACTA
 	///WP_RepeaterFlags	HELD_SLIPPERY|HELD_KNOCKDOWN|HELD_KNOCKBACK
 	//WP_UGLFlags		HELD_BACTA
@@ -22,7 +22,8 @@ Classinfo
 	//meleeknockback_flat	55
 
 	basespeed			218
-	forcepowers			FP_LEVITATION,1
+	rankbasespeed		239
+
 	maxhealth			200
 	maxarmor			65
 
@@ -55,7 +56,7 @@ Classinfo
 	skilltimermod		2.5
 	rankSTM				1
 
-	hackRate			2
+	hackRate			2.5
 
 	meleespecial1		EAS_HI_QUICKTHROW
 	special1			EAS_HI_DODGE
@@ -88,26 +89,94 @@ Classinfo
 	bargeAnim			BOTH_DEATHBACKWARD1	 //BOTH_FALLDEATH1INAIR
 	jumpAnim			BOTH_MELEE_SWIMFORWARD //TORSO_MELEE_BLOCK_SWIMFORWARD
 	//LandAnim			BOTH_KNOCKDOWN3
+ punchAnim BOTH_MELEE1 
+ kickAnim BOTH_A7_KICK_BF_STOP //BOTH_FORCEWALLRUNFLIP_START
 
  bargeSoundOverride	"sound/effects/cloth1.mp3"
 
 	isCustomBuild		1
-	mbPoints			1
+	mbPoints			3
+	hasCustomSpec		3
+	isOnlyOneSpec		1
+	customSpecName_1	"Default"
+	customSpecIcon_1	"gfx/2d/logos/mb_gungan"
+
+	customSpecName_2	"Jarlord"
+	customSpecIcon_2	"gfx/menus/classes/jedi"
+
+	customSpecName_3	"Gooberfish"
+	customSpecIcon_3	"gfx/menus/alpha/icon_stats_movespeed"
 
 	c_att_skill_0		MB_ATT_REPEATER
 	c_att_names_0		"Ptooie (25) (Repeater)"
-	c_att_ranks_0		0,0,0
-	c_att_descs_0		"Team-heals on hit, 150% more damage, 35% more velocity,
-6000% slower RoF"
+	c_att_ranks_0		0
+	c_att_descs_0		"Team-heals/self-heals/explodes on hit, 150% more damage,
+35% more velocity, 5900% slower RoF, 92% smaller splash/less splash damage"
 
-	c_att_skill_1		MB_ATT_STM_MULTIPLIER
-	c_att_names_1		"Skill Cooldown (100%)"
-	c_att_ranks_1		1
-	c_att_descs_1		"40% default"
+	c_att_skill_1		MB_ATT_FP_LEVITATION
+	c_att_names_1		"Swan Dive (Force Jump)"
+	c_att_ranks_1		0
 
-	c_att_skill_2		MB_ATT_DASH_JUMP
-	c_att_names_2		"Swan Dive (Dash Jump)"
-	c_att_ranks_2		1
+	c_att_skill_2	 MB_ATT_BUNNY_HOP
+	c_att_names_2		"Wet Feet (Bunny Hop)"
+	c_att_ranks_2		0
+
+	c_att_skill_3		MB_ATT_DASH_JUMP
+	c_att_names_3		"Dash Jump"
+	c_att_ranks_3		0
+
+	c_att_skill_4		MB_ATT_STM_MULTIPLIER
+	c_att_names_4		"Skill Cooldown (1x)"
+	c_att_ranks_4		0
+	c_att_descs_4		".4x default"
+
+	c_att_skill_5		MB_ATT_BASESPEED
+	c_att_names_5		"Move Speed (239)"
+	c_att_ranks_5		0
+	c_att_descs_5		""
+
+
+
+ c_att_skill_15    MB_ATT_REPEATER
+ c_att_names_15    "Ptooie (25) (Repeater)"
+ c_att_ranks_15    0
+	c_att_descs_15		  "Team-heals/self-heals/explodes on hit, 150% more damage,
+35% more velocity, 5900% slower RoF, 92% smaller splash/less splash damage"
+
+ c_att_skill_16    MB_ATT_FP_LEVITATION
+ c_att_names_16    "Swan Dive (Force Jump)"
+ c_att_ranks_16    0
+
+ c_att_skill_17    MB_ATT_BUNNY_HOP
+ c_att_names_17    "Wet Feet (Bunny Hop)"
+ c_att_ranks_17    0,0
+
+ c_att_skill_18   MB_ATT_STM_MULTIPLIER
+ c_att_names_18   "Skill Cooldown (1x)"
+ c_att_ranks_18   0
+	c_att_descs_18		 ".4x default"
+
+
+
+
+ c_att_skill_30    MB_ATT_REPEATER
+ c_att_names_30    "Ptooie (25) (Repeater)"
+ c_att_ranks_30    0
+	c_att_descs_30		  "Team-heals/self-heals/explodes on hit, 150% more damage,
+35% more velocity, 5900% slower RoF, 92% smaller splash/less splash damage"
+
+ c_att_skill_31    MB_ATT_BUNNY_HOP
+ c_att_names_31    "Wet Feet (Bunny Hop)"
+ c_att_ranks_31    0,2
+
+ c_att_skill_32    MB_ATT_DASH_JUMP
+ c_att_names_32    "Dash Jump"
+ c_att_ranks_32    1
+
+ c_att_skill_33   MB_ATT_STM_MULTIPLIER
+ c_att_names_33   "Skill Cooldown (1x)"
+ c_att_ranks_33   1
+	c_att_descs_33		 ".4x default"
 
 }
 
@@ -120,13 +189,7 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/throwables/booma/booma.md3"
 	NewHandsModel		"models/weapons2/throwables/booma/booma_hand.md3"
 	MissileModel		"models/weapons2/throwables/booma/booma_proj.md3"
-	MissileMissEffect			"rockets/explosionpulse"
-	MissileHitHumanEffect		"rockets/explosionpulse"
-	MissileHitDroidEffect		"rockets/explosionpulse"
 	altMissileModel		"models/weapons2/throwables/booma/booma_proj.md3"
-	altMissileMissEffect		"rockets/explosionpulse"
-	altMissileHitHumanEffect	"rockets/explosionpulse"
-	altMissileHitDroidEffect	"rockets/explosionpulse"
 	MuzzleEffect				null
 	altMuzzleEffect				null
 
@@ -209,8 +272,8 @@ WeaponInfo3
 	altMissileMissEffect		"env/water_impact"
 	altMissileHitHumanEffect	"env/water_impact"
 	altMissileHitDroidEffect	"env/water_impact"
-	altMuzzleEffect				"env/water_impact"
-	altMissileEffect			"misc/waterbreath"
+	altMuzzleEffect				"saber/water_boilbubble_nosnd"
+	altMissileEffect		"saber/water_boilbubble_nosnd"
 
 	selectSound			"sound/player/muckexit.wav"
 
@@ -222,22 +285,22 @@ WeaponInfo3
 	MissileMissEffect		"env/water_impact"
 	MissileHitHumanEffect	"env/water_impact"
 	MissileHitDroidEffect	"env/water_impact"
-	MuzzleEffect			"env/water_impact"
-	MissileEffect				"misc/waterbreath"
+	MuzzleEffect			"saber/water_boilbubble_nosnd"
+	MissileEffect			"saber/water_boilbubble_nosnd"
 
 	customAmmo			-1
 	clipsize			50
-	rateMod				61
+	rateMod				60
 	damageMod			2.5
  velocityMod 1.35
- //splashradius 1
- //splashdamage 1
+ splashradius 10
+ splashdamage 2
 
 	hasAnimOverrides	1
 	animReady			BOTH_MELEE_STAND2
 	animReadyWalk		BOTH_MELEE_STAND2
 	animReadyRun		BOTH_MELEE_STAND2
-	animReadyNoAmmo		BOTH_MELEE_STAND2
+	animReadyNoAmmo	BOTH_PAIN13
 	animAttackRun		BOTH_PAIN13
 	animAttack			BOTH_PAIN13
 	animAttackWalk		BOTH_PAIN13
@@ -263,14 +326,12 @@ Mesa, uh, clumsy...
 -- 50% faster reload
 -- 50% less damage
 - Boomas (4) (Pulse Grenades)
+-- Pushes on det
 -- 100% more damage
 -- Primary fire only
 
-^5Powers:
-- Jarlord's Jump (1)
-
 ^8Attributes:
-- Bunny Hop (2)
+- Bunny Hop (1)
 - Slow Faller
 - Stamina (3)
 -- Extra Regen: 5/.001s to 70
@@ -282,8 +343,8 @@ Mesa, uh, clumsy...
 - Ally Stat Viewer
 - 50% more knockback given
 - 50% more knockback taken
-- 150% slower skill cooldown
-- 100% slower hacking
+- 0.4x skill cooldown
+- 150% slower hacking
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
