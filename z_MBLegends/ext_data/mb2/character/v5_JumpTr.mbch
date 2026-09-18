@@ -81,27 +81,32 @@ ClassInfo
 	c_att_ranks_0		4,0,0
 
 	c_att_skill_1		MB_ATT_CLONERIFLE
-	c_att_names_1		"DLT-19 Blaster Rifle (CR)"
+	c_att_names_1		"DC-15A Clone Rifle"
 	c_att_ranks_1		4,0
 	c_att_descs_1		"10% more damage, 10% more FP drain"
-
+	
 	c_att_skill_2		MB_ATT_STRONGBLOBS
-	c_att_names_2		"> DLT-19 Ion Blob"
+	c_att_names_2		"> Clone Rifle Ion Blob"
 	c_att_ranks_2		2,0,0
 
-	c_att_skill_3		MB_ATT_REPEATER
-	c_att_names_3		"Imperial Heavy Repeater"
-	c_att_ranks_3		4
-	c_att_descs_3		"5% less damage, 25% less FP drain, 20% slower RoF,
+	c_att_skill_3		MB_ATT_DLT19
+	c_att_names_3		"DLT-19 Blaster Rifle"
+	c_att_ranks_3		4,0,0
+	c_att_descs_3		"A heavy blaster rifle, higher levels increase the clip size and ease of aiming"
+
+	c_att_skill_4		MB_ATT_REPEATER
+	c_att_names_4		"Imperial Heavy Repeater"
+	c_att_ranks_4		4
+	c_att_descs_4		"5% less damage, 25% less FP drain, 20% slower RoF,
 15% slower reload"
 
-	c_att_skill_4		MB_ATT_REPEATER_NADES
-	c_att_names_4		"> Repeater Blob"
-	c_att_ranks_4		2,0,0
-
-	c_att_skill_5		MB_ATT_BARGE
-	c_att_names_5		"Jet Tackle (Barge) ^3[Melee CS2]"
+	c_att_skill_5		MB_ATT_REPEATER_NADES
+	c_att_names_5		"> Repeater Blob"
 	c_att_ranks_5		2,0,0
+
+	c_att_skill_6		MB_ATT_BARGE
+	c_att_names_6		"Jet Tackle (Barge) ^3[Melee CS2]"
+	c_att_ranks_6		2,0,0
 }
 
 WeaponInfo0
@@ -147,17 +152,26 @@ WeaponInfo1
 
 WeaponInfo2
 {
+	WeaponToReplace		WP_MELEE
+	WeaponBasedOff		WP_MELEE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Jumptrooper Melee"
+ damageMod 1.25
+}
+
+WeaponInfo3
+{
 	WeaponToReplace		WP_CLONE_RIFLE
 	WeaponBasedOff		WP_CLONE_RIFLE
-	NewWorldModel		"models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_dlt19scoped"
-	WeaponName			"DLT-19 Heavy Blaster Rifle"
-	FlashSound0			"sound/weapons/DLT19/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
-
-	customAmmo			600
+	NewWorldModel		"models/weapons2/dc-15_ext/dc-15_ext_w.glm"
+	NewViewModel		"models/weapons2/dc-15_ext/dc-15_ext.md3"
+	Icon				"gfx/hud/w_icon_clonerifle_blobs"
+	WeaponName			"DC-15A Clone Rifle"
+	MuzzleEffect				"Blaster/MuzzleFlash01R"
+	MissileEffect				"Blaster/Shot01R"
+	customAmmo			750
 	damageMod			1.1
 	fpmult				1.1
 
@@ -170,17 +184,6 @@ WeaponInfo2
 	animAttack			BOTH_DC15_ATTACK
 	animAttackWalk		BOTH_DC15_ATTACK
 	animStand			BOTH_STAND1
-}
-
-WeaponInfo3
-{
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"models/weapons2/halo_melee/icon.png"
-	WeaponName			"Jumptrooper Melee"
- damageMod 1.25
 }
 
 description "Imperial Jumptrooper

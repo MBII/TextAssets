@@ -5,9 +5,9 @@ ClassInfo
 	MBClass				MB_CLASS_BOUNTY_HUNTER
 	classNumberLimit	1
 
-	weapons				WP_MELEE|WP_CONC_NADE|WP_SABER|WP_MGL
+	weapons				WP_MELEE|WP_SMOKE_NADE|WP_SABER|WP_MGL
 
-	attributes			MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_MGL,1|MB_ATT_STICKY_BOMBS,6|MB_ATT_BESKAR,1|MB_ATT_ARC_RIFLE_SCOPE|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_MICRO_GRENADES,2|MB_ATT_HEALING,2|MB_ATT_STAMINA,1|MB_ATT_TRACKING_BEACON|MB_ATT_WOOKIE_STRENGTH,1
+	attributes			MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_MGL,1|MB_ATT_STICKY_BOMBS,6|MB_ATT_BESKAR,1|MB_ATT_ARC_RIFLE_SCOPE|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_SMOKE_NADE,2|MB_ATT_HEALING,2|MB_ATT_STAMINA,1|MB_ATT_TRACKING_BEACON|MB_ATT_WOOKIE_STRENGTH,1
 
 	basespeed			210
 
@@ -65,10 +65,10 @@ ClassInfo
 	c_att_descs_1		"Shocks/pushes/slows on hit, 400% more dmg/FP dmg, 100% slower RoF,
 25% slower mag reload, Sec only"
 
-	c_att_skill_2		MB_ATT_CLONERIFLE
-	c_att_names_2		"DLT-19 Blaster Rifle (CR)"
-	c_att_ranks_2		1,0
-	c_att_descs_2		"10% more damage, 10% faster RoF, Mag reload"
+	c_att_skill_2		MB_ATT_DLT19
+	c_att_names_2		"DLT-19 Blaster Rifle"
+	c_att_ranks_2		1,0,0
+	c_att_descs_2		"A heavy blaster rifle, higher levels increase the clip size and ease of aiming"
 
 	c_att_skill_3		MB_ATT_WESTARM5
 	c_att_names_3		"Valken-38x Blaster Rifle (M5)"
@@ -77,67 +77,6 @@ ClassInfo
 }
 
 WeaponInfo0
-{
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_CONCUSSION
-	NewWorldModel		"models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
-	NewViewModel		"models/weapons2/DLT-19_HeavyBlaster/riflescoped.md3"
-	NewHandsModel		"models/weapons2/DLT-19_HeavyBlaster/riflescoped_hand.md3"
-	Icon				"gfx/hud/w_icon_dlt19scoped"
-	WeaponName			"DLT-19 Heavy Blaster Rifle"
-	FlashSound0			"sound/weapons/DLT19/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
-	customAmmo			800
-	damageMod			1.1
-	clipsize			90
-	rateMod				0.9
-	hasAnimOverrides	1
-	animReadyRun		BOTH_AMBAN_IDLE
-	animReady			BOTH_AMBAN_IDLE
-	animReadyWalk		TORSO_WEAPONREADY3
-	animReadyNoAmmo		BOTH_ATTACK3
-	animAttackRun		BOTH_ATTACK3
-	animAttack			BOTH_ATTACK3
-	animAttackWalk		BOTH_ATTACK3
-	animStand			BOTH_STAND1
-}
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_CONC_NADE
-	WeaponBasedOff		WP_CONC_NADE
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel		"models/weapons2/thermal/thermal.md3"
-	NewHandsModel		"models/weapons2/thermal/thermal_hand.md3"
-	Icon				"gfx/hud/w_thermal_grenade"
-	MissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	AltMissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	MissileEffect				"stone/missile1"
-	AltMissileEffect			"stone/missile1"
-	MissileMissEffect			"smokenadeleg/explode_vol"
-	MissileHitHumanEffect		"smokenadeleg/explode_vol"
-	MissileHitDroidEffect		"smokenadeleg/explode_vol"
-	AltMissileMissEffect		"smokenadeleg/explode_vol"
-	AltMissileHitHumanEffect	"smokenadeleg/explode_vol"
-	AltMissileHitDroidEffect	"smokenadeleg/explode_vol"
-	FlashSound0			"sound/weapons/smokenade/select.mp3"
-	AltFlashSound0		"sound/weapons/smokenade/select.mp3"
-	WeaponName			"Smoke Grenade"
-	hasAnimOverrides	1
-	animReadyRun		BOTH_THERMAL_READY2
-	animReady			BOTH_THERMAL_READY2
-	animReadyWalk		BOTH_THERMAL_READY2
-	animReadyNoAmmo		BOTH_THERMAL_READY2
-	animAttackRun		BOTH_THERMAL_THROW2
-	animAttack			BOTH_THERMAL_THROW2
-	animAttackWalk		BOTH_THERMAL_THROW2
-	animCharge			BOTH_SABERDUAL_STANCE
-	damageMod			0.001
-	ratemod				0.6
-}
-
-WeaponInfo2
 {
 	WeaponToReplace		WP_M5
 	WeaponBasedOff		WP_CONCUSSION
@@ -168,7 +107,7 @@ WeaponInfo2
 	animAttackWalk		BOTH_WESTARM5_ATTACK
 }
 
-WeaponInfo3
+WeaponInfo1
 {
 	WeaponToReplace		WP_MGL
 	WeaponBasedOff		WP_MGL
@@ -196,7 +135,7 @@ WeaponInfo3
 	animCharge			BOTH_SABERDUAL_STANCE
 }
 
-WeaponInfo4
+WeaponInfo2
 {
 	WeaponToReplace		WP_SABER
 	WeaponBasedOff		WP_SABER
@@ -206,7 +145,7 @@ WeaponInfo4
 	WeaponName			"Dengar's Fire Blade"
 }
 
-WeaponInfo5
+WeaponInfo3
 {
 	WeaponToReplace		WP_DC_CARBINE
 	WeaponBasedOff		WP_MANDO_PISTOL
@@ -231,7 +170,7 @@ WeaponInfo5
 	animAttackWalk		BOTH_ATTACK3
 }
 
-WeaponInfo6
+WeaponInfo4
 {
 	WeaponToReplace		WP_SHOTGUN
 	WeaponBasedOff		WP_SHOTGUN
@@ -270,10 +209,7 @@ A ruthless assault class who likes to bring his bounties in cold.
 -- Burns on hit
 -- 62% shorter
 -- 33% thicker
-- Smoke Grenade (2) (Conc Grenade)
--- Shrouds on det
--- 40% faster RoF
--- 99% less damage
+- Smoke Grenade (2)
 - Sticky Bombs (6) (MGL)
 -- Mag reload
 

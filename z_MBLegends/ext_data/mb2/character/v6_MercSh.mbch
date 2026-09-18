@@ -4,9 +4,9 @@ ClassInfo
 	name				"v6_MercSh"
 	MBClass				MB_CLASS_BOUNTY_HUNTER
 	classNumberLimit	1
-	weapons				WP_MELEE|WP_CLONE_RIFLE|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE|WP_CONC_NADE|WP_PULSE_NADE
+	weapons				WP_MELEE|WP_DLT19|WP_REAL_TD|WP_DISRUPTOR|WP_FIRE_NADE|WP_SMOKE_NADE|WP_PULSE_NADE
 
-	attributes			MB_ATT_CLONERIFLE,2|MB_ATT_AMMO,2|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_DISRUPTOR,2|MB_ATT_TRACKING_DART,4|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_CLONEBLOBS,2|MB_ATT_STRONGBLOBS,2
+	attributes			MB_ATT_DLT19,2|MB_ATT_AMMO,4|MB_ATT_MAGNETIC_PLATING|MB_ATT_BLAST_ARMOUR|MB_ATT_DISRUPTOR,2|MB_ATT_TRACKING_DART,4|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1
 
 	basespeed			245
 	meleespecial1		EAS_HI_POISON
@@ -19,7 +19,7 @@ ClassInfo
 	maxhealth			145
 	maxarmor			110
 
-	WP_CloneRifleFlags	HELD_ALTRELOAD
+	WP_DLT19Flags		HELD_ALTRELOAD
 
 	forcepowers			FP_SEE,3
 	forcepool			70
@@ -60,103 +60,32 @@ ClassInfo
 	uioverlay_r			"gfx/icons/spec_infantry"
 
 	isCustomBuild		1
-	mbPoints			5
+	mbPoints			4
 
-	c_att_skill_0		MB_ATT_AMMO
-	c_att_names_0		"Disruptor Rifle Ammo (600)"
-	c_att_ranks_0		0,0,1
+	c_att_skill_1		MB_ATT_THERMALS
+	c_att_names_1		"Thermal Detonator"
+	c_att_ranks_1		2
 
-	c_att_skill_1		MB_ATT_CLONEBLOBS
-	c_att_names_1		"DLT-19 (CR) Conc Blob"
-	c_att_ranks_1		0,0,1
+	c_att_skill_2		MB_ATT_TRIP_MINES
+	c_att_names_2		"Trip Mine"
+	c_att_ranks_2		1
 
-	c_att_skill_2		MB_ATT_STRONGBLOBS
-	c_att_names_2		"DLT-19 (CR) Ion Blob"
-	c_att_ranks_2		0,0,1
-
-	c_att_skill_3		MB_ATT_THERMALS
-	c_att_names_3		"Thermal Detonator"
+	c_att_skill_3		MB_ATT_PULSE_GRENADES
+	c_att_names_3		"Pulse Grenade"
 	c_att_ranks_3		1
 
-	c_att_skill_4		MB_ATT_TRIP_MINES
-	c_att_names_4		"Trip Mine"
+	c_att_skill_4		MB_ATT_FIRE_GRENADES
+	c_att_names_4		"Fire Grenade"
 	c_att_ranks_4		1
 
-	c_att_skill_5		MB_ATT_PULSE_GRENADES
-	c_att_names_5		"Pulse Grenade"
-	c_att_ranks_5		1
+	c_att_skill_5		MB_ATT_SMOKE_NADE
+	c_att_names_5		"Smoke Grenade"
+	c_att_ranks_5		1,0,0
+	c_att_descs_5		"Shrouds on det, 99% less damage, 40% faster RoF"
 
-	c_att_skill_6		MB_ATT_FIRE_GRENADES
-	c_att_names_6		"Fire Grenade"
-	c_att_ranks_6		1
-
-	c_att_skill_7		MB_ATT_MICRO_GRENADES
-	c_att_names_7		"Smoke Grenade (Conc)"
-	c_att_ranks_7		1,0,0
-	c_att_descs_7		"Shrouds on det, 99% less damage, 40% faster RoF"
-
-	c_att_skill_8		MB_ATT_POISON_DART
-	c_att_names_8		"Poison Dart ^3[Melee CS1]"
-	c_att_ranks_8		1,1
-}
-
-WeaponInfo0
-{
-	WeaponToReplace		WP_CLONE_RIFLE
-	WeaponBasedOff		WP_CONCUSSION
-	NewWorldModel		"models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
-	NewViewModel		"models/weapons2/DLT-19_HeavyBlaster/riflescoped.md3"
-	NewHandsModel		"models/weapons2/DLT-19_HeavyBlaster/riflescoped_hand.md3"
-	Icon				"gfx/hud/w_icon_dlt19scoped"
-	WeaponName			"DLT-19 Heavy Blaster Rifle"
-	FlashSound0			"sound/weapons/DLT19/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
-	customAmmo			750
-	damageMod			1.10
-	clipsize			85
-	rateMod				0.92
-	hasAnimOverrides	1
-	animReadyRun		BOTH_DC15_IDLE
-	animReady			BOTH_DC15_IDLE
-	animReadyWalk		BOTH_DC15_READY
-	animReadyNoAmmo		BOTH_DC15_ATTACK
-	animAttackRun		BOTH_DC15_ATTACK
-	animAttack			BOTH_DC15_ATTACK
-	animAttackWalk		BOTH_DC15_ATTACK
-	animStand			BOTH_STAND1
-}
-
-WeaponInfo1
-{
-	WeaponToReplace		WP_CONC_NADE
-	WeaponBasedOff		WP_CONC_NADE
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel		"models/weapons2/thermal/thermal.md3"
-	NewHandsModel		"models/weapons2/thermal/thermal_hand.md3"
-	Icon				"gfx/hud/w_thermal_grenade"
-	MissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	AltMissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	MissileEffect				"stone/missile1"
-	AltMissileEffect			"stone/missile1"
-	MissileMissEffect			"smokenadeleg/explode_vol"
-	MissileHitHumanEffect		"smokenadeleg/explode_vol"
-	MissileHitDroidEffect		"smokenadeleg/explode_vol"
-	AltMissileMissEffect		"smokenadeleg/explode_vol"
-	AltMissileHitHumanEffect	"smokenadeleg/explode_vol"
-	AltMissileHitDroidEffect	"smokenadeleg/explode_vol"
-	FlashSound0			"sound/weapons/smokenade/select.mp3"
-	AltFlashSound0		"sound/weapons/smokenade/select.mp3"
-	WeaponName			"Smoke Grenade"
-	hasAnimOverrides	1
-	animAttackRun		BOTH_THERMAL_THROW2
-	animAttack			BOTH_THERMAL_THROW2
-	animAttackWalk		BOTH_THERMAL_THROW2
-	animReadyRun		BOTH_THERMAL_READY2
-	animReady			BOTH_THERMAL_READY2
-	animReadyWalk		BOTH_THERMAL_READY2
-	damageMod			0.001
-	ratemod				0.6
+	c_att_skill_6		MB_ATT_POISON_DART
+	c_att_names_6		"Poison Dart ^3[Melee CS1]"
+	c_att_ranks_6		1,1,1
 }
 
 ForceInfo0
@@ -175,10 +104,7 @@ A suppressive fire class with rifles and area-control tools.
 ^2Weaponry:
 - Melee
 - Disruptor Rifle (2)
-- DLT-19 Heavy Blaster Rifle (Clone Rifle 2)
--- Concussion/Ion Blob (4)
--- 10% more damage
--- 8% faster RoF
+- DLT-19 Heavy Blaster Rifle (2)
 -- Mag reload
 
 ^5Powers:
