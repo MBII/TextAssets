@@ -14,6 +14,20 @@ models/players/alien_merc/aby_arms
 	}
 }
 
+models/players/alien_merc/aby_hands
+{
+	{
+		map models/players/alien_merc/aby_hands
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/alien_merc/aby_hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
 models/players/alien_merc/aby_legs
 {
 	{
@@ -48,6 +62,23 @@ models/players/alien_merc/aby_torso_lower
 	{
 		map models/players/alien_merc/aby_torso_lower
 		rgbGen lightingDiffuse
+	}
+}
+
+
+// Aqualish
+
+models/players/alien_merc/aqua_hands
+{
+	{
+		map models/players/alien_merc/aqua_hands
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/alien_merc/aby_hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -177,6 +208,40 @@ models/players/alien_merc/dur_hands3
 		alphaGen lightingSpecular
 		detail
     }
+}
+
+
+// Gotal
+
+models/players/alien_merc/got_hands
+{
+	{
+		map models/players/alien_merc/got_hands
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/alien_merc/aby_hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+
+// Ishi-tib
+
+models/players/alien_merc/ishi_hands
+{
+	{
+		map models/players/alien_merc/ishi_hands
+		rgbGen lightingDiffuse
+	}
+	{
+		map  models/players/alien_merc/aby_hands_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
 }
 
 
