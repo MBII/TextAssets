@@ -8,10 +8,11 @@ ClassInfo
 	weapons				WP_MELEE|WP_SABER
 
 	WP_E22Flags				HELD_ALTRELOAD
-	WP_BlasterFlags			HELD_ALTRELOAD|HELD_IGNOREBLOCK|HELD_POISON
+	WP_BlasterFlags			HELD_ALTRELOAD|HELD_POISON
 	WP_DLT20AFlags			HELD_ALTRELOAD
 	WP_BlasterPistolFlags	HELD_ALTRELOAD
 	WP_ProjFlags			HELD_ALTRELOAD|HELD_DISRUPTIFY
+	WP_ClonePistolFlags		HELD_ALTRELOAD
 
 	attributes			MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_ROCKET,1|MB_ATT_WRISTLASER|MB_ATT_FUEL,3|MB_ATT_BESKAR,2|MB_ATT_TRACKING_BEACON|MB_ATT_DASH,1|MB_ATT_BLAST_ARMOUR|MB_ATT_THROWER_LIGHTNING
 
@@ -66,10 +67,9 @@ ClassInfo
 	customSpecDesc_2	""
 
 	c_att_skill_0		MB_ATT_BLASTER
-	c_att_names_0		"P. Throw. Knives (3) (Blaster)"
+	c_att_names_0		"Pois. Throw. Knives (Blaster)"
 	c_att_ranks_0		2
-	c_att_descs_0		"Ignores block, Poisons on hit, 60% less damage,
-100% slower mag reload"
+	c_att_descs_0		"Poisons on hit, 60% less damage, 100% slower mag reload"
 
 	c_att_skill_1		MB_ATT_E_22
 	c_att_names_1		"Repeater Pistol (E-22)"
@@ -103,7 +103,7 @@ ClassInfo
 
 	c_att_skill_15		MB_ATT_PISTOL
 	c_att_names_15		"DT-29 Six-Shooter (Pistol)"
-	c_att_ranks_15		2
+	c_att_ranks_15		4
 	c_att_descs_15		"60% more damage, 60% more FP drain, 30% more velocity,
 30% slower RoF, Mag reload"
 
@@ -112,14 +112,15 @@ ClassInfo
 	c_att_ranks_16		1,0,2
 	c_att_descs_16		"10% more velocity, 15% less damage, Mag reload"
 
-	c_att_skill_17		MB_ATT_TRAD_BOWCASTER
-	c_att_names_17		"Kryze Echo-Bolter (Trad Bow)"
-	c_att_ranks_17		3,0,0
-	c_att_descs_17		"50% faster RoF, 20% less damage, Primary fire only"
+	c_att_skill_17		MB_ATT_CLONE_PISTOL
+	c_att_names_17		"Kryze Echo-Bolters (C. Pistol)"
+	c_att_ranks_17		4,0,0
+	c_att_descs_17		"100% more FP drain, Secondary fire only, 10% less damage
+	Mando rocket won't fire while holding these"
 
 	c_att_skill_18		MB_ATT_PROJECTILE_RIFLE
 	c_att_names_18		"Kingpin Projectile Rifle"
-	c_att_ranks_18		3
+	c_att_ranks_18		2
 	c_att_descs_18		"2 shots per clip, 10% more FP drain, 10% less damage,
 100% slower mag reload"
 
@@ -319,7 +320,7 @@ WeaponInfo6
 	animAttackRun		BOTH_THERMAL_THROW2
 
 	clipSize			2
-	customAmmo			4
+	customAmmo			8
 	reloadTimeModifier	2
 	primGore			1
 	damageMod			0.4
@@ -351,16 +352,33 @@ WeaponInfo7
 
 WeaponInfo8
 {
-	WeaponToReplace		WP_TRAD_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER
-	NewWorldModel		"models/weapons2/kotor_bowcaster1/kotor_bowcaster1_w.glm"
-	NewViewModel		"models/weapons2/kotor_bowcaster1/kotor_bowcaster1.md3"
-	Icon				"gfx/hud/w_icon_kotor_bowcaster1"
-	WeaponName			"Kryze Echo-Bolter"
+	WeaponToReplace		WP_CLONE_PISTOL
+	WeaponBasedOff		WP_CLONE_PISTOL
+	NewWorldModel		"models\weapons2\kotor_hpistol/kotor_hpistol_w.glm"
+	NewViewModel		"models\weapons2\kotor_hpistol/kotor_hpistol.md3"
 
-	rateMod				0.5
-	altfireenabled		0
-	damageMod			0.8
+	Icon				"gfx/hud/w_icon_kotor_hpistol_dual"
+	WeaponName			"Kryze Echo-Bolters"
+	
+	clipsize			30
+
+	AltMuzzleEffect				"Blaster/MuzzleFlash01G"
+	AltMissileEffect				"Blaster/Shot04G"
+	altMissileMissEffect			"Blaster/Impact_Wall01G"
+
+	MuzzleEffect				"Blaster/MuzzleFlash01G"
+	MissileEffect				"Blaster/Shot04G"
+	MissileMissEffect			"Blaster/Impact_Wall01G"
+
+	PowerupShotEffect				"effects/bowcaster/altmuzzle_flash"
+	ChargeEffect				"gfx/effects/greenFrontFlash"
+
+	AltFlashSound0 "sound/weapons/Heavycaster/fire.wav"
+	ChargeSound "sound/weapons/bowcaster/altcharge.mp3"
+	
+	primFireEnabled		0
+	damageMod			.9
+	FPMult 2
 }
 
 description "Nite Owl Mandalorian
