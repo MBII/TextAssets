@@ -6,6 +6,11 @@ ClassInfo
 	classNumberLimit	1
 
 	weapons				WP_MELEE|WP_SMOKE_NADE|WP_SABER|WP_MGL
+	WP_CloneRifleFlags	HELD_ALTRELOAD
+	WP_MeleeFlags		HELD_SPEED
+	WP_SaberFlags		HELD_FLAME
+	WP_MGLFlags			HELD_ALTRELOAD
+	WP_DCCarbineFlags	HELD_ALTRELOAD|HELD_PULSE|HELD_KNOCKBACK|HELD_CRIPPLE
 
 	attributes			MB_ATT_AMMO,3|MB_ATT_BLAST_ARMOUR|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_DEXTERITY,1|MB_ATT_MGL,1|MB_ATT_STICKY_BOMBS,6|MB_ATT_BESKAR,1|MB_ATT_ARC_RIFLE_SCOPE|MB_ATT_FP_SABER_DEFENSE,0|MB_ATT_SMOKE_NADE,2|MB_ATT_HEALING,2|MB_ATT_STAMINA,1|MB_ATT_TRACKING_BEACON|MB_ATT_WOOKIE_STRENGTH,1
 
@@ -13,19 +18,15 @@ ClassInfo
 
 	resource			RESOURCE_STAMINA
 	forcepool			70
-	forceregen			1
+
+
 	maxhealth			120
 	maxarmor			120
+
 	knockbackTaken		.9
 	rateOfFire_Melee	.8
+
 	classFlags			CFL_STRONGAGAINSTPHYSICAL
-
-	WP_CloneRifleFlags	HELD_ALTRELOAD
-	WP_MeleeFlags		HELD_SPEED
-	WP_SaberFlags		HELD_FLAME
-	WP_MGLFlags			HELD_ALTRELOAD
-	WP_DCCarbineFlags	HELD_ALTRELOAD|HELD_PULSE|HELD_KNOCKBACK|HELD_CRIPPLE
-
 
 	saberMaxChain		1
 	saber1				fblade
@@ -35,22 +36,24 @@ ClassInfo
 	saberStanceAnim		BOTH_TRIPLE3_STAFFSTANCE
 	BPMultiplier		0
 	ASMultiplier		1.1
-	CSMultiplier		1.07
+	CSMultiplier		1.1
 	APMultiplier		1.3
-	gloatAnim			BOTH_HAN_TAUNT
-	flourishAnim		BOTH_STAND5TOAIM
-	bowAnim				BOTH_MAND_FLAME_ATTACK
 
 	special1			EAS_HI_SPRINT
 	meleespecial1		EAS_HI_SPRINT
 	special2			EAS_HI_KICK
 	special3			EAS_HI_KICK
+
 	modelscale			1.01
 	model				"Dengar"
 	skin				"default"
 	uishader			"models/players/dengar/mb2_icon_default"
 	uioverlay_l			"gfx/icons/scout"
 	uioverlay_r			"gfx/icons/spec_infantry"
+
+	gloatAnim			BOTH_HAN_TAUNT
+	flourishAnim		BOTH_STAND5TOAIM
+	bowAnim				BOTH_MAND_FLAME_ATTACK
 
 	isCustomBuild		1
 	mbPoints			2
@@ -62,18 +65,19 @@ ClassInfo
 	c_att_skill_1		MB_ATT_DC_CARBINE
 	c_att_names_1		"Modded Riot Gun (DC Carb)"
 	c_att_ranks_1		1,0
-	c_att_descs_1		"Shocks/pushes/slows on hit, 400% more dmg/FP dmg, 100% slower RoF,
-25% slower mag reload, Sec only"
+	c_att_descs_1		"Shocks/pushes/slows on hit, 400% more damage/FP drain,
+100% slower RoF, 25% slower mag reload, Sec only"
 
 	c_att_skill_2		MB_ATT_DLT19
 	c_att_names_2		"DLT-19 Blaster Rifle"
 	c_att_ranks_2		1,0,0
-	c_att_descs_2		"A heavy blaster rifle, higher levels increase the clip size and ease of aiming"
+	c_att_descs_2		""
 
 	c_att_skill_3		MB_ATT_WESTARM5
 	c_att_names_3		"Valken-38x Blaster Rifle (M5)"
 	c_att_ranks_3		1,0
-	c_att_descs_3		"50% more damage/FP drain, 100% slower RoF, Includes Scope Attachment"
+	c_att_descs_3		"50% more damage, 50% more FP drain, 100% slower RoF,
+Includes Scope Attachment"
 }
 
 WeaponInfo0
@@ -116,7 +120,7 @@ WeaponInfo1
 	NewHandsModel		"models/weapons2/realTD/thermal_hand.md3"
 	MissileModel		"models/weapons2/realTD/thermal_proj.md3"
 	Icon				"gfx/hud/w_icon_realTG"
-	WeaponName			"Sticky Bombs"
+	WeaponName			"Sticky Bomb"
 	MuzzleEffect		null
 	MissileEffect		"stone/missile1"
 	FlashSound0			"sound/weapons/stone/fire.mp3"
@@ -206,11 +210,12 @@ A ruthless assault class who likes to bring his bounties in cold.
 -- 20% faster RoF
 - Dengar's Fire Blade (Cyan Saber)
 -- No Saber/Blaster Block
+-- Chain Limit: 1
 -- Burns on hit
 -- 62% shorter
 -- 33% thicker
 - Smoke Grenade (2)
-- Sticky Bombs (6) (MGL)
+- Sticky Bomb (6) (MGL)
 -- Mag reload
 
 ^8Attributes:
