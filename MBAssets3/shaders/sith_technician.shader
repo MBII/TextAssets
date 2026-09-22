@@ -70,7 +70,8 @@ models/players/sithtechnician/helmet2
 }
 
 models/players/sithtechnician/sith_fleet_misc
-{	  
+{	
+	cull	twosided  
 	{
 		map models/players/sithtechnician/sith_fleet_misc
 		rgbGen lightingDiffuse
@@ -84,3 +85,4 @@ models/players/sithtechnician/sith_fleet_misc
 		alphaGen lightingSpecular
 	}
 }
+
