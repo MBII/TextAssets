@@ -1,113 +1,10 @@
+// black
+
 models/players/imperial/torso_black
 {
 	q3map_nolightmap
 	{
 		map models/players/imperial/torso_black
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/torso_blue
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/torso_blue
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/torso_brown
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/torso_brown
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/torso_gray
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/torso_gray
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/torso_olive
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/torso_olive
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/torso_red
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/torso_red
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial/torso_veers
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial/torso_veers
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/Krennic/torso_specular
-		blendFunc GL_SRC_ALPHA GL_ONE
-		detail
-		alphaGen lightingSpecular
-	}
-}
-
-models/players/imperial_fml/torso
-{
-	q3map_nolightmap
-	{
-		map models/players/imperial_fml/torso
 		rgbGen lightingDiffuse
 	}
 	{
@@ -149,6 +46,42 @@ models/players/imperial/hips_legs_black_cull
 	}
 }
 
+
+// blue
+
+models/players/imperial/torso_blue
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/torso_blue
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// brown
+
+models/players/imperial/torso_brown
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/torso_brown
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/imperial/hips_legs_brown
 {
 	q3map_nolightmap
@@ -174,6 +107,24 @@ models/players/imperial/hips_legs_brown_cull
 	}
 	{
 		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// gray
+
+models/players/imperial/torso_gray
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/torso_gray
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/torso_specular
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -211,6 +162,24 @@ models/players/imperial/hips_legs_gray_cull
 	}
 }
 
+
+// olive
+
+models/players/imperial/torso_olive
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/torso_olive
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
 models/players/imperial/hips_legs_olive
 {
 	q3map_nolightmap
@@ -236,6 +205,42 @@ models/players/imperial/hips_legs_olive_cull
 	}
 	{
 		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// red
+
+models/players/imperial/torso_red
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/torso_red
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/torso_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// veers
+
+models/players/imperial/torso_veers
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial/torso_veers
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/torso_specular
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
@@ -270,5 +275,96 @@ models/players/imperial/hips_legs_veers_cull
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular
+	}
+}
+
+
+// aralani
+
+models/players/imperial_fml/torso_aralani
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial_fml/torso_aralani
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/imperial_fml/torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+
+// ysanne isard
+
+models/players/imperial_fml/torso_isard
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial_fml/torso_isard
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/imperial_fml/torso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/imperial_fml/hips_legs_isard
+{
+	q3map_nolightmap
+	{
+		map models/players/imperial_fml/hips_legs_isard
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/imperial_fml/hips_legs_isard_cull
+{
+	q3map_nolightmap
+	cull	disable
+	{
+		map models/players/imperial_fml/hips_legs_isard
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/Krennic/hips_legs_specular
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
+}
+
+models/players/imperial_fml/hair_isard
+{
+	cull	disable
+	{
+		map models/players/imperial_fml/hair_isard
+                                alphaFunc GE128
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+                                depthWrite
+                                rgbGen lightingDiffuse
+	}
+}
+
+models/players/imperial_fml/hair_isard2
+{
+	cull	disable
+	{
+		map models/players/imperial_fml/hair_isard2
+                                alphaFunc GE128
+                                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+                                depthWrite
+                                rgbGen lightingDiffuse
 	}
 }
