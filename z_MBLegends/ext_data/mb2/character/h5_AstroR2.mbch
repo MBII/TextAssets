@@ -12,7 +12,7 @@ ClassInfo
 
  attributes	MB_ATT_JETPACK,1|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISP_BLOCK,2|MB_ATT_DISP_FORCE,2|MB_ATT_THROWER_FLAME|MB_ATT_USE_DISTANCE,1|MB_ATT_HEALING,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ENV_PROT,1|MB_ATT_BARGE,3|MB_ATT_WELDER,1
 
-	forcepowers	FP_SEE,1|FP_PUSH,1|FP_SPEED,3|FP_LIGHTNING,1
+	forcepowers	FP_SEE,1|FP_PUSH,1|FP_SPEED,2|FP_LIGHTNING,1
  AB_FLightningFlags HELD_HIGHDAMAGE
 
 	damageGiven 1.15
@@ -32,19 +32,19 @@ ClassInfo
 	classflags	CFL_NOLOCATIONALDAMAGE|CFL_STATVIEWER
 
 	BPmultiplier 		0
-
+ skilltimermod 1.75
 	hackRate 0.80
 	basespeed	218
 	disableGunBash 1
 
 	special1HUD HUD_WRISTLASER
-	special2HUD HUD_ROCKNADE
+	//special2HUD HUD_ROCKNADE
 
 	resource		RESOURCE_FUEL
 	forcepool	45
 	forceregen 0.01
 	resourceRegenAmount 2
-	resourceRegenRate  1000
+	resourceRegenRate  1500
 	resourceRegenCap 45
 
 	meleeMoves M_KICK
@@ -82,6 +82,7 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon			"gfx/menus/classes/astro"
 	WeaponName		"Body Slam"
+ selectsound "sound/interface/zoomstart.mp3"
 }
 
 WeaponInfo1
@@ -94,6 +95,8 @@ WeaponInfo1
 	WeaponName		"Fusioncutter"
 	MuzzleEffect			"sparks/spark_exp_nosnd"
 	AltMuzzleEffect			"sparks/spark_exp_nosnd"
+ selectsound "sound/interface/zoomloop.mp3"
+ damageMod .9
 }
 
 WeaponInfo2
@@ -106,9 +109,10 @@ WeaponInfo2
 	WeaponName		"Jet Burst"
 	MuzzleEffect			"concussion/muzzle_flash"
 	clipsize 1
-	customammo 30
- reloadTimeModifier 1200
+	customammo 15
+ reloadTimeModifier 2400
  damageMod 11
+ selectsound "sound/interface/zoomend.mp3" 
 }
 
 ForceInfo0
@@ -145,41 +149,43 @@ ForceInfo3
 
 description	"Astromech Droid
 
-A plucky support with numerous gadgets.
-
-^2Weaponry:
-- Body Slam (Melee)
--- Heavyweight
--- Secondary fire only
+^9Weapons:
+- Melee Interface
+^1-- Heavyweight
+^1-- Sec fire only
 - Jet Burst (Flamethrower)
--- Ignites on hit
--- Damage: 11x
--- Reload rate: 8.3x
+^2-- Hit: Burn
+^2-- Damage: 11x
+^1-- Reload speed: .0004x
 - Fusioncutter (Welder 1)
-
-^5Powers:
-- Steam Projector (Push 1)
--- Shrouds on use
-- Electroshock Probe (Lightning 1) ^3[CS4]
--- Damage: 2x
-- Overclock (Speed 3) ^3[CS3]
-
-^8Attributes:
-- Strength (2)
-- Impact Diffusion
-- Climate Shielding (1)
-- Cortosis (1)
-- Armor Regen (1)
-- Healing (2)
-- Resource Regen: 2/1s
-- Passive Radar Scanner (Miraluka 1)
-- Ally Stat Viewer
-- Triggerbound
-- Hacking Rate: 1.25x
+^1-- Damage: .9x
 
 ^3Abilities:
 - BP/Resource Dispenser (2) ^3[Use]
--- +1 range
-- Jet Boosters (Jetpack)
-- Pocket (Wrist) Laser ^3[CS1]
-- Panic (Barge 3) ^3[Melee CS2]"
+^2-- Range: 96u
+- Jet Boosters ^3[Hold/double jump]
+- Pocket Laser ^3[CS1]
+- Panic (Barge 3) ^3[Melee CS2]
+
+^5Powers:
+- Steam Projector (Push 1)
+^2-- Use: Shrouds
+- Electroshock Probe (Lightning 1) ^3[CS4]
+^2-- Damage: 2x
+- Overclock (Speed 2) ^3[CS3]
+
+^8Attributes:
+- Strength (2)
+- Healing (2)
+- Armor Regen (1)
+- Cortosis (1)
+- Climate Shielding (1)
+- Passive Radar Scanner (Miraluka 1)
+- Impact Diffusion
+- Ally Stat Viewer
+- Triggerbound
+^2- Resource regen: 2/1.5s
+^2- Hack speed: 1.25x
+^1- Skill recharge: .57x
+
+A plucky support with numerous gadgets."
