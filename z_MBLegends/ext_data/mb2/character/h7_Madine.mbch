@@ -2,17 +2,8 @@
 ClassInfo
 {
 	name				"h7_Madine"
-	MBClass				MB_CLASS_HERO
+	MBClass				MB_CLASS_OPERATIVE
 	classNumberLimit	1
-
-	saber1				"comm_bat"
-	saberstyle			SS_FAST
-	saberDamage			60
-	BPMultiplier		0
-	APMultiplier		0.1
-	ASMultiplier		0.9
-	CSMultiplier		2
-	saberMaxChain		2
 
 	weapons				WP_BLASTER_PISTOL|WP_MELEE|WP_FRAG_NADE|WP_CRYO_NADE|WP_PULSE_NADE|WP_MINIGUN|WP_SABER
 
@@ -22,10 +13,15 @@ ClassInfo
 	WP_PulseNadeFlags		HELD_FLAME|HELD_KNOCKBACK
 
 	attributes			MB_ATT_PISTOL,3|MB_ATT_AMMO,3|MB_ATT_RALLY,1|MB_ATT_DODGE,3|MB_ATT_HEALING,2|MB_ATT_FRAGS,2|MB_ATT_QUICKTHROW,1|MB_ATT_PULSE_GRENADES,2|MB_ATT_BACTA,1|MB_ATT_FORCEFIELD,1|MB_ATT_TRACKING_BEACON|MB_ATT_DEXTERITY,1|MB_ATT_MINIGUN,3
-	//MB_ATT_SUPPLYDROP //MB_ATT_SABER_COMBO_NONE
 
-	//roundNPC
-	//spawnerNPC
+	saber1				"comm_bat"
+	saberstyle			SS_FAST
+	saberDamage			60
+	BPMultiplier		0
+	APMultiplier		0.1
+	ASMultiplier		0.92
+	CSMultiplier		2
+	saberMaxChain		2
 
 	forcepowers			FP_TEAM_FORCE,1
 
@@ -33,6 +29,12 @@ ClassInfo
 	maxarmor			125
 
 	baseSpeed			255
+
+	special1			EAS_HI_DODGE
+	meleespecial1		EAS_HI_DODGE
+	special2			EAS_HI_KICK
+	special3			EAS_HI_QUICKTHROW
+	special4			EAS_HI_MEDPAC
 
 	special1HUD			HUD_FRAGNADE
 	special2HUD			HUD_PULSENADE
@@ -47,14 +49,6 @@ ClassInfo
 	uishader			"models/players/crixmadine/mb2_icon_default"
 	uioverlay_r			"gfx/icons/tactician"
 	uioverlay_l			"gfx/icons/spec_infantry"
-	modelscale			1.0
-
-	special1			EAS_HI_DODGE
-
-	meleespecial1		EAS_HI_DODGE
-	special2			EAS_HI_KICK
-	special3			EAS_HI_QUICKTHROW
-	special4			EAS_HI_MEDPAC
 
 	tauntAnim			BOTH_ENGAGETAUNT
 	gloatAnim			TORSO_HANDSIGNAL4
@@ -68,7 +62,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/blaster_three/blaster_pistol_w.glm"
 	NewViewModel		"models/weapons2/blaster_three/blaster_pistol.md3"
 	Icon				"gfx/hud/w_icon_blaster_pistol_3"
-	WeaponName			"Madine's DL-18 Blaster Pistol"
+	WeaponName			"DL-18 Blaster Pistol"
 	ClipSize			18
 	CustomAmmo			810
 	FlashSound0			"sound/weapons/kotor/fire_power1.wav"
@@ -106,7 +100,7 @@ WeaponInfo1
 	altMissileHitDroidEffect	"rockets/explosionpulse"
 	MissileHitDroidEffect		"rockets/explosionpulse"
 	Icon				"gfx/hud/w_icon_rpgren"
-	WeaponName			"Electro-Flare Grenade"
+	WeaponName			"Pulse-Flare Grenade"
 }
 
 WeaponInfo2
@@ -123,12 +117,12 @@ WeaponInfo2
 
 	isMinigun			0
 
-	splashRadius		42
+	splashRadius		50
 	damageMod			0.01
 	fpmult				1
 	velocityMod			99999
 	clipSize			8
-	rateMod				29
+	rateMod				20
 	customAmmo			-1
 
 	altMuzzleEffect				null
@@ -171,47 +165,47 @@ WeaponInfo3
 
 description "General Crix Madine
 
-A strong tactician who can paint targets for team-assisted destruction, and hold his own with specialty arms.
-
-^2Weaponry:
+^9Weapons:
 - Melee
 - Command Baton (Blue Saber)
--- No Block
--- Chain Limit: 2
--- Slows on hit
--- 10% more knockback
--- 25% shorter
-- Madine's DL-18 Blaster Pistol (3)
--- Staggers on hit
--- 35% more damage/FP drain
--- 25% slower RoF
--- 30% slower mag reload
-- Strike Order (8) (Minigun 3)
--- Explodes/tracks/focuses/slows on hit
--- Hitscan charges
--- 99% less damage
--- 2800% slower RoF
--- 67% smaller splash
+^2-- Hit: Slow
+^2-- Knockback: +.1
+^1-- Block: No
+^1-- Chain: 2
+^1-- Length: 30
+- DL-18 Blaster Pistol (3)
+^2-- Hit: Stagger
+^2-- Damage: 1.35x
+^2-- Drain: 1.35x
+^1-- RoF: .8x
+^1-- Mag reload speed: .76x
+- Strike Order (Minigun 3)
+^2-- Hitscan: Explode/slow/focus/track
+^1-- Damage: .01x
+^1-- RoF: .05x
+^1-- AoE: 50u
 - Frag Grenade (2)
-- Electro-Flare Grenade (2) (Pulse)
--- Burns/pushes on det
-
-^5Powers:
-- Team Energize (1)
-
-^6Inventory:
-- Forcefield
-- Medpac ^3[CS4]
-
-^8Attributes:
-- Dexterity (1)
-- Healing (2)
-- Rally
-- Tracking Beacon
-- Getup (2)
-- 10% more knockback given
+- Pulse-Flare Grenade (2)
+^2-- Det: Burn/push
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
 - Gunkick ^3[CS2]
-- Quick Throw (1) ^3[CS3]"
+- Quick Throw (1) ^3[CS3]
+
+^5Powers:
+- Team Energize (1)
+
+^6Items:
+- Forcefield
+- Medpac ^3[CS4]
+
+^8Attributes:
+- Healing (2)
+- Getup (2)
+- Dexterity (1)
+- Rally
+- Tracking Beacon
+^2- Knockback given: 1.1x
+
+A strong tactician who can paint targets for team-assisted destruction, and hold his own with specialty arms."
