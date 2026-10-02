@@ -39,19 +39,28 @@ jobs:
       - name: Upload Files
         shell: powershell
         run: |
-          $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
-          $MBII = $GAMEDATA + "\MBIITest"
-          svn revert -R $GAMEDATA
-          svn cleanup --vacuum-pristines $GAMEDATA
-          svn update --accept=theirs-full $MBII
-          Move-Item -Force -Path MBAssets3.pk3 -Destination $MBII\MBAssets3.pk3
-          Move-Item -Force -Path 03_MovieGameMappack.pk3 -Destination $MBII\03_MovieGameMappack.pk3
-          Move-Item -Force -Path mb2_cmp_assets3.pk3 -Destination $MBII\mb2_cmp_assets3.pk3
-          Move-Item -Force -Path mb2_um_assets3.pk3 -Destination $MBII\mb2_um_assets3.pk3
-          Move-Item -Force -Path mb2_pb_assets2.pk3 -Destination $MBII\mb2_pb_assets2.pk3
-          Move-Item -Force -Path MB_Effects2.pk3 -Destination $MBII\MB_Effects2.pk3
-          Move-Item -Force -Path z_MBLegends.pk3 -Destination $MBII\z_MBLegends.pk3
-          $BRANCH = "${{github.ref}}".Split("/")[2]
-          $HASH = "${{github.sha}}".Substring(0, 7)
-          svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
-          svn update $MBII | out-file $MBII/svn_log.txt -encoding ASCII
+          $mutexName = "Global\SVNWorkingCopyLock"
+          $mutex = New-Object System.Threading.Mutex($false, $mutexName)
+          try {
+            $mutex.WaitOne()
+            $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
+            $MBII = $GAMEDATA + "\MBIITest"
+            svn revert -R $GAMEDATA
+            svn cleanup --vacuum-pristines $GAMEDATA
+            svn update --accept=theirs-full $MBII
+            Move-Item -Force -Path MBAssets3.pk3 -Destination $MBII\MBAssets3.pk3
+            Move-Item -Force -Path 03_MovieGameMappack.pk3 -Destination $MBII\03_MovieGameMappack.pk3
+            Move-Item -Force -Path mb2_cmp_assets3.pk3 -Destination $MBII\mb2_cmp_assets3.pk3
+            Move-Item -Force -Path mb2_um_assets3.pk3 -Destination $MBII\mb2_um_assets3.pk3
+            Move-Item -Force -Path mb2_pb_assets2.pk3 -Destination $MBII\mb2_pb_assets2.pk3
+            Move-Item -Force -Path MB_Effects2.pk3 -Destination $MBII\MB_Effects2.pk3
+            Move-Item -Force -Path z_MBLegends.pk3 -Destination $MBII\z_MBLegends.pk3
+            $BRANCH = "${{github.ref}}".Split("/")[2]
+            $HASH = "${{github.sha}}".Substring(0, 7)
+            svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
+            svn update $MBII | out-file $MBII/svn_log.txt -encoding ASCII
+          }
+          finally {
+            $mutex.ReleaseMutex()
+            $mutex.Dispose()
+          }
