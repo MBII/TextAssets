@@ -25,15 +25,15 @@ jobs:
           cd MBAssets3
           deterministic_zip -D -r ../MBAssets3.pk3 ./
           cd ../03_MovieGameMappack
-          deterministic_zip -D -r -j  ../03_MovieGameMappack.pk3 ./
+          deterministic_zip -D -r  ../03_MovieGameMappack.pk3 ./
           cd ../mb2_cmp_assets3
-          deterministic_zip -D -r -j  ../mb2_cmp_assets3.pk3 ./
+          deterministic_zip -D -r  ../mb2_cmp_assets3.pk3 ./
           cd ../mb2_um_assets3
-          deterministic_zip -D -r -j  ../mb2_um_assets3.pk3 ./
+          deterministic_zip -D -r  ../mb2_um_assets3.pk3 ./
           cd ../mb2_pb_assets2
-          deterministic_zip -D -r -j  ../mb2_pb_assets2.pk3 ./
+          deterministic_zip -D -r  ../mb2_pb_assets2.pk3 ./
           cd ../MB_Effects2
-          deterministic_zip -D -r -j  ../MB_Effects2.pk3 ./
+          deterministic_zip -D -r  ../MB_Effects2.pk3 ./
           cd ..
           mkdir .\temp\
           Remove-Item -Path $LegendsZip -ErrorAction SilentlyContinue
@@ -41,7 +41,9 @@ jobs:
           Expand-Archive -Path ($MBII + "\z_MBLegends.zip") -DestinationPath .\temp\ -Force
           Rename-Item -Path $LegendsZip -NewName $LegendsPk3
           robocopy .\z_MBLegends\ext_data .\temp\ext_data /MIR /R:0 /W:0
-          deterministic_zip -D -r -j  z_MBLegends.pk3 temp/
+          cd temp
+          deterministic_zip -D -r ../z_MBLegends.pk3 temp/
+          cd ..
           Remove-Item -Recurse -Force .\temp\
           
       - name: Upload Files
