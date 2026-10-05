@@ -24,12 +24,17 @@ jobs:
           $LegendsZip = $MBII + "\z_MBLegends.zip"
           cd MBAssets3
           deterministic_zip -D -r ../MBAssets3.pk3 ./
+          cd ../03_MovieGameMappack
+          deterministic_zip -D -r -j  03_MovieGameMappack.pk3 ./
+          cd ../mb2_cmp_assets3
+          deterministic_zip -D -r -j  mb2_cmp_assets3.pk3 ./
+          cd ../mb2_um_assets3
+          deterministic_zip -D -r -j  mb2_um_assets3.pk3 ./
+          cd ../mb2_pb_assets2
+          deterministic_zip -D -r -j  mb2_pb_assets2.pk3 ./
+          cd ../MB_Effects2
+          deterministic_zip -D -r -j  MB_Effects2.pk3 ./
           cd ..
-          deterministic_zip -D -r -j  03_MovieGameMappack.pk3 03_MovieGameMappack/
-          deterministic_zip -D -r -j  mb2_cmp_assets3.pk3 mb2_cmp_assets3/
-          deterministic_zip -D -r -j  mb2_um_assets3.pk3 mb2_um_assets3/
-          deterministic_zip -D -r -j  mb2_pb_assets2.pk3 mb2_pb_assets2/
-          deterministic_zip -D -r -j  MB_Effects2.pk3 MB_Effects2/
           mkdir .\temp\
           Remove-Item -Path $LegendsZip -ErrorAction SilentlyContinue
           Rename-Item -Path $LegendsPk3 -NewName $LegendsZip
