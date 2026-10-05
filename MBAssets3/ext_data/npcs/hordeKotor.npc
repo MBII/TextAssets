@@ -1,7 +1,7 @@
 //Kotor Sith: Note weapon overrides don't work for blasters on NPCs
 //Kotor Sith Characters can be found in KotorSith.npc
 //To Do: Sith Apprentices, Saul, more Sith Officers.
-//Future Ideas: Kotor era: Probe Droid, Mark I/II/III, more Sentinel Droids, Floating Mine, Monsters
+//Future Ideas: Kotor era: Probe Droid, Mark I/II/III, more Sentinel Droids, Monsters
 
 //Kotor Sith
 SE_Dark_Jedi
@@ -513,7 +513,10 @@ SE_ST_EE4
 	playerModel sithtrooper
 	customSkin	elite
 	weapon		WP_EE4
+	weapon		WP_IMPACT_NADE
 	MB_ATT_EE4 3
+	MB_ATT_QUICKTHROW 1
+	MB_ATT_TEMP_PSHIELD 3
 	//altFire 1
 	health		50
 	armor		15
@@ -527,7 +530,7 @@ SE_ST_EE4
 	rank		crewman
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
-	class		CLASS_STORMTROOPER
+	class		CLASS_COMMANDO
 	height		64
 	crouchheight 38
 	walkSpeed	51
@@ -542,8 +545,11 @@ SE_ST_Shotgun
 {
 	playerModel sithtrooper
 	customSkin	captain
+	weapon		WP_SMOKE_NADE
 	weapon		WP_SHOTGUN
 	MB_ATT_SHOTGUN 1
+	MB_ATT_QUICKTHROW 1
+	MB_ATT_TEMP_PSHIELD 3
 	//altFire 1
 	health		50
 	armor		15
@@ -557,7 +563,7 @@ SE_ST_Shotgun
 	rank		crewman
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
-	class		CLASS_STORMTROOPER
+	class		CLASS_COMMANDO
 	height		64
 	crouchheight 38
 	walkSpeed	51
@@ -659,8 +665,11 @@ SE_ST_Rocket
 SE_ST_Officer
 {
 	playerModel sith_officer_fem
+	weapon		WP_FLASH_NADE
 	weapon		WP_BLASTER_PISTOL
 	MB_ATT_PISTOL 3
+	MB_ATT_DASH 3
+	MB_ATT_QUICKTHROW 1
 	health		80
 	armor 20
 	reactions	2
@@ -672,7 +681,7 @@ SE_ST_Officer
 	rank		lt
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
-	class		CLASS_IMPERIAL
+	class		CLASS_COMMANDO
 	snd			female_sith1
 	sndcombat	female_sith1
 	sndextra	female_sith1
@@ -714,8 +723,15 @@ HK_Pistol
 	playerModel hk47
 	customSkin hk50
 	MBClass		11
+	weapon		WP_FRAG_NADE
 	weapon		WP_HEAVY_PISTOL
 	MB_ATT_HEAVY_PISTOL 3
+	MB_ATT_QUICKTHROW 1
+	MB_ATT_FLAMETHROWER 1
+	MB_ATT_THROWER_ICE 1
+	RESOURCE_FUEL 1
+	forcePowerMax	100
+	forceRegenAmount	1
 	health		100
 	armor 100
 	headPitchRangeDown 30
@@ -728,7 +744,7 @@ HK_Pistol
 	rank		crewman
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
-	class		CLASS_STORMTROOPER
+	class		CLASS_COMMANDO
 	height		64
 	crouchheight 38
 	snd			hk51
@@ -744,8 +760,11 @@ HK_Plasma
 	playerModel hk47
 	customSkin hk50
 	MBClass		11
+	weapon		WP_SMOKE_NADE
 	weapon		WP_THROWER
 	MB_ATT_THROWER_PLASMA 1
+	MB_ATT_TEMP_PSHIELD 3
+	MB_ATT_QUICKTHROW 1
 	health		100
 	armor 100
 	headPitchRangeDown 30
@@ -758,7 +777,7 @@ HK_Plasma
 	rank		crewman
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
-	class		CLASS_STORMTROOPER
+	class		CLASS_COMMANDO
 	height		64
 	crouchheight 38
 	snd			hk50
@@ -776,6 +795,11 @@ HK_Shotgun
 	MBClass		11
 	weapon		WP_SHOTGUN
 	MB_ATT_SHOTGUN 2
+	MB_ATT_FLAMETHROWER 1
+	MB_ATT_THROWER_POISON 1
+	RESOURCE_FUEL 1
+	forcePowerMax	100
+	forceRegenAmount	1
 	health		100
 	armor 100
 	headPitchRangeDown 30
@@ -788,7 +812,7 @@ HK_Shotgun
 	rank		crewman
 	playerTeam	TEAM_PLAYER
 	enemyTeam	TEAM_ENEMY
-	class		CLASS_STORMTROOPER
+	class		CLASS_COMMANDO
 	height		64
 	crouchheight 38
 	walkSpeed	51
@@ -924,4 +948,32 @@ MarkIV
 	vfov			45
 	scale			160
 	snd				r2d2
+}
+
+floating_mine
+{
+    playerModel    remote_imp
+    MBClass        11
+	scale		200
+    weapon        WP_NONE
+    MB_ATT_SELFEXPLODE 1
+    health        50
+    reactions    5
+    aim        5
+    move        5
+    aggression    5
+    evasion        5
+    intelligence    5
+    playerTeam    TEAM_PLAYER
+    enemyTeam    TEAM_ENEMY
+    class        CLASS_REMOTE
+    yawSpeed    120
+    runSpeed    150
+    walkSpeed    150
+    height        32
+    width        8
+    hFOV        160
+    vfov        45
+    snd        remote
+    moveType    "flyswim"
 }
