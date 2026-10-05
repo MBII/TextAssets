@@ -22,7 +22,7 @@ jobs:
           svn update $MBII
           $LegendsPk3 = $MBII + "\z_MBLegends.pk3"
           $LegendsZip = $MBII + "\z_MBLegends.zip"
-          deterministic_zip -D -r MBAssets3.pk3 (Get-ChildItem dir ./MBAssets3 | Select-Object -Expand FullName) 
+          deterministic_zip -D -r MBAssets3.pk3 (Get-ChildItem ./MBAssets3 -Recurse | Select-Object -Expand FullName) 
           deterministic_zip -D -r -j  03_MovieGameMappack.pk3 03_MovieGameMappack/
           deterministic_zip -D -r -j  mb2_cmp_assets3.pk3 mb2_cmp_assets3/
           deterministic_zip -D -r -j  mb2_um_assets3.pk3 mb2_um_assets3/
