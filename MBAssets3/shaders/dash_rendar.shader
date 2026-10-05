@@ -1,23 +1,23 @@
-models/players/dash_rendar/dash_upper
+models/players/dash_rendar/upper
 {
 	cull disable
 	{
-		map models/players/dash_rendar/dash_upper
+		map models/players/dash_rendar/upper
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/dash_rendar/dash_reflect
+		map models/players/dash_rendar/env
 		blendfunc add
 		rgbGen lightingDiffuse
 		tcGen environment 
 	}
 	{
-		map models/players/dash_rendar/dash_upper
+		map models/players/dash_rendar/upper
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/dash_rendar/dash_upper_glow
+		map models/players/dash_rendar/upper_glow
 		blendfunc add
 		rgbGen wave noise 0 1 0 1 
 	}
@@ -45,20 +45,20 @@ models/players/dash_rendar/torso
     }
 }
 
-models/players/dash_rendar/dash_lower
+models/players/dash_rendar/lower
 {
 	{
-		map models/players/dash_rendar/dash_lower
+		map models/players/dash_rendar/lower
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/dash_rendar/dash_reflect
+		map models/players/dash_rendar/env
 		blendfunc add
 		rgbGen lightingDiffuse
 		tcGen environment 
 	}
 	{
-		map models/players/dash_rendar/dash_lower
+		map models/players/dash_rendar/lower
 		blendfunc blend
 		rgbGen lightingDiffuse
 	}

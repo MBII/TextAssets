@@ -51,19 +51,57 @@ Particle
 {
 	name				sparks
 
-	spawnFlags			rgbComponentInterpolation
+	spawnFlags			rgbComponentInterpolation orgOnSphere
 
 	count				300 500
 
 	life				3000 5000
 
-	delay				200
+	radius				200 200
 
 	rotation			0 360
 
 	velocity			-20 -150 -150 150 150 150
 
 	gravity				-50 -10
+
+	rgb
+	{
+		start			0.8667 1 1 1 1 1
+	}
+
+	size
+	{
+		start			0.3 0.5
+		end				1 2
+		parm			50
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam2
+		gfx/misc/steam3
+	]
+}
+
+Particle
+{
+	name				sparks copy
+
+	spawnFlags			rgbComponentInterpolation orgOnSphere
+
+	count				300 500
+
+	life				8000 9000
+
+	radius				50 50
+
+	rotation			0 360
+
+	velocity			-20 -150 -150 150 150 150
+
+	gravity				-25 -5
 
 	rgb
 	{
@@ -108,6 +146,7 @@ Light
 		end				350 400
 		flags			linear
 	}
+
 }
 
 CameraShake
@@ -121,6 +160,7 @@ CameraShake
 	bounce				13 15
 
 	radius				2000 1500
+
 }
 
 OrientedParticle
@@ -200,7 +240,7 @@ OrientedParticle
 
 	size
 	{
-		end				250 200
+		end				200 200
 		flags			linear
 	}
 
@@ -236,7 +276,7 @@ Particle
 
 	size
 	{
-		end				200 255
+		end				200 200
 		flags			linear
 	}
 
@@ -272,6 +312,45 @@ Particle
 	size
 	{
 		start			10 25
+		end				200 180
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/effects/alpha_smoke
+	]
+}
+
+Particle
+{
+	spawnFlags			evenDistribution
+
+	count				3 1
+
+	life				3500 3500
+
+	delay				250 250
+
+	origin				-50 -50 -50 50 50 50
+
+	rotationDelta		5 10
+
+	rgb
+	{
+		start			0.5765 0.7882 1 1 1 1
+		end				0.5765 0.7882 1 1 1 1
+		flags			linear
+	}
+
+	alpha
+	{
+		start			0.5 0.3
+	}
+
+	size
+	{
+		start			50 250
 		end				200 180
 		flags			linear
 	}
@@ -352,7 +431,7 @@ Particle
 
 	size
 	{
-		end				200 255
+		end				200 200
 		flags			linear
 	}
 
@@ -365,6 +444,8 @@ Particle
 
 Sound
 {
+	life				50 50
+
 	sounds
 	[
 		sound/weapons/sonicdet/sonic_explosion.mp3
@@ -389,6 +470,7 @@ Flash
 		end				0
 		flags			linear
 	}
+
 }
 
 Particle
@@ -420,7 +502,7 @@ Particle
 
 	size
 	{
-		end				300 355
+		end				200 200
 		flags			linear
 	}
 
