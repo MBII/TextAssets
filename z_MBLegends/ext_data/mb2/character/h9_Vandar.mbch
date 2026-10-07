@@ -8,6 +8,7 @@ Classinfo
  weapons    WP_SABER|WP_MELEE|WP_MINIGUN
  WP_SaberFlags HELD_NODISARM
  WP_MinigunFlags 	HELD_FORCEFOCUS|HELD_POISON|HELD_NODISARM
+ WP_MeleeFlags HELD_LIFT
 
  attributes  MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,1|MB_ATT_MINIGUN,3|MB_ATT_FP_REPULSE|MB_ATT_BARGE,1
 
@@ -17,12 +18,14 @@ Classinfo
 
  Basespeed 223
 
+ meleeknockback_flat 30
+
 	maxhealth			125
 
 	forcepool			125
  forceRegen 1.05
 
- damageGiven 1.1
+ damageGiven 1
  knockbackGiven 1.1
  knockbackTaken 0.9
 	rateOfFire_Melee	.9
@@ -42,9 +45,26 @@ Classinfo
  CSMultiplier 1.02
 
  special2 EAS_FP_DRAIN
- meleespecial2 EAS_HI_BARGE
+ meleespecial3 EAS_HI_BARGE
 
- bargeAnim BOTH_360PUSH
+ bargeAnim  BOTH_360PUSH
+ jumpAnim  BOTH_LAND2 
+ kickAnim BOTH_A7_KICK_F_AIR
+ blockAnim BOTH_MELEE_JUMP_KICK
+ landAnim  BOTH_FORCE_ABSORB_START
+ 
+
+ RunForward  BOTH_FORCEJUMP1
+ RunBackward BOTH_FORCEJUMPBACK1
+ WalkForward  BOTH_FORCE_ABSORB_START
+ WalkBackward BOTH_FORCE_ABSORB_START 
+ tauntAnim BOTH_HEADSHAKE 
+ gloatAnim BOTH_FORCE_PROTECT_FAST
+ flourishAnim  BOTH_HANDSUP
+ //bowAnim BOTH_FORCELONGLEAP_START
+ //meditateAnim BOTH_FORCEWALLRUNFLIP_START
+ saberStanceAnim BOTH_FORCE_ABSORB_START //BOTH_LAND2 BOTH_SIT4 BOTH_VS_IDLE_SR BOTH_FORCEJUMPBACK1
+
 	classflags			CFL_NOPICKUPS
 
  modelscale    0.61
@@ -73,7 +93,7 @@ WeaponInfo0
  NewWorldModel   "models/weapons2/dummyblaster/model.glm"    
  NewViewModel  "models/weapons2/dummy/dummy.md3"  
    
- Icon "models/weapons2/halo_melee/icon.png"
+ Icon "models/weapons2/halo_melee/icon"
  WeaponName   "Force Suppression"
 
 	isMinigun			0
@@ -111,14 +131,36 @@ WeaponInfo0
  MissileModel "models/weapons2/dummy/dummy.md3"
 
  hasAnimOverrides 1
- animReadyRun BOTH_MELEE_STAND2
- animReady  BOTH_MELEE_STAND2
- animReadyWalk  BOTH_MELEE_STAND2
- animReadyNoAmmo  BOTH_MELEE_STAND2
- animAttackRun BOTH_FORCE_DRAIN_GRAB_HOLD
- animAttack BOTH_FORCE_DRAIN_GRAB_HOLD
- animAttackWalk BOTH_FORCE_DRAIN_GRAB_HOLD
- animStand BOTH_STAND1
+ animReadyRun BOTH_VS_LAND
+ animReady  BOTH_VS_LAND
+ animReadyWalk  BOTH_VS_LAND
+ animReadyNoAmmo  BOTH_VS_LAND
+ animAttackRun BOTH_VS_LAND
+ animAttack  BOTH_VS_LAND
+ animAttackWalk BOTH_VS_LAND
+ animStand  BOTH_VS_LAND
+ animCharge BOTH_VS_LAND
+}
+
+WeaponInfo1
+{
+ WeaponToReplace  WP_MELEE
+ WeaponBasedOff  WP_MELEE
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"
+ NewViewModel  "models/weapons2/dummy/dummy.md3"
+ Icon    "gfx/2d/logos/mb_oldjediorder"
+ WeaponName   "Aerial Melee"
+ damageMod   1.5
+
+ hasAnimOverrides 1
+	animReadyRun		BOTH_LAND2
+	animReady			BOTH_LAND2
+	animReadyWalk BOTH_LAND2
+	animReadyNoAmmo		BOTH_LAND2
+	animAttackRun	BOTH_LAND2
+	animAttack			BOTH_LAND2
+	animAttackWalk		BOTH_LAND2
+	animStand			BOTH_VS_LAND
 }
 
 ForceInfo0
@@ -137,45 +179,47 @@ ForceInfo0
 
 description "Vandar Tokare
 
-A wise old master who specializes in dampening enemy Force usage.
-
-^2Weaponry:
-- Melee
--- RoF: 1.1x
-- Lightsaber (Dual)
+^9Weapons:
+- Aerial Melee
+^2-- Hit: Lift
+^2-- Damage: 1.5x
+^2-- RoF: 1.11x
+^2-- Knockback: +30
+- Shoto Lightsabers ^9(Dual)
 -- Saber Defense (3)
 -- Blaster Defense (2)
 -- Blaster Deflect (2)
--- Special Damage: 1.27x
--- Length: .75x
--- Radius: .74x
--- EX Saber Throw (3) ^3[CS1]
---- Damage: 50
-- Force Suppression (Minigun 3)
--- Focuses/poisons on hit
--- Hitscan charges
--- FP drain: 50x
--- Damage: .01x
--- RoF: .27x
+^2-- Spec Damage: 1.27x
+^1-- Length: 30u
+^1-- Radius: 2.23u
+- Force Suppression ^9(Minigun 3)
+^2-- Hitscan: Focus/poison
+^2-- Drain: 6x
+^1-- Damage: .01x
+^1-- RoF: .03x
+
+^3Abilities:
+- Force Repulse ^3[Melee CS1]
+^2-- Impact: Lift
+^1-- Damage: .5x
+- Saber Throw (3) ^3[Saber CS1]
+^2-- Damage: 50
+- Super Repulse ^9(Barge 1) ^3[Melee CS3]
 
 ^5Force Powers:
 - Jump (1)
 - Push (1)
 - Pull (1)
 - Sense (1)
-- Sever (Drain 2) ^3[CS2]
+- Sever ^9(Drain 2) ^3[CS2]
 - Mind Trick (1) ^3[CS4]
-- Repulse ^3[Melee CS1]
--- Lifts on impact
--- Damage: .5x
 
 ^8Attributes:
-- Dexterity (1)
 - Force Block (2)
 - Force Focus (1)
-- Knockback Given: 1.1x
-- Knockback Taken: .9x
-- Skill Recharge: .67x
+- Dexterity (1)
+^2- Knockback Given: 1.1x
+^2- Knockback Taken: .9x
+^1- Skill Recharge: .66x
 
-^3Abilities:
-- Super Repulse (Barge 1) ^3[Melee CS2]"
+A wise old master who specializes in levitation skills and dampening enemy Force usage."

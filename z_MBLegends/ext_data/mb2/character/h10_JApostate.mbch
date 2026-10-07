@@ -4,12 +4,12 @@ ClassInfo
 	name				"h10_JApostate"
 	MBClass				MB_CLASS_JEDI
 	classNumberLimit	1
-	weapons				WP_SABER|WP_MELEE|WP_BOWCASTER
+	weapons				WP_SABER|WP_MELEE|WP_ROCK_NADE
 
 	WP_SaberFlags		HELD_NODISARM
-	WP_BowcasterFlags HELD_CRIPPLE|HELD_NODISARM
+	WP_RockNadeFlags HELD_FORCEFOCUS|HELD_CRIPPLE|HELD_NODISARM
 
-	attributes			MB_ATT_FORCEFOCUS,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FP_MIRALUKA,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_ANTI_MT,2|MB_ATT_DEFLECT,0|MB_ATT_HEALING,1|MB_ATT_BOWCASTER,1
+	attributes			MB_ATT_FORCEFOCUS,3|MB_ATT_FORCEBLOCK,2|MB_ATT_FP_MIRALUKA,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_ANTI_MT,2|MB_ATT_DEFLECT,0|MB_ATT_HEALING,1|MB_ATT_ROCK_NADE,6|MB_ATT_QUICKTHROW,1
 
 	forcepowers			FP_LEVITATION,1|FP_PUSH,2|FP_PULL,3|FP_SABER_OFFENSE,3|FP_SEE,3|FP_SABERTHROW,3|FP_GRIP,3|FP_DRAIN,2|FP_TELEPATHY,1
 
@@ -17,20 +17,20 @@ ClassInfo
 	forcepool			150
 	forceregen		1.1
 
-	speed				0.95
+	speed				0.95 //213.8
 
+	special1HUD	 HUD_ROCKNADE
 	//special1			EAS_FP_SABERTHROW
 	special2			EAS_FP_DRAIN
 	special3			EAS_FP_GRIP
-	special4			EAS_FP_TELEPATHY
+	special4			EAS_HI_QUICKTHROW
 
 	damageGiven			1.1
  knockbackTaken 0.9
 
 	rateOfFire_Melee	0.9
 
-	saberstyle			SS_TAVION|SS_FAST
-	saberDamageStyle	SS_TAVION,130|SS_FAST,130
+ saberDamage 130
 	saberThrowDamage	40
 	saberSpecialDamage	1.35
 	BPmultiplier		1.25
@@ -70,24 +70,29 @@ ClassInfo
 
 WeaponInfo0
 {
-	WeaponToReplace		WP_BOWCASTER
-	WeaponBasedOff		WP_BOWCASTER
+	WeaponToReplace		WP_ROCK_NADE
+	WeaponBasedOff		WP_ROCK_NADE
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"models/weapons2/halo_melee/icon.png"
+	Icon				"models/weapons2/halo_melee/icon"
 	WeaponName			"Force Stun"
 
 	SelectSound			"sound/weapons/melee/swing3.mp3"
 	AltFlashSound0		"sound/effects/woosh13.mp3"
+	AltFlashSound1		"sound/effects/woosh13.mp3"
+	AltFlashSound2		"sound/effects/woosh13.mp3"
+	AltFlashSound3		"sound/effects/woosh13.mp3"
 	FlashSound0			"sound/effects/woosh13.mp3"
-	MissileLoop0		"sound/effects/woosh13.mp3"
+	FlashSound1			"sound/effects/woosh13.mp3"
+	FlashSound2			"sound/effects/woosh13.mp3"
+	FlashSound3			"sound/effects/woosh13.mp3"
+	MissileSound 		"sound/weapons/force/speedloop.wav"
+ altMissileSound "sound/weapons/force/speedloop.wav"
+ ChargeSound "sound/weapons/force/protectloop.wav"
 
 	damageMod			0
  fpmult 0.01
-	rateMod				1.85
-	velocityMod			1.15
-	clipSize			24
-	customAmmo			-1
+ rateMod .6
 	altFireEnabled		0
 
 	altMuzzleEffect				null
@@ -108,7 +113,7 @@ WeaponInfo0
 	animReadyRun		BOTH_MELEE_STAND2
 	animReady			BOTH_MELEE_STAND2
 	animReadyWalk		BOTH_FORCE_DRAIN_START
-	animReadyNoAmmo		BOTH_FORCE_DRAIN_RELEASE
+	animReadyNoAmmo		BOTH_FORCE_DRAIN_HOLD
 	animAttackRun		BOTH_FORCE_DRAIN_HOLD
 	animAttack			BOTH_FORCE_DRAIN_HOLD
 	animAttackWalk		BOTH_FORCE_DRAIN_HOLD
@@ -118,23 +123,24 @@ WeaponInfo0
 
 description	"Jedi Apostate
 
-A Jedi who minimizes Lightsaber skills in favor of high Force talent.
-
-^2Weaponry:
+^9Weapons:
 - Melee
--- RoF: 1.1x
-- Lightsaber (Cyan/Blue)
--- Saber/Blaster Defense (1)
--- Damage: 130/130
--- Special Damage: 1.35x
--- EX Saber Throw (3) ^3[CS1]
---- Damage: 40
-- Force Stun (12) (Bowcaster 1)
--- Slows on hit
--- Velocity: 1.15x
--- No Damage/FP drain
--- RoF: .85x
--- Primary fire only
+^2-- RoF: 1.11x
+- Lightsaber ^9(Cyan/Blue)
+^2-- Saber Defense (1)
+^2-- Blaster Defense (1)
+^2-- Spec Damage: 1.35x
+- Force Stun ^9(Rock 6)
+^2-- Hit: Slow/focus
+^2-- RoF: 1.66x
+^1-- Damage: 0
+^1-- Drain: 0
+^1-- Sec Fire: No
+
+^3Abilities:
+- Saber Throw (3) ^3[Saber CS1]
+^2-- Damage: 40
+- Quick Cast (1) ^3[CS4]
 
 ^5Force Powers:
 - Jump (1)
@@ -142,13 +148,15 @@ A Jedi who minimizes Lightsaber skills in favor of high Force talent.
 - Pull (3)
 - Drain (2) ^3[CS2]
 - Grip (3) ^3[CS3]
-- Mind Trick (1) ^3[CS4]
+- Mind Trick (1)
 
 ^8Attributes:
 - Miraluka Vision (3)
-- Sense Immunity
+- Force Focus (3)
+- Force Block (2)
 - Anti-Mind Trick (2)
 - Healing (1)
-- Force Block (2)
-- Force Focus (3)
-- Knockback Taken: .9x"
+- Sense Immunity
+^2- Knockback Taken: .9x
+
+A Jedi who minimizes Lightsaber skills in favor of high Force talent."

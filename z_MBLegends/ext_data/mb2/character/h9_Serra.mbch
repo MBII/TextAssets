@@ -1,48 +1,57 @@
 
-
 ClassInfo
 {
 	name				"h9_Serra"
 	MBClass				MB_CLASS_JEDI
 	classNumberLimit	1
-	 WP_SaberFlags		HELD_NODISARM
-	weapons				WP_SABER|WP_MELEE
-	attributes			MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_DEXTERITY,3|MB_ATT_FLIPKICK,1|MB_ATT_HEALING,1|MB_ATT_BARGE,1|MB_ATT_DASH,1|MB_ATT_SABER_COMBO,1
 
-	forcepowers			FP_SEE,1|FP_LEVITATION,3|FP_PUSH,1|FP_SPEED,3|FP_SABER_OFFENSE,3|FP_TELEPATHY,1|FP_PROTECT,2|FP_SABERTHROW,1
+	WP_SaberFlags		HELD_NODISARM
+ //WP_MeleeFlags HELD_PULL
+	weapons				WP_SABER|WP_MELEE
+
+	attributes			MB_ATT_DEFLECT,2|MB_ATT_FORCEBLOCK,2|MB_ATT_FORCEFOCUS,1|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_DEXTERITY,3|MB_ATT_FLIPKICK,1|MB_ATT_HEALING,1|MB_ATT_BARGE,1|MB_ATT_DASH,1|MB_ATT_SABER_COMBO,1|MB_ATT_BUNNY_HOP,1
+
+	forcepowers			FP_SEE,1|FP_LEVITATION,3|FP_PUSH,1|FP_SPEED,3|FP_PROTECT,2|FP_SABERTHROW,1
 
 	speed				1.08
 	maxhealth			125
 	forcepool			110
 	forceregen			1.1
-	damageGiven			1
+ rateOfFire_Melee .85
+ //meleeknockback_flat 111
+
+	special2		EAS_HI_DASH
+	meleespecial2	EAS_HI_DASH
+	special3		EAS_FP_SPEED
+	meleespecial3	EAS_FP_SPEED
+	special4		EAS_HI_BARGE
+	meleespecial4	EAS_HI_BARGE
+
 	saberstyle			SS_DUAL
-	saberDamage			130
-	saberSpecialDamage	1.35
+	saberDamage			140
+	saberSpecialDamage	1.45 //203
 	saberThrowDamage	60
-	
-	BPmultiplier		0.70
+	BPmultiplier		0.8
 	APmultiplier		1.15
 	CSmultiplier		1.25
 	
-	skilltimermod		1.25 //5 sec dash, 7.5  sec barge
+	skilltimermod		1.25 //5dash, 7.5barge
 
 	classflags			CFL_NOPICKUPS|CFL_BPFREEJUMPS
 
-	flourishanim		BOTH_JUMPATTACK7
-	bargeAnim			BOTH_ALORA_FLIP_2
-	bargeSoundOverride	"sound/chars/serraketo/misc/taunt1.mp3" //or gloat2?
+ gloatAnim BOTH_V7_BL_S7 //BOTH_LK_DL_S_T_SB_1_W 
+ flourishAnim BOTH_SHOWOFF_STAFF//BOTH_ARC_FORWARD_DIVE //BOTH_LK_S_ST_S_B_1_L 
+ tauntAnim  BOTH_VICTORY_DUAL  //BOTH_H6_S6_T_
 
-	//special1		EAS_FP_SABERTHROW
-	special2		EAS_HI_DASH
-	meleespecial2	EAS_HI_DASH
-	special3		EAS_HI_BARGE
-	meleespecial3	EAS_HI_BARGE
-	special4		EAS_FP_SPEED
-	meleespecial4	EAS_FP_SPEED
+	bargeSoundOverride	"sound/chars/serraketo/misc/taunt1.mp3" 
+	bargeAnim	BOTH_ALORA_FLIP_2 //BOTH_GETUP_FROLL_B	
+ blockAnim  BOTH_FORCEWALLRUNFLIP_START 
+ //punchAnim  BOTH_MELEE_BACKHAND  BOTH_MELEE_UPPERCUT 
+ kickAnim   BOTH_MELEE_JUMP_KICK  
+ jumpAnim  BOTH_CROUCH1
+ landAnim   BOTH_ALORA_FLIP_3 
 
 	uioverlay			"gfx/icons/frontline"
-
 	model				"serraketo"
 	skin				"default"
 	uishader			"models/players/serraketo/mb2_icon_default"
@@ -55,51 +64,49 @@ ClassInfo
 
 	WeaponInfo0
 {
-	WeaponToReplace		WP_MELEE
+	WeaponToReplace	WP_MELEE
 	WeaponBasedOff		WP_MELEE
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				gfx/hud/w_icon_melee_na.tga
-	WeaponName			"Serra Keto Melee"
+	Icon				"gfx/hud/w_icon_melee"
+	WeaponName			"Dynamic Melee"
 	damageMod			1.5
 }
 
 description	"Serra Keto
 
-Cin Drallig's finest pupil and a dynamic Jar'Kai specialist
-
-^2Weaponry:
-- Melee
--- Damage: 1.5x
-- Lightsaber (Dual)
+^9Weapons:
+- Dynamic Melee
+^2-- Damage: 1.5x
+^2-- RoF: 1.17x
+- Lightsabers ^9(Dual)
 -- Saber Defense (3)
--- EX Saber Training (1)
 -- Blaster Defense (2)
 -- Blaster Deflect (2)
--- Damage: 130
--- Special Damage: 1.35x
--- EX Saber Throw (1) ^3[CS1]
---- Damage: 60
+-- Saber Mastery (1)
+^2-- Spec Damage: 1.45x
+
+^3Abilities:
+- Saber Throw (1) ^3[Saber CS1]
+^2-- Damage: 60
+- Dash (1) ^3[CS2]
+- Butterfly Kick ^9(Barge 1) ^3[Melee CS4]
+- Flipkick (1) ^3[Contact Jump]
 
 ^5Force Powers:
 - Jump (3)
 - Push (1)
 - Sense (1)
-- Mind Trick (1)
 - Protect (2)
-- Speed (3) ^3[CS4]
+- Speed (3) ^3[CS3]
 
 ^8Attributes:
 - Dexterity (3)
-- Healing (1)
 - Force Block (2)
 - Force Focus (1)
+- Bunny Hop (1)
+- Healing (1)
 - BP-Free Jumps
-- Skill Recharge: .8x
+^1- Skill Recharge: .8x
 
-^3Abilities:
-- Dash (1) ^3[CS2]
-- Butteryfly Kick (Barge) ^3[CS3]
--- Damage: 1.5x
-- Flipkick (1) ^3[Contact Jump]
--- Damage: 1.5x"
+Cin Drallig's finest pupil and a dynamic Jar'Kai specialist. She is a practitioner of unorthodox Melee skills that can be chained in disorienting ways."
