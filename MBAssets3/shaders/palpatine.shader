@@ -253,6 +253,7 @@ models/players/palpatine/robe-partsen2
 	}
 }
 
+
 // TRoS
 models/players/palpatine_tros/robe
 {
@@ -260,5 +261,22 @@ models/players/palpatine_tros/robe
 	{
 		map models/players/palpatine_tros/robe
 		rgbGen lightingDiffuse
+	}
+}
+
+
+// Darth Sidious (TPM & RotJ)
+models/players/darthsidious/body
+{
+	cull	twosided
+	{
+		map models/players/darthsidious/body
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/darthsidious/body_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }

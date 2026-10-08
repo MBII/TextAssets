@@ -5,11 +5,6 @@ models/players/darkjedi/sith_face
 		blendFunc GL_ONE GL_ZERO
 		rgbGen lightingDiffuse
 	}
-	{
-		map models/players/darkjedi/sith_face_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-	}
 }
 
 models/players/darkjedi/sith_hand
