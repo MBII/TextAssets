@@ -11,9 +11,11 @@ ClassInfo
 	
 	weapons				WP_SABER|WP_MELEE
 	attributes			MB_ATT_DEFLECT,1|MB_ATT_FORCEFOCUS,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1|MB_ATT_FORCEBLOCK,1|MB_ATT_DEXTERITY,1|MB_ATT_DODGE,3|MB_ATT_BINOCULARS,1
-	forcepowers			FP_SABER_OFFENSE,3|FP_SEE,1
+
+	forcepowers			FP_SEE,1
 	
 	rateOfFire_Melee	0.9
+
 	damageGiven			1.1
 	RankDmgGiven		1.6
 	
@@ -21,13 +23,13 @@ ClassInfo
 	rankBaseSpeed		250
 	
 	maxhealth			135
+
 	maxarmor			0
 	rankArmor			80
 	
-	skilltimermod		1
-	
 	forcepool			85
 	rankForcepool		130
+
 	forceregen			1.1
 	
 	saberSpecialDamage	1.25
@@ -37,17 +39,21 @@ ClassInfo
 	
 	BPmultiplier		0.75
 	rankBP				1.1,1.2
+
 	APmultiplier		1.1
 	rankAP				1.2
+
 	CSmultiplier		1.1
 	ASmultiplier		1.05
 	
-	special2			EAS_HI_KICK
-	meleespecial2		EAS_HI_KICK
+	special2			EAS_HI_KICK	
+	meleespecial2		EAS_HI_TEMP_GRAPPLEHOOK
 	special3			EAS_HI_DODGE
 	meleespecial3		EAS_HI_DODGE
 	special4			EAS_FP_LIGHTNING
 	meleespecial4		EAS_FP_LIGHTNING
+
+ special1HUD HUD_TEMPGRAPPLEHOOKS
 
 	classflags			CFL_NOPICKUPS
 
@@ -196,12 +202,15 @@ ClassInfo
 	c_att_skill_6		MB_ATT_ARMOUR
 	c_att_names_6		"Armor: 80"
 	c_att_ranks_6		0
-	c_att_descs_6		""				
+	c_att_descs_6		"Default: 0"				
 	c_att_skill_7		MB_ATT_BASESPEED
 	c_att_names_7		"Move Speed: 250"
 	c_att_ranks_7		0
-	c_att_descs_7		""
-
+	c_att_descs_7		"Default: 240"
+	c_att_skill_8	 MB_ATT_TEMP_GRAP_HOOKS
+	c_att_names_8		"Temp Grap Hook ^3[Melee CS2]"
+	c_att_ranks_8		0
+	c_att_descs_8		"Uses: 2"
 
 	c_att_skill_15		MB_ATT_BP_MULTIPLIER
 	c_att_names_15		"Saber Block Power: 1.1x"
@@ -242,6 +251,7 @@ ClassInfo
 	c_att_skill_26		MB_ATT_POWER
 	c_att_names_26		"Force Pool: 130"
 	c_att_ranks_26		0
+	c_att_descs_26		"Default: 85"
 	c_att_skill_27		MB_ATT_FP_SABERTHROW
 	c_att_names_27		"Saber Throw ^3[Saber CS1]"
 	c_att_ranks_27		0,0,0
@@ -290,6 +300,7 @@ ClassInfo
 	c_att_skill_42		MB_ATT_POWER
 	c_att_names_42		"Force Pool: 130"
 	c_att_ranks_42		0
+	c_att_descs_42		"Default: 85"
 	c_att_skill_43		MB_ATT_FP_SABERTHROW
 	c_att_names_43		"Saber Throw ^3[Saber CS1]"
 	c_att_ranks_43		0,0
@@ -316,14 +327,14 @@ MissileEffect		"Blaster/Shot02R"
 MuzzleEffect		"Blaster/Muzzleflash01R"
 damageMod	1.05
 rateMod		.75
-clipSize	10
-customAmmo	300
+clipSize	8
+customAmmo	320
 hasAnimOverrides 1
 animReadyRun  BOTH_DC15_IDLE
 animReady   BOTH_DC15_IDLE
-animReadyWalk  BOTH_AMBAN_AIM_ATTACK
+animReadyWalk  BOTH_AMBAN_AIM_READY
 animReadyNoAmmo  BOTH_AMBAN_AIM_ATTACK
-animAttackRun  BOTH_AMBAN_AIM_ATTACK
+animAttackRun  BOTH_DC15_AIM_ATTACK
 animAttack   BOTH_AMBAN_AIM_ATTACK
 animAttackWalk  BOTH_AMBAN_AIM_ATTACK
 }
@@ -343,7 +354,7 @@ description	"Luke Skywalker
 ^3Abilities:
 - Saber Throw ^3[Saber CS1]
 ^2-- Damage: 40
-- Gunkick ^3[CS2]
+- Gunkick ^3[No Melee CS2]
 - Dodge (3) ^3[CS3]
 
 ^5Force Powers:
