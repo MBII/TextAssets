@@ -355,6 +355,7 @@ interrogator_leg
 	sndcombat	interrogator
 	sndjedi		interrogator
 	sndextra	interrogator
+ nolocationalDamage 1
 }
 
 //enoch
@@ -387,16 +388,28 @@ remote_imp_leg_e
 	sndjedi		remote
 	sndextra	remote
 	moveType	"flyswim"
+ nolocationalDamage 1
 }
 
 //wattam
 remote_imp_leg_wt
 {
 	playerModel	remote_imp
-	MBClass		11
 	weapon		WP_NONE
+ altfire 1
+ //MB_ATT_JETPACK 1
 	MB_ATT_SLAVE	1
-	health		50
+ MB_ATT_ENEMYSCANNER 1
+ FP_DRAIN 3
+ FP_LIGHTNING 1
+ special1 EAS_HI_ENEMYSCANNER
+ //special2 EAS_FP_DRAIN
+ //special4 EAS_FP_LIGHTNING
+ RESOURCE_ENERGY 1
+ forcePowerMax 50
+ forceRegenAmount 1
+ forceRegenRate 200
+	health		80
 	reactions	5
 	aim			5
 	move		5
@@ -407,18 +420,19 @@ remote_imp_leg_wt
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_REMOTE
 	yawSpeed	120
-	runSpeed	500
-	walkSpeed	150
-	height		32
-	width		8
-	hFOV		160
-	vfov		45
-	snd			remote
+	runSpeed	60
+ height		15
+ crouchheight 15
+ width 15
+ scale 100
+	hFOV		180
+	vfov		180
 	snd			remote
 	sndcombat	remote
 	sndjedi		remote
 	sndextra	remote
 	moveType	"flyswim"
+ nolocationaldamage 1
 }
 
 //palp
@@ -464,77 +478,4 @@ sen_guard
 	dismemberProbLegs	15
 	dismemberProbHands	15
 	dismemberProbWaist	15
-}
-
-//palp
-sidious
-{
- playerModel darthsidious
- displayName "ownername"
- saber saber_sidious_legacy
- sabercolor red
- weapon WP_SABER
- MB_ATT_FORCEBLOCK 3
- MB_ATT_FP_SABER_DEFENSE 2
- MB_ATT_GUN_DEFENSE 1
- MB_ATT_DEFLECT 0
- MB_ATT_SLAVE 1
- MB_ATT_DEXTERITY 3
- MB_ATT_HEALING 1
- MB_ATT_DASH 2
- MB_ATT_FLIPKICK 1
-
- RESOURCE_FORCE 1
- forcePowerMax 200
- forceRegenAmount 1
- forceRegenRate 1.4
- Pbchance 40
- MBchance 4
- SBchance 70
- saberStyle 3
-
- FP_HEAL   0
- FP_LEVITATION 3
- FP_SPEED  0
- FP_PUSH   3
- FP_PULL   3
- FP_TELEPATHY 3
- FP_GRIP  3
- FP_LIGHTNING 3
- FP_RAGE   0
- FP_PROTECT  0
- FP_ABSORB  0
- FP_DRAIN  3
- FP_SEE   3
- FP_SABERTHROW 0
-
- rank commander
- reactions 5
- aim   5
- move  5
- aggression 5
- evasion  5
- intelligence 5
-
- hfov  120
- vfov  120
- scale  97
-
- playerTeam TEAM_ENEMY
- enemyTeam TEAM_PLAYER
- class  CLASS_LUKE
- snd   palpatine_tpm
- sndcombat palpatine_tpm
- sndjedi palpatine_tpm
- sndextra palpatine_tpm
-
- yawSpeed 120
- runSpeed 256
- health 100
-
- dismemberProbHead 15
- dismemberProbArms 15
- dismemberProbLegs 15
- dismemberProbHands 15
- dismemberProbWaist 15
 }
