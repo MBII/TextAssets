@@ -1,4 +1,4 @@
-//lev
+
 Classinfo
 {
  name    "h9_Vandar"
@@ -6,39 +6,40 @@ Classinfo
  classNumberLimit 1
 
  weapons    WP_SABER|WP_MELEE|WP_MINIGUN
+
  WP_SaberFlags HELD_NODISARM
  WP_MinigunFlags 	HELD_FORCEFOCUS|HELD_POISON|HELD_NODISARM
  WP_MeleeFlags HELD_LIFT
 
- attributes  MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,1|MB_ATT_MINIGUN,3|MB_ATT_FP_REPULSE|MB_ATT_BARGE,1
+ attributes  MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,1|MB_ATT_MINIGUN,3|MB_ATT_FP_REPULSE|MB_ATT_BARGE,3
 
  AB_FRepulseFlags HELD_LIFT|HELD_LOWDAMAGE
 
  forcepowers  FP_SABERTHROW,3|FP_LEVITATION,1|FP_PUSH,1|FP_TELEPATHY,1|FP_SEE,1|FP_PULL,1|FP_DRAIN,2
 
- Basespeed 223
-
- meleeknockback_flat 30
-
+ basespeed 223
+ meleeknockback_flat 50
 	maxhealth			125
 
 	forcepool			125
  forceRegen 1.05
 
- damageGiven 1
- knockbackGiven 1.1
- knockbackTaken 0.9
-	rateOfFire_Melee	.9
- skilltimermod 1.5
+ knockbackTaken 0.95
+	rateOfFire_Melee	.95
 
- saberDamageStyle SS_DUAL,270
- saberSpecialDamage 1.27
+ skilltimermod 2
+
+ saberDamage 240
+ saberDamageStyle SS_DUAL,240
+ saberSpecialDamage 1.25 
 	saberThrowDamage	50
+
  saber1 saber_vandar_legends
  sabercolor  4
  saber2 saber_vandar_legends
  saber2color 4
  saberstyle SS_DUAL
+
  BPMultiplier 1.05
  APMultiplier 1.02
  ASMultiplier 1.02
@@ -47,29 +48,33 @@ Classinfo
  special2 EAS_FP_DRAIN
  meleespecial3 EAS_HI_BARGE
 
- bargeAnim  BOTH_360PUSH
+ bargeAnim BOTH_VS_MOUNTTHROW  //both_vs_mountjump_l //BOTH_SIT5_TALK3
  jumpAnim  BOTH_LAND2 
  kickAnim BOTH_A7_KICK_F_AIR
- blockAnim BOTH_MELEE_JUMP_KICK
+ blockAnim BOTH_A7_KICK_BF_STOP //BOTH_MELEE_JUMP_KICK  
  landAnim  BOTH_FORCE_ABSORB_START
- 
+ gunbashanim BOTH_MINIGUN_MELEE
+
 
  RunForward  BOTH_FORCEJUMP1
  RunBackward BOTH_FORCEJUMPBACK1
  WalkForward  BOTH_FORCE_ABSORB_START
  WalkBackward BOTH_FORCE_ABSORB_START 
- tauntAnim BOTH_HEADSHAKE 
+
+
+ tauntAnim BOTH_SIT5_TALK1
  gloatAnim BOTH_FORCE_PROTECT_FAST
  flourishAnim  BOTH_HANDSUP
- //bowAnim BOTH_FORCELONGLEAP_START
- //meditateAnim BOTH_FORCEWALLRUNFLIP_START
+ bowAnim BOTH_SIT5_TALK3
+ meditateAnim BOTH_VS_LAND_SR
+
  saberStanceAnim BOTH_FORCE_ABSORB_START //BOTH_LAND2 BOTH_SIT4 BOTH_VS_IDLE_SR BOTH_FORCEJUMPBACK1
 
 	classflags			CFL_NOPICKUPS
 
  modelscale    0.61
- uioverlay_r "gfx/icons/frontline"
- uioverlay_l "gfx/icons/support"
+ uioverlay_l "gfx/icons/frontline"
+ uioverlay_r "gfx/icons/support"
  model "t_yoda"
  skin  "vandar"
  uishader "models/players/t_yoda/mb2_icon_vandar"
@@ -82,7 +87,7 @@ Classinfo
 	jetpackStartSound	"sound/effects/woosh11"
 	jetpackIdleSound	"sound/ambience/bespin/bespin_air"
 
-	bargeSoundOverride	"sound/weapons/force/360pushwindup.wav"
+	bargeSoundOverride "sound/effects/woosh11"	//"sound/weapons/force/360pushwindup.wav"
 
 }
 
@@ -93,7 +98,7 @@ WeaponInfo0
  NewWorldModel   "models/weapons2/dummyblaster/model.glm"    
  NewViewModel  "models/weapons2/dummy/dummy.md3"  
    
- Icon "gfx/2d/logos/mb_oldjediorder"
+ Icon 	"models/weapons2/halo_pgren/icon.png"
  WeaponName   "Force Suppression"
 
 	isMinigun			0
@@ -101,7 +106,7 @@ WeaponInfo0
 	fpmult				6
 	velocityMod			99999
 	clipSize			10
-	rateMod				27
+	rateMod				20
 	customAmmo			-1
 
 	selectSound			"sound/weapons/tai_weap/swing9.mp3"
@@ -149,9 +154,8 @@ WeaponInfo1
  NewWorldModel  "models/weapons2/dummyblaster/model.glm"
  NewViewModel  "models/weapons2/dummy/dummy.md3"
  Icon    "models/weapons2/halo_melee/icon"
- WeaponName   "Aerial Melee"
- damageMod   1.5
-
+ WeaponName   "Volitant Melee"
+ damageMod 0.5
  hasAnimOverrides 1
 	animReadyRun		BOTH_LAND2
 	animReady			BOTH_LAND2
@@ -161,6 +165,7 @@ WeaponInfo1
 	animAttack			BOTH_LAND2
 	animAttackWalk		BOTH_LAND2
 	animStand			BOTH_VS_LAND
+ selectSound			"sound/chars/vandar/misc/taunt.mp3"
 }
 
 ForceInfo0
@@ -180,23 +185,23 @@ ForceInfo0
 description "Vandar Tokare
 
 ^9Weapons:
-- Aerial Melee
+- Volitant Melee
 ^2-- Hit: Lift
-^2-- Damage: 1.5x
-^2-- RoF: 1.11x
-^2-- Knockback: +30
+^2-- RoF: 1.05x
+^2-- Knockback: +50
+^1-- Damage: .5x
 - Shoto Lightsabers ^9(Dual)
 -- Saber Defense (3)
 -- Blaster Defense (2)
 -- Blaster Deflect (2)
-^2-- Spec Damage: 1.27x
+^2-- Spec Damage: 1.25x
 ^1-- Length: 30
 ^1-- Radius: 2.23
 - Force Suppression ^9(Minigun 3)
 ^2-- Hitscan: Focus/poison
 ^2-- Drain: 6x
 ^1-- Damage: .01x
-^1-- RoF: .03x
+^1-- RoF: .05x
 
 ^3Abilities:
 - Force Repulse ^3[Melee CS1]
@@ -204,7 +209,7 @@ description "Vandar Tokare
 ^1-- Damage: .5x
 - Saber Throw (3) ^3[Saber CS1]
 ^2-- Damage: 50
-- Super Repulse ^9(Barge 1) ^3[Melee CS3]
+- Levi-kinesis ^9(Barge 3) ^3[Melee CS3]
 
 ^5Force Powers:
 - Jump (1)
@@ -218,8 +223,7 @@ description "Vandar Tokare
 - Force Block (2)
 - Force Focus (1)
 - Dexterity (1)
-^2- Knockback Given: 1.1x
-^2- Knockback Taken: .9x
-^1- Skill Recharge: .66x
+^2- Knockback Taken: .95x
+^1- Skill Recharge: .5x
 
 A wise old master who specializes in levitation skills and dampening enemy Force usage."
