@@ -54,11 +54,11 @@ jobs:
         run: |
             $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
             $MBII = $GAMEDATA + "\MBIITest"
-            svn status
+            svn status $GAMEDATA
             svn revert -R $GAMEDATA
             svn cleanup --vacuum-pristines $GAMEDATA
             svn update --accept=theirs-full $MBII
-            svn status
+            svn status $GAMEDATA
             Write-Host "[$(Get-Date -Format o)] Starting PK3 asset moves..."
 
             $filesToMove = @(
