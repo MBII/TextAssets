@@ -81,7 +81,8 @@ jobs:
               Write-Host "[$(Get-Date -Format o)] Moving '$src' → '$dst'..."
 
               try {
-                Remove-Item $dst
+                Get-FileHash $src
+                Get-FileHash $dst
                 Move-Item -Force -Path $src -Destination $dst -ErrorAction Stop
                 Write-Host "[$(Get-Date -Format o)] SUCCESS: '$src' moved."
                 $successCount++
