@@ -54,13 +54,39 @@ jobs:
             svn revert -R $GAMEDATA
             svn cleanup --vacuum-pristines $GAMEDATA
             svn update --accept=theirs-full $MBII
-            Move-Item -Force -Path MBAssets3.pk3 -Destination $MBII\MBAssets3.pk3
-            Move-Item -Force -Path 03_MovieGameMappack.pk3 -Destination $MBII\03_MovieGameMappack.pk3
-            Move-Item -Force -Path mb2_cmp_assets3.pk3 -Destination $MBII\mb2_cmp_assets3.pk3
-            Move-Item -Force -Path mb2_um_assets3.pk3 -Destination $MBII\mb2_um_assets3.pk3
-            Move-Item -Force -Path mb2_pb_assets2.pk3 -Destination $MBII\mb2_pb_assets2.pk3
-            Move-Item -Force -Path MB_Effects2.pk3 -Destination $MBII\MB_Effects2.pk3
-            Move-Item -Force -Path z_MBLegends.pk3 -Destination $MBII\z_MBLegends.pk3
+            Write-Host "[$(Get-Date -Format o)] Starting PK3 asset moves..."
+
+            $filesToMove = @(
+              @{ Name = "MBAssets3.pk3";            Dest = "$MBII\MBAssets3.pk3" }
+              @{ Name = "03_MovieGameMappack.pk3";  Dest = "$MBII\03_MovieGameMappack.pk3" }
+              @{ Name = "mb2_cmp_assets3.pk3";      Dest = "$MBII\mb2_cmp_assets3.pk3" }
+              @{ Name = "mb2_um_assets3.pk3";       Dest = "$MBII\mb2_um_assets3.pk3" }
+              @{ Name = "mb2_pb_assets2.pk3";       Dest = "$MBII\mb2_pb_assets2.pk3" }
+              @{ Name = "MB_Effects2.pk3";          Dest = "$MBII\MB_Effects2.pk3" }
+              @{ Name = "z_MBLegends.pk3";          Dest = "$MBII\z_MBLegends.pk3" }
+            )
+
+            $successCount = 0
+            $failCount = 0
+
+            foreach ($file in $filesToMove) {
+            $src = $file.Name
+            $dst = $file.Dest
+
+            Write-Host "[$(Get-Date -Format o)] Moving '$src' → '$dst'..."
+
+            try {
+              Move-Item -Force -Path $src -Destination $dst -ErrorAction Stop
+              Write-Host "[$(Get-Date -Format o)] SUCCESS: '$src' moved."
+              $successCount++
+            }
+            catch {
+              Write-Host "[$(Get-Date -Format o)] ERROR: Failed to move '$src'."
+              Write-Host "[$(Get-Date -Format o)] Exception: $($_.Exception.Message)"
+              $failCount++
+            }
+
+            Write-Host "[$(Get-Date -Format o)] Move operation complete. Successes: $successCount, Failures: $failCount"
             $BRANCH = "${{github.ref}}".Split("/")[2]
             $HASH = "${{github.sha}}".Substring(0, 7)
             svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
