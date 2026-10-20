@@ -49,10 +49,6 @@ jobs:
       - name: Upload Files
         shell: powershell
         run: |
-          $mutexName = "Global\SVNWorkingCopyLock"
-          $mutex = New-Object System.Threading.Mutex($false, $mutexName)
-          try {
-            $mutex.WaitOne()
             $GAMEDATA = "C:\Program Files (x86)\LucasArts\Star Wars Jedi Knight Jedi Academy\GameData"
             $MBII = $GAMEDATA + "\MBIITest"
             svn revert -R $GAMEDATA
@@ -69,8 +65,3 @@ jobs:
             $HASH = "${{github.sha}}".Substring(0, 7)
             svn commit -m "Text Assets based on : $BRANCH/$HASH" $MBII
             svn update $MBII | out-file $MBII/svn_log.txt -encoding ASCII
-          }
-          finally {
-            $mutex.ReleaseMutex()
-            $mutex.Dispose()
-          }
