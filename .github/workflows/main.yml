@@ -70,22 +70,23 @@ jobs:
             $failCount = 0
 
             foreach ($file in $filesToMove) {
-            $src = $file.Name
-            $dst = $file.Dest
+              $src = $file.Name
+              $dst = $file.Dest
 
-            Write-Host "[$(Get-Date -Format o)] Moving '$src' → '$dst'..."
+              Write-Host "[$(Get-Date -Format o)] Moving '$src' → '$dst'..."
 
-            try {
-              Move-Item -Force -Path $src -Destination $dst -ErrorAction Stop
-              Write-Host "[$(Get-Date -Format o)] SUCCESS: '$src' moved."
-              $successCount++
+              try {
+                Move-Item -Force -Path $src -Destination $dst -ErrorAction Stop
+                Write-Host "[$(Get-Date -Format o)] SUCCESS: '$src' moved."
+                $successCount++
+              }
+              catch {
+                Write-Host "[$(Get-Date -Format o)] ERROR: Failed to move '$src'."
+                Write-Host "[$(Get-Date -Format o)] Exception: $($_.Exception.Message)"
+                $failCount++
+              }
             }
-            catch {
-              Write-Host "[$(Get-Date -Format o)] ERROR: Failed to move '$src'."
-              Write-Host "[$(Get-Date -Format o)] Exception: $($_.Exception.Message)"
-              $failCount++
-            }
-
+            
             Write-Host "[$(Get-Date -Format o)] Move operation complete. Successes: $successCount, Failures: $failCount"
             $BRANCH = "${{github.ref}}".Split("/")[2]
             $HASH = "${{github.sha}}".Substring(0, 7)
