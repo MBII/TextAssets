@@ -9,9 +9,9 @@ ClassInfo
 
 	WP_SaberFlags		HELD_LIFESTEAL|HELD_DISRUPTIFY|HELD_NODISARM	//|HELD_FORCEFOCUS
 
-	attributes			MB_ATT_FORCEFOCUS,1|MB_ATT_DEFLECT,2|MB_ATT_FP_REPULSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DASH,1|MB_ATT_DASH_JUMP
+	attributes			MB_ATT_FORCEBLOCK,1|MB_ATT_FORCEFOCUS,1|MB_ATT_DEFLECT,2|MB_ATT_FP_REPULSE,1|MB_ATT_GUN_DEFENSE,1|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_DASH,1|MB_ATT_DASH_JUMP
 
-	forcepowers			FP_LEVITATION,3|FP_PUSH,1|FP_PULL,1|FP_LIGHTNING,1|FP_SABERTHROW,1|FP_GRIP,2|FP_SEE,1
+	forcepowers			FP_LEVITATION,3|FP_PUSH,1|FP_PULL,1|FP_LIGHTNING,1|FP_SABERTHROW,2|FP_GRIP,2|FP_SEE,1
 
 	//AB_FLightningFlags	HELD_HIGHDAMAGE
 	AB_FRepulseFlags	HELD_DISRUPTIFY
@@ -24,7 +24,7 @@ ClassInfo
 	forcepool			110
 	rankForcepool		120,130,140
 	forceregen			1.1
-	rankForceregen		1.17,1.26,1.35
+	rankForceregen		1.4
 
 	classflags			CFL_NOPICKUPS
 
@@ -36,10 +36,10 @@ ClassInfo
 	APmultiplier		1.1
 	BPmultiplier		0.9
 	ASmultiplier		1.08
-	CSmultiplier		1.13
-	rankAS				1.15
+	CSmultiplier		1.12
+	rankAS				1.12
 	saberDamage			60
-	RankSaberDamage		80,100,120
+	RankSaberDamage		90,120,150
 	saberMaxChain		3
 	RankSaberMaxChain	4
 	saberThrowDamage	50
@@ -73,23 +73,23 @@ ClassInfo
 	mbPoints			40
 
 	c_att_skill_0		MB_ATT_SABER_MAXCHAIN
-	c_att_names_0		"Saber Chain Limit (4)"
+	c_att_names_0		"Saber Chain: 4"
 	c_att_ranks_0		4
-	c_att_descs_0		"3 default"
+	c_att_descs_0		"Default: 3"
 
 	c_att_skill_1		MB_ATT_AS_MULTIPLIER
-	c_att_names_1		"Saber AS (115%)"
+	c_att_names_1		"Saber Attack Speed: 1.12x"
 	c_att_ranks_1		4
 
 	c_att_skill_2		MB_ATT_SABER_DAMAGE
-	c_att_names_2		"Saber Damage (80/100/120)"
+	c_att_names_2		"Saber Damage: 90/120/150"
 	c_att_ranks_2		1,2,3
-	c_att_descs_2		"60 default"
+	c_att_descs_2		"Default: 60"
 
 	c_att_skill_3		MB_ATT_FP_SABERTHROW
-	c_att_names_3		"EX Saber Throw ^3[CS1]"
-	c_att_ranks_3		0,2,4
-	c_att_descs_3		"66% more damage"
+	c_att_names_3		"Saber Throw ^3[Saber CS1]"
+	c_att_ranks_3		0,0,4
+	c_att_descs_3		"^2Damage: 50"
 
 	c_att_skill_4		MB_ATT_FP_PUSH
 	c_att_names_4		"Force Push"
@@ -106,7 +106,7 @@ ClassInfo
 	c_att_skill_7		MB_ATT_FP_GRIP
 	c_att_names_7		"Force Grip ^3[CS3]"
 	c_att_ranks_7		0,0,5
-	c_att_descs_7		"95% less damage"
+	c_att_descs_7		"^1Damage: 1"
 
 	c_att_skill_8		MB_ATT_FP_DARKRAGE
 	c_att_names_8		"Force Dark Rage"
@@ -114,22 +114,22 @@ ClassInfo
 
 	c_att_skill_9		MB_ATT_FORCEBLOCK
 	c_att_names_9		"Force Block"
-	c_att_ranks_9		2,4,2
+	c_att_ranks_9		0,4,2
 	
 	c_att_skill_10		MB_ATT_FORCEFOCUS
 	c_att_names_10		"Force Focus"
 	c_att_ranks_10		0,4,6
 
 	c_att_skill_11		MB_ATT_POWER
-	c_att_names_11		"Force Pool (120/130/140)"
+	c_att_names_11		"Force Pool: 120/130/140"
 	c_att_ranks_11		1,2,2
 
 	c_att_skill_12		MB_ATT_REGEN
-	c_att_names_12		"FP Regen (117/126/135%)"
-	c_att_ranks_12		1,2,3
+	c_att_names_12		"Force Regen: 1.4x"
+	c_att_ranks_12		4
 
 	c_att_skill_13		MB_ATT_HEALTH
-	c_att_names_13		"Health (115/130/145)"
+	c_att_names_13		"Health: 115/130/145"
 	c_att_ranks_13		2,2,3
 }
 
@@ -171,21 +171,24 @@ ForceInfo3
 	LoopSound			"sound/weapons/force/furyloop"
 }
 
-description	"The Secret Apprentice aka 'Starkiller'
+description	"The Secret Apprentice - 'Starkiller'
 
-Apprentice to the Dark Lord himself, trained to hunt down targets via fearsome Dark Side powers and combo attacks.
-
-^2Weaponry:
+^9Weapons:
 - Melee
--- 10% faster RoF
-- Lightsaber (Purple)
--- Saber/Blaster Defense (1)
+^2-- RoF: 1.11x
+- Lightsaber ^9(Purple)
+-- Saber Defense (1)
+-- Blaster Defense (1)
 -- Blaster Deflect (2)
--- Drains on hit
--- 25% more special damage
--- 25% more knockback
--- EX Saber Throw (1) ^3[CS1]
---- 66% more damage
+^2-- Hit: Lifesteal
+^2-- Spec Damage: 1.25x
+^2-- Knockback: +.25
+
+^3Abilities:
+- Force Repulse ^3[Melee CS1]
+- Saber Throw (2) ^3[Saber CS1]
+^2-- Damage: 50
+- Dash Jump (1) ^3[CS2]
 
 ^5Force Powers:
 - Jump (3)
@@ -194,13 +197,12 @@ Apprentice to the Dark Lord himself, trained to hunt down targets via fearsome D
 - Sense (1)
 - Lightning (1) ^3[CS4]
 - Grip (2) ^3[CS3]
--- 95% less damage
-- Repulse ^3[Melee CS1]
+^1-- Start Damage: 1
 
 ^8Attributes:
+- Force Block (1)
 - Force Focus (1)
-- 10% less knockback taken
-- 100% slower skill cooldown
+^2- Knockback Taken: .9x
+^1- Skill Recharge: .5x
 
-^3Abilities:
-- Jump Dash (1) ^3[CS2]"
+Apprentice to the Dark Lord himself, trained to hunt down targets via fearsome Dark Side powers and combo attacks."

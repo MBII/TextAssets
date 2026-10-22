@@ -1,0 +1,229 @@
+
+Classinfo
+{
+ name    "h9_Vandar"
+ MBclass    MB_CLASS_JEDI
+ classNumberLimit 1
+
+ weapons    WP_SABER|WP_MELEE|WP_MINIGUN
+
+ WP_SaberFlags HELD_NODISARM
+ WP_MinigunFlags 	HELD_FORCEFOCUS|HELD_POISON|HELD_NODISARM
+ WP_MeleeFlags HELD_LIFT
+
+ attributes  MB_ATT_FORCEFOCUS,1|MB_ATT_FORCEBLOCK,2|MB_ATT_DEFLECT,2|MB_ATT_GUN_DEFENSE,2|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_HEALING,1|MB_ATT_DEXTERITY,1|MB_ATT_MINIGUN,3|MB_ATT_FP_REPULSE|MB_ATT_BARGE,3
+
+ AB_FRepulseFlags HELD_LIFT|HELD_LOWDAMAGE
+
+ forcepowers  FP_SABERTHROW,3|FP_LEVITATION,1|FP_PUSH,1|FP_TELEPATHY,1|FP_SEE,1|FP_PULL,1|FP_DRAIN,2
+
+ basespeed 223
+ meleeknockback_flat 50
+	maxhealth			125
+
+	forcepool			125
+ forceRegen 1.05
+
+ knockbackTaken 0.95
+	rateOfFire_Melee	.95
+
+ skilltimermod 2
+
+ saberDamage 240
+ saberDamageStyle SS_DUAL,240
+ saberSpecialDamage 1.25 
+	saberThrowDamage	50
+
+ saber1 saber_vandar_legends
+ sabercolor  4
+ saber2 saber_vandar_legends
+ saber2color 4
+ saberstyle SS_DUAL
+
+ BPMultiplier 1.05
+ APMultiplier 1.02
+ ASMultiplier 1.02
+ CSMultiplier 1.02
+
+ special2 EAS_FP_DRAIN
+ meleespecial3 EAS_HI_BARGE
+
+ bargeAnim BOTH_VS_MOUNTTHROW  //both_vs_mountjump_l //BOTH_SIT5_TALK3
+ jumpAnim  BOTH_LAND2 
+ kickAnim BOTH_A7_KICK_F_AIR
+ blockAnim BOTH_A7_KICK_BF_STOP //BOTH_MELEE_JUMP_KICK  
+ landAnim  BOTH_FORCE_ABSORB_START
+ gunbashanim BOTH_MINIGUN_MELEE
+
+
+ RunForward  BOTH_FORCEJUMP1
+ RunBackward BOTH_FORCEJUMPBACK1
+ WalkForward  BOTH_FORCE_ABSORB_START
+ WalkBackward BOTH_FORCE_ABSORB_START 
+
+
+ tauntAnim BOTH_SIT5_TALK1
+ gloatAnim BOTH_FORCE_PROTECT_FAST
+ flourishAnim  BOTH_HANDSUP
+ bowAnim BOTH_SIT5_TALK3
+ meditateAnim BOTH_VS_LAND_SR
+
+ saberStanceAnim BOTH_FORCE_ABSORB_START //BOTH_LAND2 BOTH_SIT4 BOTH_VS_IDLE_SR BOTH_FORCEJUMPBACK1
+
+	classflags			CFL_NOPICKUPS
+
+ modelscale    0.61
+ uioverlay_l "gfx/icons/frontline"
+ uioverlay_r "gfx/icons/support"
+ model "t_yoda"
+ skin  "vandar"
+ uishader "models/players/t_yoda/mb2_icon_vandar"
+
+	jetpackThrustEffect	""
+	jetpackIdleEffect	""
+
+	jetpackFinishSound	"sound/effects/woosh10"
+	jetpackThrustSound	"sound/ambience/bespin/bespin_air"
+	jetpackStartSound	"sound/effects/woosh11"
+	jetpackIdleSound	"sound/ambience/bespin/bespin_air"
+
+	bargeSoundOverride "sound/effects/woosh11"	//"sound/weapons/force/360pushwindup.wav"
+
+}
+
+WeaponInfo0
+{
+ WeaponToReplace  WP_MINIGUN
+ WeaponBasedOff   WP_MINIGUN
+ NewWorldModel   "models/weapons2/dummyblaster/model.glm"    
+ NewViewModel  "models/weapons2/dummy/dummy.md3"  
+   
+ Icon 	"models/weapons2/halo_pgren/icon.png"
+ WeaponName   "Force Suppression"
+
+	isMinigun			0
+	damageMod	0.01
+	fpmult				6
+	velocityMod			99999
+	clipSize			10
+	rateMod				20
+	customAmmo			-1
+
+	selectSound			"sound/weapons/tai_weap/swing9.mp3"
+
+ FlashSound0 "sound/effects/woosh10"
+ FlashSound1 "sound/effects/woosh10"
+ FlashSound2 "sound/effects/woosh11"
+ FlashSound3 "sound/effects/woosh11"
+
+ altFlashSound0 "sound/effects/woosh10"
+ altFlashSound1 "sound/effects/woosh11"
+ altFlashSound2 "sound/effects/woosh11"
+ altFlashSound3 "sound/effects/woosh10"
+
+ altMuzzleEffect "sonic_pistol/k_muzzle_flash"
+ altMissileEffect "sonic_pistol/k_projectile"
+ altMissileMissEffect "force/pushblur"
+ AltMissileHitHumanEffect "sonic_pistol/k_wall_impact"
+ AltMissileHitDroidEffect "sonic_pistol/k_wall_impact"
+ AltMissileModel "models/weapons2/dummy/dummy.md3"
+
+ MuzzleEffect "sonic_pistol/k_muzzle_flash"
+ MissileEffect "sonic_pistol/k_projectile"
+ MissileMissEffect "force/pushblur"
+ MissileHitHumanEffect "sonic_pistol/k_wall_impact"
+ MissileHitDroidEffect "sonic_pistol/k_wall_impact"
+ MissileModel "models/weapons2/dummy/dummy.md3"
+
+ hasAnimOverrides 1
+ animReadyRun BOTH_VS_LAND
+ animReady  BOTH_VS_LAND
+ animReadyWalk  BOTH_VS_LAND
+ animReadyNoAmmo  BOTH_VS_LAND
+ animAttackRun BOTH_VS_LAND
+ animAttack  BOTH_VS_LAND
+ animAttackWalk BOTH_VS_LAND
+ animStand  BOTH_VS_LAND
+ animCharge BOTH_VS_LAND
+}
+
+WeaponInfo1
+{
+ WeaponToReplace  WP_MELEE
+ WeaponBasedOff  WP_MELEE
+ NewWorldModel  "models/weapons2/dummyblaster/model.glm"
+ NewViewModel  "models/weapons2/dummy/dummy.md3"
+ Icon    "models/weapons2/halo_melee/icon"
+ WeaponName   "Volitant Melee"
+ damageMod 0.5
+ hasAnimOverrides 1
+	animReadyRun		BOTH_LAND2
+	animReady			BOTH_LAND2
+	animReadyWalk BOTH_LAND2
+	animReadyNoAmmo		BOTH_LAND2
+	animAttackRun	BOTH_LAND2
+	animAttack			BOTH_LAND2
+	animAttackWalk		BOTH_LAND2
+	animStand			BOTH_VS_LAND
+ selectSound			"sound/chars/vandar/misc/taunt.mp3"
+}
+
+ForceInfo0
+{
+	ForceToReplace		FP_DRAIN
+	Icon				"gfx/mp/new_f_icon_dk_drain"
+	ForcePowerName		"Sever"
+ ConeEffect "saber/saber_crit"
+	HandShaderRed		0
+	HandShaderGreen 255
+	HandShaderBlue		255
+ HandShader2Red 0
+ HandShader2Green 255
+ HandShader2Blue  255
+}
+
+description "Vandar Tokare
+
+^9Weapons:
+- Volitant Melee
+^2-- Hit: Lift
+^2-- RoF: 1.05x
+^2-- Knockback: +50
+^1-- Damage: .5x
+- Shoto Lightsabers ^9(Dual)
+-- Saber Defense (3)
+-- Blaster Defense (2)
+-- Blaster Deflect (2)
+^2-- Spec Damage: 1.25x
+^1-- Length: 30
+^1-- Radius: 2.23
+- Force Suppression ^9(Minigun 3)
+^2-- Hitscan: Focus/poison
+^2-- Drain: 6x
+^1-- Damage: .01x
+^1-- RoF: .05x
+
+^3Abilities:
+- Force Repulse ^3[Melee CS1]
+^2-- Impact: Lift
+^1-- Damage: .5x
+- Saber Throw (3) ^3[Saber CS1]
+^2-- Damage: 50
+- Levi-kinesis ^9(Barge 3) ^3[Melee CS3]
+
+^5Force Powers:
+- Jump (1)
+- Push (1)
+- Pull (1)
+- Sense (1)
+- Sever ^9(Drain 2) ^3[CS2]
+- Mind Trick (1) ^3[CS4]
+
+^8Attributes:
+- Force Block (2)
+- Force Focus (1)
+- Dexterity (1)
+^2- Knockback Taken: .95x
+^1- Skill Recharge: .5x
+
+A wise old master who specializes in levitation skills and dampening enemy Force usage."

@@ -9,7 +9,7 @@ ClassInfo
 
 	WP_RocketLauncherFlags	HELD_STUN|HELD_KNOCKBACK
 
-	attributes			MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,3|MB_ATT_JETPACK,1|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FUEL,3|MB_ATT_ASSEMBLE,3|MB_ATT_ROCKET_LAUNCHER|MB_ATT_FRAGS,1|MB_ATT_QUICKTHROW,1
+	attributes			MB_ATT_BLAST_ARMOUR,1|MB_ATT_AMMO,4|MB_ATT_JETPACK,1|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FUEL,3|MB_ATT_ASSEMBLE,3|MB_ATT_ROCKET_LAUNCHER|MB_ATT_FRAGS,1|MB_ATT_QUICKTHROW,1
 
 	maxhealth			120
 	maxarmor			105
@@ -48,28 +48,27 @@ ClassInfo
 	modelscale			1.13
 	uioverlay			"gfx/icons/aerial"
 	uioverlay_l		"gfx/icons/spec_infantry"
-
-	model				"pl_rockettrooper"
+	model			"pl_rockettrooper"
 	skin				"base"
 	uishader			"gfx/um_icons/PrisonRaidPack/Rocket"
 
-	model_1				"pl_rockettrooper"
+	model_1			"pl_rockettrooper"
 	skin_1				"default"
 	uishader_1			"models/players/pl_rockettrooper/mb2_icon_default"
 
-	model_2				"stormie"
+	model_2			"stormie"
 	skin_2				"jet"
 	uishader_2			"models/players/stormie/mb2_icon_jet"
 
-	model_3				"stormie"
+	model_3			"stormie"
 	skin_3				"jetcom"
 	uishader_3			"models/players/stormie/mb2_icon_jetcom"
 
-	model_4				"stormie"
+	model_4			"stormie"
 	skin_4				"jet_legacy"
 	uishader_4			"models/players/stormie/mb2_icon_jet_legacy"
 
-	model_5				"stormie"
+	model_5			"stormie"
 	skin_5				"jetcom_legacy"
 	uishader_5			"models/players/stormie/mb2_icon_jetcom_legacy"
 
@@ -81,27 +80,31 @@ ClassInfo
 	c_att_ranks_0		4,0,0
 
 	c_att_skill_1		MB_ATT_CLONERIFLE
-	c_att_names_1		"DLT-19 Blaster Rifle (CR)"
+	c_att_names_1		"DC-15A Clone Rifle"
 	c_att_ranks_1		4,0
-	c_att_descs_1		"10% more damage, 10% more FP drain"
-
+	c_att_descs_1		"^2Damage: 1.1x, Drain: 1.1x"
+	
 	c_att_skill_2		MB_ATT_STRONGBLOBS
-	c_att_names_2		"> DLT-19 Ion Blob"
+	c_att_names_2		"> Clone Rifle Ion Blob"
 	c_att_ranks_2		2,0,0
 
-	c_att_skill_3		MB_ATT_REPEATER
-	c_att_names_3		"Imperial Heavy Repeater"
-	c_att_ranks_3		4
-	c_att_descs_3		"5% less damage, 25% less FP drain, 20% slower RoF,
-15% slower reload"
+	c_att_skill_3		MB_ATT_DLT19
+	c_att_names_3		"DLT-19 Blaster Rifle"
+	c_att_ranks_3		4,0,0
+	c_att_descs_3		"A heavy blaster rifle, higher levels increase the clip size and ease of aiming"
 
-	c_att_skill_4		MB_ATT_REPEATER_NADES
-	c_att_names_4		"> Repeater Blob"
-	c_att_ranks_4		2,0,0
+	c_att_skill_4		MB_ATT_REPEATER
+	c_att_names_4		"Imperial Heavy Repeater"
+	c_att_ranks_4		4
+	c_att_descs_4		"^1Damage: .95x, Drain: .75x, RoF: .83x, Reload: .86x"
 
-	c_att_skill_5		MB_ATT_BARGE
-	c_att_names_5		"Jet Tackle (Barge) ^3[Melee CS2]"
+	c_att_skill_5		MB_ATT_REPEATER_NADES
+	c_att_names_5		"> Repeater Blob"
 	c_att_ranks_5		2,0,0
+
+	c_att_skill_6		MB_ATT_BARGE
+	c_att_names_6		"Jet Barge ^3[Melee CS2]"
+	c_att_ranks_6		2,0,0
 }
 
 WeaponInfo0
@@ -136,28 +139,36 @@ WeaponInfo1
 	NewBarrelModel		"models/weapons2/merr_sonn/merr_sonn_barrel.md3"
 	NewHandsModel		"models/weapons2/merr_sonn/merr_sonn_hand.md3"
 	Icon				"gfx/hud/w_icon_merrsonn"
-	WeaponName			"PLX-2M Rocket Launcher"
+	WeaponName			"PLX-2M Missile Launcher"
 
-	clipSize			1
+	clipSize		  	1
 	CustomAmmo			5
 	ReloadTimeModifier	1.5
 	velocityMod			1.15
-	altfireenabled		1
+ rateMod 0.7
 }
 
 WeaponInfo2
 {
+	WeaponToReplace		WP_MELEE
+	WeaponBasedOff		WP_MELEE
+	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
+	NewViewModel		"models/weapons2/dummy/dummy.md3"
+	Icon				"models/weapons2/halo_melee/icon.png"
+	WeaponName			"Melee"
+ damageMod 1.25
+}
+
+WeaponInfo3
+{
 	WeaponToReplace		WP_CLONE_RIFLE
 	WeaponBasedOff		WP_CLONE_RIFLE
-	NewWorldModel		"models/weapons2/DLT-19_HeavyBlaster/model_scope.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"gfx/hud/w_icon_dlt19scoped"
-	WeaponName			"DLT-19 Heavy Blaster Rifle"
-	FlashSound0			"sound/weapons/DLT19/fire.wav"
-	MuzzleEffect		"Blaster/MuzzleFlash01R"
-	MissileEffect		"Blaster/Shot01R"
-
-	customAmmo			600
+	NewWorldModel		"models/weapons2/dc-15_ext/dc-15_ext_w.glm"
+	NewViewModel		"models/weapons2/dc-15_ext/dc-15_ext.md3"
+	Icon				"gfx/hud/w_icon_clonerifle_blobs"
+	WeaponName			"DC-15A Clone Rifle"
+	MuzzleEffect				"Blaster/MuzzleFlash01R"
+	MissileEffect				"Blaster/Shot01R"
 	damageMod			1.1
 	fpmult				1.1
 
@@ -172,41 +183,30 @@ WeaponInfo2
 	animStand			BOTH_STAND1
 }
 
-WeaponInfo3
-{
-	WeaponToReplace		WP_MELEE
-	WeaponBasedOff		WP_MELEE
-	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
-	NewViewModel		"models/weapons2/dummy/dummy.md3"
-	Icon				"models/weapons2/halo_melee/icon.png"
-	WeaponName			"Jumptrooper Melee"
- damageMod 1.25
-}
-
 description "Imperial Jumptrooper
 
-Jetpack soldiers with a variety of suppression tools and explosives.
-
-^2Weaponry:
-- Jumptrooper Melee
--- 25% more damage
--- 115% more knockback
--- 30% slower RoF
--- Punch/grab/block only
-- PLX-2M Rocket Launcher (6)
--- Staggers/pushes on det
--- 15% more velocity
--- 50% slower reload
+^9Weapons:
+- Melee
+^2-- Damage: 1.25x
+^2-- Knockback: +115
+^1-- Kick: No
+^1-- RoF: .76x
+- PLX-2M Missile Launcher
+^2-- Det: Stagger/push
+^2-- Velocity: 1.15x
+^2-- RoF: 1.42x
+^1-- Reload: .66x
 - Frag Grenade (1)
 
+^3Abilities:
+- Quick Throw (1) ^3[CS3]
+- Jetpack ^3[Hold/2x Jump]
+
 ^8Attributes:
-- Reinforcement (1)
+- Assemble (3)
 - Strength (1)
 - Blast Armor
-- Assemble (3)
-- 40% slower skill cooldown
-- 25% less knockback taken
+^2- Knockback Taken: .75x
+^1- Skill Recharge: .71x
 
-^3Abilities:
-- Jetpack
-- Quick Throw (1) ^3[CS3]"
+Jetpack soldiers with a variety of suppression tools and explosives."

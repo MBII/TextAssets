@@ -341,11 +341,45 @@
 			}
 		}
 
+		// Cycler Rifle assign
+		itemDef
+		{
+			name				setfp_grip
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_GRIP
+			rect 8 105 147 18
+			text " "
+            noTextBlink 1
+			text2 "Cycler Rifle"
+			font 6
+			text2alignx -95
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			95
+			textaligny			-5
+			textscale			.15
+			forecolor			1 1 1 0.8
+			descText			"A powerful but primitive rifle."
+			visible				1
+			action {
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter {
+				show			button_glow
+				setitemrect		button_glow	8 104 147 20
+				setcolor	forecolor 1 1 1 1
+			}
+			mouseExit {
+				hide			button_glow
+				setcolor	forecolor 1 1 1 0.8
+			}
+		}
+
 		itemDef
 		{
 			name				Info_FragGrenade
 			group				pointssetup
-			rect				113 105 27 18
+			rect				113 125 27 18
 			style				WINDOW_STYLE_SHADER
 			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -366,7 +400,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERTHROW
-			rect 8 105 147 18
+			rect 8 125 147 18
 			text " "
             noTextBlink 1
 			text2 "Frag Grenade"
@@ -384,7 +418,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 104 147 20
+				setitemrect		button_glow	8 124 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -397,7 +431,7 @@
 		{
 			name				Info_SonicGrenade
 			group				pointssetup
-			rect				113 125 27 18
+			rect				113 145 27 18
 			style				WINDOW_STYLE_SHADER
 			//background			"gfx/menus/alpha/Btn_Info"
 			forecolor			1 1 1 0
@@ -418,7 +452,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PROTECT
-			rect 8 125 147 18
+			rect 8 145 147 18
 			text " "
             noTextBlink 1
 			text2 "Sonic Detonator"
@@ -436,7 +470,41 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 124 147 20
+				setitemrect		button_glow	8 144 147 20
+				setcolor	forecolor 1 1 1 1
+			}
+			mouseExit {
+				hide			button_glow
+				setcolor	forecolor 1 1 1 0.8
+			}
+		}
+
+		// Smoke Nade assign
+		itemDef
+		{
+			name				setfp_teamforce
+			group				pointssetup
+			style				WINDOW_STYLE_TEXT_RGB3
+			ownerdraw			UI_FORCE_RANK_TEAM_FORCE
+			rect 8 165 147 18
+			text " "
+            noTextBlink 1
+			text2 "Smoke Grenade"
+			font 6
+			text2alignx -95
+			textalign			ITEM_ALIGN_LEFT
+			textalignx			95
+			textaligny			-5
+			textscale			.15
+			forecolor			1 1 1 0.8
+			descText			"Temporarily halt vision of players, thanks to smoke spreading through large area."
+			visible				1
+			action {
+				play			"sound/interface/button1.wav"
+			}
+			mouseenter {
+				show			button_glow
+				setitemrect		button_glow	8 164 147 20
 				setcolor	forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -446,6 +514,7 @@
 		}
 
 
+
 		// Reinforcement assign
 		itemDef
 		{
@@ -453,7 +522,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_ABSORB
-			rect 8 155 147 18
+			rect 8 195 147 18
 			text " "
             noTextBlink 1
 			text2 "Reinforcement"
@@ -471,7 +540,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 154 147 20
+				setitemrect		button_glow	8 194 147 20
 				setcolor	forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -480,17 +549,17 @@
 			}
 		}
 
-		// Rally assign
+		// Stimpack assign
 		itemDef
 		{
 			name				setfp_pull
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_PULL
-			rect 8 175 147 18
+			rect 8 215 147 18
 			text " "
             noTextBlink 1
-			text2 "Rally"
+			text2 "Stimpack [CS2]"
 			font 6
 			text2alignx -95
 			textalign			ITEM_ALIGN_LEFT
@@ -498,14 +567,15 @@
 			textscale			.15
 			textaligny			-5
 			forecolor			1 1 1 0.8
-			descText			"Allows you to rally Soldiers to your location"
+			bindings {"+button11"}
+			descText			"Unlock one stimpack, temporarily increasing your movement speed and health.\nUse with: Class Special 2 [%b]"
 			visible				1
 			action {
 				play			"sound/interface/button1.wav"
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 174 147 20
+				setitemrect		button_glow	8 214 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -521,7 +591,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_HEAL
-			rect 8 195 147 18
+			rect 8 235 147 18
 			text " "
             noTextBlink 1
 			text2 "Dodge [CS1]"
@@ -540,7 +610,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 194 147 20
+				setitemrect		button_glow	8 234 147 20
 				setcolor	forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -556,7 +626,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERATTACK
-			rect 8 225 147 18
+			rect 8 265 147 18
 			text " "
             noTextBlink 1
 			text2 "Armour"
@@ -575,7 +645,7 @@
 
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 224 147 20
+				setitemrect		button_glow	8 264 147 20
 				setcolor		forecolor 1 1 1 1
 			}
 			mouseExit {
@@ -591,7 +661,7 @@
 			group				pointssetup
 			style				WINDOW_STYLE_TEXT_RGB3
 			ownerdraw			UI_FORCE_RANK_SABERDEFEND
-			rect 8 245 147 18
+			rect 8 285 147 18
 			text " "
             noTextBlink 1
 			text2 "Ammo"
@@ -609,7 +679,7 @@
 			}
 			mouseenter {
 				show			button_glow
-				setitemrect		button_glow	8 244 147 20
+				setitemrect		button_glow	8 284 147 20
 				setcolor	forecolor 1 1 1 1
 			}
 			mouseExit {

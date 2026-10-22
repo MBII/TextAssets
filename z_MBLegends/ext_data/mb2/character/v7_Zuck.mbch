@@ -5,13 +5,16 @@ ClassInfo
 	classNumberLimit	1
 	MBClass				MB_CLASS_SITH
 
-	weapons				WP_SABER|WP_MELEE|WP_T21|WP_DEMP2|WP_TRIP_MINE|WP_FLECHETTE
+	weapons				WP_SABER|WP_MELEE|WP_T21|WP_DEMP2|WP_TRIP_MINE|WP_GAS_NADE
+	WP_T21Flags			HELD_KNOCKBACK
+	WP_SaberFlags		HELD_PULSE|HELD_TRACKING
+	WP_Demp2Flags		HELD_CRIPPLE|HELD_STUN|HELD_PULSE|HELD_LIFESTEAL
+	WP_GasNadeFlags		HELD_TRACKING|HELD_CRIPPLE
+	WP_TripMineFlags	HELD_DISARM
 
-	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_FP_MIRALUKA|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT,2|MB_ATT_DEMP2,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_BEACON|MB_ATT_TRIP_MINES,3|MB_ATT_FLECHETTE,4|MB_ATT_GETUPS,3|MB_ATT_FLECHETTE_NADES,1|MB_ATT_FLECHETTE_ALT_NUM,5|MB_ATT_WATER_BREATHING|MB_ATT_ENV_PROT,1
+	attributes			MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_DODGE,3|MB_ATT_FP_MIRALUKA|MB_ATT_STAMINA,3|MB_ATT_T21,1|MB_ATT_FORCEBLOCK,3|MB_ATT_ANTI_MT,2|MB_ATT_DEMP2,1|MB_ATT_SABER_COMBO_NONE|MB_ATT_TRACKING_BEACON|MB_ATT_TRIP_MINES,3|MB_ATT_GETUPS,3|MB_ATT_GAS_NADE,3|MB_ATT_WATER_BREATHING|MB_ATT_ENV_PROT,1
 
-	saber1				qstaff_legends
-	saberstyle			SS_DESANN|SS_STAFF
-	forcepowers			FP_SEE,1|FP_SABER_OFFENSE,3
+	forcepowers			FP_SEE,1
 
 	maxhealth			125
 	maxarmor			125
@@ -19,39 +22,32 @@ ClassInfo
 	forcepool			150
 	forceregen			1.15
 
-	//special2HUD		HUD_TRIPMINE
-	special1HUD			HUD_FLECHETTENADE
+	special1HUD			HUD_GASNADE
 
 	baseSpeed			194
 
 	APmultiplier		1.1
 	BPmultiplier		1.1
-	ASmultiplier		1.15
-	CSmultiplier		1.12
+	ASmultiplier		1.1
+	CSmultiplier		1.1
 	SaberDamage			120
+	saber1				qstaff_legends
+	saberstyle			SS_DESANN|SS_STAFF
 
 	gloatAnim			BOTH_TUSKENATTACK2
 	flourishAnim		BOTH_TUSKENTAUNT1
 	saberStanceAnim		BOTH_SPEAR_STANCE
-	//SaberStanceAnim	BOTH_TRIPLE3_STAFFSTANCE
-
-	WP_T21Flags			HELD_KNOCKBACK
-	WP_SaberFlags		HELD_PULSE|HELD_TRACKING
-	WP_Demp2Flags		HELD_FREEZE|HELD_STUN|HELD_PULSE|HELD_LIFESTEAL
-	WP_FlechetteFlags	HELD_POISON|HELD_TRACKING|HELD_CRIPPLE
-	WP_TripMineFlags	HELD_DISARM
 
 	special1			EAS_HI_SPRINT
 	meleespecial1		EAS_HI_SPRINT
 	special2			EAS_HI_DEX
 	special3			EAS_HI_DODGE
-	//classFlags		CFL_NOPICKUPS
 
-	modelscale			0.93
-	model				"zuckuss"
+	modelscale		0.93
+	model			"zuckuss"
 	skin				"default"
-	uishader			"models/players/zuckuss/MB2_Icon_Default"
-	uioverlay			"gfx/icons/tactician"
+	uishader	"models/players/zuckuss/MB2_Icon_Default"
+	uioverlay	"gfx/icons/tactician"
 }
 
 WeaponInfo0
@@ -60,8 +56,10 @@ WeaponInfo0
 	WeaponBasedOff		WP_SABER
 	NewWorldModel		"models/weapons2/tusken_staff_sar/tusken_staff3.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
+
 	Icon				"gfx/hud/w_icon_qstaff"
 	WeaponName			"Gand Shockprod Staff"
+
 	SelectSound			"sound/weapons/knife/knifespin.mp3"
 }
 
@@ -71,20 +69,32 @@ WeaponInfo1
 	WeaponBasedOff		WP_CONCUSSION
 	NewWorldModel		"models/weapons/W-90_Concussion/w-90_w.glm"
 	NewViewModel		"models/weapons/W-90_Concussion/w-90.md3"
+
 	FlashSound0			"sound/weapons/base_conc/fire.wav"
+	FlashSound1		"sound/weapons/base_conc/fire.wav"
+	FlashSound2			"sound/weapons/base_conc/fire.wav"
+	FlashSound3			"sound/weapons/base_conc/fire.wav"
+
+	altFlashSound0			"sound/weapons/base_conc/fire.wav"
+	altFlashSound1			"sound/weapons/base_conc/fire.wav"
+	altFlashSound2			"sound/weapons/base_conc/fire.wav"
+	altFlashSound3			"sound/weapons/base_conc/fire.wav"
+
 	MuzzleEffect			"concussion/muzzle_flash"
 	MissileEffect			"concussion/shot"
 	MissileMissEffect		"concussion/explosion"
 	MissileHitHumanEffect	"concussion/explosion"
 	MissileHitDroidEffect	"concussion/explosion"
+
 	Icon				"gfx/hud/w_icon_w90conc"
 	WeaponName			"W-90 Concussion Rifle"
-	customAmmo			384
+
+	customAmmo	384
 	clipsize			64
 	rateMod				0.8
 	damageMod			1.1
 	FPmult				1.75
-	altfireenabled		0
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_DC15_IDLE
 	animReady			BOTH_DC15_IDLE
@@ -98,21 +108,34 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_DEMP2
+	WeaponToReplace	WP_DEMP2
 	WeaponBasedOff		WP_DEMP2
-	NewWorldModel		"models/weapons2/kotor_drifle/kotor_drifle_w.glm"
+	NewWorldModel	"models/weapons2/kotor_drifle/kotor_drifle_w.glm"
 	NewViewModel		"models/weapons2/kotor_drifle/kotor_drifle.md3"
+
 	Icon				"gfx/hud/w_icon_altdisruptor"
-	WeaponName			"GRS-1 Snare Rifle"
+	WeaponName		"GRS-1 Snare Rifle"
+
 	MissileMissEffect	"SBD/cortosis_blue"
-	MissileEffect		"SBD/cortosis_blue"
+	MissileEffect	"SBD/cortosis_blue"
 	MuzzleEffect		null
+
 	FlashSound0			"sound/underground/steamPushfast.mp3"
-	CustomAmmo			 22
+	FlashSound1			"sound/underground/steamPushfast.mp3"
+	FlashSound2			"sound/underground/steamPushfast.mp3"
+	FlashSound3			"sound/underground/steamPushfast.mp3"
+
+	altFlashSound0			"sound/underground/steamPushfast.mp3"
+	altFlashSound1			"sound/underground/steamPushfast.mp3"
+	altFlashSound2			"sound/underground/steamPushfast.mp3"
+	altFlashSound3			"sound/underground/steamPushfast.mp3"
+
+	CustomAmmo	22
 	clipsize			2
-	ReloadTimeModifier	45
-	FPMult				3.5
-	rateMod				0.5
+	ReloadTimeModifier	85
+	FPMult			3.5
+	rateMod		0.5
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_DC15_IDLE
 	animReady			BOTH_DC15_IDLE
@@ -122,40 +145,27 @@ WeaponInfo2
 	animAttack			BOTH_ATTACK4
 	animAttackWalk		BOTH_ATTACK4
 	animStand			TORSO_DROPWEAP4
-	altfireenabled		0
 }
 
 WeaponInfo3
 {
-	WeaponToReplace		WP_FLECHETTE
-	WeaponBasedOff		WP_FLECHETTE
-	WeaponName			"Ammonia Bombs"
-	NewWorldModel		"models/weapons2/thermal/thermal_w.glm"
-	NewViewModel		"models/weapons2/thermal/thermal_hand.md3"
-	Icon				"gfx/hud/w_thermal_grenade"
-	AltMissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	altMissileMissEffect		"noghri_stick/flesh_impact"
-	altMissileHitDroidEffect	"noghri_stick/flesh_impact"
-	altMissileHitHumanEffect	"noghri_stick/flesh_impact"
-	altMissileEffect			"sonic_pistol/projectile"
-	MuzzleEffect				null
-	altMuzzleEffect				null
-	altFlashSound0		"sound/weapons/stone/fire.mp3"
-	altFlashSound1		"sound/weapons/stone/fire.mp3"
-	altFlashSound2		"sound/weapons/stone/fire.mp3"
-	altFlashSound3		"sound/weapons/stone/fire.mp3"
-	FlashSound0			"sound/weapons/stone/fire.mp3"
-	FlashSound1			"sound/weapons/stone/fire.mp3"
-	FlashSound2			"sound/weapons/stone/fire.mp3"
-	FlashSound3			"sound/weapons/stone/fire.mp3"
-	MissileModel		"models/weapons2/thermal/thermal_proj.md3"
-	MissileMissEffect			"noghri_stick/flesh_impact"
-	MissileHitDroidEffect		"noghri_stick/flesh_impact"
-	MissileHitHumanEffect		"noghri_stick/flesh_impact"
-	MissileEffect				"sonic_pistol/projectile"
-	primFireEnabled		0
-	clipSize			-1
-	customAmmo			-1
+	WeaponToReplace		WP_GAS_NADE
+	WeaponBasedOff		WP_GAS_NADE
+
+ NewWorldModel  "models/weapons2/kotor_gfrag/thermal_w.glm"
+ NewViewModel  "models/weapons2/kotor_gfrag/thermal.md3"
+ NewHandsModel "models/weapons2/kotor_gfrag/thermal_hand.md3"
+ MissileModel  "models/weapons2/kotor_gfrag/thermal_proj.md3"
+ altMissileModel  "models/weapons2/kotor_gfrag/thermal_proj.md3"
+
+ MissileEffect "hutt/toxic_breath"
+ altMissileEffect "hutt/toxic_breath"
+
+ Icon    "gfx/hud/w_icon_kotor_fraggrenade"
+	WeaponName			"Ammonia Bomb"
+
+ damageMod 3
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_STAND10
 	animReady			BOTH_STAND10
@@ -166,6 +176,7 @@ WeaponInfo3
 	animAttackWalk		BOTH_A6_LR
 	animStand			BOTH_STAND1
 }
+
 ForceInfo0
 {
 	ForceToReplace		FP_SEE
@@ -175,47 +186,47 @@ ForceInfo0
 
 description	"Zuckuss
 
-A hunter focused on disruption.
-
-^2Weaponry:
+^9Weapons:
 - Melee
-- Gand Shockprod Staff (Staff/Purple Saber)
+- Gand Shockprod Staff ^9(Staff/Purple Saber)
 -- Saber Defense (1)
--- No Blaster Block
--- No Saber Training
--- Shocks/tracks on hit
--- 105% more knockback
--- 16/33% shorter
-- GRS-1 Snare Rifle (DEMP2 1)
--- Shocks/freezes/staggers/drains on hit
--- Unblockable
--- 65% faster RoF
--- 350% more FP drain
--- 4400% slower reload
-- Ammonia Bombs (2/5) (Flechette 4)
--- Poisons/tracks/slows on det
--- Secondary fire only
-- W-90 Concussion Rifle (T-21 1)
--- Pushes on hit
--- 20% faster RoF
--- 10% more damage
--- 75% more FP drain
+^2-- Hit: Slow/track
+^2-- Knockback: +1.05
+^2-- Radius: 4
+^1-- Blaster Defense: No
+^1-- Training: No
+^1-- Length: 27
+- GRS-1 Snare Rifle ^9(DEMP2 1)
+^2-- Hit: Shock/slow/stagger/lifesteal
+^2-- RoF: 2x
+^2-- Drain: 3.5x
+^1-- Reload: .01x
+- W-90 Concussion Rifle ^9(T-21 1)
+^2-- Det: Push
+^2-- RoF: 1.25x
+^2-- Damage: 1.1x
+^2-- Drain: 1.75x
 - Trip Mine (3)
--- Disarms on det
-
-^8Attributes:
-- Getup (3)
-- Stamina (3)
-- Dexterity (3)
-- Climate Shielding (1)
-- Healing (2)
-- Findsman Precognition (Miraluka 1)
-- Anti-Mind Trick (2)
-- Tracking Beacon
-- Force Block (3)
-- Respirator (Underwater Breathing)
+^2-- Det: Disarm
+- Ammonia Bomb ^9(Gas Grenade 3)
+^2-- Det: Slow/track
+^2-- Damage: 3x
 
 ^3Abilities:
 - Sprint ^3[CS1]
 - Dex Roll ^3[CS2]
-- Dodge (3) ^3[CS3]"
+- Dodge (3) ^3[CS3]
+
+^8Attributes:
+- Force Block (3)
+- Dexterity (3)
+- Stamina (3)
+- Getup (3)
+- Healing (2)
+- Anti-Mind Trick (2)
+- Climate Shielding (1)
+- Findsman Precognition ^9(Miraluka 1)
+- Respirator ^9(Underwater Breathing)
+- Tracking Beacon
+
+A hunter focused on disruption."

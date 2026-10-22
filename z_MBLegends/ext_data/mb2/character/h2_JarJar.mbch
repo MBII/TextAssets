@@ -2,18 +2,18 @@
 Classinfo
 {
 	name				"h2_JarJar"
-	MBClass				MB_CLASS_JEDI
+	MBClass				MB_CLASS_SITH
 	classNumberLimit	1
 
 	weapons				WP_MELEE|WP_SABER|WP_T21|WP_PULSE_NADE|WP_REPEATER
 
-	attributes			MB_ATT_BUNNY_HOP,2|MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE,3|MB_ATT_REPEATER,3|MB_ATT_QUICKTHROW,3
+	attributes		MB_ATT_FLOAT_HOP|MB_ATT_HEALING,2|MB_ATT_DEXTERITY,3|MB_ATT_STAMINA,3|MB_ATT_ROSHTAUNT|MB_ATT_WATER_BREATHING|MB_ATT_FLIPKICK,2|MB_ATT_DASH,1|MB_ATT_DODGE,3|MB_ATT_T21,1|MB_ATT_BLAST_ARMOUR|MB_ATT_GETUPS,3|MB_ATT_BARGE,3|MB_ATT_REPEATER,1|MB_ATT_QUICKTHROW,3|MB_ATT_BUNNY_HOP,1
 
 	WP_MeleeFlags		HELD_HIGHDAMAGE|HELD_SLIPPERY
 	WP_SaberFlags		HELD_KNOCKDOWN|HELD_NODISARM|HELD_SLIPPERY
-	WP_PulseNadeFlags	HELD_HIGHDAMAGE
+	WP_PulseNadeFlags	HELD_HIGHDAMAGE|HELD_KNOCKBACK
 	WP_T21Flags			HELD_LOWDAMAGE
-	WP_RepeaterFlags	HELD_BACTA|HELD_NODISARM|HELD_ALTRELOAD
+	WP_RepeaterFlags	HELD_BACTA|HELD_NODISARM|HELD_ALTRELOAD|HELD_LIFESTEAL|HELD_EXPLOSIVE
 	//WP_MGLFlags		HELD_BACTA
 	///WP_RepeaterFlags	HELD_SLIPPERY|HELD_KNOCKDOWN|HELD_KNOCKBACK
 	//WP_UGLFlags		HELD_BACTA
@@ -22,7 +22,8 @@ Classinfo
 	//meleeknockback_flat	55
 
 	basespeed			218
-	forcepowers			FP_LEVITATION,1
+	rankbasespeed		239
+
 	maxhealth			200
 	maxarmor			65
 
@@ -55,7 +56,7 @@ Classinfo
 	skilltimermod		2.5
 	rankSTM				1
 
-	hackRate			2
+	hackRate			2.5
 
 	meleespecial1		EAS_HI_QUICKTHROW
 	special1			EAS_HI_DODGE
@@ -85,29 +86,95 @@ Classinfo
 	gloatAnim			BOTH_TUSKENTAUNT1
 	flourishAnim		BOTH_FORCEWALLRUNFLIP_START
 	bowAnim				BOTH_GUNGAN_TAUNT
+
 	bargeAnim			BOTH_DEATHBACKWARD1	 //BOTH_FALLDEATH1INAIR
 	jumpAnim			BOTH_MELEE_SWIMFORWARD //TORSO_MELEE_BLOCK_SWIMFORWARD
 	//LandAnim			BOTH_KNOCKDOWN3
+ punchAnim BOTH_MELEE1 
 
  bargeSoundOverride	"sound/effects/cloth1.mp3"
 
 	isCustomBuild		1
-	mbPoints			1
+	mbPoints			3
+	hasCustomSpec		3
+	isOnlyOneSpec		1
+	customSpecName_1	"Gungan"
+	customSpecIcon_1	"gfx/2d/logos/mb_gungan"
+
+	customSpecName_2	"Jarlord"
+	customSpecIcon_2	"gfx/menus/classes/jedi"
+
+	customSpecName_3	"Gooberfish"
+	customSpecIcon_3	"gfx/menus/alpha/icon_stats_movespeed"
 
 	c_att_skill_0		MB_ATT_REPEATER
-	c_att_names_0		"Ptooie (25) (Repeater)"
-	c_att_ranks_0		0,0,0
-	c_att_descs_0		"Team-heals on hit, 150% more damage, 35% more velocity,
-6000% slower RoF"
+	c_att_names_0		"Ptooie ^9(Repeater)"
+	c_att_ranks_0		0
+	c_att_descs_0		"^2Hit: Team-heal/explode, Damage: 1.5x, Velocity: 1.35x
+^1RoF: .01x, AoE: 10, AoE Damage: 2"
 
-	c_att_skill_1		MB_ATT_STM_MULTIPLIER
-	c_att_names_1		"Skill Cooldown (100%)"
-	c_att_ranks_1		1
-	c_att_descs_1		"40% default"
+	c_att_skill_1		MB_ATT_DASH_JUMP
+	c_att_names_1		"Dash Jump"
+	c_att_ranks_1		0
 
-	c_att_skill_2		MB_ATT_DASH_JUMP
-	c_att_names_2		"Swan Dive (Dash Jump)"
-	c_att_ranks_2		1
+	c_att_skill_2		MB_ATT_FP_LEVITATION
+	c_att_names_2		"Swan Dive ^9(Force Jump)"
+	c_att_ranks_2		0
+
+	c_att_skill_3	 MB_ATT_BUNNY_HOP
+	c_att_names_3		"Bunny Hop"
+	c_att_ranks_3		0
+
+	c_att_skill_4		MB_ATT_STM_MULTIPLIER
+	c_att_names_4		"Skill Recharge: 1x"
+	c_att_ranks_4		0
+	c_att_descs_4		"Default: .4x"
+
+	c_att_skill_5		MB_ATT_BASESPEED
+	c_att_names_5		"Move Speed: 239"
+	c_att_ranks_5		0
+	c_att_descs_5		"Default: 218"
+
+
+ c_att_skill_15    MB_ATT_REPEATER
+ c_att_names_15    "Ptooie ^9(Repeater)"
+ c_att_ranks_15    0
+	c_att_descs_15		"^2Hit: Team-heal/explode, Damage: 1.5x, Velocity: 1.35x
+^1RoF: .01x, AoE: 10, AoE Damage: 2"
+
+ c_att_skill_16    MB_ATT_FP_LEVITATION
+ c_att_names_16    "Swan Dive ^9(Force Jump)"
+ c_att_ranks_16    0
+
+ c_att_skill_17    MB_ATT_BUNNY_HOP
+ c_att_names_17    "Bunny Hop"
+ c_att_ranks_17    0,0
+
+ c_att_skill_18   MB_ATT_STM_MULTIPLIER
+ c_att_names_18   "Skill Recharge: 1x"
+ c_att_ranks_18   0
+	c_att_descs_18		"Default: 4x"
+
+
+
+ c_att_skill_30    MB_ATT_REPEATER
+ c_att_names_30    "Ptooie ^9(Repeater)"
+ c_att_ranks_30    0
+	c_att_descs_30		"^2Hit: Team-heal/explode, Damage: 1.5x, Velocity: 1.35x
+^1RoF: .01x, AoE: 10, AoE Damage: 2"
+
+ c_att_skill_31    MB_ATT_DASH_JUMP
+ c_att_names_31    "Dash Jump"
+ c_att_ranks_31    1
+
+ c_att_skill_32    MB_ATT_BUNNY_HOP
+ c_att_names_32    "Bunny Hop"
+ c_att_ranks_32    0,2
+
+ c_att_skill_33   MB_ATT_STM_MULTIPLIER
+ c_att_names_33   "Skill Recharge: 1x"
+ c_att_ranks_33   1
+	c_att_descs_33		"Default: .4x"
 
 }
 
@@ -120,20 +187,14 @@ WeaponInfo0
 	NewViewModel		"models/weapons2/throwables/booma/booma.md3"
 	NewHandsModel		"models/weapons2/throwables/booma/booma_hand.md3"
 	MissileModel		"models/weapons2/throwables/booma/booma_proj.md3"
-	MissileMissEffect			"rockets/explosionpulse"
-	MissileHitHumanEffect		"rockets/explosionpulse"
-	MissileHitDroidEffect		"rockets/explosionpulse"
 	altMissileModel		"models/weapons2/throwables/booma/booma_proj.md3"
-	altMissileMissEffect		"rockets/explosionpulse"
-	altMissileHitHumanEffect	"rockets/explosionpulse"
-	altMissileHitDroidEffect	"rockets/explosionpulse"
 	MuzzleEffect				null
 	altMuzzleEffect				null
 
 	altFireEnabled		0
 	customAmmo			4
 
-	WeaponName			"Boomas"
+	WeaponName			"Booma"
 	Icon				"gfx/hud/w_icon_booma"
 	SelectSound			"sound/weapons/blunt/spin.mp3"
 
@@ -155,8 +216,10 @@ WeaponInfo1
 	NewViewModel		"models/weapons2/e5/e5.md3"
 	NewHandsModel		"models/weapons2/e5/e5_hand.md3"
 	NewBarrelModel		"models/weapons2/e5/e5_kitsu.md3"
+
 	Icon				"gfx/hud/w_icon_e5"
 	WeaponName			"Salvaged E-5 Blaster Rifle"
+
 	FlashSound0			"sound/weapons/blaster/fire.mp3"
 	FlashSound1			"sound/weapons/blaster/fire.mp3"
 	FlashSound2			"sound/weapons/blaster/fire.mp3"
@@ -171,7 +234,7 @@ WeaponInfo1
 
 	customAmmo			2184
 	clipsize			156
-	reloadTimeModifier	.5 //barely works
+	//reloadTimeModifier	.5 //barely works
 
 	hasAnimOverrides	1
 	animReadyNoAmmo		BOTH_ARC_FORWARD_DIVE
@@ -209,8 +272,8 @@ WeaponInfo3
 	altMissileMissEffect		"env/water_impact"
 	altMissileHitHumanEffect	"env/water_impact"
 	altMissileHitDroidEffect	"env/water_impact"
-	altMuzzleEffect				"env/water_impact"
-	altMissileEffect			"misc/waterbreath"
+	altMuzzleEffect				"saber/water_boilbubble_nosnd"
+	altMissileEffect		"saber/water_boilbubble_nosnd"
 
 	selectSound			"sound/player/muckexit.wav"
 
@@ -222,22 +285,22 @@ WeaponInfo3
 	MissileMissEffect		"env/water_impact"
 	MissileHitHumanEffect	"env/water_impact"
 	MissileHitDroidEffect	"env/water_impact"
-	MuzzleEffect			"env/water_impact"
-	MissileEffect				"misc/waterbreath"
+	MuzzleEffect			"saber/water_boilbubble_nosnd"
+	MissileEffect			"saber/water_boilbubble_nosnd"
 
 	customAmmo			-1
 	clipsize			50
-	rateMod				61
+	rateMod				60
 	damageMod			2.5
  velocityMod 1.35
- //splashradius 1
- //splashdamage 1
+ splashradius 10
+ splashdamage 2
 
 	hasAnimOverrides	1
 	animReady			BOTH_MELEE_STAND2
 	animReadyWalk		BOTH_MELEE_STAND2
 	animReadyRun		BOTH_MELEE_STAND2
-	animReadyNoAmmo		BOTH_MELEE_STAND2
+	animReadyNoAmmo	BOTH_PAIN13
 	animAttackRun		BOTH_PAIN13
 	animAttack			BOTH_PAIN13
 	animAttackWalk		BOTH_PAIN13
@@ -245,51 +308,49 @@ WeaponInfo3
 
 description "Jar Jar Binks
 
-Mesa, uh, clumsy...
-
-^2Weaponry:
-- Heavy Melee
--- Slips on hit
--- 25% faster RoF
-- Grand Gungan Ticklers (Dual Saber)
--- No Saber/Blaster Block
--- Chain Limit: 1
--- Trips/slips on hit
--- 300% more knockback
--- 100% more special damage
--- 100/25% shorter
--- 400% thicker
-- Salvaged E-5 Blaster Rifle (T-21 1)
--- 50% faster reload
--- 50% less damage
-- Boomas (4) (Pulse Grenades)
--- 100% more damage
--- Primary fire only
-
-^5Powers:
-- Jarlord's Jump (1)
-
-^8Attributes:
-- Bunny Hop (2)
-- Slow Faller
-- Stamina (3)
--- Extra Regen: 5/.001s to 70
-- Dexterity (3)
-- Blast Armor
-- Healing (2)
-- Gungan Lungs (UB)
-- Getup (3)
-- Ally Stat Viewer
-- 50% more knockback given
-- 50% more knockback taken
-- 150% slower skill cooldown
-- 100% slower hacking
+^9Weaponry:
+- Melee
+^2-- Hit: Slip
+^2-- Damage: 2x
+^2-- RoF: 1.3x
+- Grand Gungan Ticklers ^9(Dual Saber)
+^2-- Hit: Slip/trip
+^2-- Knockback: +3
+^2-- Spec Damage: x2
+^2-- Radius: 18
+^1-- Defense: No
+^1-- Chain: 1
+^1-- Length: 0/30
+- Salvaged E-5 Blaster Rifle ^9(T-21 1)
+^1-- Damage: .5x
+- Booma ^9(Pulse Grenade 4)
+^2-- Det: Push
+^2-- Damage: 2x
+^1-- Sec Fire: No
 
 ^3Abilities:
 - Dodge (3) ^3[CS1]
-- Fumble (Quick Throw 3) ^3[Melee CS1]
-- Pratfall (Barge 3) ^3[Melee CS2]
+- Fumble ^9(Quick Throw 3) ^3[Melee CS1]
+- Pratfall ^9(Barge 3) ^3[Melee CS2]
 - Dex Roll ^3[CS3]
 - Dash (1) ^3[CS4]
 - Flipkick (2) ^3[Contact Jump]
-- Gungan Jive ^3[Taunt Sith]"
+- Gungan Jive ^3[Taunt Sith]
+
+^8Attributes:
+- Dexterity (3)
+- Getup (3)
+- Stamina (3)
+^2-- Bonus: 5/.001s > 70
+- Healing (2)
+- Bunny Hop (1)
+- Slow Faller
+- Blast Armor
+- Water Breathing
+- Ally Stat Viewer
+^2- Knockback Given: 1.5x
+^1- Knockback Taken: 1.5x
+^1- Skill Recharge: .4x
+^1- Hacking: .4x
+
+Mesa, uh, clumsy..."

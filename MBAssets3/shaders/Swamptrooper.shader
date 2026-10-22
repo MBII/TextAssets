@@ -70,7 +70,7 @@ models/players/swamptrooper/helmet_green
 		detail
 	}
 	{
-		map models/players/swamptrooper/helmet2_spec
+		map models/players/swamptrooper/helmet_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		detail
 		alphaGen lightingSpecular

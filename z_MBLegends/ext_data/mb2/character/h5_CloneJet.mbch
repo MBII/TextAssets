@@ -4,11 +4,12 @@ ClassInfo
 	name				"h5_CloneJet"
 	MBClass				MB_CLASS_CLONETROOPER
 	classNumberLimit	4
+ extralives 1
 
 	weapons				WP_CLONE_RIFLE|WP_MELEE|WP_ROCKET_LAUNCHER|WP_PULSE_NADE|WP_MANDO_PISTOL
 	WP_RocketLauncherFlags	HELD_PULSE
 
-	attributes			MB_ATT_CLONERIFLE,1|MB_ATT_QUICKTHROW,1|MB_ATT_JETPACK,1|MB_ATT_AMMO,3|MB_ATT_RESPAWNS,1|MB_ATT_STRONGBLOBS,3|MB_ATT_ASSEMBLE,3|MB_ATT_PULSE_GRENADES,2|MB_ATT_CLONEBLOBS,2|MB_ATT_MANDO_PISTOL,3|MB_ATT_DASH,1|MB_ATT_BACTA,1
+	attributes			MB_ATT_CLONERIFLE,1|MB_ATT_QUICKTHROW,1|MB_ATT_JETPACK,1|MB_ATT_AMMO,3|MB_ATT_STRONGBLOBS,3|MB_ATT_ASSEMBLE,3|MB_ATT_PULSE_GRENADES,2|MB_ATT_CLONEBLOBS,2|MB_ATT_MANDO_PISTOL,3|MB_ATT_DASH,1|MB_ATT_BACTA,1
 
 	maxhealth			80
 	maxarmor			90
@@ -16,9 +17,6 @@ ClassInfo
 	resource			RESOURCE_FUEL
 
 	basespeed			227
-
-	jetpackJetTag		*jet1
-	jetpackJet2Tag		*jet2
 
 	knockbackTaken		0.95
 
@@ -29,6 +27,9 @@ ClassInfo
 	special2			EAS_HI_DASH
 	special3			EAS_HI_QUICKTHROW
 	special4			EAS_HI_MEDPAC
+
+	jetpackJetTag		*jet1
+	jetpackJet2Tag		*jet2
 
 	modelscale			1.02
 	model				"clonetrooper_p2"
@@ -74,27 +75,45 @@ WeaponInfo0
 {
 	WeaponToReplace		WP_ROCKET_LAUNCHER
 	WeaponBasedOff		WP_ROCKET_LAUNCHER
+
 	MuzzleEffect			"upl/muzzle_flash"
 	MissileEffect			"upl/shot"
-	AltMissileEffect		"upl/shot"
 	MissileMissEffect		"upl/explosion"
 	MissileHitHumanEffect	"upl/explosion"
 	MissileHitDroidEffect	"upl/explosion"
+
+ altMuzzleEffect "upl/muzzle_flash"
+	AltMissileEffect		"upl/shot"
+	altMissileMissEffect		"upl/explosion"
+	altMissileHitHumanEffect	"upl/explosion"
+	altMissileHitDroidEffect	"upl/explosion"
+
 	MissileSound		"sound/weapons/upl/missleloop.wav"
+	altMissileSound		"sound/weapons/upl/missleloop.wav"
 	FlashSound0			"sound/weapons/upl/fire_rocket.wav"
+	FlashSound1		"sound/weapons/upl/fire_rocket.wav"
+	FlashSound2			"sound/weapons/upl/fire_rocket.wav"
+	FlashSound3			"sound/weapons/upl/fire_rocket.wav"
 	AltFlashSound0		"sound/weapons/upl/fire_rocket.wav"
+	AltFlashSound1		"sound/weapons/upl/fire_rocket.wav"
+	AltFlashSound2		"sound/weapons/upl/fire_rocket.wav"
+	AltFlashSound3		"sound/weapons/upl/fire_rocket.wav"
+
 	NewWorldModel		"models/weapons2/upl/upl_w.glm"
 	NewViewModel		"models/weapons2/upl/upl.md3"
 	NewBarrelModel		"models/weapons2/upl/upl_barrel.md3"
 	MissileModel		"models/weapons2/upl/projectile_a.md3"
+
 	WeaponName			"EMP Launcher"
 	Icon				"gfx/hud/w_icon_upl"
-	clipSize			1
-	CustomAmmo			7
-	ReloadTimeModifier	1.4
+
+	clipSize			  1
+	CustomAmmo			5
+	ReloadTimeModifier	1.75
 	altfireenabled		0
-	velocityMod			1.15
-	rateMod				.95
+	velocityMod		1.15
+	rateMod				  .5
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_WESTARM5_READY
 	animReady			BOTH_WESTARM5_READY
@@ -132,31 +151,30 @@ WeaponInfo1
 
 description	"Clone Jet Trooper
 
-Jetpack users who specialize in dealing disabling damage from the skies.
-
-^2Weaponry:
+^9Weapons:
 - Melee
-- Dual DC-17 Hand Blasters (WESTAR 3)
+- Dual DC-17 Hand Blasters ^9(WESTAR 3)
 - DC-15A Clone Rifle (1)
--- Conc Blob (4)
--- Ion Blob (6)
-- EMP Launcher (8) (Rocket Launcher)
--- Shocks on det
--- 15% more velocity
--- 5% faster RoF
--- 40% slower reload
--- Primary fire only
+^2-- Conc Blob: 4
+^2-- Ion Blob: 6
+- EMP Launcher ^9(PLX-2M)
+^2-- Det: Shock
+^2-- Velocity: 1.15x
+^2-- RoF: 2x
+^1-- Sec Fire: No
+^1-- Reload: .57x
 - Pulse Grenade (2)
 
-^6Inventory:
+^3Abilities:
+- Dash (1) ^3[CS2]
+- Quick Throw (1) ^3[CS3]
+- Jetpack ^3[Hold/2x Jump]
+
+^6Items:
 - Medpac ^3[CS4]
 
 ^8Attributes:
-- Reinforcement (1)
 - Assemble (3)
-- 5% less knockback taken
+^2- Knockback Taken: .95x
 
-^3Abilities:
-- Jetpack
-- Dash (1) ^3[CS2]
-- Quick Throw (1) ^3[CS3]"
+Jetpack users who specialize in dealing disabling damage from the skies."

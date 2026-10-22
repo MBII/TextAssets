@@ -22,15 +22,22 @@ ClassInfo
 	forcepool			80
 	forceregen			1.2
 
-	basespeed			188
+	basespeed			190
 	resource			RESOURCE_ENERGY
+	
+	special1HUD			HUD_FRAGNADE
+	special2HUD			HUD_SONICNADE
 
 	special1			EAS_HI_DODGE
 	meleespecial1		EAS_HI_DODGE
 	special3			EAS_HI_MEDPAC
 
+	classflags			CFL_STATVIEWER
+
 	rateOfFire_Melee	1
 	rankROFMelee		0.9
+	
+	flourishAnim		TORSO_SURRENDER_START
 
 	model				"crixmadine"
 	skin				"officer"
@@ -54,70 +61,64 @@ ClassInfo
 	mbPoints			80
 
 	c_att_skill_0		MB_ATT_ROF_MELEE_MULTIPLIER
-	c_att_names_0		"Melee RoF (110%)"
-	c_att_ranks_0		2
+	c_att_names_0		"Melee Rate of Fire: 1.11x"
+	c_att_ranks_0		1
 
 	c_att_skill_1		MB_ATT_CCTRAINING
 	c_att_names_1		"Close Combat Training"
-	c_att_ranks_1		0,6,6
+	c_att_ranks_1		0,6,8
 
 	c_att_skill_2		MB_ATT_PISTOL
 	c_att_names_2		"DL-44 Heavy Blaster Pistol"
 	c_att_ranks_2		0,0,12
-	c_att_descs_2		"20% more charged FP drain"
+	c_att_descs_2		"^2Charged Drain: 1.2x"
 
 	c_att_skill_3		MB_ATT_BLASTER
 	c_att_names_3		"DH-17 Blaster Rifle"
 	c_att_ranks_3		4,6
 
 	c_att_skill_4		MB_ATT_WESTARM5
-	c_att_names_4		"Flare Pistol (M5)"
-	c_att_ranks_4		16,0
-	c_att_descs_4		"Burns/staggers/pushes on hit, 75% more damage, 100% more FP drain,
-500% slower RoF, 50% slower mag reload"
+	c_att_names_4		"Flare Pistol ^9(M5)"
+	c_att_ranks_4		15,0
+	c_att_descs_4		"^2Hit: Burn/stagger/push, Damage: 1.75x, Drain: 2.2x,
+^1RoF: .2x, Mag Reload: .66x"
 
 	c_att_skill_5		MB_ATT_BASE_TD
 	c_att_names_5		"Thermal Grenade"
-	c_att_ranks_5		2,2,2
-	c_att_descs_5		"Pushes/slows on hit"
+	c_att_ranks_5		1,1,1
+	c_att_descs_5		"^2Det: Push/slow"
 
 	c_att_skill_6		MB_ATT_FRAGS
 	c_att_names_6		"Frag Grenade"
-	c_att_ranks_6		14,14
+	c_att_ranks_6		12,14
 
 	c_att_skill_7		MB_ATT_SONIC_DETONATOR
 	c_att_names_7		"Sonic Detonator"
-	c_att_ranks_7		14,14
+	c_att_ranks_7		12,14
 
 	c_att_skill_8		MB_ATT_MICRO_GRENADES
 	c_att_names_8		"V-59 Conc Grenade"
 	c_att_ranks_8		8,8
+	
+	c_att_skill_9		MB_ATT_BACTA_BOMB
+	c_att_names_9		"Bacta Bomb"
+	c_att_ranks_9		12,14
 
-	c_att_skill_9		MB_ATT_EE4
-	c_att_names_9		"E-11 Blaster Rifle (EE-4)"
-	c_att_ranks_9		6,8
+	c_att_skill_10		MB_ATT_EE4
+	c_att_names_10		"EE-4 Carbine Rifle"
+	c_att_ranks_10		6,8
 
-	c_att_skill_10		MB_ATT_BACTA
-	c_att_names_10		"Medpac ^3[CS3]"
-	c_att_ranks_10		4
+	c_att_skill_11		MB_ATT_BACTA
+	c_att_names_11		"Medpac ^3[CS3]"
+	c_att_ranks_11		4
 
-	c_att_skill_11		MB_ATT_RALLY
-	c_att_names_11		"Rally"
-	c_att_ranks_11		5
+	c_att_skill_12		MB_ATT_RALLY
+	c_att_names_12		"Rally"
+	c_att_ranks_12		5
 }
+
 
 WeaponInfo0
-{
-	WeaponToReplace		WP_EE4
-	WeaponBasedOff		WP_BLASTER
-	NewWorldModel		"models/weapons2/blaster_r/blaster_w.glm"
-	NewViewModel		"models/weapons2/blaster_r/blaster.md3"
-	Icon				"gfx/hud/w_icon_E11"
-	FlashSound0			"sound/weapons/blaster/fire.mp3"
-	WeaponName			"E-11 Blaster Rifle"
-}
-
-WeaponInfo1
 {
 	WeaponToReplace		WP_BLASTER
 	WeaponBasedOff		WP_BLASTER
@@ -128,7 +129,7 @@ WeaponInfo1
 	customammo			500
 }
 
-WeaponInfo2
+WeaponInfo1
 {
 	WeaponToReplace		WP_M5
 	WeaponBasedOff		WP_BLASTER
@@ -143,7 +144,7 @@ WeaponInfo2
 	clipsize			6
 	ratemod				5
 	damagemod			1.75
-	FPmult				2
+	FPmult				2.2
 	ReloadTimeModifier	1.5
 	hasAnimOverrides	1
 	animReadyRun		BOTH_JANGO_PISTOL_IDLE
@@ -172,16 +173,16 @@ WeaponInfo3
 
 description	"Rebel Officer
 
-Strong squad leaders with a vital battlefield presence.
-
-^2Weaponry:
+^9Weapons:
 - Melee
 - DL-44 Heavy Blaster Pistol (2)
--- 20% more charged FP drain
-
-^8Attributes:
-- Reinforcement (1)
-- Close Combat Training (1)
+^2-- Charged Drain: 1.2x
 
 ^3Abilities:
-- Dodge (2) ^3[CS1]"
+- Dodge (2) ^3[CS1]
+
+^8Attributes:
+- Close Combat Training (1)
+- Ally Stat Viewer
+
+Strong squad leaders with a vital battlefield presence."

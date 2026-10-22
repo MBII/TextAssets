@@ -10,11 +10,11 @@ ClassInfo
 
 	WP_MeleeFlags		HELD_SLOW|HELD_LOWDAMAGE|HELD_NODISARM
 	WP_SaberFlags		HELD_PULSE|HELD_NODISARM
-	WP_MinigunFlags		HELD_PULL|HELD_NODISARM
+	WP_MinigunFlags		HELD_PULL|HELD_NODISARM|HELD_FORCEFOCUS
 	WP_TripMineFlags	HELD_LOWDAMAGE|HELD_PULL|HELD_DISARM|HELD_NODISARM
  WP_A280Flags HELD_ALTRELOAD|HELD_NODISARM
 
-	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_RECHARGE,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BESKAR,1|MB_ATT_A280,2|MB_ATT_MINIGUN,1|MB_ATT_TRIP_MINES,3|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,1
+	attributes			MB_ATT_ASSEMBLE,1|MB_ATT_AMMO,3|MB_ATT_BARGE,1|MB_ATT_WOOKIE_STRENGTH,3|MB_ATT_RECHARGE,2|MB_ATT_BLAST_ARMOUR,1|MB_ATT_MAGNETIC_PLATING,1|MB_ATT_BESKAR,1|MB_ATT_A280,2|MB_ATT_MINIGUN,2|MB_ATT_TRIP_MINES,3|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,1|MB_ATT_FORCEFOCUS,2
 
 	resource			RESOURCE_BATTERY
 	forcePowers			FP_PULL,1
@@ -30,13 +30,13 @@ ClassInfo
 	saberMaxChain		1
 	saberStanceAnim		TORSO_WEAPONREADY0
 
-	maxhealth			50
-	maxArmor			175
- speed 1.0715
+	maxhealth			80
+	maxArmor			150
+ Speed 1.0715
  meleeknockback_flat 25
  rateOfFire_Melee 1.65
 
- //classFlags CFL_HEAVYMELEE
+	classFlags CFL_HEAVYMELEE|CFL_STRONGAGAINSTPHYSICAL
 
 	meleeMoves	M_PUNCH|M_KATA
 
@@ -105,7 +105,7 @@ WeaponInfo1
 	isMinigun			1
 
 	customAmmo			-1
-	clipSize			100
+	clipSize			200
 
 	damageMod			0.01
 	FPMult				0.01
@@ -113,7 +113,7 @@ WeaponInfo1
 	FPBlockMaxMult		1
 	FPNoBlockMinMult	1
 	FPNoBlockMaxMult	1
-	rateMod				3
+	rateMod				2.5
 
 	altMuzzleEffect			"grenades/glowempb"
 	altMissileEffect					"halo_shotgun/shot"
@@ -161,49 +161,51 @@ ForceInfo0
 	HandShader			"gfx/effects/dekashield2"
 }
 
-description	"N5 Sentry Droid aka New Republic Security Droid
+description	"N5 Sentry Droid - New Republic Security Droid
 
-Patrol units with reinforced armor, equipped to subdue unruly prisoners with standard weaponry and built-in magnetics.
-
-^2Weaponry:
+^9Weapons:
 - Droid Melee
--- 25% more knockback
--- 50% less damage
--- 65% slower RoF
--- Heavyweight
--- Punch/grab only
-- Stun Baton (Purple Saber)
--- No Block
--- Chain Limit: 1
--- Shocks on hit
--- Non-disarmable
--- 40% shorter
--- 166% thicker
-- Magnetic Attractor Device (Minigun 1)
--- Pulls on hit
--- 99% less damage/FP drain
--- 200% slower RoF
-- Modified DH-17 Blaster Pistol (A280 2)
--- Non-disarmable
--- Mag reload
+^2-- Knockback: +25
+^1-- Heavyweight
+^1-- Sec Fire: No
+^1-- Damage: .5x
+^1-- RoF: .6x
+- Stun Baton ^9(Purple Saber)
+^2-- Hit: Shock
+^2-- Non-disarmable
+^2-- Radius: 8
+^1-- Defense: No
+^1-- Chain: 1
+^1-- Length: 24
+- Magnetic Attractor Device ^9(Minigun 2)
+^2-- Hit: Pull/focus
+^1-- Damage: .01x
+^1-- Drain: .01x
+^1-- RoF: .4x
+- Modified DH-17 Blaster Pistol ^9(A280 2)
+^2-- Non-disarmable
+^1-- Mag Reload
 - Magnetic Trap Mine (3)
--- Pulls/disarms on det
--- Non-disarmable
--- 50% less damage
-
-^5Powers:
-- Magnetic (Force) Pull ^3[CS4]
-
-^8Attributes:
-- Reinforcement (1)
-- Strength (3)
-- Battery Recharge (2)
-- Magnetic Plating
-- Beskar (1)
-- Blast Armor
-- Assemble (1)
-- Getup (1)
-- Wookalike
+^2-- Det: Pull/disarm
+^2-- Non-disarmable
+^1-- Damage: .5x
 
 ^3Abilities:
-- Shoulder Barge (1) ^3[Melee CS2]"
+- Shoulder Barge (1) ^3[Melee CS2]
+
+^5Powers:
+- Magnetic Pull (1) ^3[CS4]
+
+^8Attributes:
+- Strength (3)
+- Battery Recharge (2)
+- Force Focus (2)
+- Beskar (1)
+- Assemble (1)
+- Getup (1)
+- Brawler Guard
+- Magnetic Plating
+- Blast Armor
+- Wookalike
+
+Patrol units with reinforced armor, equipped to subdue unruly prisoners with standard weaponry and built-in magnetics."

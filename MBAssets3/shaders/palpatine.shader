@@ -139,60 +139,63 @@ models/players/palpatine/head_sith
 	}
 }
 
-models/players/palpatine/headb
+models/players/palpatine/head_sith_hood
 {
 	cull	twosided
 	{
-		map models/players/palpatine/headb
+		map models/players/palpatine/head_sith_hood
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/palpatine/headb-spec
+		map models/players/palpatine/head-spec_sith_hood
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/palpatine/headc
+models/players/palpatine/head_emp
 {
 	cull	twosided
 	{
-		map models/players/palpatine/headc
+		map models/players/palpatine/head_emp
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/palpatine/head-spec_sith
+		map models/players/palpatine/head_emp-spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail
 	}
 }
 
-models/players/palpatine/head_tfu
+models/players/palpatine/head_de
 {
 	cull	twosided
 	{
-		map models/players/palpatine/head_tfu
+		map models/players/palpatine/head_de
 		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/palpatine/head_emp-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
 
-models/players/palpatine/head_tfu2
+models/players/palpatine/head_ep9_b
 {
 	cull	twosided
 	{
-		map models/players/palpatine/head_tfu2
+		map models/players/palpatine/head_ep9_b
 		rgbGen lightingDiffuse
 	}
-}
-
-models/players/palpatine/head_tfu3
-{
-	cull	twosided
 	{
-		map models/players/palpatine/head_tfu3
-		rgbGen lightingDiffuse
+		map models/players/palpatine/head-spec_sith_hood
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
 	}
 }
 
@@ -262,46 +265,16 @@ models/players/palpatine_tros/robe
 }
 
 
-// Senator
-
-models/players/palpatine_senator/body
+// Darth Sidious (TPM & RotJ)
+models/players/darthsidious/body
 {
 	cull	twosided
 	{
-		map models/players/palpatine_senator/body
+		map models/players/darthsidious/body
 		rgbGen lightingDiffuse
 	}
 	{
-		map models/players/palpatine_senator/body_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/palpatine_senator/body2
-{
-	cull	twosided
-	{
-		map models/players/palpatine_senator/body2
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/palpatine_senator/body_spec
-		blendFunc GL_SRC_ALPHA GL_ONE
-		alphaGen lightingSpecular
-		detail
-	}
-}
-
-models/players/palpatine_senator/ep1
-{
-	{
-		map models/players/palpatine_senator/ep1
-		rgbGen lightingDiffuse
-	}
-	{
-		map models/players/palpatine_senator/ep1_spec
+		map models/players/darthsidious/body_spec
 		blendFunc GL_SRC_ALPHA GL_ONE
 		alphaGen lightingSpecular
 		detail

@@ -80,8 +80,8 @@ b1_leg
 	MB_ATT_BLASTER	3
 	MB_ATT_SLAVE	1
 	altFire		1
-	health		80
-	armor		60
+	health		70
+	armor		50
 
 	reactions	3
 	aim			1
@@ -126,8 +126,8 @@ b1_leg2
 	MB_ATT_BLASTER	3
 	MB_ATT_SLAVE	1
 	altFire		1
-	health		80
-	armor		60
+	health		70
+	armor		50
 
 	reactions	3
 	aim			1
@@ -355,6 +355,7 @@ interrogator_leg
 	sndcombat	interrogator
 	sndjedi		interrogator
 	sndextra	interrogator
+ nolocationalDamage 1
 }
 
 //enoch
@@ -387,16 +388,28 @@ remote_imp_leg_e
 	sndjedi		remote
 	sndextra	remote
 	moveType	"flyswim"
+ nolocationalDamage 1
 }
 
 //wattam
 remote_imp_leg_wt
 {
 	playerModel	remote_imp
-	MBClass		11
 	weapon		WP_NONE
+ altfire 1
+ //MB_ATT_JETPACK 1
 	MB_ATT_SLAVE	1
-	health		50
+ MB_ATT_ENEMYSCANNER 1
+ FP_DRAIN 3
+ FP_LIGHTNING 1
+ special1 EAS_HI_ENEMYSCANNER
+ //special2 EAS_FP_DRAIN
+ //special4 EAS_FP_LIGHTNING
+ RESOURCE_ENERGY 1
+ forcePowerMax 50
+ forceRegenAmount 1
+ forceRegenRate 200
+	health		80
 	reactions	5
 	aim			5
 	move		5
@@ -407,16 +420,62 @@ remote_imp_leg_wt
 	enemyTeam	TEAM_ENEMY
 	class		CLASS_REMOTE
 	yawSpeed	120
-	runSpeed	500
-	walkSpeed	150
-	height		32
-	width		8
-	hFOV		160
-	vfov		45
-	snd			remote
+	runSpeed	60
+ height		15
+ crouchheight 15
+ width 15
+ scale 100
+	hFOV		180
+	vfov		180
 	snd			remote
 	sndcombat	remote
 	sndjedi		remote
 	sndextra	remote
 	moveType	"flyswim"
+ nolocationaldamage 1
+}
+
+//palp
+sen_guard
+{
+	playerModel	clonesenate
+	displayName	"Senate Guard"
+	customSkin	guard
+	MBClass		11
+ saber 	Guard_pike_legends
+ saberstyle 5
+	weapon		WP_MELEE
+ weapon WP_SABER
+	weapon		WP_DC_CARBINE
+	MB_ATT_DC_CARBINE	2
+	MB_ATT_SLAVE	1
+ MB_ATT_CLONEBLOBS 2
+ MB_ATT_STRONGBLOBS 2
+	altFire		1
+	health		80
+	armor		80
+	headPitchRangeDown	30
+	reactions	5
+	aim			5
+	move	5
+	aggression	5
+	evasion		5
+	intelligence	5
+	rank		crewman
+ playerTeam TEAM_ENEMY
+ enemyTeam TEAM_PLAYER
+	class		CLASS_STORMTROOPER
+	scale		102
+	height		65
+	crouchheight	39 //40p
+	runSpeed	200
+	snd			clonesenate
+	sndcombat	clonesenate
+	sndextra	clonesenate
+	yawspeed	100
+	dismemberProbHead	15
+	dismemberProbArms	15
+	dismemberProbLegs	15
+	dismemberProbHands	15
+	dismemberProbWaist	15
 }
