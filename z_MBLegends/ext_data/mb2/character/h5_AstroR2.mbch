@@ -5,12 +5,12 @@ ClassInfo
 	MBClass				MB_CLASS_BATTLEDROID
 	classNumberLimit	1
 
-	weapons WP_MELEE|WP_THROWER|WP_WELDER
+	weapons WP_MELEE|WP_REPEATER|WP_WELDER
 	WP_MeleeFlags HELD_SLOW
  WP_WelderFlags HELD_NODISARM
- WP_ThrowerFlags HELD_FLAME|HELD_NODISARM
+ WP_RepeaterFlags HELD_FLAME|HELD_NODISARM
 
- attributes	MB_ATT_JETPACK,1|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISP_BLOCK,2|MB_ATT_DISP_FORCE,2|MB_ATT_THROWER_FLAME|MB_ATT_USE_DISTANCE,1|MB_ATT_HEALING,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ENV_PROT,1|MB_ATT_BARGE,3|MB_ATT_WELDER,1
+ attributes	MB_ATT_JETPACK,1|MB_ATT_WRISTLASER,1|MB_ATT_FP_MIRALUKA,1|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_DISP_BLOCK,2|MB_ATT_DISP_FORCE,2|MB_ATT_REPEATER|MB_ATT_REPEATER_NADES,2|MB_ATT_USE_DISTANCE,1|MB_ATT_HEALING,2|MB_ATT_CORTOSIS,1|MB_ATT_SHIELD_RECHARGE,1|MB_ATT_ENV_PROT,1|MB_ATT_BARGE,3|MB_ATT_WELDER,1
 
 	forcepowers	FP_SEE,1|FP_PUSH,1|FP_SPEED,2|FP_LIGHTNING,1
  AB_FLightningFlags HELD_HIGHDAMAGE
@@ -81,7 +81,7 @@ WeaponInfo0
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"  
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon			"gfx/menus/classes/astro"
-	WeaponName		"Body Slam"
+	WeaponName		"Melee Interface"
  selectsound "sound/interface/zoomstart.mp3"
 }
 
@@ -101,18 +101,40 @@ WeaponInfo1
 
 WeaponInfo2
 {
-	WeaponToReplace		WP_THROWER
-	WeaponBasedOff		WP_THROWER
+	WeaponToReplace		WP_REPEATER
+	WeaponBasedOff		WP_REPEATER
 	NewWorldModel		"models/weapons2/dummyblaster/model.glm"
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
+
 	Icon			"gfx/hud/w_icon_cr-24_flamerifle"
 	WeaponName		"Jet Burst"
+
+	altFlashSound0		"sound/effects/fireburst.mp3"
+
+	altMissileModel		"models/weapons2/dummy/dummy.md3"
+
+	altMissileMissEffect	"firegrenade/prim_explode_new"
+	altMissileHitHumanEffect	"firegrenade/prim_explode_new"
+	altMissileHitDroidEffect	"firegrenade/prim_explode_new"
+	altMuzzleEffect			"firegrenade/prim_explode_new"
+	altMissileEffect		"firegrenade/firedrop"
+
+	FlashSound0			"sound/effects/fireburst.mp3"
+
+	MissileModel		"models/weapons2/dummy/dummy.md3"
+
+	MissileMissEffect	"firegrenade/prim_explode_new"
+	MissileHitHumanEffect		"firegrenade/prim_explode_new"
+	MissileHitDroidEffect	"firegrenade/prim_explode_new"
  MuzzleEffect  "firegrenade/prim_explode_new"
- altMuzzleEffect "firegrenade/prim_explode_new"
-	clipsize 1
-	customammo 12
- reloadTimeModifier 2400
- damageMod 7.5
+ MissleEffect 	"firegrenade/firedrop"
+
+	customAmmo			-1
+	clipsize			-1
+	damageMod			1
+	splashRadius	50
+	primfireenabled		0
+	velocityMod			0
  selectsound "sound/interface/zoomend.mp3" 
 }
 
@@ -154,10 +176,12 @@ description	"Astromech Droid
 - Melee Interface
 ^1-- Heavyweight
 ^1-- Prim Fire: No
-- Jet Burst ^9(Flamethrower)
+- Jet Burst ^9(Repeater)
+^2-- Blob: 4
 ^2-- Hit: Burn
-^2-- Damage: 7.5x
-^1-- Reload: .0004x
+^1-- Prim Fire: No
+^1-- Velocity: 0
+^1-- AoE: 50
 - Fusioncutter ^9(Welder 1)
 ^1-- Damage: .9x
 
