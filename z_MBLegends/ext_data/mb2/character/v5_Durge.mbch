@@ -6,10 +6,10 @@ ClassInfo
 	classNumberLimit	1
 
 	weapons				WP_MELEE|WP_MANDO_PISTOL|WP_SBD|WP_SABER
-	attributes			MB_ATT_HEALING,2|MB_ATT_SHIELD_RECHARGE,2|MB_ATT_MANDO_PISTOL,3|MB_ATT_BLAST_ARMOUR|MB_ATT_CORTOSIS,1|MB_ATT_FUEL,3|MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_FLAMETHROWER|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_FIREPOWER,3|MB_ATT_DEFLECT,0|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_WOOKIEE_FURY,1|MB_ATT_ENV_PROT,1|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,1
+	attributes			MB_ATT_HEALING,2|MB_ATT_SHIELD_RECHARGE,2|MB_ATT_MANDO_PISTOL,3|MB_ATT_BLAST_ARMOUR|MB_ATT_BESKAR,2|MB_ATT_FUEL,3|MB_ATT_JETPACK|MB_ATT_AMMO,3|MB_ATT_FLAMETHROWER|MB_ATT_WOOKIE_STRENGTH,2|MB_ATT_FIREPOWER,3|MB_ATT_DEFLECT,0|MB_ATT_FP_SABER_DEFENSE,3|MB_ATT_GUN_DEFENSE,1|MB_ATT_WOOKIEE_FURY,2|MB_ATT_ENV_PROT,1|MB_ATT_FAKE_WOOKIEE|MB_ATT_GETUPS,1
 
-	maxhealth			125
-	maxarmor			125
+	maxhealth			300
+	maxarmor			30
 	blockRegenRate		999999
 	classflags			CFL_DISMEMBERFRAGILE|CFL_STRONGAGAINSTPHYSICAL|CFL_BLOODYMELEE
 
@@ -17,15 +17,19 @@ ClassInfo
 	WP_SBDFlags			HELD_NODISARM
 	WP_SaberFlags		HELD_NODISARM
 
-	resource			RESOURCE_FORCE
+	resource			RESOURCE_STABILITY
 	forcepowers			FP_SEE,1|FP_ABSORB,2|FP_RAGE,3
-	forcepool			80
-	forceregen			0.65
+	forcepool			90
+	forceregen			1.1
+	healthRegenCap      100
+	healthRegenAmount   5
+	healthRegenRate     10000
 	baseSpeed			200
+	skilltimermod       1.25
 	//rateoffire		1.15
 	//rateoffire_melee	1.15
 
-	knockbackTaken		0.85
+	knockbackTaken		.75
 
 	special1			EAS_FP_RAGE
 	meleespecial1		EAS_FP_RAGE
@@ -67,8 +71,8 @@ WeaponInfo0
 	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
 	FPMult				1.30
 	customAmmo			800
-	rateMod				1.15
-	damageMod			1.1
+	rateMod				1.17
+	damageMod			1.15
 }
 
 WeaponInfo1
@@ -79,7 +83,7 @@ WeaponInfo1
 	NewViewModel		"models/weapons2/dummy/dummy.md3"
 	Icon				"gfx/hud/w_icon_sbdarm"
 	WeaponName			"Flechette Gatling Gauntlet"
-	customAmmo			56
+	customAmmo			63
 	clipsize			7
 	FlashSound0			"sound/weapons/halo_needler/fire.wav"
 	FlashSound1			"sound/weapons/halo_needler/fire.wav"
@@ -92,6 +96,8 @@ WeaponInfo1
 	MuzzleEffect			null
 	altfireenabled		0
 	FPMult				1.50
+	rateMod             .9
+	damageMod           .8
 	primgore			1
 	hasAnimOverrides	1
 	animReadyNoAmmo		BOTH_BLASTER_ATTACK
@@ -141,11 +147,13 @@ description	"Durge
 ^1-- BP Regen: 0
 ^1-- Length: 35
 - Durge's Blaster Pistols ^9(WESTAR 3)
-^2-- Damage: 1.1x
+^2-- Damage: 1.15x
 ^2-- Drain: 1.3x
-^1-- RoF: .86x
+^1-- RoF: .85x
 - Flechette Gatling Gauntlet ^9(Arm Blaster 3)
+^1-- Damage: .8x
 ^2-- Drain: 1.5x
+^2-- RoF: 1.1x
 ^1-- Sec Fire: No
 
 ^3Abilities:
@@ -161,13 +169,15 @@ description	"Durge
 - Strength (2)
 - Armor Regen (2)
 - Healing (2)
-- Fury (1)
+^2-- Regenerate: 5/10s > 100
+- Fury (2)
 - Getup (1)
 - Climate Shielding (1)
-- Cortosis (1)
+- Beskar (2)
 - Blast Armor
 - Brawler Guard
 - Wookalike
-^2- Knockback Taken: .85x
+^2- Knockback Taken: .75x
+^1- Skill Recharge:  .8x
 
 A tanky dual pistoleer/brawler class equipped with a Jetpack and tools meant for destroying Jedi."
