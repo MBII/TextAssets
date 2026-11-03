@@ -1,3 +1,4 @@
+
 ClassInfo
 {
  name    "h3_Cander"
@@ -6,37 +7,43 @@ ClassInfo
 
  weapons    WP_MELEE
 
- WP_MeleeFlags     HELD_SPEED
- WP_T21Flags	   HELD_ALTRELOAD
+ WP_MeleeFlags      HELD_SPEED
+ WP_T21Flags	    HELD_ALTRELOAD
 
- attributes        MB_ATT_RALLY,1|MB_ATT_DEXTERITY,1|MB_ATT_BESKAR,3|MB_ATT_CYBERNETICS,3|MB_ATT_BARGE,1|MB_ATT_ANTI_MT,1|MB_ATT_FP_SABER_DEFENSE,2
+ attributes         MB_ATT_RALLY,1|MB_ATT_DEXTERITY,1|MB_ATT_BESKAR,3|MB_ATT_CYBERNETICS,3|MB_ATT_BARGE,1|MB_ATT_ANTI_MT,1|MB_ATT_FP_SABER_DEFENSE,2
 
- resource          RESOURCE_STABILITY
- forcepowers       FP_SABER_OFFENSE,3
- forcepool         80
- rankforcepool     100,120 
- forceregen        1.3
+ resource           RESOURCE_STABILITY
+ forcepowers        FP_SABER_OFFENSE,3
+ forcepool          80
+ rankforcepool      100,120 
+ forceregen         1.3
 
- basespeed         158
+ basespeed          158
 
- maxhealth         150
- maxarmor          60
- rankArmor         75,100,125
+ maxhealth          100
+ rankHealth         150
+ maxarmor           60
+ rankArmor          75,100,125
+ HealthRegenCap		1
+ RankHealthRegenCap	35
+ HealthRegenRate	1000
+ HealthRegenAmount	2
  
- rateOfFire_Melee  .8
- skilltimermod     1.4
- knockbackgiven    1.1
- knockbackTaken    .80
- rankKbTaken       .60,.40
+ rateOfFire_Melee   .8
+ skilltimermod      1.4
+ knockbackgiven     1.1
+ knockbackTaken     .80
+ rankKbTaken        .60,.40
 
- CSmultiplier      1.05
- ASmultiplier      1.05
- APmultiplier      1.0
- rankAP            1.1,1.2,1.3
+ CSmultiplier       1.05
+ ASmultiplier       1.05
+ APmultiplier       1.0
+ rankAP             1.1,1.2,1.3
 
- saber1    "vibroblade_canderous_legends"
- saberstyle   SS_MEDIUM|SS_STRONG
- saberDamageStyle SS_STRONG,300
+ saber1             "vibroblade_canderous_legends"
+ saberstyle         SS_MEDIUM
+ saberDamageStyle   SS_MEDIUM,200|SS_STRONG,300
+ saberSpecialDamage	1.25
 
  classflags         CFL_STRONGAGAINSTPHYSICAL
 
@@ -73,22 +80,34 @@ ClassInfo
  skin_3    "nohelmet"
  uishader_3   "models/players/mandalore/mb2_icon_nohelmet"
 
- isCustomBuild  1
- mbPoints   70
+ isCustomBuild   1
+ mbPoints        70
+ hasCustomSpec   2
+ isOnlyOneSpec   0
+ 
+ customSpecName_1	"Mandalore"
+ customSpecIcon_1	"gfx/2d/logos/mb_mand"
+ 
+ customSpecName_2	"Implant Switching"
+ customSpecIcon_2	"gfx/menus/alpha/icon_templates"
+ customSpecDesc_2   "Choose between four strong Implants"
+ 
+ c_att_exclusive 15,16,17,18
 
  c_att_skill_0   MB_ATT_SABER
- c_att_names_0   "Vibroblade ^9(Yellow/Red Saber)"
+ c_att_names_0   "Vibroblade ^9(Yellow)"
  c_att_ranks_0   6
- c_att_descs_0   "Saber Defense (2), ^2Length: 59, Damage: 240/^1300"
+ c_att_descs_0   "Saber Defense (2), ^2Length: 59, Spec Damage: 1.25x, ^1Damage: 200"
 
  c_att_skill_1   MB_ATT_AP_MULTIPLIER
- c_att_names_1   "Saber AP: 1.1/1.2/1.3x"
+ c_att_names_1   "Power Attack"
  c_att_ranks_1   2,2,2
+ c_att_descs_1   "Saber Attack Power: 1.1/1.2/1.3x"
 
  c_att_skill_2   MB_ATT_CLONERIFLE
  c_att_names_2   "Heavy Repeating Blaster ^9(CTR)"
  c_att_ranks_2   3,7,22
- c_att_descs_2   "^2Damage: 1.3x, Drain: 1.2x, Velocity: 1.2x, ^1RoF: .8x  Reload: .4x"
+ c_att_descs_2   "^2Damage: 1.3x, Drain: 1.2x, Velocity: 1.2x, ^1RoF: .8x,  Reload: .4x"
 
  c_att_skill_3   MB_ATT_STRONGBLOBS
  c_att_names_3   "> Repeating Blaster Ion Blob"
@@ -97,7 +116,7 @@ ClassInfo
  c_att_skill_4   MB_ATT_T21
  c_att_names_4   "Rep. Blaster Rifle ^9(T-21)"
  c_att_ranks_4   5,15,6
- c_att_descs_4   "^2RoF: 1.05x, Drain: 1.15x, ^1 Mag Reload"
+ c_att_descs_4   "^2RoF: 1.05x, Drain: 1.15x, ^1Mag Reload"
 
  c_att_skill_5   MB_ATT_FRAGS
  c_att_names_5   "Frag Grenade"
@@ -144,6 +163,27 @@ ClassInfo
  c_att_names_14  "Alacrity Implant"
  c_att_ranks_14  1,1
  c_att_descs_14  "Knockback Taken: .6/.4x"
+ 
+ 
+ c_att_skill_15  MB_ATT_HEALTH
+ c_att_names_15  "Endurance Implant"
+ c_att_ranks_15  0
+ c_att_descs_15  "Health: 150"
+ 
+ c_att_skill_16  MB_ATT_HEALTH_REGEN_CAP
+ c_att_names_16  "Regeneration Implant"
+ c_att_ranks_16  0
+ c_att_descs_16  "Health Regen: 2/1s > 35"
+ 
+ c_att_skill_17  MB_ATT_SS_REDSTYLE
+ c_att_names_17  "Strength Implant"
+ c_att_ranks_17  0
+ c_att_descs_17  "Red Saber Style ^1Damage: 300"
+ 
+ c_att_skill_18  MB_ATT_KNOCKDOWN_ROLL
+ c_att_names_18  "Dexterity Implant"
+ c_att_ranks_18  0
+ c_att_descs_18  "Knockdown Roll"
 }
 
 WeaponInfo0
