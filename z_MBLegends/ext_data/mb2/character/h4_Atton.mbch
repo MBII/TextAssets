@@ -5,13 +5,14 @@ ClassInfo
 	classNumberLimit	1
 
 	MBClass				MB_CLASS_JEDI
-	weapons				WP_SABER
+	weapons				WP_MELEE
 
 	WP_MandoPistolFlags	HELD_DISRUPTIFY|HELD_ALTRELOAD
 	WP_ClonePistolFlags	HELD_PULSE|HELD_ALTRELOAD
 	WP_EE4Flags			HELD_FLAME|HELD_POISON|HELD_KNOCKBACK|HELD_ALTRELOAD|HELD_DISRUPTIFY
+	AB_PDartFlags       HELD_FORCEFOCUS
 
-	attributes			MB_ATT_POISON_DART,2|MB_ATT_AMMO,3|MB_ATT_DEFLECT,1|MB_ATT_HEALING,2|MB_ATT_FORCEBLOCK,1|MB_ATT_FP_MIRALUKA|MB_ATT_GETUPS,3|MB_ATT_DEXTERITY,2
+	attributes			MB_ATT_POISON_DART,3|MB_ATT_AMMO,3|MB_ATT_DEFLECT,1|MB_ATT_HEALING,2|MB_ATT_FORCEBLOCK,1|MB_ATT_FP_MIRALUKA|MB_ATT_DEXTERITY,2
 
 	forcepowers			FP_PROTECT,2|FP_ABSORB,1|FP_LEVITATION,2|FP_SEE,1
 
@@ -19,14 +20,14 @@ ClassInfo
 
 	maxhealth			100
 	maxarmor			50
-
+    rankarmor           80
 	basespeed			235
 	rankbasespeed		250
 
 	forcepool			75
 	rankForcepool		100,120
-
-	rankForceregen		1.34,2
+    forceregen          .9
+	rankForceregen		1.34,2.0
 
 	rankKbTaken			.8
 
@@ -35,10 +36,13 @@ ClassInfo
 
 	HealthRegenRate		340
 	HealthRegenAmount	3
+	
+	damageGiven         1
+	RankDmgGiven        1.25
 
 	saber1				atton_legends
 	saberstyle			SS_MEDIUM
-	saberDamageStyle	SS_DESANN,260|SS_STRONG,260|SS_MEDIUM,130|SS_TAVION,80|SS_DUAL,90
+	saberDamageStyle	SS_DESANN,300|SS_STRONG,300|SS_MEDIUM,240|SS_TAVION,80|SS_DUAL,90
 	sabercolor			2
 	saber1_1			echani_legends_r
 	saber2_1			echani_legends_l
@@ -74,7 +78,7 @@ ClassInfo
 	special2HUD			HUD_SONICNADE
 
 	isCustomBuild		1
-	mbPoints			9
+	mbPoints			10
 	hasCustomSpec		3
 	isOnlyOneSpec		1
 	customSpecName_1	"Scoundrel"
@@ -86,43 +90,50 @@ ClassInfo
 	customSpecName_3	"Echani"
 	customSpecIcon_3	"gfx/menus/alpha/icon_weap_stun"
 
-	c_att_0				"MB_ATT_CLONE_PISTOL|Verpine Ion Pistols ^9(CTP)|3,0,0|^2Hit: Shock, Charged Drain: 1.5x, ^1Prim Fire: No,
-^1Damage: .5x, RoF: .83x, Mag Reload: .62x"
-	c_att_1				"MB_ATT_MANDO_PISTOL|Disintegrators ^9(WESTAR)|3,0,0|^2Velocity: 1.25x, Mag Reload: .57x, ^1Sec Fire: No"
+	c_att_0				"MB_ATT_CLONE_PISTOL|Verpine Ion Pistols ^9(CTP)|3,0,0|^2Akimbo, Hit: Shock, Drain: 2x, ^1Prim Fire: No,
+^1Damage: .7x, RoF: .83x, Mag Reload: .62x"
+	c_att_1				"MB_ATT_MANDO_PISTOL|Disintegrators ^9(WESTAR)|4,0,0|^2Akimbo, Velocity: 1.25x,Drain: 1.1x,
+^1Damage: .9x,	Mag Reload: .57x, Sec Fire: No"
 	c_att_2				"MB_ATT_SONIC_DETONATOR|Sonic Detonator|1,1"
-	c_att_3				"MB_ATT_EE4|Charric ^9(EE-4)|2,1,1|^2Hit: Burn/poison/push, Damage: 1.2x, Drain: 1.4x,
+	c_att_3				"MB_ATT_EE4|Charric ^9(EE-4)|2,1,1|^2Hit: Burn/poison/push, Damage: 1.3x, Drain: 1.5x,
 ^1RoF: .55x, Mag Reload: .58x"
-	c_att_4				"MB_ATT_FP_RAGE|Rapid Shot ^9(Force Rage)|-1,1,2"
+	c_att_4				"MB_ATT_FP_RAGE|Rapid Shot ^9(Force Rage)|-1,1,1"
 	c_att_5				"MB_ATT_BASESPEED|Move Speed: 250|-1"
 	c_att_6				"MB_ATT_DASH|Dash ^3[CS3]|2,0"
+	c_att_7             "MB_ATT_ARMOUR|Armor: 80|-1"
 
 
-	c_att_15			"MB_ATT_BP_MULTIPLIER|Saber Block Power: 1/1.2x|-1,1"
-	c_att_16			"MB_ATT_CS_MULTIPLIER|Saber Chain Speed: 1.12x|1"
-	c_att_17			"MB_ATT_AS_MULTIPLIER|Saber Attack Speed: 1.12x|1"
-	c_att_18			"MB_ATT_SS_REDSTYLE|Red Saber Style|1|^1Damage: 260"
-	c_att_19			"MB_ATT_SS_PURPLESTYLE|Purple Saber Style|1|^1Damage: 260"
-	c_att_20			"MB_ATT_FP_SABER_DEFENSE|Saber Defense|-1,2"
+    c_att_15            "MB_ATT_SABER|Lightsaber ^9(Yellow/Dual/Cyan)|-1|Saber Defense (0), Blaster Defense (0), Blaster Deflect (1)
+Damage: 240/^190/80, ^9Echani Melee: ^2Knockback +1,^1Length: 20"
+	c_att_16			"MB_ATT_BP_MULTIPLIER|Saber Block Power: 1/1.2x|-1,1"
+	c_att_17			"MB_ATT_CS_MULTIPLIER|Saber Chain Speed: 1.12x|1"
+	c_att_18			"MB_ATT_AS_MULTIPLIER|Saber Attack Speed: 1.12x|1"
+	c_att_19			"MB_ATT_SABER_STRONG|Strong Saber Styles|1,0,1|Red, Purple, both
+^1Damage: 300/300"
+	c_att_20			"MB_ATT_FP_SABER_DEFENSE|Saber Defense|-1,1"
 	c_att_21			"MB_ATT_GUN_DEFENSE|Blaster Defense|-1,1"
-	c_att_22			"MB_ATT_DEFLECT|Blaster Deflect|-1,1"
-	c_att_23			"MB_ATT_FP_PUSH|Force Push|-1,1"
-	c_att_24			"MB_ATT_FP_PULL|Force Pull|-1,1"
-	c_att_25			"MB_ATT_FP_TELEPATHY|Force Mind Trick|1"
-	c_att_26			"MB_ATT_FP_SPEED|Force Speed|1"
-	c_att_27			"MB_ATT_POWER|Energy Pool: 100/120|-1,1"
-	c_att_28			"MB_ATT_REGEN|Energy Regen: 1.34x|1"
+	c_att_22            "MB_ATT_FORCEBLOCK|Force Block|-1,1"
+	c_att_23			"MB_ATT_DEFLECT|Blaster Deflect|-1,1"
+	c_att_24			"MB_ATT_FP_PUSH|Force Push|-1,1"
+	c_att_25			"MB_ATT_FP_PULL|Force Pull|-1,1"
+	c_att_26			"MB_ATT_FP_TELEPATHY|Force Mind Trick|2,1"
+	c_att_27			"MB_ATT_FP_SPEED|Force Speed|2,1"
+	c_att_28			"MB_ATT_POWER|Force Pool: 100/120|-1,1"
+	c_att_29			"MB_ATT_REGEN|Force Regen: 1.34x|-1|Default .9x"
 
 
-	c_att_30			"MB_ATT_DMG_GIVEN_MULTIPLIER|Damage Given: 1.25x|2|Does not affect Saber"
-	c_att_31			"MB_ATT_ROF_MELEE_MULTIPLIER|Melee RoF: 1.25x|-1"
-	c_att_32			"MB_ATT_BP_MULTIPLIER|Saber Block Power: 1/1.2x|-1,1"
-	c_att_33			"MB_ATT_FP_SABER_DEFENSE|Saber Defense|2"
-	c_att_34			"MB_ATT_PISTOL|Blaster Pistol|-1,-1,4"
-	c_att_35			"MB_ATT_HEALTH_REGEN_CAP|Heroic Resolve|-1|^2Healing Bonus: 3/.34s > 50"
-	c_att_36			"MB_ATT_REGEN|Energy Regen: 1.34/2x|-1,2"
-	c_att_37			"MB_ATT_KB_TAKEN_MULTIPLIER|Knockback Taken: .8x|-1"
-	c_att_38			"MB_ATT_DEXTERITY|Dexterity|-1,-1,2"
-	c_att_39			"MB_ATT_FLIPKICK|Flipkick ^3[Contact Jump]|-1,3"
+    c_att_30            "MB_ATT_SABER|Lightsaber ^9(Yellow/Dual/Cyan)|-1|Saber Defense (0), Blaster Defense (0), Blaster Deflect (1)
+Damage: 240/^190/80, ^9Echani Melee: ^2Knockback +1,^1Length: 20" 
+	c_att_31			"MB_ATT_DMG_GIVEN_MULTIPLIER|Damage Given: 1.25x|2|Does not affect Saber"
+	c_att_32			"MB_ATT_ROF_MELEE_MULTIPLIER|Melee RoF: 1.25x|-1"
+	c_att_33			"MB_ATT_BP_MULTIPLIER|Saber Block Power: 1/1.2x|-1,1"
+	c_att_34			"MB_ATT_FP_SABER_DEFENSE|Saber Defense|2"
+	c_att_35			"MB_ATT_PISTOL|Blaster Pistol|-1,-1,4"
+	c_att_36			"MB_ATT_HEALTH_REGEN_CAP|Heroic Resolve|-1|^2Healing Bonus: 3/.34s > 50"
+	c_att_37			"MB_ATT_REGEN|Force Regen: 1.34/2x|-1,2|Default: .9x"
+	c_att_38			"MB_ATT_KB_TAKEN_MULTIPLIER|Knockback Taken: .8x|-1"
+	c_att_39			"MB_ATT_DEXTERITY|Dexterity|-1,-1,2"
+	c_att_40			"MB_ATT_FLIPKICK|Flipkick ^3[Contact Jump]|-1,3"
 }
 
 WeaponInfo0
@@ -140,11 +151,11 @@ WeaponInfo0
 	MissileHitDroidEffect	"SBD/Cortosis_blue"
 	ChargeEffect		"gfx/effects/cloneFrontFlash"
 	Clipsize			36
-	customAmmo			380
-	FPChargeMult		1.5
+	customAmmo			500
+	FPMult		        2
 	reloadTimeModifier	1.6
 	rateMod				1.2
-	damageMod			.5
+	damageMod			.7
 	primFireEnabled		0
 }
 
@@ -159,6 +170,8 @@ WeaponInfo1
 	Clipsize			48
 	velocityMod			1.25
 	reloadtimeModifier	1.75
+	FPMult              1.1
+	damageMod           .9
 	customammo			800
 	altfireenabled		0
 	MuzzleEffect		"Blaster/MuzzleFlash01Y"
@@ -181,10 +194,10 @@ WeaponInfo2
 	AltMissileEffect	"Blaster/Shot04Y"
 	FlashSound0			"sound/weapons/kotor/fire_power2.wav"
 	AltFlashSound0		"sound/weapons/amban_phase_rifle/fire.mp3"
-	FPMult				1.4
+	FPMult				1.5
 	rateMod				1.8
-	damageMod			1.2
-	ClipSize			26
+	damageMod			1.3
+	ClipSize			20
 	reloadtimeModifier	1.7
 }
 
@@ -199,7 +212,7 @@ WeaponInfo3
 	Altflashsound0		"sound/weapons/kotor/fire_power1.wav"
 	WeaponName			"Blaster Pistol"
 	ChargeSound			"sound/weapons/bryar/altcharge.mp3"
-	customammo			460
+	customammo			700
 	hasAnimOverrides	1
 	animReadyRun		BOTH_JANGO_PISTOL_IDLE
 	animReady			BOTH_JANGO_PISTOL_IDLE
@@ -214,19 +227,10 @@ description "Atton Rand - 'Jaq'
 
 ^9Weapons:
 - Heavy Melee
-- Atton's Armament ^9(Saber)
--- Saber Defense (0)
--- Blaster Defense (0)
--- Blaster Deflect (1)
-> Lightsaber ^9(Yellow)
-^1-- Damage: 130
-> Echani Melee ^9(Dual/Cyan)
-^2-- Knockback: +1
-^1-- Damage: 90/80
-^1-- Length: 20
 
 ^3Abilities:
-- Poison Dart (2) ^3[Melee CS1]
+- Poison Dart (3) ^3[Melee CS1]
+^2--Hit: Focus
 - Dex Roll ^3[CS2]
 
 ^5Force Powers:
@@ -235,7 +239,6 @@ description "Atton Rand - 'Jaq'
 - Protect (2) ^3[CS4]
 
 ^8Attributes:
-- Getup (3)
 - Dexterity (2)
 - Healing (2)
 ^2-- Fighting Spirit ^9(Bonus)^2: 3/.34s > 25
