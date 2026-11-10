@@ -34,6 +34,7 @@ ClassInfo
 	rankROF				1,0.9
 
 	WP_TripMineFlags	HELD_TRACKING|HELD_CRIPPLE|HELD_LOWDAMAGE
+	WP_ProjFlags HELD_ALTRELOAD
 
 	CSmultiplier		1.06
 	ASmultiplier		0.94
@@ -150,14 +151,16 @@ ClassInfo
 	c_att_31			"MB_ATT_PISTOL|EC-17 Hold-Out Pistol|-1,-1,2|^2Charged Drain: 1.1x"
 	c_att_32			"MB_ATT_E_22|E-22 Rec Blaster Rifle|2,0,1"
 	c_att_33			"MB_ATT_SONIC_DETONATOR|Sonic Detonator|2,2"
-	c_att_34			"MB_ATT_EE4|DLT-20A Sniper Config ^9(EE-4)|10,0|^2Damage: 1.5x, Drain: 1.5x, Velocity: 2x,
+	c_att_34			"MB_ATT_EE4|DLT-20A Sniper Config ^9(EE-4)|10,0|^2Damage: 1.5x, Drain: 1.6x, Velocity: 2x,
 ^1RoF: .57x, Reload: .006x"
-	c_att_35			"MB_ATT_TRIP_MINES|Trip Mine|2,2|^2Det: Slow/track, ^1Damage: .5x"
-	c_att_36			"MB_ATT_RESPAWNS|Reinforcement|11|Default: 1"
-	c_att_37			"MB_ATT_STAMINA|Stamina|-1,-1,1"
-	c_att_38			"MB_ATT_POWER|Stamina Pool: 100/120|1,1"
-	c_att_39			"MB_ATT_TRACKING_BEACON|Tracking Beacon|1"
-	c_att_40			"MB_ATT_DASH|Dash ^3[CS3]|2,1"
+	c_att_35	"MB_ATT_PROJECTILE_RIFLE|E-11s Sniper Rifle ^9(Proj)|14|^2Hitscan, RoF: 5x, ^1Damage: .1x, Drain: .2x,
+Mag Reload: .57x"
+	c_att_36			"MB_ATT_TRIP_MINES|Trip Mine|2,2|^2Det: Slow/track, ^1Damage: .5x"
+	c_att_37			"MB_ATT_RESPAWNS|Reinforcement|11|Default: 1"
+	c_att_38			"MB_ATT_STAMINA|Stamina|-1,-1,1"
+	c_att_39			"MB_ATT_POWER|Stamina Pool: 100/120|1,1"
+	c_att_40			"MB_ATT_TRACKING_BEACON|Tracking Beacon|1"
+	c_att_41			"MB_ATT_DASH|Dash ^3[CS3]|2,1"
 }
 
 WeaponInfo0
@@ -198,7 +201,7 @@ WeaponInfo2
 	clipsize			12
 	FlashSound0			"sound/weapons/Glie-44/alt_fire.wav"
 	ratemod				1.75
-	fpmult				1.5
+	fpmult				1.6
 	damagemod			1.5
 	velocityMod			2
 	ReloadTimeModifier	166
@@ -228,6 +231,24 @@ WeaponInfo4
 	Icon				"gfx/hud/w_icon_E11"
 	WeaponName			"E-11 Blaster Rifle"
 	customAmmo			680
+}
+
+WeaponInfo5
+{
+	WeaponToReplace		WP_PROJ
+	WeaponBasedOff		WP_PROJ
+	NewWorldModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+	Icon				"gfx/hud/w_icon_dlt-18"
+	WeaponName			"E-11s Sniper Rifle"
+	PrimHitscanShot		1
+	PrimHitscanTracer	10
+	customAmmo			125
+	clipSize			5
+	ReloadTimeModifier	1.75
+	ratemod				0.1
+	damagemod			0.2
+	FPmult				0.2
 }
 
 description "Imperial Scout Trooper
