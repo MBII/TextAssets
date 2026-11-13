@@ -11,13 +11,14 @@ ClassInfo
 	WP_MinigunFlags		HELD_FLAME
 	WP_ThrowerFlags		HELD_ALTRELOAD
 	WP_M5Flags			HELD_PULSE
+	WP_FlashNadeFlags HELD_FORCEFOCUS|HELD_POISON
 
 	attributes			MB_ATT_ASSEMBLE,3|MB_ATT_WOOKIE_STRENGTH,1|MB_ATT_FORCEBLOCK,1|MB_ATT_THROWER_LIGHTNING|MB_ATT_STRONGBLOBS,4|MB_ATT_CLONEBLOBS,4|MB_ATT_QUICKTHROW,1|MB_ATT_BLAST_ARMOUR,1|MB_ATT_BACTA_BIG,1
 
 	resource			RESOURCE_FUEL
 	forcepool			80
-	resourceRegenAmount	5
-	resourceRegenRate	2000
+	resourceRegenAmount	4
+	resourceRegenRate	1500
 
 	maxhealth			100
 	rankHealth			130
@@ -34,12 +35,15 @@ ClassInfo
 	RankArmourRegenCap	70
 
 	knockbacktaken		0.9
-	rankKbTaken			.6
+	rankKbTaken			.5
 
 	knockbackGiven		1.1
 
 	damageTaken			.95
 	rankDmgTaken		.75
+
+	special1HUD			HUD_CONCBLOB
+	special2HUD			HUD_IONBLOB
 
 	saber1				Legends_Knife_Jagged
 	saberstyle			SS_DESANN
@@ -54,7 +58,8 @@ ClassInfo
 	basespeed			215
 	rankbasespeed		232
 
-	special1			EAS_NONE
+	special1			EAS_HI_SHOCKWAVE
+	meleespecial1		EAS_HI_SHOCKWAVE
 	special2			EAS_NONE
 	special3			EAS_HI_QUICKTHROW
 	special4			EAS_HI_MEDPAC_BIG
@@ -127,13 +132,14 @@ ClassInfo
 	c_att_30			"MB_ATT_RESPAWNS|Reinforcement|7"
 	c_att_31			"MB_ATT_CLONERIFLE|Stun Carbine ^9(Clone Rifle)|3|^2Conc Blob: 8, Ion Blob: 8, Velocity: 1.5x,
 ^1Damage: .75x, RoF: .9x, Reload: .76x"
-	c_att_32			"MB_ATT_FRAGS|Frag Grenade|1"
-	c_att_33			"MB_ATT_CRYOBAN_GRENADES|Cryo Grenade|2,2"
+	c_att_32			"MB_ATT_FLASH_NADE|Riot Smoke Grenade ^9(Flash)|1|^2Det: Shroud/blind/poison/focus, RoF: 1.66x, ^1Damage: .01x"
+	c_att_33			"MB_ATT_CRYOBAN_GRENADES|Cryo Grenade|1"
 	c_att_34			"MB_ATT_FP_PROTECT|Energy Shield ^9(Protect)|1"
-	c_att_35			"MB_ATT_ARMOUR_REGEN_CAP|Armor Regen Cap: 70|1"
-	c_att_36			"MB_ATT_DMG_TAKEN_MULTIPLIER|Damage Taken: .75x|1"
-	c_att_37			"MB_ATT_KB_TAKEN_MULTIPLIER|Knockback Taken: .6x|1|Default: .9x"
-	c_att_38			"MB_ATT_ENV_PROT|Climate Shielding|1"
+	c_att_35			"MB_ATT_SHOCKWAVE|Shockwave ^3[CS1]|1"
+	c_att_36			"MB_ATT_ARMOUR_REGEN_CAP|Armor Regen Cap: 70|1"
+	c_att_37			"MB_ATT_DMG_TAKEN_MULTIPLIER|Damage Taken: .75x|1"
+	c_att_38			"MB_ATT_KB_TAKEN_MULTIPLIER|Knockback Taken: .5x|1|Default: .9x"
+	c_att_39			"MB_ATT_ENV_PROT|Climate Shielding|1"
 }
 
 WeaponInfo0
@@ -189,6 +195,7 @@ WeaponInfo2
 	clipsize			50
 	customammo			150
 	ReloadTimeModifier	1.75
+	DamageMod 1.5
 }
 
 WeaponInfo3
@@ -238,6 +245,27 @@ WeaponInfo5
 	velocityMod			1.5
 }
 
+WeaponInfo6
+{
+	WeaponToReplace		WP_FLASH_NADE
+	WeaponBasedOff		WP_FLASH_NADE
+	NewWorldModel		"models/weapons2/oldfraggrenade/thermal_w.glm"
+	NewViewModel		"models/weapons2/oldfraggrenade/thermal.md3"
+	NewHandsModel		"models/weapons2/oldfraggrenade/thermal_hand.md3"
+	MissileModel		"models/weapons2/oldfraggrenade/thermal_proj.md3"
+	AltMissileModel		"models/weapons2/oldfraggrenade/thermal_proj.md3"
+	Icon				"gfx/hud/w_icon_oldfraggrenade"
+	WeaponName			"Riot Smoke Grenade"
+	damagemod			0.001
+	ratemod				0.6
+	altMissileMissEffect "smokenadeleg/explode_vol"
+	MissileMissEffect    "smokenadeleg/explode_vol"
+	altMissileHitHumanEffect "smokenadeleg/explode_vol"
+	missileHitHumanEffect    "smokenadeleg/explode_vol"
+	altMissileHitDroidEffect "smokenadeleg/explode_vol"
+	missileHitDroidEffect    "smokenadeleg/explode_vol"
+}
+
 ForceInfo0
 {
 	ForceToReplace		FP_SEE
@@ -270,6 +298,7 @@ description	"Old Republic Trooper
 ^1-- Defense: No
 ^1-- Length: 16
 - Pulse Cannon ^9(Pulsethrower)
+^2-- Damage: 1.5x
 ^1-- Mag Reload: .57x
 
 ^3Abilities:
@@ -284,7 +313,7 @@ description	"Old Republic Trooper
 - Strength (1)
 - Blast Armor
 ^2- Armor Regen: 2/s > 25
-^2- Resource Regen: 5/2s
+^2- Resource Regen: 4/1.5s
 ^2- Knockback Given: 1.1x
 ^2- Knockback Taken: .9x
 
