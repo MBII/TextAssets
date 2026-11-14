@@ -34,6 +34,7 @@ ClassInfo
 	rankROF				1,0.9
 
 	WP_TripMineFlags	HELD_TRACKING|HELD_CRIPPLE|HELD_LOWDAMAGE
+	WP_ProjFlags HELD_ALTRELOAD
 
 	CSmultiplier		1.06
 	ASmultiplier		0.94
@@ -85,12 +86,16 @@ ClassInfo
 	uishader_3			"models/players/scouttrooper/mb2_icon_swamp2"
 
 	model_4				"scouttrooper"
-	skin_4				"novaofficer"
-	uishader_4			"models/players/scouttrooper/mb2_icon_novaofficer"
+	skin_4				"nova"
+	uishader_4			"models/players/scouttrooper/mb2_icon_nova"
 
 	model_5				"scouttrooper"
-	skin_5				"commando"
-	uishader_5			"models/players/scouttrooper/mb2_icon_commando"
+	skin_5				"novaofficer"
+	uishader_5			"models/players/scouttrooper/mb2_icon_novaofficer"
+
+	model_6				"scouttrooper"
+	skin_6				"commando"
+	uishader_6			"models/players/scouttrooper/mb2_icon_commando"
 
 	isCustomBuild		1
 	mbPoints			20
@@ -109,179 +114,53 @@ ClassInfo
 	customSpecIcon_3	"gfx/menus/alpha/icon_weap_accuracy"
 	customSpecDesc_3	"Long-range prowess"
 
-	c_att_skill_0		MB_ATT_SABER
-	c_att_names_0		"Riot Gear"
-	c_att_ranks_0		0
-	c_att_descs_0		"Saber Defense (0), Blaster Defense (0), ^1Length: 16"
-
-	c_att_skill_1		MB_ATT_FP_SABER_DEFENSE
-	c_att_names_1		"Saber Defense"
-	c_att_ranks_1		0,2
-
-	c_att_skill_2		MB_ATT_GUN_DEFENSE
-	c_att_names_2		"Blaster Defense"
-	c_att_ranks_2		0,1,2
-
-	c_att_skill_3		MB_ATT_BP_MULTIPLIER
-	c_att_names_3		"Saber Block Power: 1.15x"
-	c_att_ranks_3		1
-
-	c_att_skill_4		MB_ATT_AS_MULTIPLIER
-	c_att_names_4		"Saber AS: 1/1.06x"
-	c_att_ranks_4		1,1
-
-	c_att_skill_5		MB_ATT_SABER_DAMAGE
-	c_att_names_5		"Saber Damage: 80/100/120"
-	c_att_ranks_5		1,1,1
-
-	c_att_skill_6		MB_ATT_PISTOL
-	c_att_names_6		"EC-17 Hold-Out Pistol"
-	c_att_ranks_6		2,0
-	c_att_descs_6		"^2Charged Drain: 1.1x"
-
-	c_att_skill_7		MB_ATT_PULSE_GRENADES
-	c_att_names_7		"Pulse Grenade"
-	c_att_ranks_7		1,1
-
-	c_att_skill_8		MB_ATT_RESPAWNS
-	c_att_names_8		"Reinforcement"
-	c_att_ranks_8		10
-	c_att_descs_8		"Default: 1"
-
-	c_att_skill_9		MB_ATT_SHIELD_RECHARGE
-	c_att_names_9		"Armor Regen"
-	c_att_ranks_9		2
-
-	c_att_skill_10		MB_ATT_BASESPEED
-	c_att_names_10		"Move Speed: 192/195"
-	c_att_ranks_10		1,1
-
-	c_att_skill_11		MB_ATT_FORCEBLOCK
-	c_att_names_11		"Force Block"
-	c_att_ranks_11		1
-
-	c_att_skill_12		MB_ATT_BLAST_ARMOUR
-	c_att_names_12		"Blast Armor"
-	c_att_ranks_12		2
-
-	c_att_skill_13		MB_ATT_STAMINA
-	c_att_names_13		"Stamina"
-	c_att_ranks_13		0,0,2
-
-	c_att_skill_14		MB_ATT_DEXTERITY
-	c_att_names_14		"Dexterity/Roll ^3[CS2]"
-	c_att_ranks_14		0,0,1
+	c_att_0				"MB_ATT_SABER|Riot Gear|-1|Saber Defense (0), Blaster Defense (0), ^1Length: 16"
+	c_att_1				"MB_ATT_FP_SABER_DEFENSE|Saber Defense|-1,2"
+	c_att_2				"MB_ATT_GUN_DEFENSE|Blaster Defense|-1,1,2"
+	c_att_3				"MB_ATT_BP_MULTIPLIER|Saber Block Power: 1.15x|1"
+	c_att_4				"MB_ATT_AS_MULTIPLIER|Saber AS: 1/1.06x|1,1"
+	c_att_5				"MB_ATT_SABER_DAMAGE|Saber Damage: 80/100/120|1,1,1"
+	c_att_6				"MB_ATT_PISTOL|EC-17 Hold-Out Pistol|2,0|^2Charged Drain: 1.1x"
+	c_att_7				"MB_ATT_PULSE_GRENADES|Pulse Grenade|1,1"
+	c_att_8				"MB_ATT_RESPAWNS|Reinforcement|10|Default: 1"
+	c_att_9				"MB_ATT_SHIELD_RECHARGE|Armor Regen|2"
+	c_att_10			"MB_ATT_BASESPEED|Move Speed: 192/195|1,1"
+	c_att_11			"MB_ATT_FORCEBLOCK|Force Block|1"
+	c_att_12			"MB_ATT_BLAST_ARMOUR|Blast Armor|2"
+	c_att_13			"MB_ATT_STAMINA|Stamina|-1,-1,2"
+	c_att_14			"MB_ATT_DEXTERITY|Dexterity/Roll ^3[CS2]|-1,-1,1"
 
 
-
-	c_att_skill_15		MB_ATT_ROF_MULTIPLIER
-	c_att_names_15		"RoF: 1/1.11x"
-	c_att_ranks_15		2,2
-
-	c_att_skill_16		MB_ATT_PISTOL
-	c_att_names_16		"EC-17 Hold-Out Pistol"
-	c_att_ranks_16		0,0,3
-	c_att_descs_16		"^2Charged Drain: 1.1x"
-
-	c_att_skill_17		MB_ATT_BLASTER
-	c_att_names_17		"E-11 Blaster Rifle"
-	c_att_ranks_17		1,1,2
-
-	c_att_skill_18		MB_ATT_A280
-	c_att_names_18		"A280 Blaster Rifle"
-	c_att_ranks_18		3,2,0
-
-	c_att_skill_19		MB_ATT_T21
-	c_att_names_19		"T-21 Heavy Blaster"
-	c_att_ranks_19		1,3,1
-	c_att_descs_19		"^2Damage: 1.1x, Drain: 1.1x, ^1RoF: .9x"
-
-	c_att_skill_20		MB_ATT_MICRO_GRENADES
-	c_att_names_20		"V-59 Conc Grenade"
-	c_att_ranks_20		1,1
-
-	c_att_skill_21		MB_ATT_THERMALS
-	c_att_names_21		"Thermal Detonator"
-	c_att_ranks_21		2
-
-	c_att_skill_22		MB_ATT_HEALTH
-	c_att_names_22		"Health: 100"
-	c_att_ranks_22		1
-
-	c_att_skill_23		MB_ATT_ARMOUR_REGEN_AMOUNT
-	c_att_names_23		"Armor Regen: 1/.5s > 40"
-	c_att_ranks_23		3
-
-	c_att_skill_24		MB_ATT_BASESPEED
-	c_att_names_24		"Move Speed: 192"
-	c_att_ranks_24		1
-
-	c_att_skill_25		MB_ATT_STAMINA
-	c_att_names_25		"Stamina"
-	c_att_ranks_25		0,0,1
-
-	c_att_skill_26		MB_ATT_POWER
-	c_att_names_26		"Stamina Pool: 100/120"
-	c_att_ranks_26		1,1
-
-	c_att_skill_27		MB_ATT_DEXTERITY
-	c_att_names_27		"Dexterity/Roll ^3[CS2]"
-	c_att_ranks_27		0,1
-
-	c_att_skill_28		MB_ATT_DASH
-	c_att_names_28		"Dash ^3[CS3]"
-	c_att_ranks_28		2,0
+	c_att_15			"MB_ATT_ROF_MULTIPLIER|RoF: 1/1.11x|2,2"
+	c_att_16			"MB_ATT_PISTOL|EC-17 Hold-Out Pistol|-1,-1,3|^2Charged Drain: 1.1x"
+	c_att_17			"MB_ATT_BLASTER|E-11 Blaster Rifle|1,1,2"
+	c_att_18			"MB_ATT_A280|A280 Blaster Rifle|3,2,0"
+	c_att_19			"MB_ATT_T21|T-21 Heavy Blaster|1,3,1|^2Damage: 1.1x, Drain: 1.1x, ^1RoF: .9x"
+	c_att_20			"MB_ATT_MICRO_GRENADES|V-59 Conc Grenade|1,1"
+	c_att_21			"MB_ATT_THERMALS|Thermal Detonator|2"
+	c_att_22			"MB_ATT_HEALTH|Health: 100|1"
+	c_att_23			"MB_ATT_ARMOUR_REGEN_AMOUNT|Armor Regen: 1/.5s > 40|3"
+	c_att_24			"MB_ATT_BASESPEED|Move Speed: 192|1"
+	c_att_25			"MB_ATT_STAMINA|Stamina|-1,-1,1"
+	c_att_26			"MB_ATT_POWER|Stamina Pool: 100/120|1,1"
+	c_att_27			"MB_ATT_DEXTERITY|Dexterity/Roll ^3[CS2]|-1,1"
+	c_att_28			"MB_ATT_DASH|Dash ^3[CS3]|2,0"
 
 
-
-	c_att_skill_30		MB_ATT_DMG_GIVEN_MULTIPLIER
-	c_att_names_30		"Damage Given: 1.1x"
-	c_att_ranks_30		2
-
-	c_att_skill_31		MB_ATT_PISTOL
-	c_att_names_31		"EC-17 Hold-Out Pistol"
-	c_att_ranks_31		0,0,2
-	c_att_descs_31		"^2Charged Drain: 1.1x"
-
-	c_att_skill_32		MB_ATT_E_22
-	c_att_names_32		"E-22 Rec Blaster Rifle"
-	c_att_ranks_32		2,0,1
-
-	c_att_skill_33		MB_ATT_SONIC_DETONATOR
-	c_att_names_33		"Sonic Detonator"
-	c_att_ranks_33		2,2
-
-	c_att_skill_34		MB_ATT_EE4
-	c_att_names_34		"DLT-20A Sniper Config ^9(EE-4)"
-	c_att_ranks_34		10,0
-	c_att_descs_34		"^2Damage: 1.5x, Drain: 1.5x, Velocity: 2x,
+	c_att_30			"MB_ATT_DMG_GIVEN_MULTIPLIER|Damage Given: 1.1x|2"
+	c_att_31			"MB_ATT_PISTOL|EC-17 Hold-Out Pistol|-1,-1,2|^2Charged Drain: 1.1x"
+	c_att_32			"MB_ATT_E_22|E-22 Rec Blaster Rifle|2,0,1"
+	c_att_33			"MB_ATT_SONIC_DETONATOR|Sonic Detonator|2,2"
+	c_att_34			"MB_ATT_EE4|DLT-20A Sniper Config ^9(EE-4)|10,0|^2Damage: 1.5x, Drain: 1.6x, Velocity: 2x,
 ^1RoF: .57x, Reload: .006x"
-
-	c_att_skill_35		MB_ATT_TRIP_MINES
-	c_att_names_35		"Trip Mine"
-	c_att_ranks_35		2,2
-	c_att_descs_35		"^2Det: Slow/track, ^1Damage: .5x"
-
-	c_att_skill_36		MB_ATT_RESPAWNS
-	c_att_names_36		"Reinforcement"
-	c_att_ranks_36		11
-	c_att_descs_36		"Default: 1"
-
-	c_att_skill_37		MB_ATT_STAMINA
-	c_att_names_37		"Stamina"
-	c_att_ranks_37		0,0,1
-
-	c_att_skill_38		MB_ATT_POWER
-	c_att_names_38		"Stamina Pool: 100/120"
-	c_att_ranks_38		1,1
-
-	c_att_skill_39		MB_ATT_TRACKING_BEACON
-	c_att_names_39		"Tracking Beacon"
-	c_att_ranks_39		1
-
-	c_att_skill_40		MB_ATT_DASH
-	c_att_names_40		"Dash ^3[CS3]"
-	c_att_ranks_40		2,1
+	c_att_35	"MB_ATT_PROJECTILE_RIFLE|E-11s Sniper Rifle ^9(Proj)|14|^2Hitscan, RoF: 5x, ^1Damage: .1x, Drain: .2x,
+Mag Reload: .57x"
+	c_att_36			"MB_ATT_TRIP_MINES|Trip Mine|2,2|^2Det: Slow/track, ^1Damage: .5x"
+	c_att_37			"MB_ATT_RESPAWNS|Reinforcement|11|Default: 1"
+	c_att_38			"MB_ATT_STAMINA|Stamina|-1,-1,1"
+	c_att_39			"MB_ATT_POWER|Stamina Pool: 100/120|1,1"
+	c_att_40			"MB_ATT_TRACKING_BEACON|Tracking Beacon|1"
+	c_att_41			"MB_ATT_DASH|Dash ^3[CS3]|2,1"
 }
 
 WeaponInfo0
@@ -322,7 +201,7 @@ WeaponInfo2
 	clipsize			12
 	FlashSound0			"sound/weapons/Glie-44/alt_fire.wav"
 	ratemod				1.75
-	fpmult				1.5
+	fpmult				1.6
 	damagemod			1.5
 	velocityMod			2
 	ReloadTimeModifier	166
@@ -352,6 +231,24 @@ WeaponInfo4
 	Icon				"gfx/hud/w_icon_E11"
 	WeaponName			"E-11 Blaster Rifle"
 	customAmmo			680
+}
+
+WeaponInfo5
+{
+	WeaponToReplace		WP_PROJ
+	WeaponBasedOff		WP_PROJ
+	NewWorldModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater_w.glm"
+	NewViewModel		"models/weapons2/dlt-18_repeater/dlt-18_repeater.md3"
+	Icon				"gfx/hud/w_icon_dlt-18"
+	WeaponName			"E-11s Sniper Rifle"
+	PrimHitscanShot		1
+	PrimHitscanTracer	10
+	customAmmo			125
+	clipSize			5
+	ReloadTimeModifier	1.75
+	ratemod				0.1
+	damagemod			0.2
+	FPmult				0.2
 }
 
 description "Imperial Scout Trooper
