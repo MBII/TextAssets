@@ -627,6 +627,7 @@ models/players/rebel_partisan/helmet_a2
 
 models/players/rebel_partisan/helmet_b
 {
+	cull	disable
 	{
 		map models/players/rebel_partisan/helmet_b
 		blendFunc GL_ONE GL_ZERO

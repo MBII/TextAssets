@@ -1,5 +1,47 @@
 // Head
 
+models/players/jedipack_hb/head_face_c5
+{
+	{
+		map models/players/jedipack_hb/head_face_c5
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/jedipack_hb/head_face_c5-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/jedipack_hb/head_face_g
+{
+	{
+		map models/players/jedipack_hb/head_face_g
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/jedipack_hb/head_face_g-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
+models/players/jedipack_hb/head_jedi2
+{
+	{
+		map models/players/jedipack_hb/head_jedi2
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/jedipack_hb/head_jedi2-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
+
 models/players/jedipack_hb/head_twilek
 {
 	{
