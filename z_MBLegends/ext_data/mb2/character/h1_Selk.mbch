@@ -14,7 +14,7 @@ ClassInfo
  WP_ClonePistolFlags HELD_ALTRELOAD
  WP_E22Flags   HELD_KNOCKBACK|HELD_ALTRELOAD
  WP_DEMP2Flags HELD_PULSE|HELD_EXPLOSIVE|HELD_ALTRELOAD
- WP_FragNadeFlags HELD_FREEZE|HELD_SLIPPERY|HELD_LOWDAMAGE
+ WP_ImpactNadeFlags HELD_FREEZE|HELD_SLIPPERY
  WP_RepeaterFlags HELD_BACTA|HELD_LIFESTEAL
 
  attributes   MB_ATT_DASH,1|MB_ATT_WATER_BREATHING|MB_ATT_GETUPS,4|MB_ATT_AMMO,3|MB_ATT_ASSEMBLE,1|MB_ATT_SPEEDLUNGE|MB_ATT_WOOKIEE_FURY,1|MB_ATT_DEXTERITY,3|MB_ATT_ENV_PROT,1|MB_ATT_SHOTGUN,2|MB_ATT_FP_SABER_DEFENSE,1|MB_ATT_REPEATER_NADES,2|MB_ATT_FAKE_WOOKIEE
@@ -109,11 +109,10 @@ ClassInfo
     c_att_1     "MB_ATT_CLONE_PISTOL|Sonic Emitters ^9(Clone Pistol)|3,0,0|^2Hitscan, ^1Damage: .6x, RoF: .95x, Mag Reload"
     c_att_2     "MB_ATT_MANDO_PISTOL|Fira Blaster Pistols ^9(WESTAR)|3,0,0|^1RoF: .86x, Mag Reload"
     c_att_3     "MB_ATT_E_22|Sonic Repulsor Rifle ^9(E-22)|1|^2Hit: Push, Damage: 1.1x, Drain: 1.1x, ^1Mag Reload"
-    c_att_4     "MB_ATT_REPEATER|Kolto Grenade ^9(Repeater)|2|^2Det: Team-heal/lifesteal, AoE: 216, ^1Prim Fire: No,
-^1Damage: 0"
+    c_att_4     "MB_ATT_REPEATER|Kolto Bomb ^9(Repeater)|2|^2Count: 4, Det: Team-heal/lifesteal, AoE: 300, ^1Prim Fire: No, ^1Damage: 0"
     c_att_5     "MB_ATT_DEMP2|Verpine Ion Pistol ^9(DEMP2)|1,0,0|^2Hit: Shock/explode, Damage: 1.5x, Drain: 1.5x, RoF: 1.42x,
 ^1Velocity: .25x, AoE: 25, Mag Reload: .66x"
-    c_att_6     "MB_ATT_FRAGS|Cryo-Frag Grenade|1,1,1|^2Det: Freeze/slip, ^1Damage: .5x"
+    c_att_6     "MB_ATT_IMPACT_NADE|Cryo-Impact Grenade|1,1,1|^2Det: Freeze/slip"
     c_att_7     "MB_ATT_FP_DARKRAGE|Insanity ^9(Dark Rage) ^3[CS1]|-1,2,0"
     c_att_8     "MB_ATT_FP_SPEED|Madness ^9(Speed) ^3[CS3]|-1,2"
     c_att_9     "MB_ATT_PSHIELD|Personal Energy Shield ^3[CS4]|2"
@@ -244,11 +243,11 @@ WeaponInfo5
  altMissileHitDroidEffect "grenades/exp_heal"
 
  Icon    "gfx/hud/w_icon_stungrenade"
- WeaponName   "Kolto Grenade"
+ WeaponName   "Kolto Bomb"
 
  damageMod   0
  splashdamage 1
- splashradius 216
+ splashradius  300
  primFireEnabled 0
  customAmmo -1
  clipSize -1
@@ -314,8 +313,8 @@ WeaponInfo6
 
 WeaponInfo7
 {
- WeaponToReplace  WP_FRAG_NADE
- WeaponBasedOff  WP_CRYO_NADE
+ WeaponToReplace  WP_IMPACT_NADE
+ WeaponBasedOff WP_IMPACT_NADE
 
  NewWorldModel  "models/weapons2/cryoban_grenade/model_w.glm"
  NewViewModel  "models/weapons2/cryoban_grenade/viewmodel.md3"
@@ -337,7 +336,7 @@ WeaponInfo7
  altMissileEffect "grenades/glowfragb"
 
  Icon "gfx/hud/w_icon_cryobangrenade"
- WeaponName "Cryo-Frag Grenade"
+ WeaponName "Cryo-Impact Grenade"
 }
 
 WeaponInfo8
