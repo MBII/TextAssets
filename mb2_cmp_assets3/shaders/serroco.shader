@@ -276,3 +276,17 @@ models/players/serroco/torso_dxun
 		detail
 	}
 }
+
+models/players/serroco/head_twilek
+{
+	{
+		map models/players/serroco/head_twilek
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/serroco/head_zhar-spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		detail
+	}
+}
