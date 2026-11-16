@@ -1,0 +1,358 @@
+
+Particle
+{
+	name				LingeringSmoke
+
+	spawnFlags			absoluteVel absoluteAccel
+
+	count				8
+
+	life				1300 1800
+
+	delay				50 100
+
+	origin				-8 -8 0 8 8 8
+
+	rotation			0 360
+
+	rotationDelta		-10 10
+
+	velocity			-5 -5 40 5 5 130
+
+	acceleration		-2 -2 20 2 2 50
+
+	alpha
+	{
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			22 15
+		end				50 72
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	delay				100
+	life				700
+
+	rgb
+	{
+		start			1.0 0.7 0.2
+	}
+
+	alpha
+	{
+		end				0
+		flags			random linear
+	}
+
+	size
+	{
+		start			150
+		end				25
+		flags			linear
+	}
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				400 500
+
+	bounce				4 5
+
+	radius				400
+}
+
+Sound
+{
+	name				Boom
+
+	sounds
+	[
+		sound/weapons/bryar/hit_wall21.wav
+		sound/weapons/bryar/hit_wall26.wav
+		sound/weapons/bryar/hit_wall27.wav
+		sound/weapons/bryar/hit_wall31.wav
+		sound/weapons/bryar/hit_wall36.wav
+		sound/weapons/bryar/hit_wall37.wav
+		sound/weapons/bryar/hit_wall39.wav
+		sound/weapons/bryar/hit_wall40.wav
+	]
+}
+
+
+Particle
+{
+	name				BaseExplosion
+
+	spawnFlags			rgbComponentInterpolation absoluteVel absoluteAccel
+
+	count				3
+
+	life				350 550
+
+	origin				-4 -4 0 4 4 4
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	velocity			-100 -100 -70 100 100 70
+
+	alpha
+	{
+		start			0.9 1
+		end				0
+		parm				50
+		flags			linear
+	}
+
+	size
+	{
+		start			36 54
+		end				135 180
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_1
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Particle
+{
+	name				BaseShockwave
+
+	spawnFlags			rgbComponentInterpolation absoluteVel absoluteAccel
+
+	count				1
+
+	life				180 250
+
+	origin				0 0 0 0 0 2
+
+	velocity			0 0 0 0 0 0
+
+	alpha
+	{
+		start			0.65
+		end				0
+		flags			linear
+	}
+
+	size
+	{
+		start			18
+		end				110
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/exp02_2
+	]
+}
+
+Particle
+{
+	name				explosion_cloud
+
+	spawnFlags			rgbComponentInterpolation absoluteVel absoluteAccel
+
+	count				5
+
+	life				800 1300
+
+	origin				-5 -5 0 5 5 8
+
+	rotation			0 360
+
+	rotationDelta		-5 5
+
+	velocity			-10 -15 130 10 15 340
+
+	acceleration		-4 -8 100 4 8 220
+
+	alpha
+	{
+		start			0.8 1
+		end				0
+		parm				50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			10 15
+		end				78 108
+		parm				30 40
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/misc/exp01_1
+		gfx/misc/exp02_2
+		gfx/misc/exp02_3
+	]
+}
+
+Tail
+{
+	count				6 10
+
+	life				400 800
+
+	origin				5 -10 -20 15 10 20
+
+	velocity			300 -280 -560 450 280 560
+
+	gravity				-300 -400
+
+	rgb
+	{
+		start			1 0.7 0.5 1 1 0.5
+	}
+
+	size
+	{
+		start			1 2
+		end				0.6 0.7
+		flags			linear
+	}
+
+	length
+	{
+		start			30 40
+		parm				70
+		flags			linear nonlinear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Particle
+{
+	flags				usePhysics
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				20
+
+	life				1500 2000
+
+	bounce				0.3 0.5
+
+	origin				0 -10 -20 10 10 20
+
+	velocity			200 -250 -500 550 250 500
+
+	gravity				-300 -400
+
+	rgb
+	{
+		start			1 0.7 0.5 1 1 1
+	}
+
+	alpha
+	{
+		end				0
+		parm				80
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			0.875 4.375
+		end				0.25 0.625
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/spark
+	]
+}
+
+Decal
+{
+	rotation			-180 180
+
+	delay				200
+
+	size
+	{
+		start			80 100
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark1
+	]
+}
+
+Particle
+{
+	name				Copy of explosion_cloud
+
+	flags				setShaderTime
+
+	spawnFlags			rgbComponentInterpolation absoluteVel absoluteAccel
+
+	count				3
+
+	life				1100
+
+	origin				-4 -4 0 4 4 6
+
+	rotation			0 360
+
+	rotationDelta		-2 2
+
+	velocity			-5 -8 170 5 8 380
+
+	acceleration		-2 -4 80 2 4 160
+
+	alpha
+	{
+		start			0.8 1
+		end				0
+		parm				50
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			5 8
+		end				88 110
+		parm				30 40
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/rocket_explosion
+	]
+}
