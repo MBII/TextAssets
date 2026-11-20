@@ -1,0 +1,225 @@
+repeatDelay				114
+
+Particle
+{
+	name				OrangeGlow
+	flags				setShaderTime
+	count				6
+	life				1500
+	delay				0 100
+
+	origin				4 -30 -30 20 30 30
+	rotation			0 360
+	rotationDelta		-2 2
+	velocity			5 -10 -10 10 10 10
+
+	alpha
+	{
+  start  .08 .15
+		end				0
+		parm			60 85
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			16.5 17.5
+		end				165 175
+		parm			15 25
+		flags			linear clamp
+	}
+
+	shaders
+	[
+		gfx/exp/slower_rocket_explosion
+		gfx/exp/rocket_explosion
+		gfx/exp/explosion1
+	]
+}
+
+Particle
+{
+	name				LingeringSmoke
+
+	spawnFlags			rgbComponentInterpolation
+
+	count				4
+
+	life				3000 4000
+	delay				150
+
+	cullrange			1200
+
+	origin				0 -6 -6 6 6 6
+
+	rotation			0 360
+	rotationDelta		-10 10
+
+	velocity			-2 -4 4 2 4 22
+	acceleration		-1 -1 0 1 1 5
+
+	gravity				-3 8
+
+	rgb
+	{
+		start			0.9882 0.9098 0.7882 1 1 0.8078
+	}
+
+	alpha
+	{
+		start			.1 .2
+		end				0
+		parm			60 90
+		flags			nonlinear
+	}
+
+	size
+	{
+		start			5 8
+		end				50 70
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/steam
+	]
+}
+
+Light
+{
+	name				Flash
+
+	life				500
+
+	rgb
+	{
+		start  1.0 0.7 0.2
+	}
+
+	alpha
+	{
+		end				0
+		flags				random linear
+	}
+
+	size
+	{
+		start			90
+		end				42
+		flags			linear
+	}
+}
+
+Particle
+{
+	name				Dust
+
+	flags				useAlpha
+
+	spawnFlags			evenDistribution
+
+	count				3
+
+	life				700 900
+
+	delay				150 250
+
+	cullrange			1000
+
+	origin				5 -25 -25 15 25 25
+
+	rotation			-180 180
+
+	rotationDelta		-3 3
+
+	velocity			20 -20 -20 40 20 20
+
+	acceleration		-5 -5 -5 5 5 5
+
+	gravity				-50 -30
+
+	rgb
+	{
+		start			1 1 0.4353 0.9451 0.4078 0.01176
+	}
+
+	alpha
+	{
+		end				0
+		parm			50 70
+		flags			linear nonlinear
+	}
+
+	size
+	{
+		start			1.4641 8.7846
+		end				43.923 73.205
+		flags			linear
+	}
+
+	shaders
+	[
+		gfx/misc/dotfill_a
+	]
+}
+
+CameraShake
+{
+	name				Shake
+
+	flags				usePhysics
+
+	life				700 800
+
+	bounce				4 5
+
+	radius				650 750
+}
+
+Sound
+{
+	name				Boom
+
+	count				1
+
+	sounds
+	[
+		sound/weapons/rocket/hit_wall.mp3
+	]
+}
+
+Decal
+{
+ delay 200
+	life		10000
+	size
+	{
+		start			140 150
+	}
+
+	shaders
+	[
+		gfx/damage/burnmark4
+	]
+}
+
+Flash
+{
+	life				150
+
+	cullrange			25
+
+	rgb
+	{
+		start			0 0 0
+		end				0.6 0.5 0.4
+		parm			1
+		flags			wave
+	}
+
+	shaders
+	[
+		gfx/effects/whiteFlash
+	]
+}

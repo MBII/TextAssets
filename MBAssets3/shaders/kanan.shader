@@ -1,24 +1,24 @@
-models/players/kanan/belt2
+models/players/Kanan/belt2
 {
 	cull	twosided
     {
-        map models/players/kanan/belt2
+        map models/players/Kanan/belt2
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
     {
-        map models/players/kanan/belt2_spec
+        map models/players/Kanan/belt2_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/kanan/body_scout
+models/players/Kanan/body_scout
 {
 	cull	twosided
     {
-        map models/players/kanan/body_scout
+        map models/players/Kanan/body_scout
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -29,34 +29,18 @@ models/players/kanan/body_scout
 		tcGen environment
     }
     {
-        map models/players/kanan/body_scout_spec
+        map models/players/Kanan/body_scout_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/kanan/j2_torso
+models/players/Kanan/body_scout_2
 {
 	cull	twosided
     {
-        map models/players/kanan/j2_torso
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/kanan/j2_torso_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/kanan/plate
-{
-	cull	twosided
-    {
-        map models/players/kanan/plate
+        map models/players/Kanan/body_scout_2
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -67,18 +51,33 @@ models/players/kanan/plate
 		tcGen environment
     }
     {
-        map models/players/kanan/plate_spec
+        map models/players/Kanan/body_scout_2_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/kanan/torsosec
+models/players/Kanan/j2_torso
+{
+    {
+        map models/players/Kanan/j2_torso
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Kanan/j2_torso_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Kanan/plate
 {
 	cull	twosided
     {
-        map models/players/kanan/torsosec
+        map models/players/Kanan/plate
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -89,34 +88,18 @@ models/players/kanan/torsosec
 		tcGen environment
     }
     {
-        map models/players/kanan/torsosec_spec
+        map models/players/Kanan/plate_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/kanan/trainer_parts
+models/players/Kanan/torsosec
 {
 	cull	twosided
     {
-        map models/players/kanan/trainer_parts
-        blendFunc GL_ONE GL_ZERO
-        rgbGen lightingDiffuse
-    }
-    {
-        map models/players/kanan/trainer_parts_spec
-        blendFunc GL_SRC_ALPHA GL_ONE
-        detail
-        alphaGen lightingSpecular
-    }
-}
-
-models/players/kanan/xrtaarms
-{
-	cull	twosided
-    {
-        map models/players/kanan/xrtaarms
+        map models/players/Kanan/torsosec
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -127,18 +110,34 @@ models/players/kanan/xrtaarms
 		tcGen environment
     }
     {
-        map models/players/kanan/xrtaarms_spec
+        map models/players/Kanan/torsosec_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
     }
 }
 
-models/players/kanan/xtraparts-rec
+models/players/Kanan/trainer_parts
 {
 	cull	twosided
     {
-        map models/players/kanan/xtraparts-rec
+        map models/players/Kanan/trainer_parts
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/Kanan/trainer_parts_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Kanan/xrtaarms
+{
+	cull	twosided
+    {
+        map models/players/Kanan/xrtaarms
         blendFunc GL_ONE GL_ZERO
         rgbGen lightingDiffuse
     }
@@ -149,7 +148,51 @@ models/players/kanan/xtraparts-rec
 		tcGen environment
     }
     {
-        map models/players/kanan/xtraparts-rec_spec
+        map models/players/Kanan/xrtaarms_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Kanan/xtraparts-rec
+{
+	cull	twosided
+    {
+        map models/players/Kanan/xtraparts-rec
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
+    }
+    {
+        map models/players/Kanan/xtraparts-rec_spec
+        blendFunc GL_SRC_ALPHA GL_ONE
+        detail
+        alphaGen lightingSpecular
+    }
+}
+
+models/players/Kanan/xtraparts-rec2
+{
+	cull	twosided
+    {
+        map models/players/Kanan/xtraparts-rec2
+        blendFunc GL_ONE GL_ZERO
+        rgbGen lightingDiffuse
+    }
+    {
+        map models/players/praetorian_guard/reflect
+        blendFunc GL_SRC_ALPHA GL_ONE
+		alphaGen lightingSpecular
+		tcGen environment
+    }
+    {
+        map models/players/Kanan/xtraparts-rec_spec
         blendFunc GL_SRC_ALPHA GL_ONE
         detail
         alphaGen lightingSpecular
