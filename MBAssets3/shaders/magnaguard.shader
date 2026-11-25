@@ -2,6 +2,7 @@
 
 models/players/magnaguard/mangahead
 {
+	cull	twosided
 	{
 		map models/players/magnaguard/mangahead
 		rgbGen lightingDiffuse
@@ -31,6 +32,21 @@ models/players/magnaguard/magnatorso
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+models/players/magnaguard/magnatorso_armor
+{
+	cull	twosided
+	{
+		map models/players/magnaguard/magnatorso
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/magnaguard/magnatorso_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 	{
 		map models/players/magnaguard/magnatorso_glow
 		blendFunc GL_ONE GL_ONE
@@ -40,7 +56,6 @@ models/players/magnaguard/magnatorso
 
 models/players/magnaguard/hands
 {
-	cull	twosided
 	{
 		map models/players/magnaguard/hands
 		blendFunc GL_ONE GL_ZERO
@@ -57,7 +72,6 @@ models/players/magnaguard/hands
 
 models/players/magnaguard/magnaarms
 {
-	cull	twosided
 	{
 		map models/players/magnaguard/magnaarms
 		blendFunc GL_ONE GL_ZERO
@@ -73,7 +87,6 @@ models/players/magnaguard/magnaarms
 
 models/players/magnaguard/magnalegs
 {
-	cull	twosided
 	{
 		map models/players/magnaguard/magnalegs
 		blendFunc GL_ONE GL_ZERO
@@ -103,6 +116,7 @@ models/players/magnaguard/cape
 
 models/players/magnaguard/headgrey
 {
+	cull	twosided
 	{
 		map models/players/magnaguard/headgrey
 		rgbGen lightingDiffuse
@@ -122,7 +136,6 @@ models/players/magnaguard/headgrey
 
 models/players/magnaguard/handsgrey
 {
-	cull	twosided
 	{
 		map models/players/magnaguard/handsgrey
 		blendFunc GL_ONE GL_ZERO
@@ -148,6 +161,21 @@ models/players/magnaguard/torsogrey
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+models/players/magnaguard/torsogrey_armor
+{
+	cull	twosided
+	{
+		map models/players/magnaguard/torsogrey
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/magnaguard/torsogrey_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 	{
 		map models/players/magnaguard/magnatorso_glow
 		blendFunc GL_ONE GL_ONE
@@ -157,7 +185,6 @@ models/players/magnaguard/torsogrey
 
 models/players/magnaguard/armsgrey
 {
-	cull	twosided
 	{
 		map models/players/magnaguard/armsgrey
 		blendFunc GL_ONE GL_ZERO
@@ -173,7 +200,6 @@ models/players/magnaguard/armsgrey
 
 models/players/magnaguard/legsgrey
 {
-	cull	twosided
 	{
 		map models/players/magnaguard/legsgrey
 		blendFunc GL_ONE GL_ZERO
@@ -192,6 +218,7 @@ models/players/magnaguard/legsgrey
 
 models/players/magnaguard/head_JS
 {
+	cull	twosided
 	{
 		map models/players/magnaguard/head_JS
 		rgbGen lightingDiffuse
@@ -211,6 +238,7 @@ models/players/magnaguard/head_JS
 
 models/players/magnaguard/head_JS_cape
 {
+	cull	twosided
 	{
 		map models/players/magnaguard/head_JS_cape
 		rgbGen lightingDiffuse
@@ -240,6 +268,21 @@ models/players/magnaguard/torso_JS
 		detail
 		alphaGen lightingSpecular
 	}
+}
+
+models/players/magnaguard/torso_JS_armor
+{
+	cull	twosided
+	{
+		map models/players/magnaguard/torso_JS
+		rgbGen lightingDiffuse
+	}
+	{
+		map models/players/magnaguard/torsogrey_spec
+		blendFunc GL_SRC_ALPHA GL_ONE
+		detail
+		alphaGen lightingSpecular
+	}
 	{
 		map models/players/magnaguard/magnatorso_glow_JS
 		blendFunc GL_ONE GL_ONE
@@ -249,7 +292,6 @@ models/players/magnaguard/torso_JS
 
 models/players/magnaguard/arms_JS
 {
-	cull	twosided
 	{
 		map models/players/magnaguard/arms_JS
 		blendFunc GL_ONE GL_ZERO
