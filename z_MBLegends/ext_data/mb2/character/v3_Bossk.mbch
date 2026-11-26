@@ -2,7 +2,7 @@
 ClassInfo
 {
 	name				"v3_Bossk"
-	MBClass				MB_CLASS_ARCTROOPER
+	MBClass				MB_CLASS_BOUNTY_HUNTER
 	classNumberLimit	1
 	weapons				WP_BOWCASTER|WP_MELEE|WP_FIRE_NADE
 
@@ -16,35 +16,43 @@ ClassInfo
 	Classflags			CFL_BLOODYMELEE|CFL_ACIDBLOOD|CFL_STRONGAGAINSTPHYSICAL
 	
 	maxhealth			300
-	maxarmor			30
+	maxarmor			 30
+
 	forcepool			140
+
 	rateOfFire_Melee	0.9
+
 	healthRegenCap		300
 	healthRegenAmount	5
 	healthRegenRate		18000
+
 	damageGiven			1.35
-	Speed				1.02
+	Speed				.7652 //191.3
 
 	saber1				martialarts_legends
 	saber2				martialarts_legends
 	saberstyle			SS_DUAL
 
-	special1			EAS_HI_SPRINT
-	special2			EAS_HI_DEX
+	special1HUD			HUD_FIRENADE
 
-	modelscale			1.08
-	model				"bossk"
+	special1			EAS_HI_SPRINT
+	meleespecial1			EAS_HI_SPRINT
+	special2			EAS_HI_DEX
+ meleespecial2 EAS_HI_DEX
+ special3 EAS_NONE
+ meleespecial3 EAS_NONE
+
+	modelscale			1.095
+	model			"bossk"
 	skin				"default"
-	uishader			"models/players/bossk/mb2_icon_default"
-	uioverlay			"gfx/icons/heavy"
+	uishader	"models/players/bossk/mb2_icon_default"
+	uioverlay	"gfx/icons/heavy"
 
 	RunForward			BOTH_WOOKIEE_RAGE_RUN
-	
-	special1HUD			HUD_FIRENADE
-	
-	flourishAnim		BOTH_SPINATTACK6
+	flourishAnim	BOTH_SPINATTACK6
 	gloatAnim			BOTH_TUSKENTAUNT1
 	tauntAnim			BOTH_ENGAGETAUNT
+ bowAnim     BOTH_COLLAPSED_IDLE
 }
 
 WeaponInfo0
@@ -53,16 +61,21 @@ WeaponInfo0
 	WeaponBasedOff		WP_CONCUSSION
 	NewWorldModel		"models/weapons2/relby_v10/model_w.glm"
 	NewViewModel		"models/weapons2/relby_v10/model.md3"
+
 	Icon				"gfx/hud/w_icon_relby_v10"
 	WeaponName			"Relby-v10 Targeting Rifle"
+
 	FlashSound0			"sound/weapons/cw-w5/fire_scope.wav"
 	AltFlashSound0		"sound/weapons/cw-w5/fire_scope.wav"
 	ChargeSound			"sound/weapons/bowcaster/altcharge.mp3"
+
 	primGore			1
 	altGore				1
+
 	CustomAmmo			800
-	damageMod			0.8
+	damageMod			 0.8
 	FPChargeMult		1.1
+
 	hasAnimOverrides	1
 	animReadyRun		BOTH_DC15_IDLE
 	animReady			BOTH_DC15_IDLE
@@ -72,16 +85,6 @@ WeaponInfo0
 	animAttack			BOTH_WESTARM5_ATTACK
 	animAttackWalk		BOTH_WESTARM5_ATTACK
 }
-
-//WeaponInfo1
-//{
-//	WeaponToReplace		WP_SABER
-//	WeaponBasedOff		WP_SABER
-//	NewWorldModel		"models/weapons2/noweap/noweap.glm"
-//	NewViewModel		"models/weapons2/dummy/dummy.md3"
-//	Icon				"gfx/mplevels/aliens3/aliens_claws"
-//	WeaponName			"Sharp Claws"
-//}
 
 ForceInfo0
 {
@@ -112,7 +115,7 @@ description "Bossk'wassak'Cradossk - Bossk
 
 ^8Attributes:
 - Healing (3)
-^2-- Regenerate: 5/18s
+^2-- Regenerate Bonus: 5/18s
 - Dexterity (3)
 - Stamina (3)
 - Strength (1)
